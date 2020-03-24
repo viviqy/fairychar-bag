@@ -1,22 +1,56 @@
-import com.fairychar.bag.utils.MultiPartFileUtil;
-import com.fairychar.bag.utils.SpringBeanUtil;
-import org.junit.Test;
-import org.springframework.web.multipart.MultipartFile;
+package com.fairychar.bag.extension.collection;
+
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.BiPredicate;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
- * Date: 2020/3/24 <br>
- * time: 11:58 <br>
+ * User: qiyue <br>
+ * Date: 2020/03/05 <br>
+ * time: 18:12 <br>
  *
- * @author lmq <br>
- * @since 1.0
+ * @author qiyue <br>
  */
-public class TestMain {
-    @Test
-    public void run1(){
-        MultiPartFileUtil.getSuffix(null);
+public class BiPredicateList<T> extends ArrayList<T> {
+    private BiPredicate<T, T> biPredicate;
+
+    @Override
+    public boolean add(T t) {
+        if (super.isEmpty()) {
+            super.add(t);
+        }
+        AtomicInteger matchIndex = new AtomicInteger(-1);
+        this.forEach(e -> {
+            if (this.biPredicate.test(t, e)) {
+                matchIndex.set(this.indexOf(e));
+                return;
+            }
+        });
+        if (matchIndex.get() != -1) {
+            super.set(matchIndex.get(), t);
+        } else {
+            super.add(t);
+        }
+        return true;
     }
+
+    public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate) {
+        super(c);
+        this.biPredicate = biPredicate;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        for (T t : c) {
+            this.add(t);
+        }
+        return true;
+    }
+
+
 }
 /*
                                       /[-])//  ___        

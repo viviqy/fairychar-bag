@@ -1,56 +1,27 @@
-package com.fairychar.bag.domain.extensions;
+package com.fairychar.bag.utils;
 
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.BiPredicate;
+import lombok.experimental.Delegate;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
  * Created with IDEA <br>
  * User: qiyue <br>
- * Date: 2020/03/05 <br>
- * time: 18:12 <br>
+ * Date: 2020/03/24 <br>
+ * time: 20:45 <br>
  *
  * @author qiyue <br>
  */
-public class BiPredicateList<T> extends ArrayList<T> {
-    private BiPredicate<T, T> biPredicate;
+public class SpringBeanUtil implements ApplicationContextInitializer {
+    @Delegate
+    private ApplicationContext context;
 
     @Override
-    public boolean add(T t) {
-        if (super.isEmpty()) {
-            super.add(t);
-        }
-        AtomicInteger matchIndex = new AtomicInteger(-1);
-        this.forEach(e -> {
-            if (this.biPredicate.test(t, e)) {
-                matchIndex.set(this.indexOf(e));
-                return;
-            }
-        });
-        if (matchIndex.get() != -1) {
-            super.set(matchIndex.get(), t);
-        } else {
-            super.add(t);
-        }
-        return true;
+    public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
+        this.context = configurableApplicationContext;
     }
-
-    public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate) {
-        super(c);
-        this.biPredicate = biPredicate;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
-        for (T t : c) {
-            this.add(t);
-        }
-        return true;
-    }
-
-
 }
 /*
                                       /[-])//  ___        
