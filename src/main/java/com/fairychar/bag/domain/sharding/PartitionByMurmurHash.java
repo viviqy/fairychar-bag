@@ -56,24 +56,24 @@ public class PartitionByMurmurHash {
         }
         weightMap = null;
     }
-//	private void storeBucketMap() throws IOException{
-//		try(OutputStream store=new FileOutputStream(bucketMapPath)){
-//			Properties props=new Properties();
-//			for(Map.Entry entry:bucketMap.entrySet()){
-//				props.setProperty(entry.getKey().toString(), entry.getValue().toString());
-//			}
-//			props.store(store,null);
-//		}
-//	}
-//	private void loadBucketMapFile() throws FileNotFoundException, IOException{
-//		try(InputStream in=new FileInputStream(bucketMapPath)){
-//			Properties props=new Properties();
-//			props.load(in);
-//			for(Map.Entry entry:props.entrySet()){
-//				bucketMap.put(Integer.parseInt(entry.getKey().toString()), Integer.parseInt(entry.getValue().toString()));
-//			}
-//		}
-//	}
+    //	private void storeBucketMap() throws IOException{
+    //		try(OutputStream store=new FileOutputStream(bucketMapPath)){
+    //			Properties props=new Properties();
+    //			for(Map.Entry entry:bucketMap.entrySet()){
+    //				props.setProperty(entry.getKey().toString(), entry.getValue().toString());
+    //			}
+    //			props.store(store,null);
+    //		}
+    //	}
+    //	private void loadBucketMapFile() throws FileNotFoundException, IOException{
+    //		try(InputStream in=new FileInputStream(bucketMapPath)){
+    //			Properties props=new Properties();
+    //			props.load(in);
+    //			for(Map.Entry entry:props.entrySet()){
+    //				bucketMap.put(Integer.parseInt(entry.getKey().toString()), Integer.parseInt(entry.getValue().toString()));
+    //			}
+    //		}
+    //	}
 
     /**
      * 得到桶的权重，桶就是实际存储数据的DB实例
@@ -138,16 +138,16 @@ public class PartitionByMurmurHash {
     }
 
     //	/**
-//	 * 保存一致性hash的虚拟节点文件路径。
-//	 * 如果这个文件不存在或是空文件就按照指定的count, weightMapFile等构造新的MurmurHash数据结构并保存到这个路径的文件里。
-//	 * 如果这个文件已存在且不是空文件就加载这个文件里的内容作为MurmurHash数据结构，此时其它参数都忽略。
-//	 * 除第一次以外在之后增加节点时可以直接修改这个文件，不过不推荐这么做。如果节点数量变化了，推荐删除这个文件。
-//	 * 可以不指定这个路径，不指定路径时不会保存murmur hash
-//	 * @param bucketMapPath
-//	 */
-//	public void setBucketMapPath(String bucketMapPath){
-//		this.bucketMapPath=bucketMapPath;
-//	}
+    //	 * 保存一致性hash的虚拟节点文件路径。
+    //	 * 如果这个文件不存在或是空文件就按照指定的count, weightMapFile等构造新的MurmurHash数据结构并保存到这个路径的文件里。
+    //	 * 如果这个文件已存在且不是空文件就加载这个文件里的内容作为MurmurHash数据结构，此时其它参数都忽略。
+    //	 * 除第一次以外在之后增加节点时可以直接修改这个文件，不过不推荐这么做。如果节点数量变化了，推荐删除这个文件。
+    //	 * 可以不指定这个路径，不指定路径时不会保存murmur hash
+    //	 * @param bucketMapPath
+    //	 */
+    //	public void setBucketMapPath(String bucketMapPath){
+    //		this.bucketMapPath=bucketMapPath;
+    //	}
     public Integer calculate(String columnValue) {
         SortedMap<Integer, Integer> tail = bucketMap.tailMap(hash.hashUnencodedChars(columnValue).asInt());
         if (tail.isEmpty()) {

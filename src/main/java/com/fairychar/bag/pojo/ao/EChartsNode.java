@@ -19,10 +19,10 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-public class EchartsNode<T> {
+public class EChartsNode<T> {
     private String name;
     private T value;
-    private List<EchartsNode<T>> child;
+    private List<EChartsNode<T>> child;
 }
 /*
                                       /[-])//  ___        
