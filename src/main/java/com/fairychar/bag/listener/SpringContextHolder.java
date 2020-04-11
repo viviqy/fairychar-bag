@@ -1,44 +1,27 @@
-package com.fairychar.bag.aop;
+package com.fairychar.bag.listener;
 
-import com.fairychar.bag.properties.FairycharBagProperties;
-import com.fairychar.bag.domain.annotions.BindingCheck;
-import com.fairychar.bag.domain.exceptions.ParamErrorException;
-import com.fairychar.bag.utils.BindingResultUtil;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.validation.BindingResult;
+import lombok.experimental.Delegate;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
- * Date: 2020/4/10 <br>
- * time: 16:35 <br>
+ * User: qiyue <br>
+ * Date: 2020/04/11 <br>
+ * time: 17:52 <br>
  *
- * @author lmq <br>
- * @since 1.0
+ * @author qiyue <br>
  */
-@Aspect
-@EnableConfigurationProperties(FairycharBagProperties.class)
-public class BindingCheckAspectJ {
-    @Autowired
-    public FairycharBagProperties fairycharBagProperties;
+public class SpringContextHolder implements ApplicationListener<ContextRefreshedEvent> {
 
-    @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck)")
-    public void bindingCheck(JoinPoint joinPoint, BindingCheck bindingCheck) throws ParamErrorException {
-        if (!bindingCheck.enable()) {
-            return;
-        }
-        for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof BindingResult) {
-                BindingResultUtil.checkBindingErrors(((BindingResult) arg));
-            }
-        }
+    @Delegate
+    private ApplicationContext context;
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        this.context = ((ApplicationContext) contextRefreshedEvent.getSource());
     }
-
-
 }
 /*
                                       /[-])//  ___        

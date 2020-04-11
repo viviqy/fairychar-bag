@@ -1,5 +1,7 @@
 package com.fairychar.bag.domain.annotions;
 
+import org.springframework.core.annotation.AliasFor;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,9 +14,12 @@ import java.lang.annotation.*;
  * @since 1.0
  */
 @Documented
-@Target({ElementType.METHOD,ElementType.TYPE,ElementType.TYPE_PARAMETER})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface BindingCheck {
-    boolean value() default true;
+    boolean value();
+
+    @AliasFor("value")
+    boolean enable() default true;
 }

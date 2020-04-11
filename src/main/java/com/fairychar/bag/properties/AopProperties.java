@@ -1,44 +1,37 @@
-package com.fairychar.bag.aop;
+package com.fairychar.bag.properties;
 
-import com.fairychar.bag.properties.FairycharBagProperties;
-import com.fairychar.bag.domain.annotions.BindingCheck;
-import com.fairychar.bag.domain.exceptions.ParamErrorException;
-import com.fairychar.bag.utils.BindingResultUtil;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.validation.BindingResult;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
- * Date: 2020/4/10 <br>
- * time: 16:35 <br>
+ * User: qiyue <br>
+ * Date: 2020/04/11 <br>
+ * time: 17:39 <br>
  *
- * @author lmq <br>
- * @since 1.0
+ * @author qiyue <br>
  */
-@Aspect
-@EnableConfigurationProperties(FairycharBagProperties.class)
-public class BindingCheckAspectJ {
-    @Autowired
-    public FairycharBagProperties fairycharBagProperties;
+public class AopProperties {
+    @NestedConfigurationProperty
+    private Log log;
+    @NestedConfigurationProperty
+    private Binding binding;
 
-    @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck)")
-    public void bindingCheck(JoinPoint joinPoint, BindingCheck bindingCheck) throws ParamErrorException {
-        if (!bindingCheck.enable()) {
-            return;
-        }
-        for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof BindingResult) {
-                BindingResultUtil.checkBindingErrors(((BindingResult) arg));
-            }
-        }
+    @Getter
+    @Setter
+    static class Binding {
+        private boolean enable;
+        private String basePackage;
     }
 
-
+    @Getter
+    @Setter
+    static class Log {
+        private boolean enable;
+        private String basePackage;
+        private String globalLevel;
+    }
 }
 /*
                                       /[-])//  ___        
