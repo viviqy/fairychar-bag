@@ -19,6 +19,10 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     @Test
+    public void run4(){
+        
+    }
+    @Test
     public void run3() {
         List<User> users = Arrays.asList(
                 new User(1, "a"),
