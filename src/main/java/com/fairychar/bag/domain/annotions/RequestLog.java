@@ -25,6 +25,11 @@ public @interface RequestLog {
 
     Level loggingLevel() default Level.INFO;
 
+    String beforeHandler();
+
+    String afterHandler();
+
+    String aroudHandler();
 
     enum Level {
         TRACE(),

@@ -1,26 +1,23 @@
-package com.fairychar.bag.utils;
+package com.fairychar.bag.domain.aop;
 
-import lombok.experimental.Delegate;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.event.ContextRefreshedEvent;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
 
 /**
  * Created with IDEA <br>
  * User: qiyue <br>
- * Date: 2020/03/24 <br>
- * time: 20:45 <br>
+ * Date: 2020/04/12 <br>
+ * time: 21:33 <br>
  *
  * @author qiyue <br>
  */
-public class SpringBeanUtil implements ApplicationContextInitializer {
-    @Delegate
-    private ApplicationContext context;
-
+@Slf4j
+public class SwaggerLoggingHandler implements LoggingHandler {
     @Override
-    public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-        this.context = configurableApplicationContext;
+    public void then(JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        Object[] args = joinPoint.getArgs();
+
     }
 }
 /*

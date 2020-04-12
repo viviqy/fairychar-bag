@@ -8,8 +8,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 /**
  * Created with IDEA <br>
  * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:52 <br>
+ * Date: 2020/04/12 <br>
+ * time: 17:29 <br>
  *
  * @author qiyue <br>
  */
@@ -20,31 +20,31 @@ public class SpringContextHolder implements ApplicationListener<ContextRefreshed
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        this.context = ((ApplicationContext) contextRefreshedEvent.getSource());
+        SpringContextHolder instance = getInstance();
+        instance.context = ((ApplicationContext) contextRefreshedEvent.getSource());
+    }
+
+
+    private SpringContextHolder() {
+
+    }
+
+
+    private enum Singleton {
+        INSTANCE;
+
+        Singleton() {
+            instance = new SpringContextHolder();
+        }
+
+        private final SpringContextHolder instance;
+
+        public SpringContextHolder getInstance() {
+            return INSTANCE.instance;
+        }
+    }
+
+    public static SpringContextHolder getInstance() {
+        return Singleton.INSTANCE.getInstance();
     }
 }
-/*
-                                      /[-])//  ___        
-                                 __ --\ `_/~--|  / \      
-                               /_-/~~--~~ /~~~\\_\ /\     
-                               |  |___|===|_-- | \ \ \    
-____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
-____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
-                      [3-|____---~~ _--'==;/ _,   |   |_| 
-                                  /   /\__|_/  \  \__/--/ 
-                                 /---/_\  -___/ |  /,--|  
-                                 /  /\/~--|   | |  \///   
-                                /  / |-__ \    |/         
-                               |--/ /      |-- | \        
-                              \^~~\\/\      \   \/- _     
-                               \    |  \     |~~\~~| \    
-                                \    \  \     \   \  | \  
-                                  \    \ |     \   \    \ 
-                                   |~~|\/\|     \   \   | 
-                                  |   |/         \_--_- |\
-                                  |  /            /   |/\/
-                                   ~~             /  /    
-                                                 |__/   W<
-
-*/

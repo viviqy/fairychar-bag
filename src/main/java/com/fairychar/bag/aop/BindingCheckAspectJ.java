@@ -1,14 +1,11 @@
 package com.fairychar.bag.aop;
 
-import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.domain.annotions.BindingCheck;
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
 import com.fairychar.bag.utils.BindingResultUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.validation.BindingResult;
 
 /**
@@ -21,10 +18,7 @@ import org.springframework.validation.BindingResult;
  * @since 1.0
  */
 @Aspect
-@EnableConfigurationProperties(FairycharBagProperties.class)
 public class BindingCheckAspectJ {
-    @Autowired
-    public FairycharBagProperties fairycharBagProperties;
 
     @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck)")
     public void bindingCheck(JoinPoint joinPoint, BindingCheck bindingCheck) throws ParamErrorException {

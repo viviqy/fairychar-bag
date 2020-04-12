@@ -2,7 +2,6 @@ import com.fairychar.bag.pojo.ao.EChartsNode;
 import com.fairychar.bag.utils.EChartsUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 import org.junit.Test;
 
 import java.util.*;
