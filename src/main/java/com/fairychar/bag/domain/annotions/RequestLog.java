@@ -3,7 +3,6 @@ package com.fairychar.bag.domain.annotions;
 import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.*;
-import java.util.logging.LogRecord;
 
 /**
  * Created with IDEA <br>
@@ -24,7 +23,14 @@ public @interface RequestLog {
     @AliasFor(value = "value")
     boolean enable() default true;
 
-    String loggingLevel() default "info";
+    Level loggingLevel() default Level.INFO;
 
+
+    enum Level {
+        TRACE(),
+        DEBUG(),
+        INFO(),
+        ERROR();
+    }
 
 }
