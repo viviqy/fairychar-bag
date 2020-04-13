@@ -1,12 +1,21 @@
 package com.fairychar.bag.aop;
 
+import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.annotions.RequestLog;
+import com.fairychar.bag.domain.aop.LoggingHandler;
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
+import com.fairychar.bag.listener.SpringContextHolder;
+import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
+import java.util.Optional;
 
 /**
  * Created with IDEA <br>
@@ -19,16 +28,20 @@ import org.aspectj.lang.reflect.MethodSignature;
  */
 @Aspect
 @Slf4j
-public class LoggingAspectJ {
+@EnableConfigurationProperties(value = {FairycharBagProperties.class})
+public class LoggingAspectJ implements InitializingBean {
 
+    @Autowired
+    private FairycharBagProperties properties;
 
     @Before("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
     public void bindingCheck(JoinPoint joinPoint, RequestLog requestLog) throws ParamErrorException {
         if (!requestLog.enable()) {
             return;
         }
-        switch (requestLog.loggingLevel()) {
-
+        RequestLog.Level level = Optional.ofNullable(requestLog.loggingLevel())
+                .orElse(properties.getAopProperties().getLog().getGlobalLevel());
+        switch (level) {
             case TRACE:
                 log.trace(format(joinPoint));
                 break;
@@ -44,6 +57,12 @@ public class LoggingAspectJ {
             default:
                 break;
         }
+        Optional.ofNullable(requestLog.beforeHandler()).ifPresent(b -> {
+            Object bean = SpringContextHolder.getInstance().getBean(b);
+            if (bean instanceof LoggingHandler) {
+                
+            }
+        });
     }
 
     private String format(JoinPoint joinPoint) {
@@ -51,6 +70,10 @@ public class LoggingAspectJ {
         return null;
     }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Assert.notNull(properties.getAopProperties().getLog().getGlobalLevel(), "global log level cant be null");
+    }
 }
 /*
                                       /[-])//  ___        

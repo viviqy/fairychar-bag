@@ -23,7 +23,7 @@ public @interface RequestLog {
     @AliasFor(value = "value")
     boolean enable() default true;
 
-    Level loggingLevel() default Level.INFO;
+    Level loggingLevel();
 
     String beforeHandler();
 
