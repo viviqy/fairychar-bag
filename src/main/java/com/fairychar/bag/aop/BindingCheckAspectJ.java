@@ -13,6 +13,11 @@ import org.springframework.validation.BindingResult;
  * User: lmq <br>
  * Date: 2020/4/10 <br>
  * time: 16:35 <br>
+ * <p>
+ *     mvc参数aop校验,切*..web.controller..*包下的所有方法上包含
+ *     {@link BindingCheck}注解的方法
+ * </p>
+ * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
  * @author lmq <br>
  * @since 1.0

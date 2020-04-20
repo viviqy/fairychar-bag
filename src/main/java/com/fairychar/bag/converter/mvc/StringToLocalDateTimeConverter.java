@@ -1,28 +1,28 @@
-package com.fairychar.bag.domain.exceptions;
+package com.fairychar.bag.converter.mvc;
 
-import java.sql.SQLException;
+import org.springframework.core.convert.converter.Converter;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/02/21 <br>
- * time: 12:32 <br>
+ * User: lmq <br>
+ * Date: 2020/4/20 <br>
+ * time: 09:00 <br>
+ * <P>spring MVC{@link String}转{@link LocalDateTime}</P>
  *
- * <p>数据已存在异常</p>
- *
- * @author qiyue <br>
+ * @author lmq <br>
+ * @since 1.0
  */
-public class DataAlreadyExistException extends SQLException {
-    public DataAlreadyExistException() {
-        super("数据已存在");
-    }
-
-    public DataAlreadyExistException(String reason) {
-        super(reason);
-    }
-
-    public DataAlreadyExistException(Throwable cause) {
-        super(cause);
+public class StringToLocalDateTimeConverter implements Converter<String, LocalDateTime> {
+    @Override
+    public LocalDateTime convert(String s) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        TemporalAccessor parse = dateTimeFormatter.parse(s);
+        LocalDateTime localDateTime = LocalDateTime.from(parse);
+        return localDateTime;
     }
 }
 /*

@@ -10,6 +10,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
  * User: qiyue <br>
  * Date: 2020/04/12 <br>
  * time: 17:29 <br>
+ * <p>spring bean工具类,包含ApplicationContext的所有方法</p>
  *
  * @author qiyue <br>
  */
