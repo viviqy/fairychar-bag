@@ -1,30 +1,33 @@
-package com.fairychar.bag.pojo.ao;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
-import java.util.List;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/03/13 <br>
- * time: 19:54 <br>
+ * User: lmq <br>
+ * Date: 2020/4/22 <br>
+ * time: 15:21 <br>
  *
- * @author qiyue <br>
+ * @author lmq <br>
+ * @since 1.0
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Accessors(chain = true)
-public class EChartsNode<T> {
+public class User extends Object implements Comparable {
+    private int id;
     private String name;
-    private T value;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EChartsNode<T>> child;
+
+
+    @Override
+    public int hashCode() {
+        return name.length();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return -(this.hashCode() - o.hashCode());
+    }
 }
 /*
                                       /[-])//  ___        

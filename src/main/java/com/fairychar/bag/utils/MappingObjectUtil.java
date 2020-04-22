@@ -1,30 +1,30 @@
-package com.fairychar.bag.pojo.ao;
+package com.fairychar.bag.utils;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/03/13 <br>
- * time: 19:54 <br>
+ * User: lmq <br>
+ * Date: 2020/4/22 <br>
+ * time: 12:51 <br>
  *
- * @author qiyue <br>
+ * @author lmq <br>
+ * @since 1.0
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Accessors(chain = true)
-public class EChartsNode<T> {
-    private String name;
-    private T value;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EChartsNode<T>> child;
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class MappingObjectUtil {
+    public final static <K, V> List<MappingObjectAO<K, V>> mapping(Map<K, List<V>> maps) {
+        return maps.entrySet().stream()
+                .map(e -> new MappingObjectAO<K, V>(e.getKey(), e.getValue().size(), e.getValue()))
+                .collect(Collectors.toList());
+    }
 }
 /*
                                       /[-])//  ___        

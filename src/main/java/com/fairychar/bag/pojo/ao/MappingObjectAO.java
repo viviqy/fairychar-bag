@@ -1,30 +1,32 @@
 package com.fairychar.bag.pojo.ao;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/03/13 <br>
- * time: 19:54 <br>
+ * User: lmq <br>
+ * Date: 2020/4/22 <br>
+ * time: 12:49 <br>
  *
- * @author qiyue <br>
+ * @author lmq <br>
+ * @since 1.0
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Accessors(chain = true)
-public class EChartsNode<T> {
-    private String name;
-    private T value;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EChartsNode<T>> child;
+@ApiModel("前端Map渲染对象")
+public class MappingObjectAO<K,V> {
+    private K key;
+    private long count;
+    private List<V> values;
 }
 /*
                                       /[-])//  ___        

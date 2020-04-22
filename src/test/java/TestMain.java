@@ -1,7 +1,8 @@
 import com.fairychar.bag.pojo.ao.EChartsNode;
+import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.utils.EChartsUtil;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fairychar.bag.utils.MappingObjectUtil;
+import com.google.gson.Gson;
 import org.junit.Test;
 
 import java.util.*;
@@ -17,9 +18,24 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
     @Test
-    public void run4(){
+    public void run4() {
+        Gson gson = new Gson();
+        List<User> users = Arrays.asList(
+                new User(1, "a"),
+                new User(1, "a"),
+                new User(2, "a"),
+                new User(2, "b"),
+                new User(3, "a"),
+                new User(3, "c"),
+                new User(14, "d")
+        );
+        Map<Integer, List<User>> collect = users.stream().collect(Collectors.groupingBy(User::getId));
+        List<MappingObjectAO<Integer, User>> mapping = MappingObjectUtil.mapping(collect);
+        System.out.println(gson.toJson(mapping));
     }
+
     @Test
     public void run3() {
         List<User> users = Arrays.asList(
@@ -61,23 +77,6 @@ public class TestMain {
         System.out.println(intMap);
     }
 
-    @AllArgsConstructor
-    @Data
-    static class User implements Comparable {
-        private int id;
-        private String name;
-
-
-        @Override
-        public int hashCode() {
-            return name.length();
-        }
-
-        @Override
-        public int compareTo(Object o) {
-            return -(this.hashCode() - o.hashCode());
-        }
-    }
 }
 /*
                                       /[-])//  ___        

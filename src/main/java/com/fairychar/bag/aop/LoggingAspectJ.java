@@ -58,10 +58,8 @@ public class LoggingAspectJ implements InitializingBean {
                 break;
         }
         Optional.ofNullable(requestLog.beforeHandler()).ifPresent(b -> {
-            Object bean = SpringContextHolder.getInstance().getBean(b);
-            if (bean instanceof LoggingHandler) {
-                
-            }
+            LoggingHandler bean = SpringContextHolder.getInstance().getBean(b, LoggingHandler.class);
+
         });
     }
 
