@@ -1,28 +1,28 @@
-package com.fairychar.bag.converter.mvc;
+package com.fairychar.bag.pojo.ao;
 
-import org.springframework.core.convert.converter.Converter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
+import java.io.Serializable;
 
 /**
  * Created with IDEA <br>
  * User: lmq <br>
- * Date: 2020/4/20 <br>
- * time: 10:00 <br>
- * <p>spring mvc {@link String}转{@link LocalDate}</p>
+ * Date: 2020/4/29 <br>
+ * time: 14:00 <br>
+ *
  * @author lmq <br>
  * @since 1.0
  */
-public class StringToLocalDateConverter implements Converter<String, LocalDate> {
-    @Override
-    public LocalDate convert(String s) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        TemporalAccessor parse = dateTimeFormatter.parse(s);
-        LocalDate localDate = LocalDate.from(parse);
-        return localDate;
-    }
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Accessors(chain = true)
+public class MappingAO<K, V> implements Serializable {
+    private K key;
+    private V value;
 }
 /*
                                       /[-])//  ___        

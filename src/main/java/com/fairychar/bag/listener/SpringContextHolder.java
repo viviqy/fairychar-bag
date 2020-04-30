@@ -1,7 +1,6 @@
 package com.fairychar.bag.listener;
 
 import lombok.experimental.Delegate;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.HierarchicalBeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.context.ApplicationContext;

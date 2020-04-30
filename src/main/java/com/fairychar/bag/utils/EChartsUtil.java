@@ -1,6 +1,6 @@
 package com.fairychar.bag.utils;
 
-import com.fairychar.bag.pojo.ao.EChartsNode;
+import com.fairychar.bag.pojo.ao.EchartsNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -19,23 +19,38 @@ import java.util.stream.Collectors;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class EChartsUtil {
-    public final static List<EChartsNode<Integer>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
+    public static <T> List<EchartsNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
         return wrapEcharsNode(groupingBy);
     }
 
-
-    private static List<EChartsNode<Integer>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
-        List<EChartsNode<Integer>> collect = map.entrySet().stream().map(e -> {
-            EChartsNode<Integer> node = new EChartsNode<>();
+    private static<T> List<EchartsNode<T>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
+        List<EchartsNode<T>> collect = map.entrySet().stream().map(e -> {
+            EchartsNode<T> node = new EchartsNode<>();
             node.setName(String.valueOf(e.getKey()));
             if (e.getValue() instanceof List) {
-                node.setValue(((List) e.getValue()).size());
+                node.setCount(((List) e.getValue()).size());
+                node.setValue(((List<T>) e.getValue()));
             } else {
-                node.setValue(((Map) e.getValue()).size());
+                node.setCount(((Map) e.getValue()).size());
                 node.setChild(wrapEcharsNode(((Map<? extends Object,? extends Object>) map.get(e.getKey()))));
             }
             return node;
         }).collect(Collectors.toList());
         return collect;
     }
+
+//    private static List<EchartsNode<Integer>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
+//        List<EchartsNode<Integer>> collect = map.entrySet().stream().map(e -> {
+//            EchartsNode<Integer> node = new EchartsNode<>();
+//            node.setName(String.valueOf(e.getKey()));
+//            if (e.getValue() instanceof List) {
+//                node.setValue(((List) e.getValue()).size());
+//            } else {
+//                node.setValue(((Map) e.getValue()).size());
+//                node.setChild(wrapEcharsNode(((Map<? extends Object,? extends Object>) map.get(e.getKey()))));
+//            }
+//            return node;
+//        }).collect(Collectors.toList());
+//        return collect;
+//    }
 }

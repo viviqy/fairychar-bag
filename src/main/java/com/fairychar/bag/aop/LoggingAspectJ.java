@@ -6,7 +6,6 @@ import com.fairychar.bag.domain.aop.LoggingHandler;
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

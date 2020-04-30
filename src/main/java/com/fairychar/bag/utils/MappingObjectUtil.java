@@ -1,5 +1,6 @@
 package com.fairychar.bag.utils;
 
+import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,19 @@ import java.util.stream.Collectors;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MappingObjectUtil {
-    public final static <K, V> List<MappingObjectAO<K, V>> mapping(Map<K, List<V>> maps) {
+
+    public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map) {
+        return map.entrySet().stream().map(e -> new MappingAO<K, V>(e.getKey(), e.getValue()))
+                .collect(Collectors.toList());
+    }
+
+
+    public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps) {
         return maps.entrySet().stream()
                 .map(e -> new MappingObjectAO<K, V>(e.getKey(), e.getValue().size(), e.getValue()))
                 .collect(Collectors.toList());
     }
+
 }
 /*
                                       /[-])//  ___        

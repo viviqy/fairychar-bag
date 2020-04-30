@@ -20,11 +20,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-public class EChartsNode<T> {
+public class EchartsNode<T> {
     private String name;
-    private T value;
+    private long count;
+    private List<T> value;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EChartsNode<T>> child;
+    private List<EchartsNode<T>> child;
 }
 /*
                                       /[-])//  ___        

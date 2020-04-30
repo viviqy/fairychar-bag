@@ -2,6 +2,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * Created with IDEA <br>
  * User: lmq <br>
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends Object implements Comparable {
+public class User extends Object implements Comparable, Serializable {
     private int id;
     private String name;
 
