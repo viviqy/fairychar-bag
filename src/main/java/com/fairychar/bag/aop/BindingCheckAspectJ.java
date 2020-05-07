@@ -20,7 +20,7 @@ import org.springframework.validation.BindingResult;
  * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
  * @author lmq <br>
- * @since 1.0
+ * @since 1.0l
  */
 @Aspect
 public class BindingCheckAspectJ {

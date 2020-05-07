@@ -1,6 +1,7 @@
 package com.fairychar.bag.beans;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.domain.enums.State;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -9,7 +10,8 @@ import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -36,10 +38,8 @@ public class SimpleNettyServer implements InitializingBean {
     @Getter
     private final int port;
     @Getter
-    @Setter
     private ChannelInitializer<ServerSocketChannel> handlers;
     @Getter
-    @Setter
     private ChannelInitializer<SocketChannel> childHandlers;
     @Getter
     private State state = State.UN_INITIALIZE;
@@ -131,28 +131,6 @@ public class SimpleNettyServer implements InitializingBean {
         start();
     }
 
-    public enum State {
-        /**
-         * 未初始化
-         */
-        UN_INITIALIZE,
-        /**
-         * 启动完成
-         */
-        STARTED,
-        /**
-         * 启动中
-         */
-        STARTING,
-        /**
-         * 正在停止
-         */
-        STOPPING,
-        /**
-         * 停止完成
-         */
-        STOPPED;
-    }
 }
 /*
                                       /[-])//  ___        

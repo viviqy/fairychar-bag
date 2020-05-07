@@ -104,18 +104,18 @@ public final class ReflectUtil {
         return fields;
     }
 
-    public static void copyProperties(Object source, Object targer, boolean matchNull) {
+    public static void copyProperties(Object source, Object target, boolean matchNull) {
         Field[] sourceFields = source.getClass().getDeclaredFields();
         for (Field sourceField : sourceFields) {
             try {
-                Field targetField = targer.getClass().getDeclaredField(sourceField.getName());
+                Field targetField = target.getClass().getDeclaredField(sourceField.getName());
                 Object value = sourceField.get(source);
                 if ((value == null) != matchNull) {
                     continue;
                 }
                 sourceField.setAccessible(true);
                 targetField.setAccessible(true);
-                targetField.set(targer, value);
+                targetField.set(target, value);
             } catch (NoSuchFieldException ignore) {
             } catch (IllegalAccessException ignore) {
             }

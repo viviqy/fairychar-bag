@@ -1,38 +1,34 @@
-package com.fairychar.bag.utils;
-
-import com.fairychar.bag.pojo.ao.MappingAO;
-import com.fairychar.bag.pojo.ao.MappingObjectAO;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+package com.fairychar.bag.domain.enums;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
- * Date: 2020/4/22 <br>
- * time: 12:51 <br>
+ * User: qiyue <br>
+ * Date: 2020/05/07 <br>
+ * time: 20:46 <br>
  *
- * @author lmq <br>
- * @since 1.0
+ * @author qiyue <br>
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class MappingObjectUtil {
-
-    public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map) {
-        return map.entrySet().stream().map(e -> new MappingAO<K, V>(e.getKey(), e.getValue()))
-                .collect(Collectors.toList());
-    }
-
-
-    public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps) {
-        return maps.entrySet().stream()
-                .map(e -> new MappingObjectAO<K, V>(e.getKey(), e.getValue().size(), e.getValue()))
-                .collect(Collectors.toList());
-    }
-
+public enum State {
+    /**
+     * 未初始化
+     */
+    UN_INITIALIZE,
+    /**
+     * 启动完成
+     */
+    STARTED,
+    /**
+     * 启动中
+     */
+    STARTING,
+    /**
+     * 正在停止
+     */
+    STOPPING,
+    /**
+     * 停止完成
+     */
+    STOPPED;
 }
 /*
                                       /[-])//  ___        

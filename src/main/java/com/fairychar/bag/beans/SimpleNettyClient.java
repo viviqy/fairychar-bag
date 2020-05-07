@@ -1,12 +1,11 @@
 package com.fairychar.bag.beans;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.domain.enums.State;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
@@ -38,10 +37,9 @@ public class SimpleNettyClient implements InitializingBean {
     @Getter
     private final String host;
     @Getter
-    @Setter
     private ChannelInitializer<SocketChannel> childHandlers;
     @Getter
-    private SimpleNettyClient.State state = SimpleNettyClient.State.UN_INITIALIZE;
+    private State state = State.UN_INITIALIZE;
     @Getter
     @Setter
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
@@ -77,7 +75,7 @@ public class SimpleNettyClient implements InitializingBean {
         this.checkArgs();
         worker = new NioEventLoopGroup(workerSize);
         bootstrap = new Bootstrap();
-        this.state = SimpleNettyClient.State.STARTING;
+        this.state = State.STARTING;
         try {
             channel = bootstrap.group(worker)
                     .channel(NioSocketChannel.class)
@@ -87,9 +85,9 @@ public class SimpleNettyClient implements InitializingBean {
             log.info("client connected to {}:{}", host, port);
         } catch (Exception e) {
             log.error("{}", e.getMessage());
-            this.state = SimpleNettyClient.State.STOPPED;
+            this.state = State.STOPPED;
         }
-        this.state = SimpleNettyClient.State.STARTED;
+        this.state = State.STARTED;
 
 
     }
@@ -97,14 +95,14 @@ public class SimpleNettyClient implements InitializingBean {
     @PreDestroy
     public void stop() {
         log.info("client disconnecting....");
-        this.state = SimpleNettyClient.State.STOPPING;
+        this.state = State.STOPPING;
         try {
             channel.close().get(maxShutdownWaitSeconds, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             worker.shutdownGracefully();
         }
         log.info("client disconnected");
-        this.state = SimpleNettyClient.State.STOPPED;
+        this.state = State.STOPPED;
     }
 
 
@@ -121,28 +119,7 @@ public class SimpleNettyClient implements InitializingBean {
         start();
     }
 
-    public enum State {
-        /**
-         * 未初始化
-         */
-        UN_INITIALIZE,
-        /**
-         * 启动完成
-         */
-        STARTED,
-        /**
-         * 启动中
-         */
-        STARTING,
-        /**
-         * 正在停止
-         */
-        STOPPING,
-        /**
-         * 停止完成
-         */
-        STOPPED;
-    }
+
 }
 /*
                                       /[-])//  ___        

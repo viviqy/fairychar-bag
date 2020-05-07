@@ -25,11 +25,11 @@ public class TestMain {
     private static Gson gson = new Gson();
     @Test
     public void run6() throws Exception {
-        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 1, 10000);
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 1, 8080);
         simpleNettyServer.afterPropertiesSet();
-        TimeUnit.SECONDS.sleep(3);
-        SimpleNettyClient simpleNettyClient = new SimpleNettyClient(1, 10000, "localhost");
-        simpleNettyClient.afterPropertiesSet();
+//        TimeUnit.SECONDS.sleep(3);
+//        SimpleNettyClient simpleNettyClient = new SimpleNettyClient(1, 10000, "localhost");
+//        simpleNettyClient.afterPropertiesSet();
         Thread.currentThread().join();
     }
 
