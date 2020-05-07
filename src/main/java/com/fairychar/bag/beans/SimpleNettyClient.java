@@ -1,0 +1,171 @@
+package com.fairychar.bag.beans;
+
+import cn.hutool.core.lang.Assert;
+import io.netty.bootstrap.Bootstrap;
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.ServerSocketChannel;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LoggingHandler;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
+
+import javax.annotation.PreDestroy;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+/**
+ * Created with IDEA <br>
+ * User: lmq <br>
+ * Date: 2020/5/7 <br>
+ * time: 16:59 <br>
+ *
+ * @author lmq <br>
+ * @since 1.0
+ */
+@Slf4j
+public class SimpleNettyClient implements InitializingBean {
+    @Getter
+    private final int workerSize;
+    @Getter
+    private final int port;
+    @Getter
+    private final String host;
+    @Getter
+    @Setter
+    private ChannelInitializer<SocketChannel> childHandlers;
+    @Getter
+    private SimpleNettyClient.State state = SimpleNettyClient.State.UN_INITIALIZE;
+    @Getter
+    @Setter
+    private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
+
+
+    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
+        @Override
+        protected void initChannel(SocketChannel socketChannel) throws Exception {
+            socketChannel.pipeline().addLast(new LoggingHandler());
+        }
+    };
+
+    public SimpleNettyClient(int workerSize, int port, String host) {
+        this.workerSize = workerSize;
+        this.port = port;
+        this.host = host;
+        this.childHandlers = CHILD_LOGGING_HANDLER;
+    }
+
+    public SimpleNettyClient(int workerSize, int port, String host, ChannelInitializer<SocketChannel> childHandlers) {
+        this.workerSize = workerSize;
+        this.port = port;
+        this.host = host;
+        this.childHandlers = childHandlers;
+    }
+
+    private Bootstrap bootstrap;
+    private Channel channel;
+    private NioEventLoopGroup worker;
+
+
+    public void start() {
+        this.checkArgs();
+        worker = new NioEventLoopGroup(workerSize);
+        bootstrap = new Bootstrap();
+        this.state = SimpleNettyClient.State.STARTING;
+        try {
+            channel = bootstrap.group(worker)
+                    .channel(NioSocketChannel.class)
+                    .handler(childHandlers)
+                    .connect(host, port)
+                    .channel();
+            log.info("client connected to {}:{}", host, port);
+        } catch (Exception e) {
+            log.error("{}", e.getMessage());
+            this.state = SimpleNettyClient.State.STOPPED;
+        }
+        this.state = SimpleNettyClient.State.STARTED;
+
+
+    }
+
+    @PreDestroy
+    public void stop() {
+        log.info("client disconnecting....");
+        this.state = SimpleNettyClient.State.STOPPING;
+        try {
+            channel.close().get(maxShutdownWaitSeconds, TimeUnit.SECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            worker.shutdownGracefully();
+        }
+        log.info("client disconnected");
+        this.state = SimpleNettyClient.State.STOPPED;
+    }
+
+
+    private void checkArgs() {
+        Assert.notNull(this.host, "host cant be null");
+        Assert.isTrue(this.workerSize > 0, "workerSize must bigger than zero");
+        Assert.isTrue(this.port > 0 && this.port < 65535, "port must bigger than zero and less than 65535");
+        Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE, "port must bigger than zero and less than 2147483647");
+    }
+
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        start();
+    }
+
+    public enum State {
+        /**
+         * 未初始化
+         */
+        UN_INITIALIZE,
+        /**
+         * 启动完成
+         */
+        STARTED,
+        /**
+         * 启动中
+         */
+        STARTING,
+        /**
+         * 正在停止
+         */
+        STOPPING,
+        /**
+         * 停止完成
+         */
+        STOPPED;
+    }
+}
+/*
+                                      /[-])//  ___        
+                                 __ --\ `_/~--|  / \      
+                               /_-/~~--~~ /~~~\\_\ /\     
+                               |  |___|===|_-- | \ \ \    
+____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
+____________ ~\________|__/   / // \__ |  ||  / | |   | | 
+                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
+                      [3-|____---~~ _--'==;/ _,   |   |_| 
+                                  /   /\__|_/  \  \__/--/ 
+                                 /---/_\  -___/ |  /,--|  
+                                 /  /\/~--|   | |  \///   
+                                /  / |-__ \    |/         
+                               |--/ /      |-- | \        
+                              \^~~\\/\      \   \/- _     
+                               \    |  \     |~~\~~| \    
+                                \    \  \     \   \  | \  
+                                  \    \ |     \   \    \ 
+                                   |~~|\/\|     \   \   | 
+                                  |   |/         \_--_- |\
+                                  |  /            /   |/\/
+                                   ~~             /  /    
+                                                 |__/   W<
+
+*/

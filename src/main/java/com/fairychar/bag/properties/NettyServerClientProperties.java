@@ -1,27 +1,38 @@
 package com.fairychar.bag.properties;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:35 <br>
+ * User: lmq <br>
+ * Date: 2020/5/7 <br>
+ * time: 15:41 <br>
  *
- * @author qiyue <br>
+ * @author lmq <br>
+ * @since 1.0
  */
-@ConfigurationProperties(prefix = "fairychar.bag")
-@Getter
-@Setter
-public class FairycharBagProperties {
+@Data
+public class NettyServerClientProperties {
     @NestedConfigurationProperty
-    private AopProperties aopProperties;
+    private ServerProperties server;
     @NestedConfigurationProperty
-    private NettyServerClientProperties serverClientProperties;
+    private ClientProperties client;
 
+    @Data
+    public static class ClientProperties {
+        private String host;
+        private int port;
+        private int eventLoopSize;
+    }
+
+    @Data
+    public static class ServerProperties {
+        private int port;
+        private int bossSize;
+        private int workerSize;
+    }
 }
 /*
                                       /[-])//  ___        

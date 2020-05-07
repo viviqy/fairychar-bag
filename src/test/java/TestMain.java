@@ -1,3 +1,5 @@
+import com.fairychar.bag.beans.SimpleNettyClient;
+import com.fairychar.bag.beans.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
@@ -7,6 +9,7 @@ import com.google.gson.Gson;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -20,6 +23,15 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     private static Gson gson = new Gson();
+    @Test
+    public void run6() throws Exception {
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 1, 10000);
+        simpleNettyServer.afterPropertiesSet();
+        TimeUnit.SECONDS.sleep(3);
+        SimpleNettyClient simpleNettyClient = new SimpleNettyClient(1, 10000, "localhost");
+        simpleNettyClient.afterPropertiesSet();
+        Thread.currentThread().join();
+    }
 
     @Test
     public void run5() {
