@@ -23,6 +23,7 @@ import java.util.List;
 public class EchartsNode<T> {
     private String name;
     private long count;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<T> value;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<EchartsNode<T>> child;

@@ -3,6 +3,7 @@ import com.fairychar.bag.beans.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;

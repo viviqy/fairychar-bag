@@ -1,6 +1,7 @@
 package com.fairychar.bag.pojo.vo;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -18,22 +19,23 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
+@Builder
 public class HttpResult<T> {
     private int code;
     private T data;
     private String msg;
 
 
-    public static <T> HttpResult<T> build(HttpStatus httpStatus, T data) {
+    public static <T> HttpResult<T> response(HttpStatus httpStatus, T data) {
         return new HttpResult(httpStatus.value(), data, httpStatus.getReasonPhrase());
     }
 
 
-    public static <T> HttpResult<T> build(int code, T data, String msg) {
+    public static <T> HttpResult<T> response(int code, T data, String msg) {
         return new HttpResult(code, data, msg);
     }
 
-    public static HttpResult build(int code, String msg) {
+    public static HttpResult response(int code, String msg) {
         return new HttpResult(code, null, msg);
     }
 
