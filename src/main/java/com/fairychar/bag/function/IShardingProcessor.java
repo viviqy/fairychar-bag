@@ -2,11 +2,11 @@ package com.fairychar.bag.function;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/3/24 <br>
  * time: 13:31 <br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0
  */
 @FunctionalInterface

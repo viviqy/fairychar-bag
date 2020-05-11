@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2019/12/4 <br>
  * time: 17:06 <br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BindingResultUtil {

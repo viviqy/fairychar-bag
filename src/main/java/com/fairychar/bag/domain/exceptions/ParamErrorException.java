@@ -2,12 +2,12 @@ package com.fairychar.bag.domain.exceptions;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2019/12/4 <br>
  * time: 15:32 <br>
  *
  *  HTTP前端参数校验失败异常类
- * @author lmq <br>
+ * @author chiyo <br>
  */
 public class ParamErrorException extends Exception {
     public ParamErrorException() {

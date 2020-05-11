@@ -16,11 +16,11 @@ import java.util.jar.JarFile;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/2/25 <br>
  * time: 15:45 <br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0
  */
 @Slf4j

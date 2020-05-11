@@ -10,7 +10,7 @@ import org.springframework.validation.BindingResult;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/4/10 <br>
  * time: 16:35 <br>
  * <p>
@@ -19,7 +19,7 @@ import org.springframework.validation.BindingResult;
  * </p>
  * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0l
  */
 @Aspect

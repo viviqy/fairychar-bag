@@ -8,11 +8,11 @@ import java.time.temporal.TemporalAccessor;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/4/20 <br>
  * time: 10:00 <br>
  * <p>spring mvc {@link String}转{@link LocalDate}</p>
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0
  */
 public class StringToLocalDateConverter implements Converter<String, LocalDate> {

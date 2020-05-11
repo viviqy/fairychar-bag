@@ -6,11 +6,11 @@ import java.io.Serializable;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/4/22 <br>
  * time: 15:21 <br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0
  */
 @Data
