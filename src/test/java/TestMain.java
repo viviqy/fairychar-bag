@@ -1,16 +1,13 @@
-import com.fairychar.bag.beans.SimpleNettyClient;
-import com.fairychar.bag.beans.SimpleNettyServer;
+import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
-import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +21,12 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     private static Gson gson = new Gson();
+
+    @Test
+    public void run7() {
+        System.out.println("".isEmpty());
+    }
+
     @Test
     public void run6() throws Exception {
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 1, 8080);
@@ -37,8 +40,8 @@ public class TestMain {
     @Test
     public void run5() {
         HashMap<String, Integer> map = new HashMap<>();
-        map.put("a",1);
-        map.put("b",2);
+        map.put("a", 1);
+        map.put("b", 2);
         List<MappingAO<String, Integer>> list = MappingObjectUtil.mapping(map);
         System.out.println(list);
     }

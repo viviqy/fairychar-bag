@@ -1,4 +1,4 @@
-package com.fairychar.bag.beans;
+package com.fairychar.bag.beans.netty.server;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.enums.State;
@@ -46,20 +46,25 @@ public class SimpleNettyServer implements InitializingBean {
     @Getter
     @Setter
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
+    private final static ChannelInitializer<ServerSocketChannel> LOGGING_HANDLER;
 
-    private final static ChannelInitializer<ServerSocketChannel> LOGGING_HANDLER = new ChannelInitializer<ServerSocketChannel>() {
-        @Override
-        protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
-            serverSocketChannel.pipeline().addLast(new LoggingHandler());
-        }
-    };
+    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
 
-    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
-        @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast(new LoggingHandler());
-        }
-    };
+    static {
+        LoggingHandler loggingHandler = new LoggingHandler();
+        LOGGING_HANDLER = new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                serverSocketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
+        CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
+    }
 
     public SimpleNettyServer(int bossSize, int workerSize, int port) {
         this.bossSize = bossSize;

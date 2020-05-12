@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.aop;
+package com.fairychar.bag.beans.aop;
 
 import org.aspectj.lang.JoinPoint;
 

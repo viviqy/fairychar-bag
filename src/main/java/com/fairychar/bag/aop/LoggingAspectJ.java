@@ -1,16 +1,16 @@
 package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.beans.aop.LoggingHandler;
 import com.fairychar.bag.domain.annotions.RequestLog;
-import com.fairychar.bag.domain.aop.LoggingHandler;
-import com.fairychar.bag.domain.exceptions.ParamErrorException;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -33,43 +33,43 @@ public class LoggingAspectJ implements InitializingBean {
 
     @Autowired
     private FairycharBagProperties properties;
+
+
     @Before("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
-    public void bindingCheck(JoinPoint joinPoint, RequestLog requestLog) throws ParamErrorException {
+    public void beforeLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {
             return;
         }
-        RequestLog.Level level = Optional.ofNullable(requestLog.loggingLevel())
-                .orElse(properties.getAopProperties().getLog().getGlobalLevel());
-        switch (level) {
-            case TRACE:
-                log.trace(format(joinPoint));
-                break;
-            case DEBUG:
-                log.debug(format(joinPoint));
-                break;
-            case INFO:
-                log.info(format(joinPoint));
-                break;
-            case ERROR:
-                log.error(format(joinPoint));
-                break;
-            default:
-                break;
+        Optional.ofNullable(requestLog.beforeHandler()).filter(s -> !s.isEmpty())
+                .map(h -> SpringContextHolder.getInstance().getBean(h, LoggingHandler.class)).ifPresent(l -> l.then(joinPoint));
+
+    }
+
+
+    @Around("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
+    public void aroundLogging(JoinPoint joinPoint, RequestLog requestLog) {
+        if (!requestLog.enable()) {
+            return;
         }
-        Optional.ofNullable(requestLog.beforeHandler()).ifPresent(b -> {
-            LoggingHandler bean = SpringContextHolder.getInstance().getBean(b, LoggingHandler.class);
+        Optional.ofNullable(requestLog.aroundHandler()).filter(s -> !s.isEmpty()).map(h -> SpringContextHolder.getInstance().getBean(h, LoggingHandler.class))
+                .ifPresent(l -> l.then(joinPoint));
 
-        });
     }
 
-    private String format(JoinPoint joinPoint) {
-        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        return null;
+    @After("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
+    public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {
+        if (!requestLog.enable()) {
+            return;
+        }
+        Optional.ofNullable(requestLog.afterHandler()).filter(s -> !s.isEmpty()).map(h -> SpringContextHolder.getInstance().getBean(h, LoggingHandler.class))
+                .ifPresent(l -> l.then(joinPoint));
+
     }
+
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(properties.getAopProperties().getLog().getGlobalLevel(), "global log level cant be null");
+        Assert.notNull(properties.getAop().getLog().getGlobalLevel(), "global log level cant be null");
     }
 }
 /*

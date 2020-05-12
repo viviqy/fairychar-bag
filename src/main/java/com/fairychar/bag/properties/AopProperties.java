@@ -1,8 +1,11 @@
 package com.fairychar.bag.properties;
 
 import com.fairychar.bag.domain.annotions.RequestLog;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
@@ -16,9 +19,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Getter
 @Setter
 public class AopProperties {
-    @NestedConfigurationProperty
     private Log log;
-    @NestedConfigurationProperty
     private Binding binding;
 
     @Getter
@@ -32,6 +33,9 @@ public class AopProperties {
     public static class Log {
         private boolean enable;
         private RequestLog.Level globalLevel = RequestLog.Level.INFO;
+        private String globalBefore;
+        private String globalAround;
+        private String globalAfter;
     }
 }
 /*

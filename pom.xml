@@ -6,7 +6,7 @@
   
   <groupId>com.fairychar</groupId>
   <artifactId>fairychar-bag</artifactId>
-  <version>1.0</version>
+  <version>0.0.1-SNAPSHOT</version>
   <properties>
     <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
     <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
@@ -18,17 +18,17 @@
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-all</artifactId>
-      <scope>provided</scope>
+      <!--      <scope>provided</scope>-->
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <scope>provided</scope>
+      <!--      <scope>provided</scope>-->
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
-      <scope>provided</scope>
+      <!--      <scope>provided</scope>-->
     </dependency>
     <dependency>
       <groupId>io.swagger</groupId>
@@ -89,6 +89,12 @@
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-all</artifactId>
       <version>4.0.6</version>
+      <!--      <scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

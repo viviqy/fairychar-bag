@@ -18,7 +18,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface BindingCheck {
-    boolean value();
+    String value() default "";
 
     @AliasFor("value")
     boolean enable() default true;

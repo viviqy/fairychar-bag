@@ -6,7 +6,13 @@ import com.fairychar.bag.utils.BindingResultUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.util.ServletContextPropertyUtils;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created with IDEA <br>
@@ -14,8 +20,8 @@ import org.springframework.validation.BindingResult;
  * Date: 2020/4/10 <br>
  * time: 16:35 <br>
  * <p>
- *     mvc参数aop校验,切*..web.controller..*包下的所有方法上包含
- *     {@link BindingCheck}注解的方法
+ * mvc参数aop校验,切*..web.controller..*包下的所有方法上包含
+ * {@link BindingCheck}注解的方法
  * </p>
  * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
@@ -25,7 +31,7 @@ import org.springframework.validation.BindingResult;
 @Aspect
 public class BindingCheckAspectJ {
 
-    @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck)")
+    @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck))")
     public void bindingCheck(JoinPoint joinPoint, BindingCheck bindingCheck) throws ParamErrorException {
         if (!bindingCheck.enable()) {
             return;

@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.aop;
+package com.fairychar.bag.beans.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

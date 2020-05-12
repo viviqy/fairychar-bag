@@ -1,4 +1,4 @@
-package com.fairychar.bag.beans;
+package com.fairychar.bag.beans.netty.client;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.enums.State;
@@ -6,9 +6,11 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -45,12 +47,17 @@ public class SimpleNettyClient implements InitializingBean {
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
 
 
-    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
-        @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast(new LoggingHandler());
-        }
-    };
+    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
+
+    static {
+        LoggingHandler loggingHandler = new LoggingHandler();
+        CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
+    }
 
     public SimpleNettyClient(int workerSize, int port, String host) {
         this.workerSize = workerSize;

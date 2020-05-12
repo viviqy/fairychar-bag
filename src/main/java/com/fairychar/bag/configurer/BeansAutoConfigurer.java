@@ -1,36 +1,47 @@
-package com.fairychar.bag.properties;
+package com.fairychar.bag.configurer;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import com.fairychar.bag.aop.BindingCheckAspectJ;
+import com.fairychar.bag.aop.LoggingAspectJ;
+import com.fairychar.bag.properties.FairycharBagProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/5/7 <br>
- * time: 15:41 <br>
+ * Date: 2020/5/12 <br>
+ * time: 12:22 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@Data
-public class NettyServerClientProperties {
-    private ServerProperties server;
-    private ClientProperties client;
+@Configuration
+@EnableConfigurationProperties(value = {FairycharBagProperties.class})
+public class BeansAutoConfigurer {
+    @Autowired
+    private FairycharBagProperties bagProperties;
 
-    @Data
-    public static class ClientProperties {
-        private String host;
-        private int port;
-        private int eventLoopSize;
+    @Bean
+    @ConditionalOnMissingBean
+    @ConditionalOnProperty(prefix = "fairychar.bag.aop.binding", name = "enable", havingValue = "true")
+    BindingCheckAspectJ bindingCheckAspectJ() {
+        return new BindingCheckAspectJ();
     }
 
-    @Data
-    public static class ServerProperties {
-        private int port;
-        private int bossSize;
-        private int workerSize;
+
+    @ConditionalOnProperty(prefix = "fairychar.bag.aop.log", name = "enable", havingValue = "true")
+    @Configuration
+    protected static class LogConfiguration {
+        @Bean
+        @ConditionalOnMissingBean
+        LoggingAspectJ loggingAspectJ() {
+            return new LoggingAspectJ();
+        }
     }
 }
 /*

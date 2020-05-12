@@ -18,18 +18,18 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface RequestLog {
-    boolean value();
+    String value() default "";
 
     @AliasFor(value = "value")
     boolean enable() default true;
 
-    Level loggingLevel();
+    Level loggingLevel() default Level.INFO;
 
-    String beforeHandler();
+    String beforeHandler() default "";
 
-    String afterHandler();
+    String afterHandler() default "";
 
-    String aroudHandler();
+    String aroundHandler() default "";
 
     enum Level {
         TRACE(),
