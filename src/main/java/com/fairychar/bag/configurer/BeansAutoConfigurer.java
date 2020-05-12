@@ -2,15 +2,19 @@ package com.fairychar.bag.configurer;
 
 import com.fairychar.bag.aop.BindingCheckAspectJ;
 import com.fairychar.bag.aop.LoggingAspectJ;
+import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
+import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created with IDEA <br>
@@ -41,6 +45,23 @@ public class BeansAutoConfigurer {
         @ConditionalOnMissingBean
         LoggingAspectJ loggingAspectJ() {
             return new LoggingAspectJ();
+        }
+    }
+
+
+    @ConditionalOnProperty(name = "fairychar.bag.convert.mvc.enable", havingValue = "true")
+    @Configuration
+    protected static class ConvertConfiguration {
+        @Bean
+        @ConditionalOnMissingBean
+        Converter<String, LocalDate> localDateConverter() {
+            return new StringToLocalDateConverter();
+        }
+
+        @Bean
+        @ConditionalOnMissingBean
+        Converter<String, LocalDateTime> LocalDateTimeConverter() {
+            return new StringToLocalDateTimeConverter();
         }
     }
 }

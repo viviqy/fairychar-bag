@@ -1,6 +1,5 @@
-package com.fairychar.bag.aop;
+package com.fairychar.bag.beans.aop;
 
-import com.fairychar.bag.beans.aop.LoggingHandler;
 import com.fairychar.bag.domain.annotions.RequestLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -10,16 +9,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sound.midi.Patch;
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created with IDEA <br>
- * User: lmq <br>
+ * User: chiyo <br>
  * Date: 2020/5/12 <br>
  * time: 10:59 <br>
  *
- * @author lmq <br>
+ * @author chiyo <br>
  * @since 1.0
  */
 @Slf4j
@@ -27,11 +26,14 @@ public class SimpleLoggingHanlder implements LoggingHandler {
     @Override
     public void then(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        String methodName = signature.getMethod().getName();
         String uri = obtainUri(signature);
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
-        String ip = getIpAdrress(request);
+        String ip = getIpAddress(request);
+        String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String logs = String.format("{} request {} at {}", ip, uri, datetime);
+        RequestLog requestLog = signature.getMethod().getAnnotation(RequestLog.class);
+        showLog(requestLog.loggingLevel(), logs);
     }
 
     private void showLog(RequestLog.Level level, String logs) {
@@ -51,7 +53,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         }
     }
 
-    public static String getIpAdrress(HttpServletRequest request) {
+    public static String getIpAddress(HttpServletRequest request) {
         String ip = null;
 
         //X-Forwarded-For：Squid 服务代理
@@ -61,27 +63,22 @@ public class SimpleLoggingHanlder implements LoggingHandler {
             //Proxy-Client-IP：apache 服务代理
             ipAddresses = request.getHeader("Proxy-Client-IP");
         }
-
         if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
             //WL-Proxy-Client-IP：weblogic 服务代理
             ipAddresses = request.getHeader("WL-Proxy-Client-IP");
         }
-
         if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
             //HTTP_CLIENT_IP：有些代理服务器
             ipAddresses = request.getHeader("HTTP_CLIENT_IP");
         }
-
         if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
             //X-Real-IP：nginx服务代理
             ipAddresses = request.getHeader("X-Real-IP");
         }
-
         //有些网络通过多层代理，那么获取到的ip就会有多个，一般都是通过逗号（,）分割开来，并且第一个ip为客户端的真实IP
         if (ipAddresses != null && ipAddresses.length() != 0) {
             ip = ipAddresses.split(",")[0];
         }
-
         //还是不能获取到，最后再通过request.getRemoteAddr();获取
         if (ip == null || ip.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
             ip = request.getRemoteAddr();
@@ -95,24 +92,19 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         if (signature.getMethod().getAnnotation(RequestMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(RequestMapping.class).value()[0];
             return uri;
-        }
-        if (signature.getMethod().getAnnotation(PostMapping.class) != null) {
+        } else if (signature.getMethod().getAnnotation(PostMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(PostMapping.class).value()[0];
             return uri;
-        }
-        if (signature.getMethod().getAnnotation(GetMapping.class) != null) {
+        } else if (signature.getMethod().getAnnotation(GetMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(GetMapping.class).value()[0];
             return uri;
-        }
-        if (signature.getMethod().getAnnotation(PutMapping.class) != null) {
+        } else if (signature.getMethod().getAnnotation(PutMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(PutMapping.class).value()[0];
             return uri;
-        }
-        if (signature.getMethod().getAnnotation(DeleteMapping.class) != null) {
+        } else if (signature.getMethod().getAnnotation(DeleteMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(DeleteMapping.class).value()[0];
             return uri;
-        }
-        if (signature.getMethod().getAnnotation(PatchMapping.class) != null) {
+        } else if (signature.getMethod().getAnnotation(PatchMapping.class) != null) {
             uri = signature.getMethod().getAnnotation(PatchMapping.class).value()[0];
             return uri;
         }

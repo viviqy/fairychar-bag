@@ -1,37 +1,26 @@
 package com.fairychar.bag.properties;
 
-import com.fairychar.bag.domain.annotions.RequestLog;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:39 <br>
+ * Date: 2020/05/12 <br>
+ * time: 22:15 <br>
  *
- * @author qiyue <br>
+ * @author chiyo <br>
  */
 @Getter
 @Setter
-public class AopProperties {
-    private Log log;
-    private Binding binding;
+public class ConvertProperties {
+    private Mvc mvc;
+
 
     @Getter
     @Setter
-    public static class Binding {
+    public static class Mvc {
         private boolean enable;
-    }
 
-    @Getter
-    @Setter
-    public static class Log {
-        private boolean enable;
-        private RequestLog.Level globalLevel = RequestLog.Level.INFO;
-        private String globalBefore;
-        private String globalAround;
-        private String globalAfter;
     }
 }
 /*

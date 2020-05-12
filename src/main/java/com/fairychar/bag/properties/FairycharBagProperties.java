@@ -1,11 +1,8 @@
 package com.fairychar.bag.properties;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
@@ -24,7 +21,8 @@ public class FairycharBagProperties {
     private AopProperties aop;
     @NestedConfigurationProperty
     private NettyServerClientProperties serverClient;
-
+    @NestedConfigurationProperty
+    private ConvertProperties convert;
 }
 /*
                                       /[-])//  ___        

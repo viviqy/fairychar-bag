@@ -6,13 +6,7 @@ import com.fairychar.bag.utils.BindingResultUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.servlet.support.RequestContextUtils;
-import org.springframework.web.util.ServletContextPropertyUtils;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created with IDEA <br>

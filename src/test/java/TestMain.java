@@ -7,6 +7,8 @@ import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,7 +26,7 @@ public class TestMain {
 
     @Test
     public void run7() {
-        System.out.println("".isEmpty());
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
 
     @Test

@@ -1,9 +1,6 @@
 package com.fairychar.bag.properties;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Created with IDEA <br>

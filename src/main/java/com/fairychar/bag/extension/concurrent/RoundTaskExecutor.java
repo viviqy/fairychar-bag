@@ -23,7 +23,7 @@ import java.util.function.Consumer;
 @Slf4j
 public class RoundTaskExecutor {
     private final Phaser phaser;
-    private final List<List<Action>> tasklist;
+    private final List<List<Action>> taskList;
     /**
      * 总任务执行轮数
      */
@@ -41,11 +41,11 @@ public class RoundTaskExecutor {
     private final AtomicInteger executedRound;
     private final ExecutorService executorService;
 
-    private RoundTaskExecutor(@NotNull List<List<Action>> tasklist, int executeRound) {
-        assert tasklist != null;
-        this.phaser = new Phaser(tasklist.size());
-        this.tasklist = tasklist;
-        this.executorService = Executors.newFixedThreadPool(tasklist.size());
+    private RoundTaskExecutor(@NotNull List<List<Action>> taskList, int executeRound) {
+        assert taskList != null;
+        this.phaser = new Phaser(taskList.size());
+        this.taskList = taskList;
+        this.executorService = Executors.newFixedThreadPool(taskList.size());
         this.executeRound = new AtomicInteger(executeRound);
         this.executedRound = new AtomicInteger(0);
         this.executedTaskCount = new AtomicInteger(0);
@@ -68,13 +68,13 @@ public class RoundTaskExecutor {
     }
 
     public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout) {
-        this.tasklist.forEach(list -> executorService.execute(() -> list.forEach(task -> {
+        this.taskList.forEach(list -> executorService.execute(() -> list.forEach(task -> {
             try {
-                int now = this.executedRound.get();
+                int current = this.executedRound.get();
                 task.doAction();
                 this.executedTaskCount.incrementAndGet();
                 this.phaser.arriveAndAwaitAdvance();
-                this.executedRound.compareAndSet(now, now + 1);
+                this.executedRound.compareAndSet(current, current + 1);
             } catch (InterruptedException e) {
                 Optional.ofNullable(onInterrupted).ifPresent(interruptedExceptionConsumer -> interruptedExceptionConsumer.accept(e));
                 this.phaser.arriveAndDeregister();
