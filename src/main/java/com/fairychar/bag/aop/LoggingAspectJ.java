@@ -26,7 +26,7 @@ import java.util.Optional;
  * time: 22:13 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Aspect
 @Slf4j
@@ -37,7 +37,7 @@ public class LoggingAspectJ implements InitializingBean {
     private FairycharBagProperties properties;
 
 
-    @Before("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
+    @Before("execution(public * *..web.controller..*.*(..))  && @annotation(requestLog)")
     public void beforeLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {
             return;

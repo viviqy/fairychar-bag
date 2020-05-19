@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
  * time: 12:22 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Configuration
 @EnableConfigurationProperties(value = {FairycharBagProperties.class})

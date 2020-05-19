@@ -16,7 +16,7 @@ import java.io.Serializable;
  * time: 10:05 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @AllArgsConstructor
 @NoArgsConstructor

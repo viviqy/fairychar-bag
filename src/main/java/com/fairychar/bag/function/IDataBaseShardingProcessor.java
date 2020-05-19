@@ -7,7 +7,7 @@ package com.fairychar.bag.function;
  * time: 13:32 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 public interface IDataBaseShardingProcessor<R,P> extends IShardingProcessor<R,P> {
 }

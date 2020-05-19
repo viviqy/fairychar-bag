@@ -14,7 +14,7 @@ import java.time.temporal.TemporalAccessor;
  * <P>spring MVC{@link String}转{@link LocalDateTime}</P>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 public class StringToLocalDateTimeConverter implements Converter<String, LocalDateTime> {
     @Override

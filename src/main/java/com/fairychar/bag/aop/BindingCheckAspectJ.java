@@ -4,6 +4,7 @@ import com.fairychar.bag.domain.annotions.BindingCheck;
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
 import com.fairychar.bag.utils.BindingResultUtil;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.validation.BindingResult;
@@ -20,12 +21,12 @@ import org.springframework.validation.BindingResult;
  * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
  * @author chiyo <br>
- * @since 1.0l
+ * @since 0.0.1-SNAPSHOTl
  */
 @Aspect
 public class BindingCheckAspectJ {
 
-    @Before("execution(* *..web.controller..*.*(..))  && @annotation(bindingCheck))")
+    @Before("execution(public * *..web.controller..*.*(..))  && @annotation(bindingCheck))")
     public void bindingCheck(JoinPoint joinPoint, BindingCheck bindingCheck) throws ParamErrorException {
         if (!bindingCheck.enable()) {
             return;

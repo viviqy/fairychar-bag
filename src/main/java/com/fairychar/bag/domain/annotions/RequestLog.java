@@ -11,7 +11,7 @@ import java.lang.annotation.*;
  * time: 16:29 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Documented
 @Target({ElementType.METHOD, ElementType.TYPE})

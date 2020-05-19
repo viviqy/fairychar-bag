@@ -21,7 +21,7 @@ import java.util.jar.JarFile;
  * time: 15:45 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * time: 15:13 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class EChartsUtil {

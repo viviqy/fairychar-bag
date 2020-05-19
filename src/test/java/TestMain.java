@@ -2,6 +2,7 @@ import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
@@ -10,6 +11,8 @@ import org.junit.Test;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
@@ -19,14 +22,59 @@ import java.util.stream.Collectors;
  * time: 11:58 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 public class TestMain {
     private static Gson gson = new Gson();
 
     @Test
+    public void run9() throws InterruptedException {
+        Object lock = new Object();
+        new Thread(()->{
+            CacheOperateTemplate.get(()->null,()->"1",s->{
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                }
+                System.out.println(s);
+            },lock);
+        },"a").start();
+        TimeUnit.MILLISECONDS.sleep(100L);
+        Object lock1 = new Object();
+        System.out.println(1111);
+        new Thread(()->{
+            CacheOperateTemplate.get(()->null,()->"2",s->{
+                System.out.println(s);
+            },lock1);
+        },"a").start();
+        Thread.currentThread().join();
+    }
+
+    @Test
+    public void run8() throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(50);
+        CountDownLatch countDownLatch = new CountDownLatch(50);
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>(1);
+        Object lock = new Object();
+        for (int i = 0; i < 50; i++) {
+            executorService.execute(() -> {
+                countDownLatch.countDown();
+                String threadName = Thread.currentThread().getName();
+                System.out.println(threadName);
+                Supplier<String> supplier = () -> map.get("a");
+                String s1 = CacheOperateTemplate.get(supplier
+                        , () -> "1", s -> {
+                            System.out.println("a");
+                            map.put("a", s);
+                        },lock);
+                System.out.println(threadName+"--"+s1);
+            });
+        }
+        Thread.currentThread().join();
+    }
+
+    @Test
     public void run7() {
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
 
     @Test

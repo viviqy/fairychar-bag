@@ -7,7 +7,7 @@ package com.fairychar.bag.function;
  * time: 13:31 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @FunctionalInterface
 public interface IShardingProcessor<R, P> {

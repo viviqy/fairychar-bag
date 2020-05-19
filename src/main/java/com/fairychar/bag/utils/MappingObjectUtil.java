@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * time: 12:51 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MappingObjectUtil {

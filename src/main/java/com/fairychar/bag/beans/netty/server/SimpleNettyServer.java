@@ -27,7 +27,7 @@ import java.util.concurrent.TimeoutException;
  * time: 16:02 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Slf4j
 public class SimpleNettyServer implements InitializingBean {

@@ -1,28 +1,44 @@
-package com.fairychar.bag.converter.mvc;
+package com.fairychar.bag.template;
 
-import org.springframework.core.convert.converter.Converter;
+import com.sun.org.apache.regexp.internal.RE;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/20 <br>
- * time: 10:00 <br>
- * <p>spring mvc {@link String}转{@link LocalDate}</p>
+ * Date: 2020/5/18 <br>
+ * time: 09:10 <br>
+ *
  * @author chiyo <br>
- * @since 0.0.1-SNAPSHOT
+ * @since 1.0
  */
-public class StringToLocalDateConverter implements Converter<String, LocalDate> {
-    @Override
-    public LocalDate convert(String s) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        TemporalAccessor parse = dateTimeFormatter.parse(s);
-        LocalDate localDate = LocalDate.from(parse);
-        return localDate;
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class CacheOperateTemplate {
+    public static <C> C get(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache, Object lock) {
+        C cacheValue = cache.get();
+        if (cacheValue == null) {
+            synchronized (lock) {
+                C secondCacheValue = cache.get();
+                if (secondCacheValue != null) {
+                    return secondCacheValue;
+                } else {
+                    C dbValue = db.get();
+                    if (dbValue == null) {
+                        return null;
+                    } else {
+                        toCache.accept(dbValue);
+                        return dbValue;
+                    }
+                }
+            }
+        }
+        return cacheValue;
     }
+
+
 }
 /*
                                       /[-])//  ___        

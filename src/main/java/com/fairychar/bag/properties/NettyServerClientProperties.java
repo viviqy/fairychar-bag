@@ -9,7 +9,7 @@ import lombok.Data;
  * time: 15:41 <br>
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 0.0.1-SNAPSHOT
  */
 @Data
 public class NettyServerClientProperties {
