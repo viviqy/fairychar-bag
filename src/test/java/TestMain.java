@@ -26,6 +26,14 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     private static Gson gson = new Gson();
+    @Test
+    public void run10(){
+        List<User> users = Arrays.asList(new User(1, "1"), new User(2, "2"));
+        User[] array = users.toArray(new User[]{});
+        for (User user : array) {
+            System.out.println(user);
+        }
+    }
 
     @Test
     public void run9() throws InterruptedException {

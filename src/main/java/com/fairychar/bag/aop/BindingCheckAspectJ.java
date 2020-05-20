@@ -4,10 +4,14 @@ import com.fairychar.bag.domain.annotions.BindingCheck;
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
 import com.fairychar.bag.utils.BindingResultUtil;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created with IDEA <br>
@@ -24,6 +28,7 @@ import org.springframework.validation.BindingResult;
  * @since 0.0.1-SNAPSHOTl
  */
 @Aspect
+@Order(1)
 public class BindingCheckAspectJ {
 
     @Before("execution(public * *..web.controller..*.*(..))  && @annotation(bindingCheck))")
@@ -31,11 +36,10 @@ public class BindingCheckAspectJ {
         if (!bindingCheck.enable()) {
             return;
         }
-        for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof BindingResult) {
-                BindingResultUtil.checkBindingErrors(((BindingResult) arg));
-            }
-        }
+        List<BindingResult> errors = Stream.of(joinPoint.getArgs()).filter(arg -> arg instanceof BindingResult)
+                .map(b -> ((BindingResult) b))
+                .collect(Collectors.toList());
+        BindingResultUtil.checkBindingErrors(errors);
     }
 
 

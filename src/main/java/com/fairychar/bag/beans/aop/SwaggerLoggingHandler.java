@@ -1,7 +1,11 @@
 package com.fairychar.bag.beans.aop;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
 
 /**
  * Created with IDEA <br>
@@ -15,9 +19,10 @@ import org.aspectj.lang.JoinPoint;
 public class SwaggerLoggingHandler implements LoggingHandler {
     @Override
     public void then(JoinPoint joinPoint) {
-        String methodName = joinPoint.getSignature().getName();
-        Object[] args = joinPoint.getArgs();
-
+        MethodSignature methodSignature = (MethodSignature) joinPoint;
+        ApiOperation apiOperation = methodSignature.getMethod().getAnnotation(ApiOperation.class);
+        Api api = (Api) methodSignature.getDeclaringType().getAnnotation(Api.class);
+        log.info("request {}", api.tags()[0].concat(apiOperation.value()));
     }
 }
 /*

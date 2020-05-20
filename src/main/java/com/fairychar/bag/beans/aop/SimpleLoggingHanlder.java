@@ -34,7 +34,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
                 .getRequest();
         String ip = getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        String logs = String.format("{} request {} at {}", ip, uri, datetime);
+        String logs = String.format("%s request %s at %s", ip, uri, datetime);
         RequestLog requestLog = signature.getMethod().getAnnotation(RequestLog.class);
         showLog(requestLog.loggingLevel(), logs);
     }
@@ -91,27 +91,26 @@ public class SimpleLoggingHanlder implements LoggingHandler {
 
 
     private static String obtainUri(MethodSignature signature) {
-        String uri;
+        String methodUri = "";
         if (signature.getMethod().getAnnotation(RequestMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(RequestMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(RequestMapping.class).value()[0];
         } else if (signature.getMethod().getAnnotation(PostMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(PostMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(PostMapping.class).value()[0];
         } else if (signature.getMethod().getAnnotation(GetMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(GetMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(GetMapping.class).value()[0];
         } else if (signature.getMethod().getAnnotation(PutMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(PutMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(PutMapping.class).value()[0];
         } else if (signature.getMethod().getAnnotation(DeleteMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(DeleteMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(DeleteMapping.class).value()[0];
         } else if (signature.getMethod().getAnnotation(PatchMapping.class) != null) {
-            uri = signature.getMethod().getAnnotation(PatchMapping.class).value()[0];
-            return uri;
+            methodUri = signature.getMethod().getAnnotation(PatchMapping.class).value()[0];
         }
-        return null;
+        String classUri = "";
+        if (signature.getDeclaringType().getAnnotation(RequestMapping.class) != null) {
+            classUri = ((RequestMapping) signature.getDeclaringType().getAnnotation(RequestMapping.class)).value()[0];
+        }
+        String uri = classUri.concat(methodUri.startsWith("/") ? methodUri : "/" + methodUri);
+        return uri;
     }
 }
 /*

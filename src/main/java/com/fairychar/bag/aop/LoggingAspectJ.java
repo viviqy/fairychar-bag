@@ -16,6 +16,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.core.annotation.Order;
 
 import java.util.Optional;
 
@@ -31,6 +32,7 @@ import java.util.Optional;
 @Aspect
 @Slf4j
 @EnableConfigurationProperties(value = {FairycharBagProperties.class})
+@Order(0)
 public class LoggingAspectJ implements InitializingBean {
 
     @Autowired
@@ -53,19 +55,19 @@ public class LoggingAspectJ implements InitializingBean {
     }
 
 
-    @Around("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
-    public void aroundLogging(JoinPoint joinPoint, RequestLog requestLog) {
-        if (!requestLog.enable()) {
-            return;
-        }
-        Optional<String> handler = Optional.ofNullable(requestLog.aroundHandler()).filter(s -> !s.isEmpty());
-        if (handler.isPresent()) {
-            handle(handler.get(), joinPoint);
-        } else {
-            Optional.ofNullable(properties.getAop().getLog().getGlobalAround()).filter(s -> !Strings.isNullOrEmpty(s))
-                    .ifPresent(h -> handle(h, joinPoint));
-        }
-    }
+//    @Around("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
+//    public void aroundLogging(JoinPoint joinPoint, RequestLog requestLog) {
+//        if (!requestLog.enable()) {
+//            return;
+//        }
+//        Optional<String> handler = Optional.ofNullable(requestLog.aroundHandler()).filter(s -> !s.isEmpty());
+//        if (handler.isPresent()) {
+//            handle(handler.get(), joinPoint);
+//        } else {
+//            Optional.ofNullable(properties.getAop().getLog().getGlobalAround()).filter(s -> !Strings.isNullOrEmpty(s))
+//                    .ifPresent(h -> handle(h, joinPoint));
+//        }
+//    }
 
     @After("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
     public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {

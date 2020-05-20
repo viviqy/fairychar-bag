@@ -7,6 +7,9 @@ import lombok.Data;
  * User: chiyo <br>
  * Date: 2020/5/7 <br>
  * time: 15:41 <br>
+ * <br>
+ * <p>netty服务参数</p>
+ * 提供netty核心参数,但不自动配置任何组件,提供于需要获取netty相关参数配置的组件
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
