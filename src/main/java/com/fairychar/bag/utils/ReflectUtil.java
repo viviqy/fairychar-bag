@@ -23,7 +23,7 @@ public final class ReflectUtil {
         return mapToEntity(map, tClass, false, false);
     }
 
-    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass, boolean mushMatchAll, boolean matchNull) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass, boolean mustMatchAll, boolean matchNull) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         T t = tClass.newInstance();
         for (Map.Entry<String, Object> e : map.entrySet()) {
             if ((e.getValue() == null) && !matchNull) {
@@ -34,7 +34,7 @@ public final class ReflectUtil {
                 Field declaredField = t.getClass().getDeclaredField(key);
                 declaredField.set(t, e.getValue());
             } catch (NoSuchFieldException ex) {
-                if (mushMatchAll) {
+                if (mustMatchAll) {
                     throw ex;
                 }
             }

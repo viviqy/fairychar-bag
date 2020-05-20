@@ -2,7 +2,9 @@ import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
+import com.fairychar.bag.utils.CycleTaskUtil;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
@@ -26,6 +28,17 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     private static Gson gson = new Gson();
+    @Test
+    public void test1(){
+        boolean result = CycleTaskUtil.run(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+            }
+            return false;
+        }, true, 0, 5_000);
+        System.out.println(result);
+    }
     @Test
     public void run10(){
         List<User> users = Arrays.asList(new User(1, "1"), new User(2, "2"));
