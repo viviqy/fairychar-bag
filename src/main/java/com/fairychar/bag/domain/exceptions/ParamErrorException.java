@@ -5,8 +5,9 @@ package com.fairychar.bag.domain.exceptions;
  * User: chiyo <br>
  * Date: 2019/12/4 <br>
  * time: 15:32 <br>
+ * <p>
+ * HTTP前端参数校验失败异常类
  *
- *  HTTP前端参数校验失败异常类
  * @author chiyo <br>
  */
 public class ParamErrorException extends Exception {

@@ -23,7 +23,7 @@ public final class EChartsUtil {
         return wrapEcharsNode(groupingBy);
     }
 
-    private static<T> List<EchartsNode<T>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
+    private static <T> List<EchartsNode<T>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
         List<EchartsNode<T>> collect = map.entrySet().stream().map(e -> {
             EchartsNode<T> node = new EchartsNode<>();
             node.setName(String.valueOf(e.getKey()));
@@ -32,7 +32,7 @@ public final class EChartsUtil {
                 node.setValue(((List<T>) e.getValue()));
             } else {
                 node.setCount(((Map) e.getValue()).size());
-                node.setChild(wrapEcharsNode(((Map<? extends Object,? extends Object>) map.get(e.getKey()))));
+                node.setChild(wrapEcharsNode(((Map<? extends Object, ? extends Object>) map.get(e.getKey()))));
             }
             return node;
         }).collect(Collectors.toList());

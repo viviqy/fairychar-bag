@@ -11,6 +11,7 @@ import java.lang.annotation.*;
  * time: 16:29 <br>
  * <br>
  * <p>接口请求日志拦截</p>
+ *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
  */
@@ -31,12 +32,14 @@ public @interface RequestLog {
 
     /**
      * 日志前置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean
+     *
      * @return
      */
     String beforeHandler() default "";
 
     /**
      * 日志后置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean
+     *
      * @return
      */
     String afterHandler() default "";

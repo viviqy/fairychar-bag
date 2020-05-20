@@ -9,6 +9,7 @@ import org.aspectj.lang.JoinPoint;
  * time: 21:25 <br>
  * <br>
  * <p>web request 日志处理</p>
+ *
  * @author qiyue <br>
  */
 public interface LoggingHandler {

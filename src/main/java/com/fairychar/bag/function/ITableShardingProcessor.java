@@ -9,5 +9,5 @@ package com.fairychar.bag.function;
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
  */
-public interface ITableShardingProcessor<R,P> extends IShardingProcessor<R,P> {
+public interface ITableShardingProcessor<R, P> extends IShardingProcessor<R, P> {
 }

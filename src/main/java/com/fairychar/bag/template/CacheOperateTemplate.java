@@ -3,7 +3,6 @@ package com.fairychar.bag.template;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.Lock;
 import java.util.function.Consumer;
 import java.util.function.Supplier;

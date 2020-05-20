@@ -16,8 +16,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 /**
-
- *
  * @author chiyo
  */
 @Slf4j

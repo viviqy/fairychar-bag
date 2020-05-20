@@ -30,7 +30,7 @@ public class AopProperties {
         private boolean enable;
         private RequestLog.Level globalLevel = RequestLog.Level.INFO;
         private String globalBefore;
-//        private String globalAround;
+        //        private String globalAround;
         private String globalAfter;
     }
 }
