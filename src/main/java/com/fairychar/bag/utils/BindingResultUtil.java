@@ -28,7 +28,7 @@ public final class BindingResultUtil {
             if (bindingResult.hasErrors()) {
                 errors += bindingResult
                         .getFieldErrors().stream()
-                        .map(e -> e.getField() + " " + e.getDefaultMessage())
+                        .map(e -> "[" + e.getField() + "]" + " " + e.getDefaultMessage())
                         .collect(Collectors.joining(","));
                 errors.concat(LINER);
             }

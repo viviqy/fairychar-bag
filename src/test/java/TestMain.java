@@ -2,16 +2,13 @@ import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
-import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
-import com.fairychar.bag.utils.CycleTaskUtil;
+import com.fairychar.bag.utils.CircularTaskUtil;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
@@ -30,7 +27,7 @@ public class TestMain {
     private static Gson gson = new Gson();
     @Test
     public void test1(){
-        boolean result = CycleTaskUtil.run(() -> {
+        boolean result = CircularTaskUtil.run(() -> {
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {

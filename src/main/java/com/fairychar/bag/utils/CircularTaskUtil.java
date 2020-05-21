@@ -15,7 +15,7 @@ import java.util.function.Supplier;
  * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class CycleTaskUtil {
+public final class CircularTaskUtil {
 
 
     /**

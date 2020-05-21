@@ -12,5 +12,10 @@ import java.util.concurrent.TimeoutException;
  */
 @FunctionalInterface
 public interface Action {
+    /**
+     * 执行任务
+     * @throws InterruptedException
+     * @throws TimeoutException
+     */
     void doAction() throws InterruptedException, TimeoutException;
 }
