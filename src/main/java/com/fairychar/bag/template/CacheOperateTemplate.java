@@ -53,7 +53,7 @@ public final class CacheOperateTemplate {
             try {
                 lock.lockInterruptibly();
                 return dbToCacheAndGet(cache, db, toCache);
-            } catch (InterruptedException igonre) {
+            } catch (InterruptedException ignore) {
             } finally {
                 lock.unlock();
             }

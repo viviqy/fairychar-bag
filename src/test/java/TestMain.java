@@ -2,12 +2,14 @@ import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.CircularTaskUtil;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
 import org.junit.Test;
+import org.springframework.http.HttpStatus;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -25,8 +27,40 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
     private static Gson gson = new Gson();
+
     @Test
-    public void test1(){
+    public void run12(){
+        HttpResult.ok();
+        HttpResult.response(HttpStatus.BAD_REQUEST,"user");
+    }
+
+    @Test
+    public void run11() {
+        HashMap<String, String> map = new HashMap<>(1);
+        Object lock = new Object();
+        String value = CacheOperateTemplate.get(() -> {
+                    //从缓存读数据
+                    return map.get("a");
+                }
+                , () -> {
+                    //假装从数据库读取到了一个"1"花了1秒钟
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                    }
+                    return "1";
+                }
+                , s -> {
+                    //把1放到缓存里
+                    map.put("a", s);
+                }
+                , lock
+        );
+        System.out.println(value);
+    }
+
+    @Test
+    public void test1() {
         boolean result = CircularTaskUtil.run(() -> {
             try {
                 TimeUnit.SECONDS.sleep(1);
@@ -36,8 +70,9 @@ public class TestMain {
         }, true, 0, 5_000);
         System.out.println(result);
     }
+
     @Test
-    public void run10(){
+    public void run10() {
         List<User> users = Arrays.asList(new User(1, "1"), new User(2, "2"));
         User[] array = users.toArray(new User[]{});
         for (User user : array) {
@@ -48,23 +83,23 @@ public class TestMain {
     @Test
     public void run9() throws InterruptedException {
         Object lock = new Object();
-        new Thread(()->{
-            CacheOperateTemplate.get(()->null,()->"1",s->{
+        new Thread(() -> {
+            CacheOperateTemplate.get(() -> null, () -> "1", s -> {
                 try {
                     TimeUnit.SECONDS.sleep(5);
                 } catch (InterruptedException e) {
                 }
                 System.out.println(s);
-            },lock);
-        },"a").start();
+            }, lock);
+        }, "a").start();
         TimeUnit.MILLISECONDS.sleep(100L);
         Object lock1 = new Object();
         System.out.println(1111);
-        new Thread(()->{
-            CacheOperateTemplate.get(()->null,()->"2",s->{
+        new Thread(() -> {
+            CacheOperateTemplate.get(() -> null, () -> "2", s -> {
                 System.out.println(s);
-            },lock1);
-        },"a").start();
+            }, lock1);
+        }, "a").start();
         Thread.currentThread().join();
     }
 
@@ -84,8 +119,8 @@ public class TestMain {
                         , () -> "1", s -> {
                             System.out.println("a");
                             map.put("a", s);
-                        },lock);
-                System.out.println(threadName+"--"+s1);
+                        }, lock);
+                System.out.println(threadName + "获取到了" + s1);
             });
         }
         Thread.currentThread().join();
