@@ -7,11 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
  * Date: 2020/4/20 <br>
  * time: 09:00 <br>
  * <P>spring MVC{@link String}转{@link LocalDateTime}</P>
+ * 日期格式为yyyy-MM-dd HH:mm:ss
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT

@@ -1,6 +1,8 @@
 package com.fairychar.bag.extension.collection;
 
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -50,7 +52,10 @@ public class BiPredicateList<T> extends ArrayList<T> {
         return true;
     }
 
-
+    @Override
+    public T set(int index, T element) {
+        throw new NotImplementedException();
+    }
 }
 /*
                                       /[-])//  ___        

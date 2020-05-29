@@ -11,7 +11,9 @@ import java.time.temporal.TemporalAccessor;
  * User: chiyo <br>
  * Date: 2020/4/20 <br>
  * time: 10:00 <br>
+ *
  * <p>spring mvc {@link String}转{@link LocalDate}</p>
+ * 日期格式为yyyy-MM-dd
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
