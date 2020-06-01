@@ -11,6 +11,30 @@
   
   <artifactId>fairychar-bag</artifactId>
   
+  <description>
+    simple utils to easy coding
+  </description>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>chiyo</name>
+      <email>1261975105@qq.com</email>
+    </developer>
+  </developers>
+  
+  <scm>
+    <connection>scm:git:git@github.com:viviqy/fairychar-bag.git</connection>
+    <developerConnection>scm:git:git@github.com:viviqy/fairychar-bag</developerConnection>
+    <url>https://github.com/viviqy/fairychar-bag</url>
+  </scm>
+  
   <dependencies>
     <dependency>
       <groupId>io.netty</groupId>
@@ -96,24 +120,6 @@
     </dependency>
   </dependencies>
   
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.spring.platform</groupId>
-        <artifactId>platform-bom</artifactId>
-        <version>${spring.io.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring.boot.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   
   <build>
     <plugins>
@@ -177,9 +183,9 @@
               <charset>UTF-8</charset>
               <encoding>UTF-8</encoding>
               <docencoding>UTF-8</docencoding>
-              <additionalOptions>
-                <additionalOption>-Xdoclint:none</additionalOption>
-              </additionalOptions>
+<!--              <additionalOptions>-->
+<!--                <additionalOption>-Xdoclint:none</additionalOption>-->
+<!--              </additionalOptions>-->
               <!--              <additionalparam>-Xdoclint:none</additionalparam>-->
               <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
             </configuration>
