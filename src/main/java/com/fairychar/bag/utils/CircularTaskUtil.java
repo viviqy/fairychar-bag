@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import java.util.function.Supplier;
 
 /**
- * Created with IDEA <br>
  * Date: 2020/5/20 <br>
  * time: 16:46 <br>
  *

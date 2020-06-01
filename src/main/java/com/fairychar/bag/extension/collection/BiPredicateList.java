@@ -56,6 +56,8 @@ public class BiPredicateList<T> extends ArrayList<T> {
     public T set(int index, T element) {
         throw new NotImplementedException();
     }
+
+
 }
 /*
                                       /[-])//  ___        
