@@ -18,7 +18,7 @@ public final class CircularTaskUtil {
 
 
     /**
-     * @param task 执行任务
+     * @param task      执行任务
      * @param condition 成功条件
      * @return True为执行成功, false为失败
      */

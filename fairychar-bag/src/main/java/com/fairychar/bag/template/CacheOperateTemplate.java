@@ -45,7 +45,7 @@ public final class CacheOperateTemplate {
      * @param toCache 数据库数据到缓存数据消费者
      * @param lock    分布式lock实现者
      * @param <C>     返回类泛型
-     * @return
+     * @return {@link C}
      */
     public static <C> C get(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache, Lock lock) {
         C cacheValue = cache.get();

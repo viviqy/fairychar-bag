@@ -1,6 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.fairychar.bag.configurer.BeansAutoConfigurer
-
-
 org.springframework.context.ApplicationListener=\
 com.fairychar.bag.listener.SpringContextHolder

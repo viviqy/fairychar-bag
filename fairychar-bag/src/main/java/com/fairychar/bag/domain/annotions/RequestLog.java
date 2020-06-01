@@ -33,14 +33,14 @@ public @interface RequestLog {
     /**
      * 日志前置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean
      *
-     * @return
+     * @return loggingHandler bean name
      */
     String beforeHandler() default "";
 
     /**
      * 日志后置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean
      *
-     * @return
+     * @return loggingHandler bean name
      */
     String afterHandler() default "";
 

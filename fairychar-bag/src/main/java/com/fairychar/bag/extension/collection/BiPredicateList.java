@@ -1,16 +1,12 @@
 package com.fairychar.bag.extension.collection;
 
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiPredicate;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
  * Date: 2020/03/05 <br>
  * time: 18:12 <br>
  *
@@ -54,7 +50,7 @@ public class BiPredicateList<T> extends ArrayList<T> {
 
     @Override
     public T set(int index, T element) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
 

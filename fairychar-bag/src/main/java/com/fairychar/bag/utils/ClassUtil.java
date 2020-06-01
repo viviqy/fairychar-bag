@@ -26,6 +26,12 @@ import java.util.jar.JarFile;
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ClassUtil {
+    /**
+     * @param packageName 扫描包名
+     * @param packagePath 包路径
+     * @param recursive   是否地柜
+     * @param classes     实体类
+     */
     public static void findAndAddClassesInPackageByFile(String packageName, String packagePath, final boolean recursive, List<Class<?>> classes) {
         //获取此包的目录 建立一个File
         File dir = new File(packagePath);
@@ -57,6 +63,11 @@ public final class ClassUtil {
         }
     }
 
+    /**
+     * @param packageName 包名
+     * @param isRecursive 是否扫描子包
+     * @return 类集合
+     */
     public static List<Class<?>> getClasses(String packageName, boolean isRecursive) {
 
         //第一个class类的集合
@@ -202,6 +213,11 @@ public final class ClassUtil {
         return classSet;
     }
 
+    /**
+     * @param classSet    classSet
+     * @param packagePath 包路径
+     * @param packageName 包名
+     */
     private static void addClass(Set<Class<?>> classSet, String packagePath, String packageName) {
         File[] files = new File(packagePath).listFiles(file -> (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory());
         for (File file : files) {
@@ -226,6 +242,10 @@ public final class ClassUtil {
         }
     }
 
+    /**
+     * @param classSet  classSet
+     * @param className 类名
+     */
     private static void doAddClass(Set<Class<?>> classSet, String className) {
         Class<?> cls = loadClass(className, false);
         classSet.add(cls);

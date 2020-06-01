@@ -14,8 +14,9 @@ import java.util.concurrent.TimeoutException;
 public interface Action {
     /**
      * 执行任务
-     * @throws InterruptedException
-     * @throws TimeoutException
+     *
+     * @throws InterruptedException 打断触发
+     * @throws TimeoutException 超时触发
      */
     void doAction() throws InterruptedException, TimeoutException;
 }

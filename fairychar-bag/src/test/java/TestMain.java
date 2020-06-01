@@ -29,9 +29,9 @@ public class TestMain {
     private static Gson gson = new Gson();
 
     @Test
-    public void run12(){
+    public void run12() {
         HttpResult.ok();
-        HttpResult.response(HttpStatus.BAD_REQUEST,"user");
+        HttpResult.response(HttpStatus.BAD_REQUEST, "user");
     }
 
     @Test

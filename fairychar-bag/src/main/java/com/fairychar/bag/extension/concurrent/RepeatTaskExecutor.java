@@ -42,7 +42,7 @@ public final class RepeatTaskExecutor {
      * 创建任务批次执行工具类
      *
      * @param tasklist 任务列表
-     * @return
+     * @return {@link RepeatTaskExecutor}
      */
     public static RepeatTaskExecutor createCycle(List<Action> tasklist) {
         return new RepeatTaskExecutor(tasklist);
@@ -93,7 +93,7 @@ public final class RepeatTaskExecutor {
     /**
      * 获取已执行任务次数
      *
-     * @return
+     * @return 已执行次数
      */
     public long getExecutedTimes() {
         return this.executeTimes.get();
