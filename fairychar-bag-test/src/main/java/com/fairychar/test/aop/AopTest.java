@@ -1,63 +1,36 @@
-package com.fairychar.bag.properties;
+package com.fairychar.test.aop;
 
-import com.fairychar.bag.domain.annotions.MethodLock;
-import com.fairychar.bag.domain.annotions.RequestLog;
-import lombok.Getter;
-import lombok.Setter;
+import com.fairychar.test.domain.LockTest;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:39 <br>
+ * Datetime: 2020/6/2 16:23 <br>
  *
- * @author qiyue <br>
+ * @author chiyo <br>
+ * @since 1.0
  */
-@Getter
-@Setter
-public class AopProperties {
-    private Log log;
-    private Binding binding;
-    private Lock lock;
+@Component
+@Aspect
+@Slf4j
+public class AopTest {
 
-    @Getter
-    @Setter
-    public static class Binding {
-        private boolean enable;
+    @Around("@annotation(lockTest)")
+    public Object locking(JoinPoint joinPoint, LockTest lockTest) throws InterruptedException {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        synchronized (methodSignature.getMethod()) {
+            TimeUnit.SECONDS.sleep(3);
+            System.out.println(Thread.currentThread().getName()+ " method hashcode=" + methodSignature.getMethod().hashCode());
+        }
+        return new Object();
     }
 
-    @Getter
-    @Setter
-    public static class Log {
-        private boolean enable;
-        private RequestLog.Level globalLevel = RequestLog.Level.INFO;
-        private String globalBefore;
-        private String globalAfter;
-    }
-
-    @Getter
-    @Setter
-    public static class Lock {
-        /**
-         * 使用启用lock切面
-         */
-        private boolean enable;
-        /**
-         * 全局超时时间
-         */
-        private int globalTimeout = -1;
-
-        /**
-         * 全局锁类型
-         */
-        private MethodLock.Type type = MethodLock.Type.LOCAL;
-
-
-        /**
-         * 是否使用乐观锁,默认否
-         */
-        private boolean optimistic = false;
-    }
 }
 /*
                                       /[-])//  ___        

@@ -1,62 +1,34 @@
-package com.fairychar.bag.properties;
+import org.junit.Test;
 
-import com.fairychar.bag.domain.annotions.MethodLock;
-import com.fairychar.bag.domain.annotions.RequestLog;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:39 <br>
+ * Datetime: 2020/6/2 14:47 <br>
  *
- * @author qiyue <br>
+ * @author chiyo <br>
+ * @since 1.0
  */
-@Getter
-@Setter
-public class AopProperties {
-    private Log log;
-    private Binding binding;
-    private Lock lock;
-
-    @Getter
-    @Setter
-    public static class Binding {
-        private boolean enable;
-    }
-
-    @Getter
-    @Setter
-    public static class Log {
-        private boolean enable;
-        private RequestLog.Level globalLevel = RequestLog.Level.INFO;
-        private String globalBefore;
-        private String globalAfter;
-    }
-
-    @Getter
-    @Setter
-    public static class Lock {
-        /**
-         * 使用启用lock切面
-         */
-        private boolean enable;
-        /**
-         * 全局超时时间
-         */
-        private int globalTimeout = -1;
-
-        /**
-         * 全局锁类型
-         */
-        private MethodLock.Type type = MethodLock.Type.LOCAL;
-
-
-        /**
-         * 是否使用乐观锁,默认否
-         */
-        private boolean optimistic = false;
+public class TestMain {
+    @Test
+    public void test1() throws InterruptedException {
+        String a="aa";
+        String b="aa";
+        new Thread(()->{
+            System.out.println("a:"+a);
+            synchronized (a){
+                try {
+                    Thread.currentThread().join();
+                } catch (InterruptedException e) {
+                }
+            }
+        }).start();
+        TimeUnit.SECONDS.sleep(1);
+        new Thread(()->{
+            synchronized (b){
+                System.out.println(b);
+            }
+        }).start();
+        Thread.currentThread().join();
     }
 }
 /*
