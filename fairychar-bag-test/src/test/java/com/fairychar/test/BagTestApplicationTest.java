@@ -24,6 +24,14 @@ public class BagTestApplicationTest {
     private LockTestService lockTestService;
 
     @Test
+    public void test3(){
+        lockTestService.run1("test3");
+        lockTestService.run1();
+        lockTestService.run1("test3");
+        lockTestService.run1();
+    }
+
+    @Test
     public void run2() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         IntStream.range(0,10).forEach(i->{

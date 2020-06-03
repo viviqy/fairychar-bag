@@ -3,11 +3,13 @@ package com.fairychar.test.aop;
 import com.fairychar.test.domain.LockTest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -30,13 +32,18 @@ public class AopTest {
     @Around("@annotation(lockTest)")
     public Object locking(JoinPoint joinPoint, LockTest lockTest) throws InterruptedException {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) joinPoint;
         ReentrantLock reentrantLock = createOrGetLock(methodSignature.getMethod());
         System.out.println(Thread.currentThread().getName() + " lock : " + reentrantLock.hashCode());
+        reentrantLock.lock();
         try {
-            reentrantLock.lock();
             TimeUnit.SECONDS.sleep(1);
             System.out.println(Thread.currentThread().getName() + " method hashcode=" + methodSignature.getMethod().hashCode());
-
+            proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException e) {
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
         } finally {
             reentrantLock.unlock();
         }

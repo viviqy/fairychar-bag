@@ -18,6 +18,11 @@ public class LockTestService {
         System.out.println("aaaa");
     }
 
+    @LockTest
+    public void run1(String s){
+        System.out.println(s);
+    }
+
     private ReentrantLock lock=new ReentrantLock();
 
     public void run2(){

@@ -5,6 +5,7 @@ import com.fairychar.bag.domain.annotions.MethodLock;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -12,8 +13,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.annotation.Order;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,40 +36,47 @@ public class MethodLockAspectJ implements InitializingBean {
     private Map<Method, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
 
     @Around("@annotation(methodLock)")
-    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws InvocationTargetException, IllegalAccessException, InterruptedException {
+    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) joinPoint;
         if (!methodLock.enable()) {
             return null;
         }
-        return switchLock(methodSignature, methodLock);
+        return switchLock(methodSignature, methodLock, proceedingJoinPoint);
     }
 
-    private Object switchLock(MethodSignature methodSignature, MethodLock methodLock) throws InvocationTargetException, IllegalAccessException, InterruptedException {
+    private Object switchLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.NONE ? fairycharBagProperties.getAop().getLock().getType() : methodLock.lockType();
         switch (lockType) {
-            case NONE:
-                break;
             case LOCAL: {
-                return doLocalLock(methodSignature, methodLock);
+                return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
             }
             case REDIS:
-                break;
+                return doRedisLock(methodSignature, methodLock, proceedingJoinPoint);
             case ZOOKEEPER:
-                break;
+                return doZookeeperLock(methodSignature, methodLock, proceedingJoinPoint);
+            default:
+                return null;
         }
-        return null;
     }
 
-    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock) throws InvocationTargetException, IllegalAccessException, InterruptedException {
+    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
+        throw new NotImplementedException();
+    }
+
+    private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
+        throw new NotImplementedException();
+    }
+
+    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
         ReentrantLock reentrantLock = createOrGetLocalLock(method);
         reentrantLock.lockInterruptibly();
         try {
-            Object invoke = method.invoke(method.getParameters());
-            return invoke;
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            log.error("method invocation failed {}", e.getMessage());
-            throw e;
+            Object proceed = proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            return proceed;
+        } catch (Throwable throwable) {
+            throw throwable;
         } finally {
             reentrantLock.unlock();
         }
