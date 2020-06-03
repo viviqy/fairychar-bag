@@ -18,6 +18,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -48,9 +49,8 @@ public class MethodLockAspectJ implements InitializingBean {
     private Object switchLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.NONE ? fairycharBagProperties.getAop().getLock().getType() : methodLock.lockType();
         switch (lockType) {
-            case LOCAL: {
+            case LOCAL:
                 return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
-            }
             case REDIS:
                 return doRedisLock(methodSignature, methodLock, proceedingJoinPoint);
             case ZOOKEEPER:
@@ -71,14 +71,29 @@ public class MethodLockAspectJ implements InitializingBean {
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
         ReentrantLock reentrantLock = createOrGetLocalLock(method);
-        reentrantLock.lockInterruptibly();
-        try {
-            Object proceed = proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-            return proceed;
-        } catch (Throwable throwable) {
-            throw throwable;
-        } finally {
-            reentrantLock.unlock();
+        if (methodLock.optimistic()) {
+            int timeout = methodLock.timeout();
+            try {
+                reentrantLock.tryLock(timeout, TimeUnit.MILLISECONDS);
+                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            } catch (InterruptedException e) {
+                throw e;
+            } catch (Throwable throwable) {
+                throw throwable;
+            } finally {
+                reentrantLock.unlock();
+            }
+        } else {
+            try {
+                reentrantLock.lockInterruptibly();
+                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            } catch (InterruptedException e) {
+                throw e;
+            } catch (Throwable e) {
+                throw e;
+            } finally {
+                reentrantLock.unlock();
+            }
         }
     }
 

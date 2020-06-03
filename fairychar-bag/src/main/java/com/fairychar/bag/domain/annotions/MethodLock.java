@@ -1,6 +1,8 @@
 package com.fairychar.bag.domain.annotions;
 
 import java.lang.annotation.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Datetime: 2020/6/2 10:37 <br>
@@ -20,6 +22,7 @@ public @interface MethodLock {
      * @return {@link Type}
      */
     Type lockType() default Type.NONE;
+
     /**
      * 使用启用
      *
@@ -32,10 +35,10 @@ public @interface MethodLock {
      *
      * @return 超时时长
      */
-    int timeout() default -1;
+    int timeout() default 0;
 
     /**
-     * 分布式锁前置下,是否使用乐观锁
+     * 是否使用乐观锁
      *
      * @return true=使用,false=不适用
      */
@@ -47,6 +50,7 @@ public @interface MethodLock {
      * @return 默认使用全路径类名+方法名+参数类型
      */
     String distributedPath() default "";
+
 
 
     enum Type {

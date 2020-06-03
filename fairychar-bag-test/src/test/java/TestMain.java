@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Datetime: 2020/6/2 14:47 <br>
@@ -9,6 +10,27 @@ import java.util.concurrent.TimeUnit;
  * @since 1.0
  */
 public class TestMain {
+    @Test
+    public void test2() throws InterruptedException {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        new Thread(()->{reentrantLock.lock();}).start();
+        TimeUnit.SECONDS.sleep(1);
+        Thread thread = new Thread(() -> {
+
+            try {
+                reentrantLock.tryLock(3, TimeUnit.SECONDS);
+                System.out.println(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                reentrantLock.unlock();
+            }
+        });
+        thread.start();
+        TimeUnit.SECONDS.sleep(1);
+        thread.interrupt();
+        Thread.currentThread().join();
+    }
     @Test
     public void test1() throws InterruptedException {
         String a="aa";
