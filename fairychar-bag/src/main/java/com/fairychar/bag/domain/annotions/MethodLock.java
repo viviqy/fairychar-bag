@@ -35,7 +35,7 @@ public @interface MethodLock {
     int timeout() default -1;
 
     /**
-     * 是否使用乐观锁
+     * 分布式锁前置下,是否使用乐观锁
      *
      * @return true=使用,false=不适用
      */

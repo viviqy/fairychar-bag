@@ -8,7 +8,11 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Datetime: 2020/6/2 16:23 <br>
@@ -21,14 +25,42 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class AopTest {
 
+    private Map<Method, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
+
     @Around("@annotation(lockTest)")
     public Object locking(JoinPoint joinPoint, LockTest lockTest) throws InterruptedException {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        synchronized (methodSignature.getMethod()) {
-            TimeUnit.SECONDS.sleep(3);
-            System.out.println(Thread.currentThread().getName()+ " method hashcode=" + methodSignature.getMethod().hashCode());
+        ReentrantLock reentrantLock = createOrGetLock(methodSignature.getMethod());
+        System.out.println(Thread.currentThread().getName() + " lock : " + reentrantLock.hashCode());
+        try {
+            reentrantLock.lock();
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println(Thread.currentThread().getName() + " method hashcode=" + methodSignature.getMethod().hashCode());
+
+        } finally {
+            reentrantLock.unlock();
         }
         return new Object();
+    }
+
+
+    private ReentrantLock createOrGetLock(Method method) {
+        ReentrantLock lock = lockMap.get(method);
+        if (lock == null) {
+            synchronized (method) {
+                ReentrantLock lock1 = lockMap.get(method);
+                if (lock1 != null) {
+                    return lock1;
+                } else {
+                    ReentrantLock reentrantLock = new ReentrantLock();
+                    lockMap.put(method, reentrantLock);
+                    return reentrantLock;
+                }
+            }
+        } else {
+            return lock;
+        }
+
     }
 
 }

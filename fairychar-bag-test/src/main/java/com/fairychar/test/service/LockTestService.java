@@ -3,6 +3,8 @@ package com.fairychar.test.service;
 import com.fairychar.test.domain.LockTest;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Datetime: 2020/6/2 16:25 <br>
  *
@@ -14,6 +16,17 @@ public class LockTestService {
     @LockTest
     public void run1(){
         System.out.println("aaaa");
+    }
+
+    private ReentrantLock lock=new ReentrantLock();
+
+    public void run2(){
+        try {
+            lock.lock();
+            System.out.println("bbb");
+        } finally {
+            lock.unlock();
+        }
     }
 }
 
