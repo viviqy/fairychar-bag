@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
  */
 @Configuration
 @EnableConfigurationProperties(value = {FairycharBagProperties.class})
-public class BeansAutoConfigurer {
+public class BagBeansAutoConfigurer {
     @Autowired
     private FairycharBagProperties bagProperties;
 

@@ -74,7 +74,7 @@ public class MethodLockAspectJ implements InitializingBean {
         if (methodLock.optimistic()) {
             int timeout = methodLock.timeout();
             try {
-                reentrantLock.tryLock(timeout, TimeUnit.MILLISECONDS);
+                reentrantLock.tryLock(timeout, methodLock.timeUnit());
                 return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
             } catch (InterruptedException e) {
                 throw e;

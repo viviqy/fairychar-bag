@@ -1,8 +1,7 @@
 package com.fairychar.bag.domain.annotions;
 
 import java.lang.annotation.*;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Datetime: 2020/6/2 10:37 <br>
@@ -40,9 +39,15 @@ public @interface MethodLock {
     /**
      * 是否使用乐观锁
      *
-     * @return true=使用,false=不适用
+     * @return true=使用,false=不使用
      */
     boolean optimistic() default false;
+
+    /**
+     * 仅在乐观锁或分布式锁情况下使用
+     * @return {@link TimeUnit}
+     */
+    TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
 
     /**
      * 分布式锁节点名称
@@ -50,7 +55,6 @@ public @interface MethodLock {
      * @return 默认使用全路径类名+方法名+参数类型
      */
     String distributedPath() default "";
-
 
 
     enum Type {

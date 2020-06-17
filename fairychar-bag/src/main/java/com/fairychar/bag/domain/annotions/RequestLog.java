@@ -44,7 +44,6 @@ public @interface RequestLog {
      */
     String afterHandler() default "";
 
-//    String aroundHandler() default "";
 
     enum Level {
         TRACE(),

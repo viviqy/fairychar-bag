@@ -68,7 +68,7 @@ public class LoggingAspectJ implements InitializingBean {
 //        }
 //    }
 
-    @After("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
+    @After("execution(public * *..web.controller..*.*(..))  && @annotation(requestLog)")
     public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {
             return;
