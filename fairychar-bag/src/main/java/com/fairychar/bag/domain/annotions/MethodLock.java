@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @Inherited
 public @interface MethodLock {
     /**
-     * <p>使用锁类型local=本地锁,redis=redis分布式锁,zookeeper=zookeeper分布式锁</p>
+     * <p>使用锁类型local=本地锁,redis=redis分布式锁,ZK=zookeeper分布式锁</p>
      * 默认为NONE,如果为NONE代表使用全局设置
      *
      * @return {@link Type}
@@ -61,6 +61,6 @@ public @interface MethodLock {
         NONE(),
         LOCAL(),
         REDIS(),
-        ZOOKEEPER();
+        ZK();
     }
 }

@@ -9,7 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <description>
-    simple utils to easy coding
+    simple utils for easy coding
   </description>
   <properties>
     <spring.boot.version>2.2.2.RELEASE</spring.boot.version>

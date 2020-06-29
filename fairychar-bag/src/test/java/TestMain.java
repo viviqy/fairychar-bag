@@ -9,6 +9,7 @@ import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.google.gson.Gson;
 import org.junit.Test;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 
 import java.util.*;
@@ -148,6 +149,7 @@ public class TestMain {
         List<MappingAO<String, Integer>> list = MappingObjectUtil.mapping(map);
         System.out.println(list);
     }
+
 
 
     @Test

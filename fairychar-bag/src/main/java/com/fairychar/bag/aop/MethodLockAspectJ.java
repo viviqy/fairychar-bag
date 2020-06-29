@@ -53,7 +53,7 @@ public class MethodLockAspectJ implements InitializingBean {
                 return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
             case REDIS:
                 return doRedisLock(methodSignature, methodLock, proceedingJoinPoint);
-            case ZOOKEEPER:
+            case ZK:
                 return doZookeeperLock(methodSignature, methodLock, proceedingJoinPoint);
             default:
                 return null;
@@ -84,8 +84,8 @@ public class MethodLockAspectJ implements InitializingBean {
                 reentrantLock.unlock();
             }
         } else {
+            reentrantLock.lockInterruptibly();
             try {
-                reentrantLock.lockInterruptibly();
                 return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
             } catch (InterruptedException e) {
                 throw e;
