@@ -11,6 +11,9 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestMain {
     @Test
+    public void test3(){
+    }
+    @Test
     public void test2() throws InterruptedException {
         ReentrantLock reentrantLock = new ReentrantLock();
         new Thread(()->{reentrantLock.lock();}).start();

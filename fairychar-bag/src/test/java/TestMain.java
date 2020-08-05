@@ -2,15 +2,16 @@ import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.pojo.ao.EchartsNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
-import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.CircularTaskUtil;
 import com.fairychar.bag.utils.EChartsUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
+import com.fairychar.bag.utils.ReflectUtil;
 import com.google.gson.Gson;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.Test;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -29,10 +30,23 @@ import java.util.stream.Collectors;
 public class TestMain {
     private static Gson gson = new Gson();
 
+    @AllArgsConstructor
+    @NoArgsConstructor
+   public static class A {
+        private Object a;
+    }
+
+    @AllArgsConstructor
+    @NoArgsConstructor
+   public static class B {
+        private Integer a;
+    }
+
     @Test
     public void run12() {
-        HttpResult.ok();
-        HttpResult.response(HttpStatus.BAD_REQUEST, "user");
+
+        B b = ReflectUtil.copyProperties(new A(1), B.class, false);
+        System.out.println(b);
     }
 
     @Test
@@ -149,7 +163,6 @@ public class TestMain {
         List<MappingAO<String, Integer>> list = MappingObjectUtil.mapping(map);
         System.out.println(list);
     }
-
 
 
     @Test

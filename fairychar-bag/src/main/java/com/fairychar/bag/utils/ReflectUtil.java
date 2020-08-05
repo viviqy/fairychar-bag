@@ -19,6 +19,23 @@ import java.util.*;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ReflectUtil {
+
+    public static void swapInteger(Integer a, Integer b) {
+        Unsafe unsafe = getUnsafe();
+        int c = a ^ b;
+        try {
+            unsafe.compareAndSwapInt(a
+                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , a, c ^ a);
+            unsafe.compareAndSwapInt(b
+                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , b, c ^ b);
+        } catch (NoSuchFieldException ignore) {
+            //never happened
+        }
+    }
+
+
     public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         return mapToEntity(map, tClass, false, false);
     }

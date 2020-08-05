@@ -50,6 +50,13 @@ public class AopTest {
         return new Object();
     }
 
+    @Around(value = "execution(public * com.fairychar.test.controller.*.*(..)) && args(String)")
+    public Object controllerTest(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        String file = (String) proceedingJoinPoint.getArgs()[0];
+        log.info("aop切到了{}", file);
+        return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+    }
+
 
     private ReentrantLock createOrGetLock(Method method) {
         ReentrantLock lock = lockMap.get(method);
