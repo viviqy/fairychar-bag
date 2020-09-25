@@ -1,15 +1,14 @@
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
-import com.fairychar.bag.pojo.ao.EchartsNode;
+import com.fairychar.bag.pojo.ao.TreeNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.CircularTaskUtil;
-import com.fairychar.bag.utils.EChartsUtil;
+import com.fairychar.bag.utils.TreeNodeUtil;
 import com.fairychar.bag.utils.MappingObjectUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.junit.Test;
 
@@ -196,7 +195,7 @@ public class TestMain {
                 Collectors.groupingBy(u -> u.getName()
                         , Collectors.groupingBy(u -> u.getId())));
         System.out.println(collect);
-        List<EchartsNode<User>> list = EChartsUtil.mapToNode(collect);
+        List<TreeNode<User>> list = TreeNodeUtil.mapToNode(collect);
         System.out.println(gson.toJson(list));
     }
 

@@ -11,12 +11,13 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestMain {
     @Test
-    public void test3(){
+    public void test3() {
     }
+
     @Test
     public void test2() throws InterruptedException {
         ReentrantLock reentrantLock = new ReentrantLock();
-        new Thread(()->{reentrantLock.lock();}).start();
+        new Thread(() -> reentrantLock.lock()).start();
         TimeUnit.SECONDS.sleep(1);
         Thread thread = new Thread(() -> {
 
@@ -34,13 +35,14 @@ public class TestMain {
         thread.interrupt();
         Thread.currentThread().join();
     }
+
     @Test
     public void test1() throws InterruptedException {
-        String a="aa";
-        String b="aa";
-        new Thread(()->{
-            System.out.println("a:"+a);
-            synchronized (a){
+        String a = "aa";
+        String b = "aa";
+        new Thread(() -> {
+            System.out.println("a:" + a);
+            synchronized (a) {
                 try {
                     Thread.currentThread().join();
                 } catch (InterruptedException e) {
@@ -48,8 +50,8 @@ public class TestMain {
             }
         }).start();
         TimeUnit.SECONDS.sleep(1);
-        new Thread(()->{
-            synchronized (b){
+        new Thread(() -> {
+            synchronized (b) {
                 System.out.println(b);
             }
         }).start();

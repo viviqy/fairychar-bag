@@ -1,6 +1,6 @@
 package com.fairychar.bag.utils;
 
-import com.fairychar.bag.pojo.ao.EchartsNode;
+import com.fairychar.bag.pojo.ao.TreeNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -18,21 +18,21 @@ import java.util.stream.Collectors;
  * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class EChartsUtil {
-    public static <T> List<EchartsNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
-        return wrapEcharsNode(groupingBy);
+public final class TreeNodeUtil {
+    public static <T> List<TreeNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
+        return wrapTreeNode(groupingBy);
     }
 
-    private static <T> List<EchartsNode<T>> wrapEcharsNode(Map<? extends Object, ? extends Object> map) {
-        List<EchartsNode<T>> collect = map.entrySet().stream().map(e -> {
-            EchartsNode<T> node = new EchartsNode<>();
+    private static <T> List<TreeNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map) {
+        List<TreeNode<T>> collect = map.entrySet().stream().map(e -> {
+            TreeNode<T> node = new TreeNode<>();
             node.setName(String.valueOf(e.getKey()));
             if (e.getValue() instanceof List) {
                 node.setCount(((List) e.getValue()).size());
                 node.setValue(((List<T>) e.getValue()));
             } else {
                 node.setCount(((Map) e.getValue()).size());
-                node.setChild(wrapEcharsNode(((Map<? extends Object, ? extends Object>) map.get(e.getKey()))));
+                node.setChild(wrapTreeNode(((Map<? extends Object, ? extends Object>) map.get(e.getKey()))));
             }
             return node;
         }).collect(Collectors.toList());

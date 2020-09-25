@@ -3,6 +3,7 @@ package com.fairychar.bag.aop;
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.annotions.MethodLock;
 import com.fairychar.bag.properties.FairycharBagProperties;
+import com.fairychar.bag.template.CacheOperateTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,7 +19,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -98,23 +98,10 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private ReentrantLock createOrGetLocalLock(Method method) {
-        ReentrantLock result;
-        ReentrantLock cache = lockMap.get(method);
-        if (cache == null) {
-            synchronized (method) {
-                ReentrantLock cacheConfirm = lockMap.get(method);
-                if (cacheConfirm != null) {
-                    result = cacheConfirm;
-                } else {
-                    ReentrantLock reentrantLock = new ReentrantLock();
-                    lockMap.put(method, reentrantLock);
-                    result = reentrantLock;
-                }
-            }
-        } else {
-            result = cache;
-        }
-        return result;
+        ReentrantLock lock = CacheOperateTemplate.get(() -> lockMap.get(method)
+                , ReentrantLock::new
+                , l -> lockMap.put(method, l), method);
+        return lock;
     }
 
     @Override

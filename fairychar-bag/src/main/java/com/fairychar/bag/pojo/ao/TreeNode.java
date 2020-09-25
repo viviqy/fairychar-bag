@@ -20,13 +20,13 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-public class EchartsNode<T> {
+public class TreeNode<T> {
     private String name;
     private long count;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<T> value;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EchartsNode<T>> child;
+    private List<TreeNode<T>> child;
 }
 /*
                                       /[-])//  ___        
