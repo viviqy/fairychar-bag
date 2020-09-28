@@ -1,6 +1,5 @@
-package com.fairychar.bag.beans.conditional;
+package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.domain.conditional.ConditionalOnDateTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -14,7 +13,7 @@ import java.util.Map;
  * @author chiyo
  */
 @Slf4j
-public class OnDateTimeCondition implements Condition {
+class OnDateTimeCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnDateTime.class.getName());

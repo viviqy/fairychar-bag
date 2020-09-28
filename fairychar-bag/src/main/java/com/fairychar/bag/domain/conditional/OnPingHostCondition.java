@@ -1,6 +1,5 @@
-package com.fairychar.bag.beans.conditional;
+package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.domain.conditional.ConditionalOnPingHost;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.configurationprocessor.metadata.InvalidConfigurationMetadataException;
 import org.springframework.context.annotation.Condition;
@@ -15,18 +14,18 @@ import java.util.Map;
  * @author chiyo
  */
 @Slf4j
-public class OnPingHostCondition implements Condition {
+class OnPingHostCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnPingHost.class.getName());
         String host = (String) annotationAttributes.get("host");
         boolean result = (Boolean) annotationAttributes.get("result");
         int timeout = (Integer) annotationAttributes.get("timeout");
-        log.info(String.format("name= %s , result= %s", host, result));
+        log.info("host=[{}],result=[{}],timeout=[{}]", host, result, timeout);
         try {
             InetAddress address = InetAddress.getByName(host);
             boolean reachable = address.isReachable(timeout);
-            return reachable;
+            return reachable == result;
         } catch (Exception e) {
             throw new InvalidConfigurationMetadataException(e.getMessage(), Diagnostic.Kind.ERROR);
         }

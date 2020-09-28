@@ -1,11 +1,8 @@
 package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.beans.conditional.OnDateTimeCondition;
-import com.fairychar.bag.beans.conditional.OnSystemPropertyCondition;
 import org.springframework.context.annotation.Conditional;
 
 import java.lang.annotation.*;
-import java.time.LocalDateTime;
 
 /**
  * Created with IDEA

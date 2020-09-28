@@ -1,6 +1,5 @@
 package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.beans.conditional.OnPingHostCondition;
 import org.springframework.context.annotation.Conditional;
 
 import java.lang.annotation.*;

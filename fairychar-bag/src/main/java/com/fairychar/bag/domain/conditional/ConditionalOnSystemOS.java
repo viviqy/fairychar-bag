@@ -1,6 +1,5 @@
 package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.beans.conditional.OnDateTimeCondition;
 import org.springframework.context.annotation.Conditional;
 
 import java.lang.annotation.*;
@@ -16,10 +15,16 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Target({ElementType.METHOD, ElementType.TYPE})
-@Conditional(OnDateTimeCondition.class)
+@Conditional(OnSystemOsCondition.class)
 public @interface ConditionalOnSystemOS {
+    /**
+     * @return 系统类型
+     */
     OS os();
 
+    /**
+     * @return 是否匹配
+     */
     boolean condition();
 
     enum OS {

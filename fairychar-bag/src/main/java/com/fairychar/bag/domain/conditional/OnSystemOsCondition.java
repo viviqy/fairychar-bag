@@ -1,6 +1,5 @@
-package com.fairychar.bag.beans.conditional;
+package com.fairychar.bag.domain.conditional;
 
-import com.fairychar.bag.domain.conditional.ConditionalOnSystemOS;
 import com.sun.media.jfxmediaimpl.HostUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Condition;
@@ -13,22 +12,24 @@ import java.util.Map;
  * @author chiyo
  */
 @Slf4j
-public class OnSystemOsCondition implements Condition {
+class OnSystemOsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnSystemOS.class.getName());
         ConditionalOnSystemOS.OS os = (ConditionalOnSystemOS.OS) annotationAttributes.get("os");
         boolean condition = (Boolean) annotationAttributes.get("condition");
-        switch (os){
-
+        log.info("os=[{}],condition=[{}]", os, condition);
+        switch (os) {
             case Windows:
-                break;
+                return HostUtils.isWindows() & condition;
             case Linux:
-                break;
+                return HostUtils.isLinux() & condition;
             case MacOSX:
-                break;
+                return HostUtils.isMacOSX() & condition;
             case IOS:
-                break;
+                return HostUtils.isIOS() & condition;
+            default:
+                return false;
         }
     }
 }
