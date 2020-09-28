@@ -2,6 +2,7 @@ package com.fairychar.bag.utils;
 
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
+import com.fairychar.bag.pojo.ao.TreeNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,25 @@ import java.util.stream.Collectors;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MappingObjectUtil {
+    public static <T> List<TreeNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
+        return wrapTreeNode(groupingBy);
+    }
+
+    private static <T> List<TreeNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map) {
+        List<TreeNode<T>> collect = map.entrySet().stream().map(e -> {
+            TreeNode<T> node = new TreeNode<>();
+            node.setName(String.valueOf(e.getKey()));
+            if (e.getValue() instanceof List) {
+                node.setCount(((List) e.getValue()).size());
+                node.setValue(((List<T>) e.getValue()));
+            } else {
+                node.setCount(((Map) e.getValue()).size());
+                node.setChild(wrapTreeNode(((Map<? extends Object, ? extends Object>) map.get(e.getKey()))));
+            }
+            return node;
+        }).collect(Collectors.toList());
+        return collect;
+    }
 
     public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map) {
         return map.entrySet().stream().map(e -> new MappingAO<K, V>(e.getKey(), e.getValue()))
