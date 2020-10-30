@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
 public class TestMain {
     private static Gson gson = new Gson();
 
+
+
     @AllArgsConstructor
     @NoArgsConstructor
    public static class A {

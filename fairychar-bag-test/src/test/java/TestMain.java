@@ -11,7 +11,10 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestMain {
     @Test
-    public void test3() {
+    public void test13(){
+        for (int i = 1; i <= 99; i++) {
+            System.out.println("认错x"+i);
+        }
     }
 
     @Test
