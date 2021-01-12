@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel("Long类型Json请求体")
+@ApiModel(value = "LongBody",description = "Long类型Json请求体")
 public class LongBody implements Serializable {
     private Long body;
 }

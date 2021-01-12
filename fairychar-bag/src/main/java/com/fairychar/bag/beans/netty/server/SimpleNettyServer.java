@@ -13,7 +13,6 @@ import io.netty.handler.logging.LoggingHandler;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutionException;
@@ -30,7 +29,7 @@ import java.util.concurrent.TimeoutException;
  * @since 0.0.1-SNAPSHOT
  */
 @Slf4j
-public class SimpleNettyServer implements InitializingBean {
+public class SimpleNettyServer {
     @Getter
     private final int bossSize;
     @Getter
@@ -130,11 +129,6 @@ public class SimpleNettyServer implements InitializingBean {
         Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE, "port must bigger than zero and less than 2147483647");
     }
 
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        start();
-    }
 
 }
 /*

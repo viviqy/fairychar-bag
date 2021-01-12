@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel("Short类型Json请求集合")
+@ApiModel(value = "ShortList",description = "Short类型Json请求集合")
 public final class ShortList implements Serializable {
     private List<Short> list;
 }

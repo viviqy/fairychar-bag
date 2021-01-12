@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel("Integer类型Json请求集合")
+@ApiModel(value = "IntegerList", description = "Integer类型Json请求集合")
 public final class IntegerList implements Serializable {
     private List<Integer> list;
 }

@@ -22,7 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@ApiModel("前端Map渲染对象")
+@ApiModel(value = "MappingObjectAO",description = "前端Map渲染对象")
 public class MappingObjectAO<K, V> implements Serializable {
     private K key;
     private long count;

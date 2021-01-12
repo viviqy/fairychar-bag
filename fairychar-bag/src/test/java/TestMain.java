@@ -36,7 +36,7 @@ public class TestMain {
         private Object a;
     }
 
-    @AllArgsConstructor
+    @AllArgsConstructor 
     @NoArgsConstructor
    public static class B {
         private Integer a;
@@ -44,7 +44,6 @@ public class TestMain {
 
     @Test
     public void run12() {
-
         B b = ReflectUtil.copyProperties(new A(1), B.class, false);
         System.out.println(b);
     }

@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -24,6 +26,11 @@ public class BagTestApplicationTest {
     private LockTestService lockTestService;
 
     @Test
+    public void test4(){
+
+    }
+
+    @Test
     public void test3(){
         lockTestService.run1("test3");
         lockTestService.run1();
@@ -34,12 +41,10 @@ public class BagTestApplicationTest {
     @Test
     public void run2() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-        IntStream.range(0,10).forEach(i->{
-            executorService.execute(()->{
-                System.out.println(Thread.currentThread().getName());
-                lockTestService.run1();
-            });
-        });
+        IntStream.range(0,10).forEach(i-> executorService.execute(()->{
+            System.out.println(Thread.currentThread().getName());
+            lockTestService.run1();
+        }));
         Thread.currentThread().join();
     }
 

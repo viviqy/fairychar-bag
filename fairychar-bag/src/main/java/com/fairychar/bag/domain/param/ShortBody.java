@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel("Short类型Json请求体")
+@ApiModel(value = "ShortBody",description = "Short类型Json请求体")
 public class ShortBody implements Serializable {
     private Short body;
 }

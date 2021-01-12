@@ -1,7 +1,12 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * Datetime: 2020/6/2 14:47 <br>
@@ -11,9 +16,19 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestMain {
     @Test
-    public void test13(){
+    public void testStreamDistinct() {
+        ArrayList<Integer> collect = Arrays.asList(1, 2, 3, 4).stream()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.toCollection(() -> new TreeSet<>(Comparator.comparingInt(Integer::intValue)))
+                        , ArrayList::new)
+                );
+
+    }
+
+    @Test
+    public void test13() {
         for (int i = 1; i <= 99; i++) {
-            System.out.println("认错x"+i);
+            System.out.println("认错x" + i);
         }
     }
 

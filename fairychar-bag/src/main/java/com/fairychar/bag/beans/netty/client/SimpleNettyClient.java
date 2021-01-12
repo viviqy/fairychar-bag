@@ -12,7 +12,6 @@ import io.netty.handler.logging.LoggingHandler;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutionException;
@@ -29,7 +28,7 @@ import java.util.concurrent.TimeoutException;
  * @since 0.0.1-SNAPSHOT
  */
 @Slf4j
-public class SimpleNettyClient implements InitializingBean {
+public class SimpleNettyClient {
     @Getter
     private final int workerSize;
     @Getter
@@ -114,14 +113,8 @@ public class SimpleNettyClient implements InitializingBean {
     private void checkArgs() {
         Assert.notNull(this.host, "host cant be null");
         Assert.isTrue(this.workerSize > 0, "workerSize must bigger than zero");
-        Assert.isTrue(this.port > 0 && this.port < 65535, "port must bigger than zero and less than 65535");
-        Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE, "port must bigger than zero and less than 2147483647");
-    }
-
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        start();
+        Assert.isTrue(this.port > 0 && this.port < 65535, "port must between zero and 65535");
+        Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE, "port must between 0 and 2147483647");
     }
 
 
