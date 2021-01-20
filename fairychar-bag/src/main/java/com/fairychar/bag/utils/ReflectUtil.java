@@ -1,5 +1,6 @@
 package com.fairychar.bag.utils;
 
+import cn.hutool.core.lang.Assert;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import sun.misc.Unsafe;
@@ -19,6 +20,45 @@ import java.util.*;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ReflectUtil {
+
+    private final static String regexAll = "*";
+
+    public static void eraseValue(Object o, Class<?>... classes) throws IllegalAccessException {
+        for (Class<?> fieldClass : classes) {
+            Assert.notNull(fieldClass, "fields can not be null");
+        }
+        Field[] declaredFields = o.getClass().getDeclaredFields();
+        accessFields(declaredFields);
+        for (int i = 0; i < declaredFields.length; i++) {
+            for (Class<?> fieldClass : classes) {
+                if (declaredFields[i].getType() == fieldClass) {
+                    declaredFields[i].set(o, null);
+                }
+            }
+        }
+    }
+
+    public static void eraseValue(Object o, String fields) throws IllegalAccessException {
+        Assert.notNull(fields, "fields can not be null");
+        Assert.notEmpty(fields, "fields can not be empty");
+        Field[] declaredFields = o.getClass().getDeclaredFields();
+        accessFields(declaredFields);
+        if (regexAll.equals(fields)) {
+            for (int i = 0; i < declaredFields.length; i++) {
+                declaredFields[i].set(o, null);
+            }
+            return;
+        }
+        String[] matchFields = fields.split(",");
+        for (int i = 0; i < declaredFields.length; i++) {
+            for (int i1 = 0; i1 < matchFields.length; i1++) {
+                if (declaredFields[i].getName().equals(matchFields[i1])) {
+                    declaredFields[i].set(o, null);
+                }
+            }
+        }
+    }
+
 
     public static void swapInteger(Integer a, Integer b) {
         Unsafe unsafe = getUnsafe();

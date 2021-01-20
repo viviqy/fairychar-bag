@@ -54,20 +54,6 @@ public class LoggingAspectJ implements InitializingBean {
     }
 
 
-//    @Around("execution(* *..web.controller..*.*(..))  && @annotation(requestLog)")
-//    public void aroundLogging(JoinPoint joinPoint, RequestLog requestLog) {
-//        if (!requestLog.enable()) {
-//            return;
-//        }
-//        Optional<String> handler = Optional.ofNullable(requestLog.aroundHandler()).filter(s -> !s.isEmpty());
-//        if (handler.isPresent()) {
-//            handle(handler.get(), joinPoint);
-//        } else {
-//            Optional.ofNullable(properties.getAop().getLog().getGlobalAround()).filter(s -> !Strings.isNullOrEmpty(s))
-//                    .ifPresent(h -> handle(h, joinPoint));
-//        }
-//    }
-
     @After("execution(public * *..web.controller..*.*(..))  && @annotation(requestLog)")
     public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {

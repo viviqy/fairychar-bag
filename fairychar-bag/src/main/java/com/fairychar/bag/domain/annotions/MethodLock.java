@@ -16,11 +16,11 @@ import java.util.concurrent.TimeUnit;
 public @interface MethodLock {
     /**
      * <p>使用锁类型local=本地锁,redis=redis分布式锁,ZK=zookeeper分布式锁</p>
-     * 默认为NONE,如果为NONE代表使用全局设置
+     * 默认为DEFAULT,如果为DEFAULT代表使用全局设置
      *
      * @return {@link Type}
      */
-    Type lockType() default Type.NONE;
+    Type lockType() default Type.DEFAULT;
 
     /**
      * 使用启用
@@ -58,8 +58,15 @@ public @interface MethodLock {
     String distributedPath() default "";
 
 
+    /**
+     * 分布式节点前缀
+     *
+     * @return 默认为<Strong>fairychar:lock:</Strong>
+     */
+    String distributedPrefix() default "fairychar:lock:";
+
     enum Type {
-        NONE(),
+        DEFAULT(),
         LOCAL(),
         REDIS(),
         ZK();

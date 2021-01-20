@@ -1,5 +1,4 @@
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
-import com.fairychar.bag.pojo.ao.TreeNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.template.CacheOperateTemplate;
@@ -10,6 +9,9 @@ import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.junit.Test;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
+import org.springframework.boot.autoconfigure.session.RedisSessionProperties;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -29,18 +31,23 @@ public class TestMain {
     private static Gson gson = new Gson();
 
 
+    private Redisson redisson;
 
+    @Test
+    public void test13(){
+    }
     @AllArgsConstructor
     @NoArgsConstructor
-   public static class A {
+    public static class A {
         private Object a;
     }
 
-    @AllArgsConstructor 
+    @AllArgsConstructor
     @NoArgsConstructor
-   public static class B {
+    public static class B {
         private Integer a;
     }
+
 
     @Test
     public void run12() {
@@ -147,7 +154,6 @@ public class TestMain {
     @Test
     public void run6() throws Exception {
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 1, 8080);
-        simpleNettyServer.afterPropertiesSet();
 //        TimeUnit.SECONDS.sleep(3);
 //        SimpleNettyClient simpleNettyClient = new SimpleNettyClient(1, 10000, "localhost");
 //        simpleNettyClient.afterPropertiesSet();
@@ -195,8 +201,6 @@ public class TestMain {
                 Collectors.groupingBy(u -> u.getName()
                         , Collectors.groupingBy(u -> u.getId())));
         System.out.println(collect);
-        List<TreeNode<User>> list = TreeNodeUtil.mapToNode(collect);
-        System.out.println(gson.toJson(list));
     }
 
     @Test

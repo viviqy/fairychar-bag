@@ -1,5 +1,7 @@
+import com.fairychar.test.controller.SimpleController;
 import org.junit.Test;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -15,6 +17,25 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
+    @Test
+    public void test14() {
+        SimpleController controller = new SimpleController();
+        Method[] methods = controller.getClass().getDeclaredMethods();
+        for (Method method : methods) {
+            String methodName = method.getDeclaringClass().getName()
+                    .concat(method.getName());
+            String returnName = method.getReturnType().getName();
+            String parameterName = "";
+            for (Class<?> parameterType : method.getParameterTypes()) {
+                parameterName = parameterName.concat(parameterType.getName()).concat(",");
+            }
+            System.out.println(methodName);
+            System.out.println(returnName);
+            System.out.println(parameterName);
+        }
+    }
+
     @Test
     public void testStreamDistinct() {
         ArrayList<Integer> collect = Arrays.asList(1, 2, 3, 4).stream()

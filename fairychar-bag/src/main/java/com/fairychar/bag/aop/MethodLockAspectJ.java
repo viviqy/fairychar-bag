@@ -2,14 +2,18 @@ package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.annotions.MethodLock;
+import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
+import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -19,6 +23,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -47,7 +52,7 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object switchLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.NONE ? fairycharBagProperties.getAop().getLock().getType() : methodLock.lockType();
+        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.DEFAULT ? fairycharBagProperties.getAop().getLock().getType() : methodLock.lockType();
         switch (lockType) {
             case LOCAL:
                 return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
@@ -64,8 +69,48 @@ public class MethodLockAspectJ implements InitializingBean {
         throw new NotImplementedException();
     }
 
-    private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
-        throw new NotImplementedException();
+    private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Assert.notNull(methodLock.distributedPath(), "节点路径不能为null");
+        Assert.notNull(methodLock.distributedPrefix(), "节点路径前缀不能为null");
+        Redisson redisson = SpringContextHolder.getInstance().getBean(Redisson.class);
+        Method method = methodSignature.getMethod();
+        RLock redissonLock = redisson.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(methodLock.distributedPath())
+                ? methodLock.distributedPath() : getMethodFullPath(method)));
+        if (methodLock.optimistic()) {
+            try {
+                if (redissonLock.tryLock(methodLock.timeout(), methodLock.timeUnit())) {
+                    return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+                } else {
+                    throw new TimeoutException();
+                }
+            } catch (InterruptedException | TimeoutException e) {
+                throw e;
+            } catch (Throwable throwable) {
+                throw throwable;
+            } finally {
+                redissonLock.unlock();
+            }
+        } else {
+            try {
+                redissonLock.lock();
+                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                redissonLock.unlock();
+            }
+        }
+    }
+
+    private String getMethodFullPath(Method method) {
+        String methodName = method.getDeclaringClass().getName()
+                .concat(method.getName());
+        String returnName = method.getReturnType().getName();
+        String parameterName = "";
+        for (Class<?> parameterType : method.getParameterTypes()) {
+            parameterName = parameterName.concat(parameterType.getName()).concat(",");
+        }
+        return methodName.concat(":").concat(returnName).concat(":").concat(parameterName.substring(0, parameterName.length() - 1));
     }
 
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -74,9 +119,12 @@ public class MethodLockAspectJ implements InitializingBean {
         if (methodLock.optimistic()) {
             int timeout = methodLock.timeout();
             try {
-                reentrantLock.tryLock(timeout, methodLock.timeUnit());
-                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-            } catch (InterruptedException e) {
+                if (reentrantLock.tryLock(timeout, methodLock.timeUnit())) {
+                    return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+                } else {
+                    throw new TimeoutException();
+                }
+            } catch (InterruptedException | TimeoutException e) {
                 throw e;
             } catch (Throwable throwable) {
                 throw throwable;

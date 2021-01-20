@@ -23,6 +23,7 @@ public class LockTestService {
         System.out.println(s);
     }
 
+
     private ReentrantLock lock=new ReentrantLock();
 
     public void run2(){
