@@ -13,5 +13,5 @@ import org.aspectj.lang.JoinPoint;
  * @author qiyue <br>
  */
 public interface LoggingHandler {
-    void then(JoinPoint joinPoint);
+    void accept(JoinPoint joinPoint);
 }

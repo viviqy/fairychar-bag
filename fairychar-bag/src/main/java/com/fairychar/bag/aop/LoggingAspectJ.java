@@ -77,7 +77,7 @@ public class LoggingAspectJ implements InitializingBean {
     private void handle(String handlerName, JoinPoint joinPoint) {
         try {
             LoggingHandler bean = SpringContextHolder.getInstance().getBean(handlerName, LoggingHandler.class);
-            bean.then(joinPoint);
+            bean.accept(joinPoint);
         } catch (NoSuchBeanDefinitionException e) {
             log.error("cant find loggingHandler bean by name {}", handlerName);
         }

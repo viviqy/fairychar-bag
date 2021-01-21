@@ -1,10 +1,17 @@
 package com.fairychar.bag.beans.aop;
 
+import com.fairychar.bag.utils.RequestUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created with IDEA <br>
@@ -17,11 +24,18 @@ import org.aspectj.lang.reflect.MethodSignature;
 @Slf4j
 public class SwaggerLoggingHandler implements LoggingHandler {
     @Override
-    public void then(JoinPoint joinPoint) {
+    public void accept(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint;
         ApiOperation apiOperation = methodSignature.getMethod().getAnnotation(ApiOperation.class);
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                .getRequest();
         Api api = (Api) methodSignature.getDeclaringType().getAnnotation(Api.class);
-        log.info("request {}", api.tags()[0].concat(apiOperation.value()));
+        log.info("request uri={},uriName={} at {} from {}"
+                , request.getRequestURI()
+                , api.tags()[0].concat("-").concat(apiOperation.value())
+                , LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                , RequestUtil.getIpAddress(request)
+        );
     }
 }
 /*

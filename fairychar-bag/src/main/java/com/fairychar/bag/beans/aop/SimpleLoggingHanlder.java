@@ -1,10 +1,10 @@
 package com.fairychar.bag.beans.aop;
 
 import com.fairychar.bag.domain.annotions.RequestLog;
+import com.fairychar.bag.utils.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -27,12 +27,12 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 public class SimpleLoggingHanlder implements LoggingHandler {
     @Override
-    public void then(JoinPoint joinPoint) {
+    public void accept(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        String uri = obtainUri(signature);
+        String uri = RequestUtil.obtainUri(signature);
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
-        String ip = getIpAddress(request);
+        String ip = RequestUtil.getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logs = String.format("%s request %s at %s", ip, uri, datetime);
         RequestLog requestLog = signature.getMethod().getAnnotation(RequestLog.class);
@@ -56,62 +56,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         }
     }
 
-    public static String getIpAddress(HttpServletRequest request) {
-        String ip = null;
 
-        //X-Forwarded-For：Squid 服务代理
-        String ipAddresses = request.getHeader("X-Forwarded-For");
-        String unknown = "unknown";
-        if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
-            //Proxy-Client-IP：apache 服务代理
-            ipAddresses = request.getHeader("Proxy-Client-IP");
-        }
-        if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
-            //WL-Proxy-Client-IP：weblogic 服务代理
-            ipAddresses = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
-            //HTTP_CLIENT_IP：有些代理服务器
-            ipAddresses = request.getHeader("HTTP_CLIENT_IP");
-        }
-        if (ipAddresses == null || ipAddresses.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
-            //X-Real-IP：nginx服务代理
-            ipAddresses = request.getHeader("X-Real-IP");
-        }
-        //有些网络通过多层代理，那么获取到的ip就会有多个，一般都是通过逗号（,）分割开来，并且第一个ip为客户端的真实IP
-        if (ipAddresses != null && ipAddresses.length() != 0) {
-            ip = ipAddresses.split(",")[0];
-        }
-        //还是不能获取到，最后再通过request.getRemoteAddr();获取
-        if (ip == null || ip.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
-            ip = request.getRemoteAddr();
-        }
-        return ip;
-    }
-
-
-    private static String obtainUri(MethodSignature signature) {
-        String methodUri = "";
-        if (signature.getMethod().getAnnotation(RequestMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(RequestMapping.class).value()[0];
-        } else if (signature.getMethod().getAnnotation(PostMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(PostMapping.class).value()[0];
-        } else if (signature.getMethod().getAnnotation(GetMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(GetMapping.class).value()[0];
-        } else if (signature.getMethod().getAnnotation(PutMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(PutMapping.class).value()[0];
-        } else if (signature.getMethod().getAnnotation(DeleteMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(DeleteMapping.class).value()[0];
-        } else if (signature.getMethod().getAnnotation(PatchMapping.class) != null) {
-            methodUri = signature.getMethod().getAnnotation(PatchMapping.class).value()[0];
-        }
-        String classUri = "";
-        if (signature.getDeclaringType().getAnnotation(RequestMapping.class) != null) {
-            classUri = ((RequestMapping) signature.getDeclaringType().getAnnotation(RequestMapping.class)).value()[0];
-        }
-        String uri = classUri.concat(methodUri.startsWith("/") ? methodUri : "/" + methodUri);
-        return uri;
-    }
 }
 /*
                                       /[-])//  ___        
