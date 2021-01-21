@@ -2,6 +2,7 @@ package com.fairychar.bag.configurer;
 
 import com.fairychar.bag.aop.BindingCheckAspectJ;
 import com.fairychar.bag.aop.LoggingAspectJ;
+import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.properties.FairycharBagProperties;
@@ -48,6 +49,16 @@ public class BagBeansAutoConfigurer {
         }
     }
 
+    @ConditionalOnProperty(name = "fairychar.bag.aop.lock.enable", havingValue = "true")
+    @Configuration
+    protected static class LockConfiguration {
+        @Bean
+        @ConditionalOnMissingBean
+        MethodLockAspectJ methodLockAspectJ() {
+            return new MethodLockAspectJ();
+        }
+    }
+
 
     @ConditionalOnProperty(name = "fairychar.bag.convert.mvc.enable", havingValue = "true")
     @Configuration
@@ -64,6 +75,7 @@ public class BagBeansAutoConfigurer {
             return new StringToLocalDateTimeConverter();
         }
     }
+
 }
 /*
                                       /[-])//  ___        

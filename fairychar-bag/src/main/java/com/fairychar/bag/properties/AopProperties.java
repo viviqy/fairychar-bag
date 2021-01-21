@@ -5,6 +5,8 @@ import com.fairychar.bag.domain.annotions.RequestLog;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created with IDEA <br>
  * User: qiyue <br>
@@ -43,20 +45,18 @@ public class AopProperties {
          */
         private boolean enable;
         /**
-         * 全局超时时间
+         * 全局超时时间,默认1
          */
-        private int globalTimeout = -1;
+        private int globalTimeout = 1;
 
         /**
-         * 全局锁类型
+         * 全局超时时间单位设置
          */
-        private MethodLock.Type type = MethodLock.Type.LOCAL;
-
-
+        private TimeUnit timeUnit=TimeUnit.SECONDS;
         /**
-         * 是否使用乐观锁,默认否
+         * 全局锁类型,默认使用本地锁,不能配置为DEFAULT
          */
-        private boolean optimistic = false;
+        private MethodLock.Type defaultLock = MethodLock.Type.LOCAL;
     }
 }
 /*

@@ -1,0 +1,12 @@
+fairychar:
+  bag:
+    aop:
+      lock:
+        enable: true
+      log:
+        enable: true
+      binding:
+        enable: true
+    convert:
+      mvc:
+        enable: true

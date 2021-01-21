@@ -1,4 +1,5 @@
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
+import com.fairychar.bag.domain.annotions.MethodLock;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.template.CacheOperateTemplate;
@@ -10,8 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.junit.Test;
 import org.redisson.Redisson;
-import org.redisson.api.RLock;
-import org.springframework.boot.autoconfigure.session.RedisSessionProperties;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -33,9 +32,29 @@ public class TestMain {
 
     private Redisson redisson;
 
-    @Test
-    public void test13(){
+    @MethodLock(lockType = MethodLock.Type.DEFAULT, timeout = 3
+            , timeUnit = TimeUnit.SECONDS
+            , optimistic = true
+            , distributedPath = "user:nanjianjiang"
+            , distributedPrefix = "dota:")
+    public String complexLock() {
+        return "complex";
     }
+
+    @MethodLock(lockType = MethodLock.Type.REDIS)
+    public String simpleLock() {
+        return "simple";
+    }
+
+    @MethodLock(lockType = MethodLock.Type.REDIS, timeout = 3, optimistic = true, timeUnit = TimeUnit.SECONDS)
+    public String testLock() {
+        return "locking";
+    }
+
+    @Test
+    public void test13() {
+    }
+
     @AllArgsConstructor
     @NoArgsConstructor
     public static class A {

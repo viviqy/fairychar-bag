@@ -23,6 +23,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -52,7 +53,7 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object switchLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.DEFAULT ? fairycharBagProperties.getAop().getLock().getType() : methodLock.lockType();
+        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.DEFAULT ? fairycharBagProperties.getAop().getLock().getDefaultLock() : methodLock.lockType();
         switch (lockType) {
             case LOCAL:
                 return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
@@ -78,11 +79,10 @@ public class MethodLockAspectJ implements InitializingBean {
                 ? methodLock.distributedPath() : getMethodFullPath(method)));
         if (methodLock.optimistic()) {
             try {
-                if (redissonLock.tryLock(methodLock.timeout(), methodLock.timeUnit())) {
+                if (redissonLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-                } else {
-                    throw new TimeoutException();
                 }
+                throw new TimeoutException();
             } catch (InterruptedException | TimeoutException e) {
                 throw e;
             } catch (Throwable throwable) {
@@ -119,11 +119,10 @@ public class MethodLockAspectJ implements InitializingBean {
         if (methodLock.optimistic()) {
             int timeout = methodLock.timeout();
             try {
-                if (reentrantLock.tryLock(timeout, methodLock.timeUnit())) {
+                if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-                } else {
-                    throw new TimeoutException();
                 }
+                throw new TimeoutException();
             } catch (InterruptedException | TimeoutException e) {
                 throw e;
             } catch (Throwable throwable) {
@@ -152,9 +151,33 @@ public class MethodLockAspectJ implements InitializingBean {
         return lock;
     }
 
+    private int getTimeout(MethodLock methodLock) {
+        if (methodLock.timeout() == -1) {
+            //use global
+            return fairycharBagProperties.getAop().getLock().getGlobalTimeout();
+        } else {
+            int timeout = methodLock.timeout();
+            Assert.isTrue(timeout >= 0, "乐观锁超时时间必须不小于0");
+            return timeout;
+        }
+    }
+
+
+    private TimeUnit getTimeUnit(MethodLock methodLock) {
+        if (methodLock.timeUnit().equals(TimeUnit.NANOSECONDS)) {
+            //use global
+            return fairycharBagProperties.getAop().getLock().getTimeUnit();
+        } else {
+            return methodLock.timeUnit();
+        }
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(fairycharBagProperties.getAop().getLock().getType(), "全局方法锁不能为null");
+        Assert.notNull(fairycharBagProperties.getAop().getLock().getDefaultLock(), "全局方法锁不能为null");
+        Assert.notNull(fairycharBagProperties.getAop().getLock().getTimeUnit(), "时间单位不能为null");
+        Assert.isTrue(fairycharBagProperties.getAop().getLock().getGlobalTimeout() >= 0, "乐观锁超时时间必须不小于0");
+        Assert.isFalse(fairycharBagProperties.getAop().getLock().getDefaultLock().equals(MethodLock.Type.DEFAULT), "默认锁类型不能为DEFAULT");
     }
 }
 /*

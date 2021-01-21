@@ -30,11 +30,11 @@ public @interface MethodLock {
     boolean enable() default true;
 
     /**
-     * 最大等待时间
+     * 最大等待时间,-1为使用全局设置
      *
      * @return 超时时长
      */
-    int timeout() default 0;
+    int timeout() default -1;
 
     /**
      * 是否使用乐观锁
@@ -44,11 +44,11 @@ public @interface MethodLock {
     boolean optimistic() default false;
 
     /**
-     * 仅在乐观锁或分布式锁情况下使用
+     * 仅在乐观锁或分布式锁情况下使用,TimeUnit.NANOSECONDS为使用全局默认(应该不会有纳秒锁的业务)
      *
      * @return {@link TimeUnit}
      */
-    TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
+    TimeUnit timeUnit() default TimeUnit.NANOSECONDS;
 
     /**
      * 分布式锁节点名称
@@ -69,6 +69,6 @@ public @interface MethodLock {
         DEFAULT(),
         LOCAL(),
         REDIS(),
-        ZK();
+        ZK()
     }
 }
