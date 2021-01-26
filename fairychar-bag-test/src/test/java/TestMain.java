@@ -1,12 +1,16 @@
+import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
+import com.fairychar.bag.extension.concurrent.ActionSchedule;
+import com.fairychar.bag.function.Action;
+import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.test.controller.SimpleController;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
@@ -17,6 +21,73 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
+    @Test
+    public void testNIO() throws Exception{
+        ActionSelectorTemplate actionSelectorTemplate = new ActionSelectorTemplate();
+        Action action = new Action() {
+            private int a= new Random().nextInt();
+            @Override
+            public void doAction() throws InterruptedException, TimeoutException {
+                System.out.println(Thread.currentThread().getName());
+            }
+        };
+        actionSelectorTemplate.put("task", 1000, action);
+        actionSelectorTemplate.put("task1", 500, action);
+        actionSelectorTemplate.put("task2", 700, action);
+        actionSelectorTemplate.start();
+        TimeUnit.SECONDS.sleep(5);
+        actionSelectorTemplate.remove("task");
+        Thread.currentThread().join();
+    }
+
+    @Test
+    public void test15() throws Exception {
+
+        ExecutorService single = Executors.newFixedThreadPool(2);
+        AbstractScheduleAction scheduleAction =(AbstractScheduleAction) new FinalScheduleAction();
+
+        Runnable runnable = () -> {
+            try {
+                scheduleAction.doAction0();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+        single.execute(runnable);
+        TimeUnit.SECONDS.sleep(1);
+        single.execute(runnable);
+        TimeUnit.SECONDS.sleep(5);
+        scheduleAction.interruptAll();
+        single.execute(runnable);
+        single.execute(runnable);
+        Thread.currentThread().join();
+    }
+
+    static class FinalScheduleAction extends AbstractScheduleAction {
+        /**
+         * 执行任务
+         *
+         * @throws InterruptedException 打断触发
+         * @throws TimeoutException     超时触发
+         */
+        @Override
+        public void doAction() throws InterruptedException, TimeoutException {
+            while (true) {
+                System.out.println(Thread.currentThread().getName()+": "+ Thread.currentThread().isInterrupted());
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+        }
+
+    }
+
 
     @Test
     public void test14() {

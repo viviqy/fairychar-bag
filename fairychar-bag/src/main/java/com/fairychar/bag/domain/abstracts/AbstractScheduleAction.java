@@ -1,38 +1,57 @@
-package com.fairychar.bag.domain.enums;
+package com.fairychar.bag.domain.abstracts;
+
+import cn.hutool.core.collection.ConcurrentHashSet;
+import com.fairychar.bag.function.Action;
+
+import java.util.Set;
+import java.util.concurrent.TimeoutException;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/05/07 <br>
- * time: 20:46 <br>
+ * Datetime: 2021/1/26 16:09 <br>
  *
- * @author qiyue <br>
+ * @author chiyo <br>
+ * @since 1.0
  */
-public enum State {
+public abstract class AbstractScheduleAction implements Action {
+    private Set<Thread> executeThreads = new ConcurrentHashSet<>(1);
+
     /**
-     * 未初始化
+     * 任务逻辑
+     *
+     * @throws InterruptedException 打断触发
+     * @throws TimeoutException     超时触发
      */
-    UN_INITIALIZE,
+    @Override
+    public abstract void doAction() throws InterruptedException, TimeoutException;
+
     /**
-     * 启动中
+     * 任务
      */
-    STARTING,
+    public void doAction0() throws TimeoutException, InterruptedException {
+        this.executeThreads.add(Thread.currentThread());
+        doAction();
+        this.executeThreads.remove(Thread.currentThread());
+    }
+
+
     /**
-     * 启动完成
+     * 打断指定线程
+     *
+     * @param thread
      */
-    STARTED,
-    /**
-     * 工作中
-     */
-    WORKING,
-    /**
-     * 正在停止
-     */
-    STOPPING,
-    /**
-     * 停止完成
-     */
-    STOPPED;
+    public synchronized void interrupt(Thread thread) {
+        if (this.executeThreads.contains(thread)) {
+            this.executeThreads.removeIf(t -> t == thread);
+            thread.interrupt();
+        }
+    }
+
+    public synchronized void interruptAll() {
+        this.executeThreads.removeIf(t -> {
+            t.interrupt();
+            return true;
+        });
+    }
 }
 /*
                                       /[-])//  ___        

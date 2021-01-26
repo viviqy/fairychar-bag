@@ -1,38 +1,45 @@
-package com.fairychar.bag.domain.enums;
+package com.fairychar.bag.extension.concurrent;
+
+import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
+import com.fairychar.bag.function.Action;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/05/07 <br>
- * time: 20:46 <br>
+ * 周期调度型任务,配合{@link com.fairychar.bag.template.ActionSelectorTemplate}使用
+ * Datetime: 2021/1/26 10:18 <br>
  *
- * @author qiyue <br>
+ * @author chiyo <br>
+ * @since 1.0
  */
-public enum State {
+@RequiredArgsConstructor
+@Data
+public class ActionSchedule implements Comparable<ActionSchedule> {
     /**
-     * 未初始化
+     * 任务名称(默认当前线程名称)
      */
-    UN_INITIALIZE,
+    @NonNull
+    private String taskName;
+    private boolean isWorking;
+    @NonNull
+    private long period;
+    private long lastExecuteTime=System.currentTimeMillis();
+    @NonNull
+    private AbstractScheduleAction action;
+
+
     /**
-     * 启动中
+     * 根据任务名称判断
+     *
+     * @param o 定时任务执行器
+     * @return
      */
-    STARTING,
-    /**
-     * 启动完成
-     */
-    STARTED,
-    /**
-     * 工作中
-     */
-    WORKING,
-    /**
-     * 正在停止
-     */
-    STOPPING,
-    /**
-     * 停止完成
-     */
-    STOPPED;
+    @Override
+    public int compareTo(ActionSchedule o) {
+        return this.taskName.equals(o.taskName) ? 1 : 0;
+    }
 }
 /*
                                       /[-])//  ___        

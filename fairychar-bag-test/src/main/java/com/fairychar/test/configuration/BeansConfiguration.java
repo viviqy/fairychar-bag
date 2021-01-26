@@ -1,37 +1,21 @@
-import com.fairychar.bag.domain.conditional.ConditionalOnDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.fairychar.test.configuration;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/22 <br>
- * time: 15:21 <br>
+ * Datetime: 2021/1/22 11:59 <br>
  *
  * @author chiyo <br>
- * @since 0.0.1-SNAPSHOT
+ * @since 1.0
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class User extends Object implements Comparable, Serializable {
-    private int id;
-    private String name;
-
-
-    @Override
-    public int hashCode() {
-        return name.length();
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return -(this.hashCode() - o.hashCode());
-    }
+@Configuration
+public class BeansConfiguration {
+//    @Bean
+//    Redisson redisson(){
+//        Config config = new Config();
+//        config.useSingleServer().setAddress("redis://localhost:6379").setDatabase(0);
+//
+//    }
 }
 /*
                                       /[-])//  ___        
@@ -40,7 +24,7 @@ public class User extends Object implements Comparable, Serializable {
                                |  |___|===|_-- | \ \ \    
 ____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
 ____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
+                      ,~-|~~~~~\--, | \|--|/~||3333|  |   | |
                       [3-|____---~~ _--'==;/ _,   |   |_| 
                                   /   /\__|_/  \  \__/--/ 
                                  /---/_\  -___/ |  /,--|  

@@ -66,8 +66,34 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
-    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
-        throw new NotImplementedException();
+    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Method method = methodSignature.getMethod();
+        ReentrantLock reentrantLock = createOrGetLocalLock(method);
+        if (methodLock.optimistic()) {
+            try {
+                if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
+                    return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+                }
+                throw new TimeoutException();
+            } catch (InterruptedException | TimeoutException e) {
+                throw e;
+            } catch (Throwable throwable) {
+                throw throwable;
+            } finally {
+                reentrantLock.unlock();
+            }
+        } else {
+            reentrantLock.lockInterruptibly();
+            try {
+                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            } catch (InterruptedException e) {
+                throw e;
+            } catch (Throwable e) {
+                throw e;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
     }
 
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -102,6 +128,10 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
+    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
+        throw new NotImplementedException();
+    }
+
     private String getMethodFullPath(Method method) {
         String methodName = method.getDeclaringClass().getName()
                 .concat(method.getName());
@@ -111,44 +141,6 @@ public class MethodLockAspectJ implements InitializingBean {
             parameterName = parameterName.concat(parameterType.getName()).concat(",");
         }
         return methodName.concat(":").concat(returnName).concat(":").concat(parameterName.substring(0, parameterName.length() - 1));
-    }
-
-    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Method method = methodSignature.getMethod();
-        ReentrantLock reentrantLock = createOrGetLocalLock(method);
-        if (methodLock.optimistic()) {
-            int timeout = methodLock.timeout();
-            try {
-                if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
-                    return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-                }
-                throw new TimeoutException();
-            } catch (InterruptedException | TimeoutException e) {
-                throw e;
-            } catch (Throwable throwable) {
-                throw throwable;
-            } finally {
-                reentrantLock.unlock();
-            }
-        } else {
-            reentrantLock.lockInterruptibly();
-            try {
-                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-            } catch (InterruptedException e) {
-                throw e;
-            } catch (Throwable e) {
-                throw e;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    private ReentrantLock createOrGetLocalLock(Method method) {
-        ReentrantLock lock = CacheOperateTemplate.get(() -> lockMap.get(method)
-                , ReentrantLock::new
-                , l -> lockMap.put(method, l), method);
-        return lock;
     }
 
     private int getTimeout(MethodLock methodLock) {
@@ -162,7 +154,6 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
-
     private TimeUnit getTimeUnit(MethodLock methodLock) {
         if (methodLock.timeUnit().equals(TimeUnit.NANOSECONDS)) {
             //use global
@@ -170,6 +161,13 @@ public class MethodLockAspectJ implements InitializingBean {
         } else {
             return methodLock.timeUnit();
         }
+    }
+
+    private ReentrantLock createOrGetLocalLock(Method method) {
+        ReentrantLock lock = CacheOperateTemplate.get(() -> lockMap.get(method)
+                , ReentrantLock::new
+                , l -> lockMap.put(method, l), method);
+        return lock;
     }
 
     @Override

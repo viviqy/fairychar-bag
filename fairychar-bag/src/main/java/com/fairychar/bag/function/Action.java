@@ -19,4 +19,6 @@ public interface Action {
      * @throws TimeoutException     超时触发
      */
     void doAction() throws InterruptedException, TimeoutException;
+
+
 }
