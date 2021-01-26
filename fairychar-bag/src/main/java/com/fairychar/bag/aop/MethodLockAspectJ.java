@@ -7,6 +7,8 @@ import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -18,7 +20,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.annotation.Order;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -128,8 +129,41 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
-    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
-        throw new NotImplementedException();
+    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Assert.notNull(methodLock.distributedPath(), "节点路径不能为null");
+        Assert.notNull(methodLock.distributedPrefix(), "节点路径前缀不能为null");
+        CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
+        InterProcessMutex lock = new InterProcessMutex(curatorFramework, methodLock.distributedPrefix().concat(methodLock.distributedPath()));
+        if (methodLock.optimistic()) {
+            try {
+                if (lock.acquire(getTimeout(methodLock), getTimeUnit(methodLock))) {
+                    return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+                }
+                throw new TimeoutException();
+            } catch (TimeoutException e) {
+                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(methodLock.distributedPath()));
+                throw e;
+            } catch (Exception e) {
+                throw e;
+            } catch (Throwable throwable) {
+                throw throwable;
+            } finally {
+                if (lock.isAcquiredInThisProcess()) {
+                    lock.release();
+                }
+            }
+        } else {
+            try {
+                lock.acquire();
+                return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                if (lock.isAcquiredInThisProcess()) {
+                    lock.release();
+                }
+            }
+        }
     }
 
     private String getMethodFullPath(Method method) {

@@ -109,9 +109,9 @@ public class ActionSelectorTemplate {
         selector.put(actionSchedule.getTaskName(), actionSchedule);
     }
 
-    private void checkState(boolean b, String s) {
-        if (b) {
-            throw new UnsupportedOperationException(s);
+    private void checkState(boolean condition, String errorMsg) {
+        if (condition) {
+            throw new UnsupportedOperationException(errorMsg);
         }
     }
 

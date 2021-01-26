@@ -10,6 +10,10 @@ package com.fairychar.bag.domain.enums;
  */
 public enum State {
     /**
+     * 无状态
+     */
+    NONE,
+    /**
      * 未初始化
      */
     UN_INITIALIZE,
