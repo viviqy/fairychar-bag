@@ -3,8 +3,13 @@ fairychar:
     aop:
       lock:
         enable: true
+        time-unit: seconds
+        global-timeout: 1
+        default-lock: redis
       log:
         enable: true
+        global-before: swagger
+        global-level: info
       binding:
         enable: true
     convert:

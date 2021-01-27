@@ -28,7 +28,7 @@ public @interface RequestLog {
     /**
      * @return 全局日志级别
      */
-    Level loggingLevel() default Level.INFO;
+    Level loggingLevel() default Level.NONE;
 
     /**
      * 日志前置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean
@@ -46,9 +46,11 @@ public @interface RequestLog {
 
 
     enum Level {
+        NONE(),
         TRACE(),
         DEBUG(),
         INFO(),
+        WARN(),
         ERROR();
     }
 

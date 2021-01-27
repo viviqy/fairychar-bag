@@ -3,7 +3,6 @@ package com.fairychar.bag.beans.aop;
 import com.fairychar.bag.utils.RequestUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -21,21 +20,22 @@ import java.time.format.DateTimeFormatter;
  *
  * @author qiyue <br>
  */
-@Slf4j
 public class SwaggerLoggingHandler implements LoggingHandler {
     @Override
     public void accept(JoinPoint joinPoint) {
-        MethodSignature methodSignature = (MethodSignature) joinPoint;
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         ApiOperation apiOperation = methodSignature.getMethod().getAnnotation(ApiOperation.class);
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
         Api api = (Api) methodSignature.getDeclaringType().getAnnotation(Api.class);
-        log.info("request uri={},uriName={} at {} from {}"
+        String logs = String.format("request uri=%s,uriName=%s at %s from %s"
                 , request.getRequestURI()
                 , api.tags()[0].concat("-").concat(apiOperation.value())
                 , LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 , RequestUtil.getIpAddress(request)
         );
+        LogHelper.showLog(LogHelper.getLevel(methodSignature), logs);
+
     }
 }
 /*

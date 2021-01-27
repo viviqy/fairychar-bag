@@ -1,27 +1,39 @@
-package com.fairychar.test.controller;
+package com.fairychar.test.configuration;
 
-import com.fairychar.test.domain.IHelloController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.RetryNTimes;
+import org.redisson.Redisson;
+import org.redisson.config.Config;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.io.IOException;
 
 /**
- * Datetime: 2020/7/1 16:03 <br>
+ * Datetime: 2021/1/27 11:19 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@RestController
-public class HelloController implements IHelloController {
-    @Override
-    public Object hi() {
-        return "hi";
+@Configuration
+public class LockConfiguration {
+
+    @Bean
+    public Redisson redisson() throws IOException {
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://10.0.202.157:16379");
+        Redisson redisson = (Redisson) Redisson.create(config);
+        return redisson;
     }
 
-    @GetMapping("file")
-    public Object file(String file) {
-        return file;
-    }
 
+    @Bean(initMethod = "start")
+    public CuratorFramework curatorFramework() {
+        return CuratorFrameworkFactory.newClient(
+                "10.0.202.157:12181"
+                , new RetryNTimes(5, 5000));
+    }
 
 }
 /*

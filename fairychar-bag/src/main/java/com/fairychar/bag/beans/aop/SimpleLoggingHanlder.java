@@ -1,6 +1,5 @@
 package com.fairychar.bag.beans.aop;
 
-import com.fairychar.bag.domain.annotions.RequestLog;
 import com.fairychar.bag.utils.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -35,25 +34,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         String ip = RequestUtil.getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logs = String.format("%s request %s at %s", ip, uri, datetime);
-        RequestLog requestLog = signature.getMethod().getAnnotation(RequestLog.class);
-        showLog(requestLog.loggingLevel(), logs);
-    }
-
-    private void showLog(RequestLog.Level level, String logs) {
-        switch (level) {
-            case TRACE:
-                log.trace("{}", logs);
-                break;
-            case DEBUG:
-                log.debug("{}", logs);
-                break;
-            case INFO:
-                log.info("{}", logs);
-                break;
-            case ERROR:
-                log.error("{}", logs);
-                break;
-        }
+        LogHelper.showLog(LogHelper.getLevel(signature), logs);
     }
 
 

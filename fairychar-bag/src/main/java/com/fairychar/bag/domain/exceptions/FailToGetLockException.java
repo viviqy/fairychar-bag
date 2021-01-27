@@ -1,28 +1,14 @@
-package com.fairychar.bag.domain;
-
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+package com.fairychar.bag.domain.exceptions;
 
 /**
- * Datetime: 2020/10/30 14:24 <br>
+ * 在乐观锁情况下未获取到锁的异常标志
+ *
+ * Datetime: 2021/1/27 13:18 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class Consts {
-
-    public static String EMPTY_STR = "";
-
-    public static String NONE = "none";
-
-    public final static class OAuth2 {
-        public final static String AUTHORIZATION_CODE = "authorization_code";
-        public final static String PASSWORD = "password";
-        public final static String CLIENT_CREDENTIALS = "client_credentials";
-        public final static String IMPLICIT = "implicit";
-        public final static String REFRESH_TOKEN = "refresh_token";
-    }
+public class FailToGetLockException extends Exception {
 }
 /*
                                       /[-])//  ___        

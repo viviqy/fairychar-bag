@@ -1,8 +1,8 @@
+import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
-import com.fairychar.bag.extension.concurrent.ActionSchedule;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
-import com.fairychar.test.controller.SimpleController;
+import com.fairychar.test.web.controller.SimpleController;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
@@ -22,11 +22,30 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
 
+
     @Test
-    public void testNIO() throws Exception{
+    public void test16() throws Exception {
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10, 10000);
+        simpleNettyServer.start();
+        Thread.currentThread().join();
+    }
+
+    @Test
+    public void testSwap() {
+        int a = 1, b = 2;
+        int c = a ^ b;
+        a = c ^ a;
+        b = c ^ b;
+        System.out.println(a);
+        System.out.println(b);
+    }
+
+    @Test
+    public void testNIO() throws Exception {
         ActionSelectorTemplate actionSelectorTemplate = new ActionSelectorTemplate();
         Action action = new Action() {
-            private int a= new Random().nextInt();
+            private int a = new Random().nextInt();
+
             @Override
             public void doAction() throws InterruptedException, TimeoutException {
                 System.out.println(Thread.currentThread().getName());
@@ -45,7 +64,7 @@ public class TestMain {
     public void test15() throws Exception {
 
         ExecutorService single = Executors.newFixedThreadPool(2);
-        AbstractScheduleAction scheduleAction =(AbstractScheduleAction) new FinalScheduleAction();
+        AbstractScheduleAction scheduleAction = (AbstractScheduleAction) new FinalScheduleAction();
 
         Runnable runnable = () -> {
             try {
@@ -76,7 +95,7 @@ public class TestMain {
         @Override
         public void doAction() throws InterruptedException, TimeoutException {
             while (true) {
-                System.out.println(Thread.currentThread().getName()+": "+ Thread.currentThread().isInterrupted());
+                System.out.println(Thread.currentThread().getName() + ": " + Thread.currentThread().isInterrupted());
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {

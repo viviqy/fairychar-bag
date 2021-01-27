@@ -1,5 +1,8 @@
 package com.fairychar.test.configuration;
 
+import com.fairychar.bag.beans.aop.LoggingHandler;
+import com.fairychar.bag.beans.aop.SwaggerLoggingHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -16,6 +19,11 @@ public class BeansConfiguration {
 //        config.useSingleServer().setAddress("redis://localhost:6379").setDatabase(0);
 //
 //    }
+
+    @Bean
+    LoggingHandler swagger(){
+        return new SwaggerLoggingHandler();
+    }
 }
 /*
                                       /[-])//  ___        

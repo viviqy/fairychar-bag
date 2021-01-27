@@ -1,7 +1,9 @@
 package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.annotions.MethodLock;
+import com.fairychar.bag.domain.exceptions.FailToGetLockException;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
@@ -98,24 +100,27 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Assert.notNull(methodLock.distributedPath(), "节点路径不能为null");
-        Assert.notNull(methodLock.distributedPrefix(), "节点路径前缀不能为null");
         Redisson redisson = SpringContextHolder.getInstance().getBean(Redisson.class);
         Method method = methodSignature.getMethod();
         RLock redissonLock = redisson.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(methodLock.distributedPath())
                 ? methodLock.distributedPath() : getMethodFullPath(method)));
         if (methodLock.optimistic()) {
+            boolean hold = false;
             try {
                 if (redissonLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
+                    hold = true;
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+                }else {
+                    throw new FailToGetLockException();
                 }
-                throw new TimeoutException();
             } catch (InterruptedException | TimeoutException e) {
                 throw e;
             } catch (Throwable throwable) {
                 throw throwable;
             } finally {
-                redissonLock.unlock();
+                if (hold) {
+                    redissonLock.unlock();
+                }
             }
         } else {
             try {
@@ -130,16 +135,16 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Assert.notNull(methodLock.distributedPath(), "节点路径不能为null");
-        Assert.notNull(methodLock.distributedPrefix(), "节点路径前缀不能为null");
         CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
-        InterProcessMutex lock = new InterProcessMutex(curatorFramework, methodLock.distributedPrefix().concat(methodLock.distributedPath()));
+        String path = methodLock.distributedPrefix().concat(methodLock.distributedPath().isEmpty()
+                ? getMethodFullPath(methodSignature.getMethod()) : methodLock.distributedPath());
+        InterProcessMutex lock = new InterProcessMutex(curatorFramework, path.startsWith("/") ? path : "/".concat(path));
         if (methodLock.optimistic()) {
             try {
                 if (lock.acquire(getTimeout(methodLock), getTimeUnit(methodLock))) {
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
                 }
-                throw new TimeoutException();
+                throw new FailToGetLockException();
             } catch (TimeoutException e) {
                 log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(methodLock.distributedPath()));
                 throw e;
@@ -174,7 +179,8 @@ public class MethodLockAspectJ implements InitializingBean {
         for (Class<?> parameterType : method.getParameterTypes()) {
             parameterName = parameterName.concat(parameterType.getName()).concat(",");
         }
-        return methodName.concat(":").concat(returnName).concat(":").concat(parameterName.substring(0, parameterName.length() - 1));
+        return methodName.concat(":").concat(returnName).concat(":")
+                .concat(parameterName.isEmpty() ? Consts.NONE : parameterName.substring(0, parameterName.length() - 1));
     }
 
     private int getTimeout(MethodLock methodLock) {

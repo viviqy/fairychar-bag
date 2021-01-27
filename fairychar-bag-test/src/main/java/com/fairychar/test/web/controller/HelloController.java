@@ -1,28 +1,28 @@
-package com.fairychar.bag.domain;
+package com.fairychar.test.web.controller;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import com.fairychar.test.domain.IHelloController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Datetime: 2020/10/30 14:24 <br>
+ * Datetime: 2020/7/1 16:03 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class Consts {
-
-    public static String EMPTY_STR = "";
-
-    public static String NONE = "none";
-
-    public final static class OAuth2 {
-        public final static String AUTHORIZATION_CODE = "authorization_code";
-        public final static String PASSWORD = "password";
-        public final static String CLIENT_CREDENTIALS = "client_credentials";
-        public final static String IMPLICIT = "implicit";
-        public final static String REFRESH_TOKEN = "refresh_token";
+@RestController
+public class HelloController implements IHelloController {
+    @Override
+    public Object hi() {
+        return "hi";
     }
+
+    @GetMapping("file")
+    public Object file(String file) {
+        return file;
+    }
+
+
 }
 /*
                                       /[-])//  ___        

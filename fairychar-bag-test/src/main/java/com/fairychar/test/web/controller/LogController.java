@@ -1,36 +1,28 @@
-package com.fairychar.test.controller;
+package com.fairychar.test.web.controller;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.ServletRequestBindingException;
-import org.springframework.web.bind.ServletRequestUtils;
+import com.fairychar.bag.domain.annotions.RequestLog;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.ServletWebRequest;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
- * Datetime: 2020/7/8 19:07 <br>
+ * Datetime: 2021/1/27 14:14 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
 @RestController
-public class SimpleController {
-    @GetMapping("/params")
-    public ResponseEntity<Object> testParams(@RequestParam("name") String name, HttpServletRequest request){
-        Object pwd = request.getAttribute("pwd");
-        HttpServletRequest request1 = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String name2;
-        try {
-             name2 = ServletRequestUtils.getStringParameter(request1, "name");
-        } catch (ServletRequestBindingException e) {
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok(name);
+@RequestMapping("/log")
+@Api(tags = "日志处理")
+public class LogController {
+
+    @GetMapping("find")
+    @ApiOperation("查询日志")
+    @RequestLog
+    public String find(){
+        return "find";
     }
 }
 /*
