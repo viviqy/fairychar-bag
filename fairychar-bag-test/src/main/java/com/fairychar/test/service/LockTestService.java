@@ -53,17 +53,32 @@ public class LockTestService {
     }
 
 
-    @MethodLock(optimistic = true, lockType = MethodLock.Type.ZK
-            , timeUnit = TimeUnit.SECONDS, timeout = 1)
+    @MethodLock(lockType = MethodLock.Type.ZK)
     public String getHuruta() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "huruta";
     }
 
 
+    @MethodLock(lockType = MethodLock.Type.REDIS
+            , distributedPrefix = "fairychar:device:", distributedPath = "collector")
+    public String getJerryFair() throws Exception {
+        TimeUnit.SECONDS.sleep(1);
+        return "jerry";
+    }
+
+
+    @MethodLock(optimistic = true, lockType = MethodLock.Type.ZK
+            , timeUnit = TimeUnit.SECONDS, timeout = 1)
+    public String getHurutaFair() throws Exception {
+        TimeUnit.SECONDS.sleep(1);
+        return "huruta";
+    }
+
     /**
      * 全局配置的redis锁,默认代表这个方法会使用基于redis实现的分布式锁,
      * 锁类型为悲观锁,锁路径如果缺省则为全类名+返回值类名+方法名+参数名(避免重载方法重复)
+     *
      * @param word
      * @return
      * @throws Exception

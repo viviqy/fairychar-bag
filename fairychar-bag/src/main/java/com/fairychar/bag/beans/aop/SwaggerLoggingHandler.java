@@ -34,7 +34,7 @@ public class SwaggerLoggingHandler implements LoggingHandler {
                 , LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 , RequestUtil.getIpAddress(request)
         );
-        LogHelper.showLog(LogHelper.getLevel(methodSignature), logs);
+        LoggingHelper.log(LoggingHelper.getLevel(methodSignature), logs);
 
     }
 }

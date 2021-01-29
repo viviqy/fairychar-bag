@@ -34,7 +34,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         String ip = RequestUtil.getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logs = String.format("%s request %s at %s", ip, uri, datetime);
-        LogHelper.showLog(LogHelper.getLevel(signature), logs);
+        LoggingHelper.log(LoggingHelper.getLevel(signature), logs);
     }
 
 

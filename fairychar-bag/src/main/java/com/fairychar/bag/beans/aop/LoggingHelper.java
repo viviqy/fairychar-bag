@@ -13,7 +13,7 @@ import org.aspectj.lang.reflect.MethodSignature;
  * @since 1.0
  */
 @Slf4j
-class LogHelper {
+class LoggingHelper {
 
     public static RequestLog.Level getLevel(MethodSignature methodSignature) {
         RequestLog requestLog = methodSignature.getMethod().getAnnotation(RequestLog.class);
@@ -22,7 +22,7 @@ class LogHelper {
                 properties.getAop().getLog().getGlobalLevel() : requestLog.loggingLevel();
     }
 
-    public static void showLog(RequestLog.Level level, String logs) {
+    public static void log(RequestLog.Level level, String logs) {
         switch (level) {
             case NONE:
                 break;
