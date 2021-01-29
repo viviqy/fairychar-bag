@@ -151,3 +151,71 @@ public class HelloService {
 
 ### 实现原理
 使用aop配合ReentrantLock、Redisson、Curator实现
+
+## netty server and client
+### 使用方式
+
+代码使用
+
+非spring方式
+```java
+    public void testNetty() {
+        SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
+                , new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                serverSocketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        }, new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        });
+        server.setMaxShutdownWaitSeconds(10);
+        server.start();
+//        server.stop();
+
+        SimpleNettyClient client = new SimpleNettyClient(1, 10001, "127.0.0.1"
+                , new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        });
+        client.setMaxShutdownWaitSeconds(10);
+        client.stop();
+    }
+```
+基于spring
+
+```java
+@Configuration
+@EnableConfigurationProperties(FairycharBagProperties.class)
+public class BeansConfiguration {
+
+    @Autowired
+    private FairycharBagProperties bagProperties;
+
+    @Bean
+    SimpleNettyServer simpleNettyServer(){
+        NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(properties.getBossSize(), properties.getWorkerSize(), properties.getPort());
+        return simpleNettyServer;
+        // 在需要的spring bean加载完成后执行start方法
+    }
+
+    @Bean
+    SimpleNettyClient simpleNettyClient(){
+        NettyServerClientProperties.ClientProperties client = bagProperties.getServerClient().getClient();
+        SimpleNettyClient simpleNettyClient = new SimpleNettyClient(client.getEventLoopSize(), client.getPort(), client.getHost());
+        return simpleNettyClient;
+        // 在需要的spring bean加载完成后执行start方法
+    }
+}
+```
+### 实现效果
+可简单化启动netty或整合入spring
+
+### 实现原理
+基于spring整合

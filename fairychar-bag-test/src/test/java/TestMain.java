@@ -1,8 +1,13 @@
+import com.fairychar.bag.beans.netty.client.SimpleNettyClient;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.test.web.controller.SimpleController;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.socket.ServerSocketChannel;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.logging.LoggingHandler;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
@@ -21,6 +26,35 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
+    @Test
+    public void testNetty() {
+        SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
+                , new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                serverSocketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        }, new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        });
+        server.setMaxShutdownWaitSeconds(10);
+        server.start();
+//        server.stop();
+
+        SimpleNettyClient client = new SimpleNettyClient(1, 10001, "127.0.0.1"
+                , new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(new LoggingHandler());
+            }
+        });
+        client.setMaxShutdownWaitSeconds(10);
+        client.stop();
+    }
 
 
     @Test
