@@ -13,6 +13,11 @@ import lombok.NoArgsConstructor;
 public final class Consts {
 
     public static String EMPTY_STR = "";
+    public static long KB_PER_B = 1024;
+    public static long MB_PER_B = 1024 * 1024;
+    public static long GB_PER_B = 1024 * 1024 * 1024;
+    public static long TB_PER_B = 1024 * 1024 * 1024 * 1024;
+    public static long PB_PER_B = 1024 * 1024 * 1024 * 1024 * 1024;
 
     public static String NONE = "none";
 

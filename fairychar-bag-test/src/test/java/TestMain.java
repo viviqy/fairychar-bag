@@ -1,8 +1,10 @@
 import com.fairychar.bag.beans.netty.client.SimpleNettyClient;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
+import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
+import com.fairychar.bag.utils.NotVeryUsefulUtil;
 import com.fairychar.test.web.controller.SimpleController;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.ServerSocketChannel;
@@ -10,6 +12,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -26,9 +29,18 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+    @Test
+    public void testCreateFakeFile() throws IOException, InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
+        long begin = System.currentTimeMillis();
+        NotVeryUsefulUtil.createFakeFile("F:\\a.txt"
+                , Consts.GB_PER_B * 2);
+        System.out.println(System.currentTimeMillis() - begin);
+    }
 
     @Test
     public void testNetty() {
+
         SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
                 , new ChannelInitializer<ServerSocketChannel>() {
             @Override
