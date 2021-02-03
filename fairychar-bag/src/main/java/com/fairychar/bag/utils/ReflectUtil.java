@@ -60,6 +60,24 @@ public final class ReflectUtil {
     }
 
 
+    public static void swapLong(Long a, Long b) {
+        Unsafe unsafe = getUnsafe();
+        long c = a ^ b;
+        try {
+            unsafe.compareAndSwapLong(a
+                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , a, c ^ a);
+            unsafe.compareAndSwapLong(b
+                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , b, c ^ b);
+        } catch (NoSuchFieldException ignore) {
+            //never happened
+        }
+    }
+
+
+
+
     public static void swapInteger(Integer a, Integer b) {
         Unsafe unsafe = getUnsafe();
         int c = a ^ b;
