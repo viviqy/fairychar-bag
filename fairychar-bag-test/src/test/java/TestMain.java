@@ -12,6 +12,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import org.junit.Test;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -19,6 +21,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
@@ -36,6 +39,23 @@ public class TestMain {
         NotVeryUsefulUtil.createFakeFile("F:\\a.txt"
                 , Consts.GB_PER_B * 2);
         System.out.println(System.currentTimeMillis() - begin);
+    }
+
+    @Test
+    public void testFuture() {
+        String[] s = {"丸摩堂", "茶百道", "coco"};
+        Random random = new Random(System.currentTimeMillis());
+        HashMap<String, AtomicInteger> map = new HashMap<String, AtomicInteger>() {{
+            put(s[0], new AtomicInteger(0));
+            put(s[1], new AtomicInteger(0));
+            put(s[2], new AtomicInteger(0));
+        }};
+        for (int i = 0; i < 300; i++) {
+            int position = random.nextInt(3);
+            AtomicInteger count = map.get(s[position]);
+            count.getAndIncrement();
+        }
+        System.out.println(map);
     }
 
     @Test

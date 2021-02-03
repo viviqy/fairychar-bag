@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 /**
  * Created with IDEA <br>
@@ -19,13 +22,41 @@ import java.nio.ByteBuffer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class NotVeryUsefulUtil {
 
+    public static void createFakeFileByNio(String path, long writeByteSize) throws IOException {
+        createFakeFile(path, ((byte) '1'), writeByteSize, 1024);
+    }
+
+    public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException {
+        createFakeFile(path, fillByte, writeByteSize, 1024);
+    }
 
     public static void createFakeFile(String path, long writeByteSize) throws IOException {
-        createFakeFile(path, ((byte) 1), writeByteSize, 1024);
+        createFakeFile(path, ((byte) '1'), writeByteSize, 1024);
     }
 
     public static void createFakeFile(String path, byte fillByte, long writeByteSize) throws IOException {
         createFakeFile(path, fillByte, writeByteSize, 1024);
+    }
+
+    public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException {
+        final FileChannel fileChannel = FileChannel.open(Paths.get(path), StandardOpenOption.WRITE);
+        ByteBuffer buffer = ByteBuffer.allocateDirect(pipeBufferSize);
+        try {
+            for (int i = 0; i < (writeByteSize / pipeBufferSize); i++) {
+                for (int j = 0; j < pipeBufferSize; j++) {
+                    buffer.put(fillByte);
+                }
+                fileChannel.write(buffer);
+                buffer.clear();
+            }
+            for (long i = 0; i < (writeByteSize % pipeBufferSize); i++) {
+                buffer.put(fillByte);
+            }
+            fileChannel.write(buffer, buffer.position());
+        } finally {
+            buffer.clear();
+            fileChannel.close();
+        }
     }
 
     public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException {
@@ -41,8 +72,7 @@ public final class NotVeryUsefulUtil {
                 outputStream.write(buffer.array());
                 buffer.clear();
             }
-            long shouldWriteSize = writeByteSize % pipeBufferSize;
-            for (long i = 0; i < shouldWriteSize; i++) {
+            for (long i = 0; i < (writeByteSize % pipeBufferSize); i++) {
                 buffer.put(fillByte);
             }
             byte[] bytes = new byte[buffer.position()];

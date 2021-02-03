@@ -4,6 +4,8 @@ import cn.hutool.core.lang.Assert;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.function.Supplier;
 
 /**
@@ -22,7 +24,7 @@ public final class CircularTaskUtil {
      * @param condition 成功条件
      * @return True为执行成功, false为失败
      */
-    public static boolean run(Supplier<Boolean> task, boolean condition) {
+    public static boolean run(Future<Boolean> task, boolean condition) throws ExecutionException {
         return run(task, condition, 0, 0);
     }
 
@@ -36,8 +38,8 @@ public final class CircularTaskUtil {
      * @param maxMillis 最大执行时间,无法根据时间打断supplier方法体,仅在下一次重新循环时计算时间(单位毫秒)(0为无限)
      * @return True为执行成功, false为失败
      */
-    public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis) {
-        boolean result;
+    public static boolean run(Future<Boolean> task, boolean condition, int maxRound, int maxMillis) throws ExecutionException {
+        boolean result = false;
         Assert.isTrue(maxRound >= 0 && maxMillis >= 0, "round and millis must greater than -1");
         int currentRound = 0;
         long start = System.currentTimeMillis();
@@ -56,9 +58,15 @@ public final class CircularTaskUtil {
                     break;
                 }
             }
-            if (task.get() == condition) {
-                result = true;
+            try {
+                if (task.get() == condition) {
+                    result = true;
+                    break;
+                }
+            } catch (InterruptedException e) {
                 break;
+            } catch (ExecutionException e) {
+                throw e;
             }
         }
         return result;

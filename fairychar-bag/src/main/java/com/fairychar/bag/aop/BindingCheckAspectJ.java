@@ -14,8 +14,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
  * Date: 2020/4/10 <br>
  * time: 16:35 <br>
  * <p>
