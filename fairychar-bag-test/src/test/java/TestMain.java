@@ -1,26 +1,27 @@
 import com.fairychar.bag.beans.netty.client.SimpleNettyClient;
+import com.fairychar.bag.beans.netty.decoder.DelimitersHeadTailFrameDecoder;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
+import com.fairychar.bag.domain.netty.frame.HeadTailFrame;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.bag.utils.NotVeryUsefulUtil;
 import com.fairychar.test.web.controller.SimpleController;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LoggingHandler;
 import org.junit.Test;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
@@ -32,6 +33,81 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
+    @Test
+    public void testHeadTailFrame() throws InterruptedException {
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer( 1, 10000
+                , new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+            }
+        }, new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(new DelimitersHeadTailFrameDecoder(
+                        new byte[]{((byte) 'a')}
+                        , new byte[]{((byte) 'c')}
+                        , 10
+                )).addLast(
+                        new SimpleChannelInboundHandler<HeadTailFrame>() {
+                            @Override
+                            protected void channelRead0(ChannelHandlerContext channelHandlerContext, HeadTailFrame headTailFrame) throws Exception {
+                                System.out.println(headTailFrame);
+                                headTailFrame.getContent().release();
+                            }
+                        }
+                );
+            }
+        });
+        simpleNettyServer.start();
+        Thread.currentThread().join();
+    }
+
+    @Test
+    public void testClient() throws InterruptedException {
+        int count = 200;
+        CountDownLatch countDownLatch = new CountDownLatch(count);
+//        String host = "47.92.165.174";
+//        int port = 20055;
+        String host = "47.100.26.111";
+        int port = 18080;
+        final ExecutorService executorService = Executors.newFixedThreadPool(count);
+        final ArrayList<SimpleNettyClient> list = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+
+            SimpleNettyClient client = new SimpleNettyClient(1, port, host,
+                    new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+                            socketChannel.pipeline()
+                                    .addLast(new StringEncoder())
+                                    .addLast(new StringDecoder());
+                        }
+                    });
+            client.start();
+            System.out.println(client.getChannel().isActive());
+            list.add(client);
+        }
+
+        list.forEach(s -> executorService.execute(() -> {
+            countDownLatch.countDown();
+            for (int i = 0; i < 10_0000; i++) {
+                try {
+                    s.getChannel().writeAndFlush("hihihihihihihihihihihihi\r\n")
+                    .get();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            System.err.println(Thread.currentThread().getName() + " complete");
+        }));
+        while (true) {
+            TimeUnit.SECONDS.sleep(3);
+            list.forEach(s -> System.out.println(s.getChannel().isActive()));
+        }
+//        Thread.currentThread().join();
+    }
+
     @Test
     public void testCreateFakeFile() throws IOException, InterruptedException {
         TimeUnit.SECONDS.sleep(3);
@@ -61,7 +137,7 @@ public class TestMain {
     @Test
     public void testNetty() {
 
-        SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
+        SimpleNettyServer server = new SimpleNettyServer(2, 10000
                 , new ChannelInitializer<ServerSocketChannel>() {
             @Override
             protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
@@ -74,7 +150,7 @@ public class TestMain {
             }
         });
         server.setMaxShutdownWaitSeconds(10);
-        server.start();
+//        server.start();
 //        server.stop();
 
         SimpleNettyClient client = new SimpleNettyClient(1, 10001, "127.0.0.1"
@@ -91,7 +167,7 @@ public class TestMain {
 
     @Test
     public void test16() throws Exception {
-        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10, 10000);
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10);
         simpleNettyServer.start();
         Thread.currentThread().join();
     }

@@ -71,6 +71,7 @@ public class SimpleNettyClient {
     }
 
     private Bootstrap bootstrap;
+    @Getter
     private Channel channel;
     private NioEventLoopGroup worker;
 
@@ -85,6 +86,7 @@ public class SimpleNettyClient {
                     .channel(NioSocketChannel.class)
                     .handler(childHandlers)
                     .connect(host, port)
+                    .sync()
                     .channel();
             log.info("client connected to {}:{}", host, port);
         } catch (Exception e) {
@@ -92,8 +94,6 @@ public class SimpleNettyClient {
             this.state = State.STOPPED;
         }
         this.state = State.STARTED;
-
-
     }
 
     @PreDestroy

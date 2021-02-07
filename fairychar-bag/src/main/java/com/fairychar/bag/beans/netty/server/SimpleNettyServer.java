@@ -31,7 +31,7 @@ import java.util.concurrent.TimeoutException;
 @Slf4j
 public class SimpleNettyServer {
     @Getter
-    private final int bossSize;
+    private final int bossSize = 1;
     @Getter
     private final int workerSize;
     @Getter
@@ -65,19 +65,24 @@ public class SimpleNettyServer {
         };
     }
 
-    public SimpleNettyServer(int bossSize, int workerSize, int port) {
-        this.bossSize = bossSize;
+    public SimpleNettyServer(int workerSize, int port) {
         this.workerSize = workerSize;
         this.port = port;
         this.handlers = LOGGING_HANDLER;
         this.childHandlers = CHILD_LOGGING_HANDLER;
     }
 
-    public SimpleNettyServer(int bossSize, int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers, ChannelInitializer<SocketChannel> childHandlers) {
-        this.bossSize = bossSize;
+
+    public SimpleNettyServer(int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers, ChannelInitializer<SocketChannel> childHandlers) {
         this.workerSize = workerSize;
         this.port = port;
         this.handlers = handlers;
+        this.childHandlers = childHandlers;
+    }
+
+    public SimpleNettyServer(int workerSize, int port, ChannelInitializer<SocketChannel> childHandlers) {
+        this.workerSize = workerSize;
+        this.port = port;
         this.childHandlers = childHandlers;
     }
 
