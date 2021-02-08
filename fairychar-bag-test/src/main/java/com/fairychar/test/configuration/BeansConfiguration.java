@@ -37,7 +37,7 @@ public class BeansConfiguration {
     @Bean
     SimpleNettyServer simpleNettyServer(){
         NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
-        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(properties.getBossSize(), properties.getWorkerSize(), properties.getPort());
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(properties.getWorkerSize(), properties.getPort());
         return simpleNettyServer;
         // 在需要的spring bean加载完成后执行start方法
     }

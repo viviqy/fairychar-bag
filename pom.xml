@@ -5,22 +5,41 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>com.fairychar</groupId>
-  <artifactId>fairychar-bag-parent</artifactId>
+  <artifactId>fairychar-parent</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>fairychar-bag</module>
     <module>fairychar-bag-test</module>
+    <module>fairychar-uaa-parent</module>
   </modules>
   <properties>
     <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
-    <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
-    <spring.alibaba.version>0.9.0.RELEASE</spring.alibaba.version>
     <spring.io.version>Cairo-SR7</spring.io.version>
+    <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+    <spring.alibaba.version>2.1.0.RELEASE</spring.alibaba.version>
+    <spring.io.version>Cairo-SR7</spring.io.version>
+    <mybatisPlus.version>3.3.1</mybatisPlus.version>
+    <mysql.connector.version>5.1.47</mysql.connector.version>
+    <swagger.version>2.9.2</swagger.version>
   </properties>
   
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${spring.alibaba.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
       <dependency>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
@@ -34,6 +53,11 @@
         <version>${spring.boot.version}</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatisPlus.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

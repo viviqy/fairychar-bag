@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <artifactId>fairychar-bag-parent</artifactId>
+    <artifactId>fairychar-parent</artifactId>
     <groupId>com.fairychar</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -15,12 +15,6 @@
   <description>
     simple utils for easy coding
   </description>
-  <properties>
-    <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
-    <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
-    <spring.alibaba.version>0.9.0.RELEASE</spring.alibaba.version>
-    <spring.io.version>Cairo-SR7</spring.io.version>
-  </properties>
   
   <licenses>
     <license>
@@ -161,24 +155,6 @@
     </plugins>
   </build>
   
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.spring.platform</groupId>
-        <artifactId>platform-bom</artifactId>
-        <version>${spring.io.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring.boot.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   
   <profiles>
     <profile>

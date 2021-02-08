@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fairychar.uaa.mapper.BaseResultMapper">
+  
+  <resultMap type="com.fairychar.uaa.entity.Customer" id="BaseResultMap">
+    <result property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="password" column="password"/>
+    <result property="tel" column="tel"/>
+    <result property="email" column="email"/>
+    <result property="birthday" column="birthday"/>
+    <result property="enabled" column="enabled"/>
+    <result property="version" column="version"/>
+    <result property="flag" column="flag"/>
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List">
+    id, name, password, tel, email, birthday, enabled, version, flag
+  </sql>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from fairychar-uaa.customer
+    <where>
+      1=1
+      <if test="id != null">
+        and `id` = #{id}
+      </if>
+      <if test="name != null and name != ''">
+        and `name` like concat('%',#{name},'%')
+      </if>
+      <if test="password != null and password != ''">
+        and `password` like concat('%',#{password},'%')
+      </if>
+      <if test="tel != null and tel != ''">
+        and `tel` like concat('%',#{tel},'%')
+      </if>
+      <if test="email != null and email != ''">
+        and `email` like concat('%',#{email},'%')
+      </if>
+      <if test="birthday != null">
+        and `birthday` = #{birthday}
+      </if>
+      <if test="enabled != null">
+        and `enabled` = #{enabled}
+      </if>
+      <if test="version != null">
+        and `version` = #{version}
+      </if>
+      <if test="flag != null">
+        and `flag` = #{flag}
+      </if>
+    </where>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="pageAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from fairychar-uaa.customer
+    <where>
+      1=1
+      <if test="customer.id != null">
+        and `id` = #{customer.id}
+      </if>
+      <if test="customer.name != null and customer.name != ''">
+        and `name` like concat('%',#{customer.name},'%')
+      </if>
+      <if test="customer.password != null and customer.password != ''">
+        and `password` like concat('%',#{customer.password},'%')
+      </if>
+      <if test="customer.tel != null and customer.tel != ''">
+        and `tel` like concat('%',#{customer.tel},'%')
+      </if>
+      <if test="customer.email != null and customer.email != ''">
+        and `email` like concat('%',#{customer.email},'%')
+      </if>
+      <if test="customer.birthday != null">
+        and `birthday` = #{customer.birthday}
+      </if>
+      <if test="customer.enabled != null">
+        and `enabled` = #{customer.enabled}
+      </if>
+      <if test="customer.version != null">
+        and `version` = #{customer.version}
+      </if>
+      <if test="customer.flag != null">
+        and `flag` = #{customer.flag}
+      </if>
+    </where>
+  </select>
+  
+  <!--通过实体作为筛选条件查询总数-->
+  <select id="count" resultType="int">
+    select count(*)
+    from fairychar-uaa.customer
+    <where>
+      1=1
+      <if test="id != null">
+        and `id` = #{id}
+      </if>
+      <if test="name != null and name != ''">
+        and `name` like concat('%',#{name},'%')
+      </if>
+      <if test="password != null and password != ''">
+        and `password` like concat('%',#{password},'%')
+      </if>
+      <if test="tel != null and tel != ''">
+        and `tel` like concat('%',#{tel},'%')
+      </if>
+      <if test="email != null and email != ''">
+        and `email` like concat('%',#{email},'%')
+      </if>
+      <if test="birthday != null">
+        and `birthday` = #{birthday}
+      </if>
+      <if test="enabled != null">
+        and `enabled` = #{enabled}
+      </if>
+      <if test="version != null">
+        and `version` = #{version}
+      </if>
+      <if test="flag != null">
+        and `flag` = #{flag}
+      </if>
+    </where>
+  </select>
+</mapper>
