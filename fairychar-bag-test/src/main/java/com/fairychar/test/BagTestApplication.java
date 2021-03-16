@@ -2,6 +2,7 @@ package com.fairychar.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * Datetime: 2020/6/2 16:28 <br>

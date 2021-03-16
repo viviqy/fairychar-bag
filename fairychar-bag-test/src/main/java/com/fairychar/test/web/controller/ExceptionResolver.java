@@ -1,25 +1,24 @@
-package com.fairychar.bag.domain.param;
+package com.fairychar.test.web.controller;
 
-import io.swagger.annotations.ApiModel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import com.fairychar.bag.domain.exceptions.ParamErrorException;
+import com.fairychar.bag.pojo.vo.HttpResult;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- * Datetime: 2020/9/27 10:35 <br>
+ * Datetime: 2021/3/9 17:40 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ApiModel(value = "LongBody",description = "Long类型Json请求体")
-public class LongBody implements Serializable {
-    private Long body;
+@ControllerAdvice
+public class ExceptionResolver {
+
+    @ExceptionHandler(ParamErrorException.class)
+    public ResponseEntity<HttpResult> param(ParamErrorException e){
+        return ResponseEntity.ok(HttpResult.ok(e.getMessage()));
+    }
 }
 /*
                                       /[-])//  ___        

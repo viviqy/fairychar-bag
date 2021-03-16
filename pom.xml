@@ -24,6 +24,14 @@
     <swagger.version>2.9.2</swagger.version>
   </properties>
   
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
+  
+  
   <dependencyManagement>
     <dependencies>
       <dependency>

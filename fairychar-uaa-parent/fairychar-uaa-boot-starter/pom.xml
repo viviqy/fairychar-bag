@@ -9,9 +9,14 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   
-  <artifactId>fairychar-uaa</artifactId>
+  <artifactId>fairychar-uaa-boot-starter</artifactId>
   
   <dependencies>
+    <dependency>
+      <groupId>com.fairychar</groupId>
+      <artifactId>fairychar-uaa-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-cache</artifactId>
@@ -25,10 +30,7 @@
       <artifactId>fairychar-bag</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>

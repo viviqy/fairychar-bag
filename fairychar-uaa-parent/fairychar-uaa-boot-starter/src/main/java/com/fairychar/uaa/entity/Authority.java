@@ -37,9 +37,6 @@ public class Authority extends Model<Authority> {
     @ApiModelProperty("")
     @TableField(value = "`name`")
     private String name;
-    @ApiModelProperty("")
-    @TableField(value = "`authoritycol`")
-    private String authoritycol;
 
 
     /**
@@ -62,10 +59,5 @@ public class Authority extends Model<Authority> {
      * name
      */
     public final static String NAME = "name";
-
-    /**
-     * authoritycol
-     */
-    public final static String AUTHORITYCOL = "authoritycol";
 
 }

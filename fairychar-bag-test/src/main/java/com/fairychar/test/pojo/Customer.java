@@ -1,25 +1,19 @@
-package com.fairychar.bag.domain.param;
+package com.fairychar.test.pojo;
 
-import io.swagger.annotations.ApiModel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 /**
- * Datetime: 2020/9/27 10:35 <br>
+ * Datetime: 2021/3/9 17:34 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@ApiModel(value = "LongBody",description = "Long类型Json请求体")
-public class LongBody implements Serializable {
-    private Long body;
+public class Customer {
+    @NotNull
+    private String name;
 }
 /*
                                       /[-])//  ___        

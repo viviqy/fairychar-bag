@@ -2,7 +2,7 @@ fairychar:
   bag:
     aop:
       lock:
-        enable: true
+        enable: false
         time-unit: seconds
         global-timeout: 1
         default-lock: redis
@@ -14,4 +14,4 @@ fairychar:
         enable: true
     convert:
       mvc:
-        enable: true
+        enable: false

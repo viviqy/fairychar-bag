@@ -23,6 +23,68 @@ public final class ReflectUtil {
 
     private final static String regexAll = "*";
 
+    /**
+     * 递归查询指定id的所有子项
+     *
+     * @param source   源数据
+     * @param idFiled  代表id的字段名称
+     * @param pidFiled 代表pid的字段名称
+     * @param idValue  id值
+     * @param <T>      数据类型
+     * @param <I>      id类型
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static <T, I> List<T> recursiveSearch(List<T> source, String idFiled, String pidFiled, I idValue) throws NoSuchFieldException, IllegalAccessException {
+        ArrayList<T> ref = new ArrayList<>();
+        recursiveSearch(source, ref, idFiled, pidFiled, idValue);
+        return ref;
+    }
+
+    /**
+     * 递归查询指定id的所有子项
+     *
+     * @param source   源数据
+     * @param ref      out list
+     * @param idFiled  代表id的字段名称
+     * @param pidFiled 代表pid的字段名称
+     * @param idValue  id值
+     * @param <T>      数据类型
+     * @param <I>      id类型
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static <T, I> void recursiveSearch(List<T> source, List<T> ref, String idFiled, String pidFiled, I idValue) throws NoSuchFieldException, IllegalAccessException {
+        ArrayList<T> childList = new ArrayList<>();
+        for (T child : source) {
+            try {
+                Field pid = child.getClass().getDeclaredField(pidFiled);
+                pid.setAccessible(true);
+                I pidValue = (I) pid.get(child);
+                if (pidValue.equals(idValue)) {
+                    childList.add(child);
+                }
+            } catch (IllegalAccessException | NoSuchFieldException e) {
+                throw e;
+            }
+        }
+        if (childList.isEmpty()) {
+            return;
+        }
+        ref.addAll(childList);
+        for (T parent : childList) {
+            try {
+                Field childId = parent.getClass().getDeclaredField(idFiled);
+                childId.setAccessible(true);
+                I childIdValue = (I) childId.get(parent);
+                recursiveSearch(source, ref, idFiled, pidFiled, childIdValue);
+            } catch (IllegalAccessException | NoSuchFieldException e) {
+                throw e;
+            }
+        }
+    }
+
+
     public static void eraseValue(Object o, Class<?>... classes) throws IllegalAccessException {
         for (Class<?> fieldClass : classes) {
             Assert.notNull(fieldClass, "fields can not be null");
@@ -74,8 +136,6 @@ public final class ReflectUtil {
             //never happened
         }
     }
-
-
 
 
     public static void swapInteger(Integer a, Integer b) {

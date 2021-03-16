@@ -7,6 +7,7 @@ import com.fairychar.bag.domain.netty.frame.HeadTailFrame;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.bag.utils.NotVeryUsefulUtil;
+import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.test.web.controller.SimpleController;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
@@ -16,9 +17,13 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LoggingHandler;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.apache.commons.collections.list.PredicatedList;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.*;
@@ -34,9 +39,70 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
 
+    @Data
+    @AllArgsConstructor
+    static class Child {
+        private Long id;
+        private String name;
+        private Long pid;
+    }
+
+    @Test
+    public void testPid() throws Exception{
+        List<Child> children = Arrays.asList(
+                new Child(1L, "1", 0L),
+                new Child(2L, "2", 1L),
+                new Child(4L, "22", 2L),
+                new Child(3L, "3", 2L)
+        );
+        ArrayList<Child> list = new ArrayList<>();
+        ReflectUtil.recursiveSearch(children,list,"id","pid",1L);
+        System.out.println(list);
+        System.out.println("-------");
+        ArrayList<Child> ref = new ArrayList<>();
+        recursiveSearch(children,2,ref);
+        System.out.println(ref);
+        ref.clear();
+        System.out.println("-----");
+        recursiveSearch(children,1,ref);
+        System.out.println(ref);
+    }
+
+    /**
+     * @param source 表里查出来带pid和id字段的数据
+     * @param id 要查询的id
+     * @param ref
+     * @param <T>
+     */
+    public <T> void recursiveSearch(List<T> source, long id, List<T> ref) {
+        List<T> childList = source.stream().filter(s -> {
+            try {
+                Field pid = s.getClass().getDeclaredField("pid");
+                pid.setAccessible(true);
+                Long pidValue = (Long) pid.get(s);
+                return pidValue == id;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
+        if (childList.isEmpty()) {
+            return;
+        }
+        ref.addAll(childList);
+        childList.forEach(s -> {
+            try {
+                Field childId = s.getClass().getDeclaredField("id");
+                childId.setAccessible(true);
+                Long childIdValue = (Long) childId.get(s);
+                recursiveSearch(source, childIdValue, ref);
+            } catch (Exception e) {
+            }
+        });
+    }
+
     @Test
     public void testHeadTailFrame() throws InterruptedException {
-        SimpleNettyServer simpleNettyServer = new SimpleNettyServer( 1, 10000
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000
                 , new ChannelInitializer<ServerSocketChannel>() {
             @Override
             protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
@@ -94,7 +160,7 @@ public class TestMain {
             for (int i = 0; i < 10_0000; i++) {
                 try {
                     s.getChannel().writeAndFlush("hihihihihihihihihihihihi\r\n")
-                    .get();
+                            .get();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -283,6 +349,7 @@ public class TestMain {
         for (int i = 1; i <= 99; i++) {
             System.out.println("认错x" + i);
         }
+        String s = new String();
     }
 
     @Test
