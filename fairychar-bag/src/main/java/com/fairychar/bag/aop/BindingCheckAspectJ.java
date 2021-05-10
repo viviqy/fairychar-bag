@@ -23,7 +23,7 @@ import java.util.stream.Stream;
  * 使用hibernate validator方式校验前端参数参数实体类<br>
  *
  * @author chiyo <br>
- * @since 0.0.1-SNAPSHOTl
+ * @since 0.0.1-SNAPSHOT
  */
 @Aspect
 @Order(1)

@@ -43,7 +43,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MethodLockAspectJ implements InitializingBean {
     @Autowired
     private FairycharBagProperties fairycharBagProperties;
-    private Map<Method, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
+    private Map<String, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
 
     @Around("@annotation(methodLock)")
     public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable {
@@ -71,7 +71,7 @@ public class MethodLockAspectJ implements InitializingBean {
 
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
-        ReentrantLock reentrantLock = createOrGetLocalLock(method);
+        ReentrantLock reentrantLock = createOrGetLocalLock(methodLock.name().isEmpty()?getMethodFullPath(method):methodLock.name());
         if (methodLock.optimistic()) {
             try {
                 if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
@@ -102,8 +102,8 @@ public class MethodLockAspectJ implements InitializingBean {
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Redisson redisson = SpringContextHolder.getInstance().getBean(Redisson.class);
         Method method = methodSignature.getMethod();
-        RLock redissonLock = redisson.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(methodLock.distributedPath())
-                ? methodLock.distributedPath() : getMethodFullPath(method)));
+        RLock redissonLock = redisson.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(methodLock.name())
+                ? methodLock.name() : getMethodFullPath(method)));
         if (methodLock.optimistic()) {
             boolean hold = false;
             try {
@@ -136,8 +136,8 @@ public class MethodLockAspectJ implements InitializingBean {
 
     private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
-        String path = methodLock.distributedPrefix().concat(methodLock.distributedPath().isEmpty()
-                ? getMethodFullPath(methodSignature.getMethod()) : methodLock.distributedPath());
+        String path = methodLock.distributedPrefix().concat(methodLock.name().isEmpty()
+                ? getMethodFullPath(methodSignature.getMethod()) : methodLock.name());
         InterProcessMutex lock = new InterProcessMutex(curatorFramework, path.startsWith("/") ? path : "/".concat(path));
         if (methodLock.optimistic()) {
             try {
@@ -146,7 +146,7 @@ public class MethodLockAspectJ implements InitializingBean {
                 }
                 throw new FailToGetLockException();
             } catch (TimeoutException e) {
-                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(methodLock.distributedPath()));
+                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(methodLock.name()));
                 throw e;
             } catch (Exception e) {
                 throw e;
@@ -203,10 +203,10 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
-    private ReentrantLock createOrGetLocalLock(Method method) {
-        ReentrantLock lock = CacheOperateTemplate.get(() -> lockMap.get(method)
+    private ReentrantLock createOrGetLocalLock(String key) {
+        ReentrantLock lock = CacheOperateTemplate.get(() -> lockMap.get(key)
                 , ReentrantLock::new
-                , l -> lockMap.put(method, l), method);
+                , l -> lockMap.put(key, l), key);
         return lock;
     }
 

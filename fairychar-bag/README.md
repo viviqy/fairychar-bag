@@ -88,14 +88,15 @@ fairychar:
 ```
 
 代码使用
+
 ```java
 import com.fairychar.bag.domain.annotions.MethodLock;
 
 @Service
 public class HelloService {
     /*
-    * 使用本地锁(基于ReentrantLock实现)
-    */
+     * 使用本地锁(基于ReentrantLock实现)
+     */
     @MethodLock(lockType = MethodLock.Type.LOCAL)
     public String getTom() throws Exception {
         TimeUnit.SECONDS.sleep(1);
@@ -103,19 +104,19 @@ public class HelloService {
     }
 
     /*
-    * 使用分布式锁(基于Redis实现的乐观锁,会在未抢到锁时抛出FailToGetLockException)
-    */
+     * 使用分布式锁(基于Redis实现的乐观锁,会在未抢到锁时抛出FailToGetLockException)
+     */
     @MethodLock(optimistic = true, lockType = MethodLock.Type.REDIS
             , timeout = 1, timeUnit = TimeUnit.SECONDS
-            , distributedPrefix = "fairychar:device:", distributedPath = "collector")
+            , distributedPrefix = "fairychar:device:", name = "collector")
     public String getJerry() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";
     }
 
     /*
-    * 使用分布式锁(基于Zookeeper实现的乐观锁,会在未抢到锁时抛出FailToGetLockException)
-    */
+     * 使用分布式锁(基于Zookeeper实现的乐观锁,会在未抢到锁时抛出FailToGetLockException)
+     */
     @MethodLock(optimistic = true, lockType = MethodLock.Type.ZK
             , timeUnit = TimeUnit.SECONDS, timeout = 1)
     public String say(String word) throws Exception {
@@ -124,8 +125,8 @@ public class HelloService {
     }
 
     /*
-    * 使用分布式锁(基于Zookeeper实现的锁)
-    */
+     * 使用分布式锁(基于Zookeeper实现的锁)
+     */
     @MethodLock(lockType = MethodLock.Type.ZK)
     public String getHuruta() throws Exception {
         TimeUnit.SECONDS.sleep(1);
@@ -133,10 +134,10 @@ public class HelloService {
     }
 
     /*
-    * 使用分布式锁(基于Redis实现的乐观锁)
-    */
+     * 使用分布式锁(基于Redis实现的乐观锁)
+     */
     @MethodLock(lockType = MethodLock.Type.REDIS
-            , distributedPrefix = "fairychar:device:", distributedPath = "collector")
+            , distributedPrefix = "fairychar:device:", name = "collector")
     public String getJerryFair() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";

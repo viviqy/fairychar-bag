@@ -21,6 +21,8 @@ public final class Consts {
 
     public static String NONE = "none";
 
+    public static String SIMPLE_DATETIME_FORMAT="yyyy-MM-dd HH:mm:ss";
+
     public final static class OAuth2 {
         public final static String AUTHORIZATION_CODE = "authorization_code";
         public final static String PASSWORD = "password";

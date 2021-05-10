@@ -2,7 +2,7 @@ fairychar:
   bag:
     aop:
       lock:
-        enable: false
+        enable: true
         time-unit: seconds
         global-timeout: 1
         default-lock: redis

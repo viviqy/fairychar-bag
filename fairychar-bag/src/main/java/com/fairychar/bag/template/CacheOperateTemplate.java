@@ -62,9 +62,9 @@ public final class CacheOperateTemplate {
     }
 
     private static <C> C dbToCacheAndGet(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache) {
-        C secondCacheValue = cache.get();
-        if (secondCacheValue != null) {
-            return secondCacheValue;
+        C cacheValue = cache.get();
+        if (cacheValue != null) {
+            return cacheValue;
         } else {
             C dbValue = db.get();
             if (dbValue == null) {

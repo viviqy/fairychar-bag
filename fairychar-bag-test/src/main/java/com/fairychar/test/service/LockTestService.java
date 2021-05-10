@@ -15,10 +15,17 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 @Service
 public class LockTestService {
-    @LockTest
+    @MethodLock(lockType = MethodLock.Type.LOCAL)
     public void run1() {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("aaaa");
     }
+
+
 
     @LockTest
     public void run1(String s) {
@@ -46,7 +53,7 @@ public class LockTestService {
 
     @MethodLock(optimistic = true, lockType = MethodLock.Type.REDIS
             , timeout = 1, timeUnit = TimeUnit.SECONDS
-            , distributedPrefix = "fairychar:device:", distributedPath = "collector")
+            , distributedPrefix = "fairychar:device:", name = "collector")
     public String getJerry() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";
@@ -61,7 +68,7 @@ public class LockTestService {
 
 
     @MethodLock(lockType = MethodLock.Type.REDIS
-            , distributedPrefix = "fairychar:device:", distributedPath = "collector")
+            , distributedPrefix = "fairychar:device:", name = "collector")
     public String getJerryFair() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";

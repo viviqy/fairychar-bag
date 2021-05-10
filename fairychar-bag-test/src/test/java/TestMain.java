@@ -39,6 +39,15 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
 
+    @Test
+    public void testSwapInteger(){
+        Integer a = new Integer(1);
+        Integer b = new Integer(2);
+        ReflectUtil.swapInteger(a,b);
+        System.out.println("a="+a+",b="+b);
+    }
+
+
     @Data
     @AllArgsConstructor
     static class Child {

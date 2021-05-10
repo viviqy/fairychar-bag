@@ -54,6 +54,21 @@ public class SimpleController {
 //        }
         return ResponseEntity.ok("xxx");
     }
+
+    @PostMapping("/binding1")
+    @ApiOperation("参数检查")
+    @BindingCheck
+    public ResponseEntity<Object> binding1(@Validated @RequestBody Customer body) throws Exception{
+//        HttpServletRequest request1 = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+//        String name2;
+//        try {
+//            name2 = ServletRequestUtils.getStringParameter(request1, "name");
+//        } catch (ServletRequestBindingException e) {
+////            e.printStackTrace();
+//        }
+        System.out.println(body);
+        return ResponseEntity.ok("xxx");
+    }
 }
 /*
                                       /[-])//  ___        
