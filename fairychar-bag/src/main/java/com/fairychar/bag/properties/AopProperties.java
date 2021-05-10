@@ -24,6 +24,7 @@ public class AopProperties {
 
     @Getter
     @Setter
+    @Deprecated
     public static class Binding {
         private boolean enable;
     }

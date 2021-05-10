@@ -21,12 +21,13 @@ import java.util.stream.Stream;
  * {@link BindingCheck}注解的方法
  * </p>
  * 使用hibernate validator方式校验前端参数参数实体类<br>
- *
+ * 0.0.1-SNAPSHOT后删除,因为用处不是太大
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
  */
 @Aspect
 @Order(1)
+@Deprecated
 public class BindingCheckAspectJ {
 
     @Before("execution(public * *..web.controller..*.*(..))  && @annotation(bindingCheck))")
