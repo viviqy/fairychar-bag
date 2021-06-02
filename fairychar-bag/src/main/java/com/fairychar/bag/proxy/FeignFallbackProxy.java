@@ -1,62 +1,41 @@
-package com.fairychar.bag.domain.abstracts;
+package com.fairychar.bag.proxy;
 
-import cn.hutool.core.collection.ConcurrentHashSet;
-import com.fairychar.bag.function.Action;
+import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.pojo.vo.HttpResult;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-import java.util.Set;
-import java.util.concurrent.TimeoutException;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
- * Datetime: 2021/1/26 16:09 <br>
+ * Datetime: 2021/5/27 17:50 <br>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-public abstract class AbstractScheduleAction implements Action {
-    private Set<Thread> executeThreads = new ConcurrentHashSet<>(1);
+public class FeignFallbackProxy {
 
     /**
-     * 任务逻辑
-     *
-     * @throws InterruptedException 打断触发
-     * @throws TimeoutException     超时触发
+     * 代理feignclient的方法,代理后的方法返回{@link HttpResult}.fallback()
+     * @param feignClient feignClient
+     * @param <I>
+     * @return jdk动态代理后的FeignClient
      */
-    @Override
-    public abstract void doAction() throws InterruptedException, TimeoutException;
-
-    /**
-     * 任务
-     */
-    public void doAction0() throws TimeoutException, InterruptedException {
-        this.executeThreads.add(Thread.currentThread());
-        try {
-            doAction();
-        } finally {
-            this.executeThreads.remove(Thread.currentThread());
-        }
-    }
-
-
-    /**
-     * 打断指定线程
-     *
-     * @param thread
-     */
-    public synchronized void interrupt(Thread thread) {
-        if (this.executeThreads.contains(thread)) {
-            this.executeThreads.removeIf(t -> t == thread);
-            thread.interrupt();
-        }
-    }
-
-    public synchronized void interruptAll() {
-        this.executeThreads.removeIf(t -> {
-            t.interrupt();
-            return true;
+    public static <I> I createDefault(Class<I> feignClient,Throwable cause){
+        Assert.isTrue(feignClient.isInterface());
+        I proxiededFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                if (Object.class.equals(method.getDeclaringClass())) {
+                    return method.invoke(this, args);
+                }
+                return new ResponseEntity(HttpResult.fallback(cause), HttpStatus.SERVICE_UNAVAILABLE);
+            }
         });
+        return proxiededFeignClient;
     }
-
-
 }
 /*
                                       /[-])//  ___        

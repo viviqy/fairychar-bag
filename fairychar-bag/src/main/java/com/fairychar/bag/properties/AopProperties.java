@@ -19,15 +19,8 @@ import java.util.concurrent.TimeUnit;
 @Setter
 public class AopProperties {
     private Log log;
-    private Binding binding;
     private Lock lock;
 
-    @Getter
-    @Setter
-    @Deprecated
-    public static class Binding {
-        private boolean enable;
-    }
 
     @Getter
     @Setter

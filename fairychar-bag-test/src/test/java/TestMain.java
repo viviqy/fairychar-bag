@@ -64,17 +64,18 @@ public class TestMain {
                 new Child(4L, "22", 2L),
                 new Child(3L, "3", 2L)
         );
+        System.out.println(ReflectUtil.recursiveSearchParent(children, "pid", "id", 2L));
         ArrayList<Child> list = new ArrayList<>();
-        ReflectUtil.recursiveSearch(children,list,"id","pid",1L);
-        System.out.println(list);
-        System.out.println("-------");
-        ArrayList<Child> ref = new ArrayList<>();
-        recursiveSearch(children,2,ref);
-        System.out.println(ref);
-        ref.clear();
-        System.out.println("-----");
-        recursiveSearch(children,1,ref);
-        System.out.println(ref);
+//        ReflectUtil.recursiveSearch(children,list,"id","pid",1L);
+//        System.out.println(list);
+//        System.out.println("-------");
+//        ArrayList<Child> ref = new ArrayList<>();
+//        recursiveSearch(children,2,ref);
+//        System.out.println(ref);
+//        ref.clear();
+//        System.out.println("-----");
+//        recursiveSearch(children,1,ref);
+//        System.out.println(ref);
     }
 
     /**
@@ -268,9 +269,9 @@ public class TestMain {
                 System.out.println(Thread.currentThread().getName());
             }
         };
-        actionSelectorTemplate.put("task", 1000, action);
-        actionSelectorTemplate.put("task1", 500, action);
-        actionSelectorTemplate.put("task2", 700, action);
+        actionSelectorTemplate.put("task", 100, action);
+        actionSelectorTemplate.put("task1", 200, action);
+        actionSelectorTemplate.put("task2", 300, action);
         actionSelectorTemplate.start();
         TimeUnit.SECONDS.sleep(5);
         actionSelectorTemplate.remove("task");

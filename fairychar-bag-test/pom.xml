@@ -5,7 +5,7 @@
   <parent>
     <artifactId>fairychar-parent</artifactId>
     <groupId>com.fairychar</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   
@@ -49,7 +49,7 @@
     <dependency>
       <groupId>com.fairychar</groupId>
       <artifactId>fairychar-bag</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

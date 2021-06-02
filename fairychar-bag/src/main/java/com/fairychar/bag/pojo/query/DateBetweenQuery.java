@@ -1,71 +1,31 @@
-package com.fairychar.bag.pojo.vo;
+package com.fairychar.bag.pojo.query;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.springframework.http.HttpStatus;
+
+import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2019/12/3 <br>
- * time: 14:36 <br>
+ * Datetime: 2021/5/21 20:03 <br>
  *
  * @author chiyo <br>
+ * @since 1.0
  */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-@Builder
-public class HttpResult<T> {
-    private int code;
-    private T data;
-    private String msg;
-
-
-    public static <T> HttpResult<T> response(HttpStatus httpStatus, T data) {
-        return new HttpResult(httpStatus.value(), data, httpStatus.getReasonPhrase());
-    }
-
-
-    public static <T> HttpResult<T> response(int code, T data, String msg) {
-        return new HttpResult(code, data, msg);
-    }
-
-    public static HttpResult response(int code, String msg) {
-        return new HttpResult(code, null, msg);
-    }
-
-
-    public static HttpResult fallback(){
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(),null,"service unavailable");
-    }
-
-    public static HttpResult fallback(Throwable cause){
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(),cause.getMessage(),"service unavailable");
-    }
-
-    public static HttpResult ok() {
-        return new HttpResult(200, null, "success");
-    }
-
-
-    public static <T> HttpResult<T> ok(T data) {
-        return new HttpResult(200, data, "success");
-    }
-
-    public static <T> HttpResult<T> fail(T data) {
-        return new HttpResult<>(400, data, "fail");
-    }
-
-    public static <T> HttpResult<T> fail() {
-        return fail(null);
-    }
-
-
+@ApiModel("日期段查询")
+public class DateBetweenQuery implements Serializable {
+    @ApiModelProperty("起始时间")
+    private LocalDate from;
+    @ApiModelProperty("结束时间")
+    private LocalDate to;
 }
 /*
                                       /[-])//  ___        

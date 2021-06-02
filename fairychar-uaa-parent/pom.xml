@@ -5,7 +5,7 @@
   <parent>
     <artifactId>fairychar-parent</artifactId>
     <groupId>com.fairychar</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
@@ -16,5 +16,12 @@
   
   <artifactId>fairychar-uaa-parent</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.github.xiaoymin</groupId>
+      <artifactId>knife4j-spring-boot-starter</artifactId>
+      <version>2.0.1</version>
+    </dependency>
+  </dependencies>
   
 </project>

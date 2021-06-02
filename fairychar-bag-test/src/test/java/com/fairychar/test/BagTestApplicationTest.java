@@ -5,14 +5,13 @@ import com.fairychar.bag.function.Action;
 import com.fairychar.test.service.LockTestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 import java.util.stream.IntStream;
 
 /**
@@ -27,9 +26,27 @@ public class BagTestApplicationTest {
     @Autowired
     private LockTestService lockTestService;
 
+    @Autowired
+    private Redisson redisson;
 
     @Test
     public void test5() throws InterruptedException {
+        RLock lock = redisson.getLock("dave");
+        if (lock.tryLock(1, 30, TimeUnit.SECONDS)) {
+            System.out.println("dave");
+            TimeUnit.SECONDS.sleep(3);
+        } else {
+            System.out.println("dave 没拿到锁");
+        }
+        lock.unlock();
+        if (lock.tryLock(1, 30, TimeUnit.SECONDS)) {
+            System.out.println("dave1");
+            TimeUnit.SECONDS.sleep(3);
+        } else {
+            System.out.println("dave1 没拿到锁");
+        }
+        lock.unlock();
+        Thread.currentThread().join();
 //        batchRun(() -> {
 //            try {
 //                String jerry = this.lockTestService.getJerry();

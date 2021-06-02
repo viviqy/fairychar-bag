@@ -1,8 +1,6 @@
 package com.fairychar.test.web.controller;
 
-import com.fairychar.bag.domain.annotions.BindingCheck;
 import com.fairychar.bag.domain.annotions.RequestLog;
-import com.fairychar.bag.domain.param.LongBody;
 import com.fairychar.test.pojo.Customer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,7 +38,6 @@ public class SimpleController {
     }
 
     @PostMapping("/binding")
-    @BindingCheck
     @RequestLog
     @ApiOperation("参数检查")
     public ResponseEntity<Object> binding(@Validated @RequestBody Customer body, BindingResult bindingResult) throws Exception{
@@ -57,7 +53,6 @@ public class SimpleController {
 
     @PostMapping("/binding1")
     @ApiOperation("参数检查")
-    @BindingCheck
     public ResponseEntity<Object> binding1(@Validated @RequestBody Customer body) throws Exception{
 //        HttpServletRequest request1 = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 //        String name2;

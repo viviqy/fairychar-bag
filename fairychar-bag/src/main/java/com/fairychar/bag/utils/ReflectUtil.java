@@ -23,26 +23,45 @@ public final class ReflectUtil {
 
     private final static String regexAll = "*";
 
+
     /**
      * 递归查询指定id的所有子项
      *
      * @param source   源数据
-     * @param idFiled  代表id的字段名称
-     * @param pidFiled 代表pid的字段名称
+     * @param pidField  代表id的字段名称
+     * @param idField 代表pid的字段名称
      * @param idValue  id值
      * @param <T>      数据类型
      * @param <I>      id类型
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
-    public static <T, I> List<T> recursiveSearch(List<T> source, String idFiled, String pidFiled, I idValue) throws NoSuchFieldException, IllegalAccessException {
+    public static <T, I> List<T> recursiveSearchParent(List<T> source, String pidField, String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
         ArrayList<T> ref = new ArrayList<>();
-        recursiveSearch(source, ref, idFiled, pidFiled, idValue);
+        recursiveSearch(source, ref, pidField, idField, idValue);
         return ref;
     }
 
     /**
      * 递归查询指定id的所有子项
+     *
+     * @param source   源数据
+     * @param idField  代表id的字段名称
+     * @param pidField 代表pid的字段名称
+     * @param idValue  id值
+     * @param <T>      数据类型
+     * @param <I>      id类型
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static <T, I> List<T> recursiveSearchChild(List<T> source, String idField, String pidField, I idValue) throws NoSuchFieldException, IllegalAccessException {
+        ArrayList<T> ref = new ArrayList<>();
+        recursiveSearch(source, ref, idField, pidField, idValue);
+        return ref;
+    }
+
+    /**
+     * 递归查询指定id的所有子项/父项
      *
      * @param source   源数据
      * @param ref      out list
@@ -85,15 +104,15 @@ public final class ReflectUtil {
     }
 
 
-    public static void eraseValue(Object o, Class<?>... classes) throws IllegalAccessException {
-        for (Class<?> fieldClass : classes) {
+    public static void eraseValue(Object o, Class<?>... fieldTypes) throws IllegalAccessException {
+        for (Class<?> fieldClass : fieldTypes) {
             Assert.notNull(fieldClass, "fields can not be null");
         }
         Field[] declaredFields = o.getClass().getDeclaredFields();
-        accessFields(declaredFields);
         for (int i = 0; i < declaredFields.length; i++) {
-            for (Class<?> fieldClass : classes) {
+            for (Class<?> fieldClass : fieldTypes) {
                 if (declaredFields[i].getType() == fieldClass) {
+                    declaredFields[i].setAccessible(true);
                     declaredFields[i].set(o, null);
                 }
             }
@@ -104,9 +123,9 @@ public final class ReflectUtil {
         Assert.notNull(fields, "fields can not be null");
         Assert.notEmpty(fields, "fields can not be empty");
         Field[] declaredFields = o.getClass().getDeclaredFields();
-        accessFields(declaredFields);
         if (regexAll.equals(fields)) {
             for (int i = 0; i < declaredFields.length; i++) {
+                declaredFields[i].setAccessible(true);
                 declaredFields[i].set(o, null);
             }
             return;
@@ -115,6 +134,7 @@ public final class ReflectUtil {
         for (int i = 0; i < declaredFields.length; i++) {
             for (int i1 = 0; i1 < matchFields.length; i1++) {
                 if (declaredFields[i].getName().equals(matchFields[i1])) {
+                    declaredFields[i].setAccessible(true);
                     declaredFields[i].set(o, null);
                 }
             }

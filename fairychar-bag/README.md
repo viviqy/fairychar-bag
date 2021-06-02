@@ -10,15 +10,15 @@ fairychar:
         enable: true
 ```
 代码使用
+
 ```java
-import com.fairychar.bag.domain.annotions.BindingCheck;
+
 /*
-* 在需要校验的接口上打上此注解
-*/
-@BindingCheck
-public String hello(@RequestBody @Validate User user,BindingResult bindingResult) throws Exception{
-    return "hello";
-}
+ * 在需要校验的接口上打上此注解
+ */
+public String hello(@RequestBody @Validate User user,BindingResult bindingResult)throws Exception{
+        return"hello";
+        }
 ```
 ### 实现效果
 在每次请求请求时可自动校验参数,在参数校验失败后抛出ParamErrorException
