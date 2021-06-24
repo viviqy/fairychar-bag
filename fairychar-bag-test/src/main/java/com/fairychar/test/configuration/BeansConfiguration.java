@@ -2,7 +2,15 @@ package com.fairychar.test.configuration;
 
 import com.fairychar.bag.beans.aop.LoggingHandler;
 import com.fairychar.bag.beans.aop.SwaggerLoggingHandler;
+import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
+import com.fairychar.bag.domain.netty.GlobalCauseAdvice;
 import com.fairychar.bag.properties.FairycharBagProperties;
+import com.fairychar.bag.properties.NettyServerClientProperties;
+import com.fairychar.test.netty.handler.ThrowExHandler;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.socket.ServerSocketChannel;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
 import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,6 +34,11 @@ public class BeansConfiguration {
 //    }
 
     @Bean
+    GlobalCauseAdvice globalCauseAdvice(){
+        return new GlobalCauseAdvice();
+    }
+
+    @Bean
     LoggingHandler swagger() {
         return new SwaggerLoggingHandler();
     }
@@ -33,14 +46,29 @@ public class BeansConfiguration {
     @Autowired
     private FairycharBagProperties bagProperties;
 
-//    @Bean
-//    SimpleNettyServer simpleNettyServer(){
+
+
+    @Bean
+    SimpleNettyServer simpleNettyServer(){
 //        NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
-//        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(properties.getWorkerSize(), properties.getPort());
-//        return simpleNettyServer;
-//        // 在需要的spring bean加载完成后执行start方法
-//    }
-//
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000, new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new io.netty.handler.logging.LoggingHandler());
+            }
+        }, new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new StringDecoder())
+                        .addLast(new ThrowExHandler())
+                        .addLast(globalCauseAdvice());
+            }
+        });
+        simpleNettyServer.start();
+        return simpleNettyServer;
+        // 在需要的spring bean加载完成后执行start方法
+    }
+
 //    @Bean
 //    SimpleNettyClient simpleNettyClient(){
 //        NettyServerClientProperties.ClientProperties client = bagProperties.getServerClient().getClient();

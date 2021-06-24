@@ -1,5 +1,6 @@
 package com.fairychar.test;
 
+import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
 import com.fairychar.bag.function.Action;
 import com.fairychar.test.service.IHandler;
@@ -23,7 +24,7 @@ import java.util.stream.IntStream;
  * @since 1.0
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = {BagTestApplication.class})
 public class BagTestApplicationTest {
     @Autowired
     private LockTestService lockTestService;
@@ -34,6 +35,15 @@ public class BagTestApplicationTest {
 
     @Autowired
     private IHandler handler;
+
+    @Autowired
+    private SimpleNettyServer simpleNettyServer;
+
+
+    @Test
+    public void testNettyAdvice(){
+        simpleNettyServer.start();
+    }
 
     @Test
     public void testHandler(){

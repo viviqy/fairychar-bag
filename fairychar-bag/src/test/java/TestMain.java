@@ -1,40 +1,26 @@
-package com.fairychar.test.configuration;
-
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.RetryNTimes;
-import org.redisson.Redisson;
-import org.redisson.config.Config;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import java.io.IOException;
+import org.junit.Test;
 
 /**
- * Datetime: 2021/1/27 11:19 <br>
+ * Created with IDEA <br>
+ * Date: 2021/06/24 <br>
+ * time: 22:24 <br>
  *
  * @author chiyo <br>
- * @since 1.0
  */
-//@Configuration
-public class LockConfiguration {
-
-    @Bean
-    public Redisson redisson() throws IOException {
-        Config config = new Config();
-        config.useSingleServer().setAddress("redis://10.0.202.157:16379");
-        Redisson redisson = (Redisson) Redisson.create(config);
-        return redisson;
+public class TestMain {
+    @Test
+    public void throwEx(){
+        try {
+            ex("a");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        System.out.println("aa");
     }
 
-
-    @Bean(initMethod = "start")
-    public CuratorFramework curatorFramework() {
-        return CuratorFrameworkFactory.newClient(
-                "10.0.202.157:12181"
-                , new RetryNTimes(5, 5000));
+    private void ex(String a) throws IllegalAccessException {
+        throw new IllegalAccessException("aa");
     }
-
 }
 /*
                                       /[-])//  ___        

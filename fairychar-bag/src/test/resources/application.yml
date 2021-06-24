@@ -15,8 +15,3 @@ fairychar:
     convert:
       mvc:
         enable: false
-    server-client:
-      server:
-        boss-size: 1
-        worker-size: 1
-        port: 10000

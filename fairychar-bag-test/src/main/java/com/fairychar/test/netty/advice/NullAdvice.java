@@ -1,40 +1,23 @@
-package com.fairychar.test.configuration;
+package com.fairychar.test.netty.advice;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.RetryNTimes;
-import org.redisson.Redisson;
-import org.redisson.config.Config;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import java.io.IOException;
+import com.fairychar.bag.domain.annotions.CauseHandler;
+import com.fairychar.bag.domain.annotions.NettyAdvice;
 
 /**
- * Datetime: 2021/1/27 11:19 <br>
+ * Created with IDEA <br>
+ * Date: 2021/06/24 <br>
+ * time: 22:40 <br>
  *
  * @author chiyo <br>
- * @since 1.0
  */
-//@Configuration
-public class LockConfiguration {
+@NettyAdvice
+public class NullAdvice {
 
-    @Bean
-    public Redisson redisson() throws IOException {
-        Config config = new Config();
-        config.useSingleServer().setAddress("redis://10.0.202.157:16379");
-        Redisson redisson = (Redisson) Redisson.create(config);
-        return redisson;
+    @CauseHandler(NullPointerException.class)
+    public void handle(NullPointerException e){
+        System.out.println("in null");
+        System.out.println(e);
     }
-
-
-    @Bean(initMethod = "start")
-    public CuratorFramework curatorFramework() {
-        return CuratorFrameworkFactory.newClient(
-                "10.0.202.157:12181"
-                , new RetryNTimes(5, 5000));
-    }
-
 }
 /*
                                       /[-])//  ___        
