@@ -2,7 +2,9 @@ package com.fairychar.test;
 
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
 import com.fairychar.bag.function.Action;
+import com.fairychar.test.service.IHandler;
 import com.fairychar.test.service.LockTestService;
+import com.fairychar.test.service.UserHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.redisson.Redisson;
@@ -28,6 +30,18 @@ public class BagTestApplicationTest {
 
     @Autowired
     private Redisson redisson;
+
+
+    @Autowired
+    private IHandler handler;
+
+    @Test
+    public void testHandler(){
+        System.out.println(this.handler);
+        UserHandler handler = (UserHandler) this.handler;
+        handler.hi("hi");
+
+    }
 
     @Test
     public void test5() throws InterruptedException {
