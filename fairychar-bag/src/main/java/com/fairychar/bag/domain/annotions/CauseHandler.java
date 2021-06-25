@@ -1,5 +1,6 @@
 package com.fairychar.bag.domain.annotions;
 
+import io.netty.channel.ChannelHandler;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
@@ -21,13 +22,13 @@ public @interface CauseHandler {
      * 拦截异常类
      * @return
      */
-    Class value();
+    Class<? extends Throwable> value();
 
     /**
      * 标识抛出异常的handler类
      * @return
      */
-    Class handler() default Void.class;
+    Class<? extends ChannelHandler> handler() default ChannelHandler.class;
 
     /**
      * 标识最先抛出异常的方法名称
@@ -35,9 +36,4 @@ public @interface CauseHandler {
      */
     String methodName() default "";
 
-    /**
-     * 标识最先抛出异常的方法的参数类型(区分重载)
-     * @return
-     */
-    Class[] args() default {Void.class};
 }

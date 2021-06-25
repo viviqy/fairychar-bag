@@ -9,6 +9,7 @@ import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.bag.utils.NotVeryUsefulUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.test.web.controller.SimpleController;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -38,6 +39,12 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class TestMain {
+
+    @Test
+    public void testClazz() throws Exception {
+        Class<?> clazz = Class.forName("com.fairychar.bag.domain.netty.GlobalCauseAdvice");
+        boolean b = clazz.getGenericSuperclass() instanceof ChannelHandler;
+    }
 
     @Test
     public void testSwapInteger(){

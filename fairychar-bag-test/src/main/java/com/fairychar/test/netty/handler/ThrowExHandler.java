@@ -13,11 +13,18 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class ThrowExHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        if ("1".equals(msg)) {
+        String replace = msg.replace("\r", "").replace("\n", "");
+        if ("1".equals(replace)) {
             throw new NullPointerException("111");
-        }else if ("2".equals(msg)){
-            throw new ArrayIndexOutOfBoundsException("222");
+        } else if ("2".equals(replace)) {
+            m1();
+        }else if ("3".equals(replace)){
+            throw new ArrayIndexOutOfBoundsException("333");
         }
+    }
+
+    private void m1() {
+        throw new ArrayIndexOutOfBoundsException("m1");
     }
 }
 /*

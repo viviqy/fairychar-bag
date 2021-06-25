@@ -1,37 +1,20 @@
-package com.fairychar.test.netty.advice;
+package com.fairychar.bag.utils;
 
-import com.fairychar.bag.domain.annotions.CauseHandler;
-import com.fairychar.bag.domain.annotions.NettyAdvice;
-import com.fairychar.test.netty.handler.ThrowExHandler;
-import io.netty.channel.ChannelHandlerContext;
+import com.google.common.base.Strings;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
- * Created with IDEA <br>
- * Date: 2021/06/24 <br>
- * time: 22:40 <br>
+ * Datetime: 2021/6/25 09:38 <br>
  *
  * @author chiyo <br>
+ * @since 1.0
  */
-@NettyAdvice
-public class OutAdvice {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class StringUtil {
 
-    @CauseHandler(value = ArrayIndexOutOfBoundsException.class)
-    public void handle(ChannelHandlerContext ctx, ArrayIndexOutOfBoundsException e) {
-        System.out.println("in array");
-        System.out.println(e);
-    }
-
-    @CauseHandler(value = ArrayIndexOutOfBoundsException.class, handler = ThrowExHandler.class)
-    public void handle1(ChannelHandlerContext ctx, ArrayIndexOutOfBoundsException e) {
-        System.out.println("in array1");
-        System.out.println(e);
-    }
-
-
-    @CauseHandler(value = ArrayIndexOutOfBoundsException.class, handler = ThrowExHandler.class, methodName = "m1")
-    public void handle2(ChannelHandlerContext ctx, ArrayIndexOutOfBoundsException e) {
-        System.out.println("in array2");
-        System.out.println(e);
+    public static String defaultText(String source, String text) {
+        return Strings.isNullOrEmpty(source) ? text : source;
     }
 }
 /*
