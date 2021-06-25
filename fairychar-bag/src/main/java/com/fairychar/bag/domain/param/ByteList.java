@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "ByteList",description = "Byte类型Json请求集合体")
+@ApiModel(value = "ByteList", description = "Byte类型Json请求集合体")
 public final class ByteList implements Serializable {
     private List<Byte> list;
 }

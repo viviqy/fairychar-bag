@@ -46,7 +46,7 @@ public class AopProperties {
         /**
          * 全局超时时间单位设置
          */
-        private TimeUnit timeUnit=TimeUnit.SECONDS;
+        private TimeUnit timeUnit = TimeUnit.SECONDS;
         /**
          * 全局锁类型,默认使用本地锁,不能配置为DEFAULT
          */

@@ -1,8 +1,6 @@
 package com.fairychar.bag.extension.concurrent;
 
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
-import com.fairychar.bag.function.Action;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +23,7 @@ public class ActionSchedule implements Comparable<ActionSchedule> {
     private boolean isWorking;
     @NonNull
     private long period;
-    private long lastExecuteTime=System.currentTimeMillis();
+    private long lastExecuteTime = System.currentTimeMillis();
     @NonNull
     private AbstractScheduleAction action;
 

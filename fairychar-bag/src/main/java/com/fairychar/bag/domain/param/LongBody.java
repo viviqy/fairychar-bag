@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -17,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "LongBody",description = "Long类型Json请求体")
+@ApiModel(value = "LongBody", description = "Long类型Json请求体")
 public class LongBody implements Serializable {
     private Long body;
 }

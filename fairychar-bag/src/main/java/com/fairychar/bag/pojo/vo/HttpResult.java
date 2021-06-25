@@ -40,12 +40,12 @@ public class HttpResult<T> {
     }
 
 
-    public static HttpResult fallback(){
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(),null,"service unavailable");
+    public static HttpResult fallback() {
+        return response(HttpStatus.SERVICE_UNAVAILABLE.value(), null, "service unavailable");
     }
 
-    public static HttpResult fallback(Throwable cause){
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(),cause.getMessage(),"service unavailable");
+    public static HttpResult fallback(Throwable cause) {
+        return response(HttpStatus.SERVICE_UNAVAILABLE.value(), cause.getMessage(), "service unavailable");
     }
 
     public static HttpResult ok() {

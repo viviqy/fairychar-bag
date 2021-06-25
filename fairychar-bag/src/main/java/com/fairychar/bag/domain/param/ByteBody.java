@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "ByteBody",description = "Byte类型Json请求体")
+@ApiModel(value = "ByteBody", description = "Byte类型Json请求体")
 public class ByteBody implements Serializable {
     private Byte body;
 }

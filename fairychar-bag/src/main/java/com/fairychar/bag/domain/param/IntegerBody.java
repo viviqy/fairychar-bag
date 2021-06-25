@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "IntegerBody",description = "Integer类型Json请求体")
+@ApiModel(value = "IntegerBody", description = "Integer类型Json请求体")
 public class IntegerBody implements Serializable {
     private Integer body;
 }

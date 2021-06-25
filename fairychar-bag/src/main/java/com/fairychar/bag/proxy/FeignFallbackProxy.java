@@ -19,11 +19,12 @@ public class FeignFallbackProxy {
 
     /**
      * 代理feignclient的方法,代理后的方法返回{@link HttpResult}.fallback()
+     *
      * @param feignClient feignClient
      * @param <I>
      * @return jdk动态代理后的FeignClient
      */
-    public static <I> I createDefault(Class<I> feignClient,Throwable cause){
+    public static <I> I createDefault(Class<I> feignClient, Throwable cause) {
         Assert.isTrue(feignClient.isInterface());
         I proxiededFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
             @Override

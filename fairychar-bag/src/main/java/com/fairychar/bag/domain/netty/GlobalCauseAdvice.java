@@ -53,6 +53,15 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         dispatch(ctx, cause);
     }
 
+    /**
+     * 异常处理分发,如果未找到异常处理器将会将此异常向下传递
+     *
+     * @param ctx
+     * @param cause
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     * @throws ClassNotFoundException
+     */
     private void dispatch(ChannelHandlerContext ctx, Throwable cause) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
         StackTraceElement stackTraceElement = this.findByChannelHandler(cause);
         CauseInfo causeInfo = getCauseInfo(cause, stackTraceElement);
@@ -60,33 +69,74 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         invoke(ctx, cause, method);
     }
 
+    /**
+     * 包装获取CauseInfo信息
+     *
+     * @param cause
+     * @param stackTraceElement
+     * @return
+     * @throws ClassNotFoundException
+     */
     private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException {
         return new CauseInfo().setEx(cause.getClass())
                 .setHandler(Class.forName(stackTraceElement.getClassName()))
                 .setMethodName(stackTraceElement.getMethodName());
     }
 
+    /**
+     * 执行异常处理
+     *
+     * @param ctx
+     * @param cause
+     * @param method
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
     private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method) throws InvocationTargetException, IllegalAccessException {
         if (method != null) {
-            InvokeEntity invokeEntity = CacheOperateTemplate.get(() -> this.invokeArgsCache.get(method.toGenericString()), () -> {
-                Object bean = SpringContextHolder.getInstance().getBean(method.getDeclaringClass());
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                Object[] args = new Object[parameterTypes.length];
-                for (int i = 0; i < parameterTypes.length; i++) {
-                    if (parameterTypes[i].isAssignableFrom(ctx.getClass())) {
-                        args[i] = ctx;
-                    } else if (cause.getClass().isAssignableFrom(parameterTypes[i])) {
-                        args[i] = cause;
-                    }
-                }
-                return new InvokeEntity(bean, args);
-            }, e -> this.invokeArgsCache.put(method.toGenericString(), e), method);
+            InvokeEntity invokeEntity = getInvokeEntity(ctx, cause, method);
             method.invoke(invokeEntity.getBean(), invokeEntity.getArgs());
         } else {
-            fireExceptionCaught(ctx, cause);
+            ctx.fireExceptionCaught(cause);
         }
     }
 
+    /**
+     * 获取当前method的缓存InvokeEntity信息
+     *
+     * @param ctx
+     * @param cause
+     * @param method
+     * @return
+     */
+    private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method) {
+        InvokeEntity invokeEntity = CacheOperateTemplate.get(() -> this.invokeArgsCache.get(method.toGenericString()), () -> {
+            Object bean = SpringContextHolder.getInstance().getBean(method.getDeclaringClass());
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            Object[] args = new Object[parameterTypes.length];
+            for (int i = 0; i < parameterTypes.length; i++) {
+                if (parameterTypes[i].isAssignableFrom(ctx.getClass())) {
+                    args[i] = ctx;
+                } else if (cause.getClass().isAssignableFrom(parameterTypes[i])) {
+                    args[i] = cause;
+                }
+            }
+            return new InvokeEntity(bean, args);
+        }, e -> this.invokeArgsCache.put(method.toGenericString(), e), method);
+        return invokeEntity;
+    }
+
+    /**
+     * 根据causeInfo信息,分别从cache1,cache2,cache3里获取对应的Method<br>
+     * cache1推断方式 = exception+handler+method <br>
+     * cache2推断方式 = exception+handler <br>
+     * cache3推断方式 = exception <br>
+     * <p>
+     * 获取优先级顺序为 cache1->cache2->cache3
+     *
+     * @param c causeInfo
+     * @return 查到的Method或者null
+     */
     private Method obtainMethod(CauseInfo c) {
         String key = c.getMark();
         return this.cache1.get(key) != null ? this.cache1.get(key) :
@@ -95,11 +145,16 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
 
     }
 
-    private void fireExceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        ctx.fireExceptionCaught(cause);
-    }
 
-
+    /**
+     * <p>验证映射到的Method合法性</p>
+     * <p>
+     * 1.校验异常处理方法是否重复 <br>
+     * 2.校验是否存在配置了methodName但是却未指定Handler <br>
+     *
+     * @param methods
+     * @throws IllegalAccessException
+     */
     private void validate(List<Method> methods) throws IllegalAccessException {
         ArrayList<CauseInfo> causeInfoList = new ArrayList<>();
         for (Method m : methods) {
@@ -116,6 +171,11 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         createCache(causeInfoList);
     }
 
+    /**
+     * 创建异常处理器映射方法缓存
+     *
+     * @param causeInfoList
+     */
     private void createCache(List<CauseInfo> causeInfoList) {
         cache1 = new HashMap<>(causeInfoList.size());
         causeInfoList.stream().collect(Collectors.groupingBy(c -> c.getMark())).entrySet().forEach(e -> {
@@ -137,6 +197,12 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
     }
 
 
+    /**
+     * 获取cache2缓存的Key
+     *
+     * @param causeInfo
+     * @return
+     */
     private String obtainCache2Key(CauseInfo causeInfo) {
         return causeInfo.ex.getName().concat("-").concat(causeInfo.handler.getName());
     }
@@ -155,6 +221,12 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         }
     }
 
+    /**
+     * 初始化映射方法缓存
+     *
+     * @param values
+     * @throws IllegalAccessException
+     */
     private void initCache(Collection<Object> values) throws IllegalAccessException {
         List<Method> methods = values.stream().flatMap(c -> Arrays.stream(c.getClass().getDeclaredMethods()))
                 .filter(m -> m.getDeclaredAnnotation(CauseHandler.class) != null)
@@ -165,12 +237,26 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         validate(methods);
     }
 
+    /**
+     * 通过类名判断当前类是否是{@link ChannelHandler}的实现类
+     *
+     * @param className
+     * @return
+     * @throws ClassNotFoundException
+     */
     private boolean isChannelHandler(String className) throws ClassNotFoundException {
         Class clazz = Class.forName(className);
         return ChannelHandler.class.isAssignableFrom(clazz);
     }
 
 
+    /**
+     * 根据cause获取ChannelHandler实现类抛出异常的stack信息(获取Handler类名和异常抛出方法名)
+     *
+     * @param cause
+     * @return
+     * @throws ClassNotFoundException
+     */
     private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException {
         for (StackTraceElement stackTraceElement : cause.getStackTrace()) {
             if (this.isChannelHandler(stackTraceElement.getClassName())) {
@@ -181,6 +267,12 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         return null;
     }
 
+    /**
+     * Method参数包装实体 <br>
+     * method.invoke(obj,args..) <br>
+     * obj=bean method的执行类<br>
+     * args=args method的执行参数<br>
+     */
     @AllArgsConstructor
     @Getter
     static class InvokeEntity {

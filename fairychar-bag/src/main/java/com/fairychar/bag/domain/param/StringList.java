@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "StringList",description = "String类型Json请求集合")
+@ApiModel(value = "StringList", description = "String类型Json请求集合")
 public final class StringList implements Serializable {
     private List<String> list;
 }

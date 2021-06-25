@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "LongList",description = "Long类型Json请求集合")
+@ApiModel(value = "LongList", description = "Long类型Json请求集合")
 public final class LongList implements Serializable {
     private List<Long> list;
 }

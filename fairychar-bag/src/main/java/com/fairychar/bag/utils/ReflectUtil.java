@@ -28,8 +28,8 @@ public final class ReflectUtil {
      * 递归查询指定id的所有子项
      *
      * @param source   源数据
-     * @param pidField  代表id的字段名称
-     * @param idField 代表pid的字段名称
+     * @param pidField 代表id的字段名称
+     * @param idField  代表pid的字段名称
      * @param idValue  id值
      * @param <T>      数据类型
      * @param <I>      id类型

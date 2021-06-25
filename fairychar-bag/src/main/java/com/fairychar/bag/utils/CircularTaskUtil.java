@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.function.Supplier;
 
 /**
  * Date: 2020/5/20 <br>

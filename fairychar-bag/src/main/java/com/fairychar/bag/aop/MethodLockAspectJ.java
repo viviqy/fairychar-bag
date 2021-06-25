@@ -71,7 +71,7 @@ public class MethodLockAspectJ implements InitializingBean {
 
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
-        ReentrantLock reentrantLock = createOrGetLocalLock(methodLock.name().isEmpty()?getMethodFullPath(method):methodLock.name());
+        ReentrantLock reentrantLock = createOrGetLocalLock(methodLock.name().isEmpty() ? getMethodFullPath(method) : methodLock.name());
         if (methodLock.optimistic()) {
             try {
                 if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
@@ -110,7 +110,7 @@ public class MethodLockAspectJ implements InitializingBean {
                 if (redissonLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
                     hold = true;
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-                }else {
+                } else {
                     throw new FailToGetLockException();
                 }
             } catch (InterruptedException | TimeoutException e) {
