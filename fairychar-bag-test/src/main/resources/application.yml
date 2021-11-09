@@ -2,16 +2,16 @@ fairychar:
   bag:
     aop:
       lock:
-        enable: true
+        enable: false
         time-unit: seconds
         global-timeout: 1
         default-lock: redis
       log:
-        enable: true
+        enable: false
         global-before: swagger
         global-level: info
       binding:
-        enable: true
+        enable: false
     convert:
       mvc:
         enable: false

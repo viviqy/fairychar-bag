@@ -1,7 +1,7 @@
 package com.fairychar.test.netty.advice;
 
 import com.fairychar.bag.domain.annotions.CauseHandler;
-import com.fairychar.bag.domain.annotions.NettyAdvice;
+import com.fairychar.bag.domain.annotions.NettyCauseAdvice;
 import com.fairychar.test.netty.handler.ThrowExHandler;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -12,7 +12,7 @@ import io.netty.channel.ChannelHandlerContext;
  *
  * @author chiyo <br>
  */
-@NettyAdvice
+@NettyCauseAdvice
 public class OutAdvice {
 
     @CauseHandler(value = ArrayIndexOutOfBoundsException.class)
@@ -26,7 +26,6 @@ public class OutAdvice {
         System.out.println("in array1");
         System.out.println(e);
     }
-
 
     @CauseHandler(value = ArrayIndexOutOfBoundsException.class, handler = ThrowExHandler.class, methodName = "m1")
     public void handle2(ChannelHandlerContext ctx, ArrayIndexOutOfBoundsException e) {

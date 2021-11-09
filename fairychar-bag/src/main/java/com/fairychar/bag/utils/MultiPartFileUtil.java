@@ -3,6 +3,7 @@ package com.fairychar.bag.utils;
 import cn.hutool.core.lang.Assert;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created with IDEA <br>
@@ -15,15 +16,16 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MultiPartFileUtil {
-    public final static String getSuffix(String fileName) {
+    public  static String getSuffix(String fileName) {
         Assert.notNull(fileName);
         return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 
-    public final static String getNameWithOutSuffix(String fileName) {
+    public  static String getNameWithOutSuffix(String fileName) {
         Assert.notNull(fileName);
         return fileName.substring(0, fileName.lastIndexOf('.'));
     }
+
 }
 /*
                                       /[-])//  ___        

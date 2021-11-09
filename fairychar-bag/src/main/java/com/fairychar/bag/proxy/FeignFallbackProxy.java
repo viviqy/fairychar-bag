@@ -2,6 +2,8 @@ package com.fairychar.bag.proxy;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.pojo.vo.HttpResult;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -15,7 +17,8 @@ import java.lang.reflect.Proxy;
  * @author chiyo <br>
  * @since 1.0
  */
-public class FeignFallbackProxy {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class FeignFallbackProxy {
 
     /**
      * 代理feignclient的方法,代理后的方法返回{@link HttpResult}.fallback()
@@ -26,7 +29,7 @@ public class FeignFallbackProxy {
      */
     public static <I> I createDefault(Class<I> feignClient, Throwable cause) {
         Assert.isTrue(feignClient.isInterface());
-        I proxiededFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
+        I proxyFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 if (Object.class.equals(method.getDeclaringClass())) {
@@ -35,7 +38,7 @@ public class FeignFallbackProxy {
                 return new ResponseEntity(HttpResult.fallback(cause), HttpStatus.SERVICE_UNAVAILABLE);
             }
         });
-        return proxiededFeignClient;
+        return proxyFeignClient;
     }
 }
 /*

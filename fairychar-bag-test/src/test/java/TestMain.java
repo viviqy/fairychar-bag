@@ -6,7 +6,7 @@ import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
 import com.fairychar.bag.domain.netty.frame.HeadTailFrame;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.template.ActionSelectorTemplate;
-import com.fairychar.bag.utils.NotVeryUsefulUtil;
+import com.fairychar.bag.utils.FileUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.test.web.controller.SimpleController;
 import io.netty.channel.ChannelHandler;
@@ -20,8 +20,9 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.apache.commons.collections.list.PredicatedList;
+import org.apache.commons.collections.list.TreeList;
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -31,6 +32,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Datetime: 2020/6/2 14:47 <br>
@@ -41,17 +43,121 @@ import java.util.stream.Collectors;
 public class TestMain {
 
     @Test
+    public void testMarkedListSpeed() throws Exception {
+        TimeUnit.SECONDS.sleep(3);
+        long aBegin = System.currentTimeMillis();
+        System.out.println("开始测试arrayList: " + aBegin);
+        List<Integer> arrayList = IntStream.rangeClosed(0, 100_0000).boxed().collect(Collectors.toList());
+        for (int i = 0; i < 1_0000; i++) {
+            arrayList.remove(2 * i);
+        }
+        arrayList.forEach(e -> {
+        });
+        System.out.println("测试结束arrayList花费了: " + (System.currentTimeMillis() - aBegin));
+
+        TimeUnit.SECONDS.sleep(3);
+        long mBegin = System.currentTimeMillis();
+        System.out.println("开始测试markedList: " + mBegin);
+        List<Integer> markedList = IntStream.rangeClosed(0, 100_0000).boxed().collect(Collectors.toCollection(MarkedList::new));
+        for (int i = 0; i < 1_0000; i++) {
+            markedList.remove(2 * i);
+        }
+        markedList.forEach(e -> {
+        });
+        System.out.println("测试结束markedList花费了: " + (System.currentTimeMillis() - mBegin));
+
+    }
+
+    @Test
+    public void testMarkedList() {
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("a");
+        strings.add("b");
+        strings.add("c");
+        strings.add("d");
+
+        MarkedList<String> markedList = new MarkedList<>();
+        strings.forEach(s -> markedList.add(s));
+
+//        System.out.println(markedList);
+        markedList.remove(1);
+        markedList.remove(2);
+        System.out.println(markedList);
+    }
+
+
+    static class MarkedList<E> extends ArrayList<E> {
+        private HashSet<Integer> removedIndexes = new HashSet<>();
+
+        @Override
+        public Iterator<E> iterator() {
+            Iterator<E> iterator = new Iterator<E>() {
+                private int current = 0;
+
+                @Override
+                public boolean hasNext() {
+                    if (current < size()) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override
+                public E next() {
+                    do {
+                        if (!removedIndexes.contains(current) && current < size()) {
+                            E result = get(current++);
+                            return result;
+                        }
+                    } while (current++ < size());
+                    return null;
+                }
+            };
+            return iterator;
+        }
+
+        @Override
+        public E remove(int index) {
+            this.removedIndexes.add(index);
+            return this.get(index);
+        }
+
+
+        @Override
+        public boolean remove(Object o) {
+            return this.removedIndexes.remove(o);
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+
+    @Test
+    public void testTreeList() {
+        TreeList treeList = new TreeList();
+        treeList.add(1);
+        treeList.add(3);
+        treeList.add(2);
+
+        System.out.println(treeList);
+    }
+
+
+    @Test
     public void testClazz() throws Exception {
-        Class<?> clazz = Class.forName("com.fairychar.bag.domain.netty.GlobalCauseAdvice");
+        Class<?> clazz = Class.forName("com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice");
         boolean b = clazz.getGenericSuperclass() instanceof ChannelHandler;
     }
 
     @Test
-    public void testSwapInteger(){
+    public void testSwapInteger() {
         Integer a = new Integer(1);
         Integer b = new Integer(2);
-        ReflectUtil.swapInteger(a,b);
-        System.out.println("a="+a+",b="+b);
+        ReflectUtil.swapInteger(a, b);
+        System.out.println("a=" + a + ",b=" + b);
     }
 
 
@@ -64,7 +170,7 @@ public class TestMain {
     }
 
     @Test
-    public void testPid() throws Exception{
+    public void testPid() throws Exception {
         List<Child> children = Arrays.asList(
                 new Child(1L, "1", 0L),
                 new Child(2L, "2", 1L),
@@ -87,7 +193,7 @@ public class TestMain {
 
     /**
      * @param source 表里查出来带pid和id字段的数据
-     * @param id 要查询的id
+     * @param id     要查询的id
      * @param ref
      * @param <T>
      */
@@ -195,7 +301,7 @@ public class TestMain {
     public void testCreateFakeFile() throws IOException, InterruptedException {
         TimeUnit.SECONDS.sleep(3);
         long begin = System.currentTimeMillis();
-        NotVeryUsefulUtil.createFakeFile("F:\\a.txt"
+        FileUtil.createFakeFile("F:\\a.txt"
                 , Consts.GB_PER_B * 2);
         System.out.println(System.currentTimeMillis() - begin);
     }

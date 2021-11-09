@@ -1,32 +1,28 @@
-package com.fairychar.test.netty.handler;
+package com.fairychar.bag.pojo.dto;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
- * Created with IDEA <br>
- * Date: 2021/06/24 <br>
- * time: 22:38 <br>
+ * Datetime: 2021/7/21 14:59 <br>
  *
  * @author chiyo <br>
+ * @since 1.0
  */
-public class ThrowExHandler extends SimpleChannelInboundHandler<String> {
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        String replace = msg.replace("\r", "").replace("\n", "");
-        if ("1".equals(replace)) {
-            throw new NullPointerException("111");
-        } else if ("2".equals(replace)) {
-            m1();
-        }else if ("3".equals(replace)){
-            throw new ArrayIndexOutOfBoundsException("333");
-        }
-    }
-
-
-    private void m1() {
-        throw new ArrayIndexOutOfBoundsException("m1");
-    }
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Accessors(chain = true)
+@ApiModel("key-value格式数据")
+public class NameValueDTO<T> implements Serializable {
+    
+    private String name;
+    private T value;
 }
 /*
                                       /[-])//  ___        

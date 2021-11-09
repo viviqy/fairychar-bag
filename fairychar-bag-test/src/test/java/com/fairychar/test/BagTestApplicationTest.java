@@ -3,6 +3,7 @@ package com.fairychar.test;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
 import com.fairychar.bag.function.Action;
+import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.test.service.IHandler;
 import com.fairychar.test.service.LockTestService;
 import com.fairychar.test.service.UserHandler;

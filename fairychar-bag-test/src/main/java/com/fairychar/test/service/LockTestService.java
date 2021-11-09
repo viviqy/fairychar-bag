@@ -15,7 +15,8 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 @Service
 public class LockTestService {
-    @MethodLock(lockType = MethodLock.Type.LOCAL)
+//    @MethodLock(lockType = MethodLock.Type.LOCAL)
+    @MethodLock
     public void run1() {
         try {
             TimeUnit.SECONDS.sleep(1);

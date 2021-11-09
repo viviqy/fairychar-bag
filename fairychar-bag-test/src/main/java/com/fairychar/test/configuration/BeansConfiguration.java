@@ -3,16 +3,15 @@ package com.fairychar.test.configuration;
 import com.fairychar.bag.beans.aop.LoggingHandler;
 import com.fairychar.bag.beans.aop.SwaggerLoggingHandler;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
-import com.fairychar.bag.domain.netty.GlobalCauseAdvice;
+import com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice;
 import com.fairychar.bag.properties.FairycharBagProperties;
-import com.fairychar.bag.properties.NettyServerClientProperties;
 import com.fairychar.test.netty.handler.ThrowExHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
-import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,8 +33,8 @@ public class BeansConfiguration {
 //    }
 
     @Bean
-    GlobalCauseAdvice globalCauseAdvice(){
-        return new GlobalCauseAdvice();
+    GlobalInboundCauseAdvice globalCauseAdvice(){
+        return new GlobalInboundCauseAdvice();
     }
 
     @Bean
@@ -49,6 +48,7 @@ public class BeansConfiguration {
 
 
     @Bean
+    @ConditionalOnMissingBean
     SimpleNettyServer simpleNettyServer(){
 //        NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000, new ChannelInitializer<ServerSocketChannel>() {

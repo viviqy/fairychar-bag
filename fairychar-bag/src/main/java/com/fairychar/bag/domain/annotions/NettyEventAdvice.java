@@ -17,5 +17,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Component
-public @interface NettyAdvice {
+public @interface NettyEventAdvice {
 }

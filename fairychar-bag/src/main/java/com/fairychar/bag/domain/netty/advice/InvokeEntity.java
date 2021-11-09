@@ -1,32 +1,19 @@
-package com.fairychar.test.netty.handler;
+package com.fairychar.bag.domain.netty.advice;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
- * Created with IDEA <br>
- * Date: 2021/06/24 <br>
- * time: 22:38 <br>
- *
- * @author chiyo <br>
+ * Method参数包装实体 <br>
+ * method.invoke(obj,args..) <br>
+ * obj=bean method的执行类<br>
+ * args=args method的执行参数<br>
  */
-public class ThrowExHandler extends SimpleChannelInboundHandler<String> {
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        String replace = msg.replace("\r", "").replace("\n", "");
-        if ("1".equals(replace)) {
-            throw new NullPointerException("111");
-        } else if ("2".equals(replace)) {
-            m1();
-        }else if ("3".equals(replace)){
-            throw new ArrayIndexOutOfBoundsException("333");
-        }
-    }
-
-
-    private void m1() {
-        throw new ArrayIndexOutOfBoundsException("m1");
-    }
+@AllArgsConstructor
+@Getter
+class InvokeEntity {
+    private final Object bean;
+    private final Object[] args;
 }
 /*
                                       /[-])//  ___        

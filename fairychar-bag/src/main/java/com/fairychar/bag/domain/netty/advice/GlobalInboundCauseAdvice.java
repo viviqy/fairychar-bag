@@ -1,7 +1,7 @@
-package com.fairychar.bag.domain.netty;
+package com.fairychar.bag.domain.netty.advice;
 
 import com.fairychar.bag.domain.annotions.CauseHandler;
-import com.fairychar.bag.domain.annotions.NettyAdvice;
+import com.fairychar.bag.domain.annotions.NettyCauseAdvice;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.StringUtil;
@@ -28,15 +28,16 @@ import java.util.stream.Collectors;
 
 /**
  * Datetime: 2021/6/24 17:46 <br>
+ * channel inBound 全局异常处理器,添加到inbound pipeline的最后节点
  *
  * @author chiyo <br>
  * @since 1.0
  */
 @Slf4j
-public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor {
+public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor {
 
     /**
-     * key=mark(ex+handler+method+args)
+     * key=mark(ex+handler+method)
      */
     private HashMap<String, Method> cache1;
     private HashMap<String, Method> cache2;
@@ -141,7 +142,8 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
         String key = c.getMark();
         return this.cache1.get(key) != null ? this.cache1.get(key) :
                 (this.cache2.get(obtainCache2Key(c)) != null ? this.cache2.get(obtainCache2Key(c)) :
-                        (this.cache3.get(c.getEx()) != null ? this.cache3.get(c.getEx()) : null));
+                        (this.cache3.get(c.getEx()) != null ? this.cache3.get(c.getEx()) :
+                                (this.cache3.get(Exception.class) != null ? this.cache3.get(Exception.class) : null)));
 
     }
 
@@ -268,19 +270,6 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
     }
 
     /**
-     * Method参数包装实体 <br>
-     * method.invoke(obj,args..) <br>
-     * obj=bean method的执行类<br>
-     * args=args method的执行参数<br>
-     */
-    @AllArgsConstructor
-    @Getter
-    static class InvokeEntity {
-        private final Object bean;
-        private final Object[] args;
-    }
-
-    /**
      * 1.同一个Ex只能有一个处理方法 (ex,handler=null,method=null)
      * 2.同一个Ex不同handler可以有不同的处理方法(ex,handler,method=null)
      * 3.同一个ex同一个handler不同的方法可以有不同的处理方法(ex,handler,method)
@@ -305,7 +294,7 @@ public class GlobalCauseAdvice extends ChannelInboundHandlerAdapter implements B
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        beanMap = beanFactory.getBeansWithAnnotation(NettyAdvice.class);
+        beanMap = beanFactory.getBeansWithAnnotation(NettyCauseAdvice.class);
         if (beanMap.isEmpty()) {
             throw new NoSuchBeanDefinitionException("cant find any bean annotated with NettyAdvice");
         }

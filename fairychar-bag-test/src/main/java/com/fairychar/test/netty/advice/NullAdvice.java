@@ -1,7 +1,7 @@
 package com.fairychar.test.netty.advice;
 
 import com.fairychar.bag.domain.annotions.CauseHandler;
-import com.fairychar.bag.domain.annotions.NettyAdvice;
+import com.fairychar.bag.domain.annotions.NettyCauseAdvice;
 
 /**
  * Created with IDEA <br>
@@ -10,7 +10,7 @@ import com.fairychar.bag.domain.annotions.NettyAdvice;
  *
  * @author chiyo <br>
  */
-@NettyAdvice
+@NettyCauseAdvice
 public class NullAdvice {
 
     @CauseHandler(NullPointerException.class)

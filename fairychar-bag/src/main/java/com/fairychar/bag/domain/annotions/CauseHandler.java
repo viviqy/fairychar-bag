@@ -17,7 +17,6 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-@Component
 public @interface CauseHandler {
     /**
      * 拦截异常类

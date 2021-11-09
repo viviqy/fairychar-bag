@@ -13,14 +13,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 /**
- * Created with IDEA <br>
- * Date: 2021/02/02 <br>
- * time: 21:42 <br>
- *
+ * file操作工具类
  * @author chiyo <br>
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class NotVeryUsefulUtil {
+public final class FileUtil {
 
     public static void createFakeFileByNio(String path, long writeByteSize) throws IOException {
         createFakeFile(path, ((byte) '1'), writeByteSize, 1024);
