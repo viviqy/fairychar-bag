@@ -1,11 +1,14 @@
 package com.fairychar.bag.utils;
 
+import com.fairychar.bag.pojo.ao.MapObjectNode;
 import com.fairychar.bag.pojo.ao.MappingAO;
 import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.pojo.ao.TreeNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,13 +31,35 @@ public final class MappingObjectUtil {
 //    }
 
 
-    public static <T> List<TreeNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
+    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
+        List<TreeNode<T>> root = new ArrayList<>();
+        for (T node : source) {
+            Field pid = node.getClass().getDeclaredField(pidField);
+            pid.setAccessible(true);
+            I pidValue = (I) pid.get(node);
+            if (pidValue.equals(idValue)) {
+                TreeNode<T> child = new TreeNode<T>();
+                child.setValue(node);
+                Field id = node.getClass().getDeclaredField(idField);
+                id.setAccessible(true);
+                List<TreeNode<T>> treeNodes = listToTree(source, pidField, idField, ((I) id.get(node)));
+                if (!treeNodes.isEmpty()) {
+                    child.setChild(treeNodes);
+                }
+                root.add(child);
+            }
+        }
+        return root;
+    }
+
+
+    public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy) {
         return wrapTreeNode(groupingBy);
     }
 
-    private static <T> List<TreeNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map) {
-        List<TreeNode<T>> collect = map.entrySet().stream().map(e -> {
-            TreeNode<T> node = new TreeNode<>();
+    private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map) {
+        List<MapObjectNode<T>> collect = map.entrySet().stream().map(e -> {
+            MapObjectNode<T> node = new MapObjectNode<>();
             node.setName(String.valueOf(e.getKey()));
             if (e.getValue() instanceof List) {
                 node.setCount(((List) e.getValue()).size());

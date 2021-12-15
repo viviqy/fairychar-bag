@@ -104,6 +104,21 @@ public final class ReflectUtil {
     }
 
 
+    public static void keepValue(Object o, String fields) throws IllegalAccessException {
+        Assert.notNull(fields, "fields can not be null");
+        Assert.notEmpty(fields, "fields can not be empty");
+        String[] matchFields = fields.split(",");
+        Field[] declaredFields = o.getClass().getDeclaredFields();
+        for (int i = 0; i < declaredFields.length; i++) {
+            for (int i1 = 0; i1 < matchFields.length; i1++) {
+                if (!declaredFields[i].getName().equals(matchFields[i1])) {
+                    declaredFields[i].setAccessible(true);
+                    declaredFields[i].set(o, null);
+                }
+            }
+        }
+    }
+
     public static void eraseValue(Object o, Class<?>... fieldTypes) throws IllegalAccessException {
         for (Class<?> fieldClass : fieldTypes) {
             Assert.notNull(fieldClass, "fields can not be null");

@@ -1,11 +1,13 @@
 package com.fairychar.bag.domain.security.filter;
 
+import com.fairychar.bag.domain.security.JsonLoginQuery;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -13,9 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 
 /**
  * <p>Json登录过滤器</p>
@@ -39,9 +39,8 @@ import java.util.Map;
  * @since 1.0
  */
 @AllArgsConstructor
-@Data
 @Slf4j
-public class JsonAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+public class JsonAuthenticationFilter<T extends JsonLoginQuery> extends UsernamePasswordAuthenticationFilter {
 
     private final ObjectMapper mapper;
 
@@ -50,22 +49,19 @@ public class JsonAuthenticationFilter extends UsernamePasswordAuthenticationFilt
         if (!"POST".equals(request.getMethod())) {
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         } else {
-            if (request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE) || request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
-                UsernamePasswordAuthenticationToken authRequest = null;
+            if (request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_UTF8_VALUE) || request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_VALUE)) {
                 try (InputStream is = request.getInputStream()) {
-                    Map<String, String> authenticationBean = this.mapper.readValue(is, Map.class);
-                    authRequest = new UsernamePasswordAuthenticationToken(authenticationBean.get("username"), authenticationBean.get("password"));
-                } catch (IOException e) {
-                    if (log.isErrorEnabled()) {
-                        log.error("{}", e.getCause().toString());
-                    }
-                    authRequest = new UsernamePasswordAuthenticationToken("", "");
-                } finally {
+                    T authenticationBean = this.mapper.readValue(is, new TypeReference<T>() {
+                    });
+                    UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(authenticationBean.obtainUsername(), authenticationBean.obtainPassword());
                     this.setDetails(request, authRequest);
                     return this.getAuthenticationManager().authenticate(authRequest);
+                } catch (Exception e) {
+                    log.error("{}", e.getCause().toString());
+                    throw new BadCredentialsException("login parameter cant resolved");
                 }
             } else {
-                return super.attemptAuthentication(request, response);
+                throw new AuthenticationServiceException("Authentication contentType not supported: " + request.getContentType());
             }
         }
     }

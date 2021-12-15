@@ -1,48 +1,32 @@
-import com.fairychar.bag.pojo.dto.NameValueDTO;
-import com.fairychar.bag.utils.ReflectUtil;
-import lombok.SneakyThrows;
-import org.junit.Test;
+package com.fairychar.bag.pojo.ao;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.util.List;
 
 /**
  * Created with IDEA <br>
- * Date: 2021/06/24 <br>
- * time: 22:24 <br>
+ * User: qiyue <br>
+ * Date: 2020/03/13 <br>
+ * time: 19:54 <br>
  *
- * @author chiyo <br>
+ * @author qiyue <br>
  */
-public class TestMain {
-
-
-    @Test
-    public void testMappingTree() {
-
-    }
-
- 
-    @Test
-    @SneakyThrows
-    public void testKeepValue() {
-        NameValueDTO<String> dto = new NameValueDTO<>();
-        dto.setName("a");
-        dto.setValue("b");
-        ReflectUtil.keepValue(dto, "name");
-        System.out.println(dto);
-    }
-
-
-    @Test
-    public void throwEx() {
-        try {
-            this.ex("a");
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        System.out.println("aa");
-    }
-
-    private void ex(String a) throws IllegalAccessException {
-        throw new IllegalAccessException("aa");
-    }
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Accessors(chain = true)
+public class MapObjectNode<T> {
+    private String name;
+    private long count;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<T> value;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<MapObjectNode<T>> child;
 }
 /*
                                       /[-])//  ___        

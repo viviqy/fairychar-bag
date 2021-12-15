@@ -25,9 +25,7 @@ public class JsonLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        if (log.isInfoEnabled()) {
-            log.info("user login success: {}", authentication);
-        }
+        log.info("user login success: {}", authentication);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.getWriter().write(this.mapper.writeValueAsString(HttpResult.ok(new JsonLoginToken(request.getSession().getId(), authentication))));
     }

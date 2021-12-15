@@ -5,8 +5,10 @@ import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
 import com.fairychar.bag.domain.netty.frame.HeadTailFrame;
 import com.fairychar.bag.function.Action;
+import com.fairychar.bag.pojo.ao.TreeNode;
 import com.fairychar.bag.template.ActionSelectorTemplate;
 import com.fairychar.bag.utils.FileUtil;
+import com.fairychar.bag.utils.MappingObjectUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.test.web.controller.SimpleController;
 import io.netty.channel.ChannelHandler;
@@ -20,9 +22,9 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.SneakyThrows;
 import org.apache.commons.collections.list.TreeList;
 import org.junit.Test;
-import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -41,6 +43,20 @@ import java.util.stream.IntStream;
  * @since 1.0
  */
 public class TestMain {
+
+
+    @Test
+    @SneakyThrows
+    public void testListToTree() {
+        List<Child> children = Arrays.asList(
+                new Child(1L, "1", 0L),
+                new Child(2L, "2", 1L),
+                new Child(4L, "22", 2L),
+                new Child(3L, "3", 2L)
+        );
+        List<TreeNode<Child>> treeNodes = MappingObjectUtil.listToTree(children, "pid", "id", 1L);
+        System.out.println(treeNodes);
+    }
 
     @Test
     public void testMarkedListSpeed() throws Exception {
@@ -87,6 +103,7 @@ public class TestMain {
 
 
     static class MarkedList<E> extends ArrayList<E> {
+        private static final long serialVersionUID = 4670167137654483256L;
         private HashSet<Integer> removedIndexes = new HashSet<>();
 
         @Override
@@ -96,7 +113,7 @@ public class TestMain {
 
                 @Override
                 public boolean hasNext() {
-                    if (current < size()) {
+                    if (this.current < MarkedList.this.size()) {
                         return true;
                     }
                     return false;
@@ -105,11 +122,11 @@ public class TestMain {
                 @Override
                 public E next() {
                     do {
-                        if (!removedIndexes.contains(current) && current < size()) {
-                            E result = get(current++);
+                        if (!MarkedList.this.removedIndexes.contains(this.current) && this.current < MarkedList.this.size()) {
+                            E result = MarkedList.this.get(this.current++);
                             return result;
                         }
-                    } while (current++ < size());
+                    } while (this.current++ < MarkedList.this.size());
                     return null;
                 }
             };
@@ -217,7 +234,7 @@ public class TestMain {
                 Field childId = s.getClass().getDeclaredField("id");
                 childId.setAccessible(true);
                 Long childIdValue = (Long) childId.get(s);
-                recursiveSearch(source, childIdValue, ref);
+                this.recursiveSearch(source, childIdValue, ref);
             } catch (Exception e) {
             }
         });
@@ -310,11 +327,15 @@ public class TestMain {
     public void testFuture() {
         String[] s = {"丸摩堂", "茶百道", "coco"};
         Random random = new Random(System.currentTimeMillis());
-        HashMap<String, AtomicInteger> map = new HashMap<String, AtomicInteger>() {{
-            put(s[0], new AtomicInteger(0));
-            put(s[1], new AtomicInteger(0));
-            put(s[2], new AtomicInteger(0));
-        }};
+        HashMap<String, AtomicInteger> map = new HashMap<String, AtomicInteger>() {
+            private static final long serialVersionUID = -6820424326053040083L;
+
+            {
+                this.put(s[0], new AtomicInteger(0));
+                this.put(s[1], new AtomicInteger(0));
+                this.put(s[2], new AtomicInteger(0));
+            }
+        };
         for (int i = 0; i < 300; i++) {
             int position = random.nextInt(3);
             AtomicInteger count = map.get(s[position]);

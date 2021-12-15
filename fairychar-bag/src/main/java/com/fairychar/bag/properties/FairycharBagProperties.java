@@ -23,6 +23,11 @@ public class FairycharBagProperties {
     private NettyServerClientProperties serverClient;
     @NestedConfigurationProperty
     private ConvertProperties convert;
+    @NestedConfigurationProperty
+    private SecretProperties secret;
+    @NestedConfigurationProperty
+    private HystrixProperties hystrix;
+
 }
 /*
                                       /[-])//  ___        

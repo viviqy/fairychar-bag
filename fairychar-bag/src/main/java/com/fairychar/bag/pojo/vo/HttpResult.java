@@ -25,6 +25,8 @@ public class HttpResult<T> {
     private T data;
     private String msg;
 
+    private final static HttpResult CACHED_OK = new HttpResult(200, null, "success");
+    private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
 
     public static <T> HttpResult<T> response(HttpStatus httpStatus, T data) {
         return new HttpResult(httpStatus.value(), data, httpStatus.getReasonPhrase());
@@ -49,7 +51,7 @@ public class HttpResult<T> {
     }
 
     public static HttpResult ok() {
-        return new HttpResult(200, null, "success");
+        return CACHED_OK;
     }
 
 
@@ -62,7 +64,7 @@ public class HttpResult<T> {
     }
 
     public static <T> HttpResult<T> fail() {
-        return fail(null);
+        return CACHED_FAIL;
     }
 
 
