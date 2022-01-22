@@ -3,15 +3,14 @@ package com.fairychar.bag.beans.mybatis.handler;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.fairychar.bag.domain.security.TenantUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
-import net.sf.jsqlparser.expression.NullValue;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +20,21 @@ import java.util.Optional;
  * @author chiyo <br>
  * @since 1.0
  */
-@AllArgsConstructor
 @Slf4j
 public class HeaderContextTenantHandler implements TenantLineHandler {
+
+    public HeaderContextTenantHandler(List<String> ignoreTables, ObjectMapper objectMapper) {
+        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+        this.objectMapper = objectMapper;
+    }
+
+    public HeaderContextTenantHandler(List<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header) {
+        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+        this.objectMapper = objectMapper;
+        this.columnName = columnName;
+        this.header = header;
+    }
+
     private final List<String> ignoreTables;
     private final ObjectMapper objectMapper;
     private String columnName = "tenant_id";
@@ -42,7 +53,7 @@ public class HeaderContextTenantHandler implements TenantLineHandler {
                     }
                 })
                 .map(u -> u.getTenantId())
-                .map(id -> ((Expression) new LongValue(id))).orElse(new NullValue());
+                .map(id -> ((Expression) new LongValue(id))).orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
     }
 
     @Override

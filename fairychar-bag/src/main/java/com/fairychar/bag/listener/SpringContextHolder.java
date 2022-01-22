@@ -1,5 +1,7 @@
 package com.fairychar.bag.listener;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Delegate;
 import org.springframework.beans.factory.HierarchicalBeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
@@ -23,10 +25,15 @@ import org.springframework.core.io.support.ResourcePatternResolver;
  * @author qiyue <br>
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SpringContextHolder implements ApplicationListener<ContextRefreshedEvent> {
 
     @Delegate(types = {EnvironmentCapable.class, ListableBeanFactory.class, HierarchicalBeanFactory.class, MessageSource.class, ApplicationEventPublisher.class, ResourcePatternResolver.class})
     private ApplicationContext context;
+
+    public static SpringContextHolder getInstance() {
+        return Singleton.INSTANCE.getInstance();
+    }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
@@ -34,27 +41,17 @@ public class SpringContextHolder implements ApplicationListener<ContextRefreshed
         instance.context = ((ApplicationContext) contextRefreshedEvent.getSource());
     }
 
-
-    private SpringContextHolder() {
-
-    }
-
-
     private enum Singleton {
         INSTANCE;
 
-        Singleton() {
-            instance = new SpringContextHolder();
-        }
-
         private final SpringContextHolder instance;
+
+        Singleton() {
+            this.instance = new SpringContextHolder();
+        }
 
         public SpringContextHolder getInstance() {
             return INSTANCE.instance;
         }
-    }
-
-    public static SpringContextHolder getInstance() {
-        return Singleton.INSTANCE.getInstance();
     }
 }

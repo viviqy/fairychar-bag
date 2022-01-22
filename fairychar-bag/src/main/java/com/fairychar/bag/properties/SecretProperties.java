@@ -14,10 +14,17 @@ public class SecretProperties {
 
     @NestedConfigurationProperty
     private Aes aes;
-
+    @NestedConfigurationProperty
+    private Rsa rsa;
 
     @Data
-    static class Aes {
+    public static class Aes {
         private String key;
+    }
+
+    @Data
+    public static class Rsa {
+        private String pubKey;
+        private String priKey;
     }
 }

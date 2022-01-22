@@ -26,12 +26,12 @@ import java.util.function.Supplier;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class AssignableFactory {
-    private Semaphore semaphore;
     private final static ExecutorService executor = Executors.newCachedThreadPool(r -> {
         Thread thread = new Thread(r);
         thread.setDaemon(true);
         return thread;
     });
+    private Semaphore semaphore;
 
     /**
      * 初始化工厂
@@ -51,7 +51,7 @@ public final class AssignableFactory {
      * @param action 任务
      */
     public void doWork(Action action) {
-        doWork(action, 1, null);
+        this.doWork(action, 1, null);
     }
 
     /**
@@ -61,7 +61,7 @@ public final class AssignableFactory {
      * @param workers 分配的工人数
      */
     public void doWork(Action action, int workers) {
-        doWork(action, workers, null);
+        this.doWork(action, workers, null);
     }
 
     /**
@@ -74,13 +74,13 @@ public final class AssignableFactory {
     public void doWork(Action action, int workers, Consumer<Exception> timeoutCallback) {
         executor.execute(() -> {
             try {
-                semaphore.acquire(workers);
+                this.semaphore.acquire(workers);
                 action.doAction();
             } catch (InterruptedException ignore) {
             } catch (TimeoutException e) {
                 Optional.ofNullable(timeoutCallback).ifPresent(t -> t.accept(e));
             } finally {
-                semaphore.release(workers);
+                this.semaphore.release(workers);
             }
         });
     }
@@ -96,7 +96,7 @@ public final class AssignableFactory {
      * @throws InterruptedException {@link InterruptedException}
      */
     public <T> T doWork(Supplier<T> supplier, int workers) throws ExecutionException, InterruptedException {
-        Future<T> future = doWorkFuture(supplier, workers);
+        Future<T> future = this.doWorkFuture(supplier, workers);
         return future.get();
     }
 
@@ -113,12 +113,12 @@ public final class AssignableFactory {
     public <T> Future<T> doWorkFuture(Supplier<T> supplier, int workers) throws ExecutionException, InterruptedException {
         Future<T> future = executor.submit(() -> {
             try {
-                semaphore.acquire(workers);
+                this.semaphore.acquire(workers);
                 T t = supplier.get();
                 return t;
             } catch (InterruptedException ignore) {
             } finally {
-                semaphore.release(workers);
+                this.semaphore.release(workers);
             }
             return null;
         });
@@ -131,7 +131,7 @@ public final class AssignableFactory {
      * @return 可用工人数
      */
     public int getAvailableWorkers() {
-        return semaphore.availablePermits();
+        return this.semaphore.availablePermits();
     }
 }
 /*

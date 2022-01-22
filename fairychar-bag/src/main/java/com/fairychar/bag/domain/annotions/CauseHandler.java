@@ -1,7 +1,6 @@
 package com.fairychar.bag.domain.annotions;
 
 import io.netty.channel.ChannelHandler;
-import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 

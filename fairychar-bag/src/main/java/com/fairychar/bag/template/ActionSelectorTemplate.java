@@ -38,9 +38,7 @@ public class ActionSelectorTemplate {
                 this.selector.values().iterator().forEachRemaining(c -> {
                     long executeTimestamp = c.getLastExecuteTime() + c.getPeriod();
                     if (System.currentTimeMillis() > executeTimestamp) {
-                        if (log.isInfoEnabled()) {
-                            log.info("executing actionSchedule task name={}", c.getTaskName());
-                        }
+                        log.info("executing actionSchedule task name={}", c.getTaskName());
                         c.setLastExecuteTime(System.currentTimeMillis());
                         this.worker.execute(() -> {
                             try {
@@ -59,6 +57,7 @@ public class ActionSelectorTemplate {
                 try {
                     TimeUnit.MILLISECONDS.sleep(this.timePause);
                 } catch (InterruptedException e) {
+                    log.info("boss thread interrupted at {}", System.currentTimeMillis());
                     break;
                 }
             }

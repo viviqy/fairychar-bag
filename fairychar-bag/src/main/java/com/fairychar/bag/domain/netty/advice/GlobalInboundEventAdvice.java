@@ -43,12 +43,12 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        dispatch(ctx, evt);
+        this.dispatch(ctx, evt);
     }
 
     private void dispatch(ChannelHandlerContext ctx, Object evt) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
-        Method method = obtainMethod(evt);
-        invoke(ctx, evt, method);
+        Method method = this.obtainMethod(evt);
+        this.invoke(ctx, evt, method);
     }
 
 
@@ -63,7 +63,7 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
      */
     private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException {
         if (method != null) {
-            InvokeEntity invokeEntity = getInvokeEntity(ctx, evt, method);
+            InvokeEntity invokeEntity = this.getInvokeEntity(ctx, evt, method);
             method.invoke(invokeEntity.getBean(), invokeEntity.getArgs());
         } else {
             ctx.fireUserEventTriggered(evt);
@@ -117,8 +117,8 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
             EventHandler eventHandler = m.getAnnotation(EventHandler.class);
             eventClassList.add(new EventInfo(eventHandler.value(), m));
         }
-        ensureNotExistSameMethod(eventClassList);
-        createCache(eventClassList);
+        this.ensureNotExistSameMethod(eventClassList);
+        this.createCache(eventClassList);
     }
 
     /**
@@ -127,11 +127,11 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
      * @param eventInfoList
      */
     private void createCache(ArrayList<EventInfo> eventInfoList) {
-        cache1 = new HashMap<>(eventInfoList.size());
+        this.cache1 = new HashMap<>(eventInfoList.size());
         eventInfoList.stream().collect(Collectors.groupingBy(c -> c)).entrySet().forEach(e -> {
             Method method = e.getValue().get(0).getMethod();
             method.setAccessible(true);
-            cache1.put(e.getKey().getEventClass(), method);
+            this.cache1.put(e.getKey().getEventClass(), method);
         });
 
     }
@@ -165,7 +165,21 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
         if (methods.isEmpty()) {
             log.warn("there are none exception resolve methods");
         }
-        validate(methods);
+        this.validate(methods);
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        this.beanMap = beanFactory.getBeansWithAnnotation(NettyEventAdvice.class);
+        if (this.beanMap.isEmpty()) {
+            throw new NoSuchBeanDefinitionException("cant find any bean annotated with NettyAdvice");
+        }
+        try {
+            this.initCache(this.beanMap.values());
+        } catch (Exception e) {
+            throw new BeanCreationException(e.getMessage(), e);
+        }
+        this.beanMap = null;
     }
 
     @AllArgsConstructor
@@ -174,20 +188,6 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
     static class EventInfo {
         private Class eventClass;
         private Method method;
-    }
-
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        beanMap = beanFactory.getBeansWithAnnotation(NettyEventAdvice.class);
-        if (beanMap.isEmpty()) {
-            throw new NoSuchBeanDefinitionException("cant find any bean annotated with NettyAdvice");
-        }
-        try {
-            initCache(beanMap.values());
-        } catch (Exception e) {
-            throw new BeanCreationException(e.getMessage(), e);
-        }
-        beanMap = null;
     }
 
 }

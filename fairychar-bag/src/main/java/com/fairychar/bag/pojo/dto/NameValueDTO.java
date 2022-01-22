@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @ApiModel("key-value格式数据")
 public class NameValueDTO<T> implements Serializable {
-    
+
     private String name;
     private T value;
 }

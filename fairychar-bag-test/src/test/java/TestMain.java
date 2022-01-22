@@ -243,11 +243,7 @@ public class TestMain {
     @Test
     public void testHeadTailFrame() throws InterruptedException {
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000
-                , new ChannelInitializer<ServerSocketChannel>() {
-            @Override
-            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
-            }
-        }, new ChannelInitializer<SocketChannel>() {
+                , new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel socketChannel) throws Exception {
                 socketChannel.pipeline().addLast(new DelimitersHeadTailFrameDecoder(
@@ -377,7 +373,7 @@ public class TestMain {
 
     @Test
     public void test16() throws Exception {
-        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10);
+        SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000);
         simpleNettyServer.start();
         Thread.currentThread().join();
     }

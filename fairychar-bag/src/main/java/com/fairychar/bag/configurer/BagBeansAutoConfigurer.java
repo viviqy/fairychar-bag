@@ -27,9 +27,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * Created with IDEA <br>
- * Date: 2020/5/12 <br>
- * time: 12:22 <br>
+ * bag Bean配置启动项
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
@@ -98,7 +96,7 @@ public class BagBeansAutoConfigurer {
                     .getPropertiesStrategy();
             HystrixCommandExecutionHook commandExecutionHook = HystrixPlugins.getInstance()
                     .getCommandExecutionHook();
-            HystrixConcurrencyStrategy concurrencyStrategy = detectRegisteredConcurrencyStrategy();
+            HystrixConcurrencyStrategy concurrencyStrategy = this.detectRegisteredConcurrencyStrategy();
 
             HystrixPlugins.reset();
 
@@ -114,20 +112,20 @@ public class BagBeansAutoConfigurer {
         private HystrixConcurrencyStrategy detectRegisteredConcurrencyStrategy() {
             HystrixConcurrencyStrategy registeredStrategy = HystrixPlugins.getInstance()
                     .getConcurrencyStrategy();
-            if (existingConcurrencyStrategy == null) {
+            if (this.existingConcurrencyStrategy == null) {
                 return registeredStrategy;
             }
             // Hystrix registered a default Strategy.
             if (registeredStrategy instanceof HystrixConcurrencyStrategyDefault) {
-                return existingConcurrencyStrategy;
+                return this.existingConcurrencyStrategy;
             }
             // If registeredStrategy not the default and not some use bean of
             // existingConcurrencyStrategy.
-            if (!existingConcurrencyStrategy.equals(registeredStrategy)) {
+            if (!this.existingConcurrencyStrategy.equals(registeredStrategy)) {
                 HystrixRequestContextConfiguration.log.warn(
                         "Multiple HystrixConcurrencyStrategy detected. Bean of HystrixConcurrencyStrategy was used.");
             }
-            return existingConcurrencyStrategy;
+            return this.existingConcurrencyStrategy;
         }
 
     }

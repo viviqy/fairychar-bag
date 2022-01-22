@@ -15,6 +15,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.PreDestroy;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -30,23 +31,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Slf4j
 public class SimpleNettyServer {
-    @Getter
-    private final int bossSize = 1;
-    @Getter
-    private final int workerSize;
-    @Getter
-    private final int port;
-    @Getter
-    private ChannelInitializer<ServerSocketChannel> handlers;
-    @Getter
-    private ChannelInitializer<SocketChannel> childHandlers;
-    @Getter
-    private State state = State.UN_INITIALIZE;
-    @Getter
-    @Setter
-    private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
     private final static ChannelInitializer<ServerSocketChannel> LOGGING_HANDLER;
-
     private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
 
     static {
@@ -65,13 +50,32 @@ public class SimpleNettyServer {
         };
     }
 
+    @Getter
+    private final int bossSize = 1;
+    @Getter
+    private final int workerSize;
+    @Getter
+    private final int port;
+    @Getter
+    private ChannelInitializer<ServerSocketChannel> handlers;
+    @Getter
+    private ChannelInitializer<SocketChannel> childHandlers;
+    @Getter
+    private State state = State.UN_INITIALIZE;
+    @Getter
+    @Setter
+    private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
+    private ServerBootstrap serverBootstrap;
+    private Channel channel;
+    private NioEventLoopGroup boss;
+    private NioEventLoopGroup worker;
+
     public SimpleNettyServer(int workerSize, int port) {
         this.workerSize = workerSize;
         this.port = port;
         this.handlers = LOGGING_HANDLER;
         this.childHandlers = CHILD_LOGGING_HANDLER;
     }
-
 
     public SimpleNettyServer(int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers, ChannelInitializer<SocketChannel> childHandlers) {
         this.workerSize = workerSize;
@@ -86,28 +90,22 @@ public class SimpleNettyServer {
         this.childHandlers = childHandlers;
     }
 
-    private ServerBootstrap serverBootstrap;
-    private Channel channel;
-    private NioEventLoopGroup boss;
-    private NioEventLoopGroup worker;
-
-
     public void start() {
         this.checkArgs();
-        boss = new NioEventLoopGroup(bossSize);
-        worker = new NioEventLoopGroup(workerSize);
-        serverBootstrap = new ServerBootstrap();
+        this.boss = new NioEventLoopGroup(this.bossSize);
+        this.worker = new NioEventLoopGroup(this.workerSize);
+        this.serverBootstrap = new ServerBootstrap();
         this.state = State.STARTING;
         try {
-            channel = serverBootstrap.group(boss, worker)
-                    .channel(NioServerSocketChannel.class)
-                    .handler(handlers)
-                    .childHandler(childHandlers)
-                    .bind(port).channel();
-            log.info("server start at {}", port);
+            ServerBootstrap channel = this.serverBootstrap.group(this.boss, this.worker)
+                    .channel(NioServerSocketChannel.class);
+            Optional.ofNullable(this.handlers).ifPresent(h -> channel.handler(h));
+            this.channel = channel.childHandler(this.childHandlers)
+                    .bind(this.port).channel();
+            log.info("server start at {}", this.port);
         } catch (Exception e) {
             log.error("{}", e.getMessage());
-            this.state = State.STOPPED;
+            this.stop();
         }
         this.state = State.STARTED;
     }
@@ -117,10 +115,10 @@ public class SimpleNettyServer {
         log.info("server stopping....");
         this.state = State.STOPPING;
         try {
-            channel.close().get(maxShutdownWaitSeconds, TimeUnit.SECONDS);
+            this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            boss.shutdownGracefully();
-            worker.shutdownGracefully();
+            this.boss.shutdownGracefully();
+            this.worker.shutdownGracefully();
         }
         log.info("server stopped");
         this.state = State.STOPPED;

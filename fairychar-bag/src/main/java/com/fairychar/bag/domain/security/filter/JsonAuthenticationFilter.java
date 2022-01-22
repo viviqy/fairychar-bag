@@ -56,6 +56,8 @@ public class JsonAuthenticationFilter<T extends JsonLoginQuery> extends Username
                     UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(authenticationBean.obtainUsername(), authenticationBean.obtainPassword());
                     this.setDetails(request, authRequest);
                     return this.getAuthenticationManager().authenticate(authRequest);
+                } catch (AuthenticationException e) {
+                    throw e;
                 } catch (Exception e) {
                     log.error("{}", e.getCause().toString());
                     throw new BadCredentialsException("login parameter cant resolved");

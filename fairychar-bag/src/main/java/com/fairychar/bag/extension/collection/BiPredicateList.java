@@ -15,6 +15,11 @@ import java.util.function.BiPredicate;
 public class BiPredicateList<T> extends ArrayList<T> {
     private BiPredicate<T, T> biPredicate;
 
+    public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate) {
+        super(c);
+        this.biPredicate = biPredicate;
+    }
+
     @Override
     public boolean add(T t) {
         if (super.isEmpty()) {
@@ -33,11 +38,6 @@ public class BiPredicateList<T> extends ArrayList<T> {
             super.add(t);
         }
         return true;
-    }
-
-    public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate) {
-        super(c);
-        this.biPredicate = biPredicate;
     }
 
     @Override

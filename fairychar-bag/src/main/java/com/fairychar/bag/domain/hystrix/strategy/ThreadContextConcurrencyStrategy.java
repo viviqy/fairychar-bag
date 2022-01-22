@@ -1,15 +1,20 @@
 package com.fairychar.bag.domain.hystrix.strategy;
 
-import com.fairychar.bag.domain.hystrix.callable.RequestContextCallable;
+import com.fairychar.bag.domain.hystrix.callable.SharedContextCallable;
+import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
 import com.netflix.hystrix.HystrixThreadPoolKey;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariable;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariableLifecycle;
 import com.netflix.hystrix.strategy.properties.HystrixProperty;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -21,10 +26,10 @@ import java.util.concurrent.TimeUnit;
  * @author chiyo <br>
  * @since 1.0
  */
-public class RequestContextConcurrencyStrategy extends HystrixConcurrencyStrategy {
+public class ThreadContextConcurrencyStrategy extends HystrixConcurrencyStrategy {
     private HystrixConcurrencyStrategy existingConcurrencyStrategy;
 
-    public RequestContextConcurrencyStrategy(
+    public ThreadContextConcurrencyStrategy(
             HystrixConcurrencyStrategy existingConcurrencyStrategy) {
         this.existingConcurrencyStrategy = existingConcurrencyStrategy;
     }
@@ -69,9 +74,14 @@ public class RequestContextConcurrencyStrategy extends HystrixConcurrencyStrateg
     @Override
     public <T> Callable<T> wrapCallable(Callable<T> callable) {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        List<CallableContext> callableContexts = Arrays.asList(
+                new CallableContext<>(requestAttributes, r -> RequestContextHolder.setRequestAttributes(r)),
+                new CallableContext<>(securityContext, s -> SecurityContextHolder.setContext(securityContext))
+        );
         return this.existingConcurrencyStrategy != null
                 ? this.existingConcurrencyStrategy
-                .wrapCallable(new RequestContextCallable<T>(requestAttributes, callable))
-                : super.wrapCallable(new RequestContextCallable<T>(requestAttributes, callable));
+                .wrapCallable(new SharedContextCallable<T>(callable, callableContexts))
+                : super.wrapCallable(new SharedContextCallable<T>(callable, callableContexts));
     }
 }

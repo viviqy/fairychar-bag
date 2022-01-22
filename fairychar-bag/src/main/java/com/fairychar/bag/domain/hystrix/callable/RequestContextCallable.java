@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
  * @since 1.0
  */
 @AllArgsConstructor
-public class DeleteRequestContextCallable<T> implements Callable<T> {
+public class RequestContextCallable<T> implements Callable<T> {
 
     private final RequestAttributes requestAttribute;
     private final Callable<T> source;
@@ -21,7 +21,7 @@ public class DeleteRequestContextCallable<T> implements Callable<T> {
 
     @Override
     public T call() throws Exception {
-        RequestContextHolder.setRequestAttributes(requestAttribute);
-        return source.call();
+        RequestContextHolder.setRequestAttributes(this.requestAttribute);
+        return this.source.call();
     }
 }

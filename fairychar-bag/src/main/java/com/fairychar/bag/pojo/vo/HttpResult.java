@@ -21,12 +21,11 @@ import org.springframework.http.HttpStatus;
 @Accessors(chain = true)
 @Builder
 public class HttpResult<T> {
+    private final static HttpResult CACHED_OK = new HttpResult(200, null, "success");
+    private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
     private int code;
     private T data;
     private String msg;
-
-    private final static HttpResult CACHED_OK = new HttpResult(200, null, "success");
-    private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
 
     public static <T> HttpResult<T> response(HttpStatus httpStatus, T data) {
         return new HttpResult(httpStatus.value(), data, httpStatus.getReasonPhrase());

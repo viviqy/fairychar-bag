@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor {
 
+    private final static String ALL = "0all";
     /**
      * key=mark(ex+handler+method)
      */
@@ -47,11 +48,10 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      */
     private HashMap<String, InvokeEntity> invokeArgsCache = new HashMap<>(32);
     private Map<String, Object> beanMap;
-    private final static String ALL = "0all";
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        dispatch(ctx, cause);
+        this.dispatch(ctx, cause);
     }
 
     /**
@@ -65,9 +65,9 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      */
     private void dispatch(ChannelHandlerContext ctx, Throwable cause) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
         StackTraceElement stackTraceElement = this.findByChannelHandler(cause);
-        CauseInfo causeInfo = getCauseInfo(cause, stackTraceElement);
-        Method method = obtainMethod(causeInfo);
-        invoke(ctx, cause, method);
+        CauseInfo causeInfo = this.getCauseInfo(cause, stackTraceElement);
+        Method method = this.obtainMethod(causeInfo);
+        this.invoke(ctx, cause, method);
     }
 
     /**
@@ -95,7 +95,7 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      */
     private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method) throws InvocationTargetException, IllegalAccessException {
         if (method != null) {
-            InvokeEntity invokeEntity = getInvokeEntity(ctx, cause, method);
+            InvokeEntity invokeEntity = this.getInvokeEntity(ctx, cause, method);
             method.invoke(invokeEntity.getBean(), invokeEntity.getArgs());
         } else {
             ctx.fireExceptionCaught(cause);
@@ -141,7 +141,7 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
     private Method obtainMethod(CauseInfo c) {
         String key = c.getMark();
         return this.cache1.get(key) != null ? this.cache1.get(key) :
-                (this.cache2.get(obtainCache2Key(c)) != null ? this.cache2.get(obtainCache2Key(c)) :
+                (this.cache2.get(this.obtainCache2Key(c)) != null ? this.cache2.get(this.obtainCache2Key(c)) :
                         (this.cache3.get(c.getEx()) != null ? this.cache3.get(c.getEx()) :
                                 (this.cache3.get(Exception.class) != null ? this.cache3.get(Exception.class) : null)));
 
@@ -169,8 +169,8 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
                     , m);
             causeInfoList.add(causeInfo);
         }
-        ensureNotExistSameMethod(causeInfoList);
-        createCache(causeInfoList);
+        this.ensureNotExistSameMethod(causeInfoList);
+        this.createCache(causeInfoList);
     }
 
     /**
@@ -179,21 +179,21 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      * @param causeInfoList
      */
     private void createCache(List<CauseInfo> causeInfoList) {
-        cache1 = new HashMap<>(causeInfoList.size());
+        this.cache1 = new HashMap<>(causeInfoList.size());
         causeInfoList.stream().collect(Collectors.groupingBy(c -> c.getMark())).entrySet().forEach(e -> {
             Method method = e.getValue().get(0).getMethod();
             method.setAccessible(true);
-            cache1.put(e.getKey(), method);
+            this.cache1.put(e.getKey(), method);
         });
 
-        cache2 = new HashMap<>(causeInfoList.size());
+        this.cache2 = new HashMap<>(causeInfoList.size());
         causeInfoList.stream().filter(c -> ALL.equals(c.getMethodName()) && c.getHandler() != ChannelHandler.class)
                 .forEach(e -> {
-                    String key = obtainCache2Key(e);
+                    String key = this.obtainCache2Key(e);
                     this.cache2.put(key, e.getMethod());
                 });
 
-        cache3 = new HashMap<>(causeInfoList.size());
+        this.cache3 = new HashMap<>(causeInfoList.size());
         causeInfoList.stream().filter(c -> ALL.equals(c.getMethodName()) && c.getHandler() == ChannelHandler.class)
                 .forEach(e -> this.cache3.put(e.getEx(), e.getMethod()));
     }
@@ -236,7 +236,7 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
         if (methods.isEmpty()) {
             log.warn("there are none exception resolve methods");
         }
-        validate(methods);
+        this.validate(methods);
     }
 
     /**
@@ -269,6 +269,20 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
         return null;
     }
 
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        this.beanMap = beanFactory.getBeansWithAnnotation(NettyCauseAdvice.class);
+        if (this.beanMap.isEmpty()) {
+            throw new NoSuchBeanDefinitionException("cant find any bean annotated with NettyAdvice");
+        }
+        try {
+            this.initCache(this.beanMap.values());
+        } catch (Exception e) {
+            throw new BeanCreationException(e.getMessage(), e);
+        }
+        this.beanMap = null;
+    }
+
     /**
      * 1.同一个Ex只能有一个处理方法 (ex,handler=null,method=null)
      * 2.同一个Ex不同handler可以有不同的处理方法(ex,handler,method=null)
@@ -286,24 +300,10 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
         private Method method;
 
         public String getMark() {
-            return ex.getName().concat("-")
-                    .concat(handler.getName()).concat("-")
-                    .concat(Strings.isNullOrEmpty(methodName) ? ALL : methodName);
+            return this.ex.getName().concat("-")
+                    .concat(this.handler.getName()).concat("-")
+                    .concat(Strings.isNullOrEmpty(this.methodName) ? GlobalInboundCauseAdvice.ALL : this.methodName);
         }
-    }
-
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        beanMap = beanFactory.getBeansWithAnnotation(NettyCauseAdvice.class);
-        if (beanMap.isEmpty()) {
-            throw new NoSuchBeanDefinitionException("cant find any bean annotated with NettyAdvice");
-        }
-        try {
-            initCache(beanMap.values());
-        } catch (Exception e) {
-            throw new BeanCreationException(e.getMessage(), e);
-        }
-        beanMap = null;
     }
 
 

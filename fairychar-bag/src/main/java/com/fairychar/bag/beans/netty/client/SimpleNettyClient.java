@@ -29,6 +29,18 @@ import java.util.concurrent.TimeoutException;
  */
 @Slf4j
 public class SimpleNettyClient {
+    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
+
+    static {
+        LoggingHandler loggingHandler = new LoggingHandler();
+        CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
+    }
+
     @Getter
     private final int workerSize;
     @Getter
@@ -42,19 +54,10 @@ public class SimpleNettyClient {
     @Getter
     @Setter
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
-
-
-    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
-
-    static {
-        LoggingHandler loggingHandler = new LoggingHandler();
-        CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel socketChannel) throws Exception {
-                socketChannel.pipeline().addLast(loggingHandler);
-            }
-        };
-    }
+    private Bootstrap bootstrap;
+    @Getter
+    private Channel channel;
+    private NioEventLoopGroup worker;
 
     public SimpleNettyClient(int workerSize, int port, String host) {
         this.workerSize = workerSize;
@@ -70,25 +73,19 @@ public class SimpleNettyClient {
         this.childHandlers = childHandlers;
     }
 
-    private Bootstrap bootstrap;
-    @Getter
-    private Channel channel;
-    private NioEventLoopGroup worker;
-
-
     public void start() {
         this.checkArgs();
-        worker = new NioEventLoopGroup(workerSize);
-        bootstrap = new Bootstrap();
+        this.worker = new NioEventLoopGroup(this.workerSize);
+        this.bootstrap = new Bootstrap();
         this.state = State.STARTING;
         try {
-            channel = bootstrap.group(worker)
+            this.channel = this.bootstrap.group(this.worker)
                     .channel(NioSocketChannel.class)
-                    .handler(childHandlers)
-                    .connect(host, port)
+                    .handler(this.childHandlers)
+                    .connect(this.host, this.port)
                     .sync()
                     .channel();
-            log.info("client connected to {}:{}", host, port);
+            log.info("client connected to {}:{}", this.host, this.port);
         } catch (Exception e) {
             log.error("{}", e.getMessage());
             this.state = State.STOPPED;
@@ -101,9 +98,9 @@ public class SimpleNettyClient {
         log.info("client disconnecting....");
         this.state = State.STOPPING;
         try {
-            channel.close().get(maxShutdownWaitSeconds, TimeUnit.SECONDS);
+            this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            worker.shutdownGracefully();
+            this.worker.shutdownGracefully();
         }
         log.info("client disconnected");
         this.state = State.STOPPED;
