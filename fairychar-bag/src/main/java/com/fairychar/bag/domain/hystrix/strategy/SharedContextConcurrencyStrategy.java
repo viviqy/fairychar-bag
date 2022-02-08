@@ -26,10 +26,10 @@ import java.util.concurrent.TimeUnit;
  * @author chiyo <br>
  * @since 1.0
  */
-public class ThreadContextConcurrencyStrategy extends HystrixConcurrencyStrategy {
+public class SharedContextConcurrencyStrategy extends HystrixConcurrencyStrategy {
     private HystrixConcurrencyStrategy existingConcurrencyStrategy;
 
-    public ThreadContextConcurrencyStrategy(
+    public SharedContextConcurrencyStrategy(
             HystrixConcurrencyStrategy existingConcurrencyStrategy) {
         this.existingConcurrencyStrategy = existingConcurrencyStrategy;
     }

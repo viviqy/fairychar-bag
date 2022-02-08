@@ -33,7 +33,7 @@ public class BeansConfiguration {
 //    }
 
     @Bean
-    GlobalInboundCauseAdvice globalCauseAdvice(){
+    GlobalInboundCauseAdvice globalCauseAdvice() {
         return new GlobalInboundCauseAdvice();
     }
 
@@ -46,10 +46,9 @@ public class BeansConfiguration {
     private FairycharBagProperties bagProperties;
 
 
-
     @Bean
     @ConditionalOnMissingBean
-    SimpleNettyServer simpleNettyServer(){
+    SimpleNettyServer simpleNettyServer() {
 //        NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(1, 10000, new ChannelInitializer<ServerSocketChannel>() {
             @Override
@@ -61,7 +60,7 @@ public class BeansConfiguration {
             protected void initChannel(SocketChannel ch) throws Exception {
                 ch.pipeline().addLast(new StringDecoder())
                         .addLast(new ThrowExHandler())
-                        .addLast(globalCauseAdvice());
+                        .addLast(BeansConfiguration.this.globalCauseAdvice());
             }
         });
         simpleNettyServer.start();
