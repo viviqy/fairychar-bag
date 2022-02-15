@@ -8,12 +8,8 @@ import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariable;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariableLifecycle;
 import com.netflix.hystrix.strategy.properties.HystrixProperty;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
+import lombok.AllArgsConstructor;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -26,13 +22,11 @@ import java.util.concurrent.TimeUnit;
  * @author chiyo <br>
  * @since 1.0
  */
+@AllArgsConstructor
 public class SharedContextConcurrencyStrategy extends HystrixConcurrencyStrategy {
     private HystrixConcurrencyStrategy existingConcurrencyStrategy;
+    private List<CallableContext<?>> callableContexts;
 
-    public SharedContextConcurrencyStrategy(
-            HystrixConcurrencyStrategy existingConcurrencyStrategy) {
-        this.existingConcurrencyStrategy = existingConcurrencyStrategy;
-    }
 
     @Override
     public BlockingQueue<Runnable> getBlockingQueue(int maxQueueSize) {
@@ -73,15 +67,10 @@ public class SharedContextConcurrencyStrategy extends HystrixConcurrencyStrategy
 
     @Override
     public <T> Callable<T> wrapCallable(Callable<T> callable) {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        List<CallableContext> callableContexts = Arrays.asList(
-                new CallableContext<>(requestAttributes, r -> RequestContextHolder.setRequestAttributes(r)),
-                new CallableContext<>(securityContext, s -> SecurityContextHolder.setContext(securityContext))
-        );
+        this.callableContexts.forEach(CallableContext::doSupply);
         return this.existingConcurrencyStrategy != null
                 ? this.existingConcurrencyStrategy
-                .wrapCallable(new SharedContextCallable<T>(callable, callableContexts))
-                : super.wrapCallable(new SharedContextCallable<T>(callable, callableContexts));
+                .wrapCallable(new SharedContextCallable<T>(callable, this.callableContexts))
+                : super.wrapCallable(new SharedContextCallable<T>(callable, this.callableContexts));
     }
 }

@@ -12,5 +12,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HystrixProperties {
-    private boolean shareRequestContext;
+    private boolean sharedContext;
 }

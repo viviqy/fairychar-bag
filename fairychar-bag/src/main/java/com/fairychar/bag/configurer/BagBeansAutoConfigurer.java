@@ -4,8 +4,8 @@ import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
-import com.fairychar.bag.domain.hystrix.strategy.RequestContextConcurrencyStrategy;
-import com.fairychar.bag.properties.FairycharBagProperties;
+import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
+import com.fairychar.bag.domain.hystrix.strategy.SharedContextConcurrencyStrategy;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -25,6 +24,7 @@ import org.springframework.core.convert.converter.Converter;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * bag Bean配置启动项
@@ -33,10 +33,7 @@ import java.time.LocalDateTime;
  * @since 0.0.1-SNAPSHOT
  */
 @Configuration
-@EnableConfigurationProperties(value = {FairycharBagProperties.class})
 public class BagBeansAutoConfigurer {
-    @Autowired
-    private FairycharBagProperties bagProperties;
 
 
     @ConditionalOnProperty(prefix = "fairychar.bag.aop.log", name = "enable", havingValue = "true")
@@ -78,12 +75,14 @@ public class BagBeansAutoConfigurer {
 
 
     @Configuration
-    @ConditionalOnProperty(name = "fairychar.bag.hystrix.shareRequestContext", havingValue = "true")
+    @ConditionalOnProperty(name = "fairychar.bag.hystrix.shared-context", havingValue = "true")
     @Slf4j
-    protected static class HystrixRequestContextConfiguration {
+    protected static class HystrixSharedContextConfiguration {
 
         @Autowired(required = false)
         private HystrixConcurrencyStrategy existingConcurrencyStrategy;
+        @Autowired
+        private List<CallableContext<?>> callableContexts;
 
         @PostConstruct
         public void init() {
@@ -102,7 +101,7 @@ public class BagBeansAutoConfigurer {
 
             // Registers existing plugins excepts the Concurrent Strategy plugin.
             HystrixPlugins.getInstance().registerConcurrencyStrategy(
-                    new RequestContextConcurrencyStrategy(concurrencyStrategy));
+                    new SharedContextConcurrencyStrategy(concurrencyStrategy, this.callableContexts));
             HystrixPlugins.getInstance().registerEventNotifier(eventNotifier);
             HystrixPlugins.getInstance().registerMetricsPublisher(metricsPublisher);
             HystrixPlugins.getInstance().registerPropertiesStrategy(propertiesStrategy);
@@ -122,7 +121,7 @@ public class BagBeansAutoConfigurer {
             // If registeredStrategy not the default and not some use bean of
             // existingConcurrencyStrategy.
             if (!this.existingConcurrencyStrategy.equals(registeredStrategy)) {
-                HystrixRequestContextConfiguration.log.warn(
+                HystrixSharedContextConfiguration.log.warn(
                         "Multiple HystrixConcurrencyStrategy detected. Bean of HystrixConcurrencyStrategy was used.");
             }
             return this.existingConcurrencyStrategy;

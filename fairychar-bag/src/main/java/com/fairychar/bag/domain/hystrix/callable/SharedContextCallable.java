@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
 public class SharedContextCallable<T> implements Callable<T> {
 
     private final Callable<T> source;
-    private final List<CallableContext> callableContexts;
+    private final List<CallableContext<?>> callableContexts;
 
     @Override
     public T call() throws Exception {

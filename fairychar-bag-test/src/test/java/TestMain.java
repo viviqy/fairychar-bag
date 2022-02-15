@@ -1,3 +1,4 @@
+import cn.hutool.crypto.digest.MD5;
 import com.fairychar.bag.beans.netty.client.SimpleNettyClient;
 import com.fairychar.bag.beans.netty.decoder.DelimitersHeadTailFrameDecoder;
 import com.fairychar.bag.beans.netty.server.SimpleNettyServer;
@@ -44,6 +45,12 @@ import java.util.stream.IntStream;
  */
 public class TestMain {
 
+
+    @Test
+    public void testMd5() {
+        MD5 md5 = new MD5();
+        System.out.println(md5.digestHex("123"));
+    }
 
     @Test
     @SneakyThrows
