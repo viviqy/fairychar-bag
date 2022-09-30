@@ -6,6 +6,7 @@ import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
 import com.fairychar.bag.domain.hystrix.strategy.SharedContextConcurrencyStrategy;
+import com.fairychar.bag.web.DefaultExceptionAdvice;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
@@ -34,6 +35,12 @@ import java.util.List;
  */
 @Configuration
 public class BagBeansAutoConfigurer {
+
+    @ConditionalOnProperty(prefix = "fairychar.bag.web.advice", name = "enable", havingValue = "true")
+    @Bean
+    DefaultExceptionAdvice defaultExceptionAdvice() {
+        return new DefaultExceptionAdvice();
+    }
 
 
     @ConditionalOnProperty(prefix = "fairychar.bag.aop.log", name = "enable", havingValue = "true")

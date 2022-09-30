@@ -10,7 +10,7 @@ package com.fairychar.bag.domain.exceptions;
  *
  * @author chiyo <br>
  */
-public class ParamErrorException extends Exception {
+public class ParamErrorException extends RuntimeException {
     public ParamErrorException() {
         super();
     }

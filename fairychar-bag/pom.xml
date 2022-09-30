@@ -140,7 +140,7 @@
     <dependency>
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-all</artifactId>
-      <version>4.0.6</version>
+      <version>5.7.20</version>
       <!--      <scope>provided</scope>-->
     </dependency>
     <dependency>

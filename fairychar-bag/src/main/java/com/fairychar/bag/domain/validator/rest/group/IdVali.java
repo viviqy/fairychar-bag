@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.validator;
+package com.fairychar.bag.domain.validator.rest.group;
 
 /**
  * Datetime: 2020/9/25 15:25 <br>

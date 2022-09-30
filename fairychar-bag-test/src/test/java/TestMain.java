@@ -47,6 +47,36 @@ public class TestMain {
 
 
     @Test
+    public void testNumber() {
+        List<Integer> list = new ArrayList<>();
+        int a, b, c, d;
+        for (int i = 0; i < 9; i++) {
+            a = i;
+            for (int j = 0; j < 9; j++) {
+                b = j;
+                for (int k = 0; k < 9; k++) {
+                    c = k;
+                    for (int l = 0; l < 9; l++) {
+                        d = l;
+                        int a1 = a * 1000;
+                        int b1 = b * 100;
+                        int c1 = c * 10;
+                        int e = a1 + b1 + c1 + d;
+                        int f = 2 * e;
+                        if (f / 10 == (b1 + c1 + d)) {
+                            list.add(e);
+                        }
+//                        if (f % 1000 == b && (f % 100 == (b * 10 + c)) && (f % 100 == (b * 100 + c * 10 + d))) {
+//                            list.add(e);
+//                        }
+                    }
+                }
+            }
+        }
+        System.out.println(list);
+    }
+
+    @Test
     public void testMd5() {
         MD5 md5 = new MD5();
         System.out.println(md5.digestHex("123"));

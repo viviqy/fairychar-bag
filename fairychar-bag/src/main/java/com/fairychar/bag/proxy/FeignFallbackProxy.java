@@ -28,6 +28,11 @@ public final class FeignFallbackProxy {
      * @return jdk动态代理后的FeignClient
      */
     public static <I> I createDefault(Class<I> feignClient, Throwable cause) {
+        return createDefault(feignClient, cause, HttpResult.fallback(cause));
+    }
+
+
+    public static <I> I createDefault(Class<I> feignClient, Throwable cause, HttpResult result) {
         Assert.isTrue(feignClient.isInterface());
         I proxyFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
             @Override
@@ -35,7 +40,7 @@ public final class FeignFallbackProxy {
                 if (Object.class.equals(method.getDeclaringClass())) {
                     return method.invoke(this, args);
                 }
-                return new ResponseEntity(HttpResult.fallback(cause), HttpStatus.SERVICE_UNAVAILABLE);
+                return new ResponseEntity(result, HttpStatus.SERVICE_UNAVAILABLE);
             }
         });
         return proxyFeignClient;
