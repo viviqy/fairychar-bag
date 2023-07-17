@@ -1,7 +1,10 @@
 import com.fairychar.bag.pojo.dto.NameValueDTO;
+import com.fairychar.bag.utils.ClassUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import lombok.SneakyThrows;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created with IDEA <br>
@@ -12,6 +15,12 @@ import org.junit.Test;
  */
 public class TestMain {
 
+
+    @Test
+    public void fincClass(){
+        List<Class<?>> classes = ClassUtil.getClasses("com.fairychar.bag.extension", true);
+        classes.stream().map(c->c.getName()).forEach(System.out::println);
+    }
 
     @Test
     public void testMappingTree() {
