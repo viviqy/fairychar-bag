@@ -1,4 +1,4 @@
-package com.fairychar.bag.extension.action;
+package com.fairychar.bag.extension.action.condition.bool;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
