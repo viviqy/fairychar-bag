@@ -26,7 +26,7 @@
     <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
   </properties>
   
-  <name>fairychar bag dependencies parent</name>
+  <name>fairychar-parent</name>
   <url>https://github.com/viviqy/fairychar-bag</url>
   <description>
     simple utils for easy coding
@@ -117,6 +117,100 @@
   
   <build>
     <plugins>
+      <!--        <resources>-->
+      <!--          <resource>-->
+      <!--            <directory>src/main/java</directory>-->
+      <!--            <includes>-->
+      <!--              <include>**/*.properties</include>-->
+      <!--            </includes>-->
+      <!--          </resource>-->
+      <!--        </resources>-->
+      <!--          auto staging-->
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <!-- Source -->
+      <!--          <plugin>-->
+      <!--            <groupId>org.apache.maven.plugins</groupId>-->
+      <!--            <artifactId>maven-source-plugin</artifactId>-->
+      <!--            <version>3.2.1</version>-->
+      <!--            <executions>-->
+      <!--              <execution>-->
+      <!--                <phase>package</phase>-->
+      <!--                <goals>-->
+      <!--                  <goal>jar-no-fork</goal>-->
+      <!--                </goals>-->
+      <!--              </execution>-->
+      <!--            </executions>-->
+      <!--          </plugin>-->
+      <!--          &lt;!&ndash; Javadoc &ndash;&gt;-->
+      <!--          <plugin>-->
+      <!--            <groupId>org.apache.maven.plugins</groupId>-->
+      <!--            <artifactId>maven-javadoc-plugin</artifactId>-->
+      <!--            <version>3.2.0</version>-->
+      <!--            <configuration>-->
+      <!--              <source>8</source>-->
+      <!--              <show>private</show>-->
+      <!--              <nohelp>true</nohelp>-->
+      <!--              <charset>UTF-8</charset>-->
+      <!--              <encoding>UTF-8</encoding>-->
+      <!--              <docencoding>UTF-8</docencoding>-->
+      <!--              <additionalOptions>-->
+      <!--                <additionalOption>-Xdoclint:none</additionalOption>-->
+      <!--              </additionalOptions>-->
+      <!--              &lt;!&ndash;              <additionalparam>-Xdoclint:none</additionalparam>&ndash;&gt;-->
+      <!--              &lt;!&ndash; TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 &ndash;&gt;-->
+      <!--            </configuration>-->
+      <!--            <executions>-->
+      <!--              <execution>-->
+      <!--                <phase>package</phase>-->
+      <!--                <goals>-->
+      <!--                  <goal>jar</goal>-->
+      <!--                </goals>-->
+      <!--              </execution>-->
+      <!--            </executions>-->
+      <!--          </plugin>-->
+      <!-- GPG -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--Compiler -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <fork>true</fork>
+          <verbose>true</verbose>
+          <encoding>UTF-8</encoding>
+          <showWarnings>false</showWarnings>
+        </configuration>
+      </plugin>
+      <!--Release -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -139,120 +233,17 @@
     </plugins>
   </build>
   
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
-        <resources>
-          <resource>
-            <directory>src/main/java</directory>
-            <includes>
-              <include>**/*.properties</include>
-            </includes>
-          </resource>
-        </resources>
-        <plugins>
-          <!--          auto staging-->
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
-          <!-- Source -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>3.2.1</version>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- Javadoc -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.2.0</version>
-            <configuration>
-              <source>8</source>
-              <show>private</show>
-              <nohelp>true</nohelp>
-              <charset>UTF-8</charset>
-              <encoding>UTF-8</encoding>
-              <docencoding>UTF-8</docencoding>
-              <additionalOptions>
-                <additionalOption>-Xdoclint:none</additionalOption>
-              </additionalOptions>
-              <!--              <additionalparam>-Xdoclint:none</additionalparam>-->
-              <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
-            </configuration>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- GPG -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>3.1.0</version>
-            
-            <executions>
-              <execution>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <!--Compiler -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-              <source>1.8</source>
-              <target>1.8</target>
-              <fork>true</fork>
-              <verbose>true</verbose>
-              <encoding>UTF-8</encoding>
-              <showWarnings>false</showWarnings>
-            </configuration>
-          </plugin>
-          <!--Release -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-release-plugin</artifactId>
-          </plugin>
-        </plugins>
-      </build>
-      <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <name>Sonatype Nexus Snapshots</name>
-          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-          <id>ossrh</id>
-          <name>Nexus Release Repository</name>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-      </distributionManagement>
-    </profile>
-  </profiles>
+  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 </project>
