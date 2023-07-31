@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  
   <parent>
-    <artifactId>fairychar-parent</artifactId>
     <groupId>com.fairychar</groupId>
-    <version>${reversion}</version>
+    <artifactId>fairychar-parent</artifactId>
+    <version>1.0.0.RELEASE</version>
   </parent>
-  
+  <groupId>com.fairychar</groupId>
   <artifactId>fairychar-bag</artifactId>
-  
-  <description>
-    simple utils for easy coding
-  </description>
-  
+  <version>1.0.0.RELEASE</version>
+  <description>simple utils for easy coding</description>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-  
   <developers>
     <developer>
       <name>chiyo</name>
       <email>1261975105@qq.com</email>
     </developer>
   </developers>
-  
   <scm>
     <connection>scm:git:git@github.com:viviqy/fairychar-bag.git</connection>
     <developerConnection>scm:git:git@github.com:viviqy/fairychar-bag</developerConnection>
     <url>https://github.com/viviqy/fairychar-bag</url>
   </scm>
-  
   <dependencies>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -128,8 +120,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <optional>true</optional>
       <scope>compile</scope>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -141,7 +133,6 @@
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-all</artifactId>
       <version>5.7.20</version>
-      <!--      <scope>provided</scope>-->
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -150,12 +141,9 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  
-  
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
@@ -165,17 +153,14 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.18.1</version>
         <configuration>
           <skipTests>true</skipTests>
         </configuration>
       </plugin>
-    
     </plugins>
   </build>
-  
   <profiles>
     <profile>
       <id>release</id>
@@ -189,7 +174,6 @@
           </resource>
         </resources>
         <plugins>
-          <!--          auto staging-->
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -201,9 +185,7 @@
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
           </plugin>
-          <!-- Source -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
             <version>3.2.1</version>
             <executions>
@@ -215,11 +197,17 @@
               </execution>
             </executions>
           </plugin>
-          <!-- Javadoc -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
             <version>3.2.0</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
               <source>8</source>
               <show>private</show>
@@ -230,21 +218,9 @@
               <additionalOptions>
                 <additionalOption>-Xdoclint:none</additionalOption>
               </additionalOptions>
-              <!--              <additionalparam>-Xdoclint:none</additionalparam>-->
-              <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
             </configuration>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
-          <!-- GPG -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>3.1.0</version>
             <executions>
@@ -256,9 +232,7 @@
               </execution>
             </executions>
           </plugin>
-          <!--Compiler -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
             <configuration>
@@ -270,24 +244,22 @@
               <showWarnings>false</showWarnings>
             </configuration>
           </plugin>
-          <!--Release -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
       <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <name>Sonatype Nexus Snapshots</name>
-          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
           <id>ossrh</id>
           <name>Nexus Release Repository</name>
           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <name>Sonatype Nexus Snapshots</name>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
       </distributionManagement>
     </profile>
   </profiles>
