@@ -12,7 +12,7 @@
     <module>fairychar-bag</module>
   </modules>
   <properties>
-    <reversion>1.0.0.RELEASE</reversion>
+    <reversion>1.0.1.RELEASE</reversion>
     <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
     <spring.io.version>Cairo-SR7</spring.io.version>
     <spring.cloud.version>Hoxton.SR12</spring.cloud.version>

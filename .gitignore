@@ -4,9 +4,12 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-
 # Icon must end with two \r
 Icon
+
+# maven plugin
+/**/pom-xml-flattened
+
 
 # Thumbnails
 ._*
@@ -36,15 +39,8 @@ Temporary Items
 out
 gen
 target
-/*/target
-/*/*/target
-/*/*/*/target
-/*/*/*/*/target
-/*/*/*/*/*/target
-/*/*/*/*/*/*/target
-/*/*/*/*/*/*/*/target
-/*/*/*/*/*/*/*/*/target
-/*/*/*/*/*/*/*/*/*/target
+/**/target
+
 ### Java template
 # Compiled class file
 *.class
