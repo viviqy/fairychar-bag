@@ -176,7 +176,6 @@
     </plugins>
   </build>
   
-  
   <profiles>
     <profile>
       <id>release</id>
@@ -247,12 +246,12 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>3.1.0</version>
             <executions>
               <execution>
                 <phase>verify</phase>
                 <goals>
-                  <!--                  <goal>sign</goal>-->
+                  <goal>sign</goal>
                 </goals>
               </execution>
             </executions>
@@ -280,12 +279,12 @@
       </build>
       <distributionManagement>
         <snapshotRepository>
-          <id>oss-snapshot</id>
+          <id>ossrh</id>
           <name>Sonatype Nexus Snapshots</name>
           <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-          <id>oss-release</id>
+          <id>ossrh</id>
           <name>Nexus Release Repository</name>
           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>

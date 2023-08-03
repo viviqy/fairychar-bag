@@ -10,11 +10,9 @@
   <version>${reversion}</version>
   <modules>
     <module>fairychar-bag</module>
-    <module>fairychar-bag-test</module>
-    <module>fairychar-uaa-parent</module>
   </modules>
   <properties>
-    <reversion>1.0.0</reversion>
+    <reversion>1.0.1.RELEASE</reversion>
     <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
     <spring.io.version>Cairo-SR7</spring.io.version>
     <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
@@ -25,7 +23,35 @@
     <swagger2.version>2.10.5</swagger2.version>
     <swagger2-ui.version>1.8.1</swagger2-ui.version>
     <knife4j.spring.starter.version>2.0.9</knife4j.spring.starter.version>
+    <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
   </properties>
+  
+  <name>fairychar-parent</name>
+  <url>https://github.com/viviqy/fairychar-bag</url>
+  <description>
+    simple utils for easy coding
+  </description>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>chiyo</name>
+      <email>1261975105@qq.com</email>
+    </developer>
+  </developers>
+  
+  <scm>
+    <connection>scm:git:git@github.com:viviqy/fairychar-bag.git</connection>
+    <developerConnection>scm:git:git@github.com:viviqy/fairychar-bag</developerConnection>
+    <url>https://github.com/viviqy/fairychar-bag</url>
+  </scm>
+  
   
   <dependencies>
     <dependency>
@@ -37,6 +63,16 @@
   
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${org.mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${org.mapstruct.version}</version>
+      </dependency>
       <dependency>
         <groupId>com.github.xiaoymin</groupId>
         <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -78,16 +114,85 @@
     </dependencies>
   </dependencyManagement>
   
+  
   <build>
     <plugins>
+      <!--        <resources>-->
+      <!--          <resource>-->
+      <!--            <directory>src/main/java</directory>-->
+      <!--            <includes>-->
+      <!--              <include>**/*.properties</include>-->
+      <!--            </includes>-->
+      <!--          </resource>-->
+      <!--        </resources>-->
+      <!--          auto staging-->
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <!-- Source -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Javadoc -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <source>8</source>
+          <show>private</show>
+          <nohelp>true</nohelp>
+          <charset>UTF-8</charset>
+          <encoding>UTF-8</encoding>
+          <docencoding>UTF-8</docencoding>
+          <additionalOptions>
+            <additionalOption>-Xdoclint:none</additionalOption>
+          </additionalOptions>
+          <!--              <additionalparam>-Xdoclint:none</additionalparam>-->
+          <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- GPG -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.6</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
+      <!--Compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -101,6 +206,70 @@
           <showWarnings>false</showWarnings>
         </configuration>
       </plugin>
+      <!--Release -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18.1</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+          <!-- 避免IDE将 .flattened-pom.xml 自动识别为功能模块 -->
+          <flattenedPomFilename>pom-xml-flattened</flattenedPomFilename>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+  
+  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 </project>
