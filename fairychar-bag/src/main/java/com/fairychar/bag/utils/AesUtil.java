@@ -12,6 +12,7 @@ import java.security.SecureRandom;
  * @author chiyo <br>
  * @since 1.0
  */
+@Deprecated
 public class AesUtil {
     private final static Base64 BASE_64 = new Base64(256);
 
