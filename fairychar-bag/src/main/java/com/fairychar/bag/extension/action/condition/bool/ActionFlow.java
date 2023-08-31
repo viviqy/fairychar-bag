@@ -57,10 +57,10 @@ public interface ActionFlow<T, C> {
     /**
      * 获取下一个流程需要传递的参数
      *
-     * @param current 当前
+     * @param context 参数上下文
      * @return {@link C}
      */
-    C getNextParam(T current);
+    C getNextParam(T context);
 
 
 }

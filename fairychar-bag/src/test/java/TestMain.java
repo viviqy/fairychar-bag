@@ -1,10 +1,9 @@
+import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.pojo.dto.NameValueDTO;
-import com.fairychar.bag.utils.ClassUtil;
+import com.fairychar.bag.utils.FileUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import lombok.SneakyThrows;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * Created with IDEA <br>
@@ -17,17 +16,12 @@ public class TestMain {
 
 
     @Test
-    public void fincClass(){
-        List<Class<?>> classes = ClassUtil.getClasses("com.fairychar.bag.extension", true);
-        classes.stream().map(c->c.getName()).forEach(System.out::println);
+    @SneakyThrows
+    public void testFakeFile() {
+        FileUtil.createFakeFileByNio("/users/chiyo/tmp/fake.txt", Consts.MB_PER_B);
     }
 
-    @Test
-    public void testMappingTree() {
 
-    }
-
- 
     @Test
     @SneakyThrows
     public void testKeepValue() {

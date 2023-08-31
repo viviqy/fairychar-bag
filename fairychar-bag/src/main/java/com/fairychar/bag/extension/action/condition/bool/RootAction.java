@@ -26,7 +26,7 @@ public class RootAction implements ActionFlow {
     }
 
     @Override
-    public Object getNextParam(Object current) {
+    public Object getNextParam(Object context) {
         throw new NotImplementedException();
     }
 
@@ -38,6 +38,10 @@ public class RootAction implements ActionFlow {
     @Override
     public ActionFlow instanceBean() {
         return Singleton.INSTANCE.getInstance();
+    }
+
+    public static ParentActionCondition getCondition() {
+        return new ParentActionCondition(RootAction.class, false);
     }
 
     private enum Singleton {

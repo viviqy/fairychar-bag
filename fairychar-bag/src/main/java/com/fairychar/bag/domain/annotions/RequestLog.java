@@ -1,7 +1,5 @@
 package com.fairychar.bag.domain.annotions;
 
-import org.springframework.core.annotation.AliasFor;
-
 import java.lang.annotation.*;
 
 /**
@@ -20,9 +18,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface RequestLog {
-    String value() default "";
 
-    @AliasFor(value = "value")
     boolean enable() default true;
 
     /**

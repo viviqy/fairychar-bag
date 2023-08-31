@@ -28,6 +28,11 @@ public abstract class AbstractActionFlow<C, N> implements ActionFlow<C, N> {
     @Setter
     private AbstractActionFlow falseFlow;
 
+    /**
+     * compute then callNext flow
+     *
+     * @param context 上下文
+     */
     @Override
     public void callNext(C context) {
         boolean condition = this.compute(context);
@@ -37,6 +42,5 @@ public abstract class AbstractActionFlow<C, N> implements ActionFlow<C, N> {
             child.callNext(getNextParam(context));
         }
     }
-
 
 }
