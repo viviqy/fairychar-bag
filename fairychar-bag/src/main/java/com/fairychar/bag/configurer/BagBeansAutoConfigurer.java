@@ -2,6 +2,8 @@ package com.fairychar.bag.configurer;
 
 import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
+import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
+import com.fairychar.bag.beans.spring.mvc.KeepValueAdvice;
 import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
@@ -36,10 +38,27 @@ import java.util.List;
 @Configuration
 public class BagBeansAutoConfigurer {
 
-    @ConditionalOnProperty(prefix = "fairychar.bag.web.advice", name = "enable", havingValue = "true")
-    @Bean
-    DefaultExceptionAdvice defaultExceptionAdvice() {
-        return new DefaultExceptionAdvice();
+    @Configuration
+    protected static class WebConfiguration {
+        @ConditionalOnProperty(prefix = "fairychar.bag.web.advice", name = "enable", havingValue = "true")
+        @Bean
+        DefaultExceptionAdvice defaultExceptionAdvice() {
+            return new DefaultExceptionAdvice();
+        }
+
+        @ConditionalOnProperty(prefix = "fairychar.bag.web.property-processor", name = "enable", havingValue = "true")
+        protected static class PropertyValueConfiguration {
+            @Bean
+            KeepValueAdvice keepValueAdvice() {
+                return new KeepValueAdvice();
+            }
+
+            @Bean
+            EraseValueAdvice eraseValueAdvice() {
+                return new EraseValueAdvice();
+            }
+        }
+
     }
 
 

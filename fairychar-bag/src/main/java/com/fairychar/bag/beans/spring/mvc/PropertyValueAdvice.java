@@ -20,7 +20,6 @@ import java.lang.reflect.Type;
  */
 @Slf4j
 public abstract class PropertyValueAdvice<T extends Annotation> extends RequestBodyAdviceAdapter {
-    private final static String SETTER_METHOD_NAME = "set";
 
     protected Class<T> annotation;
 
@@ -47,18 +46,12 @@ public abstract class PropertyValueAdvice<T extends Annotation> extends RequestB
 
     protected void eraseValue(Object body, Field objectField) {
         String objectFieldName = objectField.getName();
-        String firstWordToUpperCase = objectFieldName.indexOf(0) + objectFieldName.substring(0, objectFieldName.length() - 1);
         try {
-            Method setter = body.getClass().getMethod(SETTER_METHOD_NAME + firstWordToUpperCase);
-            if (setter != null && setter.isAccessible()) {
-                //setter方法赋值
-                setter.invoke(body, null);
-            } else {
-                //field赋值
-                objectField.set(body, objectField);
-            }
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            log.warn("erase property value failed,field={},obj={}", objectFieldName,body);
+            //field赋值
+            objectField.setAccessible(true);
+            objectField.set(body, objectField);
+        } catch (IllegalAccessException e) {
+            log.warn("erase property value failed,field={},obj={}", objectFieldName, body);
         }
     }
 

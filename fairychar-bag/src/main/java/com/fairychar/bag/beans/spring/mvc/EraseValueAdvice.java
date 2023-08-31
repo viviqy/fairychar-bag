@@ -3,18 +3,18 @@ package com.fairychar.bag.beans.spring.mvc;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
- * <p>{@link keepValue}处理解析器</p>
+ * <p>{@link EraseValue}请求解析器</p>
+ *
  * @author chiyo <br>
  * @since 1.0.2
  */
 @ControllerAdvice
-public class KeepValueAdvice extends PropertyValueAdvice<keepValue> {
+public class EraseValueAdvice extends PropertyValueAdvice<EraseValue> {
     @Override
-    protected void handle(Object body, Field objectField, keepValue propertyAnnotation, keepValue parameterAnnotation) {
+    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation) {
         Class<?>[] propertyGroups = propertyAnnotation.groups();
         Class<?>[] parameterGroups = parameterAnnotation.groups();
         int totalLength = propertyGroups.length + parameterGroups.length;
@@ -26,10 +26,10 @@ public class KeepValueAdvice extends PropertyValueAdvice<keepValue> {
             set.add(parameterGroup);
         }
         //至少包含group之一
-        if (set.size()>0 && set.size()<(totalLength)){
-            //keep value
-        }else {
-            super.eraseValue(body,objectField);
+        if (set.size() > 0 && set.size() < (totalLength)) {
+            //erase value
+            super.eraseValue(body, objectField);
+        } else {
         }
     }
 }
