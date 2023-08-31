@@ -1,7 +1,7 @@
 package com.fairychar.bag.properties;
 
-import com.fairychar.bag.domain.annotions.MethodLock;
-import com.fairychar.bag.domain.annotions.RequestLog;
+import com.fairychar.bag.domain.annotations.MethodLock;
+import com.fairychar.bag.domain.annotations.RequestLog;
 import lombok.Getter;
 import lombok.Setter;
 

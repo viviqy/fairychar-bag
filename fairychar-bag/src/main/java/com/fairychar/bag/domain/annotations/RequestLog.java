@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.annotions;
+package com.fairychar.bag.domain.annotations;
 
 import org.springframework.core.annotation.AliasFor;
 

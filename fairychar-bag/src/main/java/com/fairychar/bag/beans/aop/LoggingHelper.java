@@ -1,6 +1,6 @@
 package com.fairychar.bag.beans.aop;
 
-import com.fairychar.bag.domain.annotions.RequestLog;
+import com.fairychar.bag.domain.annotations.RequestLog;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;

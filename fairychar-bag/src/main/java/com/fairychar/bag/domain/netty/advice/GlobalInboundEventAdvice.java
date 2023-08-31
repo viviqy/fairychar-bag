@@ -1,7 +1,7 @@
 package com.fairychar.bag.domain.netty.advice;
 
-import com.fairychar.bag.domain.annotions.EventHandler;
-import com.fairychar.bag.domain.annotions.NettyEventAdvice;
+import com.fairychar.bag.domain.annotations.EventHandler;
+import com.fairychar.bag.domain.annotations.NettyEventAdvice;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import io.netty.channel.ChannelHandlerContext;

@@ -2,7 +2,7 @@ package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.beans.aop.LoggingHandler;
-import com.fairychar.bag.domain.annotions.RequestLog;
+import com.fairychar.bag.domain.annotations.RequestLog;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.google.common.base.Strings;

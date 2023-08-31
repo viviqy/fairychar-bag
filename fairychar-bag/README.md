@@ -90,7 +90,7 @@ fairychar:
 代码使用
 
 ```java
-import com.fairychar.bag.domain.annotions.MethodLock;
+import com.fairychar.bag.domain.annotations.MethodLock;
 
 @Service
 public class HelloService {

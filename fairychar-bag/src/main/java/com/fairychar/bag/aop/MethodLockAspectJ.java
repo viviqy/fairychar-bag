@@ -2,7 +2,7 @@ package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.Consts;
-import com.fairychar.bag.domain.annotions.MethodLock;
+import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;

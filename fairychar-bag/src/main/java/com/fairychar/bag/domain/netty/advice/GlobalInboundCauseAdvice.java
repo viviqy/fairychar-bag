@@ -1,7 +1,7 @@
 package com.fairychar.bag.domain.netty.advice;
 
-import com.fairychar.bag.domain.annotions.CauseHandler;
-import com.fairychar.bag.domain.annotions.NettyCauseAdvice;
+import com.fairychar.bag.domain.annotations.CauseHandler;
+import com.fairychar.bag.domain.annotations.NettyCauseAdvice;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.StringUtil;

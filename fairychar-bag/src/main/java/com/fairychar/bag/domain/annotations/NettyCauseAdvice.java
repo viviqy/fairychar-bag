@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.annotions;
+package com.fairychar.bag.domain.annotations;
 
 import org.springframework.stereotype.Component;
 
@@ -17,5 +17,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Component
-public @interface NettyEventAdvice {
+public @interface NettyCauseAdvice {
 }

@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.annotions;
+package com.fairychar.bag.domain.annotations;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
