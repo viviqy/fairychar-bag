@@ -3,8 +3,10 @@ package com.fairychar.bag.domain;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 /**
- * Datetime: 2020/10/30 14:24 <br>
+ * 常用常量属性
  *
  * @author chiyo <br>
  * @since 1.0
@@ -22,6 +24,13 @@ public final class Consts {
     public static String NONE = "none";
 
     public static String SIMPLE_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static DateTimeFormatter SIMPLE_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATETIME_FORMAT);
+
+    public static String SIMPLE_DATE_FORMAT = "yyyy-MM-dd";
+
+    public static DateTimeFormatter SIMPLE_DATE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT);
+
 
     public final static class OAuth2 {
         public final static String AUTHORIZATION_CODE = "authorization_code";

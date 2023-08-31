@@ -26,12 +26,22 @@ import java.util.function.Supplier;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class AssignableFactory {
-    private final static ExecutorService executor = Executors.newCachedThreadPool(r -> {
-        Thread thread = new Thread(r);
-        thread.setDaemon(true);
-        return thread;
-    });
+    private ExecutorService executor;
     private Semaphore semaphore;
+
+    /**
+     * 初始化工厂
+     *
+     * @param workers  招募的工人数
+     * @param executor 执行线程池
+     * @return {@link AssignableFactory}
+     */
+    public static AssignableFactory recruitWorkers(int workers, ExecutorService executor) {
+        AssignableFactory assignableFactory = new AssignableFactory();
+        assignableFactory.semaphore = new Semaphore(workers);
+        assignableFactory.executor = executor;
+        return assignableFactory;
+    }
 
     /**
      * 初始化工厂
@@ -42,12 +52,14 @@ public final class AssignableFactory {
     public static AssignableFactory recruitWorkers(int workers) {
         AssignableFactory assignableFactory = new AssignableFactory();
         assignableFactory.semaphore = new Semaphore(workers);
+        assignableFactory.executor = Executors.newCachedThreadPool();
         return assignableFactory;
     }
 
     /**
      * 执行一个任务,默认分配一个工人
-     *6+6+6
+     * 6+6+6
+     *
      * @param action 任务
      */
     public void doWork(Action action) {

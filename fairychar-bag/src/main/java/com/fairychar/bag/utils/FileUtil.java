@@ -21,11 +21,11 @@ import java.nio.file.StandardOpenOption;
 public final class FileUtil {
 
     public static void createFakeFileByNio(String path, long writeByteSize) throws IOException {
-        createFakeFile(path, ((byte) '1'), writeByteSize, 1024);
+        createFakeFileByNio(path, ((byte) '1'), writeByteSize, 1024);
     }
 
     public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException {
-        createFakeFile(path, fillByte, writeByteSize, 1024);
+        createFakeFileByNio(path, fillByte, writeByteSize, 1024);
     }
 
     public static void createFakeFile(String path, long writeByteSize) throws IOException {
@@ -37,19 +37,25 @@ public final class FileUtil {
     }
 
     public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException {
+        new File(path).createNewFile();
         final FileChannel fileChannel = FileChannel.open(Paths.get(path), StandardOpenOption.WRITE);
         ByteBuffer buffer = ByteBuffer.allocateDirect(pipeBufferSize);
         try {
-            for (int i = 0; i < (writeByteSize / pipeBufferSize); i++) {
-                for (int j = 0; j < pipeBufferSize; j++) {
-                    buffer.put(fillByte);
-                }
+            byte[] dataArray = new byte[pipeBufferSize];
+            for (int i = 0; i < pipeBufferSize; i++) {
+                dataArray[i] = fillByte;
+            }
+            long count = writeByteSize / pipeBufferSize;
+            for (int i = 0; i < count; i++) {
+                buffer.put(dataArray);
+                buffer.flip();
                 fileChannel.write(buffer);
                 buffer.clear();
             }
             for (long i = 0; i < (writeByteSize % pipeBufferSize); i++) {
                 buffer.put(fillByte);
             }
+            buffer.flip();
             fileChannel.write(buffer, buffer.position());
         } finally {
             buffer.clear();
@@ -64,6 +70,7 @@ public final class FileUtil {
         ByteBuffer buffer = ByteBuffer.allocate(pipeBufferSize);
         try {
             for (int i = 0; i < (writeByteSize / pipeBufferSize); i++) {
+                //TODO performance up
                 for (int j = 0; j < pipeBufferSize; j++) {
                     buffer.put(fillByte);
                 }
