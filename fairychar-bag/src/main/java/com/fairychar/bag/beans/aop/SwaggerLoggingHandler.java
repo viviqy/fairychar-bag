@@ -13,10 +13,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/12 <br>
- * time: 21:33 <br>
+ * <p>swagger接口访问记录handler</p>
+ * 记录<Strong>URI</strong>,访问<Strong>接口名称,基于{@link ApiOperation#value()}</Strong>,访问<Strong>时间戳</Strong>,访问<Strong>ip</Strong>
  *
  * @author qiyue <br>
  */

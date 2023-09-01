@@ -27,29 +27,19 @@ class LoggingHelper {
             case NONE:
                 break;
             case TRACE:
-                if (log.isTraceEnabled()) {
-                    log.trace("{}", logs);
-                }
+                log.trace("{}", logs);
                 break;
             case DEBUG:
-                if (log.isDebugEnabled()) {
-                    log.debug("{}", logs);
-                }
+                log.debug("{}", logs);
                 break;
             case INFO:
-                if (log.isInfoEnabled()) {
-                    log.info("{}", logs);
-                }
+                log.info("{}", logs);
                 break;
             case WARN:
-                if (log.isWarnEnabled()) {
-                    log.warn("{}", logs);
-                }
+                log.warn("{}", logs);
                 break;
             case ERROR:
-                if (log.isErrorEnabled()) {
-                    log.error("{}", logs);
-                }
+                log.error("{}", logs);
                 break;
         }
     }

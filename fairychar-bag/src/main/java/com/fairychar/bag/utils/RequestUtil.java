@@ -4,6 +4,8 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +17,32 @@ import javax.servlet.http.HttpServletRequest;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RequestUtil {
+
+
+    /**
+     * 向当前thread的request设置属性
+     *
+     * @param keyName   键名
+     * @param attribute 属性
+     */
+    public static <T> void putAttribute(String keyName, T attribute) {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        requestAttributes.getRequest().setAttribute(keyName, attribute);
+    }
+
+    /**
+     * 从当前thread的request获取属性
+     *
+     * @param keyName 键名
+     * @param tClass  t类
+     * @return {@link T}
+     */
+    public static <T> T getAttribute(String keyName, Class<T> tClass) {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        Object attribute = requestAttributes.getRequest().getAttribute(keyName);
+        return (T) attribute;
+    }
+
     /**
      * 获取远端访问ip地址
      *

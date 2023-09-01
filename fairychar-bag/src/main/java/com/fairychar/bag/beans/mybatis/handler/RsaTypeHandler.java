@@ -1,6 +1,7 @@
 package com.fairychar.bag.beans.mybatis.handler;
 
-import cn.hutool.crypto.symmetric.AES;
+import cn.hutool.crypto.asymmetric.KeyType;
+import cn.hutool.crypto.asymmetric.RSA;
 import com.google.common.base.Strings;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -12,18 +13,18 @@ import java.sql.SQLException;
 
 /**
  * <p>mybatis aes typeHandler{@link org.apache.ibatis.type.TypeHandler}</p>
- * <p>在数据入库前会先aes加密,查询出库后解密</p>
+ * <p>在数据入库前会先rsa加密,查询出库后解密</p>
  *
  * @author chiyo <br>
  * @since 1.0
  */
-public class AesTypeHandler extends BaseTypeHandler<String> {
+public class RsaTypeHandler extends BaseTypeHandler<String> {
 
-    private static AES aes;
+    private static RSA rsa;
 
 
-    public static void setKey(AES aes) {
-        AesTypeHandler.aes = aes;
+    public static void setKey(RSA aes) {
+        RsaTypeHandler.rsa = aes;
     }
 
 
@@ -31,7 +32,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
     public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
         try {
             if (!Strings.isNullOrEmpty(parameter)) {
-                ps.setString(i, aes.encryptHex(parameter));
+                ps.setString(i, rsa.encryptBase64(parameter, KeyType.PublicKey));
             }
         } catch (Exception e) {
             throw new SQLException(e);
@@ -45,7 +46,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
             return null;
         }
         try {
-            return aes.decryptStr(value);
+            return rsa.decryptStr(value, KeyType.PrivateKey);
         } catch (Exception e) {
             throw new SQLException(e);
         }
@@ -58,7 +59,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
             return null;
         }
         try {
-            return aes.decryptStr(value);
+            return rsa.decryptStr(value, KeyType.PrivateKey);
         } catch (Exception e) {
             throw new SQLException(e);
         }
@@ -71,17 +72,18 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
             return null;
         }
         try {
-            return aes.decryptStr(value);
+            return rsa.decryptStr(value, KeyType.PrivateKey);
         } catch (Exception e) {
             throw new SQLException(e);
         }
     }
 
-    public static String encryptHex(String source) {
-        return aes.encryptHex(source);
+
+    public static String encryptBase64(String source) {
+        return rsa.encryptBase64(source, KeyType.PublicKey);
     }
 
     public static String decrypt(String ciphertext) {
-        return aes.decryptStr(ciphertext);
+        return rsa.decryptStr(ciphertext, KeyType.PrivateKey);
     }
 }

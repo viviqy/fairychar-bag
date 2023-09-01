@@ -12,11 +12,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/5/12 <br>
- * time: 10:59 <br>
- *
  * <p>基础接口访问记录handler</p>
  * 记录<Strong>ip</strong>,访问<Strong>URI</Strong>,访问<Strong>时间戳</Strong>
  *

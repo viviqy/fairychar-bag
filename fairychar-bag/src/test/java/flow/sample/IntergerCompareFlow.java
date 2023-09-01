@@ -28,6 +28,6 @@ public class IntergerCompareFlow extends AbstractActionFlow<Integer, Integer> {
 
     @Override
     public Integer getNextParam(Integer context) {
-        return 1;
+        return context + 1;
     }
 }

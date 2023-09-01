@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.param;
+package com.fairychar.bag.pojo.query.body;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -6,10 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
- * Datetime: 2020/9/27 10:24 <br>
+ * Datetime: 2020/9/27 10:35 <br>
  *
  * @author chiyo <br>
  * @since 1.0
@@ -17,9 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "LongList", description = "Long类型Json请求集合")
-public final class LongList implements Serializable {
-    private List<Long> list;
+@ApiModel(value = "StringBody", description = "String类型Json请求体")
+public class StringBodyQuery implements Serializable {
+    private String body;
 }
 /*
                                       /[-])//  ___        

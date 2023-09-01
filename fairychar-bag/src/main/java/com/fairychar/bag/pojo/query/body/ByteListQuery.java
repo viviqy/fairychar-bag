@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.param;
+package com.fairychar.bag.pojo.query.body;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -17,9 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "ShortList", description = "Short类型Json请求集合")
-public final class ShortList implements Serializable {
-    private List<Short> list;
+@ApiModel(value = "ByteList", description = "Byte类型Json请求集合体")
+public final class ByteListQuery implements Serializable {
+    private List<Byte> list;
 }
 /*
                                       /[-])//  ___        

@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.param;
+package com.fairychar.bag.pojo.query.body;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -16,9 +16,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "IntegerBody", description = "Integer类型Json请求体")
-public class IntegerBody implements Serializable {
-    private Integer body;
+@ApiModel(value = "ShortBody", description = "Short类型Json请求体")
+public class ShortBodyQuery implements Serializable {
+    private Short body;
 }
 /*
                                       /[-])//  ___        

@@ -25,11 +25,6 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MappingObjectUtil {
 
-//    public static <T,I> List<TreeNode<T>> recursiveGroupingBy(List<T> source,String idField,String pidField,I idValue) throws NoSuchFieldException, IllegalAccessException {
-//        List<T> unGroupingBy = ReflectUtil.recursiveSearch(source, idField, pidField, idValue);
-//
-//    }
-
 
     public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
         List<TreeNode<T>> root = new ArrayList<>();
