@@ -19,7 +19,7 @@ import java.util.function.Consumer;
  * @author chiyo
  */
 @Slf4j
-public class RoundTaskExecutor {
+public final class RoundTaskExecutor {
     private final Phaser phaser;
     private final List<List<Action>> taskList;
     /**

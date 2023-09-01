@@ -1,6 +1,8 @@
 package com.fairychar.bag.extension.concurrent;
 
+import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.function.Action;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -25,17 +27,14 @@ public final class RepeatTaskExecutor {
     private final ExecutorService executorService;
     private final AtomicLong executeTimes;
 
-    private RepeatTaskExecutor(List<Action> runnables) {
+    private RepeatTaskExecutor(List<Action> runnables, String taskName) {
+        Assert.notBlank(taskName);
         this.cyclicBarrier = new CyclicBarrier(runnables.size());
         this.runnables = runnables;
         this.executeTimes = new AtomicLong(0);
-
-
-        this.executorService = Executors.newFixedThreadPool(runnables.size(), r -> {
-            Thread thread = new Thread(r);
-            thread.setDaemon(true);
-            return thread;
-        });
+        this.executorService = new ThreadPoolExecutor(runnables.size(), runnables.size()
+                , 60, TimeUnit.MINUTES, new LinkedBlockingQueue<>(1024), new ThreadFactoryBuilder()
+                .setNameFormat(taskName + "-pool-%d").build());
     }
 
     /**
@@ -44,8 +43,8 @@ public final class RepeatTaskExecutor {
      * @param tasklist 任务列表
      * @return {@link RepeatTaskExecutor}
      */
-    public static RepeatTaskExecutor createCycle(List<Action> tasklist) {
-        return new RepeatTaskExecutor(tasklist);
+    public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName) {
+        return new RepeatTaskExecutor(tasklist, taskName);
     }
 
 

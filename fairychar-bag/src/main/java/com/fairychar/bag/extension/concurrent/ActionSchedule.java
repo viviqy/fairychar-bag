@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
  */
 @RequiredArgsConstructor
 @Data
-public class ActionSchedule implements Comparable<ActionSchedule> {
+public final class ActionSchedule implements Comparable<ActionSchedule> {
     /**
      * 任务名称(默认当前线程名称)
      */

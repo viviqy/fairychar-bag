@@ -22,7 +22,7 @@ public @interface RequestLog {
     boolean enable() default true;
 
     /**
-     * @return 全局日志级别
+     * @return Level.NONE=使用全局日志级别
      */
     Level loggingLevel() default Level.NONE;
 
