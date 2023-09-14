@@ -8,8 +8,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAd
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 /**
@@ -49,7 +47,7 @@ public abstract class PropertyValueAdvice<T extends Annotation> extends RequestB
         try {
             //field赋值
             objectField.setAccessible(true);
-            objectField.set(body, objectField);
+            objectField.set(body, null);
         } catch (IllegalAccessException e) {
             log.warn("erase property value failed,field={},obj={}", objectFieldName, body);
         }

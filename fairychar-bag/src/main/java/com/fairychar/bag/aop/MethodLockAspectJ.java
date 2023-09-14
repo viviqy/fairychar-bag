@@ -4,9 +4,9 @@ import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
-import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
+import com.fairychar.bag.utils.StringUtil;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
@@ -16,12 +16,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.redisson.Redisson;
 import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.annotation.Order;
+import org.springframework.expression.Expression;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -43,6 +45,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MethodLockAspectJ implements InitializingBean {
     @Autowired
     private FairycharBagProperties fairycharBagProperties;
+    @Autowired(required = false)
+    private RedissonClient redissonClient;
+    @Autowired(required = false)
+    private CuratorFramework curatorFramework;
+    private SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
     private Map<String, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
 
     @Around("@annotation(methodLock)")
@@ -71,7 +78,8 @@ public class MethodLockAspectJ implements InitializingBean {
 
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
-        ReentrantLock reentrantLock = createOrGetLocalLock(methodLock.name().isEmpty() ? getMethodFullPath(method) : methodLock.name());
+        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        ReentrantLock reentrantLock = createOrGetLocalLock(expressionValue.isEmpty() ? getMethodFullPath(method) : expressionValue);
         if (methodLock.optimistic()) {
             try {
                 if (reentrantLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
@@ -100,15 +108,13 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Redisson redisson = SpringContextHolder.getInstance().getBean(Redisson.class);
         Method method = methodSignature.getMethod();
-        RLock redissonLock = redisson.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(methodLock.name())
-                ? methodLock.name() : getMethodFullPath(method)));
+        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        RLock redissonLock = redissonClient.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(expressionValue)
+                ? expressionValue : getMethodFullPath(method)));
         if (methodLock.optimistic()) {
-            boolean hold = false;
             try {
                 if (redissonLock.tryLock(getTimeout(methodLock), getTimeUnit(methodLock))) {
-                    hold = true;
                     return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
                 } else {
                     throw new FailToGetLockException();
@@ -118,7 +124,7 @@ public class MethodLockAspectJ implements InitializingBean {
             } catch (Throwable throwable) {
                 throw throwable;
             } finally {
-                if (hold) {
+                if (redissonLock.isLocked()) {
                     redissonLock.unlock();
                 }
             }
@@ -135,9 +141,9 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
-        String path = methodLock.distributedPrefix().concat(methodLock.name().isEmpty()
-                ? getMethodFullPath(methodSignature.getMethod()) : methodLock.name());
+        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        String path = methodLock.distributedPrefix().concat(expressionValue.isEmpty()
+                ? getMethodFullPath(methodSignature.getMethod()) : expressionValue);
         InterProcessMutex lock = new InterProcessMutex(curatorFramework, path.startsWith("/") ? path : "/".concat(path));
         if (methodLock.optimistic()) {
             try {
@@ -146,7 +152,7 @@ public class MethodLockAspectJ implements InitializingBean {
                 }
                 throw new FailToGetLockException();
             } catch (TimeoutException e) {
-                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(methodLock.name()));
+                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(expressionValue));
                 throw e;
             } catch (Exception e) {
                 throw e;
@@ -216,6 +222,12 @@ public class MethodLockAspectJ implements InitializingBean {
         Assert.notNull(fairycharBagProperties.getAop().getLock().getTimeUnit(), "时间单位不能为null");
         Assert.isTrue(fairycharBagProperties.getAop().getLock().getGlobalTimeout() >= 0, "乐观锁超时时间必须不小于0");
         Assert.isFalse(fairycharBagProperties.getAop().getLock().getDefaultLock().equals(MethodLock.Type.DEFAULT), "默认锁类型不能为DEFAULT");
+    }
+
+    private String resolveNameExpression(String expression) {
+        Expression parseExpression = this.spelExpressionParser.parseExpression(expression);
+        String expressionString = ((String) parseExpression.getValue());
+        return StringUtil.defaultText(expressionString, Consts.EMPTY_STR);
     }
 }
 /*

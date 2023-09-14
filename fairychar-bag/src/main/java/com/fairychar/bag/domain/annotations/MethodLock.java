@@ -51,11 +51,11 @@ public @interface MethodLock {
     TimeUnit timeUnit() default TimeUnit.NANOSECONDS;
 
     /**
-     * 本地锁名称或者分布式锁节点名称
+     * 本地锁名称或者分布式锁节点名称,Spel表达式
      *
      * @return 分布式锁情况下默认使用全路径类名+方法名+参数类型,本地锁情况下指定则优先根据此值获取锁
      */
-    String name() default "";
+    String nameExpression() default "";
 
 
     /**

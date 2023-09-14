@@ -23,13 +23,20 @@ import java.util.concurrent.*;
 @Slf4j
 public class ActionSelectorTemplate {
 
-    private Map<String, ActionSchedule> selector = new ConcurrentHashMap<>(8);
+
+    private Map<String, ActionSchedule> selector = new ConcurrentHashMap<>(32);
     private ExecutorService boss = Executors.newSingleThreadExecutor();
     @Setter
     private long timePause = 100;
-    @Setter
+
     private ExecutorService worker = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     private State state = State.UN_INITIALIZE;
+
+
+    public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker) {
+        this.boss = boss;
+        this.worker = worker;
+    }
 
     public void start() {
         this.state = State.WORKING;

@@ -20,18 +20,18 @@ public final class CacheOperateTemplate {
     /**
      * 单体缓存读取(不适用与集群环境)
      *
-     * @param cache   缓存数据提供者
-     * @param db      数据库数据提供者
-     * @param toCache 数据库数据到缓存数据消费者
-     * @param lock    本地lock
-     * @param <C>     返回类泛型
+     * @param fromCache 缓存数据提供者
+     * @param fromDb    数据库数据提供者
+     * @param putCache  数据库数据到缓存数据消费者
+     * @param lock      本地lock
+     * @param <C>       返回类泛型
      * @return
      */
-    public static <C> C get(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache, Object lock) {
-        C cacheValue = cache.get();
+    public static <C> C get(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache, Object lock) {
+        C cacheValue = fromCache.get();
         if (cacheValue == null) {
             synchronized (lock) {
-                return dbToCacheAndGet(cache, db, toCache);
+                return fromDbPutCacheAndGet(fromCache, fromDb, putCache);
             }
         }
         return cacheValue;
@@ -40,19 +40,19 @@ public final class CacheOperateTemplate {
     /**
      * 分布式缓存读取(悲观锁方式)
      *
-     * @param cache   缓存数据提供者
-     * @param db      数据库数据提供者
-     * @param toCache 数据库数据到缓存数据消费者
-     * @param lock    分布式lock实现者
-     * @param <C>     返回类泛型
+     * @param fromCache 缓存数据提供者
+     * @param fromDb    数据库数据提供者
+     * @param putCache  数据库数据到缓存数据消费者
+     * @param lock      分布式lock实现者
+     * @param <C>       返回类泛型
      * @return {@link C}
      */
-    public static <C> C get(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache, Lock lock) {
-        C cacheValue = cache.get();
+    public static <C> C get(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache, Lock lock) {
+        C cacheValue = fromCache.get();
         if (cacheValue == null) {
             try {
                 lock.lockInterruptibly();
-                return dbToCacheAndGet(cache, db, toCache);
+                return fromDbPutCacheAndGet(fromCache, fromDb, putCache);
             } catch (InterruptedException ignore) {
             } finally {
                 lock.unlock();
@@ -61,16 +61,16 @@ public final class CacheOperateTemplate {
         return cacheValue;
     }
 
-    private static <C> C dbToCacheAndGet(Supplier<C> cache, Supplier<C> db, Consumer<C> toCache) {
-        C cacheValue = cache.get();
+    private static <C> C fromDbPutCacheAndGet(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache) {
+        C cacheValue = fromCache.get();
         if (cacheValue != null) {
             return cacheValue;
         } else {
-            C dbValue = db.get();
+            C dbValue = fromDb.get();
             if (dbValue == null) {
                 return null;
             } else {
-                toCache.accept(dbValue);
+                putCache.accept(dbValue);
                 return dbValue;
             }
         }

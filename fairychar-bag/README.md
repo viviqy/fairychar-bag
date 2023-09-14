@@ -1,7 +1,11 @@
 # fairychar-bag开发工具包
+
 ## spring mvc参数校验实现
+
 ### 使用方式
+
 配置文件开启校验切面
+
 ```yaml
 fairychar:
   bag:
@@ -9,6 +13,7 @@ fairychar:
       binding:
         enable: true
 ```
+
 代码使用
 
 ```java
@@ -20,14 +25,21 @@ public String hello(@RequestBody @Validate User user,BindingResult bindingResult
         return"hello";
         }
 ```
+
 ### 实现效果
+
 在每次请求请求时可自动校验参数,在参数校验失败后抛出ParamErrorException
+
 ### 实现原理
+
 使用aop配合hibernate-validator实现
 
 ## 接口请求日志
+
 ### 使用方式
+
 配置文件开启日志切面
+
 ```yaml
 fairychar:
   bag:
@@ -38,9 +50,11 @@ fairychar:
         global-after: simple //全局默认接口请求后拦截器
         global-level: info //全局默认接口请求后拦截器
 ```
+
 代码使用
 
 配置类
+
 ```java
 @Configuration
 public class LoggingConfiguration{
@@ -53,7 +67,9 @@ public class LoggingConfiguration{
     }
 }
 ```
+
 接口方法
+
 ```java
 /*
 * 在需要校验的接口上打上此注解
@@ -65,17 +81,25 @@ public String hello(@RequestBody @Validate User user,BindingResult bindingResult
     return "hello";
 }
 ```
+
 ### 实现效果
+
 swaggerHandler的日志打印输出为
+
 ```text
 request uri=hello,uriName=你好 at 2021-01-29 14:54:52 from 127.0.0.1
 ```
+
 ### 实现原理
+
 使用aop配合spring bean实现,通过@RequestLog内handler属性获取指定bean处理拦截逻辑
 
 ## 方法锁实现
+
 ### 使用方式
+
 配置文件开启
+
 ```yaml
 fairychar:
   bag:
@@ -108,7 +132,7 @@ public class HelloService {
      */
     @MethodLock(optimistic = true, lockType = MethodLock.Type.REDIS
             , timeout = 1, timeUnit = TimeUnit.SECONDS
-            , distributedPrefix = "fairychar:device:", name = "collector")
+            , distributedPrefix = "fairychar:device:", nameExpression = "collector")
     public String getJerry() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";
@@ -137,7 +161,7 @@ public class HelloService {
      * 使用分布式锁(基于Redis实现的乐观锁)
      */
     @MethodLock(lockType = MethodLock.Type.REDIS
-            , distributedPrefix = "fairychar:device:", name = "collector")
+            , distributedPrefix = "fairychar:device:", nameExpression = "collector")
     public String getJerryFair() throws Exception {
         TimeUnit.SECONDS.sleep(1);
         return "jerry";
@@ -148,17 +172,21 @@ public class HelloService {
 ```
 
 ### 实现效果
+
 会在调用方法时进入本地锁或者分布式锁
 
 ### 实现原理
+
 使用aop配合ReentrantLock、Redisson、Curator实现
 
 ## netty server and client
+
 ### 使用方式
 
 代码使用
 
 非spring方式
+
 ```java
     public void testNetty() {
         SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
@@ -188,6 +216,7 @@ public class HelloService {
         client.stop();
     }
 ```
+
 基于spring
 
 ```java
@@ -215,8 +244,11 @@ public class BeansConfiguration {
     }
 }
 ```
+
 ### 实现效果
+
 可简单化启动netty或整合入spring
 
 ### 实现原理
+
 基于spring整合

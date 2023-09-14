@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  * @since
  */
 public abstract class BaseCalculator {
-    protected boolean calculate(Operate operate, List args, List<String> compareValues, Class dataType) {
-        switch (operate) {
+    protected boolean calculate(Operator operator, List args, List<String> compareValues, Class dataType) {
+        switch (operator) {
             case EQUAL:
                 return this.equal(args, compareValues, dataType);
             case NOT_EQUAL:

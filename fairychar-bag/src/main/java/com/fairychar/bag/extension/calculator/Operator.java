@@ -4,7 +4,7 @@ package com.fairychar.bag.extension.calculator;
  * @author chiyo <br>
  * @since
  */
-public enum Operate {
+public enum Operator {
     /**
      * 等于
      */
