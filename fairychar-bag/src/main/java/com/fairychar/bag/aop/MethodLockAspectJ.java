@@ -4,6 +4,7 @@ import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
+import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
 import com.fairychar.bag.utils.StringUtil;
@@ -45,10 +46,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MethodLockAspectJ implements InitializingBean {
     @Autowired
     private FairycharBagProperties fairycharBagProperties;
-    @Autowired(required = false)
-    private RedissonClient redissonClient;
-    @Autowired(required = false)
-    private CuratorFramework curatorFramework;
     private SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
     private Map<String, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
 
@@ -110,6 +107,7 @@ public class MethodLockAspectJ implements InitializingBean {
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
         String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        RedissonClient redissonClient = SpringContextHolder.getInstance().getBean(RedissonClient.class);
         RLock redissonLock = redissonClient.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(expressionValue)
                 ? expressionValue : getMethodFullPath(method)));
         if (methodLock.optimistic()) {
@@ -144,6 +142,7 @@ public class MethodLockAspectJ implements InitializingBean {
         String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
         String path = methodLock.distributedPrefix().concat(expressionValue.isEmpty()
                 ? getMethodFullPath(methodSignature.getMethod()) : expressionValue);
+        CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
         InterProcessMutex lock = new InterProcessMutex(curatorFramework, path.startsWith("/") ? path : "/".concat(path));
         if (methodLock.optimistic()) {
             try {
