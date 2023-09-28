@@ -83,9 +83,14 @@
       <artifactId>gson</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-spi</artifactId>
+      <version>2.10.5</version>
+    </dependency>
+    <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-annotations</artifactId>
-      <version>1.5.20</version>
+      <version>1.5.22</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -134,7 +139,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     <dependency>

@@ -14,7 +14,7 @@ import java.lang.annotation.*;
 @Inherited
 public @interface KeepValue {
 
-    Class<?>[] groups() default {};
+    Class<?>[] value() default {};
 
 
 }

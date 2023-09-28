@@ -4,6 +4,7 @@ import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.KeepValueAdvice;
+import com.fairychar.bag.beans.swagger.RequestIgnoreParameterPlugin;
 import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
@@ -23,6 +24,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
+import springfox.documentation.spi.service.OperationBuilderPlugin;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
@@ -37,6 +39,15 @@ import java.util.List;
  */
 @Configuration
 public class BagBeansAutoConfigurer {
+
+
+    @Configuration
+    protected static class SwaggerExtendsConfiguration {
+        @Bean
+        OperationBuilderPlugin requestIgnoreParameterPlugin() {
+            return new RequestIgnoreParameterPlugin();
+        }
+    }
 
     @Configuration
     protected static class WebConfiguration {

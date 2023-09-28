@@ -4,6 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * spring mvc 请求参数property抹除值
+ *
  * @author chiyo <br>
  * @since 1.0.2
  */
@@ -13,7 +14,7 @@ import java.lang.annotation.*;
 @Inherited
 public @interface EraseValue {
 
-    Class<?>[] groups() default {};
+    Class<?>[] value() default {};
 
 
 }

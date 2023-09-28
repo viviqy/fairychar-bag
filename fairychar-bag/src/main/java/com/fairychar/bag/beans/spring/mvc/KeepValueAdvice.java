@@ -15,8 +15,8 @@ import java.util.HashSet;
 public class KeepValueAdvice extends PropertyValueAdvice<KeepValue> {
     @Override
     protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation) {
-        Class<?>[] propertyGroups = propertyAnnotation.groups();
-        Class<?>[] parameterGroups = parameterAnnotation.groups();
+        Class<?>[] propertyGroups = propertyAnnotation.value();
+        Class<?>[] parameterGroups = parameterAnnotation.value();
         int totalLength = propertyGroups.length + parameterGroups.length;
         HashSet<Object> set = new HashSet<>(totalLength);
         for (Class<?> propertyGroup : propertyGroups) {
