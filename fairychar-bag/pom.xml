@@ -37,6 +37,8 @@
   </scm>
   
   <dependencies>
+    
+    
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
@@ -46,6 +48,16 @@
       <groupId>com.netflix.hystrix</groupId>
       <artifactId>hystrix-core</artifactId>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.hdrhistogram</groupId>
+          <artifactId>HdrHistogram</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.baomidou</groupId>
@@ -62,12 +74,24 @@
       <groupId>org.apache.curator</groupId>
       <artifactId>curator-recipes</artifactId>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.redisson</groupId>
       <artifactId>redisson</artifactId>
       <version>3.11.1</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.netty</groupId>
@@ -85,12 +109,20 @@
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-spi</artifactId>
-      <version>2.10.5</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
+    
     <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-annotations</artifactId>
       <version>1.5.22</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
