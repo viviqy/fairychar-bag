@@ -9,6 +9,7 @@ import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
 import com.fairychar.bag.converter.mvc.StringToLocalDateTimeConverter;
 import com.fairychar.bag.domain.hystrix.callable.base.CallableContext;
 import com.fairychar.bag.domain.hystrix.strategy.SharedContextConcurrencyStrategy;
+import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.web.DefaultExceptionAdvice;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -38,6 +40,7 @@ import java.util.List;
  * @since 0.0.1-SNAPSHOT
  */
 @Configuration
+@EnableConfigurationProperties(FairycharBagProperties.class)
 public class BagBeansAutoConfigurer {
 
 

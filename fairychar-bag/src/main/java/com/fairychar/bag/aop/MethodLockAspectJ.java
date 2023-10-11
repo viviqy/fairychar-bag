@@ -4,6 +4,8 @@ import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
+import com.fairychar.bag.domain.spring.expression.LockEvaluationContext;
+import com.fairychar.bag.domain.spring.expression.LockExpressionRootObject;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
@@ -22,7 +24,10 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.core.DefaultParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.annotation.Order;
+import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
@@ -46,8 +51,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MethodLockAspectJ implements InitializingBean {
     @Autowired
     private FairycharBagProperties fairycharBagProperties;
-    private SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
+    private final SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
     private Map<String, ReentrantLock> lockMap = new ConcurrentHashMap<>(32);
+    private final ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
 
     @Around("@annotation(methodLock)")
     public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable {
@@ -75,7 +81,7 @@ public class MethodLockAspectJ implements InitializingBean {
 
     private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
-        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         ReentrantLock reentrantLock = createOrGetLocalLock(expressionValue.isEmpty() ? getMethodFullPath(method) : expressionValue);
         if (methodLock.optimistic()) {
             try {
@@ -104,9 +110,10 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
+
     private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
-        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         RedissonClient redissonClient = SpringContextHolder.getInstance().getBean(RedissonClient.class);
         RLock redissonLock = redissonClient.getLock(methodLock.distributedPrefix().concat(!Strings.isNullOrEmpty(expressionValue)
                 ? expressionValue : getMethodFullPath(method)));
@@ -139,7 +146,7 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
     private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        String expressionValue = this.resolveNameExpression(methodLock.nameExpression());
+        String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         String path = methodLock.distributedPrefix().concat(expressionValue.isEmpty()
                 ? getMethodFullPath(methodSignature.getMethod()) : expressionValue);
         CuratorFramework curatorFramework = SpringContextHolder.getInstance().getBean(CuratorFramework.class);
@@ -215,6 +222,26 @@ public class MethodLockAspectJ implements InitializingBean {
         return lock;
     }
 
+    private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) {
+        String nameExpression = methodLock.nameExpression();
+        String expressionString = null;
+        Expression parseExpression = this.spelExpressionParser.parseExpression(nameExpression);
+        if (!nameExpression.contains("#")) {
+            expressionString = String.valueOf(parseExpression.getValue());
+        } else {
+            EvaluationContext evaluationContext = this.createEvaluationContext(methodSignature.getMethod(), proceedingJoinPoint.getArgs());
+            expressionString = String.valueOf(parseExpression.getValue(evaluationContext));
+        }
+        return StringUtil.defaultText(expressionString, Consts.EMPTY_STR);
+    }
+
+
+    public EvaluationContext createEvaluationContext(Method method, Object[] args) {
+        LockExpressionRootObject rootObject = new LockExpressionRootObject(method, args);
+        LockEvaluationContext evaluationContext = new LockEvaluationContext(rootObject, method, args, this.parameterNameDiscoverer);
+        return evaluationContext;
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(fairycharBagProperties.getAop().getLock().getDefaultLock(), "全局方法锁不能为null");
@@ -223,11 +250,7 @@ public class MethodLockAspectJ implements InitializingBean {
         Assert.isFalse(fairycharBagProperties.getAop().getLock().getDefaultLock().equals(MethodLock.Type.DEFAULT), "默认锁类型不能为DEFAULT");
     }
 
-    private String resolveNameExpression(String expression) {
-        Expression parseExpression = this.spelExpressionParser.parseExpression(expression);
-        String expressionString = ((String) parseExpression.getValue());
-        return StringUtil.defaultText(expressionString, Consts.EMPTY_STR);
-    }
+
 }
 /*
                                       /[-])//  ___        
