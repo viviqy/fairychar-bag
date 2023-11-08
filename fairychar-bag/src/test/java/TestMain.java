@@ -5,6 +5,8 @@ import com.fairychar.bag.utils.ReflectUtil;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
+import java.io.File;
+
 /**
  * Created with IDEA <br>
  * Date: 2021/06/24 <br>
@@ -14,6 +16,23 @@ import org.junit.Test;
  */
 public class TestMain {
 
+
+    @Test
+    public void testConcatFile() {
+        String sourceFilePath = "/users/chiyo/tmp/a1.txt";
+        String sourceFilePath1 = "/users/chiyo/tmp/a2.txt";
+        String sourceFilePath2 = "/users/chiyo/tmp/a3.txt";
+        String sourceFilePath3 = "/users/chiyo/tmp/fake1.txt";
+        FileUtil.concatFile("/users/chiyo/tmp/concat.txt", new File(sourceFilePath), new File(sourceFilePath1)
+                , new File(sourceFilePath2), new File(sourceFilePath3));
+
+    }
+
+    @Test
+    public void testCutFile() {
+        String sourceFilePath = "/users/chiyo/tmp/fake.txt";
+        FileUtil.cutFile(sourceFilePath, "/users/chiyo/tmp/fake1.txt", 0.5, 1.0);
+    }
 
     @Test
     @SneakyThrows
