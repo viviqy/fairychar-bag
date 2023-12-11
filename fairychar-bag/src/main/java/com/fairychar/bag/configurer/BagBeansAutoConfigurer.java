@@ -3,6 +3,7 @@ package com.fairychar.bag.configurer;
 import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
+import com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.KeepValueAdvice;
 import com.fairychar.bag.beans.swagger.RequestIgnoreParameterPlugin;
 import com.fairychar.bag.converter.mvc.StringToLocalDateConverter;
@@ -70,6 +71,11 @@ public class BagBeansAutoConfigurer {
             @Bean
             EraseValueAdvice eraseValueAdvice() {
                 return new EraseValueAdvice();
+            }
+
+            @Bean
+            FuzzyValueAdvice fuzzyValueAdvice() {
+                return new FuzzyValueAdvice();
             }
         }
 

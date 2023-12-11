@@ -29,7 +29,6 @@ public class BiPredicateList<T> extends ArrayList<T> {
         this.forEach(e -> {
             if (this.biPredicate.test(t, e)) {
                 matchIndex.set(this.indexOf(e));
-                return;
             }
         });
         if (matchIndex.get() != -1) {

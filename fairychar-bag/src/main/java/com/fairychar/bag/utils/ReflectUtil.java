@@ -1,10 +1,12 @@
 package com.fairychar.bag.utils;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.utils.base.FieldContainer;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import sun.misc.Unsafe;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -22,6 +24,101 @@ import java.util.*;
 public final class ReflectUtil {
 
     private final static String regexAll = "*";
+
+    /**
+     * 递归搜索带有指定注解的字段值<br>
+     * 该代码以对象和注解类的集合作为输入，并返回一个包含注解作为键和字段容器列表作为值的映射。
+     * 字段容器包含有关带有指定注解的字段的信息。
+     */
+    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
+        HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
+        recursiveSearchFieldValueByAnnotations(e, annotations, ref);
+        return ref;
+    }
+
+
+    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<FieldContainer>> ref) {
+        if (e == null) {
+            return;
+        }
+        Field[] declaredFields = e.getClass().getDeclaredFields();
+        for (int i = 0; i < declaredFields.length; i++) {
+            Field declaredField = declaredFields[i];
+            declaredField.setAccessible(true);
+            for (Class<? extends Annotation> annotation : annotations) {
+                if (declaredField.getAnnotation(annotation) != null) {
+                    List<FieldContainer> fieldContainers = ref.get(annotation);
+                    if (fieldContainers == null) {
+                        fieldContainers = new ArrayList<>();
+                        ref.put(annotation, fieldContainers);
+                    }
+                    fieldContainers.add(new FieldContainer(e, declaredField));
+                }
+            }
+            if (!(declaredField.getType() == Object.class) &&
+                    !declaredField.getType().isPrimitive() &&
+                    !Modifier.isStatic(declaredField.getModifiers()) &&
+                    !Modifier.isFinal(declaredField.getModifiers()) &&
+                    (
+                            (
+                                    declaredField.getType().getPackage() != null &&
+                                            !declaredField.getType().getPackage().getName().startsWith("java.lang")
+                            ) || declaredField.getType().isMemberClass())
+            ) {
+                Object filedObject = null;
+                try {
+                    filedObject = declaredField.get(e);
+                } catch (IllegalAccessException ignore) {
+                }
+                recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref);
+            }
+        }
+    }
+
+
+    /**
+     * 递归搜索带有指定注解集合的字段。
+     * 它接受一个对象和一个注解类的集合作为输入，并返回一个将每个注解类映射到带有该注解的字段列表的Map。
+     */
+    public static Map<Class<? extends Annotation>, List<Field>> recursiveSearchFieldByAnnotations(Class clazz, Collection<Class<? extends Annotation>> annotations) {
+        HashMap<Class<? extends Annotation>, List<Field>> ref = new HashMap<>();
+        recursiveSearchFieldByAnnotations(clazz, annotations, ref);
+        return ref;
+    }
+
+
+    private static void recursiveSearchFieldByAnnotations(Class clazz, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<Field>> ref) {
+        if (clazz == null) {
+            return;
+        }
+        Field[] declaredFields = clazz.getDeclaredFields();
+        for (int i = 0; i < declaredFields.length; i++) {
+            Field declaredField = declaredFields[i];
+            declaredField.setAccessible(true);
+            for (Class<? extends Annotation> annotation : annotations) {
+                if (declaredField.getAnnotation(annotation) != null) {
+                    List<Field> fields = ref.get(annotation);
+                    if (fields == null) {
+                        fields = new ArrayList<>();
+                        ref.put(annotation, fields);
+                    }
+                    fields.add(declaredField);
+                }
+            }
+            if (!(declaredField.getType() == Object.class) &&
+                    !declaredField.getType().isPrimitive() &&
+                    !Modifier.isStatic(declaredField.getModifiers()) &&
+                    !Modifier.isFinal(declaredField.getModifiers()) &&
+                    (
+                            (
+                                    declaredField.getType().getPackage() != null &&
+                                            !declaredField.getType().getPackage().getName().startsWith("java.lang")
+                            ) || declaredField.getType().isMemberClass())
+            ) {
+                recursiveSearchFieldByAnnotations(declaredField.getType(), annotations, ref);
+            }
+        }
+    }
 
 
     /**
@@ -66,7 +163,7 @@ public final class ReflectUtil {
      * @param source   源数据
      * @param ref      out list
      * @param idFiled  代表id的字段名称
-     * @param pidFiled 代表pid的字段名称
+     * @param pidFiled 代表pid的字段名称;
      * @param idValue  id值
      * @param <T>      数据类型
      * @param <I>      id类型

@@ -1,5 +1,6 @@
 package com.fairychar.bag.pojo.vo;
 
+import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,10 @@ public class HttpResult<T> {
     private final static HttpResult CACHED_OK = new HttpResult(200, null, "success");
     private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
     private int code;
+    /**
+     * 返回数据<br>
+     * <p>{@link FuzzyValue}添加模糊化参数支持</p>
+     */
     private T data;
     private String msg;
 

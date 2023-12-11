@@ -51,19 +51,11 @@ public class TestMain {
         System.out.println(dto);
     }
 
-
     @Test
-    public void throwEx() {
-        try {
-            this.ex("a");
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        System.out.println("aa");
-    }
-
-    private void ex(String a) throws IllegalAccessException {
-        throw new IllegalAccessException("aa");
+    public void testEncoding() {
+        System.out.println("aaa");
+        System.out.println("啊啊啊");
+        System.out.println("123");
     }
 }
 /*

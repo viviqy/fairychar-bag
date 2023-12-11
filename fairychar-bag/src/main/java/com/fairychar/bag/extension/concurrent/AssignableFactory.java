@@ -58,7 +58,6 @@ public final class AssignableFactory {
 
     /**
      * 执行一个任务,默认分配一个工人
-     * 6+6+6
      *
      * @param action 任务
      */

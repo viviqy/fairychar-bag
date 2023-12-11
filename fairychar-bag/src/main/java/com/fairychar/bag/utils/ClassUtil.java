@@ -15,16 +15,14 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/2/25 <br>
- * time: 15:45 <br>
+ * 引入了hutool包,这个类没用了
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Deprecated
 public final class ClassUtil {
     /**
      * @param packageName 扫描包名

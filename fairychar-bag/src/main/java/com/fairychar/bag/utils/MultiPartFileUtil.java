@@ -5,15 +5,13 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/2/10 <br>
- * time: 14:39 <br>
+ * 引入了hutools,这个类没用了
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Deprecated
 public final class MultiPartFileUtil {
     public static String getSuffix(String fileName) {
         Assert.notNull(fileName);

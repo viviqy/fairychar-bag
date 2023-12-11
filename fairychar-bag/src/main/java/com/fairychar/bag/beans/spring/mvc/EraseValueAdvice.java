@@ -13,6 +13,10 @@ import java.util.HashSet;
  */
 @ControllerAdvice
 public class EraseValueAdvice extends PropertyValueAdvice<EraseValue> {
+    public EraseValueAdvice() {
+        super(EraseValue.class);
+    }
+
     @Override
     protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation) {
         Class<?>[] propertyGroups = propertyAnnotation.value();

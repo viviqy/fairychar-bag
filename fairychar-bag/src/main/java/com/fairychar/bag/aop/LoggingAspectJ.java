@@ -1,3 +1,10 @@
+/**
+ * 该类是一个切面，用于在控制器方法执行前后记录日志。
+ * 它通过使用@RequestLog注解来确定是否启用日志记录。
+ * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
+ * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
+ * 处理程序需要实现LoggingHandler接口。
+ */
 package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
@@ -19,26 +26,21 @@ import org.springframework.core.annotation.Order;
 
 import java.util.Optional;
 
-/**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/11 <br>
- * time: 22:13 <br>
- *
- * @author chiyo <br>
- * @since 0.0.1-SNAPSHOT
- */
 @Aspect
 @Slf4j
 @EnableConfigurationProperties(value = {FairycharBagProperties.class})
 @Order(0)
 public class LoggingAspectJ implements InitializingBean {
-
     @Autowired
     private FairycharBagProperties properties;
 
-
-    @Before("execution(public * *..web.controller..*.*(..))  && @annotation(requestLog)")
+    /**
+     * 在控制器方法执行前记录日志。
+     * 根据@RequestLog注解的配置决定是否启用日志记录。
+     * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
+     * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
+     */
+    @Before("execution(public * *..controller..*.*(..))  && @annotation(requestLog)")
     public void beforeLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {
             return;
@@ -50,11 +52,15 @@ public class LoggingAspectJ implements InitializingBean {
             Optional.ofNullable(properties.getAop().getLog().getGlobalBefore()).filter(s -> !Strings.isNullOrEmpty(s))
                     .ifPresent(h -> handle(h, joinPoint));
         }
-
     }
 
-
-    @After("execution(public * *..web.controller..*.*(..))  && @annotation(requestLog)")
+    /**
+     * 在控制器方法执行后记录日志。
+     * 根据@RequestLog注解的配置决定是否启用日志记录。
+     * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
+     * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
+     */
+    @After("execution(public * *..controller..*.*(..))  && @annotation(requestLog)")
     public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {
         if (!requestLog.enable()) {
             return;
@@ -68,12 +74,17 @@ public class LoggingAspectJ implements InitializingBean {
         }
     }
 
-
+    /**
+     * 在属性设置完毕后进行一些初始化操作。
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(properties.getAop().getLog().getGlobalLevel(), "global log level cant be null");
     }
 
+    /**
+     * 根据处理程序名称执行相应的处理方法。
+     */
     private void handle(String handlerName, JoinPoint joinPoint) {
         try {
             LoggingHandler bean = SpringContextHolder.getInstance().getBean(handlerName, LoggingHandler.class);
@@ -83,28 +94,3 @@ public class LoggingAspectJ implements InitializingBean {
         }
     }
 }
-/*
-                                      /[-])//  ___        
-                                 __ --\ `_/~--|  / \      
-                               /_-/~~--~~ /~~~\\_\ /\     
-                               |  |___|===|_-- | \ \ \    
-____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
-____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
-                      [3-|____---~~ _--'==;/ _,   |   |_| 
-                                  /   /\__|_/  \  \__/--/ 
-                                 /---/_\  -___/ |  /,--|  
-                                 /  /\/~--|   | |  \///   
-                                /  / |-__ \    |/         
-                               |--/ /      |-- | \        
-                              \^~~\\/\      \   \/- _     
-                               \    |  \     |~~\~~| \    
-                                \    \  \     \   \  | \  
-                                  \    \ |     \   \    \ 
-                                   |~~|\/\|     \   \   | 
-                                  |   |/         \_--_- |\
-                                  |  /            /   |/\/
-                                   ~~             /  /    
-                                                 |__/   W<
-
-*/

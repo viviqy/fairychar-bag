@@ -13,6 +13,11 @@ import java.util.HashSet;
  */
 @ControllerAdvice
 public class KeepValueAdvice extends PropertyValueAdvice<KeepValue> {
+
+    public KeepValueAdvice() {
+        super(KeepValue.class);
+    }
+
     @Override
     protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation) {
         Class<?>[] propertyGroups = propertyAnnotation.value();
