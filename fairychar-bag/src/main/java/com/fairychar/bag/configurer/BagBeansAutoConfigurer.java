@@ -185,7 +185,7 @@ public class BagBeansAutoConfigurer {
 
         @Bean
         @ConditionalOnMissingBean
-        @ConditionalOnProperty(value = "bag.secret.ase.key")
+        @ConditionalOnProperty(name = "fairychar.bag.secret.aes.key")
         AES aes() {
             return new AES(bagProperties.getSecret().getAes().getKey().getBytes(StandardCharsets.UTF_8));
         }
@@ -193,7 +193,7 @@ public class BagBeansAutoConfigurer {
 
         @Bean
         @ConditionalOnMissingBean
-        @ConditionalOnProperty(value = {"bag.secret.rsa.priKey", "bag.secret.rsa.pubKey"})
+        @ConditionalOnProperty(name = {"fairychar.bag.secret.rsa.pri-key", "fairychar.bag.secret.rsa.pub-key"})
         RSA rsa() {
             return new RSA(bagProperties.getSecret().getRsa().getPriKey(), bagProperties.getSecret().getRsa().getPubKey());
         }

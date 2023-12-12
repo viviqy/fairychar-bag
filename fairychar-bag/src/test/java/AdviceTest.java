@@ -5,6 +5,11 @@ import lombok.SneakyThrows;
 import org.junit.Test;
 import org.springframework.core.MethodParameter;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author chiyo <br>
  * @since
@@ -26,9 +31,33 @@ public class AdviceTest {
         fuzzyValueAdvice.beforeBodyWrite(ok1, methodParameter1, null, null, null, null);
         System.out.println(ok1);
 
+        MethodParameter methodParameter2 = new MethodParameter(AdviceTest.class.getDeclaredMethod("testAdviceList"), -1);
+        HttpResult<List<UtilTest.User>> ok2 = HttpResult.ok(Arrays.asList(new UtilTest.User()));
+        fuzzyValueAdvice.beforeBodyWrite(ok2, methodParameter2, null, null, null, null);
+        System.out.println(ok2);
+
+
+        MethodParameter methodParameter3 = new MethodParameter(AdviceTest.class.getDeclaredMethod("testAdviceMap"), -1);
+        HttpResult<Map<String, UtilTest.User>> ok3 = testAdviceMap();
+        fuzzyValueAdvice.beforeBodyWrite(ok3, methodParameter3, null, null, null, null);
+        System.out.println(ok3);
+
 
     }
 
+
+    @FuzzyResult
+    public HttpResult<Map<String, UtilTest.User>> testAdviceMap() {
+        UtilTest.User user = new UtilTest.User();
+        HashMap<String, UtilTest.User> map = new HashMap<>();
+        map.put("test", user);
+        return HttpResult.ok(map);
+    }
+
+    @FuzzyResult
+    public HttpResult<List<UtilTest.User>> testAdviceList() {
+        return HttpResult.ok(Arrays.asList(new UtilTest.User()));
+    }
 
     @FuzzyResult(field = "data")
     public HttpResult<UtilTest.User> testAdvice() {

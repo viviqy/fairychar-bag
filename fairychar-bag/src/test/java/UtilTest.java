@@ -7,10 +7,7 @@ import lombok.SneakyThrows;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -24,8 +21,6 @@ public class UtilTest {
     @SneakyThrows
     public void testRecursiveSearchByAnnotations() {
         User user = new User();
-        Map<Class<? extends Annotation>, List<Field>> map = ReflectUtil.recursiveSearchFieldByAnnotations(User.class, Arrays.asList(NotIn.class));
-        System.out.println(map);
 
         Map<Class<? extends Annotation>, List<FieldContainer>> containerMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(user, Arrays.asList(NotIn.class));
         System.out.println(containerMap);
@@ -51,6 +46,16 @@ public class UtilTest {
         @NotIn
         @FuzzyValue
         Role role = new Role();
+        User child = null;
+        @FuzzyValue
+        List<Role> roleList = new ArrayList<Role>() {{
+            add(new Role());
+        }};
+
+        @FuzzyValue
+        Map<String, Role> roleMap = new HashMap<String, Role>() {{
+            put("xiaoqi", new Role());
+        }};
     }
 
     @Data

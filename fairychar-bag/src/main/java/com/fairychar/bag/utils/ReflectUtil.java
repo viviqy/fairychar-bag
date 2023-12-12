@@ -30,6 +30,7 @@ public final class ReflectUtil {
      * 递归搜索带有指定注解的字段值<br>
      * 该代码以对象和注解类的集合作为输入，并返回一个包含注解作为键和字段容器列表作为值的映射。
      * 字段容器包含有关带有指定注解的字段的信息。
+     * 支持字段为集合类{@link Collection},{@link Map}支持,如果为集合类则会循环解析获取所有集合内对象的字段
      */
     public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
         HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
@@ -40,6 +41,19 @@ public final class ReflectUtil {
 
     private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<FieldContainer>> ref) {
         if (e == null) {
+            return;
+        }
+        if (e instanceof Collection) {
+            Collection<?> collection = (Collection<?>) e;
+            for (Object item : collection) {
+                recursiveSearchFieldValueByAnnotations(item, annotations, ref);
+            }
+            return;
+        } else if (e instanceof Map) {
+            Map<?, ?> map = (Map<?, ?>) e;
+            for (Object item : map.values()) {
+                recursiveSearchFieldValueByAnnotations(item, annotations, ref);
+            }
             return;
         }
         Field[] declaredFields = e.getClass().getDeclaredFields();
