@@ -5,8 +5,7 @@ import io.netty.channel.ChannelHandler;
 import java.lang.annotation.*;
 
 /**
- * Date: 2021/06/24 <br>
- * time: 21:31 <br>
+ * netty指定异常拦截器,配合{@link NettyCauseAdvice}使用
  * <p>
  * 使用方式和{@link org.springframework.web.bind.annotation.ExceptionHandler}一样
  *

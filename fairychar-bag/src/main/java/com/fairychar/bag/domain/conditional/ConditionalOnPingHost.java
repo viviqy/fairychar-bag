@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Conditional;
 import java.lang.annotation.*;
 
 /**
- * Datetime: 2020/9/28 17:09 <br>
+ * 基于ping指定host的Bean条件判断器,仅当host能ping成功的情况下才会初始化Bean
  *
  * @author chiyo <br>
  * @since 1.0

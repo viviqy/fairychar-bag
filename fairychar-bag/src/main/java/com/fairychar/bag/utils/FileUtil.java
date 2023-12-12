@@ -1,9 +1,3 @@
-/**
- * FileUtil.java是一个用于文件操作的工具类。
- * 包含了文件拼接、文件分割、创建虚拟文件等功能。
- * 可以通过该类进行文件的拼接、分割和创建虚拟文件。
- */
-
 package com.fairychar.bag.utils;
 
 import cn.hutool.core.lang.Assert;

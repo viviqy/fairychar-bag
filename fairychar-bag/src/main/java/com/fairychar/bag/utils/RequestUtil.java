@@ -10,7 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Datetime: 2021/1/21 15:51 <br>
+ * Servlet请求工具类
  *
  * @author chiyo <br>
  * @since 1.0

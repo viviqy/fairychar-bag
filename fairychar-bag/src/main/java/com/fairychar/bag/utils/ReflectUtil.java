@@ -13,10 +13,7 @@ import java.lang.reflect.TypeVariable;
 import java.util.*;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/3/24 <br>
- * time: 11:17 <br>
+ * 反射工具类
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT

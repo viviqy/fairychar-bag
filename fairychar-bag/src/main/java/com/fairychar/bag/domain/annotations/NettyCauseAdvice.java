@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  * Datetime: 2021/6/24 17:43 <br>
  * <p>
- * netty全局异常处理器
+ * netty全局异常处理器,配合{@link CauseHandler}使用
  *
  * @author chiyo <br>
  * @since 1.0

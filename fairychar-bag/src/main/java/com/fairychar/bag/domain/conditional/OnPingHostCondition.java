@@ -11,6 +11,8 @@ import java.net.InetAddress;
 import java.util.Map;
 
 /**
+ * {@link ConditionalOnPingHost}
+ *
  * @author chiyo
  */
 @Slf4j

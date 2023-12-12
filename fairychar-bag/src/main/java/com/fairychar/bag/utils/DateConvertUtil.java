@@ -11,10 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/3/24 <br>
- * time: 12:14 <br>
+ * {@link LocalDate},{@link LocalDateTime}与{@link Date}互转工具
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT

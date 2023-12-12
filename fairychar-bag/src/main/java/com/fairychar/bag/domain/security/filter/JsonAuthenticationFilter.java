@@ -20,19 +20,23 @@ import java.io.InputStream;
 /**
  * <p>Json登录过滤器</p>
  * <p>使用方式</p>
+ * <pre>
+ *     {@code
+ *   @Bean
+ *   JsonAuthenticationFilter jsonAuthenticationFilter() throws Exception {
+ *      JsonAuthenticationFilter filter = new JsonAuthenticationFilter();
+ *      filter.setAuthenticationManager(authenticationManagerBean());
+ *      //filter.setAuthenticationSuccessHandler(loginSuccessHandler);
+ *      return filter;
+ *   }
+ *
+ *   @Override
+ *   public AuthenticationManager authenticationManagerBean() throws Exception {
+ *      return super.authenticationManagerBean();
+ *   }}
+ * </pre>
  * <code>
- * <@Bean
- * JsonAuthenticationFilter jsonAuthenticationFilter() throws Exception {
- * JsonAuthenticationFilter filter = new JsonAuthenticationFilter();
- * filter.setAuthenticationManager(authenticationManagerBean());
- * //filter.setAuthenticationSuccessHandler(loginSuccessHandler);
- * return filter;
- * }
- * <p>
- * <@Override
- * public AuthenticationManager authenticationManagerBean() throws Exception {
- * return super.authenticationManagerBean();
- * }
+ * <
  * </code>
  *
  * @author chiyo <br>

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 基于Json返回参数的简单登录成功返回器
+ *
  * @author chiyo <br>
  * @since 1.0
  */

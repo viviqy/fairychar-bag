@@ -5,10 +5,7 @@ import org.springframework.context.annotation.Conditional;
 import java.lang.annotation.*;
 
 /**
- * Created with IDEA
- * User: LMQ
- * Date: 2019/04/03
- * time: 15:54
+ * 基于系统的Bean条件判断器,仅当当前运行系统匹配时才会初始化Bean
  *
  * @author chiyo
  */

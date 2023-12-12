@@ -5,10 +5,7 @@ import org.springframework.context.annotation.Conditional;
 import java.lang.annotation.*;
 
 /**
- * Created with IDEA
- * User: LMQ
- * Date: 2019/04/03
- * time: 15:54
+ * 基于时间的Bean条件判断器,仅当当前时间在区间内的情况下Bean才会初始化
  *
  * @author chiyo
  */
@@ -17,9 +14,24 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Conditional(OnDateTimeCondition.class)
 public @interface ConditionalOnDateTime {
+    /**
+     * 开始时间
+     *
+     * @return {@link String}
+     */
     String lower();
 
+    /**
+     * 结束时间
+     *
+     * @return {@link String}
+     */
     String upper();
 
+    /**
+     * 时间格式
+     *
+     * @return {@link String}
+     */
     String pattern() default "yyyy-MM-dd HH:mm:ss";
 }

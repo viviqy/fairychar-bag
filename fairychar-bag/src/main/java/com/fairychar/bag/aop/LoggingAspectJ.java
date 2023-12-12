@@ -1,10 +1,3 @@
-/**
- * 该类是一个切面，用于在控制器方法执行前后记录日志。
- * 它通过使用@RequestLog注解来确定是否启用日志记录。
- * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
- * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
- * 处理程序需要实现LoggingHandler接口。
- */
 package com.fairychar.bag.aop;
 
 import cn.hutool.core.lang.Assert;
@@ -26,11 +19,19 @@ import org.springframework.core.annotation.Order;
 
 import java.util.Optional;
 
+/**
+ * 该类是一个切面，用于在控制器方法执行前后记录日志。
+ * 它通过使用@RequestLog注解来确定是否启用日志记录。
+ * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
+ * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
+ * 处理程序需要实现LoggingHandler接口。
+ */
 @Aspect
 @Slf4j
 @EnableConfigurationProperties(value = {FairycharBagProperties.class})
 @Order(0)
 public class LoggingAspectJ implements InitializingBean {
+
     @Autowired
     private FairycharBagProperties properties;
 

@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Datetime: 2021/10/28 9:39 <br>
+ * 该类实现了MyBatis Plus的TenantLineHandler接口，用于处理多租户的行级权限。
+ * 通过SecurityContextHolder获取当前认证的用户信息，从中获取租户ID，并将其作为SQL语句的租户ID条件。
+ * 可以设置忽略的表和租户ID列名。
  *
  * @author chiyo <br>
  * @since 1.0

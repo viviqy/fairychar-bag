@@ -16,6 +16,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 /**
+ * <p>任务批量执行器</p>
+ * 多个任务链将会同一下标的任务统一一起执行,全部执行成功后才会又执行下一个下标的任务
+ *
  * @author chiyo
  */
 @Slf4j

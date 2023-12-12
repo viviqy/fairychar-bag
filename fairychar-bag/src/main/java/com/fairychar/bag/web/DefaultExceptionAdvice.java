@@ -16,7 +16,7 @@ import javax.validation.ConstraintViolationException;
 import java.util.Optional;
 
 /**
- * Datetime: 2022/10/1 00:28 <br>
+ * 基于hibernate validator的参数校验失败全局拦截类
  *
  * @author chiyo <br>
  * @since 0.0.1
@@ -71,6 +71,6 @@ public class DefaultExceptionAdvice {
     public HttpResult handleServiceException(ServiceException e) {
         return new HttpResult(e.getCode(), e.getData(), e.getMessage());
     }
-    
+
 
 }

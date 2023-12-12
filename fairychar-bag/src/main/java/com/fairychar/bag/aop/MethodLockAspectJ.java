@@ -39,7 +39,15 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Datetime: 2020/6/2 11:08 <br>
+ * 这个类是一个切面，用于基于注解提供方法锁定功能。
+ * 它支持不同类型的锁，如本地锁、Redis锁和ZooKeeper锁。
+ * 该切面拦截使用@MethodLock注解的方法，并应用指定的锁类型。
+ * 它使用一个Map来存储本地锁，并在不存在时创建一个新的锁。
+ * 对于Redis锁，它使用RedissonClient来获取和释放锁。
+ * 对于ZooKeeper锁，它使用CuratorFramework来创建和释放锁。
+ * 该切面还处理乐观锁，通过检查在超时期间是否可以获取到锁。
+ * 它使用FairycharBagProperties类来获取配置属性。
+ * 该切面使用AspectJ实现，并按顺序在其他切面之后执行。
  *
  * @author chiyo <br>
  * @since 1.0

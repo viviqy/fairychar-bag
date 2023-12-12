@@ -15,7 +15,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Datetime: 2021/10/28 9:39 <br>
+ * 该类实现了MyBatis-Plus的TenantLineHandler接口，用于处理多租户的功能。
+ * 在该类中，通过获取HTTP请求的Header中的用户信息，从中提取出租户ID，并将其作为租户ID的表达式返回。
+ * 除此之外，该类还提供了获取租户ID列名和判断是否忽略某个表的方法。
  *
  * @author chiyo <br>
  * @since 1.0

@@ -3,7 +3,7 @@ package com.fairychar.bag.domain.annotations;
 import java.lang.annotation.*;
 
 /**
- * Datetime: 2021/7/8 17:44 <br>
+ * <p>netty指定事件拦截器</p>
  *
  * @author chiyo <br>
  * @since 1.0

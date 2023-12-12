@@ -1,10 +1,7 @@
 package com.fairychar.bag.domain.enums;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/05/07 <br>
- * time: 20:46 <br>
+ * 状态通用枚举
  *
  * @author qiyue <br>
  */

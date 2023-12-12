@@ -9,6 +9,8 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 import java.util.Map;
 
 /**
+ * {@link ConditionalOnSystemOS}
+ *
  * @author chiyo
  */
 @Slf4j

@@ -4,6 +4,22 @@ import java.lang.annotation.*;
 
 /**
  * spring mvc 响应参数接口标记注解,被标记的接口将会脱敏响应参数
+ * <pre>
+ *     {@code
+ *     class Sample{
+ *         @FuzzyValue(beginAt=1,endAt=2)
+ *         private String name="1234";
+ *     }
+ *
+ *     @FuzzyResult
+ *     @GetMapping("/getOne")
+ *     public Sample getOne(){
+ *         return new Sample();
+ *         //response= {name: "1**4"}
+ *     }
+ *
+ *     }
+ * </pre>
  *
  * @author chiyo <br>
  * @since 1.0.2

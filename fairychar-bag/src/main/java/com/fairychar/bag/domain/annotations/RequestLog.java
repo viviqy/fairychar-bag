@@ -3,10 +3,6 @@ package com.fairychar.bag.domain.annotations;
 import java.lang.annotation.*;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/10 <br>
- * time: 16:29 <br>
  * <br>
  * <p>接口请求日志拦截</p>
  *

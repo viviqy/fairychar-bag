@@ -8,9 +8,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
- * Created with IDEA <br>
- * Date: 2020/5/18 <br>
- * time: 09:10 <br>
+ * 缓存操作template
  *
  * @author chiyo <br>
  * @since 1.0

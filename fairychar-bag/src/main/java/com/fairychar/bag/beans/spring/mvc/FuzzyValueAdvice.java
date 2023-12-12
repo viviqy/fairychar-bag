@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 脱敏注解{@link FuzzyResult},{@link FuzzyValue},在接口响应参数返回中的具体解析实现
+ *
  * @author chiyo <br>
  * @since 1.0.2
  */
