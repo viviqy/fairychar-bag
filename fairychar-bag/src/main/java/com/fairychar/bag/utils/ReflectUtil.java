@@ -9,6 +9,7 @@ import sun.misc.Unsafe;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.TypeVariable;
 import java.util.*;
 
 /**
@@ -55,19 +56,19 @@ public final class ReflectUtil {
                     fieldContainers.add(new FieldContainer(e, declaredField));
                 }
             }
-            if (!(declaredField.getType() == Object.class) &&
+            if (!(!(declaredField.getGenericType() instanceof TypeVariable) && declaredField.getType() == Object.class) &&
                     !declaredField.getType().isPrimitive() &&
                     !Modifier.isStatic(declaredField.getModifiers()) &&
-                    !Modifier.isFinal(declaredField.getModifiers()) &&
-                    (
-                            (
-                                    declaredField.getType().getPackage() != null &&
-                                            !declaredField.getType().getPackage().getName().startsWith("java.lang")
-                            ) || declaredField.getType().isMemberClass())
+                    !Modifier.isFinal(declaredField.getModifiers()) ||
+                    declaredField.getType().isMemberClass()
             ) {
                 Object filedObject = null;
                 try {
                     filedObject = declaredField.get(e);
+                    if (filedObject == null || (filedObject.getClass().getPackage() != null &&
+                            filedObject.getClass().getPackage().getName().startsWith("java.lang"))) {
+                        continue;
+                    }
                 } catch (IllegalAccessException ignore) {
                 }
                 recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref);

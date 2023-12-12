@@ -29,6 +29,7 @@ public class HttpResult<T> {
      * 返回数据<br>
      * <p>{@link FuzzyValue}添加模糊化参数支持</p>
      */
+    @FuzzyValue
     private T data;
     private String msg;
 

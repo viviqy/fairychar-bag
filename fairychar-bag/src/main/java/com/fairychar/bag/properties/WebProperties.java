@@ -20,7 +20,10 @@ public class WebProperties {
 
 
     /**
-     * http request body property处理器 {@link com.fairychar.bag.beans.spring.mvc.KeepValueAdvice},{@link com.fairychar.bag.beans.spring.mvc.EraseValueAdvice}
+     * http request body property处理器
+     * {@link com.fairychar.bag.beans.spring.mvc.KeepValueAdvice},<br>
+     * {@link com.fairychar.bag.beans.spring.mvc.EraseValueAdvice},<br>
+     * {@link com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice}
      *
      * @author chiyo
      * @date 2023/09/01
@@ -29,6 +32,7 @@ public class WebProperties {
     public static class PropertyProcessor {
         private boolean enable;
     }
+
     /**
      * http hibernate validator exception advice
      *

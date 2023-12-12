@@ -1,11 +1,18 @@
+import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.pojo.dto.NameValueDTO;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.utils.FileUtil;
 import com.fairychar.bag.utils.ReflectUtil;
+import com.fairychar.bag.utils.base.FieldContainer;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
 import java.io.File;
+import java.lang.annotation.Annotation;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IDEA <br>
@@ -15,6 +22,21 @@ import java.io.File;
  * @author chiyo <br>
  */
 public class TestMain {
+
+
+    @Test
+    @SneakyThrows
+    public void testObjectFieldType() {
+        //获取一个Object对象的所有字段
+        Object o = new Object();
+        System.out.println(o.getClass().getDeclaredFields().length);
+
+        HttpResult<UtilTest.User> result = new HttpResult<>();
+        UtilTest.User user = new UtilTest.User();
+        result.setData(user);
+        Map<Class<? extends Annotation>, List<FieldContainer>> map = ReflectUtil.recursiveSearchFieldValueByAnnotations(result, Arrays.asList(FuzzyValue.class));
+        System.out.println(map.get(FuzzyValue.class).size());
+    }
 
 
     @Test

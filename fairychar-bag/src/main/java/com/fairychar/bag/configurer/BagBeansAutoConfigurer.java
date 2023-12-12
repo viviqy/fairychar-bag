@@ -1,5 +1,7 @@
 package com.fairychar.bag.configurer;
 
+import cn.hutool.crypto.asymmetric.RSA;
+import cn.hutool.crypto.symmetric.AES;
 import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
@@ -30,6 +32,7 @@ import org.springframework.core.convert.converter.Converter;
 import springfox.documentation.spi.service.OperationBuilderPlugin;
 
 import javax.annotation.PostConstruct;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -172,6 +175,29 @@ public class BagBeansAutoConfigurer {
             }
             return this.existingConcurrencyStrategy;
         }
+    }
+
+    @Configuration
+    @EnableConfigurationProperties(FairycharBagProperties.class)
+    protected static class SecretConfiguration {
+        @Autowired
+        private FairycharBagProperties bagProperties;
+
+        @Bean
+        @ConditionalOnMissingBean
+        @ConditionalOnProperty(value = "bag.secret.ase.key")
+        AES aes() {
+            return new AES(bagProperties.getSecret().getAes().getKey().getBytes(StandardCharsets.UTF_8));
+        }
+
+
+        @Bean
+        @ConditionalOnMissingBean
+        @ConditionalOnProperty(value = {"bag.secret.rsa.priKey", "bag.secret.rsa.pubKey"})
+        RSA rsa() {
+            return new RSA(bagProperties.getSecret().getRsa().getPriKey(), bagProperties.getSecret().getRsa().getPubKey());
+        }
+
 
     }
 }
