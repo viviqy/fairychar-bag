@@ -33,6 +33,9 @@ public final class DateConvertUtil {
         add("yyyy/M/d HH:mm:ss");
         add("yyyy/M/d HH/mm/ss");
         add("yyyy/MM/dd HH/mm/ss");
+        add("yyyy/MM/ddHH/mm/ss");
+        add("yyyyMMdd HHmmss");
+        add("yyyyMMddHHmmss");
     }};
 
 

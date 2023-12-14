@@ -12,8 +12,9 @@ public interface FuzzyValueProcessor {
     /**
      * 模糊值
      *
-     * @param text 源text值
-     * @return {@link String} 脱敏加密后的text值
+     * @param text        源text值
+     * @param fuzzyResult 模糊结果注解
+     * @return {@link String}
      */
-    String fuzzyValue(String text);
+    String fuzzyValue(String text, FuzzyValue fuzzyResult);
 }

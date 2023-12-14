@@ -1,5 +1,6 @@
 package com.fairychar.bag.beans.spring.mvc;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
@@ -53,7 +54,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
 
         Map<Class<? extends Annotation>, List<FieldContainer>> containerMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(analyzeObject, Arrays.asList(FuzzyValue.class));
         List<FieldContainer> fieldContainers = containerMap.get(FuzzyValue.class);
-        if (!fieldContainers.isEmpty()) {
+        if (!CollectionUtil.isEmpty(fieldContainers)) {
             for (FieldContainer fieldContainer : fieldContainers) {
                 if (fieldContainer.getField().getType() == String.class) {
                     wrapProperty(fieldContainer);
@@ -79,7 +80,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
                     .concat(sourceText.substring(fuzzyValue.endAt(), sourceText.length()));
         } else {
             FuzzyValueProcessor fuzzyValueProcessor = SpringContextHolder.getInstance().getBean(fuzzyValue.processor()[0]);
-            replaceText = fuzzyValueProcessor.fuzzyValue(sourceText);
+            replaceText = fuzzyValueProcessor.fuzzyValue(sourceText, fuzzyValue);
         }
         try {
             field.set(fieldContainer.getSourceObject(), replaceText);

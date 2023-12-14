@@ -1,10 +1,10 @@
-import com.fairychar.bag.beans.spring.mvc.FuzzyResult;
-import com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice;
+import com.fairychar.bag.beans.spring.mvc.*;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import lombok.SneakyThrows;
 import org.junit.Test;
 import org.springframework.core.MethodParameter;
 
+import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +16,38 @@ import java.util.Map;
  */
 public class AdviceTest {
 
+
+    @Test
+    public void testFuzzyMiddle() {
+        FuzzyMiddleTextProcessor textProcessor = new FuzzyMiddleTextProcessor();
+        String fuzzyValue = textProcessor.fuzzyValue("12345", new FuzzyValue() {
+            @Override
+            public int beginAt() {
+                return 1;
+            }
+
+            @Override
+            public int endAt() {
+                return 2;
+            }
+
+            @Override
+            public String replaceSymbol() {
+                return "*";
+            }
+
+            @Override
+            public Class<? extends FuzzyValueProcessor>[] processor() {
+                return new Class[0];
+            }
+
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return null;
+            }
+        });
+        System.out.println(fuzzyValue);
+    }
 
     @Test
     @SneakyThrows

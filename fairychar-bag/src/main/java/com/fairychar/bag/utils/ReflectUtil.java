@@ -31,29 +31,33 @@ public final class ReflectUtil {
      */
     public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
         HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
-        recursiveSearchFieldValueByAnnotations(e, annotations, ref);
+        HashSet<Integer> mappedBeans = new HashSet<>();
+        recursiveSearchFieldValueByAnnotations(e, annotations, ref, mappedBeans);
         return ref;
     }
 
 
-    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<FieldContainer>> ref) {
-        if (e == null) {
+    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
+            , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
+        if (e == null || mappedBeans.contains(e)) {
             return;
         }
         if (e instanceof Collection) {
             Collection<?> collection = (Collection<?>) e;
             for (Object item : collection) {
-                recursiveSearchFieldValueByAnnotations(item, annotations, ref);
+                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
             }
             return;
         } else if (e instanceof Map) {
             Map<?, ?> map = (Map<?, ?>) e;
             for (Object item : map.values()) {
-                recursiveSearchFieldValueByAnnotations(item, annotations, ref);
+                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
             }
             return;
         }
         Field[] declaredFields = e.getClass().getDeclaredFields();
+        //mark mapped,处理已经解析过的object,通过identityHashCode防止两个对象的hashcode计算相同
+        mappedBeans.add(System.identityHashCode(e));
         for (int i = 0; i < declaredFields.length; i++) {
             Field declaredField = declaredFields[i];
             declaredField.setAccessible(true);
@@ -65,6 +69,7 @@ public final class ReflectUtil {
                         ref.put(annotation, fieldContainers);
                     }
                     fieldContainers.add(new FieldContainer(e, declaredField));
+
                 }
             }
             if (!(!(declaredField.getGenericType() instanceof TypeVariable) && declaredField.getType() == Object.class) &&
@@ -82,7 +87,7 @@ public final class ReflectUtil {
                     }
                 } catch (IllegalAccessException ignore) {
                 }
-                recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref);
+                recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref, mappedBeans);
             }
         }
     }

@@ -2,8 +2,7 @@ import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
-import lombok.Data;
-import lombok.SneakyThrows;
+import lombok.*;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -16,6 +15,40 @@ import java.util.stream.Collectors;
  */
 public class UtilTest {
 
+
+    @Test
+    public void testAb() {
+        A a = new A();
+        B b = new B();
+        a.setB(b);
+        b.setA(a);
+        a.setA(a);
+        Map<Class<? extends Annotation>, List<FieldContainer>> classListMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(a, Arrays.asList(FuzzyValue.class));
+        List<String> fieldNames = classListMap.values().stream().flatMap(f -> f.stream())
+                .map(f -> f.getField().getDeclaringClass().getName().concat(":").concat(f.getField().getName()))
+                .collect(Collectors.toList());
+        System.out.println(fieldNames);
+    }
+
+    @Getter
+    @Setter
+    static class A {
+        @FuzzyValue
+        private String name = "aaaaa";
+        private B b;
+        @FuzzyValue
+        private A a;
+    }
+
+    @Getter
+    @Setter
+    static class B {
+        @FuzzyValue
+        private String name = "bbb";
+        @FuzzyValue
+        private A a;
+
+    }
 
     @Test
     @SneakyThrows
@@ -58,6 +91,10 @@ public class UtilTest {
         }};
     }
 
+    //    @Getter
+//    @Setter
+//    @ToString
+//    @EqualsAndHashCode(doNotUseGetters = true)
     @Data
     public static class Role {
         private Integer id;
@@ -70,6 +107,7 @@ public class UtilTest {
     }
 
     @Data
+    @EqualsAndHashCode(doNotUseGetters = true)
     public static class Menu {
         private Integer id;
         private String roleId;
