@@ -39,7 +39,7 @@ public final class ReflectUtil {
 
     private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
             , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
-        if (e == null || mappedBeans.contains(e)) {
+        if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
             return;
         }
         if (e instanceof Collection) {
@@ -82,7 +82,7 @@ public final class ReflectUtil {
                 try {
                     filedObject = declaredField.get(e);
                     if (filedObject == null || (filedObject.getClass().getPackage() != null &&
-                            filedObject.getClass().getPackage().getName().startsWith("java.lang"))) {
+                            filedObject.getClass().getPackage().getName().startsWith("java"))) {
                         continue;
                     }
                 } catch (IllegalAccessException ignore) {

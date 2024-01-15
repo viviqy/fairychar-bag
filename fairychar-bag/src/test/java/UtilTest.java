@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -15,6 +16,25 @@ import java.util.stream.Collectors;
  */
 public class UtilTest {
 
+
+    @Test
+    @SneakyThrows
+    public void test1000kw() {
+        A a = new A();
+        B b = new B();
+        a.setB(b);
+        b.setA(a);
+        a.setA(a);
+        C c = new C();
+        b.setC(c);
+        TimeUnit.SECONDS.sleep(4);
+        long l1 = System.currentTimeMillis();
+        for (int i = 0; i < 1000_0000; i++) {
+            Map<Class<? extends Annotation>, List<FieldContainer>> classListMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(a, Arrays.asList(FuzzyValue.class));
+        }
+        long l2 = System.currentTimeMillis();
+        System.out.println(l2 - l1);
+    }
 
     @Test
     public void testAb() {
@@ -47,7 +67,22 @@ public class UtilTest {
         private String name = "bbb";
         @FuzzyValue
         private A a;
+        @FuzzyValue
+        private C c;
 
+    }
+
+
+    @Getter
+    @Setter
+    static class C {
+        @FuzzyValue
+        private String name = "ccc";
+        private Long f1 = new Long(1);
+        private Integer f2 = new Integer(2);
+        private Boolean f3 = new Boolean(true);
+        private Byte f4 = new Byte(((byte) 1));
+        private Object f5 = new Object();
     }
 
     @Test
