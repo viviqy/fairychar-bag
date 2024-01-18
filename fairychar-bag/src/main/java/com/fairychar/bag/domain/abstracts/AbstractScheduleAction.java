@@ -7,9 +7,9 @@ import java.util.Set;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Datetime: 2021/1/26 16:09 <br>
+ * Datetime: 2021/1/26 16:09
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public abstract class AbstractScheduleAction implements Action {

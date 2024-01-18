@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * 基于hibernate validator的参数校验失败全局拦截类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1
  */
 @RestControllerAdvice

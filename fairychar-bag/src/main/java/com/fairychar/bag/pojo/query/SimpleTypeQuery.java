@@ -10,12 +10,12 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/3/16 <br>
- * time: 10:05 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2020/3/16
+ * time: 10:05
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @AllArgsConstructor

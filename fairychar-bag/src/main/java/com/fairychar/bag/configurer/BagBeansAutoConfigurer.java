@@ -40,7 +40,7 @@ import java.util.List;
 /**
  * bag Bean配置启动项
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @Configuration

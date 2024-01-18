@@ -27,10 +27,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Datetime: 2021/6/24 17:46 <br>
+ * Datetime: 2021/6/24 17:46
  * channel inBound 全局异常处理器,添加到inbound pipeline的最后节点
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Slf4j
@@ -128,10 +128,10 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
     }
 
     /**
-     * 根据causeInfo信息,分别从cache1,cache2,cache3里获取对应的Method<br>
-     * cache1推断方式 = exception+handler+method <br>
-     * cache2推断方式 = exception+handler <br>
-     * cache3推断方式 = exception <br>
+     * 根据causeInfo信息,分别从cache1,cache2,cache3里获取对应的Method
+     * cache1推断方式 = exception+handler+method
+     * cache2推断方式 = exception+handler
+     * cache3推断方式 = exception
      * <p>
      * 获取优先级顺序为 cache1->cache2->cache3
      *
@@ -151,8 +151,8 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
     /**
      * <p>验证映射到的Method合法性</p>
      * <p>
-     * 1.校验异常处理方法是否重复 <br>
-     * 2.校验是否存在配置了methodName但是却未指定Handler <br>
+     * 1.校验异常处理方法是否重复
+     * 2.校验是否存在配置了methodName但是却未指定Handler
      *
      * @param methods
      * @throws IllegalAccessException

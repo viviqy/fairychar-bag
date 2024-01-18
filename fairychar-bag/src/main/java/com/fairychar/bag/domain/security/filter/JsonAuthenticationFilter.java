@@ -39,7 +39,7 @@ import java.io.InputStream;
  * <
  * </code>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @AllArgsConstructor

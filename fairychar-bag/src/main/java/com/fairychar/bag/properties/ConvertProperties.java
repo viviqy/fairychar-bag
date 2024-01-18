@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created with IDEA <br>
- * Date: 2020/05/12 <br>
- * time: 22:15 <br>
+ * Created with IDEA
+ * Date: 2020/05/12
+ * time: 22:15
  *
- * @author chiyo <br>
+ * @author chiyo
  */
 @Getter
 @Setter

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * <p>mybatis aes typeHandler{@link org.apache.ibatis.type.TypeHandler}</p>
  * <p>在数据入库前会先rsa加密,查询出库后解密</p>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class RsaTypeHandler extends BaseTypeHandler<String> {

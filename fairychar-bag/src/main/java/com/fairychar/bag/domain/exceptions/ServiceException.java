@@ -4,9 +4,9 @@ import lombok.Getter;
 
 /**
  * 业务异常类
- * Datetime: 2022/10/1 00:34 <br>
+ * Datetime: 2022/10/1 00:34
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1
  */
 @Getter

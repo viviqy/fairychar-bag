@@ -3,10 +3,9 @@ package com.fairychar.bag.domain.annotations;
 import java.lang.annotation.*;
 
 /**
- * <br>
  * <p>接口请求日志拦截</p>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @Documented

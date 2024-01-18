@@ -6,13 +6,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Datetime: 2022/3/30 01:43 <br>
+ * 没啥用,移除了
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
+@Deprecated
 public @interface FieldVali {
 
     Class<?>[] groups() default {};

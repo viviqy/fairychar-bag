@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Servlet请求工具类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

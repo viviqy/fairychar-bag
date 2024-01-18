@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
  * <p>swagger接口访问记录handler</p>
  * 记录<Strong>URI</strong>,访问<Strong>接口名称,基于{@link ApiOperation#value()}</Strong>,访问<Strong>时间戳</Strong>,访问<Strong>ip</Strong>
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 public class SwaggerLoggingHandler implements LoggingHandler {
     @Override

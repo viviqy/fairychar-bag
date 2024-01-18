@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * 语言验证程序
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class LanguageValidator implements ConstraintValidator<Language, String> {

@@ -7,15 +7,15 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/20 <br>
- * time: 10:00 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2020/4/20
+ * time: 10:00
  *
  * <p>spring mvc {@link String}转{@link LocalDate}</p>
  * 日期格式为yyyy-MM-dd
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 public class StringToLocalDateConverter implements Converter<String, LocalDate> {

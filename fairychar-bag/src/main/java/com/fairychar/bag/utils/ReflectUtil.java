@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * 反射工具类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -24,7 +24,7 @@ public final class ReflectUtil {
     private final static String regexAll = "*";
 
     /**
-     * 递归搜索带有指定注解的字段值<br>
+     * 递归搜索带有指定注解的字段值
      * 该代码以对象和注解类的集合作为输入，并返回一个包含注解作为键和字段容器列表作为值的映射。
      * 字段容器包含有关带有指定注解的字段的信息。
      * 支持字段为集合类{@link Collection},{@link Map}支持,如果为集合类则会循环解析获取所有集合内对象的字段

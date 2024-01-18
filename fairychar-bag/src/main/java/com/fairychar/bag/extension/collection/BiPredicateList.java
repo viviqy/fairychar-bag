@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiPredicate;
 
 /**
- * Date: 2020/03/05 <br>
- * time: 18:12 <br>
+ * Date: 2020/03/05
+ * time: 18:12
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 public class BiPredicateList<T> extends ArrayList<T> {
     private BiPredicate<T, T> biPredicate;

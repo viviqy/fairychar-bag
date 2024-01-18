@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * 父类flow条件与对应class的映射类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.0
  */
 @AllArgsConstructor

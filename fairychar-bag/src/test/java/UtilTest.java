@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Slf4j

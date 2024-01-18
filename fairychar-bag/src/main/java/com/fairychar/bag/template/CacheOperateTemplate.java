@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 /**
  * 缓存操作template
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

@@ -14,7 +14,7 @@ import java.lang.reflect.Type;
 /**
  * http请求体property代理解析器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Slf4j

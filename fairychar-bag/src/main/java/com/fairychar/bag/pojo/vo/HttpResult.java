@@ -9,12 +9,12 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpStatus;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2019/12/3 <br>
- * time: 14:36 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2019/12/3
+ * time: 14:36
  *
- * @author chiyo <br>
+ * @author chiyo
  */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,7 +26,7 @@ public class HttpResult<T> {
     private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
     private int code;
     /**
-     * 返回数据<br>
+     * 返回数据
      * <p>{@link FuzzyValue}添加模糊化参数支持</p>
      */
     @FuzzyValue

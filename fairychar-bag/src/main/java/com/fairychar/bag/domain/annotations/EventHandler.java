@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * <p>netty指定事件拦截器</p>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Documented

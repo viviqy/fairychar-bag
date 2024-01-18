@@ -8,7 +8,7 @@ import java.util.HashSet;
 /**
  * <p>{@link EraseValue}请求解析器</p>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @ControllerAdvice

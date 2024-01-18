@@ -4,7 +4,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class NotInValidator implements ConstraintValidator<NotIn, String> {

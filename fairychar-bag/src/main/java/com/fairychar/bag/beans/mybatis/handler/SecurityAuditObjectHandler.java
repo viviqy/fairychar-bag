@@ -13,7 +13,7 @@ import java.util.Optional;
 /**
  * 基于spring security的mybatis用户审计操作拦截赋值器
  *
- * @author chiyo <br>
+ * @author chiyo
  */
 @AllArgsConstructor
 public class SecurityAuditObjectHandler implements MetaObjectHandler {

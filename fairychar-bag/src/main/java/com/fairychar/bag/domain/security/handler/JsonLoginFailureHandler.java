@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * 基于Json返回参数的简单登录失败处理器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @AllArgsConstructor

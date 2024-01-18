@@ -17,7 +17,7 @@ import java.util.jar.JarFile;
 /**
  * 引入了hutool包,这个类没用了
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @Slf4j

@@ -8,12 +8,12 @@ import lombok.Setter;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:39 <br>
+ * Created with IDEA
+ * User: qiyue
+ * Date: 2020/04/11
+ * time: 17:39
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 @Getter
 @Setter

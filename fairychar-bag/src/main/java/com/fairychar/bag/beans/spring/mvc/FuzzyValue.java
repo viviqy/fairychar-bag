@@ -3,10 +3,10 @@ package com.fairychar.bag.beans.spring.mvc;
 import java.lang.annotation.*;
 
 /**
- * spring mvc 响应参数property值脱敏<br>
+ * spring mvc 响应参数property值脱敏
  * 对应组合注解{@link FuzzyResult}
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Documented

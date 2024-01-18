@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * 抽象模式验证器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public abstract class AbstractPatternValidator<A extends Annotation, T> implements ConstraintValidator<A, T> {

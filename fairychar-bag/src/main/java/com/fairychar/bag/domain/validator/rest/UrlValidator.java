@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * URL 验证器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class UrlValidator extends AbstractPatternValidator<Url, String> {

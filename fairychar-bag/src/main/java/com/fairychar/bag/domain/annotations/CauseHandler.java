@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  * <p>
  * 使用方式和{@link org.springframework.web.bind.annotation.ExceptionHandler}一样
  *
- * @author chiyo <br>
+ * @author chiyo
  */
 @Documented
 @Target({ElementType.METHOD})

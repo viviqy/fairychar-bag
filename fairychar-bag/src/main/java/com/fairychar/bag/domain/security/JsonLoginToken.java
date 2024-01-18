@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.Authentication;
 
 /**
- * Datetime: 2021/10/25 16:31 <br>
+ * Datetime: 2021/10/25 16:31
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @NoArgsConstructor

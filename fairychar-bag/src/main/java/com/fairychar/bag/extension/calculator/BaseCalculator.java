@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * 计算器基类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since
  */
 public abstract class BaseCalculator {

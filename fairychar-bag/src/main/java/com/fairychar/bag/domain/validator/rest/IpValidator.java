@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * IP 验证器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class IpValidator extends AbstractPatternValidator<IP, String> {

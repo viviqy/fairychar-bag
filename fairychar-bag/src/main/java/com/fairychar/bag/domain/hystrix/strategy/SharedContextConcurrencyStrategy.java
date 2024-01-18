@@ -17,9 +17,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Datetime: 2021/12/14 16:54 <br>
+ * Datetime: 2021/12/14 16:54
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @AllArgsConstructor

@@ -3,7 +3,7 @@ package com.fairychar.bag.domain.enums;
 /**
  * 状态通用枚举
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 public enum State {
     /**

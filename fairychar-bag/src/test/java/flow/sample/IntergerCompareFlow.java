@@ -7,7 +7,7 @@ import com.fairychar.bag.extension.action.condition.bool.ParentActionCondition;
 import java.util.Set;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since
  */
 public class IntergerCompareFlow extends AbstractActionFlow<Integer, Integer> {

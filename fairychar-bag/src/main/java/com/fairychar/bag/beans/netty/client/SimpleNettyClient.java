@@ -19,12 +19,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/5/7 <br>
- * time: 16:59 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2020/5/7
+ * time: 16:59
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @Slf4j

@@ -21,7 +21,7 @@ import java.lang.annotation.*;
  *     }
  * </pre>
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Documented
@@ -30,15 +30,15 @@ import java.lang.annotation.*;
 @Inherited
 public @interface FuzzyResult {
     /**
-     * 由于接口大多会包装一层进行返回,如<br>
+     * 由于接口大多会包装一层进行返回,如
      * <pre>
      * {@code
      * public HttpResult<User> getUser();
      * }
      * </pre>
-     * 这种情况下,实际业务返回对象为User.class,但是HttpResult一般无法在data字段上添加注解<br>
-     * 提供field属性,取包装体字段为模糊对象进行模糊处理<br>
-     * 属性字段名称,如果有值则会取对应字段值为Object,可以通过.分割<br>
+     * 这种情况下,实际业务返回对象为User.class,但是HttpResult一般无法在data字段上添加注解
+     * 提供field属性,取包装体字段为模糊对象进行模糊处理
+     * 属性字段名称,如果有值则会取对应字段值为Object,可以通过.分割
      * 如果值为空则取当前返回对象为Object
      * <pre>{@code
      * @FuzzyResult(field = "data.user")

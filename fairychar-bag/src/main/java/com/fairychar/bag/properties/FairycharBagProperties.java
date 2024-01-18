@@ -6,12 +6,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/04/11 <br>
- * time: 17:35 <br>
+ * Created with IDEA
+ * User: qiyue
+ * Date: 2020/04/11
+ * time: 17:35
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 @ConfigurationProperties(prefix = "fairychar.bag")
 @Getter

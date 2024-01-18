@@ -18,7 +18,7 @@ import java.util.*;
 /**
  * 暂时不清楚做用
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class OAuth2JsonTokenDeserializer extends StdDeserializer<OAuth2JsonToken> {

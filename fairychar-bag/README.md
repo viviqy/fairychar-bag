@@ -21,9 +21,9 @@ fairychar:
 /*
  * 在需要校验的接口上打上此注解
  */
-public String hello(@RequestBody @Validate User user,BindingResult bindingResult)throws Exception{
-        return"hello";
-        }
+public String hello(@RequestBody @Validate User user, BindingResult bindingResult) throws Exception {
+    return "hello";
+}
 ```
 
 ### 实现效果
@@ -56,13 +56,14 @@ fairychar:
 配置类
 
 ```java
+
 @Configuration
-public class LoggingConfiguration{
+public class LoggingConfiguration {
     /*
-    * 可自定义实现LoggingHandler接口,内置SimpleLoggingHandler和SwaggerLoggingHandler
-    */
+     * 可自定义实现LoggingHandler接口,内置SimpleLoggingHandler和SwaggerLoggingHandler
+     */
     @Bean
-    LoggingHandler swagger(){
+    LoggingHandler swagger() {
         return new SwaggerLoggingHandler();
     }
 }
@@ -72,12 +73,12 @@ public class LoggingConfiguration{
 
 ```java
 /*
-* 在需要校验的接口上打上此注解
-*/
+ * 在需要校验的接口上打上此注解
+ */
 @PostMapping("hello")
 @ApiOperation("你好")
-@RequestLog(beforeHandler="swagger",afterHandler="simple",loggingLevel=RequestLog.Level.INFO)
-public String hello(@RequestBody @Validate User user,BindingResult bindingResult) throws Exception{
+@RequestLog(beforeHandler = "swagger", afterHandler = "simple", loggingLevel = RequestLog.Level.INFO)
+public String hello(@RequestBody @Validate User user, BindingResult bindingResult) throws Exception {
     return "hello";
 }
 ```
@@ -189,37 +190,38 @@ public class HelloService {
 
 ```java
     public void testNetty() {
-        SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
-                , new ChannelInitializer<ServerSocketChannel>() {
-            @Override
-            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
-                serverSocketChannel.pipeline().addLast(new LoggingHandler());
-            }
-        }, new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel socketChannel) throws Exception {
-                socketChannel.pipeline().addLast(new LoggingHandler());
-            }
-        });
-        server.setMaxShutdownWaitSeconds(10);
-        server.start();
+    SimpleNettyServer server = new SimpleNettyServer(1, 2, 10000
+            , new ChannelInitializer<ServerSocketChannel>() {
+        @Override
+        protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+            serverSocketChannel.pipeline().addLast(new LoggingHandler());
+        }
+    }, new ChannelInitializer<SocketChannel>() {
+        @Override
+        protected void initChannel(SocketChannel socketChannel) throws Exception {
+            socketChannel.pipeline().addLast(new LoggingHandler());
+        }
+    });
+    server.setMaxShutdownWaitSeconds(10);
+    server.start();
 //        server.stop();
 
-        SimpleNettyClient client = new SimpleNettyClient(1, 10001, "127.0.0.1"
-                , new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel socketChannel) throws Exception {
-                socketChannel.pipeline().addLast(new LoggingHandler());
-            }
-        });
-        client.setMaxShutdownWaitSeconds(10);
-        client.stop();
-    }
+    SimpleNettyClient client = new SimpleNettyClient(1, 10001, "127.0.0.1"
+            , new ChannelInitializer<SocketChannel>() {
+        @Override
+        protected void initChannel(SocketChannel socketChannel) throws Exception {
+            socketChannel.pipeline().addLast(new LoggingHandler());
+        }
+    });
+    client.setMaxShutdownWaitSeconds(10);
+    client.stop();
+}
 ```
 
 基于spring
 
 ```java
+
 @Configuration
 @EnableConfigurationProperties(FairycharBagProperties.class)
 public class BeansConfiguration {
@@ -228,7 +230,7 @@ public class BeansConfiguration {
     private FairycharBagProperties bagProperties;
 
     @Bean
-    SimpleNettyServer simpleNettyServer(){
+    SimpleNettyServer simpleNettyServer() {
         NettyServerClientProperties.ServerProperties properties = bagProperties.getServerClient().getServer();
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer(properties.getBossSize(), properties.getWorkerSize(), properties.getPort());
         return simpleNettyServer;
@@ -236,7 +238,7 @@ public class BeansConfiguration {
     }
 
     @Bean
-    SimpleNettyClient simpleNettyClient(){
+    SimpleNettyClient simpleNettyClient() {
         NettyServerClientProperties.ClientProperties client = bagProperties.getServerClient().getClient();
         SimpleNettyClient simpleNettyClient = new SimpleNettyClient(client.getEventLoopSize(), client.getPort(), client.getHost());
         return simpleNettyClient;

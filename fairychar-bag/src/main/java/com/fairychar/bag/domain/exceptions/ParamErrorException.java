@@ -1,14 +1,14 @@
 package com.fairychar.bag.domain.exceptions;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2019/12/4 <br>
- * time: 15:32 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2019/12/4
+ * time: 15:32
  * <p>
  * HTTP前端参数校验失败异常类
  *
- * @author chiyo <br>
+ * @author chiyo
  */
 public class ParamErrorException extends RuntimeException {
     public ParamErrorException() {

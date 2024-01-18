@@ -7,9 +7,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Datetime: 2022/2/16 14:32 <br>
+ * Datetime: 2022/2/16 14:32
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Target(ElementType.FIELD)

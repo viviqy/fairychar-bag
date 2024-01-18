@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import java.io.Serializable;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Data

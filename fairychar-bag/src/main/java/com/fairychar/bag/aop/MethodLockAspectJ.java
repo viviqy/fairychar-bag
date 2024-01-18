@@ -49,7 +49,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 它使用FairycharBagProperties类来获取配置属性。
  * 该切面使用AspectJ实现，并按顺序在其他切面之后执行。
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Aspect

@@ -19,7 +19,7 @@ import java.util.Optional;
  * 在该类中，通过获取HTTP请求的Header中的用户信息，从中提取出租户ID，并将其作为租户ID的表达式返回。
  * 除此之外，该类还提供了获取租户ID列名和判断是否忽略某个表的方法。
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Slf4j

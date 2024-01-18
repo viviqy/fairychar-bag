@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Datetime: 2021/12/14 17:06 <br>
+ * Datetime: 2021/12/14 17:06
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Getter

@@ -6,9 +6,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * Datetime: 2022/2/16 14:31 <br>
+ * Datetime: 2022/2/16 14:31
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class IdCardValidator implements ConstraintValidator<Phone, String> {

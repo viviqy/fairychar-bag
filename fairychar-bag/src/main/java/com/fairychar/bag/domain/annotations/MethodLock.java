@@ -4,9 +4,9 @@ import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Datetime: 2020/6/2 10:37 <br>
+ * Datetime: 2020/6/2 10:37
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Documented

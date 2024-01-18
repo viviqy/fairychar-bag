@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 /**
  * 线程测试工具类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

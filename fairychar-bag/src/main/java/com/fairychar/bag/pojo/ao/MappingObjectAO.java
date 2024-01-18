@@ -10,12 +10,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/4/22 <br>
- * time: 12:49 <br>
+ * Created with IDEA
+ * User: chiyo
+ * Date: 2020/4/22
+ * time: 12:49
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @Data

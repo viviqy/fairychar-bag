@@ -18,7 +18,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 /**
  * <p>spring bean工具类,包含ApplicationContext的所有方法</p>
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

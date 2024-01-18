@@ -10,7 +10,7 @@ import java.util.Set;
  * T: 当前操作流入参类型
  * N: 下一个操作流入参类型
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.0
  */
 public interface ActionFlow<T, C> {
@@ -38,7 +38,7 @@ public interface ActionFlow<T, C> {
     Set<ParentActionCondition> getParentClassSet();
 
     /**
-     * 当前流程的组别,可以通过设置不同的组名区分流程</br>
+     * 当前流程的组别,可以通过设置不同的组名区分流程
      * 同一个流程可以设置多个组别被公用
      *
      * @return {@link Set}<{@link String}>

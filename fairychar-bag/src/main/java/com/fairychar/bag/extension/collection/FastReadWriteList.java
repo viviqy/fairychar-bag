@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.function.Predicate;
 
 /**
- * Datetime: 2021/7/6 11:06 <br>
+ * Datetime: 2021/7/6 11:06
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class FastReadWriteList<E> extends ArrayList<E> {

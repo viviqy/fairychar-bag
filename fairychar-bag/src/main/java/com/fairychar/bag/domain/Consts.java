@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * 常用常量属性
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

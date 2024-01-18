@@ -9,12 +9,12 @@ import lombok.experimental.Accessors;
 import java.util.List;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/03/13 <br>
- * time: 19:54 <br>
+ * Created with IDEA
+ * User: qiyue
+ * Date: 2020/03/13
+ * time: 19:54
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 @AllArgsConstructor
 @NoArgsConstructor

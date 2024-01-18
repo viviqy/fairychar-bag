@@ -3,14 +3,14 @@ package com.fairychar.bag.domain.exceptions;
 import java.sql.SQLException;
 
 /**
- * Created with IDEA <br>
- * User: qiyue <br>
- * Date: 2020/02/21 <br>
- * time: 12:32 <br>
+ * Created with IDEA
+ * User: qiyue
+ * Date: 2020/02/21
+ * time: 12:32
  *
  * <p>数据已存在异常</p>
  *
- * @author qiyue <br>
+ * @author qiyue
  */
 public class DataAlreadyExistException extends SQLException {
     public DataAlreadyExistException() {

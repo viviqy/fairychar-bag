@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * 字符串工具处理类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

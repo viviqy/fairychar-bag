@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * Datetime: 2020/9/27 10:35 <br>
+ * Datetime: 2020/9/27 10:35
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @AllArgsConstructor

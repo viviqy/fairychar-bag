@@ -9,7 +9,7 @@ import com.google.common.collect.Sets;
 import java.util.Set;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class StringFlow extends AbstractActionFlow<String, Integer> {

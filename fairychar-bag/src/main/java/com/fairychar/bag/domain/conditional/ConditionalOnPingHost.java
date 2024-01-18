@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  * 基于ping指定host的Bean条件判断器,仅当host能ping成功的情况下才会初始化Bean
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 /**
  * accessToken Json加强器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class StandardReusltEnhancer implements TokenEnhancer {

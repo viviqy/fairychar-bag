@@ -1,9 +1,9 @@
 package com.fairychar.bag.domain.exceptions;
 
 /**
- * Datetime: 2021/12/23 00:11 <br>
+ * Datetime: 2021/12/23 00:11
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 public class AcceptedException extends RuntimeException {

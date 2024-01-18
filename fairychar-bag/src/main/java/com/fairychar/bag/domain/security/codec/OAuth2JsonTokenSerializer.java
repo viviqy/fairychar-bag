@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * OAuth2 Json序列化器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since
  */
 public class OAuth2JsonTokenSerializer extends StdSerializer<OAuth2JsonToken> {

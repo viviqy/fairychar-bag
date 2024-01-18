@@ -1,7 +1,7 @@
 package com.fairychar.bag.extension.calculator;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since
  */
 public enum Operator {

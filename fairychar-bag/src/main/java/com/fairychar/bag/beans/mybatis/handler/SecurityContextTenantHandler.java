@@ -16,7 +16,7 @@ import java.util.Optional;
  * 通过SecurityContextHolder获取当前认证的用户信息，从中获取租户ID，并将其作为SQL语句的租户ID条件。
  * 可以设置忽略的表和租户ID列名。
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Slf4j

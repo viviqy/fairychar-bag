@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 /**
  * 语言校验
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Target(ElementType.FIELD)

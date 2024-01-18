@@ -24,7 +24,7 @@ import java.lang.annotation.*;
  * </pre>
  * swagger文档上这个接口请求参数只会暂时name字段
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Target({ElementType.PARAMETER, ElementType.FIELD})
@@ -32,7 +32,7 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ShowParam {
     /**
-     * 代表group,当作用于请求接口上代表只显示指定Class的字段名称<br>
+     * 代表group,当作用于请求接口上代表只显示指定Class的字段名称
      * 当作用于model上代表字段可以被设置的group指定显示
      *
      * @return {@link Class}<{@link ?}>{@link []}

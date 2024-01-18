@@ -26,7 +26,7 @@ import com.google.common.base.Strings;
  * </pre>
  * 模糊加密后结果为text="1**4";
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class FuzzyMiddleTextProcessor implements FuzzyValueProcessor {

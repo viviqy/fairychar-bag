@@ -4,9 +4,9 @@ import lombok.Data;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * Datetime: 2022/10/1 01:01 <br>
+ * Datetime: 2022/10/1 01:01
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1
  */
 @Data
@@ -21,8 +21,8 @@ public class WebProperties {
 
     /**
      * http request body property处理器
-     * {@link com.fairychar.bag.beans.spring.mvc.KeepValueAdvice},<br>
-     * {@link com.fairychar.bag.beans.spring.mvc.EraseValueAdvice},<br>
+     * {@link com.fairychar.bag.beans.spring.mvc.KeepValueAdvice},
+     * {@link com.fairychar.bag.beans.spring.mvc.EraseValueAdvice},
      * {@link com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice}
      *
      * @author chiyo

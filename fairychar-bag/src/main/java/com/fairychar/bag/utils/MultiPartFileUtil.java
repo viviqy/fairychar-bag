@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * 引入了hutools,这个类没用了
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

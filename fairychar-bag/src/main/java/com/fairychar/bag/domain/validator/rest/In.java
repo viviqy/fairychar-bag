@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 @Target(ElementType.FIELD)

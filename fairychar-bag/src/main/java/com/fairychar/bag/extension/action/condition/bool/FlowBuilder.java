@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * 流生成器
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

@@ -7,7 +7,7 @@ import org.springframework.util.AntPathMatcher;
 /**
  * 常用单例属性类
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class Singletons {

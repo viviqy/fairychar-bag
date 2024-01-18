@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.HashSet;
 
 /**
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0.2
  */
 public class ActionFlowTest {

@@ -4,9 +4,9 @@ import lombok.Data;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * Datetime: 2021/12/2 23:01 <br>
+ * Datetime: 2021/12/2 23:01
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @Data

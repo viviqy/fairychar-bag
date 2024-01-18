@@ -7,9 +7,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
- * Datetime: 2022/1/18 21:35 <br>
+ * Datetime: 2022/1/18 21:35
  *
- * @author chiyo <br>
+ * @author chiyo
  * @since 1.0
  */
 @RequiredArgsConstructor
