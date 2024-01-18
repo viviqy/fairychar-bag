@@ -10,10 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2020/4/22
- * time: 12:49
+ * http前端响应树接口AO类
  *
  * @author chiyo
  * @since 0.0.1-SNAPSHOT

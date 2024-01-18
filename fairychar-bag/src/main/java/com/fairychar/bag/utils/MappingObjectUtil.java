@@ -14,10 +14,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2020/4/22
- * time: 12:51
+ * http影响体渲染工具类
  *
  * @author chiyo
  * @since 0.0.1-SNAPSHOT

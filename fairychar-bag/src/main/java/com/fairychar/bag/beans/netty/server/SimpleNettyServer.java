@@ -21,10 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2020/5/7
- * time: 16:02
+ * 简单Netty服务器
  *
  * @author chiyo
  * @since 0.0.1-SNAPSHOT

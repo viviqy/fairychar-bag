@@ -9,12 +9,10 @@ import lombok.experimental.Accessors;
 import java.util.List;
 
 /**
- * Created with IDEA
- * User: qiyue
- * Date: 2020/03/13
- * time: 19:54
+ * http前端树形父子接口渲染类
  *
- * @author qiyue
+ * @author chiyo
+ * @since 0.0.1
  */
 @AllArgsConstructor
 @NoArgsConstructor

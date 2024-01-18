@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created with IDEA
- * Date: 2020/05/12
- * time: 22:15
+ * 转换器属性配置
  *
  * @author chiyo
  */

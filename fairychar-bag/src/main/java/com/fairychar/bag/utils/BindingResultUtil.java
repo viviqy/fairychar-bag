@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2019/12/4
- * time: 17:06
+ * hibernate validator校验结果渲染工具类
  *
  * @author chiyo
  */

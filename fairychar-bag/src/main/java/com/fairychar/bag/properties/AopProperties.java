@@ -8,10 +8,7 @@ import lombok.Setter;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IDEA
- * User: qiyue
- * Date: 2020/04/11
- * time: 17:39
+ * 基于AOP的功能属性配置
  *
  * @author qiyue
  */

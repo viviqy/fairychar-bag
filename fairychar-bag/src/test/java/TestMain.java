@@ -15,10 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created with IDEA
- * Date: 2021/06/24
- * time: 22:24
- *
  * @author chiyo
  */
 public class TestMain {

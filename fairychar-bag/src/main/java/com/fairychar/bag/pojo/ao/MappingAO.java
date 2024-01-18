@@ -8,10 +8,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2020/4/29
- * time: 14:00
+ * 前端key-value渲染AO类
  *
  * @author chiyo
  * @since 0.0.1-SNAPSHOT

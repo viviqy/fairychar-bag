@@ -9,10 +9,7 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpStatus;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2019/12/3
- * time: 14:36
+ * restful响应体
  *
  * @author chiyo
  */

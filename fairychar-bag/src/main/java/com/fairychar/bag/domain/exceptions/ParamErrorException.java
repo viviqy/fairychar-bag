@@ -1,11 +1,6 @@
 package com.fairychar.bag.domain.exceptions;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2019/12/4
- * time: 15:32
- * <p>
  * HTTP前端参数校验失败异常类
  *
  * @author chiyo

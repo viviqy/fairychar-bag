@@ -3,11 +3,6 @@ package com.fairychar.bag.properties;
 import lombok.Data;
 
 /**
- * Created with IDEA
- * User: chiyo
- * Date: 2020/5/7
- * time: 15:41
- *
  * <p>netty服务参数</p>
  * 提供netty核心参数,但不自动配置任何组件,提供于需要获取netty相关参数配置的组件
  *

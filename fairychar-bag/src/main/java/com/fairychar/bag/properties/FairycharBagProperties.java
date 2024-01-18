@@ -6,10 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * Created with IDEA
- * User: qiyue
- * Date: 2020/04/11
- * time: 17:35
+ * Fairychar Bag 属性配置
  *
  * @author qiyue
  */
