@@ -27,30 +27,7 @@ public final class TaskTestUtil {
      * @param executorService 线程池
      */
     public static void concurrentRunAsync(List<Action> actions, ExecutorService executorService) {
-        CountDownLatch countDownLatch = new CountDownLatch(actions.size() + 1);
-        for (Action action : actions) {
-            executorService.execute(() -> {
-                countDownLatch.countDown();
-                try {
-                    action.doAction();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } catch (TimeoutException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        }
-        countDownLatch.countDown();
-    }
-
-    /**
-     * 并发运行异步
-     *
-     * @param actions 行动
-     */
-    public static void concurrentRunAsync(List<Action> actions) {
         CountDownLatch countDownLatch = new CountDownLatch(actions.size());
-        ExecutorService executorService = createThreadPool("concurrentRunAsync", actions.size());
         List<? extends Future<?>> futures = actions.stream().map(a -> executorService.submit(() -> {
             countDownLatch.countDown();
             try {
@@ -70,6 +47,16 @@ public final class TaskTestUtil {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    /**
+     * 并发运行异步
+     *
+     * @param actions 行动
+     */
+    public static void concurrentRunAsync(List<Action> actions) {
+        ExecutorService executorService = createThreadPool("concurrentRunAsync", actions.size());
+        concurrentRunAsync(actions, executorService);
         executorService.shutdown();
     }
 
