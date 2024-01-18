@@ -1,8 +1,11 @@
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
+import com.fairychar.bag.function.Action;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
+import com.fairychar.bag.utils.test.TaskTestUtil;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -14,8 +17,22 @@ import java.util.stream.Collectors;
  * @author chiyo <br>
  * @since 1.0.2
  */
+@Slf4j
 public class UtilTest {
 
+
+    @Test
+    @SneakyThrows
+    public void testRun() {
+        Action action = () -> {
+            log.info("test run...");
+            TimeUnit.SECONDS.sleep(5);
+        };
+        TaskTestUtil.concurrentRunAsync(Arrays.asList(action, action));
+        log.info("bbbb");
+
+
+    }
 
     @Test
     @SneakyThrows
@@ -30,7 +47,7 @@ public class UtilTest {
         TimeUnit.SECONDS.sleep(4);
         long l1 = System.currentTimeMillis();
         for (int i = 0; i < 1000_0000; i++) {
-            Map<Class<? extends Annotation>, List<FieldContainer>> classListMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(a, Arrays.asList(FuzzyValue.class));
+            ReflectUtil.recursiveSearchFieldValueByAnnotations(a, Arrays.asList(FuzzyValue.class));
         }
         long l2 = System.currentTimeMillis();
         System.out.println(l2 - l1);

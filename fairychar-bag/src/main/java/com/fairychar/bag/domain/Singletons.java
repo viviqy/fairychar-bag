@@ -2,6 +2,7 @@ package com.fairychar.bag.domain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import org.springframework.util.AntPathMatcher;
 
 /**
  * 常用单例属性类
@@ -11,8 +12,32 @@ import com.google.gson.Gson;
  */
 public class Singletons {
 
+    public static class PathMatcher {
+        private PathMatcher() {
 
-    private static class GSON {
+        }
+
+        private enum Singleton {
+            INSTANCE;
+
+            Singleton() {
+                instance = new AntPathMatcher();
+            }
+
+            private final AntPathMatcher instance;
+
+            public AntPathMatcher getInstance() {
+                return INSTANCE.instance;
+            }
+        }
+
+        public static AntPathMatcher getInstance() {
+            return Singleton.INSTANCE.getInstance();
+        }
+    }
+
+
+    public static class GSON {
         private Gson gson = new Gson();
 
         private GSON() {

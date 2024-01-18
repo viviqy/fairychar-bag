@@ -1,10 +1,7 @@
 package com.fairychar.bag.function;
 
 /**
- * Created with IDEA <br>
- * User: chiyo <br>
- * Date: 2020/3/24 <br>
- * time: 13:32 <br>
+ * 数据库分散处理器
  *
  * @author chiyo <br>
  * @since 0.0.1-SNAPSHOT

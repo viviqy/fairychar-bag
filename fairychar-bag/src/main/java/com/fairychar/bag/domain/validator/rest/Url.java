@@ -7,17 +7,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Datetime: 2022/2/16 14:32 <br>
+ * 网址校验
  *
  * @author chiyo <br>
- * @since 1.0
+ * @since 1.0.2
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = IdCardValidator.class)
-public @interface MustIdCard {
+@Constraint(validatedBy = UrlValidator.class)
+public @interface Url {
+    String value() default "";
 
-    String message() default "not id card number";
+    String message() default "not url";
 
     Class<?>[] groups() default {};
 }

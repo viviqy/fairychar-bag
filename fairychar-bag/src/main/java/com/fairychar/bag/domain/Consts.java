@@ -32,12 +32,17 @@ public final class Consts {
     public static DateTimeFormatter SIMPLE_DATE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT);
 
 
-    public final static class OAuth2 {
+    public static final class OAuth2 {
         public final static String AUTHORIZATION_CODE = "authorization_code";
         public final static String PASSWORD = "password";
         public final static String CLIENT_CREDENTIALS = "client_credentials";
         public final static String IMPLICIT = "implicit";
         public final static String REFRESH_TOKEN = "refresh_token";
+    }
+
+    public static final class Regex {
+        public static String IP = "^(\\d{1,3}\\.){3}\\d{1,3}$";
+        public static String URL = "^(http|https):\\/\\/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}([\\/a-zA-Z0-9#.-]*)*$";
     }
 }
 /*

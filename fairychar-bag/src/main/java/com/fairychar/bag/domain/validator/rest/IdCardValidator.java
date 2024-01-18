@@ -11,7 +11,7 @@ import javax.validation.ConstraintValidatorContext;
  * @author chiyo <br>
  * @since 1.0
  */
-public class IdCardValidator implements ConstraintValidator<MustPhone, String> {
+public class IdCardValidator implements ConstraintValidator<Phone, String> {
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         return IdcardUtil.isValidCard(value);
