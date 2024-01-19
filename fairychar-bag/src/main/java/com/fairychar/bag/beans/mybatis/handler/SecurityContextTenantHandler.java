@@ -8,8 +8,8 @@ import net.sf.jsqlparser.expression.LongValue;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * 该类实现了MyBatis Plus的TenantLineHandler接口，用于处理多租户的行级权限。
@@ -22,16 +22,16 @@ import java.util.Optional;
 @Slf4j
 public class SecurityContextTenantHandler implements TenantLineHandler {
 
-    public SecurityContextTenantHandler(List<String> ignoreTables) {
-        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+    public SecurityContextTenantHandler(Set<String> ignoreTables) {
+        this.ignoreTables = Collections.unmodifiableSet(ignoreTables);
     }
 
-    public SecurityContextTenantHandler(List<String> ignoreTables, String columnName) {
-        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+    public SecurityContextTenantHandler(Set<String> ignoreTables, String columnName) {
+        this.ignoreTables = Collections.unmodifiableSet(ignoreTables);
         this.columnName = columnName;
     }
 
-    private final List<String> ignoreTables;
+    private final Set<String> ignoreTables;
     private String columnName = "tenant_id";
 
     @Override

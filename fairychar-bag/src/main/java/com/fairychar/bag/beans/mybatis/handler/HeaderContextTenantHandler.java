@@ -11,8 +11,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * 该类实现了MyBatis-Plus的TenantLineHandler接口，用于处理多租户的功能。
@@ -25,19 +25,19 @@ import java.util.Optional;
 @Slf4j
 public class HeaderContextTenantHandler implements TenantLineHandler {
 
-    public HeaderContextTenantHandler(List<String> ignoreTables, ObjectMapper objectMapper) {
-        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+    public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper) {
+        this.ignoreTables = Collections.unmodifiableSet(ignoreTables);
         this.objectMapper = objectMapper;
     }
 
-    public HeaderContextTenantHandler(List<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header) {
-        this.ignoreTables = Collections.unmodifiableList(ignoreTables);
+    public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header) {
+        this.ignoreTables = Collections.unmodifiableSet(ignoreTables);
         this.objectMapper = objectMapper;
         this.columnName = columnName;
         this.header = header;
     }
 
-    private final List<String> ignoreTables;
+    private final Set<String> ignoreTables;
     private final ObjectMapper objectMapper;
     private String columnName = "tenant_id";
     private String header = "user";

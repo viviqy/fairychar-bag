@@ -2,6 +2,7 @@ package com.fairychar.bag.beans.mybatis.handler;
 
 import cn.hutool.crypto.symmetric.AES;
 import com.google.common.base.Strings;
+import lombok.Setter;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
@@ -19,12 +20,8 @@ import java.sql.SQLException;
  */
 public class AesTypeHandler extends BaseTypeHandler<String> {
 
+    @Setter
     private static AES aes;
-
-
-    public static void setKey(AES aes) {
-        AesTypeHandler.aes = aes;
-    }
 
 
     @Override

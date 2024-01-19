@@ -3,6 +3,7 @@ package com.fairychar.bag.beans.mybatis.handler;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import com.google.common.base.Strings;
+import lombok.Setter;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
@@ -20,12 +21,8 @@ import java.sql.SQLException;
  */
 public class RsaTypeHandler extends BaseTypeHandler<String> {
 
+    @Setter
     private static RSA rsa;
-
-
-    public static void setKey(RSA aes) {
-        RsaTypeHandler.rsa = aes;
-    }
 
 
     @Override
