@@ -1,6 +1,7 @@
 package com.fairychar.bag.domain.validator.rest;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,4 +20,6 @@ public @interface In {
     String message() default "not in array";
 
     Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }

@@ -19,8 +19,8 @@ import org.springframework.http.HttpStatus;
 @Accessors(chain = true)
 @Builder
 public class HttpResult<T> {
-    private final static HttpResult CACHED_OK = new HttpResult(200, null, "success");
-    private final static HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
+    private static final HttpResult CACHED_OK = new HttpResult(200, null, "success");
+    private static final HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
     private int code;
     /**
      * 返回数据
@@ -71,28 +71,3 @@ public class HttpResult<T> {
 
 
 }
-/*
-                                      /[-])//  ___        
-                                 __ --\ `_/~--|  / \      
-                               /_-/~~--~~ /~~~\\_\ /\     
-                               |  |___|===|_-- | \ \ \    
-____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
-____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
-                      [3-|____---~~ _--'==;/ _,   |   |_| 
-                                  /   /\__|_/  \  \__/--/ 
-                                 /---/_\  -___/ |  /,--|  
-                                 /  /\/~--|   | |  \///   
-                                /  / |-__ \    |/         
-                               |--/ /      |-- | \        
-                              \^~~\\/\      \   \/- _     
-                               \    |  \     |~~\~~| \    
-                                \    \  \     \   \  | \  
-                                  \    \ |     \   \    \ 
-                                   |~~|\/\|     \   \   | 
-                                  |   |/         \_--_- |\
-                                  |  /            /   |/\/
-                                   ~~             /  /    
-                                                 |__/   W<
-
-*/

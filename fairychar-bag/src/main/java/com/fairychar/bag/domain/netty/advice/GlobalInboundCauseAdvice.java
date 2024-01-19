@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor {
 
-    private final static String ALL = "0all";
+    private static final String ALL = "0all";
     /**
      * key=mark(ex+handler+method)
      */

@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BindingResultUtil {
-    private final static String LINER = "\r\n";
+    private static final String LINER = "\r\n";
 
     public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException {
         String errors = "";

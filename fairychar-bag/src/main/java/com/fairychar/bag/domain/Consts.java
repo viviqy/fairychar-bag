@@ -33,11 +33,11 @@ public final class Consts {
 
 
     public static final class OAuth2 {
-        public final static String AUTHORIZATION_CODE = "authorization_code";
-        public final static String PASSWORD = "password";
-        public final static String CLIENT_CREDENTIALS = "client_credentials";
-        public final static String IMPLICIT = "implicit";
-        public final static String REFRESH_TOKEN = "refresh_token";
+        public static final String AUTHORIZATION_CODE = "authorization_code";
+        public static final String PASSWORD = "password";
+        public static final String CLIENT_CREDENTIALS = "client_credentials";
+        public static final String IMPLICIT = "implicit";
+        public static final String REFRESH_TOKEN = "refresh_token";
     }
 
     public static final class Regex {

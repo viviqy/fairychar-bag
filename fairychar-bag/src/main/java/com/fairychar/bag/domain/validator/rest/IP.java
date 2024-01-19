@@ -1,6 +1,7 @@
 package com.fairychar.bag.domain.validator.rest;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,4 +20,7 @@ public @interface IP {
     String message() default "not ip address";
 
     Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+
 }

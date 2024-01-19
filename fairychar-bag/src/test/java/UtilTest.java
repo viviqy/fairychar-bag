@@ -4,6 +4,7 @@ import com.fairychar.bag.function.Action;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.fairychar.bag.utils.test.TaskTestUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -30,8 +31,6 @@ public class UtilTest {
         };
         TaskTestUtil.concurrentRunAsync(Arrays.asList(action, action));
         log.info("bbbb");
-
-
     }
 
     @Test
@@ -44,13 +43,21 @@ public class UtilTest {
         a.setA(a);
         C c = new C();
         b.setC(c);
+
+        ObjectMapper objectMapper = new ObjectMapper();
         TimeUnit.SECONDS.sleep(4);
-        long l1 = System.currentTimeMillis();
-        for (int i = 0; i < 1000_0000; i++) {
-            ReflectUtil.recursiveSearchFieldValueByAnnotations(a, Arrays.asList(FuzzyValue.class));
-        }
-        long l2 = System.currentTimeMillis();
-        System.out.println(l2 - l1);
+        long wasteMillis = TaskTestUtil.getWasteMillis(() ->
+                ReflectUtil.recursiveSearchFieldValueByAnnotations(c, Arrays.asList(FuzzyValue.class)), 1000_0000);
+        System.out.println(wasteMillis);//a=14796 , c=7761
+
+//        long wasteMillis1 = TaskTestUtil.getWasteMillis(() -> {
+//            try {
+//                objectMapper.writeValueAsString(c);
+//            } catch (JsonProcessingException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }, 1000_0000);
+//        System.out.println(wasteMillis1);//2360
     }
 
     @Test
@@ -99,7 +106,7 @@ public class UtilTest {
         private Integer f2 = new Integer(2);
         private Boolean f3 = new Boolean(true);
         private Byte f4 = new Byte(((byte) 1));
-        private Object f5 = new Object();
+//        private Object f5 = new Object();
     }
 
     @Test

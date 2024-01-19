@@ -26,7 +26,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Slf4j
 public class SimpleNettyClient {
-    private final static ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
+    private static final ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
 
     static {
         LoggingHandler loggingHandler = new LoggingHandler();

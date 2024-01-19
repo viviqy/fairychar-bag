@@ -21,7 +21,7 @@ import java.util.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ReflectUtil {
 
-    private final static String regexAll = "*";
+    private static final String regexAll = "*";
 
     /**
      * 递归搜索带有指定注解的字段值
@@ -60,7 +60,7 @@ public final class ReflectUtil {
         mappedBeans.add(System.identityHashCode(e));
         for (int i = 0; i < declaredFields.length; i++) {
             Field declaredField = declaredFields[i];
-            declaredField.setAccessible(true);
+//            declaredField.setAccessible(true);
             for (Class<? extends Annotation> annotation : annotations) {
                 if (declaredField.getAnnotation(annotation) != null) {
                     List<FieldContainer> fieldContainers = ref.get(annotation);
@@ -69,7 +69,7 @@ public final class ReflectUtil {
                         ref.put(annotation, fieldContainers);
                     }
                     fieldContainers.add(new FieldContainer(e, declaredField));
-
+                    declaredField.setAccessible(true);
                 }
             }
             if (!(!(declaredField.getGenericType() instanceof TypeVariable) && declaredField.getType() == Object.class) &&
@@ -79,10 +79,16 @@ public final class ReflectUtil {
                     declaredField.getType().isMemberClass()
             ) {
                 Object filedObject = null;
+                declaredField.setAccessible(true);
                 try {
                     filedObject = declaredField.get(e);
                     if (filedObject == null || (filedObject.getClass().getPackage() != null &&
-                            filedObject.getClass().getPackage().getName().startsWith("java"))) {
+                            (
+                                    filedObject.getClass().getPackage().getName().startsWith("java") ||
+                                            filedObject.getClass().getPackage().getName().startsWith("sun")
+                            )
+                    )
+                    ) {
                         continue;
                     }
                 } catch (IllegalAccessException ignore) {

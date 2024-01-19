@@ -1,5 +1,6 @@
 package com.fairychar.bag.utils;
 
+import com.fairychar.bag.domain.exceptions.ServiceException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -7,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 /**
  * Servlet请求工具类
@@ -20,13 +24,42 @@ public final class RequestUtil {
 
 
     /**
+     * 获取当前请求
+     *
+     * @return {@link ServletRequest}
+     */
+    public static ServletRequest getCurrentRequest() {
+        HttpServletRequest request = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
+                .map(r -> ((ServletRequestAttributes) r))
+                .map(a -> a.getRequest())
+                .orElseThrow(() -> new ServiceException(500, null, "failed to get request"));
+        return request;
+    }
+
+    /**
+     * 获取当前响应
+     *
+     * @return {@link HttpServletResponse}
+     */
+    public static HttpServletResponse getCurrentResponse() {
+        HttpServletResponse response = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
+                .map(r -> ((ServletRequestAttributes) r))
+                .map(a -> a.getResponse())
+                .orElseThrow(() -> new ServiceException(500, null, "failed to get response"));
+        return response;
+    }
+
+
+    /**
      * 向当前thread的request设置属性
      *
      * @param keyName   键名
      * @param attribute 属性
      */
     public static <T> void putAttribute(String keyName, T attribute) {
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
+                .map(r -> ((ServletRequestAttributes) r))
+                .orElseThrow(() -> new ServiceException(500, null, "failed to get servlet attributes"));
         requestAttributes.getRequest().setAttribute(keyName, attribute);
     }
 
@@ -38,7 +71,9 @@ public final class RequestUtil {
      * @return {@link T}
      */
     public static <T> T getAttribute(String keyName, Class<T> tClass) {
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
+                .map(r -> ((ServletRequestAttributes) r))
+                .orElseThrow(() -> new ServiceException(500, null, "failed to get servlet attributes"));
         Object attribute = requestAttributes.getRequest().getAttribute(keyName);
         return (T) attribute;
     }
@@ -110,28 +145,3 @@ public final class RequestUtil {
         return uri;
     }
 }
-/*
-                                      /[-])//  ___        
-                                 __ --\ `_/~--|  / \      
-                               /_-/~~--~~ /~~~\\_\ /\     
-                               |  |___|===|_-- | \ \ \    
-____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
-____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
-                      [3-|____---~~ _--'==;/ _,   |   |_| 
-                                  /   /\__|_/  \  \__/--/ 
-                                 /---/_\  -___/ |  /,--|  
-                                 /  /\/~--|   | |  \///   
-                                /  / |-__ \    |/         
-                               |--/ /      |-- | \        
-                              \^~~\\/\      \   \/- _     
-                               \    |  \     |~~\~~| \    
-                                \    \  \     \   \  | \  
-                                  \    \ |     \   \    \ 
-                                   |~~|\/\|     \   \   | 
-                                  |   |/         \_--_- |\
-                                  |  /            /   |/\/
-                                   ~~             /  /    
-                                                 |__/   W<
-
-*/

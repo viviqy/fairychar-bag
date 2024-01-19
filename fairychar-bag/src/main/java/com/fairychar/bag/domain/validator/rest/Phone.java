@@ -1,6 +1,7 @@
 package com.fairychar.bag.domain.validator.rest;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -20,4 +21,6 @@ public @interface Phone {
     String message() default "not phone number";
 
     Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }
