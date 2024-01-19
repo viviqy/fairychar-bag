@@ -116,29 +116,32 @@ public final class ReflectUtil {
         }
         Field[] declaredFields = clazz.getDeclaredFields();
         for (int i = 0; i < declaredFields.length; i++) {
-            Field declaredField = declaredFields[i];
-            declaredField.setAccessible(true);
+            Field filedObject = declaredFields[i];
+            filedObject.setAccessible(true);
             for (Class<? extends Annotation> annotation : annotations) {
-                if (declaredField.getAnnotation(annotation) != null) {
+                if (filedObject.getAnnotation(annotation) != null) {
                     List<Field> fields = ref.get(annotation);
                     if (fields == null) {
                         fields = new ArrayList<>();
                         ref.put(annotation, fields);
                     }
-                    fields.add(declaredField);
+                    fields.add(filedObject);
                 }
             }
-            if (!(declaredField.getType() == Object.class) &&
-                    !declaredField.getType().isPrimitive() &&
-                    !Modifier.isStatic(declaredField.getModifiers()) &&
-                    !Modifier.isFinal(declaredField.getModifiers()) &&
+            if (!(filedObject.getType() == Object.class) &&
+                    !filedObject.getType().isPrimitive() &&
+                    !Modifier.isStatic(filedObject.getModifiers()) &&
+                    !Modifier.isFinal(filedObject.getModifiers()) &&
                     (
                             (
-                                    declaredField.getType().getPackage() != null &&
-                                            !declaredField.getType().getPackage().getName().startsWith("java.lang")
-                            ) || declaredField.getType().isMemberClass())
+                                    filedObject.getType().getPackage() != null &&
+                                            (
+                                                    filedObject.getClass().getPackage().getName().startsWith("java") ||
+                                                            filedObject.getClass().getPackage().getName().startsWith("sun")
+                                            )
+                            ) || filedObject.getType().isMemberClass())
             ) {
-                recursiveSearchFieldByAnnotations(declaredField.getType(), annotations, ref);
+                recursiveSearchFieldByAnnotations(filedObject.getType(), annotations, ref);
             }
         }
     }
@@ -364,31 +367,30 @@ public final class ReflectUtil {
         }
     }
 
-    public static Set<Field> getObjFields(Class<?> source, boolean getParent, boolean getStatic) throws InstantiationException, IllegalAccessException {
+    public static Set<Field> getClassFields(Class<?> clazz, boolean getParent, boolean getStatic, boolean getFinal) {
         Set<Field> fields = new HashSet<>();
-        Object temp = source.newInstance();
+        Class<?> temp = clazz;
         if (!getParent) {
-            fields.addAll(getObjFields(temp, getStatic));
+            fields.addAll(getClassFields(temp, getStatic, getFinal));
         } else {
-            while (temp.getClass() != Object.class) {
-                fields.addAll(getObjFields(temp, getStatic));
-                temp = temp.getClass().getSuperclass().newInstance();
+            while (temp != Object.class) {
+                fields.addAll(getClassFields(temp, getStatic, getFinal));
+                temp = temp.getSuperclass();
             }
         }
         return fields;
     }
 
-    private static Set<Field> getObjFields(Object object, boolean getStatic) throws IllegalAccessException, InstantiationException {
+    private static Set<Field> getClassFields(Class<?> clazz, boolean getStatic, boolean getFinal) {
         HashSet<Field> fields = new HashSet<>();
-        Class<?> aClass = object.getClass();
-        Field[] declaredFields = aClass.getDeclaredFields();
-        if (getStatic) {
-            fields.addAll(Arrays.asList(declaredFields));
-        } else {
-            for (int i = 0; i < declaredFields.length; i++) {
-                if (!Modifier.isStatic(declaredFields[i].getModifiers())) {
-                    fields.add(declaredFields[i]);
-                }
+        Field[] declaredFields = clazz.getDeclaredFields();
+        for (int i = 0; i < declaredFields.length; i++) {
+            if (!getStatic && Modifier.isStatic(declaredFields[i].getModifiers())) {
+                continue;
+            } else if (!getFinal && Modifier.isFinal(declaredFields[i].getModifiers())) {
+                continue;
+            } else {
+                fields.add(declaredFields[i]);
             }
         }
         return fields;
@@ -399,11 +401,11 @@ public final class ReflectUtil {
         for (Field sourceField : sourceFields) {
             try {
                 Field targetField = target.getClass().getDeclaredField(sourceField.getName());
+                sourceField.setAccessible(true);
                 Object value = sourceField.get(source);
                 if ((value == null) != matchNull) {
                     continue;
                 }
-                sourceField.setAccessible(true);
                 targetField.setAccessible(true);
                 targetField.set(target, value);
             } catch (NoSuchFieldException ignore) {
@@ -424,11 +426,11 @@ public final class ReflectUtil {
             try {
                 Field targetField = tClass.getDeclaredField(sourceField.getName());
                 sourceField.setAccessible(true);
-                targetField.setAccessible(true);
                 Object value = sourceField.get(source);
                 if ((value == null) && !matchNull) {
                     continue;
                 }
+                targetField.setAccessible(true);
                 targetField.set(t, value);
             } catch (NoSuchFieldException ignore) {
             } catch (IllegalAccessException ignore) {

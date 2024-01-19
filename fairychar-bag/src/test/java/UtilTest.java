@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -21,6 +22,26 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UtilTest {
 
+
+    @Test
+    public void testGetClassFields() {
+        Set<Field> classFields = ReflectUtil.getClassFields(D.class, true, false, false);
+        System.out.println(classFields.stream().map(c -> c.getName()).collect(Collectors.joining(",")));
+
+        classFields = ReflectUtil.getClassFields(D.class, false, false, false);
+        System.out.println(classFields.stream().map(c -> c.getName()).collect(Collectors.joining(",")));
+
+        classFields = ReflectUtil.getClassFields(D.class, false, true, true);
+        System.out.println(classFields.stream().map(c -> c.getName()).collect(Collectors.joining(",")));
+    }
+
+    static class D extends C {
+        private String ddd;
+
+        private static int p1;
+        private final int p2 = 1;
+        private static final int p3 = 1;
+    }
 
     @Test
     @SneakyThrows
