@@ -23,6 +23,7 @@ public final class ReflectUtil {
 
     private static final String regexAll = "*";
 
+
     /**
      * 递归搜索带有指定注解的字段值
      * 该代码以对象和注解类的集合作为输入，并返回一个包含注解作为键和字段容器列表作为值的映射。
@@ -32,26 +33,29 @@ public final class ReflectUtil {
     public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
         HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
         HashSet<Integer> mappedBeans = new HashSet<>();
-        recursiveSearchFieldValueByAnnotations(e, annotations, ref, mappedBeans);
+        recursiveSearchFieldValueByAnnotations(e.getClass().getSimpleName(), e, annotations, ref, mappedBeans);
         return ref;
     }
 
 
-    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
+    private static void recursiveSearchFieldValueByAnnotations(String path, Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
             , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
         if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
             return;
         }
         if (e instanceof Collection) {
             Collection<?> collection = (Collection<?>) e;
+            int index = 0;
             for (Object item : collection) {
-                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
+                String indexPath = path.concat("[").concat(String.valueOf(index++)).concat("]");
+                recursiveSearchFieldValueByAnnotations(indexPath, item, annotations, ref, mappedBeans);
             }
             return;
         } else if (e instanceof Map) {
             Map<?, ?> map = (Map<?, ?>) e;
-            for (Object item : map.values()) {
-                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                String indexPath = path.concat("<").concat(entry.getKey().toString()).concat(">");
+                recursiveSearchFieldValueByAnnotations(indexPath, entry.getValue(), annotations, ref, mappedBeans);
             }
             return;
         }
@@ -60,6 +64,7 @@ public final class ReflectUtil {
         mappedBeans.add(System.identityHashCode(e));
         for (int i = 0; i < declaredFields.length; i++) {
             Field declaredField = declaredFields[i];
+            String indexPath = path.concat(".").concat(declaredField.getName());
 //            declaredField.setAccessible(true);
             for (Class<? extends Annotation> annotation : annotations) {
                 if (declaredField.getAnnotation(annotation) != null) {
@@ -68,7 +73,7 @@ public final class ReflectUtil {
                         fieldContainers = new ArrayList<>();
                         ref.put(annotation, fieldContainers);
                     }
-                    fieldContainers.add(new FieldContainer(e, declaredField));
+                    fieldContainers.add(new FieldContainer(e, declaredField, indexPath));
                     declaredField.setAccessible(true);
                 }
             }
@@ -93,11 +98,88 @@ public final class ReflectUtil {
                     }
                 } catch (IllegalAccessException ignore) {
                 }
-                recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref, mappedBeans);
+                recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
             }
         }
     }
 
+
+//
+//    /**
+//     * 递归搜索带有指定注解的字段值
+//     * 该代码以对象和注解类的集合作为输入，并返回一个包含注解作为键和字段容器列表作为值的映射。
+//     * 字段容器包含有关带有指定注解的字段的信息。
+//     * 支持字段为集合类{@link Collection},{@link Map}支持,如果为集合类则会循环解析获取所有集合内对象的字段
+//     */
+//    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
+//        HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
+//        HashSet<Integer> mappedBeans = new HashSet<>();
+//        recursiveSearchFieldValueByAnnotations(e, annotations, ref, mappedBeans);
+//        return ref;
+//    }
+//
+//
+//    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
+//            , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
+//        if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
+//            return;
+//        }
+//        if (e instanceof Collection) {
+//            Collection<?> collection = (Collection<?>) e;
+//            for (Object item : collection) {
+//                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
+//            }
+//            return;
+//        } else if (e instanceof Map) {
+//            Map<?, ?> map = (Map<?, ?>) e;
+//            for (Object item : map.values()) {
+//                recursiveSearchFieldValueByAnnotations(item, annotations, ref, mappedBeans);
+//            }
+//            return;
+//        }
+//        Field[] declaredFields = e.getClass().getDeclaredFields();
+//        //mark mapped,处理已经解析过的object,通过identityHashCode防止两个对象的hashcode计算相同
+//        mappedBeans.add(System.identityHashCode(e));
+//        for (int i = 0; i < declaredFields.length; i++) {
+//            Field declaredField = declaredFields[i];
+////            declaredField.setAccessible(true);
+//            for (Class<? extends Annotation> annotation : annotations) {
+//                if (declaredField.getAnnotation(annotation) != null) {
+//                    List<FieldContainer> fieldContainers = ref.get(annotation);
+//                    if (fieldContainers == null) {
+//                        fieldContainers = new ArrayList<>();
+//                        ref.put(annotation, fieldContainers);
+//                    }
+//                    fieldContainers.add(new FieldContainer(e, declaredField));
+//                    declaredField.setAccessible(true);
+//                }
+//            }
+//            if (!(!(declaredField.getGenericType() instanceof TypeVariable) && declaredField.getType() == Object.class) &&
+//                    !declaredField.getType().isPrimitive() &&
+//                    !Modifier.isStatic(declaredField.getModifiers()) &&
+//                    !Modifier.isFinal(declaredField.getModifiers()) ||
+//                    declaredField.getType().isMemberClass()
+//            ) {
+//                Object filedObject = null;
+//                declaredField.setAccessible(true);
+//                try {
+//                    filedObject = declaredField.get(e);
+//                    if (filedObject == null || (filedObject.getClass().getPackage() != null &&
+//                            (
+//                                    filedObject.getClass().getPackage().getName().startsWith("java") ||
+//                                            filedObject.getClass().getPackage().getName().startsWith("sun")
+//                            )
+//                    )
+//                    ) {
+//                        continue;
+//                    }
+//                } catch (IllegalAccessException ignore) {
+//                }
+//                recursiveSearchFieldValueByAnnotations(filedObject, annotations, ref, mappedBeans);
+//            }
+//        }
+//    }
+//
 
     /**
      * 递归搜索带有指定注解集合的字段。

@@ -163,6 +163,7 @@ public class UtilTest {
         @FuzzyValue
         List<Role> roleList = new ArrayList<Role>() {{
             add(new Role());
+            add(new Role());
         }};
 
         @FuzzyValue

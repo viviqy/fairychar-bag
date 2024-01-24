@@ -28,4 +28,6 @@ public class FieldContainer {
      * 字段
      */
     private Field field;
+
+    private String path;
 }

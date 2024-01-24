@@ -13,6 +13,7 @@ import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author chiyo
@@ -30,8 +31,11 @@ public class TestMain {
         HttpResult<UtilTest.User> result = new HttpResult<>();
         UtilTest.User user = new UtilTest.User();
         result.setData(user);
-        Map<Class<? extends Annotation>, List<FieldContainer>> map = ReflectUtil.recursiveSearchFieldValueByAnnotations(result, Arrays.asList(FuzzyValue.class));
-        System.out.println(map.get(FuzzyValue.class).size());
+        Map<Class<? extends Annotation>, List<FieldContainer>> map = ReflectUtil
+                .recursiveSearchFieldValueByAnnotations(user, Arrays.asList(FuzzyValue.class));
+        List<FieldContainer> fieldContainers = map.get(FuzzyValue.class);
+        List<String> collect = fieldContainers.stream().map(s -> s.getPath()).collect(Collectors.toList());
+        System.out.println(collect);
     }
 
 
