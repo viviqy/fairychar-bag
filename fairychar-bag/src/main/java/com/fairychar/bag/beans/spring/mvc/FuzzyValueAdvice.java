@@ -70,7 +70,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
         String sourceText = null;
         String replaceText;
         try {
-            sourceText = (String) field.get(fieldContainer.getSourceObject());
+            sourceText = (String) field.get(fieldContainer.getTargetObject());
         } catch (IllegalAccessException ignore) {
         }
         if (fuzzyValue.processor().length == 0) {
@@ -83,7 +83,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
             replaceText = fuzzyValueProcessor.fuzzyValue(sourceText, fuzzyValue);
         }
         try {
-            field.set(fieldContainer.getSourceObject(), replaceText);
+            field.set(fieldContainer.getTargetObject(), replaceText);
         } catch (IllegalAccessException ignore) {
         }
     }

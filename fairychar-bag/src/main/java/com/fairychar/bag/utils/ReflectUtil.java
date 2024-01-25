@@ -43,20 +43,7 @@ public final class ReflectUtil {
         if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
             return;
         }
-        if (e instanceof Collection) {
-            Collection<?> collection = (Collection<?>) e;
-            int index = 0;
-            for (Object item : collection) {
-                String indexPath = path.concat("[").concat(String.valueOf(index++)).concat("]");
-                recursiveSearchFieldValueByAnnotations(indexPath, item, annotations, ref, mappedBeans);
-            }
-            return;
-        } else if (e instanceof Map) {
-            Map<?, ?> map = (Map<?, ?>) e;
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                String indexPath = path.concat("<").concat(entry.getKey().toString()).concat(">");
-                recursiveSearchFieldValueByAnnotations(indexPath, entry.getValue(), annotations, ref, mappedBeans);
-            }
+        if (searchIfInstanceOfCollection(path, e, annotations, ref, mappedBeans)) {
             return;
         }
         Field[] declaredFields = e.getClass().getDeclaredFields();
@@ -68,6 +55,7 @@ public final class ReflectUtil {
 //            declaredField.setAccessible(true);
             for (Class<? extends Annotation> annotation : annotations) {
                 if (declaredField.getAnnotation(annotation) != null) {
+                    //解析到注解
                     List<FieldContainer> fieldContainers = ref.get(annotation);
                     if (fieldContainers == null) {
                         fieldContainers = new ArrayList<>();
@@ -77,30 +65,60 @@ public final class ReflectUtil {
                     declaredField.setAccessible(true);
                 }
             }
-            if (!(!(declaredField.getGenericType() instanceof TypeVariable) && declaredField.getType() == Object.class) &&
-                    !declaredField.getType().isPrimitive() &&
-                    !Modifier.isStatic(declaredField.getModifiers()) &&
-                    !Modifier.isFinal(declaredField.getModifiers()) ||
-                    declaredField.getType().isMemberClass()
-            ) {
+            if (isSimpleField(declaredField)) {
                 Object filedObject = null;
                 declaredField.setAccessible(true);
                 try {
                     filedObject = declaredField.get(e);
-                    if (filedObject == null || (filedObject.getClass().getPackage() != null &&
-                            (
-                                    filedObject.getClass().getPackage().getName().startsWith("java") ||
-                                            filedObject.getClass().getPackage().getName().startsWith("sun")
+                    if (filedObject != null && ((filedObject instanceof Collection) || (filedObject instanceof Map))) {
+                        recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
+                    } else if (
+                            (filedObject != null &&
+                                    !(filedObject.getClass().getPackage() != null
+                                            && (
+                                            filedObject.getClass().getPackage().getName().startsWith("java") ||
+                                                    filedObject.getClass().getPackage().getName().startsWith("sun")
+                                    )
+                                    )
                             )
-                    )
                     ) {
-                        continue;
+                        recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
                     }
                 } catch (IllegalAccessException ignore) {
                 }
-                recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
             }
         }
+    }
+
+    private static boolean isSimpleField(Field declaredField) {
+        return (
+                !(declaredField.getGenericType() instanceof TypeVariable)//不是泛型
+                        && declaredField.getType() != Object.class //不是Object class
+        )
+                && !declaredField.getType().isPrimitive() //不是基础类型
+                && !Modifier.isStatic(declaredField.getModifiers())//不是static
+                && !Modifier.isFinal(declaredField.getModifiers())//不是final
+                || declaredField.getType().isMemberClass();//或者可以是匿名内部类
+    }
+
+    private static boolean searchIfInstanceOfCollection(String path, Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
+        if (e instanceof Collection) {
+            Collection<?> collection = (Collection<?>) e;
+            int index = 0;
+            for (Object item : collection) {
+                String indexPath = path.concat("[").concat(String.valueOf(index++)).concat("]");
+                recursiveSearchFieldValueByAnnotations(indexPath, item, annotations, ref, mappedBeans);
+            }
+            return true;
+        } else if (e instanceof Map) {
+            Map<?, ?> map = (Map<?, ?>) e;
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                String indexPath = path.concat("<").concat(entry.getKey().toString()).concat(">");
+                recursiveSearchFieldValueByAnnotations(indexPath, entry.getValue(), annotations, ref, mappedBeans);
+            }
+            return true;
+        }
+        return false;
     }
 
 

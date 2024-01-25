@@ -35,7 +35,7 @@ public class TestMain {
                 .recursiveSearchFieldValueByAnnotations(user, Arrays.asList(FuzzyValue.class));
         List<FieldContainer> fieldContainers = map.get(FuzzyValue.class);
         List<String> collect = fieldContainers.stream().map(s -> s.getPath()).collect(Collectors.toList());
-        System.out.println(collect);
+        collect.forEach(System.out::println);
     }
 
 

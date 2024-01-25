@@ -21,13 +21,16 @@ import java.lang.reflect.Field;
 public class FieldContainer {
 
     /**
-     * 源对象
+     * 目标对象
      */
-    private Object sourceObject;
+    private Object targetObject;
     /**
      * 字段
      */
     private Field field;
 
+    /**
+     * 字段全路径,如A.b.c.name
+     */
     private String path;
 }

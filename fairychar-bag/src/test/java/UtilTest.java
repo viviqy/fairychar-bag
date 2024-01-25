@@ -141,7 +141,7 @@ public class UtilTest {
                 .filter(c -> c.getField().getType() == String.class)
                 .map(c -> {
                     try {
-                        return ((String) c.getField().get(c.getSourceObject()));
+                        return ((String) c.getField().get(c.getTargetObject()));
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(e);
                     }
