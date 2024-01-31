@@ -33,10 +33,10 @@ public final class FileUtil {
             Assert.notNull(concatFiles[i], String.format("concat file can not be null,index=%d", i));
             Assert.isTrue(concatFiles[i].isFile(), String.format("head file should be a file,index=%d", i));
         }
-        try {
-            FileOutputStream outputStream = new FileOutputStream(outputPath);
+        try (FileOutputStream outputStream = new FileOutputStream(outputPath);
+             FileInputStream headFileInputStream = new FileInputStream(head)
+        ) {
             byte[] buffer = new byte[1024];
-            FileInputStream headFileInputStream = new FileInputStream(head);
             while (headFileInputStream.read(buffer) > 0) {
                 outputStream.write(buffer);
             }
@@ -45,6 +45,7 @@ public final class FileUtil {
                 while (inputStream.read(buffer) > 0) {
                     outputStream.write(buffer);
                 }
+                inputStream.close();
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

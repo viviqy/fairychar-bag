@@ -29,6 +29,6 @@ public class ParentActionCondition {
     @Override
     public boolean equals(Object obj) {
         ParentActionCondition param = (ParentActionCondition) obj;
-        return param.parentClass.equals(this.parentClass);
+        return this.parentClass.equals(param.parentClass);
     }
 }

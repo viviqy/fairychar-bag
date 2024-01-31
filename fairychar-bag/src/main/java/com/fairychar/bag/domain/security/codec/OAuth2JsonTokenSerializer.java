@@ -57,11 +57,10 @@ public class OAuth2JsonTokenSerializer extends StdSerializer<OAuth2JsonToken> {
             jgen.writeStringField(OAuth2AccessToken.SCOPE, scopes.substring(0, scopes.length() - 1));
         }
         Map<String, Object> additionalInformation = token.getAdditionalInformation();
-        for (String key : additionalInformation.keySet()) {
-            jgen.writeObjectField(key, additionalInformation.get(key));
+        for (Map.Entry<String, Object> entry : additionalInformation.entrySet()) {
+            jgen.writeObjectField(entry.getKey(), entry.getValue());
         }
         jgen.writeEndObject();
-
         jgen.writeObjectField("msg", oAuth2AccessToken.getMsg());
         jgen.writeEndObject();
     }

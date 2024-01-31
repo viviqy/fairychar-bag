@@ -2,7 +2,6 @@ package com.fairychar.bag.utils;
 
 
 import com.fairychar.bag.domain.exceptions.ParamErrorException;
-import com.google.common.base.Strings;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.BindingResult;
@@ -20,18 +19,18 @@ public final class BindingResultUtil {
     private static final String LINER = "\r\n";
 
     public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException {
-        String errors = "";
+        StringBuffer errors = new StringBuffer();
         for (BindingResult bindingResult : bindingResults) {
             if (bindingResult.hasErrors()) {
-                errors += bindingResult
+                errors.append(bindingResult
                         .getFieldErrors().stream()
                         .map(e -> "[" + e.getField() + "]" + " " + e.getDefaultMessage())
-                        .collect(Collectors.joining(","));
-                errors.concat(LINER);
+                        .collect(Collectors.joining(",")));
+                errors.append(LINER);
             }
         }
-        if (!Strings.isNullOrEmpty(errors)) {
-            throw new ParamErrorException(errors);
+        if (errors.length() > 0) {
+            throw new ParamErrorException(errors.toString());
         }
     }
 

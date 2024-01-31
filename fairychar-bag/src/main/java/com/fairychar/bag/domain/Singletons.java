@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.springframework.util.AntPathMatcher;
 
+import java.util.Random;
+
 /**
  * 常用单例属性类
  *
@@ -11,6 +13,30 @@ import org.springframework.util.AntPathMatcher;
  * @since 1.0.2
  */
 public class Singletons {
+
+    public static class RandomTon {
+        private RandomTon() {
+
+        }
+
+        private enum Singleton {
+            INSTANCE;
+
+            Singleton() {
+                instance = new Random(System.currentTimeMillis());
+            }
+
+            private final Random instance;
+
+            public Random getInstance() {
+                return INSTANCE.instance;
+            }
+        }
+
+        public static Random getInstance() {
+            return Singleton.INSTANCE.getInstance();
+        }
+    }
 
     public static class PathMatcher {
         private PathMatcher() {

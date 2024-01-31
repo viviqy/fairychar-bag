@@ -2,7 +2,6 @@ package com.fairychar.bag.beans.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.fairychar.bag.domain.security.AuditUser;
-import lombok.AllArgsConstructor;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -15,13 +14,29 @@ import java.util.Optional;
  *
  * @author chiyo
  */
-@AllArgsConstructor
 public class SecurityAuditObjectHandler implements MetaObjectHandler {
-    private final String createBy = "createBy";
-    private final String createTime = "createTime";
-    private final String updateBy = "updateBy";
-    private final String updateTime = "updateTime";
-    private final String tenantId = "tenantId";
+
+    public SecurityAuditObjectHandler() {
+        this.createBy = "createBy";
+        this.createTime = "createTime";
+        this.updateBy = "updateBy";
+        this.updateTime = "updateTime";
+        this.tenantId = "tenantId";
+    }
+
+    public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime, String tenantId) {
+        this.createBy = createBy;
+        this.createTime = createTime;
+        this.updateBy = updateBy;
+        this.updateTime = updateTime;
+        this.tenantId = tenantId;
+    }
+
+    private final String createBy;
+    private final String createTime;
+    private final String updateBy;
+    private final String updateTime;
+    private final String tenantId;
 
     @Override
     public void insertFill(MetaObject metaObject) {

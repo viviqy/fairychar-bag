@@ -8,6 +8,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.DecoderException;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,8 +40,8 @@ public class DelimitersHeadTailFrameDecoder extends ByteToMessageDecoder {
     private boolean isMatchedHeader = false;
 
     public DelimitersHeadTailFrameDecoder(byte[] head, byte[] tail, int maxCapacity) {
-        this.head = head;
-        this.tail = tail;
+        this.head = Arrays.copyOf(head, head.length);
+        this.tail = Arrays.copyOf(tail, tail.length);
         this.cache = Unpooled.buffer(maxCapacity);
     }
 
