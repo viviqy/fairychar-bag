@@ -8,9 +8,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * Date: 2020/5/20
- * time: 16:46
- *
  * @author chiyo
  * @since 1.0
  */

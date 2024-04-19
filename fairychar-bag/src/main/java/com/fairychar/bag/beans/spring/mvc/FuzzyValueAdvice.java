@@ -6,6 +6,7 @@ import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.google.common.base.Strings;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -26,16 +27,18 @@ import java.util.Map;
  * @since 1.0.2
  */
 @ControllerAdvice
+@Order(100)
 public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
     @Override
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        return methodParameter.getMethod().getAnnotation(FuzzyResult.class) != null;
+    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
+        return returnType.getMethod().getAnnotation(FuzzyResult.class) != null;
     }
 
     @Override
-    public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        FuzzyResult fuzzyResult = methodParameter.getMethod().getAnnotation(FuzzyResult.class);
-        Object analyzeObject = o;
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType
+            , Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+        FuzzyResult fuzzyResult = returnType.getMethod().getAnnotation(FuzzyResult.class);
+        Object analyzeObject = body;
         String fieldWrapper = fuzzyResult.field();
         if (!fieldWrapper.isEmpty()) {
             String[] tree = fieldWrapper.split("\\.");
@@ -61,7 +64,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
                 }
             }
         }
-        return o;
+        return body;
     }
 
     private void wrapProperty(FieldContainer fieldContainer) {

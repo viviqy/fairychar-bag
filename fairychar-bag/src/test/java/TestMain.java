@@ -11,8 +11,11 @@ import org.junit.Test;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -20,6 +23,28 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
 
+
+    @Test
+    public void testMatch() {
+        String input = "aacdbbcc12dddcc";
+        String pattern = "(.)\\1\\1+";
+
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(input);
+
+        Map<String, Integer> repeatedCharsCount = new HashMap<>();
+
+        while (matcher.find()) {
+            String repeatedChars = matcher.group();
+            int count = repeatedCharsCount.getOrDefault(repeatedChars, 0);
+            repeatedCharsCount.put(repeatedChars, count + 1);
+        }
+
+        System.out.println("叠字及其出现次数：");
+        for (Map.Entry<String, Integer> entry : repeatedCharsCount.entrySet()) {
+            System.out.println("叠字：" + entry.getKey() + ", 出现次数：" + entry.getValue());
+        }
+    }
 
     @Test
     @SneakyThrows

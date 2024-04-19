@@ -14,8 +14,9 @@ public interface Action {
      *
      * @throws InterruptedException 打断触发
      * @throws TimeoutException     超时触发
+     * @throws RuntimeException     运行时异常
      */
-    void doAction() throws InterruptedException, TimeoutException;
+    void doAction() throws InterruptedException, TimeoutException, RuntimeException;
 
 
 }

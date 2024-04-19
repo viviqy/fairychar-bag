@@ -73,14 +73,7 @@ public final class ReflectUtil {
                     if (filedObject != null && ((filedObject instanceof Collection) || (filedObject instanceof Map))) {
                         recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
                     } else if (
-                            (filedObject != null &&
-                                    !(filedObject.getClass().getPackage() != null
-                                            && (
-                                            filedObject.getClass().getPackage().getName().startsWith("java") ||
-                                                    filedObject.getClass().getPackage().getName().startsWith("sun")
-                                    )
-                                    )
-                            )
+                            isNotJavaClass(filedObject)
                     ) {
                         recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
                     }
@@ -88,6 +81,16 @@ public final class ReflectUtil {
                 }
             }
         }
+    }
+
+    private static boolean isNotJavaClass(Object filedObject) {
+        return filedObject != null &&
+                !(filedObject.getClass().getPackage() != null
+                        && (
+                        filedObject.getClass().getPackage().getName().startsWith("java") ||
+                                filedObject.getClass().getPackage().getName().startsWith("sun")
+                )
+                );
     }
 
     private static boolean isSimpleField(Field declaredField) {
@@ -107,14 +110,18 @@ public final class ReflectUtil {
             int index = 0;
             for (Object item : collection) {
                 String indexPath = path.concat("[").concat(String.valueOf(index++)).concat("]");
-                recursiveSearchFieldValueByAnnotations(indexPath, item, annotations, ref, mappedBeans);
+                if (isNotJavaClass(item)) {
+                    recursiveSearchFieldValueByAnnotations(indexPath, item, annotations, ref, mappedBeans);
+                }
             }
             return true;
         } else if (e instanceof Map) {
             Map<?, ?> map = (Map<?, ?>) e;
             for (Map.Entry<?, ?> entry : map.entrySet()) {
                 String indexPath = path.concat("<").concat(entry.getKey().toString()).concat(">");
-                recursiveSearchFieldValueByAnnotations(indexPath, entry.getValue(), annotations, ref, mappedBeans);
+                if (isNotJavaClass(entry.getValue())) {
+                    recursiveSearchFieldValueByAnnotations(indexPath, entry.getValue(), annotations, ref, mappedBeans);
+                }
             }
             return true;
         }

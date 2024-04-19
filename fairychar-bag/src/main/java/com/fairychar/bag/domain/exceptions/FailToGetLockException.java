@@ -8,7 +8,7 @@ package com.fairychar.bag.domain.exceptions;
  * @author chiyo
  * @since 1.0
  */
-public class FailToGetLockException extends Exception {
+public class FailToGetLockException extends RuntimeException {
 }
 /*
                                       /[-])//  ___        
