@@ -1,7 +1,7 @@
 package com.fairychar.bag.beans.netty.client;
 
 import cn.hutool.core.lang.Assert;
-import com.fairychar.bag.domain.enums.State;
+import com.fairychar.bag.domain.enums.RunState;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -47,7 +47,7 @@ public class SimpleNettyClient {
     @Getter
     private ChannelInitializer<SocketChannel> childHandlers;
     @Getter
-    private State state = State.UN_INITIALIZE;
+    private RunState runState = RunState.UN_INITIALIZE;
     @Getter
     @Setter
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
@@ -74,7 +74,7 @@ public class SimpleNettyClient {
         this.checkArgs();
         this.worker = new NioEventLoopGroup(this.workerSize);
         this.bootstrap = new Bootstrap();
-        this.state = State.STARTING;
+        this.runState = RunState.STARTING;
         try {
             this.channel = this.bootstrap.group(this.worker)
                     .channel(NioSocketChannel.class)
@@ -85,22 +85,22 @@ public class SimpleNettyClient {
             log.info("client connected to {}:{}", this.host, this.port);
         } catch (Exception e) {
             log.error("{}", e.getMessage());
-            this.state = State.STOPPED;
+            this.runState = RunState.STOPPED;
         }
-        this.state = State.STARTED;
+        this.runState = RunState.STARTED;
     }
 
     @PreDestroy
     public void stop() {
         log.info("client disconnecting....");
-        this.state = State.STOPPING;
+        this.runState = RunState.STOPPING;
         try {
             this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             this.worker.shutdownGracefully();
         }
         log.info("client disconnected");
-        this.state = State.STOPPED;
+        this.runState = RunState.STOPPED;
     }
 
 

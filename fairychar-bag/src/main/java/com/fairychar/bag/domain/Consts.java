@@ -3,6 +3,7 @@ package com.fairychar.bag.domain;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -31,6 +32,8 @@ public final class Consts {
 
     public static DateTimeFormatter SIMPLE_DATE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT);
 
+    public static LocalDateTime MYSQL_MAX_DATETIME = LocalDateTime.parse("9999-12-31 23:59:59", SIMPLE_DATE_TIME_FORMATTER);
+    public static LocalDateTime MYSQL_MAX_TIMESTAMP = LocalDateTime.parse("2038-01-19 03:14:07", SIMPLE_DATE_TIME_FORMATTER);
 
     public static final class OAuth2 {
         public static final String AUTHORIZATION_CODE = "authorization_code";
@@ -45,28 +48,3 @@ public final class Consts {
         public static String URL = "^(http|https):\\/\\/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}([\\/a-zA-Z0-9#.-]*)*$";
     }
 }
-/*
-                                      /[-])//  ___        
-                                 __ --\ `_/~--|  / \      
-                               /_-/~~--~~ /~~~\\_\ /\     
-                               |  |___|===|_-- | \ \ \    
-____________ _/~~~~~~~~|~~\,   ---|---\___/----|  \/\-\   
-____________ ~\________|__/   / // \__ |  ||  / | |   | | 
-                      ,~-|~~~~~\--, | \|--|/~|||  |   | | 
-                      [3-|____---~~ _--'==;/ _,   |   |_| 
-                                  /   /\__|_/  \  \__/--/ 
-                                 /---/_\  -___/ |  /,--|  
-                                 /  /\/~--|   | |  \///   
-                                /  / |-__ \    |/         
-                               |--/ /      |-- | \        
-                              \^~~\\/\      \   \/- _     
-                               \    |  \     |~~\~~| \    
-                                \    \  \     \   \  | \  
-                                  \    \ |     \   \    \ 
-                                   |~~|\/\|     \   \   | 
-                                  |   |/         \_--_- |\
-                                  |  /            /   |/\/
-                                   ~~             /  /    
-                                                 |__/   W<
-
-*/

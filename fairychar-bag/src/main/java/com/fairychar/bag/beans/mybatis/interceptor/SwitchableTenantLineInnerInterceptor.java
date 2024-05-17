@@ -47,6 +47,7 @@ import java.util.Map;
  * @author chiyo
  * @since 1.0.2
  */
+//TODO 还没怎么测试
 public class SwitchableTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
 
     public SwitchableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler) {
