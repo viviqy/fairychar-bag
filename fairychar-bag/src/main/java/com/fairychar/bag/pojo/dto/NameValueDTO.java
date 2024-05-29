@@ -1,6 +1,7 @@
 package com.fairychar.bag.pojo.dto;
 
-import io.swagger.annotations.ApiModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-@ApiModel("key-value格式数据")
+@Schema(description = "key-value格式数据")
 public class NameValueDTO<T> implements Serializable {
 
     private String name;

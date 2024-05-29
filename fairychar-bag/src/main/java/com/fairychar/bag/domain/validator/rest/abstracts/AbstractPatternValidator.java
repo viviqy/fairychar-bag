@@ -1,6 +1,7 @@
 package com.fairychar.bag.domain.validator.rest.abstracts;
 
-import javax.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidator;
+
 import java.lang.annotation.Annotation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

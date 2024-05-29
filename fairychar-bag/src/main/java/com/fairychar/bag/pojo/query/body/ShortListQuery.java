@@ -1,6 +1,7 @@
 package com.fairychar.bag.pojo.query.body;
 
-import io.swagger.annotations.ApiModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "ShortList", description = "Short类型Json请求集合")
+@Schema(name = "ShortList", description = "Short类型Json请求集合")
 public final class ShortListQuery implements Serializable {
     private List<Short> list;
 }

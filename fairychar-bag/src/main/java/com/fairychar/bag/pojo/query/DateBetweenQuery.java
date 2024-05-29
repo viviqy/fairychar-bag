@@ -1,7 +1,9 @@
 package com.fairychar.bag.pojo.query;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import com.fairychar.bag.domain.Consts;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +22,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-@ApiModel("日期段查询")
+@Schema(description = "日期段查询")
 public class DateBetweenQuery implements Serializable {
-    @ApiModelProperty("起始时间")
+    @Schema(description = "起始时间")
+    @JsonFormat(pattern = Consts.SIMPLE_DATE_FORMAT)
     private LocalDate from;
-    @ApiModelProperty("结束时间")
+    @Schema(description = "结束时间")
+    @JsonFormat(pattern = Consts.SIMPLE_DATE_FORMAT)
     private LocalDate to;
 }
 /*

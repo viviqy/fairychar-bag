@@ -1,6 +1,7 @@
 package com.fairychar.bag.pojo.ao;
 
-import io.swagger.annotations.ApiModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@ApiModel(value = "MappingObjectAO", description = "前端Map渲染对象")
+@Schema(name = "MappingObjectAO", description = "前端Map渲染对象")
 public class MappingObjectAO<K, V> implements Serializable {
     private K key;
     private long count;

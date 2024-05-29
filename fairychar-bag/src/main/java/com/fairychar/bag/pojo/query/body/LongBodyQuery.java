@@ -1,6 +1,7 @@
 package com.fairychar.bag.pojo.query.body;
 
-import io.swagger.annotations.ApiModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "LongBody", description = "Long类型Json请求体")
+@Schema(name = "LongBody", description = "Long类型Json请求体")
 public class LongBodyQuery implements Serializable {
     private Long body;
 }

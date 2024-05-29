@@ -1,9 +1,9 @@
 package com.fairychar.bag.domain.validator.rest;
 
 import cn.hutool.core.util.IdcardUtil;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 
 /**
  * Datetime: 2022/2/16 14:31

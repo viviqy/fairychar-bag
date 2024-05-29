@@ -2,8 +2,8 @@ package com.fairychar.bag.domain.validator.rest;
 
 import cn.hutool.core.util.PhoneUtil;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 /**
  * Datetime: 2022/2/16 14:31

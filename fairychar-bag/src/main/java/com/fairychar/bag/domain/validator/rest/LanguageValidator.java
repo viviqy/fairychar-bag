@@ -1,8 +1,8 @@
 package com.fairychar.bag.domain.validator.rest;
 
 import com.fairychar.bag.domain.validator.rest.abstracts.AbstractPatternValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
-import javax.validation.ConstraintValidatorContext;
 
 /**
  * 语言验证程序

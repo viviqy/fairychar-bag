@@ -3,7 +3,7 @@ package com.fairychar.bag.domain.validator.rest;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.validator.rest.abstracts.AbstractPatternValidator;
 
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidatorContext;
 
 /**
  * URL 验证器
