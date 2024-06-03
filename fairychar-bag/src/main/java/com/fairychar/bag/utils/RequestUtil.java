@@ -32,7 +32,7 @@ public final class RequestUtil {
         HttpServletRequest request = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
                 .map(a -> a.getRequest())
-                .orElseThrow(() -> new ServiceException(500, null, "failed to get request"));
+                .orElseThrow(() -> new ServiceException("failed to get request", 500, null));
         return request;
     }
 
@@ -45,7 +45,7 @@ public final class RequestUtil {
         HttpServletResponse response = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
                 .map(a -> a.getResponse())
-                .orElseThrow(() -> new ServiceException(500, null, "failed to get response"));
+                .orElseThrow(() -> new ServiceException("failed to get response", 500, null));
         return response;
     }
 
@@ -59,7 +59,7 @@ public final class RequestUtil {
     public static <T> void putAttribute(String keyName, T attribute) {
         ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
-                .orElseThrow(() -> new ServiceException(500, null, "failed to get servlet attributes"));
+                .orElseThrow(() -> new ServiceException("failed to get servlet attributes", 500, null));
         requestAttributes.getRequest().setAttribute(keyName, attribute);
     }
 
@@ -67,13 +67,13 @@ public final class RequestUtil {
      * 从当前thread的request获取属性
      *
      * @param keyName 键名
-     * @param tClass  t类
+     * @param clazz   clazz
      * @return {@link T}
      */
-    public static <T> T getAttribute(String keyName, Class<T> tClass) {
+    public static <T> T getAttribute(String keyName, Class<T> clazz) {
         ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
-                .orElseThrow(() -> new ServiceException(500, null, "failed to get servlet attributes"));
+                .orElseThrow(() -> new ServiceException("failed to get servlet attributes", 500, null));
         Object attribute = requestAttributes.getRequest().getAttribute(keyName);
         return (T) attribute;
     }

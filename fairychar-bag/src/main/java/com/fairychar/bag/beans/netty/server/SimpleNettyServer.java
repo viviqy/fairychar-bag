@@ -1,7 +1,7 @@
 package com.fairychar.bag.beans.netty.server;
 
 import cn.hutool.core.lang.Assert;
-import com.fairychar.bag.domain.enums.State;
+import com.fairychar.bag.domain.enums.RunState;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -58,7 +58,7 @@ public class SimpleNettyServer {
     @Getter
     private ChannelInitializer<SocketChannel> childHandlers;
     @Getter
-    private State state = State.UN_INITIALIZE;
+    private RunState runState = RunState.UN_INITIALIZE;
     @Getter
     @Setter
     private int maxShutdownWaitSeconds = Integer.MAX_VALUE;
@@ -92,7 +92,7 @@ public class SimpleNettyServer {
         this.boss = new NioEventLoopGroup(this.bossSize);
         this.worker = new NioEventLoopGroup(this.workerSize);
         this.serverBootstrap = new ServerBootstrap();
-        this.state = State.STARTING;
+        this.runState = RunState.STARTING;
         try {
             ServerBootstrap channel = this.serverBootstrap.group(this.boss, this.worker)
                     .channel(NioServerSocketChannel.class);
@@ -104,13 +104,13 @@ public class SimpleNettyServer {
             log.error("{}", e.getMessage());
             this.stop();
         }
-        this.state = State.STARTED;
+        this.runState = RunState.STARTED;
     }
 
     @PreDestroy
     public void stop() {
         log.info("server stopping....");
-        this.state = State.STOPPING;
+        this.runState = RunState.STOPPING;
         try {
             this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
@@ -118,7 +118,7 @@ public class SimpleNettyServer {
             this.worker.shutdownGracefully();
         }
         log.info("server stopped");
-        this.state = State.STOPPED;
+        this.runState = RunState.STOPPED;
     }
 
 

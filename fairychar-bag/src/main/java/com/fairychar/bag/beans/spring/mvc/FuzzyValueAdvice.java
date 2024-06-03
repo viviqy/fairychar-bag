@@ -1,6 +1,7 @@
 package com.fairychar.bag.beans.spring.mvc;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.fairychar.bag.domain.exceptions.ServiceException;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
@@ -48,14 +49,13 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
                     childField.setAccessible(true);
                     analyzeObject = childField.get(analyzeObject);
                 }
-            } catch (NoSuchFieldException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                throw new ServiceException(e);
             }
         }
 
-        Map<Class<? extends Annotation>, List<FieldContainer>> containerMap = ReflectUtil.recursiveSearchFieldValueByAnnotations(analyzeObject, Arrays.asList(FuzzyValue.class));
+        Map<Class<? extends Annotation>, List<FieldContainer>> containerMap =
+                ReflectUtil.recursiveSearchFieldValueByAnnotations(analyzeObject, Arrays.asList(FuzzyValue.class));
         List<FieldContainer> fieldContainers = containerMap.get(FuzzyValue.class);
         if (!CollectionUtil.isEmpty(fieldContainers)) {
             for (FieldContainer fieldContainer : fieldContainers) {

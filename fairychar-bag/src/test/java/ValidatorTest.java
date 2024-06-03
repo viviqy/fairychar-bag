@@ -1,3 +1,4 @@
+import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.IP;
 import com.fairychar.bag.domain.validator.rest.Language;
 import com.fairychar.bag.domain.validator.rest.Url;
@@ -19,6 +20,12 @@ import java.util.Set;
 public class ValidatorTest {
 
     private static Validator validator;
+
+
+    public static class FuzzyEntity {
+        @FuzzyValue
+        private String name;
+    }
 
     @Test
     public void testIp() {

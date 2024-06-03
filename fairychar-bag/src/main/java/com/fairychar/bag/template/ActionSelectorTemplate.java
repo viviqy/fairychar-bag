@@ -2,7 +2,7 @@ package com.fairychar.bag.template;
 
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
-import com.fairychar.bag.domain.enums.State;
+import com.fairychar.bag.domain.enums.RunState;
 import com.fairychar.bag.extension.concurrent.ActionSchedule;
 import com.fairychar.bag.function.Action;
 import lombok.NoArgsConstructor;
@@ -30,7 +30,7 @@ public class ActionSelectorTemplate {
     private long timePause = 100;
 
     private ExecutorService worker = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-    private State state = State.UN_INITIALIZE;
+    private RunState runState = RunState.UN_INITIALIZE;
 
 
     public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker) {
@@ -39,7 +39,7 @@ public class ActionSelectorTemplate {
     }
 
     public void start() {
-        this.state = State.WORKING;
+        this.runState = RunState.WORKING;
         this.boss.execute(() -> {
             while (true) {
                 this.selector.values().iterator().forEachRemaining(c -> {
@@ -73,25 +73,25 @@ public class ActionSelectorTemplate {
 
     @PreDestroy
     public void shutdownGracefully() {
-        this.checkState(this.state != State.WORKING, "actionSchedules not started");
-        this.state = State.STOPPING;
+        this.checkState(this.runState != RunState.WORKING, "actionSchedules not started");
+        this.runState = RunState.STOPPING;
         log.info("{}", "shutting down actionSchedules");
         if (this.worker.isShutdown()) {
             return;
         }
         this.boss.shutdown();
         this.worker.shutdown();
-        this.state = State.STOPPED;
+        this.runState = RunState.STOPPED;
     }
 
     public void shutdownNow() {
-        this.checkState(this.state != State.WORKING, "actionSchedules not started");
+        this.checkState(this.runState != RunState.WORKING, "actionSchedules not started");
         if (this.worker.isShutdown()) {
             return;
         }
         this.boss.shutdownNow();
         this.worker.shutdownNow();
-        this.state = State.STOPPED;
+        this.runState = RunState.STOPPED;
     }
 
     public void remove(String taskName) {
@@ -110,7 +110,7 @@ public class ActionSelectorTemplate {
     }
 
     public void put(String taskName, long period, AbstractScheduleAction action) {
-        this.checkState(this.state == State.STOPPING, "cant add new task when on stopping state");
+        this.checkState(this.runState == RunState.STOPPING, "cant add new task when on stopping state");
         ActionSchedule actionSchedule = new ActionSchedule(taskName, period, action);
         this.checkArgs(actionSchedule);
         this.selector.put(actionSchedule.getTaskName(), actionSchedule);

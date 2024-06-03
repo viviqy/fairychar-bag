@@ -5,7 +5,7 @@ package com.fairychar.bag.domain.enums;
  *
  * @author qiyue
  */
-public enum State {
+public enum RunState {
     /**
      * 无状态
      */
