@@ -23,8 +23,6 @@ public class FairycharBagProperties {
     @NestedConfigurationProperty
     private SecretProperties secret;
     @NestedConfigurationProperty
-    private HystrixProperties hystrix;
-    @NestedConfigurationProperty
     private WebProperties web;
 
 }

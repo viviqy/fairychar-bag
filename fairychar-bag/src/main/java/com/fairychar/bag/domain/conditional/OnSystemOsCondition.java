@@ -1,6 +1,6 @@
 package com.fairychar.bag.domain.conditional;
 
-import com.sun.media.jfxmediaimpl.HostUtils;
+import cn.hutool.system.SystemUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -23,13 +23,11 @@ class OnSystemOsCondition implements Condition {
         log.info("os=[{}],condition=[{}]", os, condition);
         switch (os) {
             case Windows:
-                return HostUtils.isWindows() & condition;
+                return SystemUtil.getOsInfo().isWindows() & condition;
             case Linux:
-                return HostUtils.isLinux() & condition;
+                return SystemUtil.getOsInfo().isLinux() & condition;
             case MacOSX:
-                return HostUtils.isMacOSX() & condition;
-            case IOS:
-                return HostUtils.isIOS() & condition;
+                return SystemUtil.getOsInfo().isMac() & condition;
             default:
                 return false;
         }

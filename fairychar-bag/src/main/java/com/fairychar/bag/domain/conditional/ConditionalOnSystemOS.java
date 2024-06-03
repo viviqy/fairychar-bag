@@ -25,6 +25,7 @@ public @interface ConditionalOnSystemOS {
     boolean condition();
 
     enum OS {
-        Windows(), Linux(), MacOSX(), IOS();
+        Windows(), Linux(), MacOSX(),
+        ;
     }
 }

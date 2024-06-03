@@ -29,11 +29,11 @@ import java.lang.reflect.Method;
  * @author chiyo
  * @date 2023/10/11
  */
-public class LockEvaluationContext extends MethodBasedEvaluationContext {
+public class SimpleEvaluationContext extends MethodBasedEvaluationContext {
 
 
-    public LockEvaluationContext(Object rootObject, Method method, Object[] arguments,
-                                 ParameterNameDiscoverer parameterNameDiscoverer) {
+    public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,
+                                   ParameterNameDiscoverer parameterNameDiscoverer) {
 
         super(rootObject, method, arguments, parameterNameDiscoverer);
     }

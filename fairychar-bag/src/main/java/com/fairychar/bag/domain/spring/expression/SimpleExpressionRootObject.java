@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
  * @author chiyo
  * @since 1.0.2
  */
-public class LockExpressionRootObject {
+public class SimpleExpressionRootObject {
 
 
     private final Method method;
@@ -32,7 +32,7 @@ public class LockExpressionRootObject {
     private final Object[] args;
 
 
-    public LockExpressionRootObject(
+    public SimpleExpressionRootObject(
             Method method, Object[] args) {
         this.method = method;
         this.args = args;

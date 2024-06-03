@@ -4,8 +4,8 @@ import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.exceptions.FailToGetLockException;
-import com.fairychar.bag.domain.spring.expression.LockEvaluationContext;
-import com.fairychar.bag.domain.spring.expression.LockExpressionRootObject;
+import com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext;
+import com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject;
 import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import com.fairychar.bag.template.CacheOperateTemplate;
@@ -245,8 +245,8 @@ public class MethodLockAspectJ implements InitializingBean {
 
 
     public EvaluationContext createEvaluationContext(Method method, Object[] args) {
-        LockExpressionRootObject rootObject = new LockExpressionRootObject(method, args);
-        LockEvaluationContext evaluationContext = new LockEvaluationContext(rootObject, method, args, this.parameterNameDiscoverer);
+        SimpleExpressionRootObject rootObject = new SimpleExpressionRootObject(method, args);
+        SimpleEvaluationContext evaluationContext = new SimpleEvaluationContext(rootObject, method, args, this.parameterNameDiscoverer);
         return evaluationContext;
     }
 

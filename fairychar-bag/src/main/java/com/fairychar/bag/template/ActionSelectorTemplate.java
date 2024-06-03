@@ -5,11 +5,11 @@ import com.fairychar.bag.domain.abstracts.AbstractScheduleAction;
 import com.fairychar.bag.domain.enums.RunState;
 import com.fairychar.bag.extension.concurrent.ActionSchedule;
 import com.fairychar.bag.function.Action;
+import jakarta.annotation.PreDestroy;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PreDestroy;
 import java.util.Map;
 import java.util.concurrent.*;
 

@@ -2,7 +2,6 @@ package com.fairychar.bag.beans.mybatis.interceptor;
 
 import cn.hutool.core.lang.Assert;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
-import com.baomidou.mybatisplus.core.parser.SqlParserHelper;
 import com.baomidou.mybatisplus.core.plugins.InterceptorIgnoreHelper;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
@@ -47,7 +46,6 @@ import java.util.Map;
  * @author chiyo
  * @since 1.0.2
  */
-//TODO 还没怎么测试
 public class SwitchableTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
 
     public SwitchableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler) {
@@ -57,8 +55,9 @@ public class SwitchableTenantLineInnerInterceptor extends TenantLineInnerInterce
 
     @Override
     public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
-        if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) return;
-        if (SqlParserHelper.getSqlParserInfo(ms)) return;
+        if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) {
+            return;
+        }
         if (!useTenant(parameter)) return;
         PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
         mpBs.sql(parserSingle(mpBs.sql(), null));
