@@ -83,7 +83,7 @@ public class FlowBuilder {
         FlowJson rootJson = new FlowJson();
         rootJson.currentNodeClass = rootJson.getClass().getName();
         this.eachNode(rootJson, this.rootFlow.getTrueFlow(), this.rootFlow.getFalseFlow());
-        String json = Singletons.JSON.getInstance().writeValueAsString(rootJson);
+        String json = Singletons.JsonBean.getInstance().writeValueAsString(rootJson);
         this.jsonCache = json;
         return this.jsonCache;
     }

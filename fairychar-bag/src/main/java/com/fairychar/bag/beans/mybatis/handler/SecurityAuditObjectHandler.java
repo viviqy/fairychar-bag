@@ -3,6 +3,7 @@ package com.fairychar.bag.beans.mybatis.handler;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.fairychar.bag.domain.security.AuditUser;
 import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

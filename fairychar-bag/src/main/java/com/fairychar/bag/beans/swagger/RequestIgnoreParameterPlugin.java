@@ -2,12 +2,6 @@ package com.fairychar.bag.beans.swagger;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import springfox.documentation.service.ListVendorExtension;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.service.VendorExtension;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
 
 import java.lang.reflect.Field;
 import java.util.*;

@@ -19,7 +19,7 @@ class OnRandomNumberCondition implements Condition {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnRandomNumber.class.getName());
         int end = (int) annotationAttributes.get("end");
         int number = (int) annotationAttributes.get("number");
-        Random random = Singletons.RandomTon.getInstance();
+        Random random = Singletons.RandomBean.getInstance();
         int randomNumber = random.nextInt(end);
         if (randomNumber == number) {
             return true;

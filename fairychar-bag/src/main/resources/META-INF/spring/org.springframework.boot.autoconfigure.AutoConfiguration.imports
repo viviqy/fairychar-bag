@@ -1,0 +1,2 @@
+com.fairychar.bag.configurer.BagBeansAutoConfigurer
+com.fairychar.bag.listener.SpringContextHolder

@@ -3,6 +3,7 @@ package com.fairychar.bag.domain;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 
@@ -14,8 +15,33 @@ import java.util.Random;
  */
 public class Singletons {
 
-    public static class RandomTon {
-        private RandomTon() {
+
+    public static class RestTemplateBean {
+        private RestTemplateBean() {
+
+        }
+
+        private enum Singleton {
+            INSTANCE;
+
+            Singleton() {
+                instance = new RestTemplate();
+            }
+
+            private final RestTemplate instance;
+
+            public RestTemplate getInstance() {
+                return INSTANCE.instance;
+            }
+        }
+
+        public static RestTemplate getInstance() {
+            return Singleton.INSTANCE.getInstance();
+        }
+    }
+
+    public static class RandomBean {
+        private RandomBean() {
 
         }
 
@@ -38,8 +64,8 @@ public class Singletons {
         }
     }
 
-    public static class PathMatcher {
-        private PathMatcher() {
+    public static class PathMatcherBean {
+        private PathMatcherBean() {
 
         }
 
@@ -63,10 +89,10 @@ public class Singletons {
     }
 
 
-    public static class GSON {
+    public static class GsonBean {
         private Gson gson = new Gson();
 
-        private GSON() {
+        private GsonBean() {
 
         }
 
@@ -74,12 +100,12 @@ public class Singletons {
             INSTANCE;
 
             Singleton() {
-                instance = new GSON();
+                instance = new GsonBean();
             }
 
-            private final GSON instance;
+            private final GsonBean instance;
 
-            public GSON getInstance() {
+            public GsonBean getInstance() {
                 return INSTANCE.instance;
             }
         }
@@ -89,10 +115,10 @@ public class Singletons {
         }
     }
 
-    public static class JSON {
+    public static class JsonBean {
         private ObjectMapper mapper = new ObjectMapper();
 
-        private JSON() {
+        private JsonBean() {
 
         }
 
@@ -100,12 +126,12 @@ public class Singletons {
             INSTANCE;
 
             Singleton() {
-                instance = new JSON();
+                instance = new JsonBean();
             }
 
-            private final JSON instance;
+            private final JsonBean instance;
 
-            public JSON getInstance() {
+            public JsonBean getInstance() {
                 return INSTANCE.instance;
             }
         }
