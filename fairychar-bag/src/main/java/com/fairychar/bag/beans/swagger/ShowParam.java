@@ -30,6 +30,8 @@ import java.lang.annotation.*;
 @Target({ElementType.PARAMETER, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
+@Deprecated(since = "openapi3")
+//后期想办法适配
 public @interface ShowParam {
     /**
      * 代表group,当作用于请求接口上代表只显示指定Class的字段名称

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.fairychar</groupId>
+  <artifactId>fairychar-micro-service-archetype</artifactId>
+  <version>1.3.2-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+
+  <name>fairychar-micro-service-archetype</name>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>3.2.1</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>3.2.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <description>simple utils for easy coding</description>
+
+  <url>https://github.com/viviqy/fairychar-bag/fairychar-micro-service</url>
+
+  <developers>
+    <developer>
+      <name>chiyo</name>
+      <email>1261975105@qq.com</email>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:viviqy/fairychar-bag.git/fairychar-micro-service</connection>
+    <developerConnection>scm:git:git@github.com:viviqy/fairychar-bag/fairychar-micro-service</developerConnection>
+    <url>https://github.com/viviqy/fairychar-bag/fairychar-micro-service</url>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>

@@ -1,4 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
+
 ### macOS template
 # General
 .DS_Store
@@ -92,3 +93,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# 自定义骨架需要包含
+!fairychar-micro-service/target

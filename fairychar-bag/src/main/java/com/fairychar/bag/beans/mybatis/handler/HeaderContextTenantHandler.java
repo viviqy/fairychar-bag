@@ -5,7 +5,7 @@ import com.fairychar.bag.domain.security.TenantUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;
-import net.sf.jsqlparser.expression.LongValue;
+import net.sf.jsqlparser.expression.StringValue;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -55,7 +55,8 @@ public class HeaderContextTenantHandler implements TenantLineHandler {
                     }
                 })
                 .map(u -> u.getTenantId())
-                .map(id -> ((Expression) new LongValue(id))).orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
+                //修改为String兼容性更高
+                .map(id -> ((Expression) new StringValue(id))).orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
     }
 
     @Override

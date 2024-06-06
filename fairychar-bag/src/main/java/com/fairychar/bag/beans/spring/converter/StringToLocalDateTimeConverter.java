@@ -1,4 +1,4 @@
-package com.fairychar.bag.converter.mvc;
+package com.fairychar.bag.beans.spring.converter;
 
 import org.springframework.core.convert.converter.Converter;
 

@@ -1,7 +1,6 @@
 package com.fairychar.bag.utils;
 
 import com.fairychar.bag.domain.exceptions.ServiceException;
-import jakarta.servlet.ServletRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AccessLevel;
@@ -26,9 +25,9 @@ public final class RequestUtil {
     /**
      * 获取当前请求
      *
-     * @return {@link ServletRequest}
+     * @return {@link HttpServletRequest}
      */
-    public static ServletRequest getCurrentRequest() {
+    public static HttpServletRequest getCurrentRequest() {
         HttpServletRequest request = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
                 .map(a -> a.getRequest())

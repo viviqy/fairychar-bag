@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        group:
+        namespace:
+        server-addr:
+      config:
+        file-extension: yaml
+        group:
+        namespace:
+        server-addr:
+        refresh-enable: true
