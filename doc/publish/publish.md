@@ -1,6 +1,7 @@
 # 只发布parent
 
-> mvn clean deploy -pl '!fairychar-bag'
+> mvn clean deploy -pl '!fairychar-bag,!fairychar-micro-service,!fairychar-micro-service/__rootArtifactId__-api,!
+> fairychar-micro-service/__rootArtifactId__-app'
 
 '!fairychar-bag' 代表要排除的子模块
 

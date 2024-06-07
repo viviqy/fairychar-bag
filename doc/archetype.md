@@ -16,5 +16,7 @@
 maven->fairychar-micro-service->plugins->archetype->archetype:create-from-project
 进入
 cd target/generated-sources/archetype
-执行
+执行本地安装
 mvn clean install
+发布到中央仓库
+mvn clean deploy
