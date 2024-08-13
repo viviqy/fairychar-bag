@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * 周期调度型任务,配合{@link com.fairychar.bag.template.ActionSelectorTemplate}使用
- * Datetime: 2021/1/26 10:18
  *
  * @author chiyo
  * @since 1.0

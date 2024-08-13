@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * Datetime: 2021/5/27 17:50
+ * FeignFallback简单通用返回代理
  *
  * @author chiyo
  * @since 1.0

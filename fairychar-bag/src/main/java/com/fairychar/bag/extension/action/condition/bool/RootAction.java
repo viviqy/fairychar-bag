@@ -1,5 +1,7 @@
 package com.fairychar.bag.extension.action.condition.bool;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang.NotImplementedException;
 
 import java.util.Set;
@@ -13,6 +15,7 @@ import java.util.Set;
  * @author chiyo
  * @since 1.0.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RootAction implements ActionFlow {
 
     @Override
