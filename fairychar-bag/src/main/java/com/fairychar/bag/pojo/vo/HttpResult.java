@@ -1,6 +1,9 @@
 package com.fairychar.bag.pojo.vo;
 
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.utils.RequestUtil;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +23,7 @@ import org.springframework.http.HttpStatus;
 @Builder
 public class HttpResult<T> {
     private static final HttpResult CACHED_OK = new HttpResult(200, null, "success");
-    private static final HttpResult CACHED_FAIL = new HttpResult<>(400, null, "fail");
+    private static final HttpResult CACHED_FAIL = new HttpResult<>(RestErrorCode.OPERATION_FAILED.getCode(), null, RestErrorCode.OPERATION_FAILED.getMessage());
     private int code;
     /**
      * 返回数据
@@ -30,27 +33,19 @@ public class HttpResult<T> {
     private T data;
     private String msg;
 
-    public static <T> HttpResult<T> response(HttpStatus httpStatus, T data) {
-        return new HttpResult(httpStatus.value(), data, httpStatus.getReasonPhrase());
+
+    public static HttpResult response(HttpStatus code, RestErrorCode errorCode, Object data) {
+        HttpServletResponse response = RequestUtil.getCurrentResponse();
+        response.setStatus(code.value());
+        return new HttpResult(errorCode.getCode(), data, errorCode.getMessage());
     }
 
-
-    public static <T> HttpResult<T> response(int code, T data, String msg) {
-        return new HttpResult(code, data, msg);
+    public static HttpResult response(HttpStatus code, RestErrorCode errorCode, Object data, String msg) {
+        HttpServletResponse response = RequestUtil.getCurrentResponse();
+        response.setStatus(code.value());
+        return new HttpResult(errorCode.getCode(), data, msg);
     }
 
-    public static HttpResult response(int code, String msg) {
-        return new HttpResult(code, null, msg);
-    }
-
-
-    public static HttpResult fallback() {
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(), null, "service unavailable");
-    }
-
-    public static HttpResult fallback(Throwable cause) {
-        return response(HttpStatus.SERVICE_UNAVAILABLE.value(), cause.getMessage(), "service unavailable");
-    }
 
     public static HttpResult ok() {
         return CACHED_OK;
@@ -62,7 +57,15 @@ public class HttpResult<T> {
     }
 
     public static <T> HttpResult<T> fail(T data) {
-        return new HttpResult<>(400, data, "fail");
+        return fail(RestErrorCode.OPERATION_FAILED, data);
+    }
+
+    public static <T> HttpResult<T> fail(RestErrorCode errorCode) {
+        return fail(errorCode, null);
+    }
+
+    public static <T> HttpResult<T> fail(RestErrorCode errorCode, T data) {
+        return new HttpResult<>(errorCode.getCode(), data, errorCode.getMessage());
     }
 
     public static <T> HttpResult<T> fail() {

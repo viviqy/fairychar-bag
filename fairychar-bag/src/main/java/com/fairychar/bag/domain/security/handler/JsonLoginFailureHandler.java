@@ -1,5 +1,6 @@
 package com.fairychar.bag.domain.security.handler;
 
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
@@ -30,6 +31,6 @@ public class JsonLoginFailureHandler extends SimpleUrlAuthenticationFailureHandl
         log.warn("user login success: {}", exception);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        response.getWriter().write(this.mapper.writeValueAsString(HttpResult.response(401, exception.getMessage())));
+        response.getWriter().write(this.mapper.writeValueAsString(HttpResult.fail(RestErrorCode.AUTHENTICATION_FAILED, exception.getMessage())));
     }
 }

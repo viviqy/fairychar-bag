@@ -1,19 +1,17 @@
 package com.fairychar.bag.web;
 
-import com.fairychar.bag.domain.exceptions.DataAlreadyExistException;
-import com.fairychar.bag.domain.exceptions.ParamErrorException;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.domain.exceptions.ServiceException;
 import com.fairychar.bag.pojo.vo.HttpResult;
-import org.springframework.util.CollectionUtils;
+import com.fairychar.bag.pojo.vo.InvalidateFieldVO;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.validation.BindException;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 基于hibernate validator的参数校验失败全局拦截类
@@ -36,36 +34,23 @@ public class DefaultExceptionAdvice {
      */
     @ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})
     public HttpResult paramsException(Exception exception) {
-        String msg = null;
-        if (exception instanceof BindException) {
-            msg = Optional
-                    .of((BindException) exception)
-                    .map(BindException::getAllErrors)
-                    .map(errors -> CollectionUtils.isEmpty(errors) ? null : errors.get(0).getObjectName() + ": " + errors.get(0).getDefaultMessage())
-                    .orElse(null);
-        } else if (exception instanceof ConstraintViolationException) {
-            msg = Optional
-                    .of((ConstraintViolationException) exception)
-                    .map(ConstraintViolationException::getConstraintViolations)
-                    .map(constraintViolations -> CollectionUtils.isEmpty(constraintViolations) ? null : constraintViolations.stream().findAny().orElse(null))
-                    .map(ConstraintViolation::getMessage)
-                    .orElse(null);
-        } else if (exception instanceof MethodArgumentNotValidException) {
-            msg = Optional
-                    .of((MethodArgumentNotValidException) exception)
-                    .map(MethodArgumentNotValidException::getBindingResult)
-                    .map(Errors::getAllErrors)
-                    .map(errors -> CollectionUtils.isEmpty(errors) ? null : errors.get(0).getObjectName() + ": " + errors.get(0).getDefaultMessage())
-                    .orElse(null);
+        List<InvalidateFieldVO> invalidateFieldVOS = new ArrayList<>(0);
+        if (exception instanceof BindException be) {
+            invalidateFieldVOS = be.getAllErrors().stream()
+                    .map(error -> new InvalidateFieldVO(error.getObjectName(), error.getDefaultMessage()))
+                    .toList();
+        } else if (exception instanceof ConstraintViolationException ce) {
+            invalidateFieldVOS = ce.getConstraintViolations().stream()
+                    .map(error -> new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage()))
+                    .toList();
+        } else if (exception instanceof MethodArgumentNotValidException me) {
+            invalidateFieldVOS = me.getBindingResult().getAllErrors().stream()
+                    .map(error -> new InvalidateFieldVO(error.getObjectName(), error.getDefaultMessage()))
+                    .toList();
         }
-        return HttpResult.fail(msg);
+        return HttpResult.fail(RestErrorCode.PARAM_INVALIDATE, invalidateFieldVOS);
     }
 
-
-    @ExceptionHandler({ParamErrorException.class, DataAlreadyExistException.class})
-    public HttpResult handleCheck(ParamErrorException e) {
-        return HttpResult.fail(e.getMessage());
-    }
 
     @ExceptionHandler(ServiceException.class)
     public HttpResult handleServiceException(ServiceException e) {

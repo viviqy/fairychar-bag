@@ -1,6 +1,7 @@
 package com.fairychar.bag.proxy;
 
 import cn.hutool.core.lang.Assert;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,7 @@ public final class FeignFallbackProxy {
      * @return jdk动态代理后的FeignClient
      */
     public static <I> I createDefault(Class<I> feignClient, Throwable cause) {
-        return createDefault(feignClient, cause, HttpResult.fallback(cause));
+        return createDefault(feignClient, cause, HttpResult.fail(RestErrorCode.FALLBACK, cause.getMessage()));
     }
 
 
