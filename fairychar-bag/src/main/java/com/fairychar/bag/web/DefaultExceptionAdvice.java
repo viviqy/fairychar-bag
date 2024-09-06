@@ -36,16 +36,16 @@ public class DefaultExceptionAdvice {
     public HttpResult paramsException(Exception exception) {
         List<InvalidateFieldVO> invalidateFieldVOS = new ArrayList<>(0);
         if (exception instanceof BindException be) {
-            invalidateFieldVOS = be.getAllErrors().stream()
-                    .map(error -> new InvalidateFieldVO(error.getObjectName(), error.getDefaultMessage()))
+            invalidateFieldVOS = be.getFieldErrors().stream()
+                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage()))
                     .toList();
         } else if (exception instanceof ConstraintViolationException ce) {
             invalidateFieldVOS = ce.getConstraintViolations().stream()
                     .map(error -> new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage()))
                     .toList();
         } else if (exception instanceof MethodArgumentNotValidException me) {
-            invalidateFieldVOS = me.getBindingResult().getAllErrors().stream()
-                    .map(error -> new InvalidateFieldVO(error.getObjectName(), error.getDefaultMessage()))
+            invalidateFieldVOS = me.getBindingResult().getFieldErrors().stream()
+                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage()))
                     .toList();
         }
         return HttpResult.fail(RestErrorCode.PARAM_INVALIDATE, invalidateFieldVOS);
