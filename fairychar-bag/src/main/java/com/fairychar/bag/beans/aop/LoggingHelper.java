@@ -5,6 +5,8 @@ import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Datetime: 2021/1/27 14:29
@@ -22,7 +24,11 @@ class LoggingHelper {
                 properties.getAop().getLog().getGlobalLevel() : requestLog.loggingLevel();
     }
 
-    public static void log(RequestLog.Level level, String logs) {
+    public static void log(Class poinClass, RequestLog.Level level, String logs) {
+        Logger log = LoggerFactory.getLogger(poinClass);
+        if (log == null) {
+            log = LoggingHelper.log;
+        }
         switch (level) {
             case NONE:
                 break;

@@ -23,6 +23,7 @@ public class SwaggerLoggingHandler implements LoggingHandler {
     public void accept(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Operation apiOperation = methodSignature.getMethod().getAnnotation(Operation.class);
+        Class<?> pointClass = joinPoint.getTarget().getClass();
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
         Tag api = (Tag) methodSignature.getDeclaringType().getAnnotation(Tag.class);
@@ -32,7 +33,7 @@ public class SwaggerLoggingHandler implements LoggingHandler {
                 , LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 , RequestUtil.getIpAddress(request)
         );
-        LoggingHelper.log(LoggingHelper.getLevel(methodSignature), logs);
+        LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
 
     }
 }

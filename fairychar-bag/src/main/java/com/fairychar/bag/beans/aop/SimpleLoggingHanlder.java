@@ -23,13 +23,14 @@ public class SimpleLoggingHanlder implements LoggingHandler {
     @Override
     public void accept(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Class<?> pointClass = joinPoint.getTarget().getClass();
         String uri = RequestUtil.obtainUri(signature);
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
         String ip = RequestUtil.getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logs = String.format("%s request %s at %s", ip, uri, datetime);
-        LoggingHelper.log(LoggingHelper.getLevel(signature), logs);
+        LoggingHelper.log(pointClass, LoggingHelper.getLevel(signature), logs);
     }
 
 
