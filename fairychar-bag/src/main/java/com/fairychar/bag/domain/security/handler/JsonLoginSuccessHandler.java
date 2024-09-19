@@ -26,9 +26,11 @@ public class JsonLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
     private final ObjectMapper mapper;
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+            throws IOException, ServletException {
         log.info("user login success: {}", authentication);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        response.getWriter().write(this.mapper.writeValueAsString(HttpResult.ok(new JsonLoginToken(request.getSession().getId(), authentication))));
+        HttpResult<JsonLoginToken> result = HttpResult.ok(new JsonLoginToken(request.getSession().getId(), authentication));
+        response.getWriter().write(this.mapper.writeValueAsString(result));
     }
 }

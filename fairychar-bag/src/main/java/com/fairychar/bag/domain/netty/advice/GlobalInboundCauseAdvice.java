@@ -63,7 +63,8 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      * @throws IllegalAccessException
      * @throws ClassNotFoundException
      */
-    private void dispatch(ChannelHandlerContext ctx, Throwable cause) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
+    private void dispatch(ChannelHandlerContext ctx, Throwable cause)
+            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
         StackTraceElement stackTraceElement = this.findByChannelHandler(cause);
         CauseInfo causeInfo = this.getCauseInfo(cause, stackTraceElement);
         Method method = this.obtainMethod(causeInfo);
@@ -93,7 +94,8 @@ public class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter imple
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method) throws InvocationTargetException, IllegalAccessException {
+    private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)
+            throws InvocationTargetException, IllegalAccessException {
         if (method != null) {
             InvokeEntity invokeEntity = this.getInvokeEntity(ctx, cause, method);
             method.invoke(invokeEntity.getBean(), invokeEntity.getArgs());

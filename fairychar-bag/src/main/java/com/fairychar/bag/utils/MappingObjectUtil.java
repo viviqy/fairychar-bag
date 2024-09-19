@@ -23,7 +23,8 @@ import java.util.stream.Collectors;
 public final class MappingObjectUtil {
 
 
-    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
+    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)
+            throws NoSuchFieldException, IllegalAccessException {
         List<TreeNode<T>> root = new ArrayList<>();
         for (T node : source) {
             Field pid = node.getClass().getDeclaredField(pidField);

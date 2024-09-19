@@ -32,9 +32,9 @@ public final class Consts {
 
     public static final DateTimeFormatter SIMPLE_DATE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT);
 
-    public static LocalDateTime MYSQL_MAX_DATETIME = LocalDateTime.parse("9999-12-31 23:59:59", SIMPLE_DATE_TIME_FORMATTER);
+    public static final LocalDateTime MYSQL_MAX_DATETIME = LocalDateTime.parse("9999-12-31 23:59:59", SIMPLE_DATE_TIME_FORMATTER);
 
-    public static LocalDateTime MYSQL_MAX_TIMESTAMP = LocalDateTime.parse("2038-01-19 03:14:07", SIMPLE_DATE_TIME_FORMATTER);
+    public static final LocalDateTime MYSQL_MAX_TIMESTAMP = LocalDateTime.parse("2038-01-19 03:14:07", SIMPLE_DATE_TIME_FORMATTER);
 
     public static final class OAuth2 {
         public static final String AUTHORIZATION_CODE = "authorization_code";

@@ -53,11 +53,14 @@ public class JsonAuthenticationFilter<T extends JsonLoginQuery> extends Username
         if (!"POST".equals(request.getMethod())) {
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         } else {
-            if (request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_UTF8_VALUE) || request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_VALUE)) {
+            if (request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                    || request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_VALUE)) {
                 try (InputStream is = request.getInputStream()) {
                     T authenticationBean = this.mapper.readValue(is, new TypeReference<T>() {
                     });
-                    UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(authenticationBean.obtainUsername(), authenticationBean.obtainPassword());
+                    UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
+                            authenticationBean.obtainUsername()
+                            , authenticationBean.obtainPassword());
                     this.setDetails(request, authRequest);
                     return this.getAuthenticationManager().authenticate(authRequest);
                 } catch (AuthenticationException e) {

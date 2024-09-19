@@ -28,9 +28,14 @@ public class ThreadContextTenantLineInnerInterceptor extends TenantLineInnerInte
 
 
     @Override
-    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
-        if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) return;
-        if (!useTenant()) return;
+    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds
+            , ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+        if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) {
+            return;
+        }
+        if (!useTenant()) {
+            return;
+        }
         PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
         mpBs.sql(parserSingle(mpBs.sql(), null));
     }

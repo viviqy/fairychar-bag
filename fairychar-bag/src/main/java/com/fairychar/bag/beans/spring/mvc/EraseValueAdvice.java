@@ -33,7 +33,6 @@ public class EraseValueAdvice extends PropertyValueAdvice<EraseValue> {
         if (set.size() > 0 && set.size() < (totalLength)) {
             //erase value
             super.eraseValue(body, objectField);
-        } else {
         }
     }
 }

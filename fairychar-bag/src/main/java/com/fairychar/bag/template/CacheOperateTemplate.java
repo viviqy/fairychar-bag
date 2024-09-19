@@ -2,8 +2,8 @@ package com.fairychar.bag.template;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.redisson.api.RLock;
 
-import java.util.concurrent.locks.Lock;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -29,14 +29,14 @@ public final class CacheOperateTemplate {
         C cacheValue = fromCache.get();
         if (cacheValue == null) {
             synchronized (lock) {
-                return fromDbPutCacheAndGet(fromCache, fromDb, putCache);
+                return getAndPutCacheIfNeeded(fromCache, fromDb, putCache);
             }
         }
         return cacheValue;
     }
 
     /**
-     * 分布式缓存读取(悲观锁方式)
+     * redis分布式缓存读取(悲观锁方式)
      *
      * @param fromCache 缓存数据提供者
      * @param fromDb    数据库数据提供者
@@ -45,26 +45,27 @@ public final class CacheOperateTemplate {
      * @param <C>       返回类泛型
      * @return {@link C}
      */
-    public static <C> C get(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache, Lock lock) {
+    public static <C> C get(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache, RLock lock) {
         C cacheValue = fromCache.get();
         if (cacheValue == null) {
             try {
-                lock.lockInterruptibly();
-                return fromDbPutCacheAndGet(fromCache, fromDb, putCache);
-            } catch (InterruptedException ignore) {
+                lock.lock();
+                return getAndPutCacheIfNeeded(fromCache, fromDb, putCache);
             } finally {
-                lock.unlock();
+                if (lock.isHeldByCurrentThread()) {
+                    lock.unlock();
+                }
             }
         }
         return cacheValue;
     }
 
-    private static <C> C fromDbPutCacheAndGet(Supplier<C> fromCache, Supplier<C> fromDb, Consumer<C> putCache) {
+    private static <C> C getAndPutCacheIfNeeded(Supplier<C> fromCache, Supplier<C> dataSupplier, Consumer<C> putCache) {
         C cacheValue = fromCache.get();
         if (cacheValue != null) {
             return cacheValue;
         } else {
-            C dbValue = fromDb.get();
+            C dbValue = dataSupplier.get();
             if (dbValue == null) {
                 return null;
             } else {

@@ -74,7 +74,8 @@ public class SimpleNettyServer {
         this.childHandlers = CHILD_LOGGING_HANDLER;
     }
 
-    public SimpleNettyServer(int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers, ChannelInitializer<SocketChannel> childHandlers) {
+    public SimpleNettyServer(int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers
+            , ChannelInitializer<SocketChannel> childHandlers) {
         this.workerSize = workerSize;
         this.port = port;
         this.handlers = handlers;
@@ -125,8 +126,10 @@ public class SimpleNettyServer {
     private void checkArgs() {
         Assert.isTrue(this.bossSize > 0, "bossSize must bigger than zero");
         Assert.isTrue(this.workerSize > 0, "workerSize must bigger than zero");
-        Assert.isTrue(this.port > 0 && this.port < 65535, "port must bigger than zero and less than 65535");
-        Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE, "port must bigger than zero and less than 2147483647");
+        Assert.isTrue(this.port > 0 && this.port < 65535
+                , "port must bigger than zero and less than 65535");
+        Assert.isTrue(this.maxShutdownWaitSeconds > 0 && this.port < Integer.MAX_VALUE
+                , "port must bigger than zero and less than 2147483647");
     }
 
 

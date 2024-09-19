@@ -45,7 +45,8 @@ public final class DateConvertUtil {
             if (text.length() == format.length()) {
                 try {
                     return LocalDateTime.parse(text, DateTimeFormatter.ofPattern(format));
-                } catch (Exception e) {
+                } catch (Exception ignore) {
+                    //直接当转换失败,继续处理下一条
                 }
             }
         }
@@ -58,7 +59,8 @@ public final class DateConvertUtil {
             if (text.length() == format.length()) {
                 try {
                     return LocalDate.parse(text, DateTimeFormatter.ofPattern(format));
-                } catch (Exception e) {
+                } catch (Exception ignore) {
+                    //直接当转换失败,继续处理下一条
                 }
             }
         }

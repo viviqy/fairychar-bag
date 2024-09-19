@@ -82,7 +82,6 @@ public final class RoundTaskExecutor {
             } catch (TimeoutException e) {
                 Optional.ofNullable(onTimeout).ifPresent(timeoutExceptionConsumer -> timeoutExceptionConsumer.accept(e));
                 this.phaser.arriveAndDeregister();
-            } finally {
             }
         })));
     }

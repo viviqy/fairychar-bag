@@ -27,10 +27,12 @@ public class JsonLoginFailureHandler extends SimpleUrlAuthenticationFailureHandl
     private final ObjectMapper mapper;
 
     @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
+            throws IOException, ServletException {
         log.warn("user login success: {}", exception);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        response.getWriter().write(this.mapper.writeValueAsString(HttpResult.fail(RestErrorCode.AUTHENTICATION_FAILED, exception.getMessage())));
+        HttpResult<String> result = HttpResult.fail(RestErrorCode.AUTHENTICATION_FAILED, exception.getMessage());
+        response.getWriter().write(this.mapper.writeValueAsString(result));
     }
 }

@@ -54,11 +54,14 @@ public class SwitchableTenantLineInnerInterceptor extends TenantLineInnerInterce
 
 
     @Override
-    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds
+            , ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
         if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) {
             return;
         }
-        if (!useTenant(parameter)) return;
+        if (!useTenant(parameter)) {
+            return;
+        }
         PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
         mpBs.sql(parserSingle(mpBs.sql(), null));
     }

@@ -56,7 +56,8 @@ public class FailToGetLockException extends RuntimeException {
         this.data = data;
     }
 
-    public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data) {
+    public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace
+            , int code, Object data) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.code = code;
         this.data = data;

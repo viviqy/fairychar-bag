@@ -88,6 +88,7 @@ public final class AssignableFactory {
                 this.semaphore.acquire(workers);
                 action.doAction();
             } catch (InterruptedException ignore) {
+                //ignore
             } catch (TimeoutException e) {
                 Optional.ofNullable(timeoutCallback).ifPresent(t -> t.accept(e));
             } finally {
@@ -128,6 +129,7 @@ public final class AssignableFactory {
                 T t = supplier.get();
                 return t;
             } catch (InterruptedException ignore) {
+                //ignore
             } finally {
                 this.semaphore.release(workers);
             }

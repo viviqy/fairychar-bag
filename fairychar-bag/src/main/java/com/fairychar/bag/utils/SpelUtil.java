@@ -20,8 +20,8 @@ import java.lang.reflect.Method;
  * @date
  */
 public class SpelUtil {
-    private final static ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
-    private final static SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
+    private final static ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
+    private final static SpelExpressionParser SPEL_EXPRESSION_PARSER = new SpelExpressionParser();
 
 
     /**
@@ -66,7 +66,7 @@ public class SpelUtil {
      */
     public static EvaluationContext createEvaluationContext(Method method, Object[] args) {
         SimpleExpressionRootObject rootObject = new SimpleExpressionRootObject(method, args);
-        SimpleEvaluationContext evaluationContext = new SimpleEvaluationContext(rootObject, method, args, parameterNameDiscoverer);
+        SimpleEvaluationContext evaluationContext = new SimpleEvaluationContext(rootObject, method, args, PARAMETER_NAME_DISCOVERER);
         return evaluationContext;
     }
 
@@ -78,7 +78,7 @@ public class SpelUtil {
      * @return {@code Expression }
      */
     public static Expression parseExpression(String expression) {
-        Expression parseExpression = spelExpressionParser.parseExpression(expression);
+        Expression parseExpression = SPEL_EXPRESSION_PARSER.parseExpression(expression);
         return parseExpression;
     }
 

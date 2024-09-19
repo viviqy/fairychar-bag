@@ -64,7 +64,8 @@ public final class RepeatTaskExecutor {
      * @param onBroken      当任务被终止时的异常处理
      * @param waitMillis    当前批次中执行完的任务等待未执行完的任务的最长毫秒数(超时会触发{@link BrokenBarrierException})
      */
-    public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout, Consumer<BrokenBarrierException> onBroken, long waitMillis) {
+    public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,
+                      Consumer<BrokenBarrierException> onBroken, long waitMillis) {
         runnables.forEach(action -> executorService.execute(() -> {
             while (true) {
                 try {
@@ -75,15 +76,14 @@ public final class RepeatTaskExecutor {
                     this.cyclicBarrier.await(waitMillis, TimeUnit.MILLISECONDS);
                     this.executeTimes.incrementAndGet();
                 } catch (InterruptedException e) {
-                    Optional.ofNullable(onInterrupted).ifPresent(interruptedExceptionConsumer -> interruptedExceptionConsumer.accept(e));
+                    Optional.ofNullable(onInterrupted).ifPresent(iec -> iec.accept(e));
                     return;
                 } catch (TimeoutException e) {
-                    Optional.ofNullable(onTimeout).ifPresent(timeoutExceptionConsumer -> timeoutExceptionConsumer.accept(e));
+                    Optional.ofNullable(onTimeout).ifPresent(tec -> tec.accept(e));
                     return;
                 } catch (BrokenBarrierException e) {
-                    Optional.ofNullable(onBroken).ifPresent(brokenBarrierExceptionConsumer -> brokenBarrierExceptionConsumer.accept(e));
+                    Optional.ofNullable(onBroken).ifPresent(bec -> bec.accept(e));
                     return;
-                } finally {
                 }
             }
         }));

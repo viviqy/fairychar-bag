@@ -21,7 +21,7 @@ import java.util.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ReflectUtil {
 
-    private static final String regexAll = "*";
+    private static final String REGEX_ALL = "*";
 
 
     /**
@@ -30,7 +30,8 @@ public final class ReflectUtil {
      * 字段容器包含有关带有指定注解的字段的信息。
      * 支持字段为集合类{@link Collection},{@link Map}支持,如果为集合类则会循环解析获取所有集合内对象的字段
      */
-    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
+    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e
+            , Collection<Class<? extends Annotation>> annotations) {
         HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
         HashSet<Integer> mappedBeans = new HashSet<>();
         recursiveSearchFieldValueByAnnotations(e.getClass().getSimpleName(), e, annotations, ref, mappedBeans);
@@ -38,7 +39,8 @@ public final class ReflectUtil {
     }
 
 
-    private static void recursiveSearchFieldValueByAnnotations(String path, Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
+    private static void recursiveSearchFieldValueByAnnotations(String path, Object e
+            , Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
             , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
         if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
             return;
@@ -78,6 +80,7 @@ public final class ReflectUtil {
                         recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
                     }
                 } catch (IllegalAccessException ignore) {
+                    //ignore
                 }
             }
         }
@@ -104,7 +107,8 @@ public final class ReflectUtil {
                 || declaredField.getType().isMemberClass();//或者可以是匿名内部类
     }
 
-    private static boolean searchIfInstanceOfCollection(String path, Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
+    private static boolean searchIfInstanceOfCollection(String path, Object e, Collection<Class<? extends Annotation>> annotations
+            , Map<Class<? extends Annotation>, List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
         if (e instanceof Collection) {
             Collection<?> collection = (Collection<?>) e;
             int index = 0;
@@ -136,7 +140,8 @@ public final class ReflectUtil {
 //     * 字段容器包含有关带有指定注解的字段的信息。
 //     * 支持字段为集合类{@link Collection},{@link Map}支持,如果为集合类则会循环解析获取所有集合内对象的字段
 //     */
-//    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations) {
+//    public static Map<Class<? extends Annotation>, List<FieldContainer>> recursiveSearchFieldValueByAnnotations(Object e
+//    , Collection<Class<? extends Annotation>> annotations) {
 //        HashMap<Class<? extends Annotation>, List<FieldContainer>> ref = new HashMap<>();
 //        HashSet<Integer> mappedBeans = new HashSet<>();
 //        recursiveSearchFieldValueByAnnotations(e, annotations, ref, mappedBeans);
@@ -144,7 +149,8 @@ public final class ReflectUtil {
 //    }
 //
 //
-//    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
+//    private static void recursiveSearchFieldValueByAnnotations(Object e, Collection<Class<? extends Annotation>> annotations
+//    , Map<Class<? extends Annotation>
 //            , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
 //        if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
 //            return;
@@ -210,14 +216,16 @@ public final class ReflectUtil {
      * 递归搜索带有指定注解集合的字段。
      * 它接受一个对象和一个注解类的集合作为输入，并返回一个将每个注解类映射到带有该注解的字段列表的Map。
      */
-    public static Map<Class<? extends Annotation>, List<Field>> recursiveSearchFieldByAnnotations(Class clazz, Collection<Class<? extends Annotation>> annotations) {
+    public static Map<Class<? extends Annotation>, List<Field>> recursiveSearchFieldByAnnotations(Class clazz
+            , Collection<Class<? extends Annotation>> annotations) {
         HashMap<Class<? extends Annotation>, List<Field>> ref = new HashMap<>();
         recursiveSearchFieldByAnnotations(clazz, annotations, ref);
         return ref;
     }
 
 
-    private static void recursiveSearchFieldByAnnotations(Class clazz, Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>, List<Field>> ref) {
+    private static void recursiveSearchFieldByAnnotations(Class clazz, Collection<Class<? extends Annotation>> annotations
+            , Map<Class<? extends Annotation>, List<Field>> ref) {
         if (clazz == null) {
             return;
         }
@@ -266,7 +274,8 @@ public final class ReflectUtil {
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
-    public static <T, I> List<T> recursiveSearchParent(List<T> source, String pidField, String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
+    public static <T, I> List<T> recursiveSearchParent(List<T> source, String pidField
+            , String idField, I idValue) throws NoSuchFieldException, IllegalAccessException {
         ArrayList<T> ref = new ArrayList<>();
         recursiveSearch(source, ref, pidField, idField, idValue);
         return ref;
@@ -284,7 +293,8 @@ public final class ReflectUtil {
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
-    public static <T, I> List<T> recursiveSearchChild(List<T> source, String idField, String pidField, I idValue) throws NoSuchFieldException, IllegalAccessException {
+    public static <T, I> List<T> recursiveSearchChild(List<T> source, String idField
+            , String pidField, I idValue) throws NoSuchFieldException, IllegalAccessException {
         ArrayList<T> ref = new ArrayList<>();
         recursiveSearch(source, ref, idField, pidField, idValue);
         return ref;
@@ -303,7 +313,8 @@ public final class ReflectUtil {
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
-    public static <T, I> void recursiveSearch(List<T> source, List<T> ref, String idFiled, String pidFiled, I idValue) throws NoSuchFieldException, IllegalAccessException {
+    public static <T, I> void recursiveSearch(List<T> source, List<T> ref, String idFiled
+            , String pidFiled, I idValue) throws NoSuchFieldException, IllegalAccessException {
         ArrayList<T> childList = new ArrayList<>();
         for (T child : source) {
             try {
@@ -368,7 +379,7 @@ public final class ReflectUtil {
         Assert.notNull(fields, "fields can not be null");
         Assert.notEmpty(fields, "fields can not be empty");
         Field[] declaredFields = o.getClass().getDeclaredFields();
-        if (regexAll.equals(fields)) {
+        if (REGEX_ALL.equals(fields)) {
             for (int i = 0; i < declaredFields.length; i++) {
                 declaredFields[i].setAccessible(true);
                 declaredFields[i].set(o, null);
@@ -419,11 +430,13 @@ public final class ReflectUtil {
     }
 
 
-    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass)
+            throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         return mapToEntity(map, tClass, false, false);
     }
 
-    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass, boolean mustMatchAll, boolean matchNull) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass, boolean mustMatchAll, boolean matchNull)
+            throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         T t = tClass.newInstance();
         for (Map.Entry<String, Object> e : map.entrySet()) {
             if ((e.getValue() == null) && !matchNull) {
@@ -458,6 +471,7 @@ public final class ReflectUtil {
                 }
                 map.put(declaredFields[i].getName(), value);
             } catch (IllegalAccessException ignore) {
+                //ignore
             }
         }
         return map;
@@ -515,8 +529,8 @@ public final class ReflectUtil {
                 }
                 targetField.setAccessible(true);
                 targetField.set(target, value);
-            } catch (NoSuchFieldException ignore) {
-            } catch (IllegalAccessException ignore) {
+            } catch (NoSuchFieldException | IllegalAccessException ignore) {
+                //ignore
             }
         }
     }
@@ -539,8 +553,8 @@ public final class ReflectUtil {
                 }
                 targetField.setAccessible(true);
                 targetField.set(t, value);
-            } catch (NoSuchFieldException ignore) {
-            } catch (IllegalAccessException ignore) {
+            } catch (NoSuchFieldException | IllegalAccessException ignore) {
+                //ignore
             }
         }
         return t;

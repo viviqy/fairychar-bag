@@ -25,7 +25,8 @@ public class RequestIgnoreParameterPlugin {
 //    private void handleRequest(OperationContext context) {
 //        for (ResolvedMethodParameter methodParameter : context.getParameters()) {
 //            if (methodParameter.hasParameterAnnotation(ShowParam.class)) {
-//                ShowParam showParam = methodParameter.getAnnotations().stream().filter(a -> a instanceof ShowParam).map(a -> ((ShowParam) a)).findFirst().get();
+//                ShowParam showParam = methodParameter.getAnnotations().stream().filter(a -> a instanceof ShowParam)
+//                .map(a -> ((ShowParam) a)).findFirst().get();
 //                Class<?> objectClass = methodParameter.getParameterType().getErasedType();
 //                List<String> hiddenFields = handleParamShow(showParam, objectClass, context);
 //                addExtensionParameters(hiddenFields.toArray(new String[]{}), IGNORE_PARAMETER_EXTENSION_NAME, context);

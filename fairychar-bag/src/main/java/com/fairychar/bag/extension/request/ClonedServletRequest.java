@@ -42,6 +42,7 @@ public class ClonedServletRequest extends HttpServletRequestWrapper {
         try {
             inputBytes = request.getInputStream().readAllBytes();
         } catch (Exception ignore) {
+            //ignore
         }
         //copy header
         Enumeration<String> headerNames = request.getHeaderNames();

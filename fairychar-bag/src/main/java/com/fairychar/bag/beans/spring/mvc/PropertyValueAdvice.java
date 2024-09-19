@@ -30,7 +30,8 @@ public abstract class PropertyValueAdvice<T extends Annotation> extends RequestB
     }
 
     @Override
-    public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+    public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter
+            , Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         Field[] objectFields = body.getClass().getDeclaredFields();
         for (int i = 0; i < objectFields.length; i++) {
             Field objectField = objectFields[i];

@@ -46,7 +46,8 @@ public class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter imple
         this.dispatch(ctx, evt);
     }
 
-    private void dispatch(ChannelHandlerContext ctx, Object evt) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
+    private void dispatch(ChannelHandlerContext ctx, Object evt)
+            throws InvocationTargetException, IllegalAccessException {
         Method method = this.obtainMethod(evt);
         this.invoke(ctx, evt, method);
     }

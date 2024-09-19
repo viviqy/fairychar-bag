@@ -38,7 +38,8 @@ public class AcceptedException extends RuntimeException {
         this.data = data;
     }
 
-    public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data) {
+    public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace
+            , int code, Object data) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.code = code;
         this.data = data;

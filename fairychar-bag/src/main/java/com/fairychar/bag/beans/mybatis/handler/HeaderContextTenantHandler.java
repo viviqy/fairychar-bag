@@ -56,7 +56,8 @@ public class HeaderContextTenantHandler implements TenantLineHandler {
                 })
                 .map(u -> u.getTenantId())
                 //修改为String兼容性更高
-                .map(id -> ((Expression) new StringValue(id))).orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
+                .map(id -> ((Expression) new StringValue(id)))
+                .orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
     }
 
     @Override

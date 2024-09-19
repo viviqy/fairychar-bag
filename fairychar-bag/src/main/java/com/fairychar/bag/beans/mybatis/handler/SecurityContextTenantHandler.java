@@ -39,7 +39,8 @@ public class SecurityContextTenantHandler implements TenantLineHandler {
         return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
                 .map(a -> ((TenantUser) a.getPrincipal()))
                 .map(u -> u.getTenantId())
-                .map(id -> ((Expression) new LongValue(id))).orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
+                .map(id -> ((Expression) new LongValue(id)))
+                .orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
     }
 
     @Override

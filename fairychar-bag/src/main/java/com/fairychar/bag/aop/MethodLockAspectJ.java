@@ -73,8 +73,10 @@ public class MethodLockAspectJ implements InitializingBean {
         return switchLock(methodSignature, methodLock, proceedingJoinPoint);
     }
 
-    private Object switchLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.DEFAULT ? fairycharBagProperties.getAop().getLock().getDefaultLock() : methodLock.lockType();
+    private Object switchLock(MethodSignature methodSignature, MethodLock methodLock
+            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        MethodLock.Type lockType = methodLock.lockType() == MethodLock.Type.DEFAULT ?
+                fairycharBagProperties.getAop().getLock().getDefaultLock() : methodLock.lockType();
         switch (lockType) {
             case LOCAL:
                 return doLocalLock(methodSignature, methodLock, proceedingJoinPoint);
@@ -87,7 +89,8 @@ public class MethodLockAspectJ implements InitializingBean {
         }
     }
 
-    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock
+            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
         String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         ReentrantLock reentrantLock = createOrGetLocalLock(expressionValue.isEmpty() ? getMethodFullPath(method) : expressionValue);
@@ -119,7 +122,8 @@ public class MethodLockAspectJ implements InitializingBean {
     }
 
 
-    private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock
+            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Method method = methodSignature.getMethod();
         String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         RedissonClient redissonClient = SpringContextHolder.getInstance().getBean(RedissonClient.class);
@@ -137,7 +141,7 @@ public class MethodLockAspectJ implements InitializingBean {
             } catch (Throwable throwable) {
                 throw throwable;
             } finally {
-                if (redissonLock.isLocked()) {
+                if (redissonLock.isHeldByCurrentThread()) {
                     redissonLock.unlock();
                 }
             }
@@ -148,12 +152,15 @@ public class MethodLockAspectJ implements InitializingBean {
             } catch (Exception e) {
                 throw e;
             } finally {
-                redissonLock.unlock();
+                if (redissonLock.isHeldByCurrentThread()) {
+                    redissonLock.unlock();
+                }
             }
         }
     }
 
-    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock
+            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String expressionValue = this.resolveNameExpression(methodSignature, methodLock, proceedingJoinPoint);
         String path = methodLock.distributedPrefix().concat(expressionValue.isEmpty()
                 ? getMethodFullPath(methodSignature.getMethod()) : expressionValue);
@@ -166,7 +173,8 @@ public class MethodLockAspectJ implements InitializingBean {
                 }
                 throw new FailToGetLockException();
             } catch (TimeoutException e) {
-                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName(), methodLock.distributedPrefix().concat(expressionValue));
+                log.info("get zookeeper lock timeout methodName={} path={}", methodSignature.getName()
+                        , methodLock.distributedPrefix().concat(expressionValue));
                 throw e;
             } catch (Exception e) {
                 throw e;

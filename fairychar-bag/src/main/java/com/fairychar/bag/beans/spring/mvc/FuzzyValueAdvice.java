@@ -68,13 +68,15 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
     }
 
     private void wrapProperty(FieldContainer fieldContainer) {
-        Field field = fieldContainer.getField();//accessible yet
+        //accessible yet
+        Field field = fieldContainer.getField();
         FuzzyValue fuzzyValue = field.getAnnotation(FuzzyValue.class);
         String sourceText = null;
         String replaceText;
         try {
             sourceText = (String) field.get(fieldContainer.getTargetObject());
         } catch (IllegalAccessException ignore) {
+            //ignore
         }
         if (fuzzyValue.processor().length == 0) {
             String middle = Strings.repeat(fuzzyValue.replaceSymbol(), fuzzyValue.endAt() - fuzzyValue.beginAt());
@@ -88,6 +90,7 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
         try {
             field.set(fieldContainer.getTargetObject(), replaceText);
         } catch (IllegalAccessException ignore) {
+            //ignore
         }
     }
 }

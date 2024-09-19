@@ -31,9 +31,7 @@ public class KeepValueAdvice extends PropertyValueAdvice<KeepValue> {
             set.add(parameterGroup);
         }
         //至少包含group之一
-        if (set.size() > 0 && set.size() < (totalLength)) {
-            //keep value
-        } else {
+        if (!(set.size() > 0 && set.size() < (totalLength))) {
             super.eraseValue(body, objectField);
         }
     }

@@ -24,7 +24,8 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SpringContextHolder implements ApplicationListener<ContextRefreshedEvent> {
 
-    @Delegate(types = {EnvironmentCapable.class, ListableBeanFactory.class, HierarchicalBeanFactory.class, MessageSource.class, ApplicationEventPublisher.class, ResourcePatternResolver.class})
+    @Delegate(types = {EnvironmentCapable.class, ListableBeanFactory.class, HierarchicalBeanFactory.class
+            , MessageSource.class, ApplicationEventPublisher.class, ResourcePatternResolver.class})
     private ApplicationContext context;
 
     public static SpringContextHolder getInstance() {

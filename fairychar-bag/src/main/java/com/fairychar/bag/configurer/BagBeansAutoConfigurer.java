@@ -103,7 +103,7 @@ public class BagBeansAutoConfigurer {
 
         @Bean
         @ConditionalOnMissingBean
-        Converter<String, LocalDateTime> LocalDateTimeConverter() {
+        Converter<String, LocalDateTime> localDateTimeConverter() {
             return new StringToLocalDateTimeConverter();
         }
     }

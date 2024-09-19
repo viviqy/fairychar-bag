@@ -44,7 +44,8 @@ public class FlowBuilder {
         if (this.buildComplete) {
             return rootFlow;
         }
-        Map<? extends Class<? extends AbstractActionFlow>, AbstractActionFlow> classBeanMap = beanSet.stream().collect(Collectors.toMap(k -> k.getClass(), v -> v));
+        Map<? extends Class<? extends AbstractActionFlow>, AbstractActionFlow> classBeanMap = beanSet.stream()
+                .collect(Collectors.toMap(k -> k.getClass(), v -> v));
         beanSet.forEach(e -> {
             AbstractActionFlow current = e;
             Set<ParentActionCondition> parentClassSet = (Set<ParentActionCondition>) e.getParentClassSet();
@@ -52,12 +53,18 @@ public class FlowBuilder {
                 AbstractActionFlow parent = classBeanMap.get(p.getParentClass());
                 if (p.isCondition()) {
                     if (parent.getTrueFlow() != null) {
-                        throw new IllegalArgumentException(String.format("multiple trueFlow found,class=%s,childClass=%s,already set childClass=%s", parent.getClass().getName(), current.getClass().getName(), parent.getTrueFlow().getClass().getName()));
+                        throw new IllegalArgumentException(
+                                String.format("multiple trueFlow found,class=%s,childClass=%s,already set childClass=%s"
+                                        , parent.getClass().getName(), current.getClass().getName()
+                                        , parent.getTrueFlow().getClass().getName()));
                     }
                     parent.setTrueFlow(current);
                 } else {
                     if (parent.getFalseFlow() != null) {
-                        throw new IllegalArgumentException(String.format("multiple trueFlow found,class=%s,childClass=%s,already set childClass=%s", parent.getClass().getName(), current.getClass().getName(), parent.getFalseFlow().getClass().getName()));
+                        throw new IllegalArgumentException(
+                                String.format("multiple trueFlow found,class=%s,childClass=%s,already set childClass=%s"
+                                        , parent.getClass().getName(), current.getClass().getName()
+                                        , parent.getFalseFlow().getClass().getName()));
                     }
                     parent.setFalseFlow(current);
                 }
@@ -143,7 +150,8 @@ public class FlowBuilder {
      * @return {@link AbstractActionFlow}
      */
     private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows) {
-        List<AbstractActionFlow> roots = flows.stream().filter(s -> s.getParentClassSet().contains(RootAction.class)).collect(Collectors.toList());
+        List<AbstractActionFlow> roots = flows.stream().filter(s -> s.getParentClassSet().contains(RootAction.class))
+                .collect(Collectors.toList());
         if (roots.size() > 1) {
             String rootClasses = roots.stream().map(c -> c.getClass().getName()).collect(Collectors.joining(","));
             throw new IllegalArgumentException("more than one root,classes=" + rootClasses);

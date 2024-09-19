@@ -23,7 +23,8 @@ import org.springframework.http.HttpStatus;
 @Builder
 public class HttpResult<T> {
     private static final HttpResult CACHED_OK = new HttpResult(200, null, "success");
-    private static final HttpResult CACHED_FAIL = new HttpResult<>(RestErrorCode.OPERATION_FAILED.getCode(), null, RestErrorCode.OPERATION_FAILED.getMessage());
+    private static final HttpResult CACHED_FAIL = new HttpResult<>(RestErrorCode.OPERATION_FAILED.getCode()
+            , null, RestErrorCode.OPERATION_FAILED.getMessage());
 
     private int code;
     /**

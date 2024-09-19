@@ -35,15 +35,16 @@ public final class FeignFallbackProxy {
 
     public static <I> I createDefault(Class<I> feignClient, Throwable cause, HttpResult result) {
         Assert.isTrue(feignClient.isInterface());
-        I proxyFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(), new Class[]{feignClient}, new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                if (Object.class.equals(method.getDeclaringClass())) {
-                    return method.invoke(this, args);
-                }
-                return new ResponseEntity(result, HttpStatus.SERVICE_UNAVAILABLE);
-            }
-        });
+        I proxyFeignClient = (I) Proxy.newProxyInstance(FeignFallbackProxy.class.getClassLoader(),
+                new Class[]{feignClient}, new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        if (Object.class.equals(method.getDeclaringClass())) {
+                            return method.invoke(this, args);
+                        }
+                        return new ResponseEntity(result, HttpStatus.SERVICE_UNAVAILABLE);
+                    }
+                });
         return proxyFeignClient;
     }
 }
