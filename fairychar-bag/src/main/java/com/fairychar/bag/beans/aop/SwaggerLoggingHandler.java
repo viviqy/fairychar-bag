@@ -6,8 +6,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,8 +22,7 @@ public class SwaggerLoggingHandler implements LoggingHandler {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Operation apiOperation = methodSignature.getMethod().getAnnotation(Operation.class);
         Class<?> pointClass = joinPoint.getTarget().getClass();
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-                .getRequest();
+        HttpServletRequest request = RequestUtil.getCurrentRequest();
         Tag api = (Tag) methodSignature.getDeclaringType().getAnnotation(Tag.class);
         String logs = String.format("request uri=%s,uriName=%s at %s from %s"
                 , request.getRequestURI()

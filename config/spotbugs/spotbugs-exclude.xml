@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<FindBugsFilter>
+  <!-- 排除某种类型的 Bug -->
+  <Match>
+    <Bug pattern="EI_EXPOSE_REP2,EI_EXPOSE_REP,EI_EXPOSE_STATIC_REP2,SE_NO_SERIALVERSIONID"/>
+  </Match>
+</FindBugsFilter>

@@ -77,7 +77,8 @@ public final class FileUtil {
             long starIndex = ((long) (available * start));
             long endIndex = ((long) (available * end));
             long markIndex = starIndex;
-            readStream.skip(starIndex);
+            long skip = readStream.skip(starIndex);
+            Assert.isTrue(skip == starIndex, "skip index not equal to starIndex,seems stream error");
             while (markIndex < endIndex) {
                 if (endIndex - markIndex >= length) {
                     readStream.read(buffer);

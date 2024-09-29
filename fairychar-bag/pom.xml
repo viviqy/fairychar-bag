@@ -201,7 +201,6 @@
         </executions>
         <configuration>
           <configLocation>config/checkstyle/checkstyle.xml</configLocation> <!-- 配置文件 -->
-          <encoding>UTF-8</encoding>
           <consoleOutput>true</consoleOutput>
           <failsOnError>true</failsOnError> <!-- 是否在错误时中止构建 -->
         </configuration>
@@ -213,8 +212,68 @@
           </dependency>
         </dependencies>
       </plugin>
+      <!--      &lt;!&ndash; SpotBugs Maven Plugin &ndash;&gt;-->
+      <!--      <plugin>-->
+      <!--        <groupId>com.github.spotbugs</groupId>-->
+      <!--        <artifactId>spotbugs-maven-plugin</artifactId>-->
+      <!--        <version>4.8.6.0</version>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            &lt;!&ndash;            <phase>compile</phase>&ndash;&gt;-->
+      <!--            <goals>-->
+      <!--              <goal>check</goal> &lt;!&ndash; 运行SpotBugs检查 &ndash;&gt;-->
+      <!--              <goal>spotbugs</goal> &lt;!&ndash; 生成分析报告 &ndash;&gt;-->
+      <!--            </goals>-->
+      <!--            <configuration>-->
+      <!--              &lt;!&ndash;              <excludeBugsFile>${project.parent.basedir}/config/spotbugs/spotbugs-exclude.xml</excludeBugsFile>&ndash;&gt;-->
+      <!--              &lt;!&ndash;              <excludeBugsFile>spotbugs-exclude.xml</excludeBugsFile>&ndash;&gt;-->
+      <!--              <effort>Max</effort> &lt;!&ndash; 分析级别：Min, Default, Max &ndash;&gt;-->
+      <!--              <threshold>Low</threshold> &lt;!&ndash; 报告级别：Low, Medium, High &ndash;&gt;-->
+      <!--              <xmlOutput>true</xmlOutput> &lt;!&ndash; 生成XML报告 &ndash;&gt;-->
+      <!--              <htmlOutput>true</htmlOutput> &lt;!&ndash; 生成HTML报告 &ndash;&gt;-->
+      <!--              <outputDirectory>${project.build.directory}/spotbugs</outputDirectory> &lt;!&ndash; 报告输出目录 &ndash;&gt;-->
+      <!--              <failOnError>true</failOnError> &lt;!&ndash; 构建时失败条件 &ndash;&gt;-->
+      <!--              <excludeFilterFile>../spotbugs-exclude.xml</excludeFilterFile>-->
+      <!--              &lt;!&ndash;              <excludeFilterFile>${project.basedir}/src/main/resources/spotbugs-exclude.xml</excludeFilterFile>&ndash;&gt;-->
+      <!--              &lt;!&ndash;              <excludeFilterFile>${project.parent.basedir}/config/spotbugs/spotbugs-exclude.xml</excludeFilterFile>&ndash;&gt;-->
+      <!--            </configuration>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--        <dependencies>-->
+      <!--          <dependency>-->
+      <!--            <groupId>com.github.spotbugs</groupId>-->
+      <!--            <artifactId>spotbugs</artifactId>-->
+      <!--            <version>4.8.6</version>-->
+      <!--          </dependency>-->
+      <!--        </dependencies>-->
+      <!--      </plugin>-->
+      <!-- SpotBugs Maven Plugin -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.7.3.0</version> <!-- 插件的最新稳定版本 -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal> <!-- 执行 SpotBugs 分析并生成报告 -->
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- 跳过测试类的分析 -->
+          <excludeFilterFile>${project.parent.basedir}/config/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+          
+          <!--          <excludeFilterFile>${basedir}/spotbugs-exclude.xml</excludeFilterFile>-->
+          <!-- 设置生成的 XML 和 HTML 报告 -->
+          <xmlOutput>true</xmlOutput>
+          <failOnError>true</failOnError>
+          <threshold>Medium</threshold> <!-- 设定报告中问题的严重性阈值 -->
+        </configuration>
+      </plugin>
+    
     </plugins>
   </build>
+  
   
   <profiles>
     <profile>

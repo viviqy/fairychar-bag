@@ -2,6 +2,8 @@ package com.fairychar.bag.domain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,11 +18,8 @@ import java.util.Random;
 public class Singletons {
 
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class RestTemplateBean {
-        private RestTemplateBean() {
-
-        }
-
         private enum Singleton {
             INSTANCE;
 
@@ -28,7 +27,7 @@ public class Singletons {
                 instance = new RestTemplate();
             }
 
-            private final RestTemplate instance;
+            private final transient RestTemplate instance;
 
             public RestTemplate getInstance() {
                 return INSTANCE.instance;
@@ -40,11 +39,8 @@ public class Singletons {
         }
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class RandomBean {
-        private RandomBean() {
-
-        }
-
         private enum Singleton {
             INSTANCE;
 
@@ -52,7 +48,7 @@ public class Singletons {
                 instance = new Random(System.currentTimeMillis());
             }
 
-            private final Random instance;
+            private final transient Random instance;
 
             public Random getInstance() {
                 return INSTANCE.instance;
@@ -64,11 +60,8 @@ public class Singletons {
         }
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PathMatcherBean {
-        private PathMatcherBean() {
-
-        }
-
         private enum Singleton {
             INSTANCE;
 
@@ -76,7 +69,7 @@ public class Singletons {
                 instance = new AntPathMatcher();
             }
 
-            private final AntPathMatcher instance;
+            private final transient AntPathMatcher instance;
 
             public AntPathMatcher getInstance() {
                 return INSTANCE.instance;
@@ -89,55 +82,39 @@ public class Singletons {
     }
 
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class GsonBean {
-        private Gson gson = new Gson();
-
-        private GsonBean() {
-
-        }
-
         private enum Singleton {
             INSTANCE;
 
-            Singleton() {
-                instance = new GsonBean();
-            }
+            private final transient Gson gson = new Gson();
 
-            private final GsonBean instance;
-
-            public GsonBean getInstance() {
-                return INSTANCE.instance;
+            public Gson getGsonInstance() {
+                return gson;
             }
         }
 
         public static Gson getInstance() {
-            return Singleton.INSTANCE.getInstance().gson;
+            return Singleton.INSTANCE.getGsonInstance();
         }
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class JsonBean {
-        private ObjectMapper mapper = new ObjectMapper();
-
-        private JsonBean() {
-
-        }
 
         private enum Singleton {
             INSTANCE;
 
-            Singleton() {
-                instance = new JsonBean();
-            }
+            private final transient ObjectMapper instance = new ObjectMapper();
 
-            private final JsonBean instance;
 
-            public JsonBean getInstance() {
-                return INSTANCE.instance;
+            public ObjectMapper getInstance() {
+                return instance;
             }
         }
 
         public static ObjectMapper getInstance() {
-            return Singleton.INSTANCE.getInstance().mapper;
+            return Singleton.INSTANCE.getInstance();
         }
     }
 }

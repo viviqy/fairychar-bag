@@ -5,8 +5,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,8 +23,7 @@ public class SimpleLoggingHanlder implements LoggingHandler {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Class<?> pointClass = joinPoint.getTarget().getClass();
         String uri = RequestUtil.obtainUri(signature);
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-                .getRequest();
+        HttpServletRequest request = RequestUtil.getCurrentRequest();
         String ip = RequestUtil.getIpAddress(request);
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logs = String.format("%s request %s at %s", ip, uri, datetime);

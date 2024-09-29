@@ -10,6 +10,7 @@ package com.fairychar.bag.function;
 public interface IShardingProcessor<R, P> {
     R calculate(P shardingBy);
 
+    @SuppressWarnings("RV_ABSOLUTE_VALUE_OF_HASHCODE")
     default int calculateHash(P shardingBy) {
         return Math.abs(shardingBy.hashCode());
     }
