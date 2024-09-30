@@ -17,6 +17,9 @@ class OnRandomNumberCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnRandomNumber.class.getName());
+        if (annotationAttributes == null) {
+            return false;
+        }
         int end = (int) annotationAttributes.get("end");
         int number = (int) annotationAttributes.get("number");
         Random random = Singletons.RandomBean.getInstance();

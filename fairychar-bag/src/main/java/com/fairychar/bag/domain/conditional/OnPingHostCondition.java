@@ -20,6 +20,9 @@ class OnPingHostCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnPingHost.class.getName());
+        if (annotationAttributes == null) {
+            return false;
+        }
         String host = (String) annotationAttributes.get("host");
         boolean result = (Boolean) annotationAttributes.get("result");
         int timeout = (Integer) annotationAttributes.get("timeout");

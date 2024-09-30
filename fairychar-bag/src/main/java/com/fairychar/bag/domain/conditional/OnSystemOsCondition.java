@@ -18,6 +18,9 @@ class OnSystemOsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnSystemOS.class.getName());
+        if (annotationAttributes == null) {
+            return false;
+        }
         ConditionalOnSystemOS.OS os = (ConditionalOnSystemOS.OS) annotationAttributes.get("os");
         boolean condition = (Boolean) annotationAttributes.get("condition");
         log.info("os=[{}],condition=[{}]", os, condition);

@@ -16,7 +16,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * 脱敏注解{@link FuzzyResult},{@link FuzzyValue},在接口响应参数返回中的具体解析实现
@@ -29,7 +32,8 @@ import java.util.*;
 public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return returnType.getMethod().getAnnotation(FuzzyResult.class) != null;
+        FuzzyResult fuzzyResult = returnType.getMethod() != null ? returnType.getMethod().getAnnotation(FuzzyResult.class) : null;
+        return fuzzyResult != null;
     }
 
     @Override
@@ -136,13 +140,12 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
      * @param map        地图
      * @param fuzzyValue 模糊值
      */
-    private void processMap(Map map, FuzzyValue fuzzyValue) {
-        Set keySet = map.keySet();
-        for (Object key : keySet) {
-            Object item = map.get(key);
-            if (item.getClass() == String.class) {
-                String replaceText = this.processText(fuzzyValue, String.valueOf(item));
-                map.put(key, replaceText);
+    private void processMap(Map<Object, Object> map, FuzzyValue fuzzyValue) {
+        for (Map.Entry entry : map.entrySet()) {
+            Object value = entry.getValue();
+            if (value instanceof String) {
+                String replaceText = this.processText(fuzzyValue, (String) value);
+                entry.setValue(replaceText);
             }
         }
     }

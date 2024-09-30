@@ -152,7 +152,10 @@ public final class FileUtil {
      * @throws IOException IO异常
      */
     public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException {
-        new File(path).createNewFile();
+        boolean created = new File(path).createNewFile();
+        if (!created) {
+            throw new RuntimeException("create file failed,path=" + path);
+        }
         final FileChannel fileChannel = FileChannel.open(Paths.get(path), StandardOpenOption.WRITE);
         ByteBuffer buffer = ByteBuffer.allocateDirect(pipeBufferSize);
         try {

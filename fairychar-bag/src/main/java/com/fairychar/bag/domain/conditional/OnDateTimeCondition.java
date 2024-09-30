@@ -19,6 +19,9 @@ class OnDateTimeCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnDateTime.class.getName());
+        if (annotationAttributes == null) {
+            return false;
+        }
         String lowerStr = (String) annotationAttributes.get("lower");
         String upperStr = (String) annotationAttributes.get("upper");
         String pattern = (String) annotationAttributes.get("pattern");

@@ -17,6 +17,9 @@ class OnSystemPropertyCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnSystemProperty.class.getName());
+        if (annotationAttributes == null) {
+            return false;
+        }
         String name = (String) annotationAttributes.get("name");
         String value = (String) annotationAttributes.get("value");
         log.info(String.format("name=[%s],value=[%s]", name, value));

@@ -437,7 +437,12 @@ public final class ReflectUtil {
 
     public static <T> T mapToEntity(Map<String, Object> map, Class<T> tClass, boolean mustMatchAll, boolean matchNull)
             throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        T t = tClass.newInstance();
+        T t = null;
+        try {
+            t = tClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         for (Map.Entry<String, Object> e : map.entrySet()) {
             if ((e.getValue() == null) && !matchNull) {
                 continue;
@@ -539,7 +544,7 @@ public final class ReflectUtil {
         Field[] sourceFields = source.getClass().getDeclaredFields();
         T t = null;
         try {
-            t = tClass.newInstance();
+            t = tClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
