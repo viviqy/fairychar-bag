@@ -124,4 +124,14 @@ public class FastReadWriteList<E> extends ArrayList<E> {
     public void sort(Comparator<? super E> c) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int hashCode() {
+        throw new UnsupportedOperationException();
+    }
 }

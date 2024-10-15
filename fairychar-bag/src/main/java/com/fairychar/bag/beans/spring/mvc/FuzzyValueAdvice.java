@@ -5,6 +5,7 @@ import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.google.common.base.Strings;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
@@ -31,12 +32,14 @@ import java.util.Stack;
 @Order(100)
 public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
     @Override
+    @SuppressFBWarnings(value = "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         FuzzyResult fuzzyResult = returnType.getMethod() != null ? returnType.getMethod().getAnnotation(FuzzyResult.class) : null;
         return fuzzyResult != null;
     }
 
     @Override
+    @SuppressFBWarnings(value = "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType
             , Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         if (body == null) {
