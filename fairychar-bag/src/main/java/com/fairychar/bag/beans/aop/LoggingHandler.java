@@ -8,5 +8,7 @@ import org.aspectj.lang.JoinPoint;
  * @author qiyue
  */
 public interface LoggingHandler {
-    void accept(JoinPoint joinPoint);
+    void before(JoinPoint joinPoint);
+
+    void after(JoinPoint joinPoint, Object result);
 }

@@ -2,12 +2,14 @@ import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.utils.ReflectUtil;
+import com.fairychar.bag.utils.RequestUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.fairychar.bag.utils.test.TaskTestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -21,6 +23,16 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class UtilTest {
+
+    @Test
+    public void testRequestHeaders() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        request.addHeader("A", "A");
+        request.addHeader("A", "B");
+        request.addHeader("C", "C");
+        Map<String, String> headers = RequestUtil.getHeader(request);
+        System.out.println(headers);
+    }
 
 
     @Test

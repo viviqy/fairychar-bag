@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class SwaggerLoggingHandler implements LoggingHandler {
     @Override
-    public void accept(JoinPoint joinPoint) {
+    public void before(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Operation apiOperation = methodSignature.getMethod().getAnnotation(Operation.class);
         Class<?> pointClass = joinPoint.getTarget().getClass();
@@ -31,6 +31,21 @@ public class SwaggerLoggingHandler implements LoggingHandler {
                 , RequestUtil.getIpAddress(request)
         );
         LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
+    }
 
+    @Override
+    public void after(JoinPoint joinPoint, Object result) {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        Operation apiOperation = methodSignature.getMethod().getAnnotation(Operation.class);
+        Class<?> pointClass = joinPoint.getTarget().getClass();
+        HttpServletRequest request = RequestUtil.getCurrentRequest();
+        Tag api = (Tag) methodSignature.getDeclaringType().getAnnotation(Tag.class);
+        String logs = String.format("response uri=%s,uriName=%s from %s,response=%s"
+                , request.getRequestURI()
+                , api.name().concat("-").concat(apiOperation.operationId())
+                , RequestUtil.getIpAddress(request)
+                , result
+        );
+        LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
     }
 }

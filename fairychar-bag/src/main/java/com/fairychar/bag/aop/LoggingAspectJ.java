@@ -3,12 +3,10 @@ package com.fairychar.bag.aop;
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.beans.aop.LoggingHandler;
 import com.fairychar.bag.domain.annotations.RequestLog;
-import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
-import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.InitializingBean;
@@ -17,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.annotation.Order;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -34,6 +33,8 @@ public class LoggingAspectJ implements InitializingBean {
 
     @Autowired
     private FairycharBagProperties properties;
+    @Autowired
+    private Map<String, LoggingHandler> handlerMap;
 
     /**
      * 在控制器方法执行前记录日志。
@@ -46,12 +47,16 @@ public class LoggingAspectJ implements InitializingBean {
         if (!requestLog.enable()) {
             return;
         }
-        Optional<String> handler = Optional.ofNullable(requestLog.beforeHandler()).filter(s -> !s.isEmpty());
+        Optional<String> handler = Optional.ofNullable(requestLog.beforeHandler()).filter(s -> !s.isBlank());
         if (handler.isPresent()) {
-            handle(handler.get(), joinPoint);
+            handleBefore(handler.get(), joinPoint);
         } else {
-            Optional.ofNullable(properties.getAop().getLog().getGlobalBefore()).filter(s -> !Strings.isNullOrEmpty(s))
-                    .ifPresent(h -> handle(h, joinPoint));
+            Optional.ofNullable(this.properties.getAop().getLog().getGlobalBefore())
+                    .ifPresent(h -> {
+                        if (!h.isBlank()) {
+                            handleBefore(h, joinPoint);
+                        }
+                    });
         }
     }
 
@@ -61,17 +66,21 @@ public class LoggingAspectJ implements InitializingBean {
      * 如果启用了日志记录，则根据配置的处理程序名称执行相应的处理方法。
      * 如果未配置处理程序名称，则使用全局配置的处理程序名称执行处理方法。
      */
-    @After("execution(public * *..controller..*.*(..))  && @annotation(requestLog)")
-    public void afterLogging(JoinPoint joinPoint, RequestLog requestLog) {
+    @AfterReturning(pointcut = "execution(public * *..controller..*.*(..)) && @annotation(requestLog)", returning = "result")
+    public void afterLogging(JoinPoint joinPoint, RequestLog requestLog, Object result) {
         if (!requestLog.enable()) {
             return;
         }
-        Optional<String> handler = Optional.ofNullable(requestLog.afterHandler()).filter(s -> !s.isEmpty());
+        Optional<String> handler = Optional.ofNullable(requestLog.afterHandler()).filter(s -> !s.isBlank());
         if (handler.isPresent()) {
-            handle(handler.get(), joinPoint);
+            handleAfter(handler.get(), joinPoint, result);
         } else {
-            Optional.ofNullable(properties.getAop().getLog().getGlobalAfter()).filter(s -> !Strings.isNullOrEmpty(s))
-                    .ifPresent(h -> handle(h, joinPoint));
+            Optional.ofNullable(this.properties.getAop().getLog().getGlobalAfter())
+                    .ifPresent(h -> {
+                        if (!h.isBlank()) {
+                            handleAfter(h, joinPoint, result);
+                        }
+                    });
         }
     }
 
@@ -80,16 +89,28 @@ public class LoggingAspectJ implements InitializingBean {
      */
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(properties.getAop().getLog().getGlobalLevel(), "global log level cant be null");
+        Assert.notNull(this.properties.getAop().getLog().getGlobalLevel(), "global log level cant be null");
     }
 
     /**
      * 根据处理程序名称执行相应的处理方法。
      */
-    private void handle(String handlerName, JoinPoint joinPoint) {
+    private void handleBefore(String handlerName, JoinPoint joinPoint) {
         try {
-            LoggingHandler bean = SpringContextHolder.getInstance().getBean(handlerName, LoggingHandler.class);
-            bean.accept(joinPoint);
+            LoggingHandler bean = handlerMap.get(handlerName);
+            bean.before(joinPoint);
+        } catch (NoSuchBeanDefinitionException e) {
+            log.error("cant find loggingHandler bean by name {}", handlerName);
+        }
+    }
+
+    /**
+     * 根据处理程序名称执行相应的处理方法。
+     */
+    private void handleAfter(String handlerName, JoinPoint joinPoint, Object result) {
+        try {
+            LoggingHandler bean = handlerMap.get(handlerName);
+            bean.after(joinPoint, result);
         } catch (NoSuchBeanDefinitionException e) {
             log.error("cant find loggingHandler bean by name {}", handlerName);
         }

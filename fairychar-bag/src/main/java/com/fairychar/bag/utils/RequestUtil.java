@@ -1,5 +1,6 @@
 package com.fairychar.bag.utils;
 
+import cn.hutool.core.collection.IterUtil;
 import com.fairychar.bag.domain.exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Servlet请求工具类
@@ -21,6 +23,19 @@ import java.util.Optional;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RequestUtil {
 
+    /**
+     * 获取request的所有header信息
+     *
+     * @param request 请求
+     * @return {@link Map }<{@link String }, {@link String }>
+     */
+    public static Map<String, String> getHeader(HttpServletRequest request) {
+        Enumeration<String> headerNames = request.getHeaderNames();
+        Iterator<String> iterator = headerNames.asIterator();
+        List<String> headers = IterUtil.toList(iterator);
+        Map<String, String> headerValueMap = headers.stream().collect(Collectors.toMap(k -> k, v -> request.getHeader(v)));
+        return headerValueMap;
+    }
 
     /**
      * 获取当前请求
