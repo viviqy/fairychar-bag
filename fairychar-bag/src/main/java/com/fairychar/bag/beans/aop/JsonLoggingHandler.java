@@ -18,14 +18,17 @@ import java.util.Arrays;
 import java.util.UUID;
 
 /**
+ * json格式的api请求与响应内容打印
+ *
  * @author chiyo <br>
- * @since
+ * @since 1.3.2
  */
 @NoArgsConstructor
 @AllArgsConstructor
 @Slf4j
 public class JsonLoggingHandler implements LoggingHandler {
     private ObjectMapper objectMapper;
+    private boolean prettyJson = false;
 
     private static final String TRACE_ID = "TRACE_ID";
 
@@ -42,11 +45,11 @@ public class JsonLoggingHandler implements LoggingHandler {
             request.setAttribute(TRACE_ID, traceId);
         }
         Object[] copiedArgs = copyArgs(joinPoint);
-        JsonLoggingObject loggingObject = new JsonLoggingObject("request", traceId, ip, uri
+        JsonLoggingObject loggingObject = new JsonLoggingObject("request", request.getMethod(), traceId, ip, uri
                 , copiedArgs.length > 1 ? copiedArgs : copiedArgs[0]);
         RequestLog.Level level = LoggingHelper.getLevel(methodSignature);
         if (this.objectMapper == null) {
-            String jsonStr = JSONUtil.toJsonStr(loggingObject);
+            String jsonStr = this.prettyJson ? JSONUtil.toJsonPrettyStr(loggingObject) : JSONUtil.toJsonStr(loggingObject);
             LoggingHelper.log(pointClass, level, jsonStr);
         } else {
             try {
@@ -70,10 +73,10 @@ public class JsonLoggingHandler implements LoggingHandler {
         if (Strings.isNullOrEmpty(traceId)) {
             traceId = (String) request.getAttribute(TRACE_ID);
         }
-        JsonLoggingObject loggingObject = new JsonLoggingObject("response", traceId, ip, uri, result);
+        JsonLoggingObject loggingObject = new JsonLoggingObject("response", request.getMethod(), traceId, ip, uri, result);
         RequestLog.Level level = LoggingHelper.getLevel(methodSignature);
         if (this.objectMapper == null) {
-            String jsonStr = JSONUtil.toJsonStr(loggingObject);
+            String jsonStr = this.prettyJson ? JSONUtil.toJsonPrettyStr(loggingObject) : JSONUtil.toJsonStr(loggingObject);
             LoggingHelper.log(pointClass, level, jsonStr);
         } else {
             try {

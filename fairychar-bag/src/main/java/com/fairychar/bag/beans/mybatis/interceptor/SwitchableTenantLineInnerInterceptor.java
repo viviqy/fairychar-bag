@@ -34,9 +34,9 @@ import java.util.Map;
  *
  *     public void test(){
  *         //代表不使用自动租户插件
- *         userMapper.getUsers(new UserEntity(),new TenantTenantSwitcher(false));
+ *         userMapper.getUsers(new UserEntity(),new TenantSwitcher(false));
  *         //代表使用自动租户插件
- *         userMapper.getUsers(new UserEntity(),new TenantTenantSwitcher(true));
+ *         userMapper.getUsers(new UserEntity(),new TenantSwitcher(true));
  *     }
  *
  * }

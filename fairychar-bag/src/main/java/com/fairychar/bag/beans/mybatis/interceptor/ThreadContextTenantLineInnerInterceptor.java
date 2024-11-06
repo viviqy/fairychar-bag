@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class ThreadContextTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
 
 
-    public ThreadContextTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSwitcher tenantSwitcher) {
+    public ThreadContextTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler) {
         super(tenantLineHandler);
     }
 
