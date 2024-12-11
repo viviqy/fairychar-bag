@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.redisson.api.RLock;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * redis 锁 util
@@ -34,8 +33,6 @@ public final class RedisLockUtil {
             lock.lock();
             searchAgain.doAction();
             action.doAction();
-        } catch (InterruptedException | TimeoutException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -51,8 +48,6 @@ public final class RedisLockUtil {
             lock.lock(time, timeUnit);
             searchAgain.doAction();
             action.doAction();
-        } catch (InterruptedException | TimeoutException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -80,8 +75,6 @@ public final class RedisLockUtil {
             } else {
                 throw new FailToGetLockException();
             }
-        } catch (InterruptedException | TimeoutException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -100,7 +93,7 @@ public final class RedisLockUtil {
             } else {
                 throw new FailToGetLockException();
             }
-        } catch (InterruptedException | TimeoutException e) {
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
             throw e;

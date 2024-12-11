@@ -1,13 +1,11 @@
 package com.fairychar.bag.beans.mybatis.interceptor;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * <p>是否使用自动租户控制器</p>
- * 通过{@link TenantSkipper#skip}在执行sql之前,可以
- * 绕过自动租户插件对拼接租户流程的执行.需要配合{@link ThreadContextTenantLineInnerInterceptor}使用
+ * 通过{@link SimpleTenantSkipper#setSkip}在执行sql之前,可以
+ * 绕过自动租户插件对拼接租户流程的执行.需要配合{@link SkipableTenantLineInnerInterceptor}使用
  * <pre>
  * {@code
  * @Service
@@ -32,24 +30,26 @@ import lombok.extern.slf4j.Slf4j;
  * @author chiyo <br>
  * @since 1.0.2
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
-public final class TenantSkipper {
+public class SimpleTenantSkipper implements ITenantSkipper {
 
-    private static ThreadLocal<Boolean> threadLocal = ThreadLocal.withInitial(() -> true);
+    private static final ThreadLocal<Boolean> THREAD_LOCAL = ThreadLocal.withInitial(() -> true);
 
 
-    public static void skip() {
+    @Override
+    public void setSkip(boolean skip) {
         log.debug("skip tenant plugin");
-        threadLocal.set(false);
+        THREAD_LOCAL.set(skip);
     }
 
-    public static void remove() {
+    @Override
+    public void cleanContext() {
         log.debug("remove tenant thread context");
-        threadLocal.remove();
+        THREAD_LOCAL.remove();
     }
 
-    protected static boolean use() {
-        return threadLocal.get();
+    @Override
+    public boolean getSkip() {
+        return THREAD_LOCAL.get();
     }
 }

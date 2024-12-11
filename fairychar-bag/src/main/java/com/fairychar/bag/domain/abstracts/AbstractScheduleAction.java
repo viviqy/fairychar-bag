@@ -22,7 +22,7 @@ public abstract class AbstractScheduleAction implements Action {
      * @throws TimeoutException     超时触发
      */
     @Override
-    public abstract void doAction() throws InterruptedException, TimeoutException;
+    public abstract void doAction() throws RuntimeException;
 
     /**
      * 任务

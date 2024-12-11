@@ -30,13 +30,7 @@ public final class TaskTestUtil {
         CountDownLatch countDownLatch = new CountDownLatch(actions.size());
         List<? extends Future<?>> futures = actions.stream().map(a -> executorService.submit(() -> {
             countDownLatch.countDown();
-            try {
-                a.doAction();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (TimeoutException e) {
-                throw new RuntimeException(e);
-            }
+            a.doAction();
         })).collect(Collectors.toList());
         futures.forEach(f -> {
             try {
@@ -119,13 +113,7 @@ public final class TaskTestUtil {
     public static long batchRunSync(List<Action> actions, ExecutorService executorService) {
         long begin = System.currentTimeMillis();
         List<? extends Future<?>> futures = actions.stream().map(a -> executorService.submit(() -> {
-            try {
-                a.doAction();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (TimeoutException e) {
-                throw new RuntimeException(e);
-            }
+            a.doAction();
         })).collect(Collectors.toList());
         futures.forEach(f -> {
             try {
@@ -149,13 +137,7 @@ public final class TaskTestUtil {
     public static void batchRunAsync(List<Action> actions, ExecutorService executorService) {
         for (Action action : actions) {
             executorService.execute(() -> {
-                try {
-                    action.doAction();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } catch (TimeoutException e) {
-                    throw new RuntimeException(e);
-                }
+                action.doAction();
             });
         }
     }
@@ -172,13 +154,7 @@ public final class TaskTestUtil {
         long begin = System.currentTimeMillis();
         List<? extends Future<?>> futureList = IntStream.range(0, round).boxed()
                 .map(i -> executorService.submit(() -> {
-                    try {
-                        action.doAction();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    } catch (TimeoutException e) {
-                        throw new RuntimeException(e);
-                    }
+                    action.doAction();
                 })).collect(Collectors.toList());
         futureList.forEach(f -> {
             try {
@@ -204,13 +180,7 @@ public final class TaskTestUtil {
     public static void batchRunAsync(Action action, int round, ExecutorService executorService) {
         for (int i = 0; i < round; i++) {
             executorService.execute(() -> {
-                try {
-                    action.doAction();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } catch (TimeoutException e) {
-                    throw new RuntimeException(e);
-                }
+                action.doAction();
             });
         }
     }

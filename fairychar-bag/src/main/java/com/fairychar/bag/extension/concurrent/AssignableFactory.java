@@ -4,7 +4,6 @@ import com.fairychar.bag.function.Action;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.Optional;
 import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -89,8 +88,6 @@ public final class AssignableFactory {
                 action.doAction();
             } catch (InterruptedException ignore) {
                 //ignore
-            } catch (TimeoutException e) {
-                Optional.ofNullable(timeoutCallback).ifPresent(t -> t.accept(e));
             } finally {
                 this.semaphore.release(workers);
             }

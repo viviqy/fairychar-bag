@@ -1,8 +1,10 @@
+import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
 import com.fairychar.bag.function.Action;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.RequestUtil;
+import com.fairychar.bag.utils.StringUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.fairychar.bag.utils.test.TaskTestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,6 +25,56 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class UtilTest {
+
+
+    @Test
+    public void testSearch() {
+        List<Relation> datas = List.of(
+                new Relation(1, 0),
+                new Relation(2, 1),
+                new Relation(3, 1),
+                new Relation(4, 2),
+                new Relation(5, 2),
+                new Relation(6, 3),
+                new Relation(7, 6),
+                new Relation(8, 7)
+        );
+        List<Relation> r1s = ReflectUtil.recursiveSearchChild("id", 1, ids -> {
+            List<Relation> list = datas.stream().filter(s -> ids.contains(s.getPid())).toList();
+            return list;
+        });
+        System.out.println(JSONUtil.toJsonPrettyStr(r1s));
+        List<Relation> r3s = ReflectUtil.recursiveSearchChild("id", 3, ids -> {
+            List<Relation> list = datas.stream().filter(s -> ids.contains(s.getPid())).toList();
+            return list;
+        });
+        System.out.println(JSONUtil.toJsonPrettyStr(r3s));
+
+        List<Relation> r4s = ReflectUtil.recursiveSearchParent("pid", 7, ids -> {
+            List<Relation> list = datas.stream().filter(s -> ids.contains(s.getId())).toList();
+            return list;
+        });
+        System.out.println(JSONUtil.toJsonPrettyStr(r4s));
+
+    }
+
+    @AllArgsConstructor
+    @Data
+    static class Relation {
+        private Integer id;
+        private Integer pid;
+
+    }
+
+
+    @Test
+    public void testFillString() {
+        String source = "abcd";
+        char c = '0';
+        System.out.println(StringUtil.fillBegin(source, c, 8));
+        System.out.println(StringUtil.fillEnd(source, c, 8));
+    }
+
 
     @Test
     public void testRequestHeaders() {
@@ -60,7 +112,11 @@ public class UtilTest {
     public void testRun() {
         Action action = () -> {
             log.info("test run...");
-            TimeUnit.SECONDS.sleep(5);
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         };
         TaskTestUtil.concurrentRunAsync(Arrays.asList(action, action));
         log.info("bbbb");

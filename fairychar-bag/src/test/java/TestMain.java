@@ -7,7 +7,6 @@ import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import lombok.SneakyThrows;
 import org.junit.Test;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -24,11 +23,6 @@ import java.util.stream.Collectors;
  */
 public class TestMain {
 
-    @Test
-    public void testPwd() {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("Ssvcmsadmin=123"));
-    }
 
 
     @Test

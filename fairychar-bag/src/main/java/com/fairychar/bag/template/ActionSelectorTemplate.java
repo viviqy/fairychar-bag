@@ -126,7 +126,7 @@ public class ActionSelectorTemplate {
     public void put(String taskName, long period, Action action) {
         ActionSchedule actionSchedule = new ActionSchedule(taskName, period, new AbstractScheduleAction() {
             @Override
-            public void doAction() throws InterruptedException, TimeoutException {
+            public void doAction() throws RuntimeException {
                 action.doAction();
             }
         });

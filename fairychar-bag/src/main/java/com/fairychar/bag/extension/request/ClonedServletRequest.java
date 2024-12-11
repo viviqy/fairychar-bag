@@ -4,6 +4,7 @@ import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.apache.catalina.connector.InputBuffer;
+import org.springframework.security.web.savedrequest.Enumerator;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -102,18 +103,7 @@ public class ClonedServletRequest extends HttpServletRequestWrapper {
 
     @Override
     public Enumeration<String> getHeaderNames() {
-        LinkedList<String> headerList = this.headers.keySet().stream().collect(Collectors.toCollection(LinkedList::new));
-        return new Enumeration<String>() {
-            @Override
-            public boolean hasMoreElements() {
-                return !headerList.isEmpty();
-            }
-
-            @Override
-            public String nextElement() {
-                return headerList.removeFirst();
-            }
-        };
+        return new Enumerator(this.headers.keySet());
     }
 
     @Override

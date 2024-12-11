@@ -1,9 +1,11 @@
 package com.fairychar.bag.utils;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
 import com.fairychar.bag.utils.base.FieldContainer;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import sun.misc.Unsafe;
 
 import java.lang.annotation.Annotation;
@@ -11,6 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.TypeVariable;
 import java.util.*;
+import java.util.function.Function;
 
 /**
  * 反射工具类
@@ -19,6 +22,7 @@ import java.util.*;
  * @since 0.0.1-SNAPSHOT
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Slf4j
 public final class ReflectUtil {
 
     private static final String REGEX_ALL = "*";
@@ -41,7 +45,7 @@ public final class ReflectUtil {
 
     private static void recursiveSearchFieldValueByAnnotations(String path, Object e
             , Collection<Class<? extends Annotation>> annotations, Map<Class<? extends Annotation>
-            , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
+                    , List<FieldContainer>> ref, HashSet<Integer> mappedBeans) {
         if (e == null || mappedBeans.contains(System.identityHashCode(e))) {
             return;
         }
@@ -54,6 +58,7 @@ public final class ReflectUtil {
         for (int i = 0; i < declaredFields.length; i++) {
             Field declaredField = declaredFields[i];
             String indexPath = path.concat(".").concat(declaredField.getName());
+            log.trace("analyze field,object={},indexPath={}", e.getClass().getName(), indexPath);
 //            declaredField.setAccessible(true);
             for (Class<? extends Annotation> annotation : annotations) {
                 if (declaredField.getAnnotation(annotation) != null) {
@@ -74,9 +79,7 @@ public final class ReflectUtil {
                     filedObject = declaredField.get(e);
                     if (filedObject != null && ((filedObject instanceof Collection) || (filedObject instanceof Map))) {
                         recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
-                    } else if (
-                            isNotJavaClass(filedObject)
-                    ) {
+                    } else if (isNotJavaClass(filedObject)) {
                         recursiveSearchFieldValueByAnnotations(indexPath, filedObject, annotations, ref, mappedBeans);
                     }
                 } catch (IllegalAccessException ignore) {
@@ -299,6 +302,87 @@ public final class ReflectUtil {
         recursiveSearch(source, ref, idField, pidField, idValue);
         return ref;
     }
+
+
+    /**
+     * 递归搜索父项
+     *
+     * @param idValue              PID 值
+     * @param pidField             id 字段
+     * @param parentSearchSupplier 父项搜索供应商
+     * @return {@link List }<{@link T }>
+     */
+    public static <T, I> List<T> recursiveSearchParent(String pidField, I idValue, Function<List<I>, List<T>> parentSearchSupplier) {
+        List<I> idValues = List.of(idValue);
+        //通过查找子项逆转id和pid实现
+        return recursiveSearchChild(pidField, idValues, parentSearchSupplier);
+    }
+
+
+    /**
+     * 递归搜索父项
+     *
+     * @param idValues             ID 值
+     * @param pidField             pid 字段
+     * @param parentSearchSupplier 父项搜索供应商
+     * @return {@link List }<{@link T }>
+     */
+    public static <T, I> List<T> recursiveSearchParent(String pidField, List<I> idValues, Function<List<I>, List<T>> parentSearchSupplier) {
+        LinkedList<T> ref = new LinkedList<>();
+        recursiveSearchUntilEmpty(pidField, idValues, parentSearchSupplier, ref);
+        return ref;
+    }
+
+    /**
+     * 递归搜索子项
+     *
+     * @param pidValue            PID 值
+     * @param idField             id 字段
+     * @param childSearchSupplier 子项搜索供应商
+     * @return {@link List }<{@link T }>
+     */
+    public static <T, P> List<T> recursiveSearchChild(String idField, P pidValue, Function<List<P>, List<T>> childSearchSupplier) {
+        List<P> pidValues = List.of(pidValue);
+        return recursiveSearchChild(idField, pidValues, childSearchSupplier);
+    }
+
+
+    /**
+     * 递归搜索子项
+     *
+     * @param pidValues           PID 值
+     * @param idField             id 字段
+     * @param childSearchSupplier 子项搜索供应商
+     * @return {@link List }<{@link T }>
+     */
+    public static <T, P> List<T> recursiveSearchChild(String idField, List<P> pidValues, Function<List<P>, List<T>> childSearchSupplier) {
+        LinkedList<T> ref = new LinkedList<>();
+        recursiveSearchUntilEmpty(idField, pidValues, childSearchSupplier, ref);
+        return ref;
+    }
+
+    private static <P, T> void recursiveSearchUntilEmpty(String idField
+            , List<P> pidValues, Function<List<P>, List<T>> childSearchSupplier, List<T> ref) {
+        List<T> child = childSearchSupplier.apply(pidValues);
+        if (CollectionUtil.isNotEmpty(child)) {
+            ref.addAll(child);
+            List<P> childIdValues = child.stream().map(c -> {
+                try {
+                    Field id = c.getClass().getDeclaredField(idField);
+                    accessFields(id);
+                    Object idValue = id.get(c);
+                    return ((P) idValue);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }).toList();
+            if (childIdValues.isEmpty()) {
+                return;
+            }
+            recursiveSearchUntilEmpty(idField, childIdValues, childSearchSupplier, ref);
+        }
+    }
+
 
     /**
      * 递归查询指定id的所有子项/父项

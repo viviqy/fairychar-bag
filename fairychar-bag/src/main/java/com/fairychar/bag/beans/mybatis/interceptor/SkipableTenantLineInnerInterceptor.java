@@ -13,17 +13,24 @@ import org.apache.ibatis.session.RowBounds;
 import java.sql.SQLException;
 
 /**
- * <p>通过线程上下文动态选择是否使用mybatis自动租户插件的拦截器</p>
+ * <p>可自定义是否跳过动态选择是否使用mybatis自动租户插件的拦截器</p>
  *
  * @author chiyo
  * @since 1.0.2
  */
 //TODO 还没怎么测试
-public class ThreadContextTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
+public class SkipableTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
 
+    private ITenantSkipper tenantSkipper;
 
-    public ThreadContextTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler) {
+    public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler) {
         super(tenantLineHandler);
+        this.tenantSkipper = new SimpleTenantSkipper();
+    }
+
+    public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSkipper tenantSkipper) {
+        super(tenantLineHandler);
+        this.tenantSkipper = tenantSkipper;
     }
 
 
@@ -33,14 +40,11 @@ public class ThreadContextTenantLineInnerInterceptor extends TenantLineInnerInte
         if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) {
             return;
         }
-        if (!useTenant()) {
+        if (this.tenantSkipper.getSkip()) {
             return;
         }
         PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
         mpBs.sql(parserSingle(mpBs.sql(), null));
     }
 
-    private boolean useTenant() {
-        return TenantSkipper.use();
-    }
 }

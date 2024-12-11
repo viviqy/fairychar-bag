@@ -13,6 +13,41 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class StringUtil {
 
+    /**
+     * 从开头开始填充字符串到固定长度
+     *
+     * @param source 源字符串
+     * @param c      填充字符
+     * @param length 到固定的长度
+     * @return {@link String }
+     */
+    public static String fillBegin(String source, char c, int length) {
+        if (source.length() >= length) {
+            return source;
+        }
+        int appendLength = length - source.length();
+        String prefix = Strings.repeat(String.valueOf(c), appendLength);
+        return prefix.concat(source);
+    }
+
+
+    /**
+     * 从后面开始填充字符串到固定长度
+     *
+     * @param source 源字符串
+     * @param c      填充字符
+     * @param length 到固定的长度
+     * @return {@link String }
+     */
+    public static String fillEnd(String source, char c, int length) {
+        if (source.length() >= length) {
+            return source;
+        }
+        int appendLength = length - source.length();
+        String suffix = Strings.repeat(String.valueOf(c), appendLength);
+        return source.concat(suffix);
+    }
+
     public static String defaultText(String source, String text) {
         return Strings.isNullOrEmpty(source) ? text : source;
     }

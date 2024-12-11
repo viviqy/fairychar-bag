@@ -1,13 +1,11 @@
 package com.fairychar.bag.extension.concurrent;
 
 import com.fairychar.bag.function.Action;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
@@ -42,7 +40,7 @@ public final class RoundTaskExecutor {
     private final AtomicInteger executedRound;
     private final ExecutorService executorService;
 
-    private RoundTaskExecutor(@NotNull List<List<Action>> taskList, int executeRound) {
+    private RoundTaskExecutor(List<List<Action>> taskList, int executeRound) {
         assert taskList != null;
         this.phaser = new Phaser(taskList.size());
         this.taskList = taskList;
@@ -52,11 +50,11 @@ public final class RoundTaskExecutor {
         this.executedTaskCount = new AtomicInteger(0);
     }
 
-    public static RoundTaskExecutor boxedTaskList(@NotNull List<List<Action>> tasklist) {
+    public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist) {
         return boxedTaskList(tasklist, 0);
     }
 
-    public static RoundTaskExecutor boxedTaskList(@NotNull List<List<Action>> tasklist, int round) {
+    public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round) {
         Integer max = tasklist.stream().map(List::size).max(Integer::compareTo).get();
         tasklist.forEach(l -> {
             for (int i = l.size(); i < max; i++) {
@@ -70,19 +68,11 @@ public final class RoundTaskExecutor {
 
     public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout) {
         this.taskList.forEach(list -> executorService.execute(() -> list.forEach(task -> {
-            try {
-                int current = this.executedRound.get();
-                task.doAction();
-                this.executedTaskCount.incrementAndGet();
-                this.phaser.arriveAndAwaitAdvance();
-                this.executedRound.compareAndSet(current, current + 1);
-            } catch (InterruptedException e) {
-                Optional.ofNullable(onInterrupted).ifPresent(interruptedExceptionConsumer -> interruptedExceptionConsumer.accept(e));
-                this.phaser.arriveAndDeregister();
-            } catch (TimeoutException e) {
-                Optional.ofNullable(onTimeout).ifPresent(timeoutExceptionConsumer -> timeoutExceptionConsumer.accept(e));
-                this.phaser.arriveAndDeregister();
-            }
+            int current = this.executedRound.get();
+            task.doAction();
+            this.executedTaskCount.incrementAndGet();
+            this.phaser.arriveAndAwaitAdvance();
+            this.executedRound.compareAndSet(current, current + 1);
         })));
     }
 
