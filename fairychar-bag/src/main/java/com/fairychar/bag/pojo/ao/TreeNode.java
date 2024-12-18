@@ -20,6 +20,6 @@ import java.util.List;
 @Data
 public class TreeNode<T> implements Serializable {
     private static final long serialVersionUID = 374862911861656958L;
-    private T value;
+    private T current;
     private List<TreeNode<T>> child;
 }

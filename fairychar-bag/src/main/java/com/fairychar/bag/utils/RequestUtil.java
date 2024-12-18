@@ -1,7 +1,8 @@
 package com.fairychar.bag.utils;
 
 import cn.hutool.core.collection.IterUtil;
-import com.fairychar.bag.domain.exceptions.ServiceException;
+import com.fairychar.bag.domain.exceptions.FBException;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AccessLevel;
@@ -22,6 +23,8 @@ import java.util.stream.Collectors;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RequestUtil {
+
+
 
     /**
      * 获取request的所有header信息
@@ -46,7 +49,7 @@ public final class RequestUtil {
         HttpServletRequest request = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
                 .map(a -> a.getRequest())
-                .orElseThrow(() -> new ServiceException("failed to get request", 500, null));
+                .orElseThrow(() -> new FBException(RestErrorCode.OPERATION_FAILED.getCode(), "failed to get request"));
         return request;
     }
 
@@ -59,7 +62,7 @@ public final class RequestUtil {
         HttpServletResponse response = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
                 .map(a -> a.getResponse())
-                .orElseThrow(() -> new ServiceException("failed to get response", 500, null));
+                .orElseThrow(() -> new FBException(RestErrorCode.OPERATION_FAILED.getCode(), "failed to get response"));
         return response;
     }
 
@@ -73,7 +76,7 @@ public final class RequestUtil {
     public static <T> void putAttribute(String keyName, T attribute) {
         ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
-                .orElseThrow(() -> new ServiceException("failed to get servlet attributes", 500, null));
+                .orElseThrow(() -> new FBException(RestErrorCode.OPERATION_FAILED.getCode(), "failed to get servlet attributes"));
         requestAttributes.getRequest().setAttribute(keyName, attribute);
     }
 
@@ -87,7 +90,7 @@ public final class RequestUtil {
     public static <T> T getAttribute(String keyName, Class<T> clazz) {
         ServletRequestAttributes requestAttributes = Optional.ofNullable(RequestContextHolder.getRequestAttributes())
                 .map(r -> ((ServletRequestAttributes) r))
-                .orElseThrow(() -> new ServiceException("failed to get servlet attributes", 500, null));
+                .orElseThrow(() -> new FBException("failed to get servlet attributes", 500, null));
         Object attribute = requestAttributes.getRequest().getAttribute(keyName);
         return (T) attribute;
     }

@@ -1,11 +1,16 @@
+import cn.hutool.json.JSONUtil;
+import com.fairychar.bag.beans.spring.advice.InvalidateLog;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.Consts;
+import com.fairychar.bag.extension.request.MockHttpServletRequest;
 import com.fairychar.bag.pojo.dto.NameValueDTO;
 import com.fairychar.bag.pojo.vo.HttpResult;
+import com.fairychar.bag.pojo.vo.InvalidateFieldVO;
 import com.fairychar.bag.utils.FileUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.File;
@@ -21,9 +26,19 @@ import java.util.stream.Collectors;
 /**
  * @author chiyo
  */
+@Slf4j
 public class TestMain {
 
+    @Test
+    public void testLogInvalidateField(){
+        MockHttpServletRequest request = new MockHttpServletRequest("POST", "/getUser");
+        List<InvalidateFieldVO> invalidateFieldVOS = List.of(
+                new InvalidateFieldVO("name", "error1"),
+                new InvalidateFieldVO("age", "error2")
+        );
+        log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
 
+    }
 
     @Test
     public void testMatch() {

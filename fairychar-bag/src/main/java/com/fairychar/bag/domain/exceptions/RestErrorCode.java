@@ -69,6 +69,7 @@ public enum RestErrorCode implements IRestErrorCode {
 
     //20000
     UNKNOWN_ERROR(2_0000, "未知异常"),
+    SYSTEM_ERROR(2_0001, "系统错误"),
     ;
 
     private final int code;

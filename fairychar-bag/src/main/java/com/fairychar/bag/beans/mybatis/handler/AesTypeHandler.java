@@ -29,6 +29,8 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
         try {
             if (!Strings.isNullOrEmpty(parameter)) {
                 ps.setString(i, aes.encryptHex(parameter));
+            } else {
+                ps.setString(i, parameter);
             }
         } catch (Exception e) {
             throw new SQLException(e);
@@ -39,7 +41,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
     public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
         String value = rs.getString(columnName);
         if (Strings.isNullOrEmpty(value)) {
-            return null;
+            return value;
         }
         try {
             return aes.decryptStr(value);
@@ -52,7 +54,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
     public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
         String value = rs.getString(columnIndex);
         if (Strings.isNullOrEmpty(value)) {
-            return null;
+            return value;
         }
         try {
             return aes.decryptStr(value);
@@ -65,7 +67,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
     public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
         String value = cs.getString(columnIndex);
         if (Strings.isNullOrEmpty(value)) {
-            return null;
+            return value;
         }
         try {
             return aes.decryptStr(value);

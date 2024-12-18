@@ -32,7 +32,7 @@ public final class MappingObjectUtil {
             I pidValue = (I) pid.get(node);
             if (pidValue.equals(idValue)) {
                 TreeNode<T> child = new TreeNode<T>();
-                child.setValue(node);
+                child.setCurrent(node);
                 Field id = node.getClass().getDeclaredField(idField);
                 id.setAccessible(true);
                 List<TreeNode<T>> treeNodes = listToTree(source, pidField, idField, ((I) id.get(node)));

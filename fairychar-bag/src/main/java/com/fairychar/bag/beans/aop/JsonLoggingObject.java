@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class JsonLoggingObject implements Serializable {
+class JsonLoggingObject implements Serializable {
     private String action;
     private String method;
     private String traceId;

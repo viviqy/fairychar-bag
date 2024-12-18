@@ -1,10 +1,16 @@
-package com.fairychar.bag.web;
+package com.fairychar.bag.beans.spring.advice;
 
+import cn.hutool.json.JSONUtil;
+import com.fairychar.bag.domain.exceptions.FBException;
 import com.fairychar.bag.domain.exceptions.RestErrorCode;
-import com.fairychar.bag.domain.exceptions.ServiceException;
+import com.fairychar.bag.domain.exceptions.RestException;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.pojo.vo.InvalidateFieldVO;
+import com.fairychar.bag.utils.RequestUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,6 +26,8 @@ import java.util.List;
  * @since 0.0.1
  */
 @RestControllerAdvice
+@Order
+@Slf4j
 public class DefaultExceptionAdvice {
     /**
      * 只返回第一个校验失败的参数的校验原因
@@ -48,13 +56,28 @@ public class DefaultExceptionAdvice {
                     .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage()))
                     .toList();
         }
+        HttpServletRequest request = RequestUtil.getCurrentRequest();
+        log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
         return HttpResult.fail(RestErrorCode.PARAM_INVALIDATE, invalidateFieldVOS);
     }
 
 
-    @ExceptionHandler(ServiceException.class)
-    public HttpResult handleServiceException(ServiceException e) {
+    @ExceptionHandler(FBException.class)
+    public HttpResult handleServiceException(FBException e) {
         return new HttpResult(e.getCode(), e.getData(), e.getMessage());
+    }
+
+    @ExceptionHandler(RestException.class)
+    public HttpResult handleRestException(RestException e) {
+        RestErrorCode errorCode = e.getErrorCode();
+        return new HttpResult(errorCode.getCode(), e.getData(), e.getMessage());
+    }
+
+
+    @ExceptionHandler(Exception.class)
+    public HttpResult handleException(Exception e) {
+        log.error("system error,msg={}", e.getMessage(), e);
+        return HttpResult.fail();
     }
 
 

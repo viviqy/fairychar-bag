@@ -48,6 +48,13 @@ public final class StringUtil {
         return source.concat(suffix);
     }
 
+    /**
+     * 当原文本为空或null的时候,返回默认文本,否则原文本
+     *
+     * @param source 源文本
+     * @param text   默认文本
+     * @return {@link String }
+     */
     public static String defaultText(String source, String text) {
         return Strings.isNullOrEmpty(source) ? text : source;
     }
