@@ -221,6 +221,7 @@ public final class ReflectUtil {
                     try {
                         declaredFields[i].set(o, null);
                     } catch (IllegalAccessException e) {
+                        //final的字段会报错
                         throw new RuntimeException(e);
                     }
                 }
@@ -240,6 +241,7 @@ public final class ReflectUtil {
                     try {
                         declaredFields[i].set(o, null);
                     } catch (IllegalAccessException e) {
+                        //final的字段会报错
                         throw new RuntimeException(e);
                     }
                 }
@@ -257,6 +259,7 @@ public final class ReflectUtil {
                 try {
                     declaredFields[i].set(o, null);
                 } catch (IllegalAccessException e) {
+                    //final的字段会报错
                     throw new RuntimeException(e);
                 }
             }
@@ -278,23 +281,66 @@ public final class ReflectUtil {
     }
 
 
-    public static void swapLong(Long a, Long b) {
+    /**
+     * 通过unsafe修改Long类型的值
+     *
+     * @param source 源值
+     * @param expect 期望值
+     */
+    public static void setLong(Long source, Long expect) {
+        Unsafe unsafe = getUnsafe();
+        try {
+            unsafe.getAndSetLong(source, unsafe.objectFieldOffset(Long.class.getDeclaredField("value")), expect);
+        } catch (NoSuchFieldException ignore) {
+            //never happened
+        }
+    }
+
+    /**
+     * 通过unsafe修改Integer类型的值
+     *
+     * @param source 源值
+     * @param expect 期望值
+     */
+    public static void setInt(Integer source, Integer expect) {
+        Unsafe unsafe = getUnsafe();
+        try {
+            unsafe.getAndSetInt(source, unsafe.objectFieldOffset(Integer.class.getDeclaredField("value")), expect);
+        } catch (NoSuchFieldException ignore) {
+            //never happened
+        }
+    }
+
+    /**
+     * 通过unsafe交换Long a和Long b的值,使用时需要注意a,b没有被其他线程修改
+     * 否则可能出现某个成功或者全部失败
+     *
+     * @param a a
+     * @param b b
+     */
+    public static void compareAndSwapLong(Long a, Long b) {
         Unsafe unsafe = getUnsafe();
         long c = a ^ b;
         try {
             unsafe.compareAndSwapLong(a
-                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , unsafe.objectFieldOffset(Long.class.getDeclaredField("value"))
                     , a, c ^ a);
             unsafe.compareAndSwapLong(b
-                    , unsafe.objectFieldOffset(Integer.class.getDeclaredField("value"))
+                    , unsafe.objectFieldOffset(Long.class.getDeclaredField("value"))
                     , b, c ^ b);
         } catch (NoSuchFieldException ignore) {
             //never happened
         }
     }
 
-
-    public static void swapInteger(Integer a, Integer b) {
+    /**
+     * 通过unsafe交换Integer a和Integer b的值,使用时需要注意a,b没有被其他线程修改
+     * 否则可能出现某个成功或者全部失败
+     *
+     * @param a a
+     * @param b b
+     */
+    public static void compareAndSwapInteger(Integer a, Integer b) {
         Unsafe unsafe = getUnsafe();
         int c = a ^ b;
         try {
@@ -371,6 +417,15 @@ public final class ReflectUtil {
         }
     }
 
+    /**
+     * 获取类的字段
+     *
+     * @param clazz     类类型
+     * @param getParent 是否获取获取父类字段
+     * @param getStatic 是否获取静态字段
+     * @param getFinal  是否获得final字段
+     * @return {@link Set }<{@link Field }>
+     */
     public static Set<Field> getClassFields(Class<?> clazz, boolean getParent, boolean getStatic, boolean getFinal) {
         Set<Field> fields = new HashSet<>();
         Class<?> temp = clazz;
@@ -386,6 +441,13 @@ public final class ReflectUtil {
     }
 
 
+    /**
+     * 复制属性
+     *
+     * @param source    源对象
+     * @param target    目标对象
+     * @param matchNull 是否copy null值的字段
+     */
     public static void copyProperties(Object source, Object target, boolean matchNull) {
         Field[] sourceFields = source.getClass().getDeclaredFields();
         for (Field sourceField : sourceFields) {
@@ -404,6 +466,13 @@ public final class ReflectUtil {
         }
     }
 
+    /**
+     * 复制属性,此方法会调用目标对象的无参构造函数,要保证有此方法
+     *
+     * @param source    源对象
+     * @param tClass    目标对象class
+     * @param matchNull 是否copy null值的字段
+     */
     public static <T> T copyProperties(Object source, Class<T> tClass, boolean matchNull) {
         Field[] sourceFields = source.getClass().getDeclaredFields();
         T t = null;

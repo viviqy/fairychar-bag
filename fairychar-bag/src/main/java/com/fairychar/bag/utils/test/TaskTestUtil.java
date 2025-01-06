@@ -83,7 +83,8 @@ public final class TaskTestUtil {
                 , Runtime.getRuntime().availableProcessors()
                 , 1, TimeUnit.MINUTES
                 , new LinkedBlockingQueue<>(1024)
-                , new ThreadFactoryBuilder().setNameFormat(poolName + "-pool-%d").build());
+                , new ThreadFactoryBuilder().setNameFormat(poolName + "-pool-%d").setDaemon(true).build()
+                , new ThreadPoolExecutor.CallerRunsPolicy());
         return executor;
     }
 
@@ -99,7 +100,8 @@ public final class TaskTestUtil {
                 , Runtime.getRuntime().availableProcessors() * multi
                 , 1, TimeUnit.MINUTES
                 , new LinkedBlockingQueue<>(1024)
-                , new ThreadFactoryBuilder().setNameFormat(poolName + "-pool-%d").build());
+                , new ThreadFactoryBuilder().setNameFormat(poolName + "-pool-%d").setDaemon(true).build()
+                , new ThreadPoolExecutor.CallerRunsPolicy());
         return executor;
     }
 
@@ -191,10 +193,8 @@ public final class TaskTestUtil {
      * @param task  任务
      * @param round 圆
      * @return long
-     * @throws InterruptedException 中断异常
-     * @throws TimeoutException     超时异常
      */
-    public static long getWasteMillis(Action task, int round) throws InterruptedException, TimeoutException {
+    public static long getWasteMillis(Action task, int round) {
         long begin = System.currentTimeMillis();
         for (int i = 0; i < round; i++) {
             task.doAction();

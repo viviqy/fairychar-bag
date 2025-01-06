@@ -72,9 +72,7 @@ public class SwitchableTenantLineInnerInterceptor extends TenantLineInnerInterce
                 if (entry.getValue() instanceof ITenantSwitcher) {
                     ITenantSwitcher tenantSwitcher = (ITenantSwitcher) entry.getValue();
                     Assert.notNull(tenantSwitcher, () -> new MybatisPlusException("Tenant switcher cannot be null"));
-                    if (!tenantSwitcher.use()) {
-                        return false;
-                    }
+                    return tenantSwitcher.use();
                 }
             }
         }

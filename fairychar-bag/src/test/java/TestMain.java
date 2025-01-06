@@ -29,6 +29,21 @@ import java.util.stream.Collectors;
 @Slf4j
 public class TestMain {
 
+
+    @Test
+    public void testSetLong(){
+        Long a=1L;
+        System.out.println(a);
+        changeLong(a);
+        System.out.println(a);
+    }
+
+    public void changeLong(Long a){
+        Long b = Long.valueOf(2);
+//        ReflectUtil.compareAndSwapLong(a, b);
+        ReflectUtil.setLong(a,2L);
+    }
+
     @Test
     public void testLogInvalidateField(){
         MockHttpServletRequest request = new MockHttpServletRequest("POST", "/getUser");
@@ -37,7 +52,6 @@ public class TestMain {
                 new InvalidateFieldVO("age", "error2")
         );
         log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
-
     }
 
     @Test

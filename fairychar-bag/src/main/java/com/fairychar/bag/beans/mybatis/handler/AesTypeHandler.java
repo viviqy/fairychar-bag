@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,10 +78,14 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
     }
 
     public static String encryptHex(String source) {
-        return aes.encryptHex(source);
+        return aes.encryptHex(source, StandardCharsets.UTF_8);
+    }
+
+    public static String encryptBase64(String source) {
+        return aes.encryptBase64(source, StandardCharsets.UTF_8);
     }
 
     public static String decrypt(String ciphertext) {
-        return aes.decryptStr(ciphertext);
+        return aes.decryptStr(ciphertext, StandardCharsets.UTF_8);
     }
 }

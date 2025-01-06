@@ -5,7 +5,6 @@ import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.utils.RequestUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -20,7 +19,6 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-@Builder
 public class HttpResult<T> {
     private static final HttpResult CACHED_OK = new HttpResult(200, null, "success");
     private static final HttpResult CACHED_FAIL = new HttpResult<>(RestErrorCode.OPERATION_FAILED.getCode()

@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,10 +78,10 @@ public class RsaTypeHandler extends BaseTypeHandler<String> {
 
 
     public static String encryptBase64(String source) {
-        return rsa.encryptBase64(source, KeyType.PublicKey);
+        return rsa.encryptBase64(source, StandardCharsets.UTF_8, KeyType.PublicKey);
     }
 
     public static String decrypt(String ciphertext) {
-        return rsa.decryptStr(ciphertext, KeyType.PrivateKey);
+        return rsa.decryptStr(ciphertext, KeyType.PrivateKey, StandardCharsets.UTF_8);
     }
 }

@@ -91,10 +91,14 @@ public class JsonLoggingHandler implements LoggingHandler {
     private Object[] copyArgs(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
         Object[] logArgs = Arrays.copyOf(args, args.length);
-        for (int i = 0; i < args.length; i++) {
-            if (args[i] instanceof MultipartFile mf) {
+        for (int i = 0; i < logArgs.length; i++) {
+            if (logArgs[i] instanceof MultipartFile mf) {
                 //处理multipart类型的打印日志为文件名
                 logArgs[i] = mf.getOriginalFilename();
+            } else if (args[i] instanceof MultipartFile[] mfa) {
+                for (MultipartFile mf : mfa) {
+                    logArgs[i] = mf.getOriginalFilename();
+                }
             }
         }
         return logArgs;

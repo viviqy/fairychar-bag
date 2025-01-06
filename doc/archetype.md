@@ -20,3 +20,10 @@ cd target/generated-sources/archetype
 mvn clean install
 发布到中央仓库
 mvn clean deploy
+
+## 使用方式
+file -> new project 或者 new model 
+选择generators: Maven Archetype
+Catalog: oss.sonatype.org/snapshot
+archetype: com.fairychar:fairychar-micro-service-archetype
+version: 1.3.2-SNAPSHOT
