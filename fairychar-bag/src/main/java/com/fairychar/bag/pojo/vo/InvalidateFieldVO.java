@@ -19,5 +19,7 @@ public class InvalidateFieldVO implements Serializable {
     @Schema(description = "异常字段名称")
     private String fieldName;
     @Schema(description = "异常信息")
-    private String errorMessage;
+    private String errorMsg;
+    @Schema(description = "是否使用自定义消息")
+    private Boolean defaultMsg;
 }

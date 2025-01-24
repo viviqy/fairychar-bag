@@ -48,8 +48,8 @@ public class TestMain {
     public void testLogInvalidateField(){
         MockHttpServletRequest request = new MockHttpServletRequest("POST", "/getUser");
         List<InvalidateFieldVO> invalidateFieldVOS = List.of(
-                new InvalidateFieldVO("name", "error1"),
-                new InvalidateFieldVO("age", "error2")
+                new InvalidateFieldVO("name", "error1",false),
+                new InvalidateFieldVO("age", "error2",false)
         );
         log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
     }

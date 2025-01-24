@@ -10,6 +10,8 @@ import com.fairychar.bag.utils.RequestUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
+import org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl;
 import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -45,19 +47,29 @@ public class DefaultExceptionAdvice {
         List<InvalidateFieldVO> invalidateFieldVOS = new ArrayList<>(0);
         if (exception instanceof BindException be) {
             invalidateFieldVOS = be.getFieldErrors().stream()
-                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage()))
+                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage(), null))
                     .toList();
         } else if (exception instanceof ConstraintViolationException ce) {
             invalidateFieldVOS = ce.getConstraintViolations().stream()
-                    .map(error -> new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage()))
+                    .map(error -> {
+                        ConstraintViolationImpl constraintViolation = (ConstraintViolationImpl) error;
+                        String defaultMessage = null;
+                        try {
+                            defaultMessage = (String) ((ConstraintDescriptorImpl) constraintViolation.getConstraintDescriptor())
+                                    .getAnnotationType().getMethod("message").getDefaultValue();
+                        } catch (NoSuchMethodException e) {
+                            //never happened
+                        }
+                        return new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage(), defaultMessage.equals(error.getMessage()));
+                    })
                     .toList();
         } else if (exception instanceof MethodArgumentNotValidException me) {
             invalidateFieldVOS = me.getBindingResult().getFieldErrors().stream()
-                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage()))
+                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage(), null))
                     .toList();
         }
         HttpServletRequest request = RequestUtil.getCurrentRequest();
-        log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
+        log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params", request.getRequestURI(), invalidateFieldVOS)));
         return HttpResult.fail(RestErrorCode.PARAM_INVALIDATE, invalidateFieldVOS);
     }
 

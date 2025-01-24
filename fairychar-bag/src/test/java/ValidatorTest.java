@@ -2,15 +2,15 @@ import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.IP;
 import com.fairychar.bag.domain.validator.rest.Language;
 import com.fairychar.bag.domain.validator.rest.Url;
-import lombok.Data;
-import org.junit.Before;
-import org.junit.Test;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import jakarta.validation.groups.Default;
+import lombok.Data;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.Set;
 
 /**
@@ -43,7 +43,7 @@ public class ValidatorTest {
         private String ip;
         @Language(Language.LanguageType.CHINESE)
         private String language;
-        @Url
+        @Url(message = "hahah")
         private String url;
     }
 
