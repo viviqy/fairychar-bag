@@ -43,11 +43,12 @@ public final class AssignableFactory {
     }
 
     /**
-     * 初始化工厂
+     * 初始化工厂(Executors.newCachedThreadPool控制不安全)
      *
      * @param workers 招募的工人数
      * @return
      */
+    @Deprecated(since = "1.3.2", forRemoval = true)
     public static AssignableFactory recruitWorkers(int workers) {
         AssignableFactory assignableFactory = new AssignableFactory();
         assignableFactory.semaphore = new Semaphore(workers);

@@ -1,6 +1,7 @@
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.IP;
 import com.fairychar.bag.domain.validator.rest.Language;
+import com.fairychar.bag.domain.validator.rest.StartWith;
 import com.fairychar.bag.domain.validator.rest.Url;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -33,6 +34,7 @@ public class ValidatorTest {
         request.setIp("1.1.1:1");
         request.setLanguage("哈哈哈ab12");
         request.setUrl("https://a.com.[]");
+        request.setStartWith1("2");
         Set<ConstraintViolation<Request>> validate = validator.validate(request, Default.class);
         System.out.println(validate);
     }
@@ -45,6 +47,12 @@ public class ValidatorTest {
         private String language;
         @Url(message = "hahah")
         private String url;
+        @StartWith({"12"})
+        private String startWith1;
+        @StartWith({"23"})
+        private String startWith2;
+        @StartWith({"34"})
+        private String startWith3;
     }
 
 

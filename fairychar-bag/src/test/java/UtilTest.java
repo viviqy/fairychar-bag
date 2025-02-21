@@ -2,12 +2,14 @@ import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
 import com.fairychar.bag.function.Action;
+import com.fairychar.bag.utils.CollectionUtil;
 import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.bag.utils.RequestUtil;
 import com.fairychar.bag.utils.StringUtil;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.fairychar.bag.utils.test.TaskTestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Strings;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -26,6 +28,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UtilTest {
 
+    @Test
+    public void testListPart(){
+        List<Integer> l1 = List.of(1, 2, 3,4,5);
+        List<List<Integer>> lists = CollectionUtil.splitList(l1, 4);
+        lists.forEach(System.out::println);
+    }
 
     @Test
     public void testSearch() {
@@ -69,10 +77,12 @@ public class UtilTest {
 
     @Test
     public void testFillString() {
-        String source = "abcd";
+        String source = "abcdabcdabcd";
         char c = '0';
         System.out.println(StringUtil.fillBegin(source, c, 8));
         System.out.println(StringUtil.fillEnd(source, c, 8));
+        System.out.println(Strings.padStart(source, 8, c));
+        System.out.println(Strings.padEnd(source, 8, c));
     }
 
 

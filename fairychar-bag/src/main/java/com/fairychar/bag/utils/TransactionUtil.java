@@ -22,23 +22,23 @@ public class TransactionUtil {
 
     public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier
             , ExecutorService executor, TransactionTemplate transactionTemplate) {
-        return doWithTransactionAsync(action,isAllSuccess,cyclicBarrier,executor,transactionTemplate,60);
+        return doWithTransactionAsync(action, isAllSuccess, cyclicBarrier, executor, transactionTemplate, 60);
     }
 
     public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier
             , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds) {
         return executor.submit(() -> transactionTemplate.executeWithoutResult(ts -> {
             try {
-                log.info("do operate begin");
+                log.debug("do operate begin");
                 action.doAction();
-                log.info("do operate end");
+                log.debug("do operate end");
             } catch (Exception e) {
                 log.error("do operate error", e);
                 isAllSuccess.set(false);
                 throw new FBException(e);
             } finally {
                 try {
-                    log.info("cyclicBarrier waiting={}", cyclicBarrier.getNumberWaiting());
+                    log.debug("cyclicBarrier waiting={}", cyclicBarrier.getNumberWaiting());
                     cyclicBarrier.await(timeoutSeconds, TimeUnit.SECONDS);
                 } catch (Exception e) {
                     log.error("cyclic barrier error", e.getMessage());
