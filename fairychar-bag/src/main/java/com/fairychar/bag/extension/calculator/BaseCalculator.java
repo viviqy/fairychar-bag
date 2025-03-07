@@ -43,21 +43,21 @@ public abstract class BaseCalculator {
         }
     }
 
-    private boolean containAny(List args, List<String> compareValues, Class dataType) {
+    protected boolean containAny(List args, List<String> compareValues, Class dataType) {
         assert args != null && args.size() >= 1;
         assert compareValues != null && compareValues.size() >= 1;
         List<Object> convertValues = compareValues.stream().map(v -> convertValue(v, dataType)).collect(Collectors.toList());
         return args.stream().anyMatch(a -> convertValues.contains(a));
     }
 
-    private boolean anyIn(List args, List<String> compareValues, Class dataType) {
+    protected boolean anyIn(List args, List<String> compareValues, Class dataType) {
         assert args != null && args.size() >= 1;
         assert compareValues != null && compareValues.size() >= 1;
         List<Object> convertValues = compareValues.stream().map(v -> convertValue(v, dataType)).collect(Collectors.toList());
         return convertValues.stream().anyMatch(v -> args.contains(v));
     }
 
-    private boolean contain(List args, List<String> compareValues, Class dataType) {
+    protected boolean contain(List args, List<String> compareValues, Class dataType) {
         if (args.isEmpty()) {
             return false;
         }

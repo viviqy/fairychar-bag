@@ -30,6 +30,13 @@ public @interface StartWith {
      */
     boolean ignoreCase() default false;
 
+    /**
+     * 允许为空
+     *
+     * @return boolean
+     */
+    boolean ignoreEmpty() default false;
+
     String message() default "not start with";
 
     Class<?>[] groups() default {};

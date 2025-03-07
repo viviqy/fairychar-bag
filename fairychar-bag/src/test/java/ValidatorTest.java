@@ -36,7 +36,7 @@ public class ValidatorTest {
         request.setUrl("https://a.com.[]");
         request.setStartWith1("2");
         Set<ConstraintViolation<Request>> validate = validator.validate(request, Default.class);
-        System.out.println(validate);
+        validate.forEach(constraintViolation -> System.out.println(constraintViolation.getMessage()));
     }
 
     @Data
@@ -47,11 +47,11 @@ public class ValidatorTest {
         private String language;
         @Url(message = "hahah")
         private String url;
-        @StartWith({"12"})
+        @StartWith({"22"})
         private String startWith1;
         @StartWith({"23"})
         private String startWith2;
-        @StartWith({"34"})
+        @StartWith(value = {"34"}, ignoreEmpty = true)
         private String startWith3;
     }
 

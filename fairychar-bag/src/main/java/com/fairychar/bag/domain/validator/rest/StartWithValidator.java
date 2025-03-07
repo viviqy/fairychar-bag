@@ -36,7 +36,7 @@ public class StartWithValidator implements ConstraintValidator<StartWith, Object
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         String text = String.valueOf(value);
         if (Strings.isNullOrEmpty(text)) {
-            return false;
+            return annotation.ignoreEmpty();
         }
         String[] textArray = annotation.value();
         if (annotation.ignoreCase()) {

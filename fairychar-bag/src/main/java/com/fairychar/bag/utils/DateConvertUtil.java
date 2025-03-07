@@ -18,7 +18,7 @@ import java.util.Set;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DateConvertUtil {
-    private static Set<String> SUPPORT_DATE_FORMAT = new HashSet<String>() {{
+    private static final Set<String> SUPPORT_DATE_FORMAT = new HashSet<String>() {{
         add("yyyy-MM-dd");
         add("yyyyMMdd");
         add("yyyyMd");
@@ -26,7 +26,7 @@ public final class DateConvertUtil {
         add("yyyy/MM/dd");
     }};
 
-    private static Set<String> SUPPORT_DATE_TIME_FORMAT = new HashSet<String>() {{
+    private static final Set<String> SUPPORT_DATE_TIME_FORMAT = new HashSet<String>() {{
         add("yyyy-MM-dd HH:mm:ss");
         add("yyyyMMdd HH:mm:ss");
         add("yyyyMd HH:mm:ss");

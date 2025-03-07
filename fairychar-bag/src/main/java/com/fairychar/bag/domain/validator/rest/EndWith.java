@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = EndWithValidator.class)
 public @interface EndWith {
     /**
-     * 前缀值,满足任何一个即通过
+     * 后缀值,满足任何一个即通过
      *
      * @return {@link String[] }
      */
@@ -29,6 +29,13 @@ public @interface EndWith {
      * @return boolean
      */
     boolean ignoreCase() default false;
+
+    /**
+     * 允许为空
+     *
+     * @return boolean
+     */
+    boolean ignoreEmpty() default false;
 
     String message() default "not end with";
 

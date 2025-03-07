@@ -60,7 +60,8 @@ public class DefaultExceptionAdvice {
                         } catch (NoSuchMethodException e) {
                             //never happened
                         }
-                        return new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage(), defaultMessage.equals(error.getMessage()));
+                        return new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage()
+                                , defaultMessage.equals(error.getMessage()));
                     })
                     .toList();
         } else if (exception instanceof MethodArgumentNotValidException me) {
