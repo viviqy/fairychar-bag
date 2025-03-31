@@ -10,18 +10,17 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * Datetime: 2021/7/21 14:59
+ * 键值对 DTO
  *
  * @author chiyo
- * @since 1.0
  */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
 @Schema(description = "key-value格式数据")
-public class NameValueDTO<T> implements Serializable {
+public class KeyValuePair<K, V> implements Serializable {
 
-    private String name;
-    private T value;
+    private K name;
+    private V value;
 }

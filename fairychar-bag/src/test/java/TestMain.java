@@ -3,7 +3,6 @@ import com.fairychar.bag.beans.spring.advice.InvalidateLog;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.Consts;
 import com.fairychar.bag.extension.request.MockHttpServletRequest;
-import com.fairychar.bag.pojo.dto.NameValueDTO;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.pojo.vo.InvalidateFieldVO;
 import com.fairychar.bag.utils.FileUtil;
@@ -118,15 +117,6 @@ public class TestMain {
     }
 
 
-    @Test
-    @SneakyThrows
-    public void testKeepValue() {
-        NameValueDTO<String> dto = new NameValueDTO<>();
-        dto.setName("a");
-        dto.setValue("b");
-        ReflectUtil.keepValue(dto, "name");
-        System.out.println(dto);
-    }
 
     @Test
     public void testEncoding() {
