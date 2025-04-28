@@ -8,9 +8,9 @@ import java.io.Serializable;
  * @author chiyo
  * @since 1.0
  */
-public interface JsonLoginRequest extends Serializable {
+public interface IJsonLoginRequest extends Serializable {
 
-    String obtainUsername();
+    String getUsername();
 
-    String obtainPassword();
+    String getPassword();
 }

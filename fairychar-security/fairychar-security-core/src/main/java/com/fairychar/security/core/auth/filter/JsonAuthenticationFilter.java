@@ -1,7 +1,8 @@
 package com.fairychar.security.core.auth.filter;
 
-import com.fairychar.security.core.auth.JsonLoginRequest;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fairychar.security.core.auth.IJsonLoginRequest;
+import com.fairychar.security.core.beans.login.IPasswordDecrypt;
+import com.fairychar.security.core.beans.login.IUsernameDecrypt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -44,9 +45,12 @@ import java.io.InputStream;
  */
 @AllArgsConstructor
 @Slf4j
-public class JsonAuthenticationFilter<T extends JsonLoginRequest> extends UsernamePasswordAuthenticationFilter {
+public class JsonAuthenticationFilter<T extends IJsonLoginRequest> extends UsernamePasswordAuthenticationFilter {
 
     private final ObjectMapper mapper;
+    private final IUsernameDecrypt usernameDecryptor;
+    private final IPasswordDecrypt passwordDecryptor;
+    private final Class<T> requestClazz;
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -56,17 +60,16 @@ public class JsonAuthenticationFilter<T extends JsonLoginRequest> extends Userna
             if (request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_UTF8_VALUE)
                     || request.getContentType().equalsIgnoreCase(MediaType.APPLICATION_JSON_VALUE)) {
                 try (InputStream is = request.getInputStream()) {
-                    T authenticationBean = this.mapper.readValue(is, new TypeReference<T>() {
-                    });
+                    T authenticationBean = this.mapper.readValue(is, requestClazz);
                     UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
-                            authenticationBean.obtainUsername()
-                            , authenticationBean.obtainPassword());
+                            this.usernameDecryptor.decrypt(authenticationBean.getUsername())
+                            , this.passwordDecryptor.decrypt(authenticationBean.getPassword()));
                     this.setDetails(request, authRequest);
                     return this.getAuthenticationManager().authenticate(authRequest);
                 } catch (AuthenticationException e) {
                     throw e;
                 } catch (Exception e) {
-                    log.error("{}", e.getCause().toString());
+                    log.error("{}", e);
                     throw new BadCredentialsException("login parameter cant resolved");
                 }
             } else {

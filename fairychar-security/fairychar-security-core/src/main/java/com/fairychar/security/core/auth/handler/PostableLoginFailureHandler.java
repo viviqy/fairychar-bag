@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 基于Json返回参数的简单登录失败处理器
@@ -20,10 +22,12 @@ import java.io.IOException;
  * @author chiyo
  * @since 1.0
  */
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Slf4j
-public class JsonLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
+public class PostableLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     private final ObjectMapper mapper;
+    private List<IFailurePostHandler> postHandlers = List.of();
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
@@ -31,6 +35,11 @@ public class JsonLoginFailureHandler extends SimpleUrlAuthenticationFailureHandl
         log.warn("user login success: {}", exception);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
+        if (!postHandlers.isEmpty()) {
+            for (IFailurePostHandler postHandler : postHandlers) {
+                postHandler.post(request, response, exception);
+            }
+        }
         AuthResult<String> result = new AuthResult<>(401, exception.getMessage(), "authentication failed");
         response.getWriter().write(this.mapper.writeValueAsString(result));
     }

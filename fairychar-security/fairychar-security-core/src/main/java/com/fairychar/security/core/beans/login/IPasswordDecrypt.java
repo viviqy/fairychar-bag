@@ -1,11 +1,11 @@
 package com.fairychar.security.core.beans.login;
 
 /**
- * 登录用户名解密器
+ * 登录密码解密器
  *
  * @author chiyo <br>
  * @since 1.3.3
  */
-public interface IUsernameDecrypt {
-    String decrypt(String username);
+public interface IPasswordDecrypt {
+    String decrypt(String password);
 }
