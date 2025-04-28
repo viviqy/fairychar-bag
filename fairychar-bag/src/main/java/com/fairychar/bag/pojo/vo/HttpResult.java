@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
+
 /**
  * restful响应体
  *
@@ -19,7 +21,7 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-public class HttpResult<T> {
+public class HttpResult<T> implements Serializable {
     private static final HttpResult CACHED_OK = new HttpResult(200, null, "success");
     private static final HttpResult CACHED_FAIL = new HttpResult<>(RestErrorCode.OPERATION_FAILED.getCode()
             , null, RestErrorCode.OPERATION_FAILED.getMessage());

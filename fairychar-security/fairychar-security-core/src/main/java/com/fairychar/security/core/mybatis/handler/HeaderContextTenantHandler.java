@@ -1,7 +1,7 @@
-package com.fairychar.bag.beans.mybatis.handler;
+package com.fairychar.security.core.mybatis.handler;
 
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
-import com.fairychar.bag.domain.security.TenantUser;
+import com.fairychar.security.core.auth.TenantUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;

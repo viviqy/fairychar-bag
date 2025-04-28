@@ -1,7 +1,7 @@
-package com.fairychar.bag.domain.security.handler;
+package com.fairychar.security.core.auth.handler;
 
-import com.fairychar.bag.domain.security.JsonLoginToken;
-import com.fairychar.bag.pojo.vo.HttpResult;
+import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.security.core.auth.JsonLoginToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,7 +30,7 @@ public class JsonLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
             throws IOException, ServletException {
         log.info("user login success: {}", authentication);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        HttpResult<JsonLoginToken> result = HttpResult.ok(new JsonLoginToken(request.getSession().getId(), authentication));
+        AuthResult<JsonLoginToken> result = new AuthResult<>(200, new JsonLoginToken(request.getSession().getId(), authentication), "success");
         response.getWriter().write(this.mapper.writeValueAsString(result));
     }
 }

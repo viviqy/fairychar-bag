@@ -1,6 +1,6 @@
-package com.fairychar.bag.domain.security.filter;
+package com.fairychar.security.core.auth.filter;
 
-import com.fairychar.bag.domain.security.JsonLoginQuery;
+import com.fairychar.security.core.auth.JsonLoginRequest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -44,7 +44,7 @@ import java.io.InputStream;
  */
 @AllArgsConstructor
 @Slf4j
-public class JsonAuthenticationFilter<T extends JsonLoginQuery> extends UsernamePasswordAuthenticationFilter {
+public class JsonAuthenticationFilter<T extends JsonLoginRequest> extends UsernamePasswordAuthenticationFilter {
 
     private final ObjectMapper mapper;
 

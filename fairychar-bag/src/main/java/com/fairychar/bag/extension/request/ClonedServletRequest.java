@@ -1,10 +1,10 @@
 package com.fairychar.bag.extension.request;
 
+import cn.hutool.core.collection.IteratorEnumeration;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.apache.catalina.connector.InputBuffer;
-import org.springframework.security.web.savedrequest.Enumerator;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -103,7 +103,7 @@ public class ClonedServletRequest extends HttpServletRequestWrapper {
 
     @Override
     public Enumeration<String> getHeaderNames() {
-        return new Enumerator(this.headers.keySet());
+        return new IteratorEnumeration(this.headers.keySet().iterator());
     }
 
     @Override

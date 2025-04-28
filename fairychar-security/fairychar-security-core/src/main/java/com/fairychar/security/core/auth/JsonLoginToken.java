@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.security;
+package com.fairychar.security.core.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

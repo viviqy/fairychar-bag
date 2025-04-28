@@ -1,7 +1,7 @@
-package com.fairychar.bag.beans.mybatis.handler;
+package com.fairychar.security.core.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.fairychar.bag.domain.security.AuditUser;
+import com.fairychar.security.core.auth.AuditUser;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.security.core.context.SecurityContextHolder;
 

@@ -1,4 +1,4 @@
-package com.fairychar.bag.domain.security;
+package com.fairychar.security.core.auth;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author chiyo
  * @since 1.0
  */
-public interface JsonLoginQuery extends Serializable {
+public interface JsonLoginRequest extends Serializable {
 
     String obtainUsername();
 
