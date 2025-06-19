@@ -7,58 +7,67 @@ import com.aliyun.sdk.service.dysmsapi20180501.models.SendMessageWithTemplateReq
 import com.aliyun.sdk.service.dysmsapi20180501.models.SendMessageWithTemplateResponse;
 import com.fairychar.security.core.properties.SmsVerifyProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.benmanes.caffeine.cache.Cache;
-import com.github.benmanes.caffeine.cache.Caffeine;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 简单图片验证器,基于内存方式
+ * 基于redis的验证码校验器
  *
  * @author chiyo <br>
  */
-
 @Slf4j
-public class InMemPhoneCodeVerifier implements ICodeVerifier {
-    private final Cache<String, SimpleImageCode> codeStore;
+public class RedisPhoneCodeVerifier implements ICodeVerifier {
+    private final RedisTemplate<String, String> redisTemplate;
     private final AsyncClient client;
     private final SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties;
     private final ObjectMapper objectMapper;
 
-    private String codeHeader = "verifyCode";
-    private String keyHeader = "verifyKey";
+    /**
+     * 验证码存储空间的redis前缀
+     */
+    private final String prefix;
+    /**
+     * 前端传输验证码header的名称
+     */
+    private final String codeHeader;
+    /**
+     * 验证码唯一标识返回的header名称
+     */
+    private final String keyHeader;
+    /**
+     * 验证码有效期(秒)
+     */
+    @Setter
+    @Getter
+    private int expireSeconds = 300;
+
+    @Setter
+    @Getter
+    private int width = 140;
+    @Setter
+    @Getter
+    private int height = 60;
 
 
-    public InMemPhoneCodeVerifier(AsyncClient client, SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties, ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-        Cache<String, SimpleImageCode> cache = Caffeine.newBuilder()
-                .expireAfterWrite(5, TimeUnit.MINUTES)
-                .maximumSize(10_0000)
-                .build();
-        this.codeStore = cache;
-        this.client = client;
-        this.aliyunSmsProperties = aliyunSmsProperties;
+    public RedisPhoneCodeVerifier(RedisTemplate<String, String> redisTemplate, AsyncClient client, SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties, ObjectMapper objectMapper) {
+        this(redisTemplate, client, aliyunSmsProperties, objectMapper, "verifyCode:", "verifyCode", "verifyKey");
     }
 
-    public InMemPhoneCodeVerifier(Cache<String, SimpleImageCode> codeStore, AsyncClient client, SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties, ObjectMapper objectMapper) {
-        this.codeStore = codeStore;
+    public RedisPhoneCodeVerifier(RedisTemplate<String, String> redisTemplate, AsyncClient client, SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties, ObjectMapper objectMapper, String prefix, String codeHeader, String keyHeader) {
+        this.redisTemplate = redisTemplate;
         this.client = client;
         this.aliyunSmsProperties = aliyunSmsProperties;
         this.objectMapper = objectMapper;
-    }
-
-    public InMemPhoneCodeVerifier(Cache<String, SimpleImageCode> codeStore, AsyncClient client, SmsVerifyProperties.AliyunSmsProperties aliyunSmsProperties, ObjectMapper objectMapper, String codeHeader, String keyHeader) {
-        this.codeStore = codeStore;
-        this.client = client;
-        this.aliyunSmsProperties = aliyunSmsProperties;
-        this.objectMapper = objectMapper;
+        this.prefix = prefix;
         this.codeHeader = codeHeader;
         this.keyHeader = keyHeader;
     }
@@ -76,28 +85,20 @@ public class InMemPhoneCodeVerifier implements ICodeVerifier {
                 .build();
         SendMessageWithTemplateResponse templateResponse = client.sendMessageWithTemplate(message).get();
         log.info("send sms response={}", templateResponse);
-        this.codeStore.put(phone, new SimpleImageCode(null, String.valueOf(randomInt), null));
+        this.redisTemplate.opsForValue().set(this.prefix.concat(phone)
+                , String.valueOf(randomInt), this.expireSeconds, TimeUnit.SECONDS);
     }
 
     @Override
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         String key = request.getHeader(this.keyHeader);
         String code = request.getHeader(this.codeHeader);
-        if (key == null) {
-            throw new BadCredentialsException("not provide validate code");
+        Assert.notBlank(key, () -> new IllegalArgumentException("not provide phone"));
+        Assert.notBlank(code, () -> new IllegalArgumentException("not provide code"));
+        String redisCode = this.redisTemplate.opsForValue().get(this.prefix + key);
+        if (redisCode == null || !redisCode.equals(code)) {
+            throw new BadCredentialsException("code expired or invalid");
         }
-        SimpleImageCode simpleImageCode = this.codeStore.getIfPresent(key);
-        if (simpleImageCode == null) {
-            throw new BadCredentialsException("not provide validate code");
-        }
-        if (simpleImageCode.getExpireTime().isBefore(LocalDateTime.now())) {
-            throw new BadCredentialsException("validate code expired");
-        }
-        if (!simpleImageCode.getValue().equals(code)) {
-            throw new BadCredentialsException("validate code wrong");
-        }
-        this.codeStore.invalidate(key);
+        this.redisTemplate.delete(this.prefix + key);
     }
-
-
 }

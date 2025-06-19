@@ -39,7 +39,7 @@ public class PostableLoginSuccessHandler extends SimpleUrlAuthenticationSuccessH
             }
         }
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        AuthResult<JsonLoginToken> result = new AuthResult<>(200, new JsonLoginToken(request.getSession().getId(), authentication), "success");
+        AuthResult<JsonLoginToken> result = new AuthResult<>(200, new JsonLoginToken(request.getSession().getId(), null), "success");
         response.getWriter().write(this.mapper.writeValueAsString(result));
     }
 }

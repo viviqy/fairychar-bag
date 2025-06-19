@@ -1,11 +1,11 @@
 package com.fairychar.security.core.verify;
 
-import com.tcfuture.security.utils.ImageVerifyCodeUtil;
+import com.fairychar.security.core.utils.ImageVerifyCodeUtil;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
@@ -21,31 +21,50 @@ import java.util.concurrent.TimeUnit;
  *
  * @author chiyo <br>
  */
-@AllArgsConstructor
-@RequiredArgsConstructor
 public class RedisImageCodeVerifier implements ICodeVerifier {
     private final RedisTemplate<String, String> redisTemplate;
     /**
      * 验证码存储空间的redis前缀
      */
-    private String prefix = "verifyCode:";
+    private final String prefix;
     /**
      * 前端传输验证码header的名称
      */
-    private String codeHeader = "verifyCode";
+    private final String codeHeader;
     /**
      * 验证码唯一标识返回的header名称
      */
-    private String keyHeader = "verifyKey";
+    private final String keyHeader;
     /**
      * 验证码有效期(秒)
      */
+    @Setter
+    @Getter
     private int expireSeconds = 300;
+
+    @Setter
+    @Getter
+    private int width = 140;
+    @Setter
+    @Getter
+    private int height = 60;
+
+
+    public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate) {
+        this(redisTemplate, "verifyCode:", "verifyCode", "verifyKey");
+    }
+
+    public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader) {
+        this.redisTemplate = redisTemplate;
+        this.prefix = prefix;
+        this.codeHeader = codeHeader;
+        this.keyHeader = keyHeader;
+    }
 
     @Override
     public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ServletOutputStream outputStream = response.getOutputStream();
-        Map<String, Object> imageCode = ImageVerifyCodeUtil.getImageCode(135, 55, outputStream);
+        Map<String, Object> imageCode = ImageVerifyCodeUtil.genImageCode(this.width, this.height);
         String code = (String) imageCode.get("strEnsure");
         String key = UUID.randomUUID().toString();
         this.redisTemplate.opsForValue().set(this.prefix + key, code, this.expireSeconds, TimeUnit.SECONDS);

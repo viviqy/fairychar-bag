@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.fairychar.security.core.auth.TenantUser;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;
-import net.sf.jsqlparser.expression.LongValue;
+import net.sf.jsqlparser.expression.StringValue;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collections;
@@ -39,7 +39,7 @@ public class SecurityContextTenantHandler implements TenantLineHandler {
         return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
                 .map(a -> ((TenantUser) a.getPrincipal()))
                 .map(u -> u.getTenantId())
-                .map(id -> ((Expression) new LongValue(id)))
+                .map(id -> ((Expression) new StringValue(id)))
                 .orElseThrow(() -> new IllegalArgumentException("expected tenant id but not provided"));
     }
 

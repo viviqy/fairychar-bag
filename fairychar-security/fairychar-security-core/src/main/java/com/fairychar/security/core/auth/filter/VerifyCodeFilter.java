@@ -12,7 +12,7 @@ import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
 /**
  * 验证码校验过滤器<br>
@@ -22,7 +22,7 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 public class VerifyCodeFilter extends OncePerRequestFilter {
-    private final List<String> validateUrls;
+    private final Set<String> verifyUrls;
     private final AuthenticationFailureHandler authenticationFailureHandler;
     private final ICodeVerifier codeVerifier;
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
@@ -30,7 +30,7 @@ public class VerifyCodeFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         boolean matched = false;
-        for (String url : this.validateUrls) {
+        for (String url : this.verifyUrls) {
             if (this.antPathMatcher.match(url, request.getRequestURI())) {
                 matched = true;
                 break;

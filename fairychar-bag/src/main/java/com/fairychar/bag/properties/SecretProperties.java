@@ -13,17 +13,17 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class SecretProperties {
 
     @NestedConfigurationProperty
-    private Aes aes;
+    private AesProperties aes;
     @NestedConfigurationProperty
-    private Rsa rsa;
+    private RsaProperties rsa;
 
     @Data
-    public static class Aes {
+    public static class AesProperties {
         private String key;
     }
 
     @Data
-    public static class Rsa {
+    public static class RsaProperties {
         private String pubKey;
         private String priKey;
     }

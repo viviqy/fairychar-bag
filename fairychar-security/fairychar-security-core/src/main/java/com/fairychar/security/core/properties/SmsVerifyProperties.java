@@ -18,5 +18,7 @@ public class SmsVerifyProperties {
         private String templateCode;
         private String codeParam;
         private String expireTimeParam;
+        private String appKey;
+        private String appSecret;
     }
 }

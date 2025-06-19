@@ -4,6 +4,7 @@ import com.fairychar.bag.domain.Singletons;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.base.Strings;
 import lombok.AccessLevel;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -118,7 +119,7 @@ public class FlowBuilder {
         }
         if (falseFlow != null) {
             FlowJson falseJson = new FlowJson();
-            falseJson.currentNodeClass = falseFlow.getClass().getName();
+            falseJson.setCurrentNodeClass(falseFlow.getClass().getName());
             flowJson.falseFlow = falseJson;
             //防止循环流程无限递归
             if (!steps.contains(falseFlow.getClass().getName())) {
@@ -159,7 +160,7 @@ public class FlowBuilder {
         return roots.get(0);
     }
 
-
+    @Data
     private static class FlowJson {
         private String currentNodeClass;
         private FlowJson trueFlow;

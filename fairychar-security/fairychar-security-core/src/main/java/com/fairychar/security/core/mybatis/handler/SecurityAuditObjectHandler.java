@@ -13,6 +13,7 @@ import java.util.Optional;
  * 基于spring security的mybatis用户审计操作拦截赋值器
  *
  * @author chiyo
+ * @since 1.3.3
  */
 public class SecurityAuditObjectHandler implements MetaObjectHandler {
 
@@ -21,22 +22,19 @@ public class SecurityAuditObjectHandler implements MetaObjectHandler {
         this.createTime = "createTime";
         this.updateBy = "updateBy";
         this.updateTime = "updateTime";
-        this.tenantId = "tenantId";
     }
 
-    public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime, String tenantId) {
+    public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime) {
         this.createBy = createBy;
         this.createTime = createTime;
         this.updateBy = updateBy;
         this.updateTime = updateTime;
-        this.tenantId = tenantId;
     }
 
     private final String createBy;
     private final String createTime;
     private final String updateBy;
     private final String updateTime;
-    private final String tenantId;
 
     @Override
     public void insertFill(MetaObject metaObject) {
@@ -48,9 +46,6 @@ public class SecurityAuditObjectHandler implements MetaObjectHandler {
 
         if (metaObject.hasSetter(this.createTime)) {
             this.setFieldValByName(this.createTime, LocalDateTime.now(), metaObject);
-        }
-        if (metaObject.hasSetter(this.tenantId)) {
-            this.setFieldValByName(this.tenantId, Optional.ofNullable(user).map(u -> u.getTenantId()).orElse(null), metaObject);
         }
     }
 

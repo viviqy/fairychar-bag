@@ -1,0 +1,2 @@
+com.fairychar.security.boot.configurer.CommonBeansConfiguration
+com.fairychar.security.boot.configurer.SecurityAutoConfigurer

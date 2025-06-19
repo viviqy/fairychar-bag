@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.plugins.InterceptorIgnoreHelper;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
+import lombok.EqualsAndHashCode;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -19,6 +20,7 @@ import java.sql.SQLException;
  * @since 1.0.2
  */
 //TODO 还没怎么测试
+@EqualsAndHashCode(callSuper = true)
 public class SkipableTenantLineInnerInterceptor extends TenantLineInnerInterceptor {
 
     private ITenantSkipper tenantSkipper;

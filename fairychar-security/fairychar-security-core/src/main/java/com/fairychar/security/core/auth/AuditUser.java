@@ -3,7 +3,6 @@ package com.fairychar.security.core.auth;
 import java.io.Serializable;
 
 /**
- * Datetime: 2021/12/16 23:15
  *
  * @author chiyo
  * @since 1.0

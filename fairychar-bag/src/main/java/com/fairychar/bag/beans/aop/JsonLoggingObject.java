@@ -15,7 +15,9 @@ import java.io.Serializable;
 @Data
 class JsonLoggingObject implements Serializable {
     private String action;
-    private String method;
+    private String controller;
+    private String methodName;
+    private String httpMethod;
     private String traceId;
     private String ip;
     private String uri;

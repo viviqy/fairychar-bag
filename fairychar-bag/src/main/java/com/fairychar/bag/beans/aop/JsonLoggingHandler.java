@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,16 +46,17 @@ public class JsonLoggingHandler implements LoggingHandler {
             request.setAttribute(TRACE_ID, traceId);
         }
         Object[] copiedArgs = copyArgs(joinPoint);
-        JsonLoggingObject loggingObject = new JsonLoggingObject("request", request.getMethod(), traceId, ip, uri
-                , copiedArgs.length > 1 ? copiedArgs : copiedArgs[0]);
+        JsonLoggingObject loggingObject = new JsonLoggingObject("request", pointClass.getName(), methodSignature.getMethod().getName()
+                , request.getMethod(), traceId, ip, uri, copiedArgs.length > 1
+                ? copiedArgs : (copiedArgs.length == 0 ? null : copiedArgs[0]));
         RequestLog.Level level = LoggingHelper.getLevel(methodSignature);
         if (this.objectMapper == null) {
             String jsonStr = this.prettyJson ? JSONUtil.toJsonPrettyStr(loggingObject) : JSONUtil.toJsonStr(loggingObject);
-            LoggingHelper.log(pointClass, level, jsonStr);
+            LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
         } else {
             try {
                 String jsonStr = this.objectMapper.writeValueAsString(loggingObject);
-                LoggingHelper.log(pointClass, level, jsonStr);
+                LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
             } catch (JsonProcessingException e) {
                 log.warn("requestBody={},errorMsg={}", loggingObject, e.getMessage());
             }
@@ -73,15 +75,16 @@ public class JsonLoggingHandler implements LoggingHandler {
         if (Strings.isNullOrEmpty(traceId)) {
             traceId = (String) request.getAttribute(TRACE_ID);
         }
-        JsonLoggingObject loggingObject = new JsonLoggingObject("response", request.getMethod(), traceId, ip, uri, result);
+        JsonLoggingObject loggingObject = new JsonLoggingObject("response", pointClass.getName(), methodSignature.getMethod().getName()
+                , request.getMethod(), traceId, ip, uri, result);
         RequestLog.Level level = LoggingHelper.getLevel(methodSignature);
         if (this.objectMapper == null) {
             String jsonStr = this.prettyJson ? JSONUtil.toJsonPrettyStr(loggingObject) : JSONUtil.toJsonStr(loggingObject);
-            LoggingHelper.log(pointClass, level, jsonStr);
+            LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
         } else {
             try {
                 String jsonStr = this.objectMapper.writeValueAsString(loggingObject);
-                LoggingHelper.log(pointClass, level, jsonStr);
+                LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
             } catch (JsonProcessingException e) {
                 log.warn("responseBody={},errorMsg={}", loggingObject, e.getMessage());
             }
@@ -99,6 +102,12 @@ public class JsonLoggingHandler implements LoggingHandler {
                 for (MultipartFile mf : mfa) {
                     logArgs[i] = mf.getOriginalFilename();
                 }
+            } else if (args[i] instanceof HttpServletRequest request) {
+                //ignore
+                logArgs[i] = "ignore request";
+            } else if (args[i] instanceof HttpServletResponse response) {
+                //ignore
+                logArgs[i] = "ignore response";
             }
         }
         return logArgs;

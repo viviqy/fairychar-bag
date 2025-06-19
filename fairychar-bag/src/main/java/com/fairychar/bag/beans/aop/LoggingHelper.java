@@ -5,8 +5,8 @@ import com.fairychar.bag.listener.SpringContextHolder;
 import com.fairychar.bag.properties.FairycharBagProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.spi.LocationAwareLogger;
 
 /**
  * Datetime: 2021/1/27 14:29
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
  */
 @Slf4j
 class LoggingHelper {
+    private static final String FQCN = LoggingHelper.class.getName();  // 📌 包装器自己的 FQCN
 
     public static RequestLog.Level getLevel(MethodSignature methodSignature) {
         RequestLog requestLog = methodSignature.getMethod().getAnnotation(RequestLog.class);
@@ -24,28 +25,26 @@ class LoggingHelper {
                 properties.getAop().getLog().getGlobalLevel() : requestLog.loggingLevel();
     }
 
-    public static void log(Class poinClass, RequestLog.Level level, String logs) {
-        Logger log = LoggerFactory.getLogger(poinClass);
-        if (log == null) {
-            log = LoggingHelper.log;
-        }
+    public static void log(Class poinClass, String methodName, RequestLog.Level level, String logs) {
+        LocationAwareLogger lal =
+                (LocationAwareLogger) LoggerFactory.getLogger(poinClass);
         switch (level) {
             case NONE:
                 break;
             case TRACE:
-                log.trace("{}", logs);
+                lal.log(null, FQCN, LocationAwareLogger.TRACE_INT, logs, null, null);
                 break;
             case DEBUG:
-                log.debug("{}", logs);
+                lal.log(null, FQCN, LocationAwareLogger.DEBUG_INT, logs, null, null);
                 break;
             case INFO:
-                log.info("{}", logs);
+                lal.log(null, FQCN, LocationAwareLogger.INFO_INT, logs, null, null);
                 break;
             case WARN:
-                log.warn("{}", logs);
+                lal.log(null, FQCN, LocationAwareLogger.WARN_INT, logs, null, null);
                 break;
             case ERROR:
-                log.error("{}", logs);
+                lal.log(null, FQCN, LocationAwareLogger.ERROR_INT, logs, null, null);
                 break;
         }
     }

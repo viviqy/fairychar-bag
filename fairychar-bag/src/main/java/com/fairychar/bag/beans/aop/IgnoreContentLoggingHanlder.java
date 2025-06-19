@@ -16,13 +16,13 @@ import org.aspectj.lang.reflect.MethodSignature;
 public class IgnoreContentLoggingHanlder implements LoggingHandler {
     @Override
     public void before(JoinPoint joinPoint) {
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Class<?> pointClass = joinPoint.getTarget().getClass();
-        String uri = RequestUtil.obtainUri(signature);
+        String uri = RequestUtil.obtainUri(methodSignature);
         HttpServletRequest request = RequestUtil.getCurrentRequest();
         String ip = RequestUtil.getIpAddress(request);
         String logs = String.format("%s request %s,body=[ignore]", ip, uri);
-        LoggingHelper.log(pointClass, LoggingHelper.getLevel(signature), logs);
+        LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), LoggingHelper.getLevel(methodSignature), logs);
     }
 
 
@@ -34,6 +34,6 @@ public class IgnoreContentLoggingHanlder implements LoggingHandler {
         HttpServletRequest request = RequestUtil.getCurrentRequest();
         String ip = RequestUtil.getIpAddress(request);
         String logs = String.format("%s request %s,response=[ignore]", ip, uri);
-        LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
+        LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), LoggingHelper.getLevel(methodSignature), logs);
     }
 }

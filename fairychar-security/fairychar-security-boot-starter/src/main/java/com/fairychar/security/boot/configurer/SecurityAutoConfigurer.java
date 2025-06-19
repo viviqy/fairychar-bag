@@ -5,16 +5,20 @@ import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
 import com.fairychar.security.core.auth.IJsonLoginRequest;
+import com.fairychar.security.core.auth.filter.ApiPermissionFilter;
 import com.fairychar.security.core.auth.filter.JsonAuthenticationFilter;
 import com.fairychar.security.core.auth.filter.VerifyCodeFilter;
 import com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy;
 import com.fairychar.security.core.auth.strategy.JsonSessionExpiredStrategy;
 import com.fairychar.security.core.beans.login.IPasswordDecrypt;
 import com.fairychar.security.core.beans.login.IUsernameDecrypt;
-import com.fairychar.security.core.manager.SessionManager;
+import com.fairychar.security.core.manager.RedisTypeSessionManager;
 import com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler;
 import com.fairychar.security.core.mybatis.handler.SecurityContextTenantHandler;
+import com.fairychar.security.core.properties.AuditProperties;
 import com.fairychar.security.core.properties.FairycharSecurityProperties;
+import com.fairychar.security.core.properties.FilterProperties;
+import com.fairychar.security.core.properties.TenantProperties;
 import com.fairychar.security.core.verify.ICodeVerifier;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -99,8 +103,8 @@ public class SecurityAutoConfigurer {
         private ObjectMapper objectMapper;
 
         @Bean
-        SessionManager sessionManager() {
-            return new SessionManager(this.indexNameSessionRepository);
+        RedisTypeSessionManager sessionManager() {
+            return new RedisTypeSessionManager(this.indexNameSessionRepository);
         }
 
         /**
@@ -126,13 +130,13 @@ public class SecurityAutoConfigurer {
         @Bean
         @ConditionalOnMissingBean
         HttpSessionIdResolver httpSessionIdResolver() {
-            return new HeaderHttpSessionIdResolver(this.fairycharSecurityProperties.getRedisToken().getTokenHeaderName());
+            return new HeaderHttpSessionIdResolver(this.fairycharSecurityProperties.getStandard().getTokenHeaderName());
         }
 
         @Bean
         @ConditionalOnMissingBean(JsonAuthenticationFilter.class)
         JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception {
-            Class<? extends IJsonLoginRequest> loginClass = this.fairycharSecurityProperties.getRedisToken().getFilter().getLogin().getLoginClass();
+            Class<? extends IJsonLoginRequest> loginClass = this.fairycharSecurityProperties.getStandard().getFilter().getLogin().getLoginClass();
             JsonAuthenticationFilter filter = new JsonAuthenticationFilter<>(this.objectMapper, this.usernameDecrypt, this.passwordDecrypt, loginClass);
             filter.setAuthenticationManager(authenticationManager);
             filter.setFilterProcessesUrl(this.fairycharSecurityProperties.getUrl().getLogin());
@@ -140,7 +144,7 @@ public class SecurityAutoConfigurer {
             filter.setAuthenticationFailureHandler(this.authenticationFailureHandler);
             ConcurrentSessionControlAuthenticationStrategy concurrentSessionControlAuthenticationStrategy =
                     new ConcurrentSessionControlAuthenticationStrategy(this.springSessionBackedSessionRegistry());
-            concurrentSessionControlAuthenticationStrategy.setMaximumSessions(this.fairycharSecurityProperties.getRedisToken().getMaxSession());
+            concurrentSessionControlAuthenticationStrategy.setMaximumSessions(this.fairycharSecurityProperties.getStandard().getMaxSession());
             filter.setSessionAuthenticationStrategy(concurrentSessionControlAuthenticationStrategy);
             filter.setSecurityContextRepository(new HttpSessionSecurityContextRepository());
             return filter;
@@ -161,10 +165,10 @@ public class SecurityAutoConfigurer {
 
 
         @Bean
-        @ConditionalOnProperty(value = "fairychar.security.redis-token.filter.validate.enable", havingValue = "true")
-        VerifyCodeFilter codeValidateFilter(ICodeVerifier codeVerifier) {
-            FilterProperties.Validate validate = this.fairycharSecurityProperties.getRedisToken().getFilter().getValidate();
-            return new VerifyCodeFilter(validate.getValidateUrls(), this.authenticationFailureHandler, codeVerifier);
+        @ConditionalOnProperty(value = "fairychar.security.standard.filter.verifyCode.enable", havingValue = "true")
+        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier) {
+            FilterProperties.VerifyCodeFilterProperties verifyCode = this.fairycharSecurityProperties.getStandard().getFilter().getVerifyCode();
+            return new VerifyCodeFilter(verifyCode.getVerifyUrls(), this.authenticationFailureHandler, codeVerifier);
         }
 
         @Bean
@@ -181,7 +185,7 @@ public class SecurityAutoConfigurer {
                             .authenticationEntryPoint(this.authenticationEntryPoint))
                     .logout(c -> c.logoutUrl(this.fairycharSecurityProperties.getUrl().getLogout()).logoutSuccessHandler(this.logoutSuccessHandler))
                     .sessionManagement(c -> c.invalidSessionStrategy(this.invalidSessionStrategy)
-                            .maximumSessions(this.fairycharSecurityProperties.getRedisToken().getMaxSession())
+                            .maximumSessions(this.fairycharSecurityProperties.getStandard().getMaxSession())
                             .sessionRegistry(this.springSessionBackedSessionRegistry())
                             .expiredSessionStrategy(this.sessionInformationExpiredStrategy)
                     )
@@ -193,7 +197,7 @@ public class SecurityAutoConfigurer {
             if (this.fairycharSecurityProperties.getUrl().isDisableLoginCsrf()) {
                 httpSecurity.csrf(c -> c.disable());
             }
-            if (this.fairycharSecurityProperties.getRedisToken().getFilter().getValidate().isEnable()) {
+            if (this.fairycharSecurityProperties.getStandard().getFilter().getVerifyCode().isEnable()) {
                 http.addFilterBefore(this.verifyCodeFilter, JsonAuthenticationFilter.class);
             }
             String[] allowed = this.fairycharSecurityProperties.getUrl().getAllowed();
@@ -206,17 +210,23 @@ public class SecurityAutoConfigurer {
             return http.build();
         }
 
+        @Bean
+        @ConditionalOnProperty(value = "fairychar.security.standard.filter.apiPermission.enable", havingValue = "true")
+        ApiPermissionFilter apiPermissionFilter() {
+            FilterProperties.ApiPermissionFilterProperties apiPermission = this.fairycharSecurityProperties.getStandard().getFilter().getApiPermission();
+            return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler);
+        }
 
         @Bean
-        @ConditionalOnProperty(name = "fairychar.security.redis-token.audit.enable", havingValue = "true")
+        @ConditionalOnProperty(name = "fairychar.security.plugins.audit.enable", havingValue = "true")
         SecurityAuditObjectHandler securityAuditObjectHandler() {
-            RedisTokenProperties.Audit audit = this.fairycharSecurityProperties.getRedisToken().getAudit();
-            return new SecurityAuditObjectHandler(audit.getCreateBy(), audit.getCreateName(), audit.getCreateTime()
-                    , audit.getUpdateBy(), audit.getUpdateName(), audit.getUpdateTime());
+            AuditProperties audit = this.fairycharSecurityProperties.getPlugins().getAudit();
+            return new SecurityAuditObjectHandler(audit.getCreateBy(), audit.getCreateTime()
+                    , audit.getUpdateBy(), audit.getUpdateTime());
         }
 
         @Configuration
-        @ConditionalOnProperty(name = "fairychar.security.redis-token.tenant.enable", havingValue = "true")
+        @ConditionalOnProperty(name = "fairychar.security.plugins.tenant.enable", havingValue = "true")
         @EnableConfigurationProperties(FairycharSecurityProperties.class)
         protected static class TenantConfiguration {
 
@@ -226,7 +236,7 @@ public class SecurityAutoConfigurer {
             @Bean
             @ConditionalOnMissingBean
             SecurityContextTenantHandler securityContextTenantHandler() {
-                RedisTokenProperties.Tenant tenant = this.securityProperties.getRedisToken().getTenant();
+                TenantProperties tenant = this.securityProperties.getPlugins().getTenant();
                 return new SecurityContextTenantHandler(tenant.getIgnoreTables(), tenant.getColumnName());
             }
 

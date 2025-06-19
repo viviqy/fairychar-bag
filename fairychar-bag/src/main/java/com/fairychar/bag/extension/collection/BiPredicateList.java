@@ -3,13 +3,9 @@ package com.fairychar.bag.extension.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiPredicate;
 
 /**
- * Date: 2020/03/05
- * time: 18:12
- *
  * @author qiyue
  */
 public class BiPredicateList<T> extends ArrayList<T> {
@@ -21,45 +17,41 @@ public class BiPredicateList<T> extends ArrayList<T> {
     }
 
     @Override
-    public boolean add(T t) {
-        if (super.isEmpty()) {
-            super.add(t);
-        }
-        AtomicInteger matchIndex = new AtomicInteger(-1);
-        this.forEach(e -> {
-            if (this.biPredicate.test(t, e)) {
-                matchIndex.set(this.indexOf(e));
+    public boolean add(T item) {
+        for (int i = 0; i < super.size(); i++) {
+            T existing = super.get(i);
+            if (biPredicate.test(item, existing)) {
+                super.set(i, item);  // 替换旧元素
+                return true;
             }
-        });
-        if (matchIndex.get() != -1) {
-            super.set(matchIndex.get(), t);
-        } else {
-            super.add(t);
         }
-        return true;
+        return super.add(item);  // 没有等价项，新增
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
-        for (T t : c) {
-            this.add(t);
+    public boolean addAll(Collection<? extends T> collection) {
+        boolean modified = false;
+        for (T item : collection) {
+            if (this.add(item)) {
+                modified = true;
+            }
         }
-        return true;
+        return modified;
     }
 
     @Override
     public T set(int index, T element) {
-        throw new UnsupportedOperationException();
+        return super.set(index, element);
     }
 
 
     @Override
     public boolean equals(Object o) {
-        throw new UnsupportedOperationException();
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        throw new UnsupportedOperationException();
+        return super.hashCode();
     }
 }

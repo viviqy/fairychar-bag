@@ -7,7 +7,9 @@ import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
@@ -36,11 +38,24 @@ public class InMemImageCodeVerifier implements ICodeVerifier {
     private String codeHeader = "verifyCode";
     private String keyHeader = "verifyKey";
 
+    /**
+     * 验证码有效期(秒)
+     */
+    @Setter
+    @Getter
+    private int expireSeconds = 300;
+
+    @Setter
+    @Getter
+    private int width = 140;
+    @Setter
+    @Getter
+    private int height = 60;
 
     @Override
     public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ServletOutputStream outputStream = response.getOutputStream();
-        Map<String, Object> imageCode = ImageVerifyCodeUtil.genImageCode(135, 55);
+        Map<String, Object> imageCode = ImageVerifyCodeUtil.genImageCode(this.width, this.height);
         String code = (String) imageCode.get("strEnsure");
         String key = UUID.randomUUID().toString();
         this.codeStore.put(key, new SimpleImageCode(key, code, null));

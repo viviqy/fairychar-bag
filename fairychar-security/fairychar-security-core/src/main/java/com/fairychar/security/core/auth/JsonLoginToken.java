@@ -5,16 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.Authentication;
 
+import java.io.Serializable;
+
 /**
- * Datetime: 2021/10/25 16:31
  *
  * @author chiyo
- * @since 1.0
+ * @since 1.3.3
  */
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
-public class JsonLoginToken {
+public class JsonLoginToken implements Serializable {
     private String token;
     private Authentication authentication;
 }

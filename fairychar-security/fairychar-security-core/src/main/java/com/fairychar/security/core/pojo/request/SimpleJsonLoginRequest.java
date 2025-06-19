@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SimpleIJsonLogin implements IJsonLoginRequest {
+public class SimpleJsonLoginRequest implements IJsonLoginRequest {
     private String username;
     private String password;
 

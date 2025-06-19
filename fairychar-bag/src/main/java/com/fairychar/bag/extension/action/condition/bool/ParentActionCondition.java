@@ -3,6 +3,8 @@ package com.fairychar.bag.extension.action.condition.bool;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Objects;
+
 /**
  * 父类flow条件与对应class的映射类
  *
@@ -28,7 +30,13 @@ public class ParentActionCondition {
 
     @Override
     public boolean equals(Object obj) {
-        ParentActionCondition param = (ParentActionCondition) obj;
-        return this.parentClass.equals(param.parentClass);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ParentActionCondition that = (ParentActionCondition) obj;
+        return Objects.equals(parentClass, that.parentClass);
     }
 }

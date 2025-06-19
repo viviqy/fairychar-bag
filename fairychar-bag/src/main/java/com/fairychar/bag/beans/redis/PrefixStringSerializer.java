@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
 
 /**
  * 固定前缀StringRedisSerializer
+ *
  * @author chiyo <br>
  * @since 1.0
  */
@@ -28,11 +29,17 @@ public class PrefixStringSerializer extends StringRedisSerializer {
 
     @Override
     public String deserialize(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
+            return null;
+        }
         return super.deserialize(bytes);
     }
 
     @Override
     public byte[] serialize(String string) {
+        if (string == null) {
+            return null;
+        }
         String keyWithPrefix = this.prefix.concat(string);
         return super.serialize(keyWithPrefix);
     }

@@ -28,24 +28,6 @@ import java.util.concurrent.TimeoutException;
  */
 @Slf4j
 public class SimpleNettyServer {
-    private static final ChannelInitializer<ServerSocketChannel> LOGGING_HANDLER;
-    private static final ChannelInitializer<SocketChannel> CHILD_LOGGING_HANDLER;
-
-    static {
-        LoggingHandler loggingHandler = new LoggingHandler();
-        LOGGING_HANDLER = new ChannelInitializer<ServerSocketChannel>() {
-            @Override
-            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
-                serverSocketChannel.pipeline().addLast(loggingHandler);
-            }
-        };
-        CHILD_LOGGING_HANDLER = new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel socketChannel) throws Exception {
-                socketChannel.pipeline().addLast(loggingHandler);
-            }
-        };
-    }
 
     @Getter
     private final int bossSize = 1;
@@ -70,8 +52,19 @@ public class SimpleNettyServer {
     public SimpleNettyServer(int workerSize, int port) {
         this.workerSize = workerSize;
         this.port = port;
-        this.handlers = LOGGING_HANDLER;
-        this.childHandlers = CHILD_LOGGING_HANDLER;
+        LoggingHandler loggingHandler = new LoggingHandler();
+        this.handlers = new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                serverSocketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
+        this.childHandlers = new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel socketChannel) throws Exception {
+                socketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
     }
 
     public SimpleNettyServer(int workerSize, int port, ChannelInitializer<ServerSocketChannel> handlers
@@ -85,6 +78,13 @@ public class SimpleNettyServer {
     public SimpleNettyServer(int workerSize, int port, ChannelInitializer<SocketChannel> childHandlers) {
         this.workerSize = workerSize;
         this.port = port;
+        LoggingHandler loggingHandler = new LoggingHandler();
+        this.handlers = new ChannelInitializer<ServerSocketChannel>() {
+            @Override
+            protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                serverSocketChannel.pipeline().addLast(loggingHandler);
+            }
+        };
         this.childHandlers = childHandlers;
     }
 

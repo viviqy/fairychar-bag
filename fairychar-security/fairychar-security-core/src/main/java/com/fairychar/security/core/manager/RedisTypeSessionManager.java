@@ -13,7 +13,7 @@ import java.util.Map;
  * @author chiyo <br>
  */
 @AllArgsConstructor
-public class SessionManager {
+public class RedisTypeSessionManager {
 
     private final FindByIndexNameSessionRepository sessionRepository;
 

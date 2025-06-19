@@ -341,18 +341,34 @@
         
         </plugins>
       </build>
+      <!--      <distributionManagement>-->
+      <!--        <snapshotRepository>-->
+      <!--          <id>ossrh</id>-->
+      <!--          <name>Sonatype Nexus Snapshots</name>-->
+      <!--          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+      <!--        </snapshotRepository>-->
+      <!--        <repository>-->
+      <!--          <id>ossrh</id>-->
+      <!--          <name>Nexus Release Repository</name>-->
+      <!--          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+      <!--        </repository>-->
+      <!--      </distributionManagement>-->
+      
       <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <name>Sonatype Nexus Snapshots</name>
-          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
+        <!-- Release via Central Portal -->
         <repository>
-          <id>ossrh</id>
-          <name>Nexus Release Repository</name>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <id>cpp</id>
+          <name>cpp Publishing Portal</name>
+          <url>https://central.sonatype.com/service/local/staging/deploy/maven2/</url>
         </repository>
+        <!-- SNAPSHOT 如需测试，可继续用 OSSRH Staging API -->
+        <snapshotRepository>
+          <id>cpp</id>
+          <name>Central Portal Snapshots</name>
+          <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
       </distributionManagement>
+    
     </profile>
   </profiles>
 </project>

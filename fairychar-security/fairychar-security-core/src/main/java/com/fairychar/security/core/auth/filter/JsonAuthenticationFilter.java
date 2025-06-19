@@ -62,8 +62,8 @@ public class JsonAuthenticationFilter<T extends IJsonLoginRequest> extends Usern
                 try (InputStream is = request.getInputStream()) {
                     T authenticationBean = this.mapper.readValue(is, requestClazz);
                     UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
-                            this.usernameDecryptor.decrypt(authenticationBean.getUsername())
-                            , this.passwordDecryptor.decrypt(authenticationBean.getPassword()));
+                            this.getDecryptUsername(authenticationBean.getUsername())
+                            , this.getDecryptPassword(authenticationBean.getPassword()));
                     this.setDetails(request, authRequest);
                     return this.getAuthenticationManager().authenticate(authRequest);
                 } catch (AuthenticationException e) {
@@ -76,5 +76,19 @@ public class JsonAuthenticationFilter<T extends IJsonLoginRequest> extends Usern
                 throw new AuthenticationServiceException("Authentication contentType not supported: " + request.getContentType());
             }
         }
+    }
+
+    private String getDecryptPassword(String password) {
+        if (this.passwordDecryptor != null) {
+            return this.passwordDecryptor.decrypt(password);
+        }
+        return password;
+    }
+
+    private String getDecryptUsername(String username) {
+        if (this.usernameDecryptor != null) {
+            return this.usernameDecryptor.decrypt(username);
+        }
+        return username;
     }
 }

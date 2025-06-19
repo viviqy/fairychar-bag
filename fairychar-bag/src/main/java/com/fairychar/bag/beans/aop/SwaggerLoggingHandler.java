@@ -30,7 +30,7 @@ public class SwaggerLoggingHandler implements LoggingHandler {
                 , LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 , RequestUtil.getIpAddress(request)
         );
-        LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
+        LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), LoggingHelper.getLevel(methodSignature), logs);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class SwaggerLoggingHandler implements LoggingHandler {
                 , RequestUtil.getIpAddress(request)
                 , result
         );
-        LoggingHelper.log(pointClass, LoggingHelper.getLevel(methodSignature), logs);
+        LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), LoggingHelper.getLevel(methodSignature), logs);
     }
 }
