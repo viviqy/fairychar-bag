@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fairychar.security.core.rbac.mapper.SysApiMapper">
+  
+  <resultMap type="com.fairychar.security.core.rbac.entity.SysApi" id="BaseResultMap">
+    <result property="id" column="id"/>
+    <result property="httpMethod" column="http_method"/>
+    <result property="uri" column="uri"/>
+    <result property="description" column="description"/>
+    <result property="sort" column="sort"/>
+    <result property="creataBy" column="creata_by"/>
+    <result property="createName" column="create_name"/>
+    <result property="updateBy" column="update_by"/>
+    <result property="updateName" column="update_name"/>
+    <result property="createTime" column="create_time"/>
+    <result property="updateTime" column="update_time"/>
+    <!--非数据表字段,仅用作分组查询count快捷使用-->
+    <result property="groupByCount" column="count"/>
+  </resultMap>
+  
+  
+  <sql id="Prefix_Column_List">
+    sys_api
+    .
+    id
+    as sys_api_id, sys_api.http_method as sys_api_http_method, sys_api.uri as sys_api_uri, sys_api.description as sys_api_description, sys_api.sort as sys_api_sort, sys_api.creata_by as sys_api_creata_by, sys_api.create_name as sys_api_create_name, sys_api.update_by as sys_api_update_by, sys_api.update_name as sys_api_update_name, sys_api.create_time as sys_api_create_time, sys_api.update_time as sys_api_update_time
+  </sql>
+  
+  <sql id="Base_Column_List">
+    sys_api
+    .
+    id
+    ,sys_api.http_method ,sys_api.uri ,sys_api.description ,sys_api.sort ,sys_api.creata_by ,sys_api.create_name ,sys_api.update_by ,sys_api.update_name ,sys_api.create_time ,sys_api.update_time
+  </sql>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryOne" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_api
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryOneSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_api
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_api
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_api
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="pageAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_api
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="pageAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_api
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询总数-->
+  <select id="count" resultType="int">
+    select count(*)
+    from sys_api
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件分组查询总数-->
+  <select id="countGroupBy" resultMap="BaseResultMap">
+    select ${fields}, count(*) as count
+    from sys_api
+    group by ${fields}
+  </select>
+  
+  <insert id="insertBatch">
+    INSERT INTO sys_api (<include refid="Base_Column_List"></include>) VALUES
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.id},
+      #{item.httpMethod},
+      #{item.uri},
+      #{item.description},
+      #{item.sort},
+      #{item.creataBy},
+      #{item.createName},
+      #{item.updateBy},
+      #{item.updateName},
+      #{item.createTime},
+      #{item.updateTime}
+      )
+    </foreach>
+  </insert>
+  <!--where sql-->
+  <sql id="where_sql">
+    <where>
+      <include refid="conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--where sql-->
+  <sql id="query_one_where_sql">
+    <where>
+      <include refid="query_one_conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.httpMethod != null and e.httpMethod != ''">
+      and INSTR(`http_method`,#{e.httpMethod})
+    </if>
+    <if test="e.uri != null and e.uri != ''">
+      and INSTR(`uri`,#{e.uri})
+    </if>
+    <if test="e.description != null and e.description != ''">
+      and INSTR(`description`,#{e.description})
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.creataBy != null">
+      and `creata_by` = #{e.creataBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and INSTR(`create_name`,#{e.createName})
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and INSTR(`update_name`,#{e.updateName})
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="query_one_conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.httpMethod != null and e.httpMethod != ''">
+      and `http_method` = #{e.httpMethod}
+    </if>
+    <if test="e.uri != null and e.uri != ''">
+      and `uri` = #{e.uri}
+    </if>
+    <if test="e.description != null and e.description != ''">
+      and `description` = #{e.description}
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.creataBy != null">
+      and `creata_by` = #{e.creataBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and `create_name` = #{e.createName}
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and `update_name` = #{e.updateName}
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+</mapper>

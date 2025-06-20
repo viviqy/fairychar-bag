@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fairychar.security.core.rbac.mapper.SysMenuMapper">
+  
+  <resultMap type="com.fairychar.security.core.rbac.entity.SysMenu" id="BaseResultMap">
+    <result property="id" column="id"/>
+    <result property="pid" column="pid"/>
+    <result property="type" column="type"/>
+    <result property="title" column="title"/>
+    <result property="componentName" column="component_name"/>
+    <result property="componentData" column="component_data"/>
+    <result property="sort" column="sort"/>
+    <result property="icon" column="icon"/>
+    <result property="path" column="path"/>
+    <result property="iFrame" column="i_frame"/>
+    <result property="cache" column="cache"/>
+    <result property="hidden" column="hidden"/>
+    <result property="createBy" column="create_by"/>
+    <result property="createName" column="create_name"/>
+    <result property="updateBy" column="update_by"/>
+    <result property="updateName" column="update_name"/>
+    <result property="createTime" column="create_time"/>
+    <result property="updateTime" column="update_time"/>
+    <!--非数据表字段,仅用作分组查询count快捷使用-->
+    <result property="groupByCount" column="count"/>
+  </resultMap>
+  
+  
+  <sql id="Prefix_Column_List">
+    sys_menu
+    .
+    id
+    as sys_menu_id, sys_menu.pid as sys_menu_pid, sys_menu.type as sys_menu_type, sys_menu.title as sys_menu_title, sys_menu.component_name as sys_menu_component_name, sys_menu.component_data as sys_menu_component_data, sys_menu.sort as sys_menu_sort, sys_menu.icon as sys_menu_icon, sys_menu.path as sys_menu_path, sys_menu.i_frame as sys_menu_i_frame, sys_menu.cache as sys_menu_cache, sys_menu.hidden as sys_menu_hidden, sys_menu.create_by as sys_menu_create_by, sys_menu.create_name as sys_menu_create_name, sys_menu.update_by as sys_menu_update_by, sys_menu.update_name as sys_menu_update_name, sys_menu.create_time as sys_menu_create_time, sys_menu.update_time as sys_menu_update_time
+  </sql>
+  
+  <sql id="Base_Column_List">
+    sys_menu
+    .
+    id
+    ,sys_menu.pid ,sys_menu.type ,sys_menu.title ,sys_menu.component_name ,sys_menu.component_data ,sys_menu.sort ,sys_menu.icon ,sys_menu.path ,sys_menu.i_frame ,sys_menu.cache ,sys_menu.hidden ,sys_menu.create_by ,sys_menu.create_name ,sys_menu.update_by ,sys_menu.update_name ,sys_menu.create_time ,sys_menu.update_time
+  </sql>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryOne" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_menu
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryOneSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_menu
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_menu
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_menu
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="pageAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_menu
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="pageAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from sys_menu
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询总数-->
+  <select id="count" resultType="int">
+    select count(*)
+    from sys_menu
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件分组查询总数-->
+  <select id="countGroupBy" resultMap="BaseResultMap">
+    select ${fields}, count(*) as count
+    from sys_menu
+    group by ${fields}
+  </select>
+  
+  <insert id="insertBatch">
+    INSERT INTO sys_menu (<include refid="Base_Column_List"></include>) VALUES
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.id},
+      #{item.pid},
+      #{item.type},
+      #{item.title},
+      #{item.componentName},
+      #{item.componentData},
+      #{item.sort},
+      #{item.icon},
+      #{item.path},
+      #{item.iFrame},
+      #{item.cache},
+      #{item.hidden},
+      #{item.createBy},
+      #{item.createName},
+      #{item.updateBy},
+      #{item.updateName},
+      #{item.createTime},
+      #{item.updateTime}
+      )
+    </foreach>
+  </insert>
+  <!--where sql-->
+  <sql id="where_sql">
+    <where>
+      <include refid="conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--where sql-->
+  <sql id="query_one_where_sql">
+    <where>
+      <include refid="query_one_conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.pid != null">
+      and `pid` = #{e.pid}
+    </if>
+    <if test="e.type != null and e.type != ''">
+      and INSTR(`type`,#{e.type})
+    </if>
+    <if test="e.title != null and e.title != ''">
+      and INSTR(`title`,#{e.title})
+    </if>
+    <if test="e.componentName != null and e.componentName != ''">
+      and INSTR(`component_name`,#{e.componentName})
+    </if>
+    <if test="e.componentData != null and e.componentData != ''">
+      and INSTR(`component_data`,#{e.componentData})
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.icon != null and e.icon != ''">
+      and INSTR(`icon`,#{e.icon})
+    </if>
+    <if test="e.path != null and e.path != ''">
+      and INSTR(`path`,#{e.path})
+    </if>
+    <if test="e.iFrame != null">
+      and `i_frame` = #{e.iFrame}
+    </if>
+    <if test="e.cache != null">
+      and `cache` = #{e.cache}
+    </if>
+    <if test="e.hidden != null">
+      and `hidden` = #{e.hidden}
+    </if>
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and INSTR(`create_name`,#{e.createName})
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and INSTR(`update_name`,#{e.updateName})
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="query_one_conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.pid != null">
+      and `pid` = #{e.pid}
+    </if>
+    <if test="e.type != null and e.type != ''">
+      and `type` = #{e.type}
+    </if>
+    <if test="e.title != null and e.title != ''">
+      and `title` = #{e.title}
+    </if>
+    <if test="e.componentName != null and e.componentName != ''">
+      and `component_name` = #{e.componentName}
+    </if>
+    <if test="e.componentData != null and e.componentData != ''">
+      and `component_data` = #{e.componentData}
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.icon != null and e.icon != ''">
+      and `icon` = #{e.icon}
+    </if>
+    <if test="e.path != null and e.path != ''">
+      and `path` = #{e.path}
+    </if>
+    <if test="e.iFrame != null">
+      and `i_frame` = #{e.iFrame}
+    </if>
+    <if test="e.cache != null">
+      and `cache` = #{e.cache}
+    </if>
+    <if test="e.hidden != null">
+      and `hidden` = #{e.hidden}
+    </if>
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and `create_name` = #{e.createName}
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and `update_name` = #{e.updateName}
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+</mapper>

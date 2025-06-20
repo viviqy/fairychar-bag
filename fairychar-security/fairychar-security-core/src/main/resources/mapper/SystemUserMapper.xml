@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fairychar.security.core.rbac.mapper.SystemUserMapper">
+  
+  <resultMap type="com.fairychar.security.core.rbac.entity.SystemUser" id="BaseResultMap">
+    <result property="id" column="id"/>
+    <result property="uid" column="uid"/>
+    <result property="username" column="username"/>
+    <result property="nickName" column="nick_name"/>
+    <result property="gender" column="gender"/>
+    <result property="phone" column="phone"/>
+    <result property="email" column="email"/>
+    <result property="avatarPath" column="avatar_path"/>
+    <result property="password" column="password"/>
+    <result property="enabled" column="enabled"/>
+    <result property="pwdResetTime" column="pwd_reset_time"/>
+    <result property="expired" column="is_expired"/>
+    <result property="locked" column="is_locked"/>
+    <result property="sort" column="sort"/>
+    <result property="sysMark" column="sys_mark"/>
+    <result property="createBy" column="create_by"/>
+    <result property="createName" column="create_name"/>
+    <result property="updateBy" column="update_by"/>
+    <result property="updateName" column="update_name"/>
+    <result property="createTime" column="create_time"/>
+    <result property="updateTime" column="update_time"/>
+    <!--非数据表字段,仅用作分组查询count快捷使用-->
+    <result property="groupByCount" column="count"/>
+  </resultMap>
+  
+  
+  <sql id="Prefix_Column_List">
+    system_user.id as system_user_id, system_user.uid as system_user_uid, system_user.username as system_user_username, system_user.nick_name as system_user_nick_name, system_user.gender as system_user_gender, system_user.phone as system_user_phone, system_user.email as system_user_email, system_user.avatar_path as system_user_avatar_path, system_user.password as system_user_password, system_user.enabled as system_user_enabled, system_user.pwd_reset_time as system_user_pwd_reset_time, system_user.is_expired as system_user_is_expired, system_user.is_locked as system_user_is_locked, system_user.sort as system_user_sort, system_user.sys_mark as system_user_sys_mark, system_user.create_by as system_user_create_by, system_user.create_name as system_user_create_name, system_user.update_by as system_user_update_by, system_user.update_name as system_user_update_name, system_user.create_time as system_user_create_time, system_user.update_time as system_user_update_time
+  </sql>
+  
+  <sql id="Base_Column_List">
+    system_user.id ,system_user.uid ,system_user.username ,system_user.nick_name ,system_user.gender ,system_user.phone ,system_user.email ,system_user.avatar_path ,system_user.password ,system_user.enabled ,system_user.pwd_reset_time ,system_user.is_expired ,system_user.is_locked ,system_user.sort ,system_user.sys_mark ,system_user.create_by ,system_user.create_name ,system_user.update_by ,system_user.update_name ,system_user.create_time ,system_user.update_time
+  </sql>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryOne" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from system_user
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryOneSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from system_user
+    <include refid="query_one_where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from system_user
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="queryAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from system_user
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询-->
+  <select id="pageAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from system_user
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询指定column-->
+  <select id="pageAllSelective" resultMap="BaseResultMap">
+    select
+    <foreach collection="fields" item="field" separator=",">
+      ${field}
+    </foreach>
+    from system_user
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件查询总数-->
+  <select id="count" resultType="int">
+    select count(*)
+    from system_user
+    <include refid="where_sql"></include>
+  </select>
+  
+  <!--通过实体作为筛选条件分组查询总数-->
+  <select id="countGroupBy" resultMap="BaseResultMap">
+    select ${fields}, count(*) as count
+    from system_user
+    group by ${fields}
+  </select>
+  
+  <insert id="insertBatch">
+    INSERT INTO system_user (<include refid="Base_Column_List"></include>) VALUES
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.id},
+      #{item.uid},
+      #{item.username},
+      #{item.nickName},
+      #{item.gender},
+      #{item.phone},
+      #{item.email},
+      #{item.avatarPath},
+      #{item.password},
+      #{item.enabled},
+      #{item.pwdResetTime},
+      #{item.expired},
+      #{item.locked},
+      #{item.sort},
+      #{item.sysMark},
+      #{item.createBy},
+      #{item.createName},
+      #{item.updateBy},
+      #{item.updateName},
+      #{item.createTime},
+      #{item.updateTime}
+      )
+    </foreach>
+  </insert>
+  <!--where sql-->
+  <sql id="where_sql">
+    <where>
+      <include refid="conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--where sql-->
+  <sql id="query_one_where_sql">
+    <where>
+      <include refid="query_one_conditional_sql"></include>
+    </where>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.uid != null">
+      and `uid` = #{e.uid}
+    </if>
+    <if test="e.username != null and e.username != ''">
+      and INSTR(`username`,#{e.username})
+    </if>
+    <if test="e.nickName != null and e.nickName != ''">
+      and INSTR(`nick_name`,#{e.nickName})
+    </if>
+    <if test="e.gender != null and e.gender != ''">
+      and INSTR(`gender`,#{e.gender})
+    </if>
+    <if test="e.phone != null and e.phone != ''">
+      and INSTR(`phone`,#{e.phone})
+    </if>
+    <if test="e.email != null and e.email != ''">
+      and INSTR(`email`,#{e.email})
+    </if>
+    <if test="e.avatarPath != null and e.avatarPath != ''">
+      and INSTR(`avatar_path`,#{e.avatarPath})
+    </if>
+    <if test="e.password != null and e.password != ''">
+      and INSTR(`password`,#{e.password})
+    </if>
+    <if test="e.enabled != null">
+      and `enabled` = #{e.enabled}
+    </if>
+    <if test="e.pwdResetTime != null">
+      and `pwd_reset_time` = #{e.pwdResetTime}
+    </if>
+    <if test="e.expired != null">
+      and `is_expired` = #{e.expired}
+    </if>
+    <if test="e.locked != null">
+      and `is_locked` = #{e.locked}
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.sysMark != null and e.sysMark != ''">
+      and INSTR(`sys_mark`,#{e.sysMark})
+    </if>
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and INSTR(`create_name`,#{e.createName})
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and INSTR(`update_name`,#{e.updateName})
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+  
+  <!--筛选条件-->
+  <sql id="query_one_conditional_sql">
+    <if test="e.id != null">
+      and `id` = #{e.id}
+    </if>
+    <if test="e.uid != null">
+      and `uid` = #{e.uid}
+    </if>
+    <if test="e.username != null and e.username != ''">
+      and `username` = #{e.username}
+    </if>
+    <if test="e.nickName != null and e.nickName != ''">
+      and `nick_name` = #{e.nickName}
+    </if>
+    <if test="e.gender != null and e.gender != ''">
+      and `gender` = #{e.gender}
+    </if>
+    <if test="e.phone != null and e.phone != ''">
+      and `phone` = #{e.phone}
+    </if>
+    <if test="e.email != null and e.email != ''">
+      and `email` = #{e.email}
+    </if>
+    <if test="e.avatarPath != null and e.avatarPath != ''">
+      and `avatar_path` = #{e.avatarPath}
+    </if>
+    <if test="e.password != null and e.password != ''">
+      and `password` = #{e.password}
+    </if>
+    <if test="e.enabled != null">
+      and `enabled` = #{e.enabled}
+    </if>
+    <if test="e.pwdResetTime != null">
+      and `pwd_reset_time` = #{e.pwdResetTime}
+    </if>
+    <if test="e.expired != null">
+      and `is_expired` = #{e.expired}
+    </if>
+    <if test="e.locked != null">
+      and `is_locked` = #{e.locked}
+    </if>
+    <if test="e.sort != null">
+      and `sort` = #{e.sort}
+    </if>
+    <if test="e.sysMark != null and e.sysMark != ''">
+      and `sys_mark` = #{e.sysMark}
+    </if>
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
+    </if>
+    <if test="e.createName != null and e.createName != ''">
+      and `create_name` = #{e.createName}
+    </if>
+    <if test="e.updateBy != null">
+      and `update_by` = #{e.updateBy}
+    </if>
+    <if test="e.updateName != null and e.updateName != ''">
+      and `update_name` = #{e.updateName}
+    </if>
+    <if test="e.createTime != null">
+      and `create_time` = #{e.createTime}
+    </if>
+    <if test="e.updateTime != null">
+      and `update_time` = #{e.updateTime}
+    </if>
+  </sql>
+</mapper>
