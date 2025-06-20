@@ -152,7 +152,7 @@
       and `id` = #{e.id}
     </if>
     <if test="e.httpMethod != null and e.httpMethod != ''">
-      and INSTR(`http_method`,#{e.httpMethod})
+      and `http_method` = #{e.httpMethod}
     </if>
     <if test="e.uri != null and e.uri != ''">
       and INSTR(`uri`,#{e.uri})

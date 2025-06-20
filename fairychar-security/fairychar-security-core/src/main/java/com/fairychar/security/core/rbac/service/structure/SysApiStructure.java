@@ -65,4 +65,6 @@ public interface SysApiStructure {
     SysApi updateQueryToEntity(UpdateSysApiQuery updateSysApiQuery);
 
     List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch);
+
+    List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch);
 }

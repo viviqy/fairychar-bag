@@ -3,14 +3,13 @@ package com.fairychar.security.core.rbac.pojo.query;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import net.sf.jsqlparser.util.validation.validator.UpdateValidator;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * (SysApi)表实体类
@@ -27,6 +26,9 @@ public class SysApiQuery implements Serializable {
 
     @Schema(description = "id")
     private Integer id;
+
+    @Schema(description = "排除的ids")
+    private List<Long> ids;
     /**
      * http请求方法默认(*)代表所有请求方式
      */
