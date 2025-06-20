@@ -1,5 +1,6 @@
 package com.fairychar.security.core.rbac.service.interfaces;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.SysApi;
 import com.fairychar.security.core.rbac.pojo.dto.SysApiDTO;
@@ -17,7 +18,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 条件匹配查询SysApi单条数据
-     *
      * @param sysApiQuery {@link SysApiQuery}查询条件
      * @return 查询结果 {@link SysApiDTO}
      */
@@ -25,7 +25,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 条件匹配查询SysApi所有数据
-     *
      * @param sysApiQuery {@link SysApiQuery}查询条件
      * @return 查询结果 {@link SysApiDTO}
      */
@@ -41,7 +40,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 插入
-     *
      * @param sysApiQuery {@link SysApiQuery}插入query
      * @return 是否成功
      */
@@ -49,7 +47,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 更新
-     *
      * @param sysApiQuery {@link SysApiQuery}更新query
      * @return 是否成功
      */
@@ -57,7 +54,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param sysApiQuery {@link SysApiQuery}查询条件
      * @return 查询结果 {@link SysApiDTO}
      */
@@ -65,7 +61,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link SysApiDTO}
      */
@@ -73,7 +68,6 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 条件查询总数
-     *
      * @param sysApiQuery {@link SysApiQuery}查询条件
      * @return 总数
      */
@@ -81,15 +75,13 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     boolean saveBatch(List<SysApiQuery> batch);
 
     /**
      * 条件匹配查询SysApi所有数据
-     *
      * @param sysApiQuery {@link SysApiQuery}查询条件
      * @return 查询结果 {@link SysApiDTO}
      */

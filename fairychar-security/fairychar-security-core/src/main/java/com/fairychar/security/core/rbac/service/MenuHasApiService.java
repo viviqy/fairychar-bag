@@ -1,6 +1,7 @@
 package com.fairychar.security.core.rbac.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fairychar.security.core.rbac.entity.MenuHasApi;
 import com.fairychar.security.core.rbac.mapper.MenuHasApiMapper;
@@ -30,7 +31,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 条件全等匹配查询MenuHasApi单条数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -43,7 +43,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 条件匹配查询MenuHasApi所有数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -56,7 +55,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 条件匹配分页查询MenuHasApi所有数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -72,7 +70,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 插入
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 是否成功
      */
@@ -84,7 +81,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 更新
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 是否成功
      */
@@ -96,7 +92,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -108,7 +103,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 条件查询匹配总数
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 总数
      */
@@ -120,7 +114,6 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -132,8 +125,7 @@ public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi>
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     @Override

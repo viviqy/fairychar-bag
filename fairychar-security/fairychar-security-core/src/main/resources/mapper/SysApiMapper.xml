@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fairychar.security.core.rbac.mapper.SysApiMapper">
-  
+
   <resultMap type="com.fairychar.security.core.rbac.entity.SysApi" id="BaseResultMap">
     <result property="id" column="id"/>
     <result property="httpMethod" column="http_method"/>
     <result property="uri" column="uri"/>
     <result property="description" column="description"/>
     <result property="sort" column="sort"/>
-    <result property="creataBy" column="creata_by"/>
+    <result property="createBy" column="create_by"/>
     <result property="createName" column="create_name"/>
     <result property="updateBy" column="update_by"/>
     <result property="updateName" column="update_name"/>
@@ -23,21 +23,21 @@
     sys_api
     .
     id
-    as sys_api_id, sys_api.http_method as sys_api_http_method, sys_api.uri as sys_api_uri, sys_api.description as sys_api_description, sys_api.sort as sys_api_sort, sys_api.creata_by as sys_api_creata_by, sys_api.create_name as sys_api_create_name, sys_api.update_by as sys_api_update_by, sys_api.update_name as sys_api_update_name, sys_api.create_time as sys_api_create_time, sys_api.update_time as sys_api_update_time
+    as sys_api_id, sys_api.http_method as sys_api_http_method, sys_api.uri as sys_api_uri, sys_api.description as sys_api_description, sys_api.sort as sys_api_sort, sys_api.create_by as sys_api_create_by, sys_api.create_name as sys_api_create_name, sys_api.update_by as sys_api_update_by, sys_api.update_name as sys_api_update_name, sys_api.create_time as sys_api_create_time, sys_api.update_time as sys_api_update_time
   </sql>
-  
+
   <sql id="Base_Column_List">
     sys_api
     .
     id
-    ,sys_api.http_method ,sys_api.uri ,sys_api.description ,sys_api.sort ,sys_api.creata_by ,sys_api.create_name ,sys_api.update_by ,sys_api.update_name ,sys_api.create_time ,sys_api.update_time
+    ,sys_api.http_method ,sys_api.uri ,sys_api.description ,sys_api.sort ,sys_api.create_by ,sys_api.create_name ,sys_api.update_by ,sys_api.update_name ,sys_api.create_time ,sys_api.update_time
   </sql>
-  
+
   <!--通过实体作为筛选条件查询-->
   <select id="queryOne" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="query_one_where_sql"></include>
   </select>
   
@@ -47,7 +47,7 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="query_one_where_sql"></include>
   </select>
   
@@ -55,7 +55,7 @@
   <select id="queryAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -65,7 +65,7 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -73,7 +73,7 @@
   <select id="pageAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -83,21 +83,21 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="where_sql"></include>
   </select>
-  
+
   <!--通过实体作为筛选条件查询总数-->
   <select id="count" resultType="int">
     select count(*)
-    from sys_api
+    from fairychar_uaa.sys_api
     <include refid="where_sql"></include>
   </select>
   
   <!--通过实体作为筛选条件分组查询总数-->
   <select id="countGroupBy" resultMap="BaseResultMap">
     select ${fields}, count(*) as count
-    from sys_api
+    from fairychar_uaa.sys_api
     group by ${fields}
   </select>
   
@@ -110,7 +110,7 @@
       #{item.uri},
       #{item.description},
       #{item.sort},
-      #{item.creataBy},
+      #{item.createBy},
       #{item.createName},
       #{item.updateBy},
       #{item.updateName},
@@ -150,8 +150,8 @@
     <if test="e.sort != null">
       and `sort` = #{e.sort}
     </if>
-    <if test="e.creataBy != null">
-      and `creata_by` = #{e.creataBy}
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
     </if>
     <if test="e.createName != null and e.createName != ''">
       and INSTR(`create_name`,#{e.createName})
@@ -187,8 +187,8 @@
     <if test="e.sort != null">
       and `sort` = #{e.sort}
     </if>
-    <if test="e.creataBy != null">
-      and `creata_by` = #{e.creataBy}
+    <if test="e.createBy != null">
+      and `create_by` = #{e.createBy}
     </if>
     <if test="e.createName != null and e.createName != ''">
       and `create_name` = #{e.createName}

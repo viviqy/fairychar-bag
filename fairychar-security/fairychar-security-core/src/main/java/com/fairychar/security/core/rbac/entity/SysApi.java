@@ -1,21 +1,19 @@
 package com.fairychar.security.core.rbac.entity;
 
-import java.time.LocalDateTime;
-
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-
-import java.io.Serializable;
-
-import lombok.Data;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import com.baomidou.mybatisplus.annotation.TableField;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 /**
  * (SysApi)表实体类
  *
@@ -64,8 +62,8 @@ public class SysApi extends Model<SysApi> {
      * 创建人
      */
     @Schema(description = "创建人")
-    @TableField(value = "`creata_by`")
-    private Long creataBy;
+    @TableField(value = "`create_by`")
+    private Long createBy;
     /**
      * 创建人名称
      */
@@ -140,9 +138,9 @@ public class SysApi extends Model<SysApi> {
     public static final String SORT = "sort";
 
     /**
-     * creata_by - 创建人
+     * create_by - 创建人
      */
-    public static final String CREATA_BY = "creata_by";
+    public static final String CREATE_BY = "create_by";
 
     /**
      * create_name - 创建人名称

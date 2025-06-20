@@ -1,5 +1,6 @@
 package com.fairychar.security.core.rbac.service.interfaces;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.SystemUser;
 import com.fairychar.security.core.rbac.pojo.dto.SystemUserDTO;
@@ -17,7 +18,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 条件匹配查询SystemUser单条数据
-     *
      * @param systemUserQuery {@link SystemUserQuery}查询条件
      * @return 查询结果 {@link SystemUserDTO}
      */
@@ -25,7 +25,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 条件匹配查询SystemUser所有数据
-     *
      * @param systemUserQuery {@link SystemUserQuery}查询条件
      * @return 查询结果 {@link SystemUserDTO}
      */
@@ -41,7 +40,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 插入
-     *
      * @param systemUserQuery {@link SystemUserQuery}插入query
      * @return 是否成功
      */
@@ -49,7 +47,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 更新
-     *
      * @param systemUserQuery {@link SystemUserQuery}更新query
      * @return 是否成功
      */
@@ -57,7 +54,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param systemUserQuery {@link SystemUserQuery}查询条件
      * @return 查询结果 {@link SystemUserDTO}
      */
@@ -65,7 +61,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link SystemUserDTO}
      */
@@ -73,7 +68,6 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 条件查询总数
-     *
      * @param systemUserQuery {@link SystemUserQuery}查询条件
      * @return 总数
      */
@@ -81,15 +75,13 @@ public interface ISystemUserService extends IService<SystemUser> {
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     boolean saveBatch(List<SystemUserQuery> batch);
 
     /**
      * 条件匹配查询SystemUser所有数据
-     *
      * @param systemUserQuery {@link SystemUserQuery}查询条件
      * @return 查询结果 {@link SystemUserDTO}
      */

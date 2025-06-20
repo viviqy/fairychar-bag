@@ -1,6 +1,7 @@
 package com.fairychar.security.core.rbac.pojo.query;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -53,7 +54,7 @@ public class SysApiQuery implements Serializable {
      * 创建人
      */
     @Schema(description = "创建人")
-    private Long creataBy;
+    private Long createBy;
     /**
      * 创建人名称
      */

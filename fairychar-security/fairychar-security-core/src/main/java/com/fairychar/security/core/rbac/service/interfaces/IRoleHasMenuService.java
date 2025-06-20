@@ -1,5 +1,6 @@
 package com.fairychar.security.core.rbac.service.interfaces;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.RoleHasMenu;
 import com.fairychar.security.core.rbac.pojo.dto.RoleHasMenuDTO;
@@ -17,7 +18,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 条件匹配查询RoleHasMenu单条数据
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}查询条件
      * @return 查询结果 {@link RoleHasMenuDTO}
      */
@@ -25,7 +25,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 条件匹配查询RoleHasMenu所有数据
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}查询条件
      * @return 查询结果 {@link RoleHasMenuDTO}
      */
@@ -41,7 +40,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 插入
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}插入query
      * @return 是否成功
      */
@@ -49,7 +47,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 更新
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}更新query
      * @return 是否成功
      */
@@ -57,7 +54,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}查询条件
      * @return 查询结果 {@link RoleHasMenuDTO}
      */
@@ -65,7 +61,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link RoleHasMenuDTO}
      */
@@ -73,7 +68,6 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 条件查询总数
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}查询条件
      * @return 总数
      */
@@ -81,15 +75,13 @@ public interface IRoleHasMenuService extends IService<RoleHasMenu> {
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     boolean saveBatch(List<RoleHasMenuQuery> batch);
 
     /**
      * 条件匹配查询RoleHasMenu所有数据
-     *
      * @param roleHasMenuQuery {@link RoleHasMenuQuery}查询条件
      * @return 查询结果 {@link RoleHasMenuDTO}
      */

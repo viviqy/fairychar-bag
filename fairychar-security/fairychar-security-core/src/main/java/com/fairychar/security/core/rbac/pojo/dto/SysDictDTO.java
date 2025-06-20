@@ -3,7 +3,6 @@ package com.fairychar.security.core.rbac.pojo.dto;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
-
 import lombok.Data;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 /**
  * 数据字典详情(SysDict)表实体类
  *

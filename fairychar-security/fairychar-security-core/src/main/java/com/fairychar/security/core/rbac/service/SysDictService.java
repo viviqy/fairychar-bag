@@ -1,6 +1,7 @@
 package com.fairychar.security.core.rbac.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fairychar.security.core.rbac.entity.SysDict;
 import com.fairychar.security.core.rbac.mapper.SysDictMapper;
@@ -30,7 +31,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 条件全等匹配查询SysDict单条数据
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 查询结果 {@link SysDictDTO}
      */
@@ -43,7 +43,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 条件匹配查询SysDict所有数据
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 查询结果 {@link SysDictDTO}
      */
@@ -56,7 +55,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 条件匹配分页查询SysDict所有数据
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 查询结果 {@link SysDictDTO}
      */
@@ -72,7 +70,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 插入
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 是否成功
      */
@@ -84,7 +81,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 更新
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 是否成功
      */
@@ -96,7 +92,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 查询结果 {@link SysDictDTO}
      */
@@ -108,7 +103,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 条件查询匹配总数
-     *
      * @param sysDictQuery {@link SysDictQuery}查询条件
      * @return 总数
      */
@@ -120,7 +114,6 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link SysDictDTO}
      */
@@ -132,8 +125,7 @@ public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implemen
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     @Override

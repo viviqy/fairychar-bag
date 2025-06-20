@@ -1,5 +1,6 @@
 package com.fairychar.security.core.rbac.service.interfaces;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.MenuHasApi;
 import com.fairychar.security.core.rbac.pojo.dto.MenuHasApiDTO;
@@ -17,7 +18,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 条件匹配查询MenuHasApi单条数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -25,7 +25,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 条件匹配查询MenuHasApi所有数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -41,7 +40,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 插入
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}插入query
      * @return 是否成功
      */
@@ -49,7 +47,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 更新
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}更新query
      * @return 是否成功
      */
@@ -57,7 +54,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -65,7 +61,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link MenuHasApiDTO}
      */
@@ -73,7 +68,6 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 条件查询总数
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 总数
      */
@@ -81,15 +75,13 @@ public interface IMenuHasApiService extends IService<MenuHasApi> {
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     boolean saveBatch(List<MenuHasApiQuery> batch);
 
     /**
      * 条件匹配查询MenuHasApi所有数据
-     *
      * @param menuHasApiQuery {@link MenuHasApiQuery}查询条件
      * @return 查询结果 {@link MenuHasApiDTO}
      */

@@ -1,5 +1,6 @@
 package com.fairychar.security.core.rbac.service.interfaces;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.SysMenu;
 import com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO;
@@ -17,7 +18,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 条件匹配查询SysMenu单条数据
-     *
      * @param sysMenuQuery {@link SysMenuQuery}查询条件
      * @return 查询结果 {@link SysMenuDTO}
      */
@@ -25,7 +25,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 条件匹配查询SysMenu所有数据
-     *
      * @param sysMenuQuery {@link SysMenuQuery}查询条件
      * @return 查询结果 {@link SysMenuDTO}
      */
@@ -41,7 +40,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 插入
-     *
      * @param sysMenuQuery {@link SysMenuQuery}插入query
      * @return 是否成功
      */
@@ -49,7 +47,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 更新
-     *
      * @param sysMenuQuery {@link SysMenuQuery}更新query
      * @return 是否成功
      */
@@ -57,7 +54,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 分页查询(全等匹配)
-     *
      * @param sysMenuQuery {@link SysMenuQuery}查询条件
      * @return 查询结果 {@link SysMenuDTO}
      */
@@ -65,7 +61,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 根据id查询一个对象
-     *
      * @param id id
      * @return 查询结果 {@link SysMenuDTO}
      */
@@ -73,7 +68,6 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 条件查询总数
-     *
      * @param sysMenuQuery {@link SysMenuQuery}查询条件
      * @return 总数
      */
@@ -81,15 +75,13 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 批量新增
-     *
-     * @param batch 新增数据
+     * @param batch 新增数据 
      * @return 是否成功
      */
     boolean saveBatch(List<SysMenuQuery> batch);
 
     /**
      * 条件匹配查询SysMenu所有数据
-     *
      * @param sysMenuQuery {@link SysMenuQuery}查询条件
      * @return 查询结果 {@link SysMenuDTO}
      */
