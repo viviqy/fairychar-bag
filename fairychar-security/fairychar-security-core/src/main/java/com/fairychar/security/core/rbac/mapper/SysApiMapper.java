@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fairychar.security.core.rbac.entity.SysApi;
+import com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -84,4 +85,6 @@ public interface SysApiMapper extends BaseMapper<SysApi> {
     List<SysApi> countGroupBy(@Param("fields") String fields);
 
     void insertBatch(@Param("list") List<SysApi> entities);
+
+    List<SysApi> listByMethodAndUri(@Param("list") List<AddSysApiQuery> batch);
 }

@@ -37,7 +37,7 @@
   <select id="queryOne" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="query_one_where_sql"></include>
   </select>
   
@@ -47,7 +47,7 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="query_one_where_sql"></include>
   </select>
   
@@ -55,7 +55,7 @@
   <select id="queryAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -65,7 +65,7 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -73,7 +73,7 @@
   <select id="pageAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="where_sql"></include>
   </select>
   
@@ -83,22 +83,35 @@
     <foreach collection="fields" item="field" separator=",">
       ${field}
     </foreach>
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="where_sql"></include>
   </select>
 
   <!--通过实体作为筛选条件查询总数-->
   <select id="count" resultType="int">
     select count(*)
-    from fairychar_uaa.sys_api
+    from sys_api
     <include refid="where_sql"></include>
   </select>
   
   <!--通过实体作为筛选条件分组查询总数-->
   <select id="countGroupBy" resultMap="BaseResultMap">
     select ${fields}, count(*) as count
-    from fairychar_uaa.sys_api
+    from sys_api
     group by ${fields}
+  </select>
+  
+  <select id="listByMethodAndUri" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from sys_api where (http_method,uri)
+    in
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.httpMethod},
+      #{item.uri}
+      )
+    </foreach>
   </select>
   
   <insert id="insertBatch">

@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fairychar.security.core.rbac.entity.SysApi;
 import com.fairychar.security.core.rbac.pojo.dto.SysApiDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysApiQuery;
+import com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,17 +42,19 @@ public interface ISysApiService extends IService<SysApi> {
 
     /**
      * 插入
-     * @param sysApiQuery {@link SysApiQuery}插入query
+     *
+     * @param addSysApiQuery {@link SysApiQuery}插入query
      * @return 是否成功
      */
-    boolean save(SysApiQuery sysApiQuery);
+    int save(AddSysApiQuery addSysApiQuery);
 
     /**
      * 更新
-     * @param sysApiQuery {@link SysApiQuery}更新query
+     *
+     * @param updateSysApiQuery {@link SysApiQuery}更新query
      * @return 是否成功
      */
-    boolean updateById(SysApiQuery sysApiQuery);
+    boolean updateById(UpdateSysApiQuery updateSysApiQuery);
 
     /**
      * 分页查询(全等匹配)
@@ -78,7 +82,7 @@ public interface ISysApiService extends IService<SysApi> {
      * @param batch 新增数据 
      * @return 是否成功
      */
-    boolean saveBatch(List<SysApiQuery> batch);
+    boolean saveBatch(List<AddSysApiQuery> batch);
 
     /**
      * 条件匹配查询SysApi所有数据

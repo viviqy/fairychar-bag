@@ -3,9 +3,10 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.SysApi;
 import com.fairychar.security.core.rbac.pojo.dto.SysApiDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysApiQuery;
+import com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery;
 import org.mapstruct.Mapper;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,4 +60,9 @@ public interface SysApiStructure {
      */
     SysApi queryToEntity(SysApiQuery query);
 
+    SysApi addQueryToEntity(AddSysApiQuery addSysApiQuery);
+
+    SysApi updateQueryToEntity(UpdateSysApiQuery updateSysApiQuery);
+
+    List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch);
 }
