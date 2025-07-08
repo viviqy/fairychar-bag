@@ -1,6 +1,7 @@
 package com.fairychar.security.core.auth.entrypoint;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,16 +27,16 @@ import java.util.Map;
 public class MappedExceptionAuthenticationEntryPoint implements AuthenticationEntryPoint {
     private final ObjectMapper objectMapper;
     private int httpStatus = 401;
-    private final Map<AuthenticationException, AuthResult> authenticationExceptionMap;
+    private final Map<AuthenticationException, HttpResult> authenticationExceptionMap;
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         log.error("authentication failed at entryPoint,cause={}", authException.getMessage());
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(this.httpStatus);
-        AuthResult object = authenticationExceptionMap.get(authException);
+        HttpResult object = authenticationExceptionMap.get(authException);
         if (object == null) {
-            response.getWriter().write(this.objectMapper.writeValueAsString(new AuthResult(401, null, "认证失败")));
+            response.getWriter().write(this.objectMapper.writeValueAsString(HttpResult.fail(RestErrorCode.AUTHENTICATION_FAILED)));
         } else {
             response.getWriter().write(this.objectMapper.writeValueAsString(object));
         }

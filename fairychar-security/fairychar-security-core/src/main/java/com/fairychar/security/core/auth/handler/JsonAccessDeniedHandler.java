@@ -1,6 +1,7 @@
 package com.fairychar.security.core.auth.handler;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -31,6 +32,6 @@ public class JsonAccessDeniedHandler implements AccessDeniedHandler {
         log.error("authentication access denied,cause={}", accessDeniedException);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(this.httpStatus);
-        response.getWriter().write(this.objectMapper.writeValueAsString(new AuthResult<>(403, null, "no permission")));
+        response.getWriter().write(this.objectMapper.writeValueAsString(HttpResult.fail(RestErrorCode.ACCESS_DEFINED)));
     }
 }

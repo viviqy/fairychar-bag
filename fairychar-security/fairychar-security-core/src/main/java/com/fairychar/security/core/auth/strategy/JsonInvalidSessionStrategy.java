@@ -1,6 +1,7 @@
 package com.fairychar.security.core.auth.strategy;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +29,6 @@ public class JsonInvalidSessionStrategy implements InvalidSessionStrategy {
     public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(this.httpStatus);
-        response.getWriter().write(this.objectMapper.writeValueAsString(new AuthResult<>(401, null, "token invalid")));
+        response.getWriter().write(this.objectMapper.writeValueAsString(HttpResult.fail(RestErrorCode.TOKEN_INVALID)));
     }
 }

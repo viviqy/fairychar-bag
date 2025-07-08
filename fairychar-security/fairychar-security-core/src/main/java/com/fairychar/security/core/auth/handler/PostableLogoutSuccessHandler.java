@@ -1,6 +1,6 @@
 package com.fairychar.security.core.auth.handler;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,6 +36,6 @@ public class PostableLogoutSuccessHandler implements LogoutSuccessHandler {
         }
         response.setStatus(200);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        response.getWriter().write(this.objectMapper.writeValueAsString(new AuthResult<>(200, null, "success")));
+        response.getWriter().write(this.objectMapper.writeValueAsString(HttpResult.ok()));
     }
 }

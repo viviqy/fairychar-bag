@@ -1,6 +1,7 @@
 package com.fairychar.security.core.auth.handler;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,7 +41,6 @@ public class PostableLoginFailureHandler extends SimpleUrlAuthenticationFailureH
                 postHandler.post(request, response, exception);
             }
         }
-        AuthResult<String> result = new AuthResult<>(401, exception.getMessage(), "authentication failed");
-        response.getWriter().write(this.mapper.writeValueAsString(result));
+        response.getWriter().write(this.mapper.writeValueAsString(HttpResult.fail(RestErrorCode.AUTHENTICATION_FAILED)));
     }
 }

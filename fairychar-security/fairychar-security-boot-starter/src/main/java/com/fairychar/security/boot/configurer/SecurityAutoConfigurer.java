@@ -8,6 +8,7 @@ import com.fairychar.security.core.auth.IJsonLoginRequest;
 import com.fairychar.security.core.auth.filter.ApiPermissionFilter;
 import com.fairychar.security.core.auth.filter.JsonAuthenticationFilter;
 import com.fairychar.security.core.auth.filter.VerifyCodeFilter;
+import com.fairychar.security.core.auth.permission.SecurityContextApiAuthorityProvider;
 import com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy;
 import com.fairychar.security.core.auth.strategy.JsonSessionExpiredStrategy;
 import com.fairychar.security.core.beans.login.IPasswordDecrypt;
@@ -214,7 +215,7 @@ public class SecurityAutoConfigurer {
         @ConditionalOnProperty(value = "fairychar.security.standard.filter.apiPermission.enable", havingValue = "true")
         ApiPermissionFilter apiPermissionFilter() {
             FilterProperties.ApiPermissionFilterProperties apiPermission = this.fairycharSecurityProperties.getStandard().getFilter().getApiPermission();
-            return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler);
+            return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler, new SecurityContextApiAuthorityProvider());
         }
 
         @Bean

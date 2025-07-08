@@ -1,6 +1,7 @@
 package com.fairychar.security.core.auth.strategy;
 
-import com.fairychar.security.core.auth.AuthResult;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
+import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,6 +34,6 @@ public class JsonSessionExpiredStrategy implements SessionInformationExpiredStra
         HttpServletResponse response = event.getResponse();
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(this.httpStatus);
-        response.getWriter().write(this.objectMapper.writeValueAsString(new AuthResult<>(401, null, "token expired")));
+        response.getWriter().write(this.objectMapper.writeValueAsString(HttpResult.fail(RestErrorCode.TOKEN_EXPIRED)));
     }
 }

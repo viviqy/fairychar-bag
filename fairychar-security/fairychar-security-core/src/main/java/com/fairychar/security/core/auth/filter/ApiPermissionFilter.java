@@ -1,5 +1,6 @@
 package com.fairychar.security.core.auth.filter;
 
+import com.fairychar.security.core.auth.permission.ApiAuthorityProvider;
 import com.fairychar.security.core.auth.permission.IApiAuthority;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -33,6 +34,7 @@ public class ApiPermissionFilter extends OncePerRequestFilter {
      */
     private final Set<String> ignorePaths;
     private final AccessDeniedHandler accessDeniedHandler;
+    private final ApiAuthorityProvider apiAuthorityProvider;
 
     private final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -44,12 +46,10 @@ public class ApiPermissionFilter extends OncePerRequestFilter {
                 return;
             }
         }
-        List<IApiAuthority> apiAuthorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream()
-                .map(m -> ((IApiAuthority) m)).collect(Collectors.toList());
+        List<IApiAuthority> apiAuthorities = this.apiAuthorityProvider.getApiAuthorities(request);
         for (IApiAuthority apiAuthority : apiAuthorities) {
             if (this.antPathMatcher.match(apiAuthority.getApi(), request.getRequestURI())
-                    && (request.getMethod().equalsIgnoreCase(apiAuthority.getMethod())
-                    || apiAuthority.getMethod().equalsIgnoreCase("*"))
+                    && request.getMethod().equalsIgnoreCase(apiAuthority.getMethod())
             ) {
                 filterChain.doFilter(request, response);
                 return;
