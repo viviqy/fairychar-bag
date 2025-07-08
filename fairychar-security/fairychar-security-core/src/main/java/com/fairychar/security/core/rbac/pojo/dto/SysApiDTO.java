@@ -30,9 +30,9 @@ public class SysApiDTO implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Integer id;
     /**
-     * http请求方法默认(*)代表所有请求方式
+     * http请求方法
      */
-    @Schema(description = "http请求方法默认(*)代表所有请求方式")
+    @Schema(description = "http请求方法")
     private String httpMethod;
     /**
      * 请求接口路径,使用antMatch方式

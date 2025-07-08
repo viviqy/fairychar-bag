@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.ISystemRoleService;
 import com.fairychar.security.core.rbac.service.structure.SystemRoleStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author chiyo
  */
 @Service("systemRoleService")
-@Transactional(rollbackFor = Exception.class)
+
 public class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole> implements ISystemRoleService {
     @Autowired
     private SystemRoleMapper systemRoleMapper;

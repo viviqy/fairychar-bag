@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.ISysMenuService;
 import com.fairychar.security.core.rbac.service.structure.SysMenuStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.List;
  * @author chiyo
  */
 @Service("sysMenuService")
-@Transactional(rollbackFor = Exception.class)
 public class SysMenuService extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService {
     @Autowired
     private SysMenuMapper sysMenuMapper;

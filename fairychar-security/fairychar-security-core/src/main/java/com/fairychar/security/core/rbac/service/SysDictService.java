@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.ISysDictService;
 import com.fairychar.security.core.rbac.service.structure.SysDictStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author chiyo
  */
 @Service("sysDictService")
-@Transactional(rollbackFor = Exception.class)
+
 public class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implements ISysDictService {
     @Autowired
     private SysDictMapper sysDictMapper;

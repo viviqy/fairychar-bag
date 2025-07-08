@@ -35,9 +35,9 @@ public class SysApi extends Model<SysApi> {
     @TableId(type = IdType.AUTO, value = "id")
     private Integer id;
     /**
-     * http请求方法默认(*)代表所有请求方式
+     * http请求方法
      */
-    @Schema(description = "http请求方法默认(*)代表所有请求方式")
+    @Schema(description = "http请求方法")
     @TableField(value = "`http_method`")
     private String httpMethod;
     /**
@@ -118,7 +118,7 @@ public class SysApi extends Model<SysApi> {
     public static final String ID = "id";
 
     /**
-     * http_method - http请求方法默认(*)代表所有请求方式
+     * http_method - http请求方法
      */
     public static final String HTTP_METHOD = "http_method";
 

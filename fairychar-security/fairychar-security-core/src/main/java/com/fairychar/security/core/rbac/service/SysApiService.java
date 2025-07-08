@@ -30,7 +30,6 @@ import java.util.stream.Collectors;
  * @author chiyo
  */
 @Service("sysApiService")
-@Transactional(rollbackFor = Exception.class)
 public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements ISysApiService {
     @Autowired
     private SysApiMapper sysApiMapper;
@@ -61,6 +60,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      * @return 是否成功
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int save(AddSysApiQuery addSysApiQuery) {
         String httpMethod = addSysApiQuery.getHttpMethod();
         SysApi one = this.sysApiMapper.queryOne(new SysApi().setUri(addSysApiQuery.getUri()).setHttpMethod(httpMethod));
@@ -83,6 +83,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      * @return 是否成功
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean updateById(UpdateSysApiQuery updateSysApiQuery) {
         int count = this.sysApiMapper.count(new SysApi().setId(updateSysApiQuery.getId()));
         Assert.isTrue(count == 1, () -> new RestException(RestErrorCode.DATA_NOT_EXIST));
@@ -114,6 +115,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      * @return 是否成功
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public List<SysApi> saveBatch(List<AddSysApiQuery> batch) {
         //batch 根据httpMethod+uri去重
         Map<String, List<AddSysApiQuery>> groupingBy = batch.stream().collect(Collectors.groupingBy(q -> q.getHttpMethod().concat(": ").concat(q.getUri())));
@@ -146,6 +148,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      * @return 是否成功
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean updateByIdBatch(List<UpdateSysApiQuery> batch) {
         //batch 根据httpMethod+uri去重
         Map<String, List<UpdateSysApiQuery>> groupingBy = batch.stream().collect(Collectors.groupingBy(q -> q.getHttpMethod().concat(": ").concat(q.getUri())));
@@ -180,6 +183,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      * @param ids IDS
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void removeBatch(List<Integer> ids) {
         this.removeBatchByIds(ids);
     }

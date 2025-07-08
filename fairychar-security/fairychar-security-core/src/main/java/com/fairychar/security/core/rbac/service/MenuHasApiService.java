@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.IMenuHasApiService;
 import com.fairychar.security.core.rbac.service.structure.MenuHasApiStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.List;
  * @author chiyo
  */
 @Service("menuHasApiService")
-@Transactional(rollbackFor = Exception.class)
 public class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi> implements IMenuHasApiService {
     @Autowired
     private MenuHasApiMapper menuHasApiMapper;

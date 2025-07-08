@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.ISystemUserService;
 import com.fairychar.security.core.rbac.service.structure.SystemUserStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author chiyo
  */
 @Service("systemUserService")
-@Transactional(rollbackFor = Exception.class)
+
 public class SystemUserService extends ServiceImpl<SystemUserMapper, SystemUser> implements ISystemUserService {
     @Autowired
     private SystemUserMapper systemUserMapper;

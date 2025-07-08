@@ -29,9 +29,9 @@ public class UpdateSysApiQuery implements Serializable {
     @NotNull(message = "id不能为null")
     private Integer id;
     /**
-     * http请求方法默认(*)代表所有请求方式
+     * http请求方法
      */
-    @Schema(description = "http请求方法默认(*)代表所有请求方式")
+    @Schema(description = "http请求方法")
     @NotEmpty(message = "请求方法不能为空")
     @In(value = {"GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "TRACE"}, message = "http请求方式错误")
     private String httpMethod;

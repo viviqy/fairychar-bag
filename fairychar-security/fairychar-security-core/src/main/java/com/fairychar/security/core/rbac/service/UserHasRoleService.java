@@ -11,7 +11,6 @@ import com.fairychar.security.core.rbac.service.interfaces.IUserHasRoleService;
 import com.fairychar.security.core.rbac.service.structure.UserHasRoleStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author chiyo
  */
 @Service("userHasRoleService")
-@Transactional(rollbackFor = Exception.class)
+
 public class UserHasRoleService extends ServiceImpl<UserHasRoleMapper, UserHasRole> implements IUserHasRoleService {
     @Autowired
     private UserHasRoleMapper userHasRoleMapper;
