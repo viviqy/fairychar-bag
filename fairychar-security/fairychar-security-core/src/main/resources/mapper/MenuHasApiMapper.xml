@@ -98,8 +98,21 @@
     from menu_has_api
     group by ${fields}
   </select>
-  
-  <insert id="insertBatch">
+
+    <select id="listByMenuIdAndApiId" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"></include>
+      from menu_has_api where (menu_id,api_id)
+      in
+      <foreach collection="list" item="item" separator=",">
+        (
+        #{item.menuId},
+        #{item.apiId}
+        )
+      </foreach>
+    </select>
+
+    <insert id="insertBatch">
     INSERT INTO menu_has_api (<include refid="Base_Column_List"></include>) VALUES
     <foreach collection="list" item="item" separator=",">
       (

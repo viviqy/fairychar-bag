@@ -3,6 +3,7 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.MenuHasApi;
 import com.fairychar.security.core.rbac.pojo.dto.MenuHasApiDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddMenuHasApiQuery;
 import com.fairychar.security.core.rbac.pojo.query.MenuHasApiQuery;
 import org.mapstruct.Mapper;
 
@@ -59,4 +60,7 @@ public interface MenuHasApiStructure {
      */
     MenuHasApi queryToEntity(MenuHasApiQuery query);
 
+    MenuHasApi addQueryToEntity(AddMenuHasApiQuery addMenuHasApiQuery);
+
+    List<MenuHasApi> addQueriesToEntities(List<AddMenuHasApiQuery> batch);
 }

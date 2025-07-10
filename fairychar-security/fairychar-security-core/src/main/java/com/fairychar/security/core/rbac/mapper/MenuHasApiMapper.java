@@ -84,4 +84,6 @@ public interface MenuHasApiMapper extends BaseMapper<MenuHasApi> {
     List<MenuHasApi> countGroupBy(@Param("fields") String fields);
 
     void insertBatch(@Param("list") List<MenuHasApi> entities);
+
+    List<MenuHasApi> listByMenuIdAndApiId(@Param("list") List<MenuHasApi> entities);
 }

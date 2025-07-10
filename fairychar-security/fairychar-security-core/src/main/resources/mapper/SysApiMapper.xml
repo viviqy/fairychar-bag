@@ -113,8 +113,15 @@
       )
     </foreach>
   </select>
-  
-  <insert id="insertBatch">
+
+    <select id="pageAllByQuery" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"></include>
+      from sys_api
+      <include refid="where_query_sql"></include>
+    </select>
+
+    <insert id="insertBatch">
     INSERT INTO sys_api (<include refid="Base_Column_List"></include>) VALUES
     <foreach collection="list" item="item" separator=",">
       (
@@ -138,7 +145,35 @@
       <include refid="conditional_sql"></include>
     </where>
   </sql>
-  
+
+  <!--where sql-->
+  <sql id="where_query_sql">
+    <where>
+      <if test="e.id != null">
+        and `id` = #{e.id}
+      </if>
+      <if test="e.httpMethod != null and e.httpMethod != ''">
+        and `http_method` = #{e.httpMethod}
+      </if>
+      <if test="e.uri != null and e.uri != ''">
+        and INSTR(`uri`,#{e.uri})
+      </if>
+      <if test="e.description != null and e.description != ''">
+        and INSTR(`description`,#{e.description})
+      </if>
+      <if test="e.sort != null">
+        and `sort` = #{e.sort}
+      </if>
+      <if test="e.ids != null and e.ids.size>0">
+        and `id` not in
+        <foreach collection="e.ids" item="id" separator="," open="(" close=")">
+          #{id}
+        </foreach>
+      </if>
+    </where>
+  </sql>
+
+
   <!--where sql-->
   <sql id="query_one_where_sql">
     <where>

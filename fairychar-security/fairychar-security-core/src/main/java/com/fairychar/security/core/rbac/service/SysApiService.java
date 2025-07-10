@@ -2,16 +2,19 @@ package com.fairychar.security.core.rbac.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.domain.exceptions.RestException;
+import com.fairychar.security.core.rbac.entity.MenuHasApi;
 import com.fairychar.security.core.rbac.entity.SysApi;
 import com.fairychar.security.core.rbac.mapper.SysApiMapper;
 import com.fairychar.security.core.rbac.pojo.dto.SysApiDTO;
 import com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysApiQuery;
 import com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery;
+import com.fairychar.security.core.rbac.service.interfaces.IMenuHasApiService;
 import com.fairychar.security.core.rbac.service.interfaces.ISysApiService;
 import com.fairychar.security.core.rbac.service.structure.SysApiStructure;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +38,8 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
     private SysApiMapper sysApiMapper;
     @Autowired
     private SysApiStructure sysApiStructure;
+    @Autowired
+    private IMenuHasApiService menuHasApiService;
 
 
     /**
@@ -45,8 +50,7 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
      */
     @Override
     public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery) {
-        SysApi entity = this.sysApiStructure.queryToEntity(sysApiQuery);
-        Page<SysApi> queries = this.sysApiMapper.pageAll(sysApiQuery.getPageQuery(), entity);
+        Page<SysApi> queries = this.sysApiMapper.pageAllByQuery(sysApiQuery.getPageQuery(), sysApiQuery);
         List<SysApiDTO> dtos = this.sysApiStructure.entitiesToDtos(queries.getRecords());
         Page<SysApiDTO> resultPage = new Page<>(queries.getCurrent(), queries.getSize(), queries.getTotal());
         resultPage.setRecords(dtos);
@@ -185,6 +189,11 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void removeBatch(List<Integer> ids) {
-        this.removeBatchByIds(ids);
+        if (ids.isEmpty()) {
+            return;
+        }
+        long associateCount = this.menuHasApiService.count(new QueryWrapper<MenuHasApi>().in(MenuHasApi.API_ID, ids));
+        Assert.isTrue(associateCount == 0, () -> new RestException(RestErrorCode.DATA_EXIST));
+        super.removeBatchByIds(ids);
     }
 }
