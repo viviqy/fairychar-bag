@@ -17,9 +17,19 @@ import java.util.concurrent.TimeUnit;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RedisLockUtil {
 
+    private static final Action EMPTY_ACTION = () -> {
+    };
 
     public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit) {
         lock(lock, checkIsPresent, checkIsPresent, action, time, timeUnit);
+    }
+
+    public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit) {
+        lock(lock, EMPTY_ACTION, EMPTY_ACTION, action, time, timeUnit);
+    }
+
+    public static void lock(RLock lock, Action action) {
+        lock(lock, EMPTY_ACTION, EMPTY_ACTION, action);
     }
 
     public static void lock(RLock lock, Action checkIsPresent, Action action) {
@@ -36,7 +46,7 @@ public final class RedisLockUtil {
         } catch (Exception e) {
             throw e;
         } finally {
-            if (lock.isLocked()) {
+            if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }
         }
@@ -51,15 +61,23 @@ public final class RedisLockUtil {
         } catch (Exception e) {
             throw e;
         } finally {
-            if (lock.isLocked()) {
+            if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }
         }
     }
 
 
+    public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit) {
+        tryLock(lock, EMPTY_ACTION, EMPTY_ACTION, action, time, timeUnit);
+    }
+
     public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit) {
         tryLock(lock, checkIsPresent, checkIsPresent, action, time, timeUnit);
+    }
+
+    public static void tryLock(RLock lock, Action action) {
+        tryLock(lock, EMPTY_ACTION, EMPTY_ACTION, action);
     }
 
     public static void tryLock(RLock lock, Action checkIsPresent, Action action) {
@@ -78,7 +96,7 @@ public final class RedisLockUtil {
         } catch (Exception e) {
             throw e;
         } finally {
-            if (lock.isLocked()) {
+            if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }
         }
@@ -98,7 +116,7 @@ public final class RedisLockUtil {
         } catch (Exception e) {
             throw e;
         } finally {
-            if (lock.isLocked()) {
+            if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }
         }

@@ -8,6 +8,7 @@ import com.fairychar.security.core.auth.IJsonLoginRequest;
 import com.fairychar.security.core.auth.filter.ApiPermissionFilter;
 import com.fairychar.security.core.auth.filter.JsonAuthenticationFilter;
 import com.fairychar.security.core.auth.filter.VerifyCodeFilter;
+import com.fairychar.security.core.auth.permission.ApiAuthorityProvider;
 import com.fairychar.security.core.auth.permission.SecurityContextApiAuthorityProvider;
 import com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy;
 import com.fairychar.security.core.auth.strategy.JsonSessionExpiredStrategy;
@@ -102,6 +103,8 @@ public class SecurityAutoConfigurer {
         private LogoutSuccessHandler logoutSuccessHandler;
         @Autowired
         private ObjectMapper objectMapper;
+        @Autowired(required = false)
+        private ApiAuthorityProvider apiAuthorityProvider;
 
         @Bean
         RedisTypeSessionManager sessionManager() {
@@ -215,7 +218,10 @@ public class SecurityAutoConfigurer {
         @ConditionalOnProperty(value = "fairychar.security.standard.filter.apiPermission.enable", havingValue = "true")
         ApiPermissionFilter apiPermissionFilter() {
             FilterProperties.ApiPermissionFilterProperties apiPermission = this.fairycharSecurityProperties.getStandard().getFilter().getApiPermission();
-            return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler, new SecurityContextApiAuthorityProvider());
+            if (this.apiAuthorityProvider == null) {
+                return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler, new SecurityContextApiAuthorityProvider());
+            }
+            return new ApiPermissionFilter(apiPermission.getIgnorePaths(), this.accessDeniedHandler, this.apiAuthorityProvider);
         }
 
         @Bean

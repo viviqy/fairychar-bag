@@ -37,8 +37,8 @@ public class JsonLoggingHandler implements LoggingHandler {
     public void before(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Class<?> pointClass = joinPoint.getTarget().getClass();
-        String uri = RequestUtil.obtainUri(methodSignature);
         HttpServletRequest request = RequestUtil.getCurrentRequest();
+        String uri = request.getRequestURI();
         String ip = RequestUtil.getIpAddress(request);
         String traceId = request.getHeader(TRACE_ID);
         if (Strings.isNullOrEmpty(traceId)) {
@@ -68,8 +68,8 @@ public class JsonLoggingHandler implements LoggingHandler {
     public void after(JoinPoint joinPoint, Object result) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Class<?> pointClass = joinPoint.getTarget().getClass();
-        String uri = RequestUtil.obtainUri(methodSignature);
         HttpServletRequest request = RequestUtil.getCurrentRequest();
+        String uri = request.getRequestURI();
         String ip = RequestUtil.getIpAddress(request);
         String traceId = request.getHeader(TRACE_ID);
         if (Strings.isNullOrEmpty(traceId)) {
