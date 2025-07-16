@@ -7,14 +7,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.domain.exceptions.RestException;
-import com.fairychar.security.core.rbac.entity.MenuHasApi;
-import com.fairychar.security.core.rbac.entity.SysMenu;
+import com.fairychar.bag.utils.MappingObjectUtil;
+import com.fairychar.bag.utils.ReflectUtil;
 import com.fairychar.security.core.rbac.entity.SysMenu;
 import com.fairychar.security.core.rbac.mapper.SysMenuMapper;
 import com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO;
-import com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO;
 import com.fairychar.security.core.rbac.pojo.query.AddSysMenuQuery;
-import com.fairychar.security.core.rbac.pojo.query.SysMenuQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysMenuQuery;
 import com.fairychar.security.core.rbac.pojo.query.UpdateSysMenuQuery;
 import com.fairychar.security.core.rbac.service.interfaces.ISysMenuService;
@@ -27,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -48,13 +47,26 @@ public class SysMenuService extends ServiceImpl<SysMenuMapper, SysMenu> implemen
      * @return 查询结果 {@link SysMenuDTO}
      */
     @Override
-    public Page<SysMenuDTO> pageAll(SysMenuQuery sysApiQuery) {
-        Page<SysMenu> queries = this.sysMenuMapper.pageAllByQuery(sysApiQuery.getPageQuery(), sysApiQuery);
+    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery) {
+        sysApiQuery.setPid(0);
+        SysMenu entity = this.sysMenuStructure.queryToEntity(sysApiQuery);
+        Page<SysMenu> queries = this.sysMenuMapper.pageAll(sysApiQuery.getPageQuery(), entity);
         List<SysMenuDTO> dtos = this.sysMenuStructure.entitiesToDtos(queries.getRecords());
+        if (!dtos.isEmpty()) {
+            List<Integer> pids = dtos.stream().map(s -> s.getId()).toList();
+            List<SysMenu> recursiveSearchChild = ReflectUtil.recursiveSearchChild("id", pids, (Function<List<Integer>, List<SysMenu>>) pidParams -> {
+                List<SysMenu> childList = super.list(new QueryWrapper<SysMenu>().in(SysMenu.PID, pidParams));
+                return childList;
+            });
+            List<SysMenuDTO> recursiveSearchChildDtos = this.sysMenuStructure.entitiesToDtos(recursiveSearchChild);
+            recursiveSearchChildDtos.addAll(dtos);
+            dtos = MappingObjectUtil.listToTree(recursiveSearchChildDtos, "pid", "id", "child", 0L);
+        }
         Page<SysMenuDTO> resultPage = new Page<>(queries.getCurrent(), queries.getSize(), queries.getTotal());
         resultPage.setRecords(dtos);
         return resultPage;
     }
+
 
     /**
      * 插入

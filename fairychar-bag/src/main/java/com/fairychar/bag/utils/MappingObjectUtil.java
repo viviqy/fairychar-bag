@@ -6,6 +6,7 @@ import com.fairychar.bag.pojo.ao.MappingObjectAO;
 import com.fairychar.bag.pojo.ao.TreeNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ import java.util.stream.Collectors;
 public final class MappingObjectUtil {
 
 
-    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)
-            throws NoSuchFieldException, IllegalAccessException {
+    @SneakyThrows
+    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue) {
         List<TreeNode<T>> root = new ArrayList<>();
         for (T node : source) {
             Field pid = node.getClass().getDeclaredField(pidField);
@@ -40,6 +41,29 @@ public final class MappingObjectUtil {
                     child.setChild(treeNodes);
                 }
                 root.add(child);
+            }
+        }
+        return root;
+    }
+
+
+    @SneakyThrows
+    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue) {
+        List<T> root = new ArrayList<>();
+        for (T node : source) {
+            Field pid = node.getClass().getDeclaredField(pidField);
+            pid.setAccessible(true);
+            I pidValue = (I) pid.get(node);
+            if (pidValue.equals(idValue)) {
+                Field id = node.getClass().getDeclaredField(idField);
+                id.setAccessible(true);
+                List<T> treeNodes = listToTree(source, pidField, idField, childField, ((I) id.get(node)));
+                if (!treeNodes.isEmpty()) {
+                    Field childListField = node.getClass().getDeclaredField(childField);
+                    childListField.setAccessible(true);
+                    childListField.set(node, treeNodes);
+                }
+                root.add(node);
             }
         }
         return root;
