@@ -2,10 +2,7 @@ import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.validator.rest.NotIn;
 import com.fairychar.bag.function.Action;
-import com.fairychar.bag.utils.CollectionUtil;
-import com.fairychar.bag.utils.ReflectUtil;
-import com.fairychar.bag.utils.RequestUtil;
-import com.fairychar.bag.utils.StringUtil;
+import com.fairychar.bag.utils.*;
 import com.fairychar.bag.utils.base.FieldContainer;
 import com.fairychar.bag.utils.test.TaskTestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,6 +24,29 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class UtilTest {
+
+    @Test
+    @SneakyThrows
+    public void testCycJob() {
+        Thread t1 = new Thread(() -> {
+            CircularTaskUtil.run(() -> {
+                try {
+                    log.info("aa");
+                    TimeUnit.SECONDS.sleep(10);
+                    log.info("bb");
+                } catch (InterruptedException e) {
+                    log.error("ee");
+                    throw new RuntimeException(e);
+                }
+                log.info("dd");
+                return false;
+            }, true);
+        });
+        t1.start();
+        TimeUnit.SECONDS.sleep(1);
+        t1.interrupt();
+        
+    }
 
     @Test
     public void testListPart(){

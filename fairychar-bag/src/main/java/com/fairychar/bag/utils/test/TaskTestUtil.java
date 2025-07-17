@@ -138,9 +138,7 @@ public final class TaskTestUtil {
      */
     public static void batchRunAsync(List<Action> actions, ExecutorService executorService) {
         for (Action action : actions) {
-            executorService.execute(() -> {
-                action.doAction();
-            });
+            executorService.execute(() -> action.doAction());
         }
     }
 
@@ -155,9 +153,8 @@ public final class TaskTestUtil {
     public static long batchRunSync(Action action, int round, ExecutorService executorService) {
         long begin = System.currentTimeMillis();
         List<? extends Future<?>> futureList = IntStream.range(0, round).boxed()
-                .map(i -> executorService.submit(() -> {
-                    action.doAction();
-                })).collect(Collectors.toList());
+                .map(i -> executorService.submit(() -> action.doAction()))
+                .collect(Collectors.toList());
         futureList.forEach(f -> {
             try {
                 f.get();
@@ -181,9 +178,7 @@ public final class TaskTestUtil {
      */
     public static void batchRunAsync(Action action, int round, ExecutorService executorService) {
         for (int i = 0; i < round; i++) {
-            executorService.execute(() -> {
-                action.doAction();
-            });
+            executorService.execute(() -> action.doAction());
         }
     }
 
