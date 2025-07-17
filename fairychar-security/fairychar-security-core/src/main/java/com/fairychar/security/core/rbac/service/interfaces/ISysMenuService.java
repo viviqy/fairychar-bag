@@ -16,4 +16,5 @@ import java.util.List;
  */
 public interface ISysMenuService extends IService<SysMenu> {
 
+    Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery);
 }
