@@ -2,19 +2,15 @@ package com.fairychar.security.core.rbac.entity;
 
 import java.time.LocalDateTime;
 
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 
 import lombok.Data;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
-import com.baomidou.mybatisplus.annotation.TableField;
 
 /**
  * (MenuHasApi)表实体类
@@ -52,25 +48,25 @@ public class MenuHasApi extends Model<MenuHasApi> {
      * 创建人
      */
     @Schema(description = "创建人")
-    @TableField(value = "`create_by`")
+    @TableField(value = "`create_by`", fill = FieldFill.INSERT)
     private Long createBy;
     /**
      * 创建人名称
      */
     @Schema(description = "创建人名称")
-    @TableField(value = "`create_name`")
+    @TableField(value = "`create_name`", fill = FieldFill.INSERT)
     private String createName;
     /**
      * 更新人
      */
     @Schema(description = "更新人")
-    @TableField(value = "`update_by`")
+    @TableField(value = "`update_by`", fill = FieldFill.UPDATE)
     private Long updateBy;
     /**
      * 更新人名称
      */
     @Schema(description = "更新人名称")
-    @TableField(value = "`update_name`")
+    @TableField(value = "`update_name`", fill = FieldFill.UPDATE)
     private String updateName;
     /**
      * 创建时间

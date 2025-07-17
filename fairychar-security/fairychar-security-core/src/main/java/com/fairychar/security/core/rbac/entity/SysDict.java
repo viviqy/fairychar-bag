@@ -1,9 +1,6 @@
 package com.fairychar.security.core.rbac.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -69,25 +66,25 @@ public class SysDict extends Model<SysDict> {
      * 创建者
      */
     @Schema(description = "创建者")
-    @TableField(value = "`create_by`")
+    @TableField(value = "`create_by`", fill = FieldFill.INSERT)
     private Long createBy;
     /**
      * 创建人名称
      */
     @Schema(description = "创建人名称")
-    @TableField(value = "`create_name`")
+    @TableField(value = "`create_name`", fill = FieldFill.INSERT)
     private String createName;
     /**
      * 更新者
      */
     @Schema(description = "更新者")
-    @TableField(value = "`update_by`")
+    @TableField(value = "`update_by`", fill = FieldFill.UPDATE)
     private Long updateBy;
     /**
      * 修改人名称
      */
     @Schema(description = "修改人名称")
-    @TableField(value = "`update_name`")
+    @TableField(value = "`update_name`", fill = FieldFill.UPDATE)
     private String updateName;
     /**
      * 创建日期
@@ -137,7 +134,7 @@ public class SysDict extends Model<SysDict> {
     /**
      * label_value - 字典值
      */
-    public static final String label_value = "label_value";
+    public static final String LABEL_VALUE = "label_value";
 
     /**
      * description - 描述

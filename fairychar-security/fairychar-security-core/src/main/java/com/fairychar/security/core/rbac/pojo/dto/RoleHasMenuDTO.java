@@ -23,9 +23,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Schema(description = "RoleHasMenuDTO")
 public class RoleHasMenuDTO implements Serializable {
 
-    /**
-     * ${column.comment}
-     */
+
     @Schema(description = "")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Integer id;

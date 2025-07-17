@@ -25,9 +25,7 @@ import java.time.LocalDateTime;
 @Schema(description = "UserHasRoleQuery")
 public class UserHasRoleQuery implements Serializable {
 
-    /**
-     * ${column.comment}
-     */
+
     @Schema(description = "")
     private Integer id;
     /**

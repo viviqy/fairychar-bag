@@ -23,9 +23,7 @@ import java.time.LocalDateTime;
 @Schema(description = "SysApiDTO")
 public class SysApiDTO implements Serializable {
 
-    /**
-     * ${column.comment}
-     */
+
     @Schema(description = "")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Integer id;
