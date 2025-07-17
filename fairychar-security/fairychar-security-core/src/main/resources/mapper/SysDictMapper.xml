@@ -6,7 +6,7 @@
     <result property="id" column="id"/>
     <result property="uid" column="uid"/>
     <result property="label" column="label"/>
-    <result property="lableValue" column="lable_value"/>
+    <result property="labelValue" column="label_value"/>
     <result property="description" column="description"/>
     <result property="dictSort" column="dict_sort"/>
     <result property="createBy" column="create_by"/>
@@ -24,14 +24,14 @@
     sys_dict
     .
     id
-    as sys_dict_id, sys_dict.uid as sys_dict_uid, sys_dict.label as sys_dict_label, sys_dict.lable_value as sys_dict_lable_value, sys_dict.description as sys_dict_description, sys_dict.dict_sort as sys_dict_dict_sort, sys_dict.create_by as sys_dict_create_by, sys_dict.create_name as sys_dict_create_name, sys_dict.update_by as sys_dict_update_by, sys_dict.update_name as sys_dict_update_name, sys_dict.create_time as sys_dict_create_time, sys_dict.update_time as sys_dict_update_time
+    as sys_dict_id, sys_dict.uid as sys_dict_uid, sys_dict.label as sys_dict_label, sys_dict.label_value as sys_dict_label_value, sys_dict.description as sys_dict_description, sys_dict.dict_sort as sys_dict_dict_sort, sys_dict.create_by as sys_dict_create_by, sys_dict.create_name as sys_dict_create_name, sys_dict.update_by as sys_dict_update_by, sys_dict.update_name as sys_dict_update_name, sys_dict.create_time as sys_dict_create_time, sys_dict.update_time as sys_dict_update_time
   </sql>
   
   <sql id="Base_Column_List">
     sys_dict
     .
     id
-    ,sys_dict.uid ,sys_dict.label ,sys_dict.lable_value ,sys_dict.description ,sys_dict.dict_sort ,sys_dict.create_by ,sys_dict.create_name ,sys_dict.update_by ,sys_dict.update_name ,sys_dict.create_time ,sys_dict.update_time
+    ,sys_dict.uid ,sys_dict.label ,sys_dict.label_value ,sys_dict.description ,sys_dict.dict_sort ,sys_dict.create_by ,sys_dict.create_name ,sys_dict.update_by ,sys_dict.update_name ,sys_dict.create_time ,sys_dict.update_time
   </sql>
   
   <!--通过实体作为筛选条件查询-->
@@ -109,7 +109,7 @@
       #{item.id},
       #{item.uid},
       #{item.label},
-      #{item.lableValue},
+      #{item.labelValue},
       #{item.description},
       #{item.dictSort},
       #{item.createBy},
@@ -146,8 +146,8 @@
     <if test="e.label != null and e.label != ''">
       and INSTR(`label`,#{e.label})
     </if>
-    <if test="e.lableValue != null and e.lableValue != ''">
-      and INSTR(`lable_value`,#{e.lableValue})
+    <if test="e.labelValue != null and e.labelValue != ''">
+      and INSTR(`label_value`,#{e.labelValue})
     </if>
     <if test="e.description != null and e.description != ''">
       and INSTR(`description`,#{e.description})
@@ -186,8 +186,8 @@
     <if test="e.label != null and e.label != ''">
       and `label` = #{e.label}
     </if>
-    <if test="e.lableValue != null and e.lableValue != ''">
-      and `lable_value` = #{e.lableValue}
+    <if test="e.labelValue != null and e.labelValue != ''">
+      and `label_value` = #{e.labelValue}
     </if>
     <if test="e.description != null and e.description != ''">
       and `description` = #{e.description}

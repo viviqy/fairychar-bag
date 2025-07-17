@@ -22,19 +22,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Accessors(chain = true)
 @SuppressWarnings("serial")
-@Schema(description = "SysDictQuery")
-public class SysDictQuery implements Serializable {
+@Schema(description = "UpdateSysDictQuery")
+public class UpdateSysDictQuery implements Serializable {
 
     /**
      * ID
      */
     @Schema(description = "ID")
     private Integer id;
-    /**
-     * 字典uid
-     */
-    @Schema(description = "字典uid")
-    private Long uid;
     /**
      * 字典标签
      */
@@ -55,42 +50,5 @@ public class SysDictQuery implements Serializable {
      */
     @Schema(description = "排序")
     private Integer dictSort;
-    /**
-     * 创建者
-     */
-    @Schema(description = "创建者")
-    private Long createBy;
-    /**
-     * 创建人名称
-     */
-    @Schema(description = "创建人名称")
-    private String createName;
-    /**
-     * 更新者
-     */
-    @Schema(description = "更新者")
-    private Long updateBy;
-    /**
-     * 修改人名称
-     */
-    @Schema(description = "修改人名称")
-    private String updateName;
-    /**
-     * 创建日期
-     */
-    @Schema(description = "创建日期")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
-    /**
-     * 更新时间
-     */
-    @Schema(description = "更新时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime updateTime;
-    /**
-     * 分页请求参数
-     */
-    @Schema(description = "分页参数")
-    private Page pageQuery = new Page();
 
 }

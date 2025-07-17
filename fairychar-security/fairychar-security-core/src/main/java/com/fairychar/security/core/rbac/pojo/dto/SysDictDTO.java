@@ -43,7 +43,7 @@ public class SysDictDTO implements Serializable {
      * 字典值
      */
     @Schema(description = "字典值")
-    private String lableValue;
+    private String labelValue;
     /**
      * 描述
      */

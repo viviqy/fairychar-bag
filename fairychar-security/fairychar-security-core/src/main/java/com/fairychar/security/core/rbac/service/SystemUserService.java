@@ -21,7 +21,6 @@ import java.util.List;
  * @author chiyo
  */
 @Service("systemUserService")
-
 public class SystemUserService extends ServiceImpl<SystemUserMapper, SystemUser> implements ISystemUserService {
     @Autowired
     private SystemUserMapper systemUserMapper;

@@ -3,7 +3,9 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.SysDict;
 import com.fairychar.security.core.rbac.pojo.dto.SysDictDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddSysDictQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysDictQuery;
+import com.fairychar.security.core.rbac.pojo.query.UpdateSysDictQuery;
 import org.mapstruct.Mapper;
 
 
@@ -58,5 +60,9 @@ public interface SysDictStructure {
      * @return entity对象 {@link SysDict}
      */
     SysDict queryToEntity(SysDictQuery query);
+
+    SysDict addQueryToEntity(AddSysDictQuery sysDictQuery);
+
+    SysDict updateQueryToEntity(UpdateSysDictQuery updateSysApiQuery);
 
 }

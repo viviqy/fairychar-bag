@@ -51,8 +51,8 @@ public class SysDict extends Model<SysDict> {
      * 字典值
      */
     @Schema(description = "字典值")
-    @TableField(value = "`lable_value`")
-    private String lableValue;
+    @TableField(value = "`label_value`")
+    private String labelValue;
     /**
      * 描述
      */
@@ -135,9 +135,9 @@ public class SysDict extends Model<SysDict> {
     public static final String LABEL = "label";
 
     /**
-     * lable_value - 字典值
+     * label_value - 字典值
      */
-    public static final String LABLE_VALUE = "lable_value";
+    public static final String label_value = "label_value";
 
     /**
      * description - 描述
