@@ -3,6 +3,7 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.UserHasRole;
 import com.fairychar.security.core.rbac.pojo.dto.UserHasRoleDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery;
 import com.fairychar.security.core.rbac.pojo.query.UserHasRoleQuery;
 import org.mapstruct.Mapper;
 
@@ -59,4 +60,7 @@ public interface UserHasRoleStructure {
      */
     UserHasRole queryToEntity(UserHasRoleQuery query);
 
+    UserHasRole addQueryToEntity(AddUserHasRoleQuery addUserHasRoleQuery);
+
+    List<UserHasRole> addQueriesToEntities(List<AddUserHasRoleQuery> batch);
 }

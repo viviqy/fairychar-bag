@@ -84,4 +84,6 @@ public interface RoleHasMenuMapper extends BaseMapper<RoleHasMenu> {
     List<RoleHasMenu> countGroupBy(@Param("fields") String fields);
 
     void insertBatch(@Param("list") List<RoleHasMenu> entities);
+
+    List<RoleHasMenu> listByRoleIdAndMenuId(@Param("list") List<RoleHasMenu> entities);
 }

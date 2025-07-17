@@ -3,6 +3,7 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.RoleHasMenu;
 import com.fairychar.security.core.rbac.pojo.dto.RoleHasMenuDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddRoleHasMenuQuery;
 import com.fairychar.security.core.rbac.pojo.query.RoleHasMenuQuery;
 import org.mapstruct.Mapper;
 
@@ -59,4 +60,7 @@ public interface RoleHasMenuStructure {
      */
     RoleHasMenu queryToEntity(RoleHasMenuQuery query);
 
+    RoleHasMenu addQueryToEntity(AddRoleHasMenuQuery addRoleHasMenuQuery);
+
+    List<RoleHasMenu> addQueriesToEntities(List<AddRoleHasMenuQuery> batch);
 }

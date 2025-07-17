@@ -84,4 +84,6 @@ public interface UserHasRoleMapper extends BaseMapper<UserHasRole> {
     List<UserHasRole> countGroupBy(@Param("fields") String fields);
 
     void insertBatch(@Param("list") List<UserHasRole> entities);
+
+    List<UserHasRole> listByUserIdAndRoleId(@Param("list") List<UserHasRole> entities);
 }

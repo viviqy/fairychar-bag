@@ -98,7 +98,21 @@
     from role_has_menu
     group by ${fields}
   </select>
-  
+
+  <select id="listByRoleIdAndMenuId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from role_has_menu where (role_id,menu_id)
+    in
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.roleId},
+      #{item.menuId}
+      )
+    </foreach>
+  </select>
+
+
   <insert id="insertBatch">
     INSERT INTO role_has_menu (<include refid="Base_Column_List"></include>) VALUES
     <foreach collection="list" item="item" separator=",">

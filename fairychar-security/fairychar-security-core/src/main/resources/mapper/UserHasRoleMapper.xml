@@ -98,7 +98,20 @@
     from user_has_role
     group by ${fields}
   </select>
-  
+
+  <select id="listByUserIdAndRoleId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from user_has_role where (user_id,role_id)
+    in
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.userId},
+      #{item.roleId}
+      )
+    </foreach>
+  </select>
+
   <insert id="insertBatch">
     INSERT INTO user_has_role (<include refid="Base_Column_List"></include>) VALUES
     <foreach collection="list" item="item" separator=",">
