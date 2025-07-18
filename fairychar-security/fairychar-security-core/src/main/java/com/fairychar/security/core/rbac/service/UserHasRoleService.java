@@ -97,10 +97,10 @@ public class UserHasRoleService extends ServiceImpl<UserHasRoleMapper, UserHasRo
 
 
     @Override
-    public void removeByUserIds(List<Integer> userIds) {
-        if (userIds.isEmpty()) {
+    public void removeByUserIds(List<Integer> userUids) {
+        if (userUids.isEmpty()) {
             return;
         }
-        super.remove(new QueryWrapper<UserHasRole>().in(UserHasRole.USER_ID, userIds));
+        super.remove(new QueryWrapper<UserHasRole>().in(UserHasRole.USER_UID, userUids));
     }
 }

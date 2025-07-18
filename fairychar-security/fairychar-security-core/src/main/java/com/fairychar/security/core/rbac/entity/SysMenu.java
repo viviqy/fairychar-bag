@@ -163,9 +163,9 @@ public class SysMenu extends Model<SysMenu> {
     public static final String PID = "pid";
 
     /**
-     * type - 菜单类型(预留字段)
+     * 菜单标识code(唯一)
      */
-    public static final String TYPE = "type";
+    public static final String CODE = "code";
 
     /**
      * title - 菜单标题

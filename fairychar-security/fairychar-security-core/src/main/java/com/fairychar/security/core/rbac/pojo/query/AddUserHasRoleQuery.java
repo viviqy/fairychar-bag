@@ -1,8 +1,6 @@
 package com.fairychar.security.core.rbac.pojo.query;
 
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * 用户角色关联(UserHasRole)表实体类
@@ -31,7 +28,7 @@ public class AddUserHasRoleQuery implements Serializable {
      */
     @Schema(description = "用户ID")
     @NotNull
-    private Integer userId;
+    private Long userUid;
     /**
      * 角色ID
      */

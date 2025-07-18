@@ -32,7 +32,7 @@ public class UserHasRoleQuery implements Serializable {
      * 用户ID
      */
     @Schema(description = "用户ID")
-    private Integer userId;
+    private Long userUid;
     /**
      * 角色ID
      */

@@ -34,8 +34,8 @@ public class UserHasRole extends Model<UserHasRole> {
      * 用户ID
      */
     @Schema(description = "用户ID")
-    @TableField(value = "`user_id`")
-    private Integer userId;
+    @TableField(value = "`user_uid`")
+    private Long userUid;
     /**
      * 角色ID
      */
@@ -102,9 +102,9 @@ public class UserHasRole extends Model<UserHasRole> {
     public static final String ID = "id";
 
     /**
-     * user_id - 用户ID
+     * user_uid - 用户ID
      */
-    public static final String USER_ID = "user_id";
+    public static final String USER_UID = "user_uid";
 
     /**
      * role_id - 角色ID

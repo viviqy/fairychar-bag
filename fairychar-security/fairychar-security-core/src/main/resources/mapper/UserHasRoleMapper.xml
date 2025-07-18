@@ -4,7 +4,7 @@
   
   <resultMap type="com.fairychar.security.core.rbac.entity.UserHasRole" id="BaseResultMap">
     <result property="id" column="id"/>
-    <result property="userId" column="user_id"/>
+    <result property="userId" column="user_uid"/>
     <result property="roleId" column="role_id"/>
     <result property="createBy" column="create_by"/>
     <result property="createName" column="create_name"/>
@@ -21,14 +21,14 @@
     user_has_role
     .
     id
-    as user_has_role_id, user_has_role.user_id as user_has_role_user_id, user_has_role.role_id as user_has_role_role_id, user_has_role.create_by as user_has_role_create_by, user_has_role.create_name as user_has_role_create_name, user_has_role.update_by as user_has_role_update_by, user_has_role.update_name as user_has_role_update_name, user_has_role.create_time as user_has_role_create_time, user_has_role.update_time as user_has_role_update_time
+    as user_has_role_id, user_has_role.user_uid as user_has_role_user_id, user_has_role.role_id as user_has_role_role_id, user_has_role.create_by as user_has_role_create_by, user_has_role.create_name as user_has_role_create_name, user_has_role.update_by as user_has_role_update_by, user_has_role.update_name as user_has_role_update_name, user_has_role.create_time as user_has_role_create_time, user_has_role.update_time as user_has_role_update_time
   </sql>
   
   <sql id="Base_Column_List">
     user_has_role
     .
     id
-    ,user_has_role.user_id ,user_has_role.role_id ,user_has_role.create_by ,user_has_role.create_name ,user_has_role.update_by ,user_has_role.update_name ,user_has_role.create_time ,user_has_role.update_time
+    ,user_has_role.user_uid ,user_has_role.role_id ,user_has_role.create_by ,user_has_role.create_name ,user_has_role.update_by ,user_has_role.update_name ,user_has_role.create_time ,user_has_role.update_time
   </sql>
   
   <!--通过实体作为筛选条件查询-->
@@ -102,7 +102,7 @@
   <select id="listByUserIdAndRoleId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"></include>
-    from user_has_role where (user_id,role_id)
+    from user_has_role where (user_uid,role_id)
     in
     <foreach collection="list" item="item" separator=",">
       (
@@ -148,7 +148,7 @@
       and `id` = #{e.id}
     </if>
     <if test="e.userId != null">
-      and `user_id` = #{e.userId}
+      and `user_uid` = #{e.userId}
     </if>
     <if test="e.roleId != null">
       and `role_id` = #{e.roleId}
@@ -179,7 +179,7 @@
       and `id` = #{e.id}
     </if>
     <if test="e.userId != null">
-      and `user_id` = #{e.userId}
+      and `user_uid` = #{e.userId}
     </if>
     <if test="e.roleId != null">
       and `role_id` = #{e.roleId}
