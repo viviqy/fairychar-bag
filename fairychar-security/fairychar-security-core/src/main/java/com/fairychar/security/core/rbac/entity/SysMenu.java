@@ -1,16 +1,16 @@
 package com.fairychar.security.core.rbac.entity;
 
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-
-import lombok.Data;
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
+import java.time.LocalDateTime;
 
 /**
  * 系统菜单(SysMenu)表实体类
@@ -39,11 +39,11 @@ public class SysMenu extends Model<SysMenu> {
     @TableField(value = "`pid`")
     private Integer pid;
     /**
-     * 菜单类型(预留字段)
+     * 菜单标识code(唯一)
      */
-    @Schema(description = "菜单类型(预留字段)")
-    @TableField(value = "`type`")
-    private String type;
+    @Schema(description = "菜单标识code(唯一)")
+    @TableField(value = "`code`")
+    private String code;
     /**
      * 菜单标题
      */

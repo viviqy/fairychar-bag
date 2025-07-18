@@ -1,17 +1,16 @@
 package com.fairychar.security.core.rbac.pojo.dto;
 
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
-import java.util.List;
-
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 系统菜单(SysMenu)表实体类
@@ -40,8 +39,8 @@ public class SysMenuDTO implements Serializable {
     /**
      * 菜单类型(预留字段)
      */
-    @Schema(description = "菜单类型(预留字段)")
-    private String type;
+    @Schema(description = "菜单标识code(唯一)")
+    private String code;
     /**
      * 菜单标题
      */

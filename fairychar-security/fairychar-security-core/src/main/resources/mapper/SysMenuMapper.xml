@@ -5,7 +5,7 @@
   <resultMap type="com.fairychar.security.core.rbac.entity.SysMenu" id="BaseResultMap">
     <result property="id" column="id"/>
     <result property="pid" column="pid"/>
-    <result property="type" column="type"/>
+    <result property="code" column="code"/>
     <result property="title" column="title"/>
     <result property="componentName" column="component_name"/>
     <result property="componentData" column="component_data"/>
@@ -30,14 +30,14 @@
     sys_menu
     .
     id
-    as sys_menu_id, sys_menu.pid as sys_menu_pid, sys_menu.type as sys_menu_type, sys_menu.title as sys_menu_title, sys_menu.component_name as sys_menu_component_name, sys_menu.component_data as sys_menu_component_data, sys_menu.sort as sys_menu_sort, sys_menu.icon as sys_menu_icon, sys_menu.path as sys_menu_path, sys_menu.i_frame as sys_menu_i_frame, sys_menu.cache as sys_menu_cache, sys_menu.hidden as sys_menu_hidden, sys_menu.create_by as sys_menu_create_by, sys_menu.create_name as sys_menu_create_name, sys_menu.update_by as sys_menu_update_by, sys_menu.update_name as sys_menu_update_name, sys_menu.create_time as sys_menu_create_time, sys_menu.update_time as sys_menu_update_time
+    as sys_menu_id, sys_menu.pid as sys_menu_pid, sys_menu.code as sys_menu_type, sys_menu.title as sys_menu_title, sys_menu.component_name as sys_menu_component_name, sys_menu.component_data as sys_menu_component_data, sys_menu.sort as sys_menu_sort, sys_menu.icon as sys_menu_icon, sys_menu.path as sys_menu_path, sys_menu.i_frame as sys_menu_i_frame, sys_menu.cache as sys_menu_cache, sys_menu.hidden as sys_menu_hidden, sys_menu.create_by as sys_menu_create_by, sys_menu.create_name as sys_menu_create_name, sys_menu.update_by as sys_menu_update_by, sys_menu.update_name as sys_menu_update_name, sys_menu.create_time as sys_menu_create_time, sys_menu.update_time as sys_menu_update_time
   </sql>
   
   <sql id="Base_Column_List">
     sys_menu
     .
     id
-    ,sys_menu.pid ,sys_menu.type ,sys_menu.title ,sys_menu.component_name ,sys_menu.component_data ,sys_menu.sort ,sys_menu.icon ,sys_menu.path ,sys_menu.i_frame ,sys_menu.cache ,sys_menu.hidden ,sys_menu.create_by ,sys_menu.create_name ,sys_menu.update_by ,sys_menu.update_name ,sys_menu.create_time ,sys_menu.update_time
+    ,sys_menu.pid ,sys_menu.code ,sys_menu.title ,sys_menu.component_name ,sys_menu.component_data ,sys_menu.sort ,sys_menu.icon ,sys_menu.path ,sys_menu.i_frame ,sys_menu.cache ,sys_menu.hidden ,sys_menu.create_by ,sys_menu.create_name ,sys_menu.update_by ,sys_menu.update_name ,sys_menu.create_time ,sys_menu.update_time
   </sql>
   
   <!--通过实体作为筛选条件查询-->
@@ -114,7 +114,7 @@
       (
       #{item.id},
       #{item.pid},
-      #{item.type},
+      #{item.code},
       #{item.title},
       #{item.componentName},
       #{item.componentData},
@@ -155,8 +155,8 @@
     <if test="e.pid != null">
       and `pid` = #{e.pid}
     </if>
-    <if test="e.type != null and e.type != ''">
-      and INSTR(`type`,#{e.type})
+    <if test="e.code != null and e.code != ''">
+      and INSTR(`code`,#{e.code})
     </if>
     <if test="e.title != null and e.title != ''">
       and INSTR(`title`,#{e.title})
@@ -213,8 +213,8 @@
     <if test="e.pid != null">
       and `pid` = #{e.pid}
     </if>
-    <if test="e.type != null and e.type != ''">
-      and `type` = #{e.type}
+    <if test="e.code != null and e.code != ''">
+      and `code` = #{e.code}
     </if>
     <if test="e.title != null and e.title != ''">
       and `title` = #{e.title}

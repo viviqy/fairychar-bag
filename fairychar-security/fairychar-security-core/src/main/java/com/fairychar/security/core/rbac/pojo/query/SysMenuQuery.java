@@ -38,8 +38,8 @@ public class SysMenuQuery implements Serializable {
     /**
      * 菜单类型(预留字段)
      */
-    @Schema(description = "菜单类型(预留字段)")
-    private String type;
+    @Schema(description = "菜单标识code(唯一)")
+    private String code;
     /**
      * 菜单标题
      */

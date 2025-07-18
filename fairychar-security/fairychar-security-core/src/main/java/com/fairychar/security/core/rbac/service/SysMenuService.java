@@ -76,8 +76,12 @@ public class SysMenuService extends ServiceImpl<SysMenuMapper, SysMenu> implemen
      */
     @Override
     public int save(AddSysMenuQuery addSysMenuQuery) {
-        String httpMethod = addSysMenuQuery.getHttpMethod();
-        SysMenu one = this.sysMenuMapper.queryOne(new SysMenu().setUri(addSysMenuQuery.getUri()).setHttpMethod(httpMethod));
+        Integer pid = addSysMenuQuery.getPid();
+        if (!pid.equals(0)) {
+            int parentCount = this.sysMenuMapper.count(new SysMenu().setId(pid));
+            Assert.isTrue(parentCount == 1, () -> new RestException(RestErrorCode.DATA_NOT_EXIST, "父级菜单不存在"));
+        }
+        SysMenu one = this.sysMenuMapper.queryOne(new SysMenu().setCode(addSysMenuQuery.getCode()));
         Assert.isNull(one, () -> new RestException(RestErrorCode.DATA_EXIST));
         SysMenu entity = this.sysMenuStructure.addQueryToEntity(addSysMenuQuery);
         try {

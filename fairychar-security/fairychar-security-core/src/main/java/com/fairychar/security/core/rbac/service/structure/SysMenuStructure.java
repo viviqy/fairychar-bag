@@ -3,9 +3,9 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.SysMenu;
 import com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddSysMenuQuery;
 import com.fairychar.security.core.rbac.pojo.query.SysMenuQuery;
 import org.mapstruct.Mapper;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,4 +59,5 @@ public interface SysMenuStructure {
      */
     SysMenu queryToEntity(SysMenuQuery query);
 
+    SysMenu addQueryToEntity(AddSysMenuQuery addSysMenuQuery);
 }

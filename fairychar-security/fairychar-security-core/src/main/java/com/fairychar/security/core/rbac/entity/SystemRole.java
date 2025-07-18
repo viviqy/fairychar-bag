@@ -1,16 +1,16 @@
 package com.fairychar.security.core.rbac.entity;
 
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-
-import lombok.Data;
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
+import java.time.LocalDateTime;
 
 /**
  * 角色表(SystemRole)表实体类
