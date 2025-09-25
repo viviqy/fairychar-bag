@@ -25,7 +25,6 @@ import java.util.List;
  * @author chiyo
  */
 @Service("roleHasMenuService")
-
 public class RoleHasMenuService extends ServiceImpl<RoleHasMenuMapper, RoleHasMenu> implements IRoleHasMenuService {
     @Autowired
     private RoleHasMenuMapper roleHasMenuMapper;

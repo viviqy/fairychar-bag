@@ -3,9 +3,10 @@ package com.fairychar.security.core.rbac.service.structure;
 
 import com.fairychar.security.core.rbac.entity.SystemRole;
 import com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO;
+import com.fairychar.security.core.rbac.pojo.query.AddSystemRoleQuery;
 import com.fairychar.security.core.rbac.pojo.query.SystemRoleQuery;
+import com.fairychar.security.core.rbac.pojo.query.UpdateSystemRoleQuery;
 import org.mapstruct.Mapper;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,4 +60,11 @@ public interface SystemRoleStructure {
      */
     SystemRole queryToEntity(SystemRoleQuery query);
 
+    SystemRole addQueryToEntity(AddSystemRoleQuery addSystemRoleQuery);
+
+    SystemRole updateQueryToEntity(UpdateSystemRoleQuery updateSystemRoleQuery);
+
+    List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch);
+
+    List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch);
 }

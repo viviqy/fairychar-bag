@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -179,17 +180,11 @@ public class SysMenuService extends ServiceImpl<SysMenuMapper, SysMenu> implemen
             throw new RestException(RestErrorCode.DATA_EXIST, "有重复code");
         }
         List<SysMenu> entities = this.sysMenuStructure.updateQueriesToEntities(batch);
-        //todo 这里逻辑有问题
-//        Map<String, Integer> codeIdMap = entities.stream().collect(Collectors.toMap(k -> k.getCode(), v -> v.getId()));
-//        List<SysMenu> apis = super.list(new QueryWrapper<SysMenu>().in(SysMenu.CODE, codeSet));
-//        apis.forEach(api -> {
-//            Integer mayExistId = codeIdMap.get(api.getCode());
-//            if (mayExistId != null) {
-//                UpdateSysMenuQuery one = mayExist.get(0);
-//                //不存在或者存在的是自己本身
-//                Assert.isTrue(one == null || one.getId().equals(api.getId()), () -> new RestException(RestErrorCode.DATA_EXIST));
-//            }
-//        });
+        Map<String, Integer> codeIdMap = entities.stream().collect(Collectors.toMap(k -> k.getCode(), v -> v.getId()));
+        //检查当前code对应的id在更新的batch里,即不会跟已存在的code更新重复
+        List<SysMenu> otherApis = super.list(new QueryWrapper<SysMenu>().in(SysMenu.CODE, codeSet)
+                .notIn(SysMenu.ID, codeIdMap.values()));
+        Assert.isTrue(otherApis.size() == 0, () -> new RestException(RestErrorCode.DATA_EXIST, "有重复code"));
         try {
             return super.updateBatchById(entities);
         } catch (DuplicateKeyException e) {

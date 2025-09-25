@@ -27,4 +27,6 @@ public interface ISysMenuService extends IService<SysMenu> {
     SysMenuDTO findById(Serializable id);
 
     List<SysMenu> saveBatch(List<AddSysMenuQuery> batch);
+
+    boolean updateByIdBatch(List<UpdateSysMenuQuery> batch);
 }
