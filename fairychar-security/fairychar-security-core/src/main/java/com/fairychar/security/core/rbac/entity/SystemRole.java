@@ -33,6 +33,12 @@ public class SystemRole extends Model<SystemRole> {
     @TableId(type = IdType.AUTO, value = "id")
     private Integer id;
     /**
+     * 角色标识唯一code标识
+     */
+    @Schema(description = "角色标识唯一code标识")
+    @TableField(value = "`role_code`")
+    private String roleCode;
+    /**
      * 名称
      */
     @Schema(description = "名称")
@@ -44,6 +50,12 @@ public class SystemRole extends Model<SystemRole> {
     @Schema(description = "角色级别(0代表root)")
     @TableField(value = "`level`")
     private Integer level;
+    /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    @TableField(value = "`enable`")
+    private Boolean enable;
     /**
      * 描述
      */
@@ -110,6 +122,11 @@ public class SystemRole extends Model<SystemRole> {
     public static final String ID = "id";
 
     /**
+     * role_code - 角色标识唯一code标识
+     */
+    public static final String ROLE_CODE = "role_code";
+
+    /**
      * name - 名称
      */
     public static final String NAME = "name";
@@ -118,6 +135,11 @@ public class SystemRole extends Model<SystemRole> {
      * level - 角色级别(0代表root)
      */
     public static final String LEVEL = "level";
+
+    /**
+     * enable - 是否启用
+     */
+    public static final String ENABLE = "enable";
 
     /**
      * description - 描述

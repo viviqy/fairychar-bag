@@ -31,6 +31,11 @@ public class SystemRoleQuery implements Serializable {
     @Schema(description = "ID")
     private Integer id;
     /**
+     * 角色标识唯一code标识
+     */
+    @Schema(description = "角色标识唯一code标识")
+    private String roleCode;
+    /**
      * 名称
      */
     @Schema(description = "名称")
@@ -40,6 +45,11 @@ public class SystemRoleQuery implements Serializable {
      */
     @Schema(description = "角色级别(0代表root)")
     private Integer level;
+    /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    private Boolean enable;
     /**
      * 描述
      */
@@ -77,9 +87,7 @@ public class SystemRoleQuery implements Serializable {
     @Schema(description = "更新时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
-    /**
-     * 分页请求参数
-     */
+
     @Schema(description = "分页参数")
     private Page pageQuery = new Page();
 

@@ -39,6 +39,11 @@ public class UpdateSysMenuQuery implements Serializable {
     @NotNull
     private String code;
     /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    private Boolean enable;
+    /**
      * 菜单标题
      */
     @Schema(description = "菜单标题")

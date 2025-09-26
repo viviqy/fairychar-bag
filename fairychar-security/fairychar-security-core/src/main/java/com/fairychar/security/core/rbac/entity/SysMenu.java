@@ -99,6 +99,12 @@ public class SysMenu extends Model<SysMenu> {
     @TableField(value = "`hidden`")
     private Boolean hidden;
     /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    @TableField(value = "`enable`")
+    private Boolean enable;
+    /**
      * 创建者
      */
     @Schema(description = "创建者")
@@ -163,7 +169,7 @@ public class SysMenu extends Model<SysMenu> {
     public static final String PID = "pid";
 
     /**
-     * 菜单标识code(唯一)
+     * code - 菜单标识code(唯一)
      */
     public static final String CODE = "code";
 
@@ -211,6 +217,11 @@ public class SysMenu extends Model<SysMenu> {
      * hidden - 隐藏
      */
     public static final String HIDDEN = "hidden";
+
+    /**
+     * enable - 是否启用
+     */
+    public static final String ENABLE = "enable";
 
     /**
      * create_by - 创建者

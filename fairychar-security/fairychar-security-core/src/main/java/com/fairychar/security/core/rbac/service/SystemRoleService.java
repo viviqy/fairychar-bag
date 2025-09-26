@@ -61,12 +61,7 @@ public class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole>
      */
     @Override
     public int save(AddSystemRoleQuery addSystemRoleQuery) {
-//        Integer pid = addSystemRoleQuery.getPid();
-//        if (!pid.equals(0)) {
-//            int parentCount = this.systemRoleMapper.count(new SystemRole().setId(pid));
-//            Assert.isTrue(parentCount == 1, () -> new RestException(RestErrorCode.DATA_NOT_EXIST, "父级菜单不存在"));
-//        }
-        SystemRole one = this.systemRoleMapper.queryOne(new SystemRole().setName(addSystemRoleQuery.getName()));
+        SystemRole one = this.systemRoleMapper.queryOne(new SystemRole().setRoleCode(addSystemRoleQuery.getRoleCode()));
         Assert.isNull(one, () -> new RestException(RestErrorCode.DATA_EXIST));
         SystemRole entity = this.systemRoleStructure.addQueryToEntity(addSystemRoleQuery);
         try {
@@ -90,7 +85,7 @@ public class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole>
         int count = this.systemRoleMapper.count(new SystemRole().setId(updateSystemRoleQuery.getId()));
         Assert.isTrue(count == 1, () -> new RestException(RestErrorCode.DATA_NOT_EXIST));
         SystemRole entity = this.systemRoleStructure.updateQueryToEntity(updateSystemRoleQuery);
-        SystemRole one = this.systemRoleMapper.queryOne(new SystemRole().setName(updateSystemRoleQuery.getName()));
+        SystemRole one = this.systemRoleMapper.queryOne(new SystemRole().setRoleCode(updateSystemRoleQuery.getRoleCode()));
         //不存在或者存在的是自己本身
         Assert.isTrue(one == null || one.getId().equals(entity.getId()), () -> new RestException(RestErrorCode.DATA_EXIST));
         return super.updateById(entity);
@@ -121,14 +116,14 @@ public class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole>
             return List.of();
         }
         //batch 根据code去重
-        Set<String> nameSet = batch.stream().map(m -> m.getName()).collect(Collectors.toSet());
-        if (nameSet.size() != batch.size()) {
+        Set<String> codeSet = batch.stream().map(m -> m.getRoleCode()).collect(Collectors.toSet());
+        if (codeSet.size() != batch.size()) {
             throw new RestException(RestErrorCode.DATA_EXIST, "有重复code");
         }
         List<SystemRole> entities = this.systemRoleStructure.addQueriesToEntities(batch);
-        List<SystemRole> apis = super.list(new QueryWrapper<SystemRole>().in(SystemRole.NAME, nameSet));
+        List<SystemRole> apis = super.list(new QueryWrapper<SystemRole>().in(SystemRole.ROLE_CODE, codeSet));
         if (!apis.isEmpty()) {
-            String existApisStr = apis.stream().map(sysApi -> sysApi.getName())
+            String existApisStr = apis.stream().map(sysApi -> sysApi.getRoleCode())
                     .collect(Collectors.joining(";"));
             throw new RestException(RestErrorCode.DATA_EXIST, existApisStr);
         }
@@ -151,14 +146,14 @@ public class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole>
     @Override
     public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch) {
         //batch 根据code去重
-        Set<String> codeSet = batch.stream().map(m -> m.getName()).collect(Collectors.toSet());
+        Set<String> codeSet = batch.stream().map(m -> m.getRoleCode()).collect(Collectors.toSet());
         if (codeSet.size() != batch.size()) {
             throw new RestException(RestErrorCode.DATA_EXIST, "有重复code");
         }
         List<SystemRole> entities = this.systemRoleStructure.updateQueriesToEntities(batch);
-        Map<String, Integer> codeIdMap = entities.stream().collect(Collectors.toMap(k -> k.getName(), v -> v.getId()));
+        Map<String, Integer> codeIdMap = entities.stream().collect(Collectors.toMap(k -> k.getRoleCode(), v -> v.getId()));
         //检查当前code对应的id在更新的batch里,即不会跟已存在的code更新重复
-        List<SystemRole> otherApis = super.list(new QueryWrapper<SystemRole>().in(SystemRole.NAME, codeSet)
+        List<SystemRole> otherApis = super.list(new QueryWrapper<SystemRole>().in(SystemRole.ROLE_CODE, codeSet)
                 .notIn(SystemRole.ID, codeIdMap.values()));
         Assert.isTrue(otherApis.size() == 0, () -> new RestException(RestErrorCode.DATA_EXIST, "有重复code"));
         try {

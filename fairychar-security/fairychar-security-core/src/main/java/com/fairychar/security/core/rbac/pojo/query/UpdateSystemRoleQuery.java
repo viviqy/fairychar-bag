@@ -30,6 +30,16 @@ public class UpdateSystemRoleQuery implements Serializable {
     @NotNull
     private Integer id;
     /**
+     * 角色标识唯一code标识
+     */
+    @Schema(description = "角色标识唯一code标识")
+    private String roleCode;
+    /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    private Boolean enable;
+    /**
      * 名称
      */
     @Schema(description = "名称")

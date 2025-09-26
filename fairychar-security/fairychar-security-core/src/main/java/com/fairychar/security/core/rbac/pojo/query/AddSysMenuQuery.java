@@ -43,6 +43,11 @@ public class AddSysMenuQuery implements Serializable {
     @NotEmpty
     private String title;
     /**
+     * 是否启用
+     */
+    @Schema(description = "是否启用")
+    private Boolean enable;
+    /**
      * 组件名称
      */
     @Schema(description = "组件名称")
