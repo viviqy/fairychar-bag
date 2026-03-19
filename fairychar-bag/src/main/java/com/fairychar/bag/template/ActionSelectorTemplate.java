@@ -30,7 +30,7 @@ public class ActionSelectorTemplate {
     private long timePause = 100;
 
     private ExecutorService worker = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-    private RunState runState = RunState.UN_INITIALIZE;
+    private volatile RunState runState = RunState.UN_INITIALIZE;
 
 
     public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker) {
@@ -45,20 +45,28 @@ public class ActionSelectorTemplate {
                 this.selector.values().iterator().forEachRemaining(c -> {
                     long executeTimestamp = c.getLastExecuteTime() + c.getPeriod();
                     if (System.currentTimeMillis() > executeTimestamp) {
-                        log.info("executing actionSchedule task name={}", c.getTaskName());
-                        c.setLastExecuteTime(System.currentTimeMillis());
-                        this.worker.execute(() -> {
-                            try {
-                                c.setWorking(true);
-                                c.getAction().doAction0();
-                            } catch (InterruptedException e) {
-                                log.info("打断任务:{}", c.getTaskName());
-                            } catch (TimeoutException e) {
-                                log.error("任务超时:{}", e.getMessage());
-                            } finally {
-                                c.setWorking(false);
-                            }
-                        });
+                        // 使用CAS原子操作尝试获取执行权
+                        // 只有成功将working从false改为true，才提交任务
+                        if (c.getWorkingAtomic().compareAndSet(false, true)) {
+                            log.info("executing actionSchedule task name={}", c.getTaskName());
+                            // 更新最后执行时间（在任务提交后更新，确保时间准确）
+                            c.getLastExecuteTimeAtomic().set(System.currentTimeMillis());
+                            this.worker.execute(() -> {
+                                try {
+                                    c.getAction().doAction0();
+                                } catch (InterruptedException e) {
+                                    log.info("打断任务:{}", c.getTaskName());
+                                } catch (TimeoutException e) {
+                                    log.error("任务超时:{}", e.getMessage());
+                                } finally {
+                                    // 任务完成或异常后，释放执行权
+                                    c.getWorkingAtomic().set(false);
+                                }
+                            });
+                        } else {
+                            // CAS失败，说明任务正在执行中，跳过本次调度
+                            log.debug("任务正在执行中，跳过本次调度: taskName={}", c.getTaskName());
+                        }
                     }
                 });
                 try {

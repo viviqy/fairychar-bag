@@ -31,21 +31,22 @@ public final class FileUtil {
         // 确保待拼接的文件不为空且都为文件
         for (int i = 0; i < concatFiles.length; i++) {
             Assert.notNull(concatFiles[i], String.format("concat file can not be null,index=%d", i));
-            Assert.isTrue(concatFiles[i].isFile(), String.format("head file should be a file,index=%d", i));
+            Assert.isTrue(concatFiles[i].isFile(), String.format("concat file should be a file,index=%d", i));
         }
         try (FileOutputStream outputStream = new FileOutputStream(outputPath);
              FileInputStream headFileInputStream = new FileInputStream(head)
         ) {
             byte[] buffer = new byte[1024];
-            while (headFileInputStream.read(buffer) > 0) {
-                outputStream.write(buffer);
+            int bytesRead;
+            while ((bytesRead = headFileInputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, bytesRead);
             }
             for (File concatFile : concatFiles) {
-                FileInputStream inputStream = new FileInputStream(concatFile);
-                while (inputStream.read(buffer) > 0) {
-                    outputStream.write(buffer);
+                try (FileInputStream inputStream = new FileInputStream(concatFile)) {
+                    while ((bytesRead = inputStream.read(buffer)) > 0) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
                 }
-                inputStream.close();
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -79,15 +80,22 @@ public final class FileUtil {
             long markIndex = starIndex;
             long skip = readStream.skip(starIndex);
             Assert.isTrue(skip == starIndex, "skip index not equal to starIndex,seems stream error");
+            int bytesRead;
             while (markIndex < endIndex) {
                 if (endIndex - markIndex >= length) {
-                    readStream.read(buffer);
-                    outputStream.write(buffer);
-                    markIndex += length;
+                    bytesRead = readStream.read(buffer);
+                    if (bytesRead > 0) {
+                        outputStream.write(buffer, 0, bytesRead);
+                        markIndex += bytesRead;
+                    } else {
+                        break;
+                    }
                 } else {
                     byte[] remaining = new byte[((int) (endIndex - markIndex))];
-                    readStream.read(remaining);
-                    outputStream.write(remaining);
+                    bytesRead = readStream.read(remaining);
+                    if (bytesRead > 0) {
+                        outputStream.write(remaining, 0, bytesRead);
+                    }
                     break;
                 }
             }

@@ -101,22 +101,38 @@ public class SimpleNettyServer {
             this.channel = channel.childHandler(this.childHandlers)
                     .bind(this.port).channel();
             log.info("server start at {}", this.port);
+            this.runState = RunState.STARTED;
         } catch (Exception e) {
-            log.error("{}", e.getMessage());
+            log.error("Failed to start server: {}", e.getMessage(), e);
+            this.runState = RunState.STOPPING;
             this.stop();
+            throw new RuntimeException("Failed to start server", e);
         }
-        this.runState = RunState.STARTED;
     }
 
     @PreDestroy
     public void stop() {
         log.info("server stopping....");
+        // 如果服务器未初始化或已经停止，直接返回
+        if (this.runState == RunState.UN_INITIALIZE || this.runState == RunState.STOPPED) {
+            log.info("server is not running, skip stopping");
+            return;
+        }
         this.runState = RunState.STOPPING;
         try {
-            this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
+            if (this.channel != null) {
+                this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
+            }
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            this.boss.shutdownGracefully();
-            this.worker.shutdownGracefully();
+            log.error("Error closing channel: {}", e.getMessage());
+        } finally {
+            // 确保资源被正确释放
+            if (this.boss != null) {
+                this.boss.shutdownGracefully();
+            }
+            if (this.worker != null) {
+                this.worker.shutdownGracefully();
+            }
         }
         log.info("server stopped");
         this.runState = RunState.STOPPED;

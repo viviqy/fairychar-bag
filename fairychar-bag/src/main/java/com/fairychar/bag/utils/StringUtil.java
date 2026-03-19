@@ -27,11 +27,10 @@ public final class StringUtil {
      * @throws IOException io异常
      */
     public static byte[] compressByGzip(String data) {
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            GZIPOutputStream gzip = new GZIPOutputStream(bos);
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             GZIPOutputStream gzip = new GZIPOutputStream(bos)) {
             gzip.write(data.getBytes(StandardCharsets.UTF_8));
-            gzip.close();
+            gzip.finish();
             return bos.toByteArray();
         } catch (IOException e) {
             throw new FBException(e);
@@ -46,16 +45,14 @@ public final class StringUtil {
      * @throws IOException io异常
      */
     public static String decompressByGzip(byte[] compressedData) {
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(compressedData);
-            GZIPInputStream gzip = new GZIPInputStream(bis);
-            BufferedReader br = new BufferedReader(new InputStreamReader(gzip, StandardCharsets.UTF_8));
+        try (ByteArrayInputStream bis = new ByteArrayInputStream(compressedData);
+             GZIPInputStream gzip = new GZIPInputStream(bis);
+             BufferedReader br = new BufferedReader(new InputStreamReader(gzip, StandardCharsets.UTF_8))) {
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
-            br.close();
             return sb.toString();
         } catch (IOException e) {
             throw new FBException(e);

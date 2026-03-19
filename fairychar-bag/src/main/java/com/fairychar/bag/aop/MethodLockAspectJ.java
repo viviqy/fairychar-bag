@@ -68,7 +68,7 @@ public class MethodLockAspectJ implements InitializingBean {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) joinPoint;
         if (!methodLock.enable()) {
-            return null;
+            return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
         }
         return switchLock(methodSignature, methodLock, proceedingJoinPoint);
     }
