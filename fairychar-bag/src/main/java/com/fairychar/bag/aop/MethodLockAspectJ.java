@@ -106,7 +106,9 @@ public class MethodLockAspectJ implements InitializingBean {
             } catch (Throwable throwable) {
                 throw throwable;
             } finally {
-                reentrantLock.unlock();
+                if (reentrantLock.isHeldByCurrentThread()) {
+                    reentrantLock.unlock();
+                }
             }
         } else {
             reentrantLock.lockInterruptibly();

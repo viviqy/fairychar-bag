@@ -17,7 +17,10 @@ public class ConcurrentUtil {
         for (Future future : futures) {
             try {
                 future.get();
-            } catch (InterruptedException | ExecutionException e) {
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new FBException(e);
+            } catch (ExecutionException e) {
                 throw new FBException(e);
             }
         }

@@ -12,6 +12,8 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * spel util
@@ -22,6 +24,7 @@ import java.lang.reflect.Method;
 public class SpelUtil {
     private final static ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
     private final static SpelExpressionParser SPEL_EXPRESSION_PARSER = new SpelExpressionParser();
+    private final static Map<String, Expression> EXPRESSION_CACHE = new ConcurrentHashMap<>(64);
 
 
     /**
@@ -78,8 +81,7 @@ public class SpelUtil {
      * @return {@code Expression }
      */
     public static Expression parseExpression(String expression) {
-        Expression parseExpression = SPEL_EXPRESSION_PARSER.parseExpression(expression);
-        return parseExpression;
+        return EXPRESSION_CACHE.computeIfAbsent(expression, SPEL_EXPRESSION_PARSER::parseExpression);
     }
 
 }

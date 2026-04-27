@@ -33,7 +33,7 @@ public final class StringUtil {
             gzip.finish();
             return bos.toByteArray();
         } catch (IOException e) {
-            throw new FBException(e);
+            throw new FBException("Failed to gzip compress data", e);
         }
     }
 
@@ -55,7 +55,7 @@ public final class StringUtil {
             }
             return sb.toString();
         } catch (IOException e) {
-            throw new FBException(e);
+            throw new FBException("Failed to gzip decompress data", e);
         }
     }
 

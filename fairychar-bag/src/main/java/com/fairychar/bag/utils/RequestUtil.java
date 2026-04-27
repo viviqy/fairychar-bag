@@ -1,6 +1,5 @@
 package com.fairychar.bag.utils;
 
-import cn.hutool.core.collection.IterUtil;
 import com.fairychar.bag.domain.exceptions.FBException;
 import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +12,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Servlet请求工具类
@@ -34,9 +32,11 @@ public final class RequestUtil {
      */
     public static Map<String, String> getHeader(HttpServletRequest request) {
         Enumeration<String> headerNames = request.getHeaderNames();
-        Iterator<String> iterator = headerNames.asIterator();
-        List<String> headers = IterUtil.toList(iterator);
-        Map<String, String> headerValueMap = headers.stream().collect(Collectors.toMap(k -> k, v -> request.getHeader(v)));
+        Map<String, String> headerValueMap = new LinkedHashMap<>();
+        while (headerNames.hasMoreElements()) {
+            String name = headerNames.nextElement();
+            headerValueMap.put(name, request.getHeader(name));
+        }
         return headerValueMap;
     }
 

@@ -79,31 +79,26 @@ public class FuzzyValueAdvice implements ResponseBodyAdvice<Object> {
         if (!CollectionUtil.isEmpty(fieldContainers)) {
             for (FieldContainer fieldContainer : fieldContainers) {
                 Field currentField = fieldContainer.getField();
-                if (currentField.getType() == String.class) {
+                Class<?> fieldType = currentField.getType();
+                if (fieldType == String.class) {
                     //处理字段类型为String的
                     wrapProperty(fieldContainer);
-                } else if (currentField.getType() == List.class
-                        || Arrays.asList(currentField.getType().getInterfaces()).stream().anyMatch(c -> c == List.class)) {
+                } else if (List.class.isAssignableFrom(fieldType)) {
                     //处理是List类型
-                    List list = null;
+                    FuzzyValue fuzzyValue = currentField.getAnnotation(FuzzyValue.class);
                     try {
-                        list = (List) currentField.get(fieldContainer.getTargetObject());
+                        processList((List) currentField.get(fieldContainer.getTargetObject()), fuzzyValue);
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(e);
                     }
-                    FuzzyValue fuzzyValue = currentField.getAnnotation(FuzzyValue.class);
-                    processList(list, fuzzyValue);
-                } else if (currentField.getType() == Map.class
-                        || Arrays.asList(currentField.getType().getInterfaces()).stream().anyMatch(c -> c == Map.class)) {
+                } else if (Map.class.isAssignableFrom(fieldType)) {
                     //处理是Map类型
-                    Map map = null;
+                    FuzzyValue fuzzyValue = currentField.getAnnotation(FuzzyValue.class);
                     try {
-                        map = (Map) currentField.get(fieldContainer.getTargetObject());
+                        this.processMap((Map) currentField.get(fieldContainer.getTargetObject()), fuzzyValue);
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(e);
                     }
-                    FuzzyValue fuzzyValue = currentField.getAnnotation(FuzzyValue.class);
-                    this.processMap(map, fuzzyValue);
                 }
             }
         }

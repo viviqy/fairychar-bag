@@ -119,14 +119,19 @@ public class SimpleNettyServer {
             return;
         }
         this.runState = RunState.STOPPING;
+        boolean channelClosed = true;
         try {
             if (this.channel != null) {
                 this.channel.close().get(this.maxShutdownWaitSeconds, TimeUnit.SECONDS);
             }
-        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            channelClosed = false;
+            log.error("Interrupted while closing channel: {}", e.getMessage());
+        } catch (ExecutionException | TimeoutException e) {
+            channelClosed = false;
             log.error("Error closing channel: {}", e.getMessage());
         } finally {
-            // 确保资源被正确释放
             if (this.boss != null) {
                 this.boss.shutdownGracefully();
             }
@@ -134,8 +139,13 @@ public class SimpleNettyServer {
                 this.worker.shutdownGracefully();
             }
         }
-        log.info("server stopped");
-        this.runState = RunState.STOPPED;
+        if (channelClosed) {
+            log.info("server stopped");
+            this.runState = RunState.STOPPED;
+        } else {
+            log.warn("server stopped with errors, channel may not be fully closed");
+            this.runState = RunState.STOPPED;
+        }
     }
 
 

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -204,13 +205,10 @@ public final class FileUtil {
         BufferedOutputStream outputStream = new BufferedOutputStream(fileOutputStream);
         ByteBuffer buffer = ByteBuffer.allocate(pipeBufferSize);
         try {
+            byte[] dataArray = new byte[pipeBufferSize];
+            Arrays.fill(dataArray, fillByte);
             for (int i = 0; i < (writeByteSize / pipeBufferSize); i++) {
-                // TODO performance up
-                for (int j = 0; j < pipeBufferSize; j++) {
-                    buffer.put(fillByte);
-                }
-                outputStream.write(buffer.array());
-                buffer.clear();
+                outputStream.write(dataArray);
             }
             for (long i = 0; i < (writeByteSize % pipeBufferSize); i++) {
                 buffer.put(fillByte);

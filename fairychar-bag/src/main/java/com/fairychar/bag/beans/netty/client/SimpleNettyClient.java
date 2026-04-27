@@ -86,6 +86,7 @@ public class SimpleNettyClient {
         } catch (Exception e) {
             log.error("{}", e.getMessage());
             this.runState = RunState.STOPPED;
+            return;
         }
         this.runState = RunState.STARTED;
     }
