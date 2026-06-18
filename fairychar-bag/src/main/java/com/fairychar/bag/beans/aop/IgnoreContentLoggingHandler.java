@@ -13,7 +13,7 @@ import org.aspectj.lang.reflect.MethodSignature;
  * @since 1.3.2
  */
 @Slf4j
-public class IgnoreContentLoggingHanlder implements LoggingHandler {
+public class IgnoreContentLoggingHandler implements LoggingHandler {
     @Override
     public void before(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
