@@ -34,6 +34,9 @@ Keep `SKILL.md`, `reference/`, `script/`, and `code/` together when installing t
 - POJOs commonly use Lombok `@Data`, all/no-args constructors, `@Accessors(chain = true)`, field comments, and `@Schema`.
 - Utility classes are usually `final` with `@NoArgsConstructor(access = AccessLevel.PRIVATE)`.
 - REST failures use `RestException` + `RestErrorCode`; responses use `HttpResult`.
+- Error code definitions implement `IRestErrorCode` and expose stable `int getCode()` + `String getMessage()` values.
+- Define REST error codes as enums, grouped by numeric ranges with concise Chinese messages; do not scatter raw code/message literals in services.
+- When adding domain-specific error-code sets, keep the `IRestErrorCode` contract and update exception/response APIs to consume the interface consistently before using them.
 - Optional starter beans need `@ConditionalOnProperty`; defaults should allow `@ConditionalOnMissingBean`.
 
 ## Common Mistakes
@@ -43,6 +46,7 @@ Keep `SKILL.md`, `reference/`, `script/`, and `code/` together when installing t
 | Inferring rules from sibling modules or archetype modules. | Use only `fairychar-bag/src` as evidence. |
 | Replacing `I*` interfaces or field `@Autowired` because generic Java style says so. | Match the touched class unless doing a deliberate migration. |
 | Returning raw maps or ad hoc response classes. | Use `HttpResult`, `RestException`, and `RestErrorCode`. |
+| Defining exceptions with magic numbers, duplicated messages, or plain strings. | Put codes/messages in an `IRestErrorCode` enum and throw/return through the project REST exception path. |
 | Creating unconditional auto-config beans. | Add property gates and missing-bean overrides. |
 | Treating tests as unnecessary because Maven skips them. | Add focused tests for new behavior; note existing coverage is light and `skipTests=true`. |
 
