@@ -266,54 +266,123 @@ Mapper 参数中传入 `ITenantSwitcher`，动态决定该次查询是否使用�
 
 位置: `com.fairychar.bag.domain.Consts`
 
-常用:
+使用规则:
 
-- `EMPTY_STR`
-- `NONE`
-- `SIMPLE_DATETIME_FORMAT`
-- `SIMPLE_DATE_TIME_FORMATTER`
-- `SIMPLE_DATE_FORMAT`
-- `SIMPLE_DATE_FORMATTER`
-- `MYSQL_MAX_DATETIME`
-- `MYSQL_MAX_TIMESTAMP`
-- `Consts.Regex.IP`
-- `Consts.Regex.URL`
-- `Consts.OAuth2.*`
+- 写代码前先查本节，优先复用已有常量，不要重复定义日期格式、OAuth2 grant type、IP/URL 正则或容量单位。
+- 表中的 value 按当前源码语义描述；对象类型常量给出类型和值来源。
+- `TB_PER_B` 和 `PB_PER_B` 当前源码使用 int 字面量连乘后再赋值给 `long`，实际 Java 计算过程会先按 int 运算并溢出。需要精确 TB/PB 字节数时，不要直接复用这两个常量，先修源码为 `1024L * ...` 并补测试。
+
+#### 基础常量和容量单位
+
+| 常量 | 类型 | value / 语义 | 复用场景 |
+| --- | --- | --- | --- |
+| `EMPTY_STR` | `String` | `""` | 空字符串占位、默认值 |
+| `KB_PER_B` | `long` | `1024` | KB 与 byte 换算 |
+| `MB_PER_B` | `long` | `1024 * 1024`，实际值 `1048576` | MB 与 byte 换算 |
+| `GB_PER_B` | `long` | `1024 * 1024 * 1024`，实际值 `1073741824` | GB 与 byte 换算 |
+| `TB_PER_B` | `long` | 源码表达式 `1024 * 1024 * 1024 * 1024`，当前存在 int 溢出风险 | 仅在确认源码修复前谨慎使用 |
+| `PB_PER_B` | `long` | 源码表达式 `1024 * 1024 * 1024 * 1024 * 1024`，当前存在 int 溢出风险 | 仅在确认源码修复前谨慎使用 |
+| `NONE` | `String` | `"none"` | 无值、无参数、默认路径片段占位 |
+
+#### 日期时间常量
+
+| 常量 | 类型 | value / 语义 | 复用场景 |
+| --- | --- | --- | --- |
+| `SIMPLE_DATETIME_FORMAT` | `String` | `"yyyy-MM-dd HH:mm:ss"` | 标准日期时间格式字符串 |
+| `SIMPLE_DATE_TIME_FORMATTER` | `DateTimeFormatter` | `DateTimeFormatter.ofPattern(SIMPLE_DATETIME_FORMAT)` | 格式化或解析标准日期时间 |
+| `SIMPLE_DATE_FORMAT` | `String` | `"yyyy-MM-dd"` | 标准日期格式字符串 |
+| `SIMPLE_DATE_FORMATTER` | `DateTimeFormatter` | `DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT)` | 格式化或解析标准日期 |
+| `MYSQL_MAX_DATETIME` | `LocalDateTime` | `9999-12-31 23:59:59` | MySQL `DATETIME` 最大哨兵值 |
+| `MYSQL_MAX_TIMESTAMP` | `LocalDateTime` | `2038-01-19 03:14:07` | MySQL `TIMESTAMP` 最大哨兵值 |
+
+#### OAuth2 grant type 常量
+
+位置: `Consts.OAuth2`
+
+| 常量 | 类型 | value | 复用场景 |
+| --- | --- | --- | --- |
+| `AUTHORIZATION_CODE` | `String` | `"authorization_code"` | OAuth2 授权码模式 |
+| `PASSWORD` | `String` | `"password"` | OAuth2 密码模式 |
+| `CLIENT_CREDENTIALS` | `String` | `"client_credentials"` | OAuth2 客户端凭证模式 |
+| `IMPLICIT` | `String` | `"implicit"` | OAuth2 隐式模式 |
+| `REFRESH_TOKEN` | `String` | `"refresh_token"` | OAuth2 刷新令牌模式 |
+
+#### Regex 常量
+
+位置: `Consts.Regex`
+
+| 常量 | 类型 | value / 语义 | 复用场景 |
+| --- | --- | --- | --- |
+| `IP` | `String` | IPv4 基础格式正则: 四段 1-3 位数字，未限制每段小于等于 255 | `@IP` 校验器、简单 IP 格式判断 |
+| `URL` | `String` | `http`/`https` URL 基础格式正则，要求域名中有点和 2 位以上顶级域 | `@Url` 校验器、简单 URL 格式判断 |
 
 ### Singletons
 
 位置: `com.fairychar.bag.domain.Singletons`
 
-提供:
+用途: 给非 Spring 管理的工具代码提供少量全局复用对象。优先使用 Spring Bean；只有工具类、静态方法或无法注入 Bean 的场景才使用 `Singletons`。
 
-- `Singletons.RestTemplateBean.getInstance()`
-- `Singletons.RandomBean.getInstance()`
-- `Singletons.PathMatcherBean.getInstance()`
-- `Singletons.GsonBean.getInstance()`
-- `Singletons.JsonBean.getInstance()`
+使用规则:
 
-优先使用 Spring Bean；只有工具类或非 Spring 场景需要全局单例时再使用。
+- 业务 Service、Controller、Repository 中优先注入 Spring Bean，不要因为方便而绕过依赖注入。
+- `RestTemplateBean` 返回的是裸 `RestTemplate`，没有超时、拦截器、连接池、错误处理配置；生产 HTTP 调用优先使用业务自定义 Bean。
+- `RandomBean` 返回 `java.util.Random`，不是密码学安全随机数；生成 token、密钥、验证码种子时不要使用它。
+- `JsonBean` 的 `ObjectMapper` 是项目工具默认 JSON 配置，适合工具类序列化；接口响应仍优先交给 Spring MVC 的 Jackson 配置。
+
+| 内部类 | 入口方法 | 返回类型 | 源码配置 / 行为 | 适用场景 |
+| --- | --- | --- | --- | --- |
+| `RestTemplateBean` | `Singletons.RestTemplateBean.getInstance()` | `RestTemplate` | 直接 `new RestTemplate()`，无额外配置 | 工具类里临时发起简单 HTTP 请求；更复杂请求应改为注入业务配置后的 `RestTemplate` |
+| `RandomBean` | `Singletons.RandomBean.getInstance()` | `Random` | `new Random(System.currentTimeMillis())` | 非安全随机数，如简单抽样、测试随机数据 |
+| `PathMatcherBean` | `Singletons.PathMatcherBean.getInstance()` | `AntPathMatcher` | 直接 `new AntPathMatcher()` | 静态工具中做 Ant 风格路径匹配 |
+| `GsonBean` | `Singletons.GsonBean.getInstance()` | `Gson` | 直接 `new Gson()` | 简单 JSON 转换；需要统一日期、null、JavaTime 策略时优先用 `JsonBean` 或业务 ObjectMapper |
+| `JsonBean` | `Singletons.JsonBean.getInstance()` | `ObjectMapper` | `JsonInclude.Include.ALWAYS`；关闭日期 timestamp；关闭空 Bean 失败；日期格式 `yyyy-MM-dd HH:mm:ss`; 忽略未知属性；注册 `JavaTimeModule` | 工具类 JSON 序列化/反序列化，尤其需要支持 Java Time 类型时 |
 
 ## POJO 和通用 Query
 
-常用类型:
+用途: 为简单 DTO、简单 JSON 请求体和通用时间范围查询提供可复用类型，减少重复创建只有一个字段的 `*Query`。
 
-- `KeyValuePair`
-- `SimpleTypeQuery`
-- `DateBetweenQuery`
-- `TimeBetweenQuery`
-- `StringBodyQuery`
-- `StringListQuery`
-- `LongBodyQuery`
-- `LongListQuery`
-- `IntegerBodyQuery`
-- `IntegerListQuery`
-- `ShortBodyQuery`
-- `ShortListQuery`
-- `ByteBodyQuery`
-- `ByteListQuery`
+使用规则:
 
-这些类适合简单请求体，不要为非常复杂的业务请求滥用它们，复杂场景应创建明确命名的 `*Query`。
+- 这些类适合“字段语义非常通用”的接口，例如只提交一个 id、一个字符串、一个 id 列表、一个日期范围。
+- 复杂业务请求不要滥用这些类；如果字段需要业务命名、校验分组、Swagger 描述或后续扩展，应创建明确命名的业务 `*Query`。
+- `SimpleTypeQuery<T>` 注释里写明 “feign 下不可用泛型”；Feign 请求体不要使用这个泛型包装类。
+- `*BodyQuery` 的单值字段名固定为 `body`。
+- `*ListQuery` 的集合字段名固定为 `list`。
+- `DateBetweenQuery` 和 `TimeBetweenQuery` 只表达 from/to，不内置范围合法性校验。
+
+### DTO
+
+| 类 | 包 | 字段 | 用途 |
+| --- | --- | --- | --- |
+| `KeyValuePair` | `com.fairychar.bag.pojo.dto` | `name: K`, `value: V` | 返回或接收简单键值对列表；例如下拉选项、枚举展示、统计项映射 |
+
+### 通用 Query
+
+| 类 | 包 | 字段 | 用途 |
+| --- | --- | --- | --- |
+| `SimpleTypeQuery` | `com.fairychar.bag.pojo.query` | `value: T`，带 `@NotNull` | 接收一个泛型值的简单 JSON 请求体；Feign 下不要使用 |
+| `DateBetweenQuery` | `com.fairychar.bag.pojo.query` | `from: LocalDate`, `to: LocalDate`，`@JsonFormat(pattern = Consts.SIMPLE_DATE_FORMAT)` | 日期范围查询，例如按天筛选报表、列表 |
+| `TimeBetweenQuery` | `com.fairychar.bag.pojo.query` | `from: LocalDateTime`, `to: LocalDateTime`，`@JsonFormat(pattern = Consts.SIMPLE_DATETIME_FORMAT)` | 日期时间范围查询，例如按时间戳筛选记录 |
+
+### 单值 JSON 请求体
+
+| 类 | 包 | 字段 | Swagger schema | 用途 |
+| --- | --- | --- | --- | --- |
+| `StringBodyQuery` | `com.fairychar.bag.pojo.query.body` | `body: String` | `StringBody`, `String类型Json请求体` | 请求体只需要一个字符串值 |
+| `LongBodyQuery` | `com.fairychar.bag.pojo.query.body` | `body: Long` | `LongBody`, `Long类型Json请求体` | 请求体只需要一个 Long 值，例如 id |
+| `IntegerBodyQuery` | `com.fairychar.bag.pojo.query.body` | `body: Integer` | `IntegerBody`, `Integer类型Json请求体` | 请求体只需要一个 Integer 值 |
+| `ShortBodyQuery` | `com.fairychar.bag.pojo.query.body` | `body: Short` | `ShortBody`, `Short类型Json请求体` | 请求体只需要一个 Short 值 |
+| `ByteBodyQuery` | `com.fairychar.bag.pojo.query.body` | `body: Byte` | `ByteBody`, `Byte类型Json请求体` | 请求体只需要一个 Byte 值 |
+
+### 集合 JSON 请求体
+
+| 类 | 包 | 字段 | Swagger schema | 用途 |
+| --- | --- | --- | --- | --- |
+| `StringListQuery` | `com.fairychar.bag.pojo.query.body` | `list: List<String>` | `StringList`, `String类型Json请求集合` | 请求体只需要一个字符串列表 |
+| `LongListQuery` | `com.fairychar.bag.pojo.query.body` | `list: List<Long>` | `LongList`, `Long类型Json请求集合` | 请求体只需要一个 Long 列表，例如批量 id |
+| `IntegerListQuery` | `com.fairychar.bag.pojo.query.body` | `list: List<Integer>` | `IntegerList`, `Integer类型Json请求集合` | 请求体只需要一个 Integer 列表 |
+| `ShortListQuery` | `com.fairychar.bag.pojo.query.body` | `list: List<Short>` | `ShortList`, `Short类型Json请求集合` | 请求体只需要一个 Short 列表 |
+| `ByteListQuery` | `com.fairychar.bag.pojo.query.body` | `list: List<Byte>` | `ByteList`, `Byte类型Json请求集合体` | 请求体只需要一个 Byte 列表 |
 
 ## FeignFallbackProxy
 
