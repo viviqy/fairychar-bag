@@ -394,7 +394,7 @@ Mapper 参数中传入 `ITenantSwitcher`，动态决定该次查询是否使用�
 
 1. 修改 `fairychar-bag/src` 下 Java 代码时，优先延续现有风格，不要把字段注入、`I*` 接口、`*Util` 静态方法强行改成另一套风格。
 2. 新增自动配置 Bean 必须考虑条件开关和 `@ConditionalOnMissingBean`。
-3. 新增 REST 错误优先走 `IRestErrorCode`、`RestException`、`HttpResult`。
+3. 新增 REST 错误优先复用 `RestErrorCode`、`RestException`、`HttpResult`；项目级错误码枚举必须实现 `IRestErrorCode`，然后通过 `RestException` 抛出。
 4. 新增工具方法要明确 null、异常、线程安全语义，并补 focused test。
 5. 对已有实现里看起来反直觉的行为，不要在 README 或代码里“按理想行为”描述，必须按源码和测试描述；如需修复，单独提交行为变更和测试。
 6. `pom.xml` 的 Surefire 当前 `skipTests=true`，需要验证测试时显式执行目标测试或调整命令参数。

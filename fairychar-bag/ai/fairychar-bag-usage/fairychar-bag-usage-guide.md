@@ -24,12 +24,15 @@
 
 | 具体任务 | 先读 references | 需要示例时读 scripts |
 | --- | --- | --- |
-| 返回统一响应 `HttpResult` | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
-| 使用或新增 `RestErrorCode`、`IRestErrorCode` | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
-| 抛出 `RestException`、`FBException` 或处理全局异常 | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
-| 给 Controller 方法加 `@RequestLog` | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
-| 选择或实现 `LoggingHandler`、`SimpleLoggingHanlder`、`SwaggerLoggingHandler`、`JsonLoggingHandler`、`IgnoreContentLoggingHandler` | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
-| 给方法加本地锁、Redis 锁或 ZK 锁 `@MethodLock` | [web-rest-aop-and-lock](references/02-web-rest-aop-and-lock.md) | [web/rest/aop/lock examples](scripts/02-web-rest-aop-and-lock-examples.md) |
+| 判断 Web/REST/AOP/Lock 应该读哪个细分文档 | [web-rest-aop-and-lock index](references/02-web-rest-aop-and-lock.md) | 不需要示例 |
+| 返回统一响应 `HttpResult`、理解 `response(...)` | [http-result](references/02a-http-result.md) | [http-result examples](scripts/02a-http-result-examples.md) |
+| 选择已有 `RestErrorCode`，避免重复错误码 | [rest-error-code](references/02b-rest-error-code.md) | [rest-error-code examples](scripts/02b-rest-error-code-examples.md) |
+| 新增错误码枚举或实现 `IRestErrorCode`，并通过 `RestException` 使用 | [rest-error-code](references/02b-rest-error-code.md) | [rest-error-code examples](scripts/02b-rest-error-code-examples.md) |
+| 抛出 MVC 业务异常 `RestException` | [rest-exception-and-advice](references/02c-rest-exception-and-advice.md) | [rest-exception examples](scripts/02c-rest-exception-and-advice-examples.md) |
+| 理解 `FBException`、`DefaultExceptionAdvice`、统一异常返回 | [rest-exception-and-advice](references/02c-rest-exception-and-advice.md) | [rest-exception examples](scripts/02c-rest-exception-and-advice-examples.md) |
+| 给 Controller 方法加 `@RequestLog` | [request-log-aop](references/02d-request-log-aop.md) | [request-log examples](scripts/02d-request-log-aop-examples.md) |
+| 选择或实现 `LoggingHandler`、`SimpleLoggingHanlder`、`SwaggerLoggingHandler`、`JsonLoggingHandler`、`IgnoreContentLoggingHandler` | [request-log-aop](references/02d-request-log-aop.md) | [request-log examples](scripts/02d-request-log-aop-examples.md) |
+| 给方法加本地锁、Redis 锁或 ZK 锁 `@MethodLock` | [method-lock](references/02e-method-lock.md) | [method-lock examples](scripts/02e-method-lock-examples.md) |
 
 ### 校验、请求体处理、响应脱敏
 

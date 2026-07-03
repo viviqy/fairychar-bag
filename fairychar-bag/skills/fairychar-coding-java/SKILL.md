@@ -3,54 +3,47 @@ name: fairychar-coding-java
 description: Use when writing, reviewing, or refactoring Java code in Fairychar Bag style or under fairychar-bag/src
 ---
 
-# Fairychar Coding Java
+# Fairychar Java 编码规范
 
-## Overview
+## 核心原则
 
-Fairychar Bag Java favors reusable starter utilities: opt-in auto-configuration, annotation extension points, AOP helpers, validators, servlet/request utilities, Netty wrappers, Redis serializers, Lombok POJOs, and unified REST exceptions. Follow `fairychar-bag/src` style before generic Java preferences.
+Fairychar Bag 的 Java 代码优先遵循本项目已有风格，而不是通用 Java 偏好。新增类前先确定模块性质和包位置，再选择命名、异常、Controller、Service、POJO、自动配置等细节规范。
 
-## Progressive Loading
+## 渐进式加载
 
-Load only what the task needs:
+先读本文件；只有任务涉及对应主题时，再加载细分文档。
 
-| Task | Load |
+| 任务场景 | 继续加载 |
 | --- | --- |
-| Any `fairychar-bag/src` Java edit or review | `reference/project-style.md` |
-| Need original style examples without the project checkout | Read `code/src/main/java/com/fairychar/bag/...` |
-| Quick style audit | Run `script/check-fairychar-style.ps1`; pass `-Root` only when checking a target source tree |
+| 任意 Fairychar Java 编辑、审查、重构 | `reference/project-style.md` |
+| 新增类、移动类、判断包路径 | `reference/package-structure.md` |
+| 应用模块 Controller、Service、接口实现 | `reference/application-layer.md` |
+| REST 返回、业务异常、错误码、`IRestErrorCode` | `reference/exception-response.md` |
+| `fairychar-bag/src` 库代码、AOP、Bean、工具、模板 | `reference/library-style.md` |
+| 常量、单例、POJO、Lombok、配置属性 | `reference/domain-pojo-properties.md` |
+| Spring Boot 自动配置、条件 Bean、starter 能力 | `reference/auto-configuration.md` |
+| 需要脱离项目查看原始样例 | `code/src/main/java/com/fairychar/bag/...` 或 `sample/...` |
 
-## Standalone Use
+## 必须先执行的判断
 
-Keep `SKILL.md`, `reference/`, `script/`, and `code/` together when installing this skill outside the project. `code/` contains copied source snapshots used as style evidence; it is not a complete buildable project. When no target source tree is available, use those files as the canonical examples.
+1. 判断目标是可复用库代码还是应用业务模块。
+2. 新增 Java 类前，按 `reference/package-structure.md` 选择最窄职责包。
+3. 涉及 REST 异常或错误码时，按 `reference/exception-response.md` 使用 `IRestErrorCode`。
+4. 涉及应用层 Service 时，必须有 `service.interfaces.I*Service` 接口，`*Service` 实现该接口。
+5. 涉及 Controller 时，必须保持薄控制器、`@RequestLog`、Swagger/OpenAPI、Knife4j 排序和 `HttpResult` 返回风格。
 
-## Quick Rules
+## 快速硬性规则
 
-- Scope: only infer from `fairychar-bag/src`; ignore sibling modules, root docs, and generated archetype code.
-- When the original project is unavailable, infer from this skill's copied examples under `code/src/main/java`.
-- Baseline: Java 17, UTF-8, Spring Boot 3 style.
-- Formatting: no tabs, target 140 columns, required braces, Checkstyle names; allowed abbreviations include `ID`, `URL`, `XML`.
-- Keep local naming: `I*` interfaces, `*Query`, `*VO`, `*Properties`, `*Util`, `*Template`, `*Configurer`, `*AspectJ`, `*Handler`.
-- Shared constants and common singleton holders live in domain containers such as `Consts` and `Singletons`; keep constants uppercase and singleton access through `getInstance()`.
-- POJOs commonly use Lombok `@Data`, all/no-args constructors, `@Accessors(chain = true)`, field comments, and `@Schema`.
-- Utility classes are usually `final` with `@NoArgsConstructor(access = AccessLevel.PRIVATE)`.
-- REST failures use `RestException` + `RestErrorCode`; responses use `HttpResult`.
-- Error code definitions implement `IRestErrorCode` and expose stable `int getCode()` + `String getMessage()` values.
-- Define REST error codes as enums, grouped by numeric ranges with concise Chinese messages; do not scatter raw code/message literals in services.
-- When adding domain-specific error-code sets, keep the `IRestErrorCode` contract and update exception/response APIs to consume the interface consistently before using them.
-- Optional starter beans need `@ConditionalOnProperty`; defaults should allow `@ConditionalOnMissingBean`.
+- 证据来源只限 `fairychar-bag/src`、本 skill 的 `code/` 快照和 `sample/` 样例；不要从兄弟模块或生成模板推导库代码风格。
+- Java 基线为 Java 17、UTF-8、Spring Boot 3 风格。
+- 新增类不要放进泛化包名：`service`、`manager`、`common`、`core`、`support`。应用模块已有 `controller/service/service.interfaces` 结构时除外。
+- 保留项目命名：`I*` 接口、`*Query`、`*VO`、`*Properties`、`*Util`、`*Template`、`*Configurer`、`*AspectJ`、`*Handler`。
+- REST 失败使用 `RestException`、`RestErrorCode` 或实现 `IRestErrorCode` 的领域错误码；响应使用 `HttpResult`。
+- 错误码定义使用 enum 实现 `IRestErrorCode`，稳定暴露 `getCode()` 与 `getMessage()`，不要在 Service 中散落裸数字和裸消息。
+- 可选 starter Bean 使用 `@ConditionalOnProperty`；可替换默认 Bean 使用 `@ConditionalOnMissingBean`。
 
-## Common Mistakes
+## 验证
 
-| Mistake | Fix |
-| --- | --- |
-| Inferring rules from sibling modules or archetype modules. | Use only `fairychar-bag/src` as evidence. |
-| Replacing `I*` interfaces or field `@Autowired` because generic Java style says so. | Match the touched class unless doing a deliberate migration. |
-| Returning raw maps or ad hoc response classes. | Use `HttpResult`, `RestException`, and `RestErrorCode`. |
-| Defining exceptions with magic numbers, duplicated messages, or plain strings. | Put codes/messages in an `IRestErrorCode` enum and throw/return through the project REST exception path. |
-| Creating unconditional auto-config beans. | Add property gates and missing-bean overrides. |
-| Treating tests as unnecessary because Maven skips them. | Add focused tests for new behavior; note existing coverage is light and `skipTests=true`. |
-
-## Verification
-
-- For style drift, run `powershell -ExecutionPolicy Bypass -File <skill-dir>/script/check-fairychar-style.ps1`; pass `-Root <source-root>` only when checking a target tree.
-- For auto-config changes, confirm `fairychar-bag/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`.
+- 风格巡检：`powershell -ExecutionPolicy Bypass -File <skill-dir>/script/check-fairychar-style.ps1`
+- 检查指定源码树：追加 `-Root <source-root>`
+- 自动配置变更需确认 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`

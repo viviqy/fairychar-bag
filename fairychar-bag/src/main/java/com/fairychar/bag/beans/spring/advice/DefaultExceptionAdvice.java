@@ -2,6 +2,7 @@ package com.fairychar.bag.beans.spring.advice;
 
 import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.domain.exceptions.FBException;
+import com.fairychar.bag.domain.exceptions.IRestErrorCode;
 import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.domain.exceptions.RestException;
 import com.fairychar.bag.pojo.vo.HttpResult;
@@ -82,7 +83,7 @@ public class DefaultExceptionAdvice {
 
     @ExceptionHandler(RestException.class)
     public HttpResult handleRestException(RestException e) {
-        RestErrorCode errorCode = e.getErrorCode();
+        IRestErrorCode errorCode = e.getErrorCode();
         return new HttpResult(errorCode.getCode(), e.getData(), e.getMessage());
     }
 
