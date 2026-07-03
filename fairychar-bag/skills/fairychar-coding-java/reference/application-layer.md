@@ -39,13 +39,14 @@
 - Controller 返回 `HttpResult`。
 - 服务调用结果先放入局部变量 `result`，再 `return HttpResult.ok(result);`。
 - 请求体对象使用 `@RequestBody`。
+- 新增、更新等需要触发参数校验的请求体对象使用 `@RequestBody @Validated`，例如 `save(@RequestBody @Validated PermissionPolicyQuery query)`。
 - 路径 id 使用 `@PathVariable("id") Serializable id`。
 - 方法名短且动作明确：`page`、`save`、`findById`、`update`、`delete`、`publish`。
 
 ## Controller 边界
 
 - Controller 只负责接收请求、调用 Service、包装响应。
-- 不在 Controller 中写业务校验。
+- Controller 可以通过 `@Validated` 触发 bean validation；不要在 Controller 中手写业务校验。
 - 不在 Controller 中组装 QueryWrapper、Entity、DTO。
 - 不在 Controller 中吞异常或手写错误响应；交给统一异常和 `HttpResult` 体系。
 

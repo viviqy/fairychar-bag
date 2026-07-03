@@ -11,6 +11,7 @@ import com.zxsc.data.permission.service.service.PermissionPolicyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -41,7 +42,7 @@ public class PermissionPolicyController {
     @PostMapping
     @Operation(description = "保存")
     @ApiOperationSupport(order = 20)
-    public HttpResult save(@RequestBody PermissionPolicyQuery query) {
+    public HttpResult save(@RequestBody @Validated PermissionPolicyQuery query) {
         boolean result = this.permissionPolicyService.save(query);
         return HttpResult.ok(result);
     }
@@ -59,7 +60,7 @@ public class PermissionPolicyController {
     @PutMapping("/update")
     @Operation(description = "根据id更新")
     @ApiOperationSupport(order = 40)
-    public HttpResult update(@RequestBody PermissionPolicyQuery query) {
+    public HttpResult update(@RequestBody @Validated PermissionPolicyQuery query) {
         boolean result = this.permissionPolicyService.updateById(query);
         return HttpResult.ok(result);
     }
