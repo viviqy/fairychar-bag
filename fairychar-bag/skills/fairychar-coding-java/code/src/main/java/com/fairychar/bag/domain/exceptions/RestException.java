@@ -10,27 +10,27 @@ import lombok.Getter;
  */
 @Getter
 public class RestException extends RuntimeException {
-    private IRestErrorCode errorCode;
+    private RestErrorCode errorCode;
     private Object data;
 
-    public RestException(IRestErrorCode errorCode, Object data) {
+    public RestException(RestErrorCode errorCode, Object data) {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
         this.data = data;
     }
 
 
-    public RestException(IRestErrorCode errorCode) {
+    public RestException(RestErrorCode errorCode) {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
     }
 
-    public RestException(IRestErrorCode errorCode, String msg) {
+    public RestException(RestErrorCode errorCode, String msg) {
         super(msg);
         this.errorCode = errorCode;
     }
 
-    public RestException(IRestErrorCode errorCode, String msg, Object data) {
+    public RestException(RestErrorCode errorCode, String msg, Object data) {
         super(msg);
         this.errorCode = errorCode;
         this.data = data;
