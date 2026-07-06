@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: demo-app
-  main:
-    allow-bean-definition-overriding: true
-    allow-circular-references: true
-  profiles:
-    active: dev
