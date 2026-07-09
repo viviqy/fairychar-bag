@@ -5,6 +5,7 @@ import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.apache.catalina.connector.InputBuffer;
+import org.apache.coyote.Request;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -113,7 +114,7 @@ public class ClonedServletRequest extends HttpServletRequestWrapper {
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
-        InputBuffer ib = new InputBuffer();
+        InputBuffer ib = new InputBuffer(new Request());
         ib.setByteBuffer(ByteBuffer.wrap(inputBytes));
         return new CloneServletInputStream(ib);
     }
