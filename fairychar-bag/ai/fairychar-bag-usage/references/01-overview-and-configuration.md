@@ -5,7 +5,7 @@
 ## 基本信息
 
 - Maven 模块: `fairychar-bag`
-- Java 版本: 17
+- Java 版本: 21
 - 自动配置入口:
   - `com.fairychar.bag.configurer.BagBeansAutoConfigurer`
   - `com.fairychar.bag.listener.SpringContextHolder`

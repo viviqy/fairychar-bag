@@ -35,7 +35,7 @@ Fairychar Bag 的 Java 代码优先遵循本项目已有风格，而不是通用
 ## 快速硬性规则
 
 - 证据来源只限 `fairychar-bag/src`、本 skill 的 `code/` 快照和 `sample/` 样例；不要从兄弟模块或生成模板推导库代码风格。
-- Java 基线为 Java 17、UTF-8、Spring Boot 3 风格。
+- Java 基线为 Java 21、UTF-8、Spring Boot 3 风格。
 - 新增类不要放进泛化包名：`service`、`manager`、`common`、`core`、`support`。应用模块已有 `controller/service/service.interfaces` 结构时除外。
 - 保留项目命名：`I*` 接口、`*Query`、`*VO`、`*Properties`、`*Util`、`*Template`、`*Configurer`、`*AspectJ`、`*Handler`。
 - REST 失败使用 `RestException`、`RestErrorCode` 或实现 `IRestErrorCode` 的领域错误码；响应使用 `HttpResult`。

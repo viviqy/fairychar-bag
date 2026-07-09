@@ -11,7 +11,7 @@
 
 ## 基础约束
 
-- Java 17、UTF-8、Spring Boot 3。
+- Java 21、UTF-8、Spring Boot 3。
 - 常见依赖：Spring MVC、AOP、MyBatis-Plus、Redis、Netty、Lombok、Hutool、Guava、Jackson、Logback、Jakarta Validation。
 - 不使用 tab。
 - 目标行宽 140 列以内；已有长行不作为新增长行的理由。

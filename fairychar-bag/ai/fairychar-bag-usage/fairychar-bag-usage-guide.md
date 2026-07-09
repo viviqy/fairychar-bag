@@ -91,7 +91,7 @@
 
 ## 最小必读规则
 
-- Maven 模块是 `fairychar-bag`，Java 版本是 17。
+- Maven 模块是 `fairychar-bag`，Java 版本是 21。
 - 自动配置入口在 `src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`。
 - 配置根前缀是 `fairychar.bag`。
 - 很多依赖是 `provided`；使用 Redis、ZK、MyBatis Plus、Netty 能力时，业务应用或测试必须提供运行时依赖和 Bean。
