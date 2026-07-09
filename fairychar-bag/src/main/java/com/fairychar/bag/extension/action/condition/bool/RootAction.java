@@ -2,7 +2,6 @@ package com.fairychar.bag.extension.action.condition.bool;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 
 import java.util.Set;
 
@@ -20,17 +19,17 @@ public class RootAction implements ActionFlow {
 
     @Override
     public boolean compute(Object context) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void callNext(Object context) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Object getNextParam(Object context) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -38,7 +38,7 @@ public class SkipableTenantLineInnerInterceptor extends TenantLineInnerIntercept
 
     @Override
     public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds
-            , ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+            , ResultHandler resultHandler, BoundSql boundSql) {
         if (InterceptorIgnoreHelper.willIgnoreTenantLine(ms.getId())) {
             return;
         }
