@@ -21,7 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 @Schema(name = "MappingObjectAO", description = "前端Map渲染对象")
-@SuppressWarnings("spotbugs:EI_EXPOSE_REP2")
 public class MappingObjectAO<K, V> implements Serializable {
     private K key;
     private long count;

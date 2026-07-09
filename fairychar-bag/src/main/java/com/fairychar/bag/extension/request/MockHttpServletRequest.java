@@ -16,7 +16,6 @@
 
 package com.fairychar.bag.extension.request;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import org.springframework.http.HttpHeaders;
@@ -442,7 +441,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
         return getContentLength();
     }
 
-    @SuppressFBWarnings(value = "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
     public void setContentType(@Nullable String contentType) {
         this.contentType = contentType;
         if (contentType != null) {
@@ -677,7 +675,6 @@ public class MockHttpServletRequest implements HttpServletRequest {
     }
 
     @Override
-    @SuppressFBWarnings(value = {"NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE", "DM_DEFAULT_ENCODING"})
     public BufferedReader getReader() throws UnsupportedEncodingException {
         if (this.reader != null) {
             return this.reader;
