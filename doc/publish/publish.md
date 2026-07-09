@@ -1,7 +1,13 @@
+# 只install parent
+根目录执行
+```shell
+ mvn install -N "-Dgpg.skip=true"
+ ```
 # 只发布parent
-
-> mvn clean deploy -pl '!fairychar-bag,!fairychar-micro-service,!fairychar-micro-service/__rootArtifactId__-api,!
-> fairychar-micro-service/__rootArtifactId__-app'
+根目录执行
+```shell
+ mvn clean deploy -N 
+ ```
 
 '!fairychar-bag' 代表要排除的子模块
 
