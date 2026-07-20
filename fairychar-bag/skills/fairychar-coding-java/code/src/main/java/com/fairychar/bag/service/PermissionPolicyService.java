@@ -9,13 +9,13 @@ import com.zxsc.data.permission.service.domain.PermissionErrorCode;
 import com.zxsc.data.permission.service.entity.PermissionPolicy;
 import com.zxsc.data.permission.service.mapper.PermissionPolicyMapper;
 import com.zxsc.data.permission.service.pojo.dto.PermissionPolicyDTO;
+import com.zxsc.data.permission.service.pojo.query.CreatePermissionPolicyQuery;
 import com.zxsc.data.permission.service.pojo.query.PermissionPolicyQuery;
+import com.zxsc.data.permission.service.pojo.query.UpdatePermissionPolicyQuery;
 import com.zxsc.data.permission.service.service.interfaces.IPermissionPolicyService;
 import com.zxsc.data.permission.service.service.structure.PermissionPolicyStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -78,14 +78,13 @@ public class PermissionPolicyService extends ServiceImpl<PermissionPolicyMapper,
     /**
      * 插入
      *
-     * @param permissionPolicyQuery {@link PermissionPolicyQuery}查询条件
+     * @param createPermissionPolicyQuery {@link CreatePermissionPolicyQuery}查询条件
      * @return 是否成功
      */
     @Override
-    public boolean save(PermissionPolicyQuery permissionPolicyQuery) {
-        this.validatePolicy(permissionPolicyQuery);
-        this.validatePolicyCodeUnique(permissionPolicyQuery.getSystemId(), permissionPolicyQuery.getPolicyCode(), null);
-        PermissionPolicy entity = this.permissionPolicyStructure.queryToEntity(permissionPolicyQuery);
+    public boolean save(CreatePermissionPolicyQuery createPermissionPolicyQuery) {
+        this.validatePolicyCodeUnique(createPermissionPolicyQuery.getSystemId(), createPermissionPolicyQuery.getPolicyCode(), null);
+        PermissionPolicy entity = this.permissionPolicyStructure.queryToEntity(createPermissionPolicyQuery);
         entity.setStatus(PermissionConsts.STATUS_DRAFT);
         return this.save(entity);
     }
@@ -93,15 +92,14 @@ public class PermissionPolicyService extends ServiceImpl<PermissionPolicyMapper,
     /**
      * 更新
      *
-     * @param permissionPolicyQuery {@link PermissionPolicyQuery}查询条件
+     * @param updatePermissionPolicyQuery {@link UpdatePermissionPolicyQuery}查询条件
      * @return 是否成功
      */
     @Override
-    public boolean updateById(PermissionPolicyQuery permissionPolicyQuery) {
-        this.validatePolicy(permissionPolicyQuery);
-        this.validatePolicyCodeUnique(permissionPolicyQuery.getSystemId(), permissionPolicyQuery.getPolicyCode(),
-                permissionPolicyQuery.getId());
-        PermissionPolicy entity = this.permissionPolicyStructure.queryToEntity(permissionPolicyQuery);
+    public boolean updateById(UpdatePermissionPolicyQuery updatePermissionPolicyQuery) {
+        this.validatePolicyCodeUnique(updatePermissionPolicyQuery.getSystemId(), updatePermissionPolicyQuery.getPolicyCode(),
+                updatePermissionPolicyQuery.getId());
+        PermissionPolicy entity = this.permissionPolicyStructure.updatePermissionPolicyQueryToEntity(updatePermissionPolicyQuery);
         return super.updateById(entity);
     }
 
@@ -152,8 +150,8 @@ public class PermissionPolicyService extends ServiceImpl<PermissionPolicyMapper,
      * @return 是否成功
      */
     @Override
-    public boolean saveBatch(List<PermissionPolicyQuery> batch) {
-        List<PermissionPolicy> entities = this.permissionPolicyStructure.queriesToEntities(batch);
+    public boolean saveBatch(List<CreatePermissionPolicyQuery> batch) {
+        List<PermissionPolicy> entities = this.permissionPolicyStructure.createPermissionPolicyQueriesToEntities(batch);
         return super.saveBatch(entities);
     }
 
@@ -187,16 +185,6 @@ public class PermissionPolicyService extends ServiceImpl<PermissionPolicyMapper,
         policy.setUpdatedAt(LocalDateTime.now());
         return super.updateById(policy);
     }
-
-    private void validatePolicy(PermissionPolicyQuery query) {
-        if (query == null || query.getSystemId() == null || !StringUtils.hasText(query.getPolicyCode())
-                || !StringUtils.hasText(query.getPolicyName()) || !StringUtils.hasText(query.getEffect())
-                || !StringUtils.hasText(query.getConditionField()) || !StringUtils.hasText(query.getConditionOperator())
-                || !StringUtils.hasText(query.getConditionValueType()) || !StringUtils.hasText(query.getConditionValue())) {
-            throw new PermissionBusinessException(PermissionErrorCode.PARAM_ERROR, "策略必填字段不能为空");
-        }
-    }
-
     private void validatePolicyCodeUnique(Long systemId, String policyCode, Long ignoredId) {
         PermissionPolicy exists = super.getOne(new QueryWrapper<PermissionPolicy>()
                 .eq(PermissionPolicy.SYSTEM_ID, systemId)

@@ -18,11 +18,12 @@ Fairychar Bag 的 Java 代码优先遵循本项目已有风格，而不是通用
 | 任意 Fairychar Java 编辑、审查、重构 | `reference/project-style.md` |
 | 新增类、移动类、判断包路径 | `reference/package-structure.md` |
 | 应用模块 Controller、Service、接口实现 | `reference/application-layer.md` |
+| 应用模块 MyBatis-Plus Mapper、XML SQL | `reference/mybatis-plus-mapper.md` |
 | REST 返回、业务异常、错误码、`IRestErrorCode` | `reference/exception-response.md` |
 | `fairychar-bag/src` 库代码、AOP、Bean、工具、模板 | `reference/library-style.md` |
 | 常量、单例、POJO、Lombok、配置属性 | `reference/domain-pojo-properties.md` |
 | Spring Boot 自动配置、条件 Bean、starter 能力 | `reference/auto-configuration.md` |
-| 需要脱离项目查看原始样例 | `code/src/main/java/com/fairychar/bag/...` 或 `sample/...` |
+| 需要脱离项目查看原始样例 | `code/src/main/java/com/fairychar/bag/...` |
 
 ## 必须先执行的判断
 
@@ -34,10 +35,14 @@ Fairychar Bag 的 Java 代码优先遵循本项目已有风格，而不是通用
 
 ## 快速硬性规则
 
-- 证据来源只限 `fairychar-bag/src`、本 skill 的 `code/` 快照和 `sample/` 样例；不要从兄弟模块或生成模板推导库代码风格。
+- 证据来源只限 `fairychar-bag/src` 和本 skill 的 `code/` 快照；不要从兄弟模块或生成模板推导库代码风格。
 - Java 基线为 Java 21、UTF-8、Spring Boot 3 风格。
 - 新增类不要放进泛化包名：`service`、`manager`、`common`、`core`、`support`。应用模块已有 `controller/service/service.interfaces` 结构时除外。
 - 保留项目命名：`I*` 接口、`*Query`、`*VO`、`*Properties`、`*Util`、`*Template`、`*Configurer`、`*AspectJ`、`*Handler`。
+- Lombok 只按样例场景使用：数据载体用 `@Data`，配置类用 `@Getter/@Setter`，常量/单例 holder 用 `@NoArgsConstructor(access = AccessLevel.PRIVATE)`，不要随意引入 `@Builder`、`@Value`、`@Slf4j`。
+- 应用层新增、更新、查询请求体优先拆成场景化 `*Query`，例如 `Create*Query`、`Update*Query`、普通查询 `*Query`，Service 接口与实现签名必须一致。
+- MyBatis-Plus Mapper 接口只声明方法和 `@Param`；SQL 必须写到 XML mapper 中，禁止在 Mapper 类里写 SQL 注解或 provider。
+- 配置属性类 `*Properties` 统一放在 `configuration.properties`，并优先用 `@NestedConfigurationProperty` 表达嵌套配置对象。
 - REST 失败使用 `RestException`、`RestErrorCode` 或实现 `IRestErrorCode` 的领域错误码；响应使用 `HttpResult`。
 - 错误码定义使用 enum 实现 `IRestErrorCode`，稳定暴露 `getCode()` 与 `getMessage()`，不要在 Service 中散落裸数字和裸消息。
 - 可选 starter Bean 使用 `@ConditionalOnProperty`；可替换默认 Bean 使用 `@ConditionalOnMissingBean`。

@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.zxsc.data.permission.service.entity.PermissionPolicy;
 import com.zxsc.data.permission.service.pojo.dto.PermissionPolicyDTO;
 import com.zxsc.data.permission.service.pojo.query.PermissionPolicyQuery;
+import com.zxsc.data.permission.service.pojo.query.CreatePermissionPolicyQuery;
+import com.zxsc.data.permission.service.pojo.query.UpdatePermissionPolicyQuery;
 
 import java.io.Serializable;
 import java.util.List;
@@ -43,18 +45,18 @@ public interface IPermissionPolicyService extends IService<PermissionPolicy> {
     /**
      * 插入
      *
-     * @param permissionPolicyQuery {@link PermissionPolicyQuery}插入query
+     * @param createPermissionPolicyQuery {@link CreatePermissionPolicyQuery}插入query
      * @return 是否成功
      */
-    boolean save(PermissionPolicyQuery permissionPolicyQuery);
+    boolean save(CreatePermissionPolicyQuery createPermissionPolicyQuery);
 
     /**
      * 更新
      *
-     * @param permissionPolicyQuery {@link PermissionPolicyQuery}更新query
+     * @param updatePermissionPolicyQuery {@link UpdatePermissionPolicyQuery}更新query
      * @return 是否成功
      */
-    boolean updateById(PermissionPolicyQuery permissionPolicyQuery);
+    boolean updateById(UpdatePermissionPolicyQuery updatePermissionPolicyQuery);
 
     /**
      * 分页查询(全等匹配)
@@ -86,7 +88,7 @@ public interface IPermissionPolicyService extends IService<PermissionPolicy> {
      * @param batch 新增数据
      * @return 是否成功
      */
-    boolean saveBatch(List<PermissionPolicyQuery> batch);
+    boolean saveBatch(List<CreatePermissionPolicyQuery> batch);
 
     /**
      * 条件匹配查询PermissionPolicy所有数据

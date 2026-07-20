@@ -1,4 +1,4 @@
-package com.fairychar.bag.properties;
+package com.fairychar.bag.configuration.properties;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,13 +16,5 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class FairycharBagProperties {
     @NestedConfigurationProperty
     private AopProperties aop;
-    @NestedConfigurationProperty
-    private NettyServerClientProperties serverClient;
-    @NestedConfigurationProperty
-    private ConvertProperties convert;
-    @NestedConfigurationProperty
-    private SecretProperties secret;
-    @NestedConfigurationProperty
-    private WebProperties web;
 
 }

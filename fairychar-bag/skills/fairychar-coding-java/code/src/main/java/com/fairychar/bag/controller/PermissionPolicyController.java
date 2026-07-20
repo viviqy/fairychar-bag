@@ -6,7 +6,9 @@ import com.fairychar.bag.pojo.vo.HttpResult;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.zxsc.data.permission.service.pojo.dto.PermissionPolicyDTO;
+import com.zxsc.data.permission.service.pojo.query.CreatePermissionPolicyQuery;
 import com.zxsc.data.permission.service.pojo.query.PermissionPolicyQuery;
+import com.zxsc.data.permission.service.pojo.query.UpdatePermissionPolicyQuery;
 import com.zxsc.data.permission.service.service.PermissionPolicyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -42,7 +44,7 @@ public class PermissionPolicyController {
     @PostMapping
     @Operation(description = "保存")
     @ApiOperationSupport(order = 20)
-    public HttpResult save(@RequestBody @Validated PermissionPolicyQuery query) {
+    public HttpResult save(@RequestBody @Validated CreatePermissionPolicyQuery query) {
         boolean result = this.permissionPolicyService.save(query);
         return HttpResult.ok(result);
     }
@@ -60,7 +62,7 @@ public class PermissionPolicyController {
     @PutMapping("/update")
     @Operation(description = "根据id更新")
     @ApiOperationSupport(order = 40)
-    public HttpResult update(@RequestBody @Validated PermissionPolicyQuery query) {
+    public HttpResult update(@RequestBody @Validated UpdatePermissionPolicyQuery query) {
         boolean result = this.permissionPolicyService.updateById(query);
         return HttpResult.ok(result);
     }
@@ -71,15 +73,6 @@ public class PermissionPolicyController {
     @ApiOperationSupport(order = 50)
     public HttpResult delete(@PathVariable("id") Serializable id) {
         boolean result = this.permissionPolicyService.removeById(id);
-        return HttpResult.ok(result);
-    }
-
-    @RequestLog
-    @PostMapping("/{id}/publish")
-    @Operation(description = "根据id发布")
-    @ApiOperationSupport(order = 60)
-    public HttpResult publish(@PathVariable("id") Serializable id) {
-        boolean result = this.permissionPolicyService.publish(id);
         return HttpResult.ok(result);
     }
 }

@@ -27,7 +27,7 @@
 
 ## 新增配置属性接入流程
 
-1. 在 `properties` 下新增或扩展 `*Properties`。
+1. 在 `configuration.properties` 下新增或扩展 `*Properties`。
 2. 如需挂到根配置，将字段加入 `FairycharBagProperties`。
 3. 在自动配置类中读取配置属性。
 4. 用 `@ConditionalOnProperty` 控制是否启用。
@@ -43,5 +43,5 @@
 ## 样例
 
 - `code/src/main/java/com/fairychar/bag/configurer/BagBeansAutoConfigurer.java`
-- `code/src/main/java/com/fairychar/bag/properties/FairycharBagProperties.java`
-- `code/src/main/java/com/fairychar/bag/properties/AopProperties.java`
+- `code/src/main/java/com/fairychar/bag/configuration/properties/FairycharBagProperties.java`
+- `code/src/main/java/com/fairychar/bag/configuration/properties/AopProperties.java`

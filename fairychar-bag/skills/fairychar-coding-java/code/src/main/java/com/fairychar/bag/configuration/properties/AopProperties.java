@@ -1,9 +1,10 @@
-package com.fairychar.bag.properties;
+package com.fairychar.bag.configuration.properties;
 
 import com.fairychar.bag.domain.annotations.MethodLock;
 import com.fairychar.bag.domain.annotations.RequestLog;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,9 @@ import java.util.concurrent.TimeUnit;
 @Getter
 @Setter
 public class AopProperties {
+    @NestedConfigurationProperty
     private Log log;
+    @NestedConfigurationProperty
     private Lock lock;
 
 

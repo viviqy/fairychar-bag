@@ -1,7 +1,5 @@
 package com.fairychar.bag.configurer;
 
-import cn.hutool.crypto.asymmetric.RSA;
-import cn.hutool.crypto.symmetric.AES;
 import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice;
@@ -10,8 +8,7 @@ import com.fairychar.bag.beans.spring.converter.StringToLocalDateTimeConverter;
 import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.KeepValueAdvice;
-import com.fairychar.bag.properties.FairycharBagProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fairychar.bag.configuration.properties.FairycharBagProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -19,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -106,30 +102,5 @@ public class BagBeansAutoConfigurer {
         Converter<String, LocalDateTime> localDateTimeConverter() {
             return new StringToLocalDateTimeConverter();
         }
-    }
-
-
-    @Configuration
-    @EnableConfigurationProperties(FairycharBagProperties.class)
-    protected static class SecretConfiguration {
-        @Autowired
-        private FairycharBagProperties bagProperties;
-
-        @Bean
-        @ConditionalOnMissingBean
-        @ConditionalOnProperty(name = "fairychar.bag.secret.aes.key")
-        AES aes() {
-            return new AES(bagProperties.getSecret().getAes().getKey().getBytes(StandardCharsets.UTF_8));
-        }
-
-
-        @Bean
-        @ConditionalOnMissingBean
-        @ConditionalOnProperty(name = {"fairychar.bag.secret.rsa.pri-key", "fairychar.bag.secret.rsa.pub-key"})
-        RSA rsa() {
-            return new RSA(bagProperties.getSecret().getRsa().getPriKey(), bagProperties.getSecret().getRsa().getPubKey());
-        }
-
-
     }
 }

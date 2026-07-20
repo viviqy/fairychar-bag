@@ -20,8 +20,9 @@
 | `function` | 小型函数式接口、回调接口、处理器接口。 |
 | `listener` | Spring 生命周期、上下文监听或持有器。 |
 | `pojo` | 纯数据载体：`ao`、`dto`、`query`、`vo`。 |
-| `properties` | `@ConfigurationProperties` 配置树和配置分组。 |
+| `configuration` | 自动配置辅助对象；配置属性类统一放在 `configuration.properties`。 |
 | `proxy` | 动态代理、fallback 代理等。 |
+| `mapper` | 应用模块 MyBatis-Plus Mapper 接口；只声明方法，不写 SQL。 |
 | `template` | 模板方法类，封装重复控制流并通过回调扩展。 |
 | `utils` | 无状态静态工具类；内部辅助对象放 `utils.base`，测试工具放 `utils.test`。 |
 
@@ -60,7 +61,9 @@
 | 传输对象、键值载体 | `pojo.dto` | `KeyValuePair` |
 | 请求/query/body 载体 | `pojo.query`、`pojo.query.body` | `DateBetweenQuery`、`StringBodyQuery` |
 | 响应包装或校验结果对象 | `pojo.vo` | `HttpResult`、`InvalidateFieldVO` |
-| 功能配置分组 | `properties` | `AopProperties`、`WebProperties` |
+| 功能配置分组 | `configuration.properties` | `FairycharBagProperties`、`AopProperties` |
+| 应用模块 MyBatis-Plus Mapper 接口 | `mapper` | `SysDictMapper` |
+| 应用模块 Mapper XML | `src/resources/mapper` | `SysDictMapper.xml` |
 | 动态代理、fallback factory | `proxy` | `FeignFallbackProxy` |
 | 可复用控制流模板 | `template` | `CacheOperateTemplate`、`ActionSelectorTemplate` |
 | 静态工具 | `utils` | `RequestUtil`、`SpelUtil`、`FileUtil` |
@@ -77,7 +80,7 @@
 - 有对象状态或运行时行为的包装/扩展：优先 `extension.<feature>`，不要放 `utils`。
 - 全静态、无 Spring 生命周期：放 `utils`。
 - 只有一个类的新包要谨慎；先检查现有包是否已表达同一职责。
-- 应用模块已有 `controller/service/service.interfaces` 时，按样例布局：接口在 `service.interfaces`，实现在 `service`，控制器在 `controller`。
+- 应用模块已有 `controller/service/service.interfaces/mapper` 时，按样例布局：Service 接口在 `service.interfaces`，Service 实现在 `service`，控制器在 `controller`，Mapper 接口在 `mapper`，SQL XML 在 `src/resources/mapper`。
 
 ## 命名模式
 
