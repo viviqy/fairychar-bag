@@ -12,6 +12,7 @@
     <module>fairychar-bag</module>
     <module>fairychar-micro-service</module>
     <module>fairychar-security</module>
+    <module>upgrade-dependencies-test</module>
   </modules>
   <properties>
     <revision>1.4.3-SNAPSHOT</revision>

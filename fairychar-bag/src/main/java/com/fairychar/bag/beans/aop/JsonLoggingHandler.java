@@ -3,7 +3,6 @@ package com.fairychar.bag.beans.aop;
 import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.domain.annotations.RequestLog;
 import com.fairychar.bag.utils.RequestUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.base.Strings;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.web.multipart.MultipartFile;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -56,7 +56,7 @@ public class JsonLoggingHandler implements LoggingHandler {
             try {
                 String jsonStr = this.objectMapper.writeValueAsString(loggingObject);
                 LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
-            } catch (JsonProcessingException e) {
+            } catch (Exception e) {
                 log.warn("requestBody={},errorMsg={}", loggingObject, e.getMessage());
             }
         }
@@ -84,7 +84,7 @@ public class JsonLoggingHandler implements LoggingHandler {
             try {
                 String jsonStr = this.objectMapper.writeValueAsString(loggingObject);
                 LoggingHelper.log(pointClass, methodSignature.getMethod().getName(), level, jsonStr);
-            } catch (JsonProcessingException e) {
+            } catch (Exception e) {
                 log.warn("responseBody={},errorMsg={}", loggingObject, e.getMessage());
             }
         }

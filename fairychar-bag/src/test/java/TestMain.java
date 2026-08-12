@@ -2,7 +2,6 @@ import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.beans.spring.advice.InvalidateLog;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValue;
 import com.fairychar.bag.domain.Consts;
-import com.fairychar.bag.extension.request.MockHttpServletRequest;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import com.fairychar.bag.pojo.vo.InvalidateFieldVO;
 import com.fairychar.bag.utils.FileUtil;
@@ -43,15 +42,6 @@ public class TestMain {
         ReflectUtil.setLong(a,2L);
     }
 
-    @Test
-    public void testLogInvalidateField(){
-        MockHttpServletRequest request = new MockHttpServletRequest("POST", "/getUser");
-        List<InvalidateFieldVO> invalidateFieldVOS = List.of(
-                new InvalidateFieldVO("name", "error1",false),
-                new InvalidateFieldVO("age", "error2",false)
-        );
-        log.debug(JSONUtil.toJsonStr(new InvalidateLog("invalidate params",request.getRequestURI(), invalidateFieldVOS)));
-    }
 
     @Test
     public void testMatch() {

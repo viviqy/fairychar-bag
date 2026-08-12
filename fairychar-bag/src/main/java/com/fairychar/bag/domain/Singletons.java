@@ -1,15 +1,15 @@
 package com.fairychar.bag.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.client.RestTemplate;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.text.SimpleDateFormat;
 import java.util.Random;
@@ -113,20 +113,13 @@ public class Singletons {
             private final transient ObjectMapper instance;
 
             Singleton() {
-                ObjectMapper objectMapper = new ObjectMapper(); //对象的所有字段全部列入
-                objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
-                //取消默认转换timestamps形式
-                objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-                //忽略空Bean转json的错误
-                objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-                //所有的日期格式都统一为以下的样式，即yyyy-MM-dd HH:mm:ss
-                objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-                //忽略 在json字符串中存在，但是在java对象中不存在对应属性的情况。防止错误
-                objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                // 关闭未知属性异常
-                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-                objectMapper.registerModule(new JavaTimeModule());
-                this.instance = objectMapper;
+                this.instance = JsonMapper.builder()
+                        .changeDefaultPropertyInclusion(value ->
+                                JsonInclude.Value.construct(JsonInclude.Include.ALWAYS, JsonInclude.Include.ALWAYS))
+                        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+                        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                        .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
+                        .build();
             }
 
             public ObjectMapper getInstance() {

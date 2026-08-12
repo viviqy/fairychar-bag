@@ -1,7 +1,6 @@
 package com.fairychar.bag.extension.action.condition.bool;
 
 import com.fairychar.bag.domain.Singletons;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.base.Strings;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -79,9 +78,8 @@ public class FlowBuilder {
      * 转换为json格式
      *
      * @return {@link String}
-     * @throws JsonProcessingException json处理异常
      */
-    public String convertAsJsonSchema() throws JsonProcessingException {
+    public String convertAsJsonSchema() {
         if (!this.buildComplete) {
             throw new IllegalStateException("doesn't build complete yet");
         }
