@@ -20,11 +20,6 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.zxsc</groupId>
-            <artifactId>chronicle-index-api</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
@@ -67,7 +62,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
-            <version>3.5.16</version>
         </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -80,7 +74,7 @@
         <dependency>
             <groupId>com.fairychar</groupId>
             <artifactId>fairychar-bag</artifactId>
-            <version>1.4.3-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
