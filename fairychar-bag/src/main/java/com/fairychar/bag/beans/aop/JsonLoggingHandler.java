@@ -4,7 +4,6 @@ import cn.hutool.json.JSONUtil;
 import com.fairychar.bag.domain.annotations.RequestLog;
 import com.fairychar.bag.utils.RequestUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
