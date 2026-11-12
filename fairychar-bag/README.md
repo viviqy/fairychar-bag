@@ -1,5 +1,7 @@
 # fairychar-bag 使用说明
 
+新项目通过 JAR 使用 SDK 时，从 [SDK 功能入口](ai/fairychar-bag-usage/fairychar-bag-usage-guide.md) 按需求直接读取对应功能说明，仅在核对签名时查询 [公共 API 索引](ai/fairychar-bag-usage/api/README.md)。需要组合演示时可选读 [最小 Web 示例](ai/fairychar-bag-usage/examples/minimal-web.md)。下文保留源码仓库维护视角，SDK 使用契约以对应功能页为准。
+
 `fairychar-bag` 是 Fairychar 项目的通用开发工具包，提供 Spring Boot 自动配置、Web 返回体、统一异常、AOP 日志、方法锁、参数校验、请求/响应字段处理、MyBatis 加解密和租户拦截器、Redis/缓存工具、Netty 简化封装、并发任务工具、反射映射工具等能力。
 
 本文档按当前源码重写，目标读者是需要在本项目内继续写代码的 agent。写代码前优先参考本文档和源码，不要只依赖旧示例。
@@ -9,7 +11,7 @@
 - Maven 模块: `fairychar-bag`
 - Java 版本: 21
 - 自动配置入口:
-  - `com.fairychar.bag.configurer.BagBeansAutoConfigurer`
+  - SDK 内部功能配置，随 JAR 自动装配，无需手动导入配置类。
   - `com.fairychar.bag.listener.SpringContextHolder`
 - Spring Boot 自动配置文件: `src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
 - 配置前缀: `fairychar.bag`
@@ -53,9 +55,6 @@ fairychar:
         enable: true
       property-processor:
         enable: true
-    convert:
-      mvc:
-        enable: true
     secret:
       aes:
         key: "1234567890123456"
@@ -77,32 +76,30 @@ fairychar:
 
 | 配置 | 作用 |
 | --- | --- |
-| `fairychar.bag.aop.log.enable` | 注册 `LoggingAspectJ`，仅拦截 `*..controller..*.*(..)` 下带 `@RequestLog` 的方法 |
+| `fairychar.bag.aop.log.enable` | 开启请求日志，仅处理 `*..controller..*.*(..)` 下带 `@RequestLog` 的方法 |
 | `fairychar.bag.aop.log.global-level` | 全局日志级别，`@RequestLog(loggingLevel = NONE)` 时使用 |
 | `fairychar.bag.aop.log.global-before` | 全局前置 `LoggingHandler` Bean 名 |
 | `fairychar.bag.aop.log.global-after` | 全局后置 `LoggingHandler` Bean 名 |
-| `fairychar.bag.aop.lock.enable` | 注册 `MethodLockAspectJ` |
+| `fairychar.bag.aop.lock.enable` | 开启 `@MethodLock` 方法锁功能 |
 | `fairychar.bag.aop.lock.default-lock` | `@MethodLock(lockType = DEFAULT)` 时使用，不能为 `DEFAULT` |
 | `fairychar.bag.aop.lock.global-timeout` | 乐观锁全局等待时间，默认 1 |
 | `fairychar.bag.aop.lock.time-unit` | 乐观锁全局等待时间单位，默认 `SECONDS` |
-| `fairychar.bag.web.advice.enable` | 注册 `DefaultExceptionAdvice` |
-| `fairychar.bag.web.property-processor.enable` | 注册 `KeepValueAdvice`、`EraseValueAdvice`、`FuzzyValueAdvice` |
-| `fairychar.bag.convert.mvc.enable` | 注册 `String -> LocalDate`、`String -> LocalDateTime` 转换器 |
+| `fairychar.bag.web.advice.enable` | 开启统一异常返回功能 |
+| `fairychar.bag.web.property-processor.enable` | 开启请求字段保留/擦除和响应脱敏功能 |
 | `fairychar.bag.secret.aes.key` | 存在时注册 Hutool `AES` Bean |
 | `fairychar.bag.secret.rsa.pub-key` + `pri-key` | 两者都存在时注册 Hutool `RSA` Bean |
 
 ## 自动配置 Bean
 
-`BagBeansAutoConfigurer` 会按条件注册:
+SDK 会按条件自动启用功能及注册 Bean，调用方无需手动注册内部配置类和字段处理 Advice：
 
-- `DefaultExceptionAdvice`: 全局异常处理。
-- `KeepValueAdvice`、`EraseValueAdvice`、`FuzzyValueAdvice`: 请求/响应字段处理。
-- `LoggingAspectJ`: Controller 日志切面。
-- `MethodLockAspectJ`: 方法锁切面。
-- `StringToLocalDateConverter`、`StringToLocalDateTimeConverter`: MVC 字符串日期转换。
+- 全局异常处理：通过功能开关启用，业务抛出 `RestException`，无需调用内部处理器。
+- 请求/响应字段处理：通过 `@KeepValue`、`@EraseValue`、`@FuzzyResult`、`@FuzzyValue` 使用。
+- Controller 请求日志：通过 `@RequestLog` 与日志配置使用，无需手动注册或调用内部切面。
+- 方法锁：通过 `@MethodLock` 与锁配置使用，无需手动注册或调用内部切面。
 - Hutool `AES`、`RSA`: 由密钥配置触发。
 
-`SpringContextHolder` 也在自动配置列表中，很多工具通过它按类型获取 Spring Bean，例如 `RedissonClient`、`CuratorFramework`、`FuzzyValueProcessor`。
+`SpringContextHolder` 也在自动配置列表中，很多工具通过它按类型获取 Spring Bean，例如 `RedissonClient`、`CuratorFramework`。
 
 ## 统一响应和异常
 
@@ -154,7 +151,7 @@ throw new RestException(RestErrorCode.PARAM_ERROR, "用户 id 不能为空");
 throw new RestException(RestErrorCode.DATA_EXIST, "用户名已存在", username);
 ```
 
-`DefaultExceptionAdvice` 会处理:
+统一异常返回功能会处理:
 
 - `BindException`
 - `ConstraintViolationException`
@@ -473,7 +470,9 @@ public HttpResult<Void> patch(@RequestBody @KeepValue UserPatchQuery query) {
 
 ### group 语义
 
-`@EraseValue` 和 `@KeepValue` 都支持 `Class<?>[] value()`。参数注解和字段注解的 group 有交集时才认为匹配。
+`@EraseValue` 和 `@KeepValue` 都支持 `Class<?>[] value()`。参数和字段都未指定 group 时匹配；都指定 group 时按 Class 交集匹配；仅一方为空时不匹配，重复 group 不影响结果。
+
+`@EraseValue` 只清空匹配的标注字段；`@KeepValue` 只保留匹配的标注字段，未标注或 group 不匹配的字段均清空。处理范围为当前类声明的非静态、非 final 字段，不递归处理嵌套对象或父类字段。引用类型置为 `null`，基本类型重置为 Java 默认值。
 
 ```java
 interface AdminGroup {}
@@ -527,7 +526,7 @@ public HttpResult<UserVO> get(@PathVariable Long id) {
 }
 ```
 
-默认 `FuzzyValueAdvice` 的 `beginAt/endAt` 行为:
+默认脱敏规则的 `beginAt/endAt` 行为:
 
 ```java
 @FuzzyValue(beginAt = 3, endAt = 7)
@@ -536,21 +535,7 @@ private String phone = "13812345678";
 // 源码逻辑: 保留 [0, beginAt)，替换 [beginAt, endAt)，保留 [endAt, length)
 ```
 
-自定义处理器:
-
-```java
-@Bean
-FuzzyValueProcessor middleFuzzy() {
-    return new FuzzyMiddleTextProcessor();
-}
-
-class UserVO {
-    @FuzzyValue(beginAt = 1, endAt = 1, processor = FuzzyMiddleTextProcessor.class)
-    private String name = "张三丰";
-}
-```
-
-`FuzzyMiddleTextProcessor` 的 `endAt` 表示“从右保留几位”，与默认处理逻辑不同。
+调用方通过 `@FuzzyResult` / `@FuzzyValue` 使用脱敏功能，`processor` 保持默认值，无需手动注册或调用内部处理器。
 
 脱敏支持:
 
@@ -559,25 +544,6 @@ class UserVO {
 - 字段类型为 `List` 且元素是 `String`。
 - 字段类型为 `Map` 且 value 是 `String`。
 - `@FuzzyResult(field = "data.user")` 支持嵌套字段路径。
-
-## MVC 日期转换
-
-开启:
-
-```yaml
-fairychar:
-  bag:
-    convert:
-      mvc:
-        enable: true
-```
-
-注册:
-
-- `StringToLocalDateConverter`
-- `StringToLocalDateTimeConverter`
-
-底层使用 `DateConvertUtil.parseDate` 和 `DateConvertUtil.parseTime`。
 
 ## 工具类详解
 

@@ -12,6 +12,3 @@ fairychar:
         global-level: info
       binding:
         enable: true
-    convert:
-      mvc:
-        enable: false

@@ -37,7 +37,6 @@
 | Netty client/server/decoder Bean | `beans.netty.client`、`beans.netty.server`、`beans.netty.decoder` | `SimpleNettyClient`、`SimpleNettyServer` |
 | Redis serializer 或 Redis 集成 Bean | `beans.redis` | `GzipStringSerializer`、`PrefixStringSerializer` |
 | Spring MVC/global advice | `beans.spring.advice` | `DefaultExceptionAdvice`、`InvalidateLog` |
-| Spring converter | `beans.spring.converter` | `StringToLocalDateConverter` |
 | MVC 响应/请求 body advice、脱敏注解、属性处理器 | `beans.spring.mvc` | `FuzzyValueAdvice`、`EraseValue`、`FuzzyValueProcessor` |
 | Swagger/OpenAPI 插件或注解 | `beans.swagger` | `RequestIgnoreParameterPlugin`、`ShowParam` |
 | AOP/Netty 等基础设施消费的注解 | `domain.annotations` | `RequestLog`、`MethodLock`、`CauseHandler` |
@@ -47,7 +46,7 @@
 | 错误码、REST/业务异常、异常标记 | `domain.exceptions` | `IRestErrorCode`、`RestException`、`RestErrorCode` |
 | 库级枚举 | `domain.enums` | `RunState` |
 | Netty advice dispatcher 或帧对象 | `domain.netty.advice`、`domain.netty.frame` | `GlobalInboundCauseAdvice`、`HeadTailFrame` |
-| Spring marker、表达式上下文对象 | `domain.spring`、`domain.spring.expression` | `BeanAwareMarker`、`SimpleEvaluationContext` |
+| Spring 表达式上下文对象 | `domain.spring.expression` | `SimpleEvaluationContext` |
 | Jakarta Validation 注解或校验器 | `domain.validator.rest` | `Phone`、`PhoneValidator` |
 | Validation group marker interface | `domain.validator.rest.group` | `InsertVali`、`UpdateVali` |
 | Action-flow builder、条件树 | `extension.action.condition.bool` | `ActionFlow`、`FlowBuilder`、`RootAction` |

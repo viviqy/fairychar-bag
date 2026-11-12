@@ -1,5 +1,6 @@
 import com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice;
 import com.fairychar.bag.domain.exceptions.IRestErrorCode;
+import com.fairychar.bag.domain.exceptions.RestErrorCode;
 import com.fairychar.bag.domain.exceptions.RestException;
 import com.fairychar.bag.pojo.vo.HttpResult;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,16 @@ import org.junit.Test;
  * @since 0.0.1
  */
 public class RestExceptionTest {
+
+    @Test
+    public void fileTooLargeUsesExpectedErrorCode() {
+        RestException exception = new RestException(RestErrorCode.FILE_TOO_LARGE);
+        HttpResult result = new DefaultExceptionAdvice().handleRestException(exception);
+
+        Assert.assertEquals(10013, RestErrorCode.FILE_TOO_LARGE.getCode());
+        Assert.assertEquals(10013, result.getCode());
+        Assert.assertEquals("文件超大", result.getMsg());
+    }
 
     @Test
     public void supportCustomRestErrorCodeInterface() {

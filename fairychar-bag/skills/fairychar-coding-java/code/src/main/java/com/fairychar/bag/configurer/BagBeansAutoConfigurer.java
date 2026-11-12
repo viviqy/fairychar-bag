@@ -3,8 +3,6 @@ package com.fairychar.bag.configurer;
 import com.fairychar.bag.aop.LoggingAspectJ;
 import com.fairychar.bag.aop.MethodLockAspectJ;
 import com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice;
-import com.fairychar.bag.beans.spring.converter.StringToLocalDateConverter;
-import com.fairychar.bag.beans.spring.converter.StringToLocalDateTimeConverter;
 import com.fairychar.bag.beans.spring.mvc.EraseValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice;
 import com.fairychar.bag.beans.spring.mvc.KeepValueAdvice;
@@ -14,10 +12,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * bag Bean配置启动项
@@ -88,19 +82,4 @@ public class BagBeansAutoConfigurer {
     }
 
 
-    @ConditionalOnProperty(name = "fairychar.bag.convert.mvc.enable", havingValue = "true")
-    @Configuration
-    protected static class ConvertConfiguration {
-        @Bean
-        @ConditionalOnMissingBean
-        Converter<String, LocalDate> localDateConverter() {
-            return new StringToLocalDateConverter();
-        }
-
-        @Bean
-        @ConditionalOnMissingBean
-        Converter<String, LocalDateTime> localDateTimeConverter() {
-            return new StringToLocalDateTimeConverter();
-        }
-    }
 }

@@ -637,7 +637,6 @@
 |--------|------|------|
 | `aop` | AopProperties | AOP配置 |
 | `serverClient` | NettyServerClientProperties | Netty服务端/客户端配置 |
-| `convert` | ConvertProperties | 转换器配置 |
 | `secret` | SecretProperties | 密钥配置 |
 | `web` | WebProperties | Web配置 |
 
@@ -698,7 +697,6 @@
 | `WebConfiguration` | Web相关配置（异常处理、属性处理） |
 | `LogConfiguration` | 日志切面配置 |
 | `LockConfiguration` | 锁切面配置 |
-| `ConvertConfiguration` | 类型转换器配置 |
 | `SecretConfiguration` | 加密组件配置（AES/RSA） |
 
 ---

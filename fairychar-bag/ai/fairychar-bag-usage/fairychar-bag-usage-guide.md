@@ -1,115 +1,131 @@
-﻿# fairychar-bag 渐进式使用指南
+# fairychar-bag SDK 功能入口
 
-`fairychar-bag` 是 Fairychar 项目的通用开发工具包。此入口文档只保留 agent 写代码时的加载路线和最小规则；详细说明按主题拆到 `references/`，可复制的代码示例和验证脚本放到 `scripts/`。
+面向只有 SDK JAR 的业务项目 AI。假定 JAR 已接入；不处理 POM、SDK 构建发布或内部实现修改。
 
-## 使用方式
+## 如何使用
 
-1. 先读本文件，确定任务类型。
-2. 只加载下表中与任务相关的 reference 文档。
-3. 需要代码示例时，再加载对应的 scripts 文档。
-4. 修改源码前优先确认当前源码实现，不要只依赖文档。
+1. 按当前需求直接读取下表对应功能页，不要求先读其他入口或通读全部文档。
+2. 功能页包含前提、调用方式、行为边界和示例，是该能力的行为说明；仅在核对 import、重载或注解默认值时读取 [API 签名索引](api/README.md)。
+3. 只开启当前功能需要的配置，沿用业务项目已有的异常处理、Bean、事务和资源治理方式。完整示例在 examples，片段内业务类型需自行替换。
+4. 实际 JAR 与文档不匹配时停止采用冲突用法。未闭合的语义不按名字猜测，不要求获得源码，也不以“待测试”代替基本使用契约。
 
-## 快速路由
+## 采用状态
 
-### 接入和配置
+- **可直接采用**：仅限文档明确的操作和输入，不表示所有边界或业务集成都已实测。
+- **条件接入**：满足功能页列出的配置、线程、安全和外部环境要求后采用。
+- **不默认采用**：存在已知风险或契约缺口，优先采用页内给出的业务替代；未明确要求时不生成接入代码。
+- **仅签名可查 / 局部语义可查**：不从 public 或方法名推导生产保证；只按明确说明的范围使用。
 
-| 具体任务 | 先读 references | 需要示例时读 scripts |
-| --- | --- | --- |
-| 判断模块信息、Java 版本、自动配置入口、配置前缀 | [overview-and-configuration](references/01-overview-and-configuration.md) | 不需要示例 |
-| 判断 Redis、ZK、MyBatis Plus、Netty、Web/AOP 运行时依赖 | [overview-and-configuration](references/01-overview-and-configuration.md) | 不需要示例 |
-| 编写 `fairychar.bag.*` YAML 配置 | [overview-and-configuration](references/01-overview-and-configuration.md) | [overview examples](scripts/01-overview-and-configuration-examples.md) |
-| 新增或调整自动配置 Bean | [overview-and-configuration](references/01-overview-and-configuration.md) | [overview examples](scripts/01-overview-and-configuration-examples.md) |
+## 按需求定位
 
-### Web、响应、异常、AOP
+### 接入与配置
 
-| 具体任务 | 先读 references | 需要示例时读 scripts |
-| --- | --- | --- |
-| 判断 Web/REST/AOP/Lock 应该读哪个细分文档 | [web-rest-aop-and-lock index](references/02-web-rest-aop-and-lock.md) | 不需要示例 |
-| 返回统一响应 `HttpResult`、理解 `response(...)` | [http-result](references/02a-http-result.md) | [http-result examples](scripts/02a-http-result-examples.md) |
-| 选择已有 `RestErrorCode`，避免重复错误码 | [rest-error-code](references/02b-rest-error-code.md) | [rest-error-code examples](scripts/02b-rest-error-code-examples.md) |
-| 新增错误码枚举或实现 `IRestErrorCode`，并通过 `RestException` 使用 | [rest-error-code](references/02b-rest-error-code.md) | [rest-error-code examples](scripts/02b-rest-error-code-examples.md) |
-| 抛出 MVC 业务异常 `RestException` | [rest-exception-and-advice](references/02c-rest-exception-and-advice.md) | [rest-exception examples](scripts/02c-rest-exception-and-advice-examples.md) |
-| 理解 `FBException`、`DefaultExceptionAdvice`、统一异常返回 | [rest-exception-and-advice](references/02c-rest-exception-and-advice.md) | [rest-exception examples](scripts/02c-rest-exception-and-advice-examples.md) |
-| 给 Controller 方法加 `@RequestLog` | [request-log-aop](references/02d-request-log-aop.md) | [request-log examples](scripts/02d-request-log-aop-examples.md) |
-| 选择或实现 `LoggingHandler`、`SimpleLoggingHanlder`、`SwaggerLoggingHandler`、`JsonLoggingHandler`、`IgnoreContentLoggingHandler` | [request-log-aop](references/02d-request-log-aop.md) | [request-log examples](scripts/02d-request-log-aop-examples.md) |
-| 给方法加本地锁、Redis 锁或 ZK 锁 `@MethodLock` | [method-lock](references/02e-method-lock.md) | [method-lock examples](scripts/02e-method-lock-examples.md) |
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `Lock` / `Log` / `AopProperties` 等 | [SDK 配置与运行前提](features/setup/configuration.md) |
+| `ConditionalOnDateTime` / `ConditionalOnPingHost` / `ConditionalOnRandomNumber` 等 | [条件装配注解](features/setup/conditional-beans.md) |
+| `GsonBean` / `JsonBean` / `PathMatcherBean` 等 | [全局共享对象 Singletons](features/setup/shared-objects.md) |
+| `SpringContextHolder` | [Spring 上下文访问](features/setup/spring-context.md) |
+| 查询 API 签名、索引范围与版本兼容边界 | [API 查询与兼容边界](features/setup/api-compatibility.md) |
 
-### 校验、请求体处理、响应脱敏
+### Web 与接口
 
-| 具体任务 | 先读 references | 需要示例时读 scripts |
-| --- | --- | --- |
-| 处理 `@Valid`、`BindException`、`ConstraintViolationException`、`MethodArgumentNotValidException` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 手动检查 `BindingResultUtil` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 使用校验注解 `@Phone`、`@IdCard`、`@Url`、`@IP`、`@In`、`@NotIn` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 使用校验注解 `@StartWith`、`@EndWith`、`@Language`、`@DateBetween`、`@TimeBetween`、`@FileSize` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 请求体字段擦除 `@EraseValue` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 请求体字段保留 `@KeepValue` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| 响应脱敏 `@FuzzyResult`、`@FuzzyValue`、`FuzzyValueProcessor`、`FuzzyMiddleTextProcessor` | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
-| MVC `String -> LocalDate`、`String -> LocalDateTime` 转换 | [validation-mvc-and-field-processing](references/03-validation-mvc-and-field-processing.md) | [validation/mvc examples](scripts/03-validation-mvc-and-field-processing-examples.md) |
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `HttpResult` | [统一响应 HttpResult](features/web/http-result.md) |
+| `IRestErrorCode` / `RestErrorCode` | [业务错误码](features/web/error-code.md) |
+| `AcceptedException` / `DataAlreadyExistException` / `FBException` 等 | [业务异常与统一异常响应](features/web/exception-handling.md) |
+| `IgnoreContentLoggingHandler` / `JsonLoggingHandler` / `LoggingHandler` 等 | [请求日志](features/web/request-logging.md) |
+| `KeyValuePair` / `ByteBodyQuery` / `ByteListQuery` 等 | [通用 Query 与键值载体](features/web/request-models.md) |
+| `FeignFallbackProxy` | [Feign 固定降级响应](features/web/feign-fallback.md) |
+| `CloneServletInputStream` / `ClonedServletRequest` / `EmptyServletRequest` | [请求体缓存与请求包装](features/web/request-wrapper.md) |
 
-### 工具类和模板类
+### 参数校验
 
-| 具体类或功能 | 先读 references | 需要示例时读 scripts |
-| --- | --- | --- |
-| `StringUtil`: Gzip 压缩/解压、默认字符串 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `DateConvertUtil`: 日期/时间字符串解析、`Date` 与 `LocalDate` 转换 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `RequestUtil`: 当前 request/response、header、IP、URI、request attribute | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `SpelUtil`: AOP 方法参数 SpEL 解析 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `ReflectUtil`: Map/Bean 转换、属性复制、字段擦除/保留、父子递归搜索、注解字段搜索、Unsafe 方法 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `MappingObjectUtil`: 列表转树、Map 转节点、Map 转展示对象 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `RedisLockUtil`: Redisson 悲观锁、乐观锁、双检查锁模板 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `CacheOperateTemplate`: 本地锁/Redis 锁缓存击穿保护 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `TransactionUtil`: 多异步事务协同提交/回滚 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `ConcurrentUtil`: 统一等待 `Future` 并包装异常 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `CollectionUtil`: List 平均分片 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `CircularTaskUtil`: 循环执行直到条件满足 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `FileUtil`: 文件拼接、按百分比分割、创建测试假文件 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
-| `TaskTestUtil`: 测试/压测线程池和批量运行工具 | [utils-and-templates](references/04-utils-and-templates.md) | [utils examples](scripts/04-utils-and-templates-examples.md) |
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `DateBetween` / `DateValidator` / `EndWith` 等 | [参数校验与内置约束](features/validation/constraints.md) |
+| `ParamErrorException` / `BindingResultUtil` | [手动检查 BindingResult](features/validation/binding-result.md) |
 
-### MyBatis、Redis、Netty、并发、ActionFlow
+### 字段处理
 
-| 具体类或功能 | 先读 references | 需要示例时读 scripts |
-| --- | --- | --- |
-| `AesTypeHandler`、`RsaTypeHandler`: MyBatis 字段加解密 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `SwitchableTenantLineInnerInterceptor`、`ITenantSwitcher`、`TenantSwitcher`: Mapper 参数控制租户插件 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `SkipableTenantLineInnerInterceptor`、`ITenantSkipper`、`SimpleTenantSkipper`: ThreadLocal 控制租户插件 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `PrefixStringSerializer`、`GzipStringSerializer`: Redis key 前缀和 value Gzip 序列化 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `SimpleNettyServer`、`SimpleNettyClient`: Netty 服务端/客户端封装 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `DelimitersHeadTailFrameDecoder`、`HeadTailFrame`: 固定头尾协议解码 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `Action`: 无返回值任务函数式接口 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `AssignableFactory`: 按资源权重分配并发许可 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `RepeatTaskExecutor`: 多任务批次循环执行 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `RoundTaskExecutor`: 多任务链按下标分轮同步执行 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `ActionSelectorTemplate`、`AbstractScheduleAction`: 轻量周期任务选择器 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `AbstractBalkingReference`、`IBalkingReference`: 状态变更才保存的 balking 模式 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `ActionFlow`、`AbstractActionFlow`、`FlowBuilder`、`ParentActionCondition`、`RootAction`: bool 条件动作流 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [integration examples](scripts/05-integrations-netty-concurrency-and-agent-rules-examples.md) |
-| `@ConditionalOnSystemProperty`、`@ConditionalOnSystemOS`、`@ConditionalOnRandomNumber`、`@ConditionalOnPingHost`、`@ConditionalOnDateTime` | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | 不需要示例 |
-| `Consts`、`Singletons` | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | 不需要示例 |
-| `KeyValuePair`、`SimpleTypeQuery`、`DateBetweenQuery`、`TimeBetweenQuery`、`*BodyQuery`、`*ListQuery` | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | 不需要示例 |
-| `FeignFallbackProxy` | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | 不需要示例 |
-| agent 开发准则、编译验证命令 | [integrations-netty-concurrency-and-agent-rules](references/05-integrations-netty-concurrency-and-agent-rules.md) | [verify-fairychar-bag-compile.ps1](scripts/verify-fairychar-bag-compile.ps1) |
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `EraseValue` | [请求字段擦除 @EraseValue](features/field-processing/erase-value.md) |
+| `KeepValue` / `PropertyValueAdvice` | [请求字段保留 @KeepValue](features/field-processing/keep-value.md) |
+| `FuzzyResult` / `FuzzyValue` | [响应字段脱敏](features/field-processing/fuzzy-value.md) |
 
-## 最小必读规则
+### 锁
 
-- Maven 模块是 `fairychar-bag`，Java 版本是 21。
-- 自动配置入口在 `src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`。
-- 配置根前缀是 `fairychar.bag`。
-- 很多依赖是 `provided`；使用 Redis、ZK、MyBatis Plus、Netty 能力时，业务应用或测试必须提供运行时依赖和 Bean。
-- 新增自动配置 Bean 时必须考虑 `@ConditionalOnProperty` 和 `@ConditionalOnMissingBean`。
-- REST 失败优先走 `RestException`、`RestErrorCode`、`HttpResult`。
-- 文档中标注的反直觉行为来自当前源码；需要改变行为时必须单独改源码并补测试。
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `MethodLock` | [注解方法锁](features/locking/method-lock.md) |
+| `FailToGetLockException` / `RedisLockUtil` | [Redis 手动锁](features/locking/redis-lock.md) |
 
-## 目录约定
+### 缓存与数据
 
-```text
-fairychar-bag/ai/fairychar-bag-usage/
-  fairychar-bag-usage-guide.md          # 渐进式入口
-  references/                           # 说明、约束、API 语义
-  scripts/                              # 代码示例、可执行验证脚本
-```
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `CacheOperateTemplate` | [缓存双检查读取](features/data/cache-read-through.md) |
+| `AesTypeHandler` / `RsaTypeHandler` | [MyBatis 字段加解密](features/data/mybatis-crypto.md) |
+| `ITenantSkipper` / `ITenantSwitcher` / `SimpleTenantSkipper` 等 | [MyBatis 租户查询开关](features/data/tenant-isolation.md) |
+| `PrefixStringSerializer` | [Redis key 前缀序列化](features/data/redis-prefix.md) |
+| `GzipStringSerializer` | [Redis Gzip 字符串序列化](features/data/redis-gzip.md) |
 
-## 常用验证
+### 工具与常量
 
-```powershell
-powershell -ExecutionPolicy Bypass -File fairychar-bag\ai\fairychar-bag-usage\scripts\verify-fairychar-bag-compile.ps1
-```
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `Consts` | [常量 Consts](features/utilities/constants.md) |
+| `StringUtil` | [字符串与 Gzip](features/utilities/string.md) |
+| `DateConvertUtil` | [日期时间工具](features/utilities/date-time.md) |
+| `CollectionUtil` | [列表均分](features/utilities/collection-split.md) |
+| `MapObjectNode` / `MappingAO` / `MappingObjectAO` 等 | [树构造与对象映射](features/utilities/tree-mapping.md) |
+| `RequestUtil` | [请求上下文工具](features/utilities/request-context.md) |
+| `SimpleEvaluationContext` / `SimpleExpressionRootObject` / `SpelUtil` | [SpEL 表达式求值](features/utilities/spel.md) |
+| `ReflectUtil` / `FieldContainer` | [反射与字段操作](features/utilities/reflection.md) |
+| `FileUtil` | [文件拼接、截取与测试文件](features/utilities/file-operations.md) |
+| `BiPredicateList` | [按等价规则替换列表元素](features/utilities/predicate-list.md) |
+
+### 通用函数式接口
+
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `Action`：保存、传递或调用无参数、无返回值操作 | [Action 通用函数式接口](features/function/action.md) |
+
+### 并发与任务
+
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `TransactionUtil` | [异步事务协调](features/concurrency/async-transactions.md) |
+| `ConcurrentUtil` | [Future 顺序等待](features/concurrency/future-wait.md) |
+| `CircularTaskUtil` | [循环轮询](features/concurrency/polling.md) |
+| `TaskTestUtil` | [任务测试辅助](features/concurrency/task-test.md) |
+| `AssignableFactory` | [加权许可调度](features/concurrency/weighted-permits.md) |
+| `RepeatTaskExecutor` | [重复任务编排](features/concurrency/repeat-tasks.md) |
+| `RoundTaskExecutor` | [分轮任务编排](features/concurrency/round-tasks.md) |
+| `ActionSelectorTemplate` | [定时任务选择器](features/concurrency/task-selector.md) |
+| `AbstractScheduleAction` / `ActionSchedule` | [动作调度器](features/concurrency/action-schedule.md) |
+| `AbstractBalkingReference` / `IBalkingReference` | [Balking 状态引用](features/concurrency/balking-reference.md) |
+
+### Netty
+
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `SimpleNettyServer` / `RunState` | [Netty 服务端封装](features/netty/server.md) |
+| `SimpleNettyClient` | [Netty 客户端封装](features/netty/client.md) |
+| `DelimitersHeadTailFrameDecoder` / `HeadTailFrame` | [头尾帧解码](features/netty/frame-decoder.md) |
+| `CauseHandler` / `EventHandler` / `NettyCauseAdvice` 等 | [Netty 处理标记与回调](features/netty/handler-annotations.md) |
+
+### 业务扩展
+
+| 当前需求 / 类型 | 功能说明 |
+| --- | --- |
+| `AbstractActionFlow` / `ActionFlow` / `FlowBuilder` 等 | [条件动作流](features/extensions/action-flow.md) |
+| `BaseCalculator` / `Operator` / `IDataBaseShardingProcessor` 等 | [分片计算扩展](features/extensions/sharding.md) |
+
+## 验证与交付
+
+功能页的验收用于业务项目测试。编译、离线断言、HTTP/AOP、外部服务、多实例与并发验证分别记录；未执行的层次明确写“未验证”。线程池、客户端和连接由业务明确资源责任，任务停止不等于资源已释放。
+
+仅需演示 Web 功能组合时可选用 [最小 Web 示例](examples/minimal-web.md)，它不是必读入口。

@@ -16,7 +16,7 @@ public enum RestErrorCode implements IRestErrorCode {
     PARAM_ERROR(1_0002, "参数错误"),
 
     FILE_FORMAT_NOT_SUPPORT(1_0012, "文件类型不支持"),
-    FILE_TOO_LARGE(1_00013, "文件超大"),
+    FILE_TOO_LARGE(1_0013, "文件超大"),
     FILE_TOO_SMALL(1_0014, "文件太小"),
     FILE_EMPTY(1_0015, "文件为空"),
     FILE_NAME_ILLEGAL(1_0016, "文件名不合法"),

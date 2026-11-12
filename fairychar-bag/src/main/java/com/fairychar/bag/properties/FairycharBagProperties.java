@@ -19,8 +19,6 @@ public class FairycharBagProperties {
     @NestedConfigurationProperty
     private NettyServerClientProperties serverClient;
     @NestedConfigurationProperty
-    private ConvertProperties convert;
-    @NestedConfigurationProperty
     private SecretProperties secret;
     @NestedConfigurationProperty
     private WebProperties web;

@@ -55,7 +55,6 @@ public final class StringUtil {
 - Validation 注解放 `domain.validator.rest`。
 - Validator 实现与注解成对命名。
 - Validation group marker 放 `domain.validator.rest.group`。
-- Spring converter 放 `beans.spring.converter`。
 - 无效配置优先抛项目异常或使用 `Assert` 明确失败，不要静默忽略。
 
 ## Logging
