@@ -18,6 +18,14 @@ import java.util.List;
  */
 public interface ISysApiService extends IService<SysApi> {
 
+    /**
+     * 按用户 UID 聚合启用角色和启用菜单关联的 API，不绑定当前认证对象。
+     *
+     * @param userUid 用户 UID，非用户表主键，不允许为 null
+     * @return 按排序值和 ID 排序、同一 API 记录去重后的列表，无授权时为空
+     */
+    List<SysApiDTO> listEffectiveByUserUid(Long userUid);
+
 
 
     /**

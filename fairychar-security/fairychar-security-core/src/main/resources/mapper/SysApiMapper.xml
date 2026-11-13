@@ -33,6 +33,23 @@
     ,sys_api.http_method ,sys_api.uri ,sys_api.description ,sys_api.sort ,sys_api.create_by ,sys_api.create_name ,sys_api.update_by ,sys_api.update_name ,sys_api.create_time ,sys_api.update_time
   </sql>
 
+  <select id="listEffectiveByUserUid" resultMap="BaseResultMap" useCache="false" flushCache="true">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_api
+    where exists (
+      select 1
+      from user_has_role
+      inner join system_role on system_role.id = user_has_role.role_id and system_role.enable = true
+      inner join role_has_menu on role_has_menu.role_id = system_role.id
+      inner join sys_menu on sys_menu.id = role_has_menu.menu_id and sys_menu.enable = true
+      inner join menu_has_api on menu_has_api.menu_id = sys_menu.id
+      where user_has_role.user_uid = #{userUid}
+        and menu_has_api.api_id = sys_api.id
+    )
+    order by sys_api.sort, sys_api.id
+  </select>
+
   <!--通过实体作为筛选条件查询-->
   <select id="queryOne" resultMap="BaseResultMap">
     select

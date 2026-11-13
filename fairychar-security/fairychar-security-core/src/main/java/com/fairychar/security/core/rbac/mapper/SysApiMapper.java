@@ -17,6 +17,8 @@ import java.util.List;
  */
 public interface SysApiMapper extends BaseMapper<SysApi> {
 
+    List<SysApi> listEffectiveByUserUid(@Param("userUid") Long userUid);
+
 
     /**
      * 条件匹配查询SysApi单条数据

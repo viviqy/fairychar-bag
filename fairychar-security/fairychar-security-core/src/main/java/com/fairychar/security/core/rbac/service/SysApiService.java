@@ -41,6 +41,13 @@ public class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements 
     @Autowired
     private IMenuHasApiService menuHasApiService;
 
+    @Override
+    public List<SysApiDTO> listEffectiveByUserUid(Long userUid) {
+        Assert.notNull(userUid, () -> new RestException(RestErrorCode.PARAM_INVALIDATE));
+        List<SysApi> apis = this.sysApiMapper.listEffectiveByUserUid(userUid);
+        return this.sysApiStructure.entitiesToDtos(apis);
+    }
+
 
     /**
      * 条件匹配分页查询SysApi所有数据
