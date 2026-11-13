@@ -1,0 +1,862 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SkipableTenantLineInnerInterceptor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.interceptor",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SkipableTenantLineInnerInterceptor",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "ownerQualifiedName": "",
+      "signature": "@EqualsAndHashCode(callSuper = true)\npublic class SkipableTenantLineInnerInterceptor extends TenantLineInnerInterceptor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@EqualsAndHashCode(callSuper = true)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>可自定义是否跳过动态选择是否使用mybatis自动租户插件的拦截器</p>\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "TenantLineInnerInterceptor"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "tenantSkipper",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.tenantSkipper",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "signature": "private ITenantSkipper tenantSkipper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ITenantSkipper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "SkipableTenantLineInnerInterceptor",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "signature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tenantLineHandler",
+          "type": "TenantLineHandler",
+          "signature": "TenantLineHandler tenantLineHandler",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 47
+            },
+            "end": {
+              "line": 28,
+              "column": 82
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "SkipableTenantLineInnerInterceptor",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "signature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSkipper tenantSkipper)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tenantLineHandler",
+          "type": "TenantLineHandler",
+          "signature": "TenantLineHandler tenantLineHandler",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 47
+            },
+            "end": {
+              "line": 33,
+              "column": 82
+            }
+          }
+        },
+        {
+          "name": "tenantSkipper",
+          "type": "ITenantSkipper",
+          "signature": "ITenantSkipper tenantSkipper",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 84
+            },
+            "end": {
+              "line": 33,
+              "column": 112
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "beforeQuery",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "signature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "executor",
+          "type": "Executor",
+          "signature": "Executor executor",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 29
+            },
+            "end": {
+              "line": 40,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "ms",
+          "type": "MappedStatement",
+          "signature": "MappedStatement ms",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 48
+            },
+            "end": {
+              "line": 40,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "parameter",
+          "type": "Object",
+          "signature": "Object parameter",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 68
+            },
+            "end": {
+              "line": 40,
+              "column": 84
+            }
+          }
+        },
+        {
+          "name": "rowBounds",
+          "type": "RowBounds",
+          "signature": "RowBounds rowBounds",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 86
+            },
+            "end": {
+              "line": 40,
+              "column": 105
+            }
+          }
+        },
+        {
+          "name": "resultHandler",
+          "type": "ResultHandler",
+          "signature": "ResultHandler resultHandler",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 15
+            },
+            "end": {
+              "line": 41,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "boundSql",
+          "type": "BoundSql",
+          "signature": "BoundSql boundSql",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 44
+            },
+            "end": {
+              "line": 41,
+              "column": 61
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.plugins.InterceptorIgnoreHelper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 70
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.toolkit.PluginUtils",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.EqualsAndHashCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.executor.Executor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.mapping.BoundSql",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.mapping.MappedStatement",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.session.ResultHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.session.RowBounds",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.sql.SQLException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 30
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "SimpleTenantSkipper",
+      "expression": "new SimpleTenantSkipper",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 30
+        },
+        "end": {
+          "line": 30,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSkipper tenantSkipper)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 9
+        },
+        "end": {
+          "line": 34,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "willIgnoreTenantLine",
+      "expression": "InterceptorIgnoreHelper.willIgnoreTenantLine",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "ms.getId",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 58
+        },
+        "end": {
+          "line": 42,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "getSkip",
+      "expression": "this.tenantSkipper.getSkip",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 13
+        },
+        "end": {
+          "line": 45,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "mpBoundSql",
+      "expression": "PluginUtils.mpBoundSql",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 39
+        },
+        "end": {
+          "line": 48,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "sql",
+      "expression": "mpBs.sql",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 9
+        },
+        "end": {
+          "line": 49,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "parserSingle",
+      "expression": "parserSingle",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 18
+        },
+        "end": {
+          "line": 49,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "sql",
+      "expression": "mpBs.sql",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 31
+        },
+        "end": {
+          "line": 49,
+          "column": 41
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "TenantLineInnerInterceptor",
+      "expression": "TenantLineInnerInterceptor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 57
+        },
+        "end": {
+          "line": 24,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "EqualsAndHashCode",
+      "expression": "EqualsAndHashCode",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "ITenantSkipper",
+      "expression": "ITenantSkipper",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.tenantSkipper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "TenantLineHandler",
+      "expression": "TenantLineHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 47
+        },
+        "end": {
+          "line": 28,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "TenantLineHandler",
+      "expression": "TenantLineHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSkipper tenantSkipper)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 47
+        },
+        "end": {
+          "line": 33,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "ITenantSkipper",
+      "expression": "ITenantSkipper",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.SkipableTenantLineInnerInterceptor",
+      "ownerSignature": "public SkipableTenantLineInnerInterceptor(TenantLineHandler tenantLineHandler, ITenantSkipper tenantSkipper)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 84
+        },
+        "end": {
+          "line": 33,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Executor",
+      "expression": "Executor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 29
+        },
+        "end": {
+          "line": 40,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "MappedStatement",
+      "expression": "MappedStatement",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 48
+        },
+        "end": {
+          "line": 40,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 68
+        },
+        "end": {
+          "line": 40,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "RowBounds",
+      "expression": "RowBounds",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 86
+        },
+        "end": {
+          "line": 40,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "ResultHandler",
+      "expression": "ResultHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 15
+        },
+        "end": {
+          "line": 41,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "BoundSql",
+      "expression": "BoundSql",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 44
+        },
+        "end": {
+          "line": 41,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SkipableTenantLineInnerInterceptor.beforeQuery",
+      "ownerSignature": "@Override\n    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds\n            , ResultHandler resultHandler, BoundSql boundSql)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

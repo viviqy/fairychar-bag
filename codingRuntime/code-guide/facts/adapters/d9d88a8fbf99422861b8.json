@@ -1,0 +1,476 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/RequestLog.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.annotations",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "RequestLog",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface RequestLog",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>接口请求日志拦截</p>\n\n @author chiyo\n @since 0.0.1-SNAPSHOT",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.enable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "signature": "boolean enable() default true",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": "true",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "loggingLevel",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.loggingLevel",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "signature": "Level loggingLevel() default Level.NONE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return Level.NONE=使用全局日志级别",
+      "typeParameters": [],
+      "returnType": "Level",
+      "throws": [],
+      "defaultExpression": "Level.NONE",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "beforeHandler",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.beforeHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "signature": "String beforeHandler() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "日志前置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean\n\n @return loggingHandler bean name",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "afterHandler",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.afterHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "signature": "String afterHandler() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 38
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "日志后置处理器{@link com.fairychar.bag.beans.aop.LoggingHandler}的实现类bean\n\n @return loggingHandler bean name",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    },
+    {
+      "kind": "enum",
+      "name": "Level",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "signature": "enum Level",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "NONE",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.NONE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "NONE()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 15
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "TRACE",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.TRACE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "TRACE()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 9
+        },
+        "end": {
+          "line": 41,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "DEBUG",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.DEBUG",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "DEBUG()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 42,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "INFO",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.INFO",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "INFO()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 43,
+          "column": 15
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "WARN",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.WARN",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "WARN()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 9
+        },
+        "end": {
+          "line": 44,
+          "column": 15
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "ERROR",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level.ERROR",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.Level",
+      "signature": "ERROR()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 9
+        },
+        "end": {
+          "line": 45,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Level",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Level",
+      "expression": "Level",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.loggingLevel",
+      "ownerSignature": "Level loggingLevel() default Level.NONE",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.beforeHandler",
+      "ownerSignature": "String beforeHandler() default \"\"",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.RequestLog.afterHandler",
+      "ownerSignature": "String afterHandler() default \"\"",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

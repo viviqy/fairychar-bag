@@ -1,0 +1,429 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/properties/SecretProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SecretProperties",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class SecretProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/12/2 23:01\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "aes",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.aes",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "signature": "@NestedConfigurationProperty\nprivate AesProperties aes",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AesProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "rsa",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.rsa",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "signature": "@NestedConfigurationProperty\nprivate RsaProperties rsa",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "RsaProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "AesProperties",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.AesProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "signature": "@Data\n    public static class AesProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "key",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.AesProperties.key",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.AesProperties",
+      "signature": "private String key",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 9
+        },
+        "end": {
+          "line": 22,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "RsaProperties",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "signature": "@Data\n    public static class RsaProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "pubKey",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties.pubKey",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties",
+      "signature": "private String pubKey",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 9
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "priKey",
+      "qualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties.priKey",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties",
+      "signature": "private String priKey",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.NestedConfigurationProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AesProperties",
+      "expression": "AesProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.aes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.aes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "RsaProperties",
+      "expression": "RsaProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.rsa",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.rsa",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.AesProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 6
+        },
+        "end": {
+          "line": 20,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.AesProperties.key",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 17
+        },
+        "end": {
+          "line": 22,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 6
+        },
+        "end": {
+          "line": 25,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties.pubKey",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 17
+        },
+        "end": {
+          "line": 27,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.SecretProperties.RsaProperties.priKey",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 17
+        },
+        "end": {
+          "line": 28,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

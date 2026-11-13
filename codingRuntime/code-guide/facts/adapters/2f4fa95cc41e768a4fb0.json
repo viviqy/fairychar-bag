@@ -1,0 +1,142 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSkipper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.interceptor",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ITenantSkipper",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper",
+      "ownerQualifiedName": "",
+      "signature": "public interface ITenantSkipper",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>是否使用自动租户控制器</p>\n 通过{@link ITenantSkipper#setSkip}在执行sql之前,可以\n 绕过自动租户插件对拼接租户流程的执行.需要配合{@link SkipableTenantLineInnerInterceptor}使用\n <pre>\n {@code\n @Service\n public class UserService{\n      @Autowired\n      private UserMapper userMapper;\n\n      public List<User> getUsers(){\n          try{\n            //跳过不使用自动租户插件\n            TenantSkipper.skip();\n            return this.userMapper.list();\n          }finally{\n            //记得一定要清除线程上下文\n            TenantSkipper.remove();\n          }\n      }\n }\n }\n </pre>\n\n @author chiyo <br>\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "setSkip",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper.setSkip",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper",
+      "signature": "void setSkip(boolean skip)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "是否跳过租户\n\n @param skip 跳",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "skip",
+          "type": "boolean",
+          "signature": "boolean skip",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 18
+            },
+            "end": {
+              "line": 39,
+              "column": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "cleanContext",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper.cleanContext",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper",
+      "signature": "void cleanContext()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "清除是否跳过上下文",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getSkip",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper.getSkip",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSkipper",
+      "signature": "boolean getSkip()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 23
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "是否使用租户\n\n @return boolean",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

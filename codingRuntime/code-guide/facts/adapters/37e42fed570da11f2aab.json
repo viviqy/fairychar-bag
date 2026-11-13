@@ -1,0 +1,547 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSizeValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FileSizeValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class FileSizeValidator implements ConstraintValidator<FileSize, MultipartFile>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 38,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "文件大小范围校验器\n\n @author chiyo\n @since 1.3.2",
+      "supertypes": [
+        "ConstraintValidator<FileSize, MultipartFile>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "unit",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "signature": "private FileSize.Unit unit",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FileSize.Unit",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "min",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "signature": "private long min",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "max",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "signature": "private long max",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "initialize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "signature": "@Override\n    public void initialize(FileSize fileSize)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fileSize",
+          "type": "FileSize",
+          "signature": "FileSize fileSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 28
+            },
+            "end": {
+              "line": 22,
+              "column": 45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "signature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "MultipartFile",
+          "signature": "MultipartFile value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 28
+            },
+            "end": {
+              "line": 30,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 49
+            },
+            "end": {
+              "line": 30,
+              "column": 83
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.multipart.MultipartFile",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "initialize",
+      "expression": "ConstraintValidator.super.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 9
+        },
+        "end": {
+          "line": 23,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "unit",
+      "expression": "fileSize.unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 21
+        },
+        "end": {
+          "line": 24,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "min",
+      "expression": "fileSize.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 20
+        },
+        "end": {
+          "line": 25,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "max",
+      "expression": "fileSize.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 20
+        },
+        "end": {
+          "line": 26,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "value.getSize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 22
+        },
+        "end": {
+          "line": 31,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "unit.getSize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 19
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "unit.getSize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 61
+        },
+        "end": {
+          "line": 32,
+          "column": 75
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ConstraintValidator",
+      "expression": "ConstraintValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 43
+        },
+        "end": {
+          "line": 14,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "FileSize",
+      "expression": "FileSize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 63
+        },
+        "end": {
+          "line": 14,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "MultipartFile",
+      "expression": "MultipartFile",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 73
+        },
+        "end": {
+          "line": 14,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "Unit",
+      "expression": "FileSize.Unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.unit",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "FileSize",
+      "expression": "FileSize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 28
+        },
+        "end": {
+          "line": 22,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(FileSize fileSize)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 6
+        },
+        "end": {
+          "line": 21,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "MultipartFile",
+      "expression": "MultipartFile",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 28
+        },
+        "end": {
+          "line": 30,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 49
+        },
+        "end": {
+          "line": 30,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSizeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(MultipartFile value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

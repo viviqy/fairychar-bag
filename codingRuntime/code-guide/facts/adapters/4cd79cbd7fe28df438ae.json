@@ -1,0 +1,424 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/properties/NettyServerClientProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "NettyServerClientProperties",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class NettyServerClientProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>netty服务参数</p>\n 提供netty核心参数,但不自动配置任何组件,提供于需要获取netty相关参数配置的组件\n\n @author chiyo\n @since 0.0.1-SNAPSHOT",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "server",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.server",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "signature": "private ServerProperties server",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ServerProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "client",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.client",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "signature": "private ClientProperties client",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ClientProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "ClientProperties",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "signature": "@Data\n    public static class ClientProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "host",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties.host",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties",
+      "signature": "private String host",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 9
+        },
+        "end": {
+          "line": 19,
+          "column": 29
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "port",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties.port",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties",
+      "signature": "private int port",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 9
+        },
+        "end": {
+          "line": 20,
+          "column": 26
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "eventLoopSize",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties.eventLoopSize",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties",
+      "signature": "private int eventLoopSize",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 9
+        },
+        "end": {
+          "line": 21,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "ServerProperties",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "signature": "@Data\n    public static class ServerProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "port",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties.port",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties",
+      "signature": "private int port",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 9
+        },
+        "end": {
+          "line": 26,
+          "column": 26
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "bossSize",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties.bossSize",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties",
+      "signature": "private int bossSize",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 9
+        },
+        "end": {
+          "line": 27,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "workerSize",
+      "qualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties.workerSize",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties",
+      "signature": "private int workerSize",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "ServerProperties",
+      "expression": "ServerProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.server",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "ClientProperties",
+      "expression": "ClientProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.client",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 13
+        },
+        "end": {
+          "line": 15,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ClientProperties.host",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 17
+        },
+        "end": {
+          "line": 19,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.NettyServerClientProperties.ServerProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 6
+        },
+        "end": {
+          "line": 24,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

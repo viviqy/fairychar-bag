@@ -1,0 +1,1212 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/mybatis/handler/HeaderContextTenantHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.mybatis.handler",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "HeaderContextTenantHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class HeaderContextTenantHandler implements TenantLineHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 77,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "该类实现了MyBatis-Plus的TenantLineHandler接口，用于处理多租户的功能。\n 在该类中，通过获取HTTP请求的Header中的用户信息，从中提取出租户ID，并将其作为租户ID的表达式返回。\n 除此之外，该类还提供了获取租户ID列名和判断是否忽略某个表的方法。\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "TenantLineHandler"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "HeaderContextTenantHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ignoreTables",
+          "type": "Set<String>",
+          "signature": "Set<String> ignoreTables",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 39
+            },
+            "end": {
+              "line": 28,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "objectMapper",
+          "type": "ObjectMapper",
+          "signature": "ObjectMapper objectMapper",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 65
+            },
+            "end": {
+              "line": 28,
+              "column": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "HeaderContextTenantHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ignoreTables",
+          "type": "Set<String>",
+          "signature": "Set<String> ignoreTables",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 39
+            },
+            "end": {
+              "line": 33,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "objectMapper",
+          "type": "ObjectMapper",
+          "signature": "ObjectMapper objectMapper",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 65
+            },
+            "end": {
+              "line": 33,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "columnName",
+          "type": "String",
+          "signature": "String columnName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 92
+            },
+            "end": {
+              "line": 33,
+              "column": 109
+            }
+          }
+        },
+        {
+          "name": "header",
+          "type": "String",
+          "signature": "String header",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 111
+            },
+            "end": {
+              "line": 33,
+              "column": 124
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "property",
+      "name": "ignoreTables",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTables",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "private final Set<String> ignoreTables",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Set<String>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "private final ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "columnName",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.columnName",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "private String columnName = \"tenant_id\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"tenant_id\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "header",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.header",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "private String header = \"user\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"user\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getTenantId",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "@Override\n    public Expression getTenantId()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Expression",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getTenantIdColumn",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantIdColumn",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "@Override\n    public String getTenantIdColumn()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "ignoreTable",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTable",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "signature": "@Override\n    public boolean ignoreTable(String tableName)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tableName",
+          "type": "String",
+          "signature": "String tableName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 70,
+              "column": 32
+            },
+            "end": {
+              "line": 70,
+              "column": 48
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.TenantUser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "net.sf.jsqlparser.expression.Expression",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "net.sf.jsqlparser.expression.StringValue",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.context.request.RequestContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.context.request.ServletRequestAttributes",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 73
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collections",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Optional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "unmodifiableSet",
+      "expression": "Collections.unmodifiableSet",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 29
+        },
+        "end": {
+          "line": 29,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "unmodifiableSet",
+      "expression": "Collections.unmodifiableSet",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 29
+        },
+        "end": {
+          "line": 34,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "orElseThrow",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map(s -> s.getRequest())\n                .map(r -> r.getHeader(this.header))\n                .map(s -> {\n                    try {\n                        return this.objectMapper.readValue(s, TenantUser.class);\n                    } catch (IOException e) {\n                        return null;\n                    }\n                })\n                .map(u -> u.getTenantId())\n                //修改为String兼容性更高\n                .map(id -> ((Expression) new StringValue(id)))\n                .orElseThrow",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 60,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map(s -> s.getRequest())\n                .map(r -> r.getHeader(this.header))\n                .map(s -> {\n                    try {\n                        return this.objectMapper.readValue(s, TenantUser.class);\n                    } catch (IOException e) {\n                        return null;\n                    }\n                })\n                .map(u -> u.getTenantId())\n                //修改为String兼容性更高\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 59,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map(s -> s.getRequest())\n                .map(r -> r.getHeader(this.header))\n                .map(s -> {\n                    try {\n                        return this.objectMapper.readValue(s, TenantUser.class);\n                    } catch (IOException e) {\n                        return null;\n                    }\n                })\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 57,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map(s -> s.getRequest())\n                .map(r -> r.getHeader(this.header))\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 56,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map(s -> s.getRequest())\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 49,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()))\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 48,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 47,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "getRequestAttributes",
+      "expression": "RequestContextHolder.getRequestAttributes",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 64
+        },
+        "end": {
+          "line": 47,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "this.ignoreTables.contains",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTable",
+      "ownerSignature": "@Override\n    public boolean ignoreTable(String tableName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 13
+        },
+        "end": {
+          "line": 71,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "TenantLineHandler",
+      "expression": "TenantLineHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 52
+        },
+        "end": {
+          "line": 26,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 39
+        },
+        "end": {
+          "line": 28,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 43
+        },
+        "end": {
+          "line": 28,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 65
+        },
+        "end": {
+          "line": 28,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 39
+        },
+        "end": {
+          "line": 33,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 43
+        },
+        "end": {
+          "line": 33,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 65
+        },
+        "end": {
+          "line": 33,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 92
+        },
+        "end": {
+          "line": 33,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.HeaderContextTenantHandler",
+      "ownerSignature": "public HeaderContextTenantHandler(Set<String> ignoreTables, ObjectMapper objectMapper, String columnName, String header)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 111
+        },
+        "end": {
+          "line": 33,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTables",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 19
+        },
+        "end": {
+          "line": 40,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTables",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 23
+        },
+        "end": {
+          "line": 40,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 19
+        },
+        "end": {
+          "line": 41,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.columnName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.header",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 13
+        },
+        "end": {
+          "line": 43,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Expression",
+      "expression": "Expression",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 12
+        },
+        "end": {
+          "line": 46,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantId",
+      "ownerSignature": "@Override\n    public Expression getTenantId()",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantIdColumn",
+      "ownerSignature": "@Override\n    public String getTenantIdColumn()",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 12
+        },
+        "end": {
+          "line": 64,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.getTenantIdColumn",
+      "ownerSignature": "@Override\n    public String getTenantIdColumn()",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 6
+        },
+        "end": {
+          "line": 63,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTable",
+      "ownerSignature": "@Override\n    public boolean ignoreTable(String tableName)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 32
+        },
+        "end": {
+          "line": 70,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.HeaderContextTenantHandler.ignoreTable",
+      "ownerSignature": "@Override\n    public boolean ignoreTable(String tableName)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 6
+        },
+        "end": {
+          "line": 69,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 22
+        },
+        "end": {
+          "line": 48,
+          "column": 41
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 22
+        },
+        "end": {
+          "line": 49,
+          "column": 51
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 22
+        },
+        "end": {
+          "line": 56,
+          "column": 18
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 22
+        },
+        "end": {
+          "line": 57,
+          "column": 42
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 22
+        },
+        "end": {
+          "line": 59,
+          "column": 62
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 30
+        },
+        "end": {
+          "line": 60,
+          "column": 103
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

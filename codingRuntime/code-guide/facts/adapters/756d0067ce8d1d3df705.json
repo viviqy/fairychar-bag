@@ -1,0 +1,226 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/permission/IApiAuthority.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.permission",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "IApiAuthority",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority",
+      "ownerQualifiedName": "",
+      "signature": "public interface IApiAuthority extends GrantedAuthority",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基础权限\n\n @author chiyo <br>",
+      "supertypes": [
+        "GrantedAuthority"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "getApi",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getApi",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority",
+      "signature": "String getApi()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "获取api路径\n\n @return",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getMethod",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority",
+      "signature": "String getMethod()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "获取请求方式,支持*代表所有\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getAuthority",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getAuthority",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority",
+      "signature": "@Override\n    default String getAuthority()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "default"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.security.core.GrantedAuthority",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "GrantedAuthority",
+      "expression": "GrantedAuthority",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 40
+        },
+        "end": {
+          "line": 10,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getApi",
+      "ownerSignature": "String getApi()",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getMethod",
+      "ownerSignature": "String getMethod()",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getAuthority",
+      "ownerSignature": "@Override\n    default String getAuthority()",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.IApiAuthority.getAuthority",
+      "ownerSignature": "@Override\n    default String getAuthority()",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

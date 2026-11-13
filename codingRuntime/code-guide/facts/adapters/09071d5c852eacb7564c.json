@@ -1,0 +1,433 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleEvaluationContext.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.spring.expression",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SimpleEvaluationContext",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "ownerQualifiedName": "",
+      "signature": "public class SimpleEvaluationContext extends MethodBasedEvaluationContext",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "copy from CacheEvaluationContext\n\n @author chiyo\n @date 2023/10/11",
+      "supertypes": [
+        "MethodBasedEvaluationContext"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "SimpleEvaluationContext",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "signature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "rootObject",
+          "type": "Object",
+          "signature": "Object rootObject",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 36
+            },
+            "end": {
+              "line": 35,
+              "column": 53
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 55
+            },
+            "end": {
+              "line": 35,
+              "column": 68
+            }
+          }
+        },
+        {
+          "name": "arguments",
+          "type": "Object[]",
+          "signature": "Object[] arguments",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 70
+            },
+            "end": {
+              "line": 35,
+              "column": 88
+            }
+          }
+        },
+        {
+          "name": "parameterNameDiscoverer",
+          "type": "ParameterNameDiscoverer",
+          "signature": "ParameterNameDiscoverer parameterNameDiscoverer",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 36
+            },
+            "end": {
+              "line": 36,
+              "column": 83
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lookupVariable",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "signature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Nullable"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Load the param information only when needed.",
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "String",
+          "signature": "String name",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 34
+            },
+            "end": {
+              "line": 47,
+              "column": 45
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.expression.MethodBasedEvaluationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.ParameterNameDiscoverer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.lang.Nullable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerSignature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 9
+        },
+        "end": {
+          "line": 38,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "lookupVariable",
+      "expression": "super.lookupVariable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerSignature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 16
+        },
+        "end": {
+          "line": 48,
+          "column": 42
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "MethodBasedEvaluationContext",
+      "expression": "MethodBasedEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 46
+        },
+        "end": {
+          "line": 32,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerSignature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 36
+        },
+        "end": {
+          "line": 35,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerSignature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 55
+        },
+        "end": {
+          "line": 35,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerSignature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 70
+        },
+        "end": {
+          "line": 35,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "ParameterNameDiscoverer",
+      "expression": "ParameterNameDiscoverer",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.SimpleEvaluationContext",
+      "ownerSignature": "public SimpleEvaluationContext(Object rootObject, Method method, Object[] arguments,\n                                   ParameterNameDiscoverer parameterNameDiscoverer)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 36
+        },
+        "end": {
+          "line": 36,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerSignature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerSignature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 34
+        },
+        "end": {
+          "line": 47,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerSignature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Nullable",
+      "expression": "Nullable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext.lookupVariable",
+      "ownerSignature": "@Override\n    @Nullable\n    public Object lookupVariable(String name)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 6
+        },
+        "end": {
+          "line": 46,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

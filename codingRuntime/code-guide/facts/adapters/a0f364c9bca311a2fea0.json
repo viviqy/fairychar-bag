@@ -1,0 +1,110 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/swagger/RequestIgnoreParameterPlugin.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.swagger",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RequestIgnoreParameterPlugin",
+      "qualifiedName": "com.fairychar.bag.beans.swagger.RequestIgnoreParameterPlugin",
+      "ownerQualifiedName": "",
+      "signature": "@Order(Ordered.HIGHEST_PRECEDENCE + 103)\n@Deprecated(since = \"openApi3\")\npublic class RequestIgnoreParameterPlugin",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 94,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Order(Ordered.HIGHEST_PRECEDENCE + 103)",
+        "@Deprecated(since = \"openApi3\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "忽略接口某个参数,避免编写过多的实体类,该插件通过给Open API v2.0 的Path节点添加扩展属性x-ignoreParameters扩展属性,结合前端ui自定义实现过滤规则.\n 2.0.3版本添加includeParameters属性的支持\n 后期想办法适配\n @since:swagger-bootstrap-ui 1.9.5",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.core.Ordered",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.annotation.Order",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Order",
+      "expression": "Order",
+      "ownerQualifiedName": "com.fairychar.bag.beans.swagger.RequestIgnoreParameterPlugin",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Deprecated",
+      "expression": "Deprecated",
+      "ownerQualifiedName": "com.fairychar.bag.beans.swagger.RequestIgnoreParameterPlugin",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

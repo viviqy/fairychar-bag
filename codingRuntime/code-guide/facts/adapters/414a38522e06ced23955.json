@@ -1,0 +1,1093 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/structure/SysApiStructure.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.structure",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SysApiStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "ownerQualifiedName": "",
+      "signature": "@Mapper(componentModel = \"spring\", uses = {})\npublic interface SysApiStructure",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 70,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Mapper(componentModel = \"spring\", uses = {})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(SysApi)表数据库实体转换器\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "entitiesToDtos",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "entities转dtos\n\n @param entities {@link SysApi}\n @return dto对象 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "List<SysApiDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SysApi>",
+          "signature": "List<SysApi> entities",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 44
+            },
+            "end": {
+              "line": 27,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "entityToDto",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "SysApiDTO entityToDto(SysApi entity)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "entity转dto\n\n @param entity {@link SysApi}\n @return dto对象 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "SysApiDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entity",
+          "type": "SysApi",
+          "signature": "SysApi entity",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 27
+            },
+            "end": {
+              "line": 40,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "queries转entities\n\n @param queries {@link SysApiQuery}\n @return entity对象 {@link SysApi}",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "queries",
+          "type": "List<SysApiQuery>",
+          "signature": "List<SysApiQuery> queries",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 48,
+              "column": 44
+            },
+            "end": {
+              "line": 48,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "SysApi queryToEntity(SysApiQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "query转entity\n\n @param query {@link SysApiQuery}\n @return entity对象 {@link SysApi}",
+      "typeParameters": [],
+      "returnType": "SysApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "SysApiQuery",
+          "signature": "SysApiQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 61,
+              "column": 26
+            },
+            "end": {
+              "line": 61,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "SysApi addQueryToEntity(AddSysApiQuery addSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysApiQuery",
+          "type": "AddSysApiQuery",
+          "signature": "AddSysApiQuery addSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 29
+            },
+            "end": {
+              "line": 63,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "SysApi updateQueryToEntity(UpdateSysApiQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysApiQuery",
+          "signature": "UpdateSysApiQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 32
+            },
+            "end": {
+              "line": 65,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSysApiQuery>",
+          "signature": "List<AddSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 39
+            },
+            "end": {
+              "line": 67,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "signature": "List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 73
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSysApiQuery>",
+          "signature": "List<UpdateSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 42
+            },
+            "end": {
+              "line": 69,
+              "column": 71
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysApiDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 70
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.mapstruct.Mapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "collect",
+      "expression": "entities.stream().map(this::entityToDto).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "entities.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 65
+        },
+        "end": {
+          "line": 31,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "queries.stream().map(this::queryToEntity).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "queries.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "queries.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 66
+        },
+        "end": {
+          "line": 52,
+          "column": 85
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Mapper",
+      "expression": "Mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 18
+        },
+        "end": {
+          "line": 27,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 44
+        },
+        "end": {
+          "line": 27,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysApiDTO> entitiesToDtos(List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 49
+        },
+        "end": {
+          "line": 27,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entityToDto",
+      "ownerSignature": "SysApiDTO entityToDto(SysApi entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.entityToDto",
+      "ownerSignature": "SysApiDTO entityToDto(SysApi entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 27
+        },
+        "end": {
+          "line": 40,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 13
+        },
+        "end": {
+          "line": 48,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 18
+        },
+        "end": {
+          "line": 48,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 44
+        },
+        "end": {
+          "line": 48,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "SysApiQuery",
+      "expression": "SysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queriesToEntities",
+      "ownerSignature": "default List<SysApi> queriesToEntities(List<SysApiQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 49
+        },
+        "end": {
+          "line": 48,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queryToEntity",
+      "ownerSignature": "SysApi queryToEntity(SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SysApiQuery",
+      "expression": "SysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.queryToEntity",
+      "ownerSignature": "SysApi queryToEntity(SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 26
+        },
+        "end": {
+          "line": 61,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueryToEntity",
+      "ownerSignature": "SysApi addQueryToEntity(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueryToEntity",
+      "ownerSignature": "SysApi addQueryToEntity(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 29
+        },
+        "end": {
+          "line": 63,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueryToEntity",
+      "ownerSignature": "SysApi updateQueryToEntity(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueryToEntity",
+      "ownerSignature": "SysApi updateQueryToEntity(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 32
+        },
+        "end": {
+          "line": 65,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 10
+        },
+        "end": {
+          "line": 67,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 39
+        },
+        "end": {
+          "line": 67,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysApi> addQueriesToEntities(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 44
+        },
+        "end": {
+          "line": 67,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 42
+        },
+        "end": {
+          "line": 69,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysApi> updateQueriesToEntities(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 47
+        },
+        "end": {
+          "line": 69,
+          "column": 64
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 38
+        },
+        "end": {
+          "line": 31,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 37
+        },
+        "end": {
+          "line": 52,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

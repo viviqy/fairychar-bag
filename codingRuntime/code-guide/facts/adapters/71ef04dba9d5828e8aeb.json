@@ -1,0 +1,655 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/properties/AopProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AopProperties",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\n@Setter\npublic class AopProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter",
+        "@Setter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于AOP的功能属性配置\n\n @author qiyue",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "log",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.log",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "signature": "private Log log",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Log",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.lock",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "signature": "private Lock lock",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 23
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Lock",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "Log",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "signature": "@Getter\n    @Setter\n    public static class Log",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Getter",
+        "@Setter"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Log.enable",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 9
+        },
+        "end": {
+          "line": 25,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "globalLevel",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalLevel",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "signature": "private RequestLog.Level globalLevel = RequestLog.Level.INFO",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 9
+        },
+        "end": {
+          "line": 26,
+          "column": 70
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "RequestLog.Level",
+      "defaultExpression": "RequestLog.Level.INFO",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "globalBefore",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalBefore",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "signature": "private String globalBefore",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 9
+        },
+        "end": {
+          "line": 27,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "globalAfter",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalAfter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "signature": "private String globalAfter",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "Lock",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "signature": "@Getter\n    @Setter\n    public static class Lock",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Getter",
+        "@Setter"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.enable",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 9
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "使用启用lock切面",
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "globalTimeout",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.globalTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "signature": "private int globalTimeout = 1",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 9
+        },
+        "end": {
+          "line": 41,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "全局超时时间,默认1",
+      "type": "int",
+      "defaultExpression": "1",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "timeUnit",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.timeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "signature": "private TimeUnit timeUnit = TimeUnit.SECONDS",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "全局超时时间单位设置",
+      "type": "TimeUnit",
+      "defaultExpression": "TimeUnit.SECONDS",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "defaultLock",
+      "qualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.defaultLock",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "signature": "private MethodLock.Type defaultLock = MethodLock.Type.LOCAL",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 9
+        },
+        "end": {
+          "line": 50,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "全局锁类型,默认使用本地锁,不能配置为DEFAULT",
+      "type": "MethodLock.Type",
+      "defaultExpression": "MethodLock.Type.LOCAL",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.RequestLog",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Log",
+      "expression": "Log",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.log",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Lock",
+      "expression": "Lock",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.lock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 13
+        },
+        "end": {
+          "line": 19,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 6
+        },
+        "end": {
+          "line": 22,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 6
+        },
+        "end": {
+          "line": 23,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Level",
+      "expression": "RequestLog.Level",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalLevel",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 17
+        },
+        "end": {
+          "line": 26,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalBefore",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 17
+        },
+        "end": {
+          "line": 27,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Log.globalAfter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 17
+        },
+        "end": {
+          "line": 28,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 6
+        },
+        "end": {
+          "line": 32,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.timeUnit",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 17
+        },
+        "end": {
+          "line": 46,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Type",
+      "expression": "MethodLock.Type",
+      "ownerQualifiedName": "com.fairychar.bag.properties.AopProperties.Lock.defaultLock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 17
+        },
+        "end": {
+          "line": 50,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

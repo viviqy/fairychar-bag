@@ -1,0 +1,757 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/TimeValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "TimeValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class TimeValidator implements ConstraintValidator<TimeBetween, String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "时间范围校验器\n\n @author chiyo\n @since 1.3.2",
+      "supertypes": [
+        "ConstraintValidator<TimeBetween, String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "pattern",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.pattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "private String pattern",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "min",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "private String min",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "max",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "private String max",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "NOW",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.NOW",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "private static final String NOW = \"now\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"now\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "initialize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "timeBetween",
+          "type": "TimeBetween",
+          "signature": "TimeBetween timeBetween",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 25,
+              "column": 28
+            },
+            "end": {
+              "line": 25,
+              "column": 51
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "signature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "String",
+          "signature": "String value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 28
+            },
+            "end": {
+              "line": 33,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 42
+            },
+            "end": {
+              "line": 33,
+              "column": 76
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.format.DateTimeFormatter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 43
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "initialize",
+      "expression": "ConstraintValidator.super.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 9
+        },
+        "end": {
+          "line": 26,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "pattern",
+      "expression": "timeBetween.pattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 24
+        },
+        "end": {
+          "line": 27,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "min",
+      "expression": "timeBetween.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 20
+        },
+        "end": {
+          "line": 28,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "max",
+      "expression": "timeBetween.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 20
+        },
+        "end": {
+          "line": 29,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 47
+        },
+        "end": {
+          "line": 34,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 37
+        },
+        "end": {
+          "line": 35,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "NOW.equals",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 33
+        },
+        "end": {
+          "line": 36,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 56
+        },
+        "end": {
+          "line": 36,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 78
+        },
+        "end": {
+          "line": 36,
+          "column": 126
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "NOW.equals",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 33
+        },
+        "end": {
+          "line": 37,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 56
+        },
+        "end": {
+          "line": 37,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 78
+        },
+        "end": {
+          "line": 37,
+          "column": 126
+        }
+      }
+    },
+    {
+      "name": "isBefore",
+      "expression": "minDate.isBefore",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "isBefore",
+      "expression": "requestTime.isBefore",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 46
+        },
+        "end": {
+          "line": 38,
+          "column": 75
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ConstraintValidator",
+      "expression": "ConstraintValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 39
+        },
+        "end": {
+          "line": 16,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "TimeBetween",
+      "expression": "TimeBetween",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 59
+        },
+        "end": {
+          "line": 16,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 72
+        },
+        "end": {
+          "line": 16,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.pattern",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.min",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 13
+        },
+        "end": {
+          "line": 19,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.max",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.NOW",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 26
+        },
+        "end": {
+          "line": 22,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "TimeBetween",
+      "expression": "TimeBetween",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 28
+        },
+        "end": {
+          "line": 25,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(TimeBetween timeBetween)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 6
+        },
+        "end": {
+          "line": 24,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 28
+        },
+        "end": {
+          "line": 33,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 42
+        },
+        "end": {
+          "line": 33,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.TimeValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 6
+        },
+        "end": {
+          "line": 32,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

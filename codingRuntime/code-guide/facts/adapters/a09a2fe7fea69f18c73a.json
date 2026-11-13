@@ -1,0 +1,792 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/ActionSchedule.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.concurrent",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ActionSchedule",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerQualifiedName": "",
+      "signature": "@RequiredArgsConstructor\n@Data\npublic final class ActionSchedule implements Comparable<ActionSchedule>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 85,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@RequiredArgsConstructor",
+        "@Data"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "周期调度型任务,配合{@link com.fairychar.bag.template.ActionSelectorTemplate}使用\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "Comparable<ActionSchedule>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "taskName",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.taskName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "@NonNull\nprivate String taskName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 29
+        }
+      },
+      "annotations": [
+        "@NonNull"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "任务名称(默认当前线程名称)",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "working",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.working",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "private final AtomicBoolean working = new AtomicBoolean(false)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 68
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "任务执行状态，使用AtomicBoolean确保线程安全和原子操作",
+      "type": "AtomicBoolean",
+      "defaultExpression": "new AtomicBoolean(false)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "period",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.period",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "@NonNull\nprivate long period",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@NonNull"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "lastExecuteTime",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.lastExecuteTime",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "private final AtomicLong lastExecuteTime = new AtomicLong(System.currentTimeMillis())",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 91
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "上次执行时间，使用AtomicLong确保线程安全",
+      "type": "AtomicLong",
+      "defaultExpression": "new AtomicLong(System.currentTimeMillis())",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "action",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "@NonNull\nprivate AbstractScheduleAction action",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 43
+        }
+      },
+      "annotations": [
+        "@NonNull"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AbstractScheduleAction",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "isWorking",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.isWorking",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "public boolean isWorking()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取任务执行状态\n @return true表示正在执行",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getWorkingAtomic",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getWorkingAtomic",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "public AtomicBoolean getWorkingAtomic()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 5
+        },
+        "end": {
+          "line": 56,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取AtomicBoolean引用，用于CAS操作\n @return AtomicBoolean实例",
+      "typeParameters": [],
+      "returnType": "AtomicBoolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getLastExecuteTime",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getLastExecuteTime",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "public long getLastExecuteTime()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取上次执行时间\n @return 时间戳",
+      "typeParameters": [],
+      "returnType": "long",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getLastExecuteTimeAtomic",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getLastExecuteTimeAtomic",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "public AtomicLong getLastExecuteTimeAtomic()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 5
+        },
+        "end": {
+          "line": 72,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取AtomicLong引用，用于原子操作\n @return AtomicLong实例",
+      "typeParameters": [],
+      "returnType": "AtomicLong",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "compareTo",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.compareTo",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "signature": "@Override\n    public int compareTo(ActionSchedule o)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "根据任务名称判断\n\n @param o 定时任务执行器\n @return",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "o",
+          "type": "ActionSchedule",
+          "signature": "ActionSchedule o",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 26
+            },
+            "end": {
+              "line": 82,
+              "column": 42
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NonNull",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicBoolean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicLong",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 47
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "AtomicBoolean",
+      "expression": "new AtomicBoolean",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 43
+        },
+        "end": {
+          "line": 29,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "AtomicLong",
+      "expression": "new AtomicLong",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 48
+        },
+        "end": {
+          "line": 37,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "currentTimeMillis",
+      "expression": "System.currentTimeMillis",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 63
+        },
+        "end": {
+          "line": 37,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "working.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.isWorking",
+      "ownerSignature": "public boolean isWorking()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 47,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "lastExecuteTime.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getLastExecuteTime",
+      "ownerSignature": "public long getLastExecuteTime()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 16
+        },
+        "end": {
+          "line": 63,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "this.taskName.equals",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.compareTo",
+      "ownerSignature": "@Override\n    public int compareTo(ActionSchedule o)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 16
+        },
+        "end": {
+          "line": 83,
+          "column": 48
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Comparable",
+      "expression": "Comparable",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 46
+        },
+        "end": {
+          "line": 19,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "ActionSchedule",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 57
+        },
+        "end": {
+          "line": 19,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.taskName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "NonNull",
+      "expression": "NonNull",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.taskName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 6
+        },
+        "end": {
+          "line": 23,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "AtomicBoolean",
+      "expression": "AtomicBoolean",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.working",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "NonNull",
+      "expression": "NonNull",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.period",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "AtomicLong",
+      "expression": "AtomicLong",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.lastExecuteTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 19
+        },
+        "end": {
+          "line": 37,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "AbstractScheduleAction",
+      "expression": "AbstractScheduleAction",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.action",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "NonNull",
+      "expression": "NonNull",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.action",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "AtomicBoolean",
+      "expression": "AtomicBoolean",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getWorkingAtomic",
+      "ownerSignature": "public AtomicBoolean getWorkingAtomic()",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 12
+        },
+        "end": {
+          "line": 54,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "AtomicLong",
+      "expression": "AtomicLong",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.getLastExecuteTimeAtomic",
+      "ownerSignature": "public AtomicLong getLastExecuteTimeAtomic()",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 12
+        },
+        "end": {
+          "line": 70,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "ActionSchedule",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.compareTo",
+      "ownerSignature": "@Override\n    public int compareTo(ActionSchedule o)",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 26
+        },
+        "end": {
+          "line": 82,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule.compareTo",
+      "ownerSignature": "@Override\n    public int compareTo(ActionSchedule o)",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 6
+        },
+        "end": {
+          "line": 81,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1202 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RepeatTaskExecutor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.concurrent",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RepeatTaskExecutor",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic final class RepeatTaskExecutor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 108,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "<p>\n 任务编排循环执行工具\n <p>\n 传入任务列表后,将会根据批次无限循环执行\n </p>\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "cyclicBarrier",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.cyclicBarrier",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "private final CyclicBarrier cyclicBarrier",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 47
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "CyclicBarrier",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "runnables",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.runnables",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "private final List<Action> runnables",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "List<Action>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executorService",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.executorService",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "private final ExecutorService executorService",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 51
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ExecutorService",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executeTimes",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.executeTimes",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "private final AtomicLong executeTimes",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 43
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "AtomicLong",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "RepeatTaskExecutor",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "runnables",
+          "type": "List<Action>",
+          "signature": "List<Action> runnables",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 32
+            },
+            "end": {
+              "line": 30,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 56
+            },
+            "end": {
+              "line": 30,
+              "column": 71
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createCycle",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "创建任务批次执行工具类\n\n @param tasklist 任务列表\n @return {@link RepeatTaskExecutor}",
+      "typeParameters": [],
+      "returnType": "RepeatTaskExecutor",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tasklist",
+          "type": "List<Action>",
+          "signature": "List<Action> tasklist",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 46,
+              "column": 50
+            },
+            "end": {
+              "line": 46,
+              "column": 71
+            }
+          }
+        },
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 46,
+              "column": 73
+            },
+            "end": {
+              "line": 46,
+              "column": 88
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "public void start()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 5
+        },
+        "end": {
+          "line": 56,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "使用默认参数启动任务执行",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 90,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "启动任务执行\n\n @param onInterrupted 当任务被打断时的异常处理\n @param onTimeout     当任务超时时的异常处理\n @param onBroken      当任务被终止时的异常处理\n @param waitMillis    当前批次中执行完的任务等待未执行完的任务的最长毫秒数(超时会触发{@link BrokenBarrierException})",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "onInterrupted",
+          "type": "Consumer<InterruptedException>",
+          "signature": "Consumer<InterruptedException> onInterrupted",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 23
+            },
+            "end": {
+              "line": 67,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "onTimeout",
+          "type": "Consumer<TimeoutException>",
+          "signature": "Consumer<TimeoutException> onTimeout",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 69
+            },
+            "end": {
+              "line": 67,
+              "column": 105
+            }
+          }
+        },
+        {
+          "name": "onBroken",
+          "type": "Consumer<BrokenBarrierException>",
+          "signature": "Consumer<BrokenBarrierException> onBroken",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 23
+            },
+            "end": {
+              "line": 68,
+              "column": 64
+            }
+          }
+        },
+        {
+          "name": "waitMillis",
+          "type": "long",
+          "signature": "long waitMillis",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 66
+            },
+            "end": {
+              "line": 68,
+              "column": 81
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getExecutedTimes",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.getExecutedTimes",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "public long getExecutedTimes()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 5
+        },
+        "end": {
+          "line": 99,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取已执行任务次数\n\n @return 已执行次数",
+      "typeParameters": [],
+      "returnType": "long",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "stop",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.stop",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "signature": "public void stop()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 5
+        },
+        "end": {
+          "line": 107,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "停止",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.util.concurrent.ThreadFactoryBuilder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Optional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 31
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicLong",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.function.Consumer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "notBlank",
+      "expression": "Assert.notBlank",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "CyclicBarrier",
+      "expression": "new CyclicBarrier",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 30
+        },
+        "end": {
+          "line": 32,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "runnables.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 48
+        },
+        "end": {
+          "line": 32,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "AtomicLong",
+      "expression": "new AtomicLong",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 29
+        },
+        "end": {
+          "line": 34,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "ThreadPoolExecutor",
+      "expression": "new ThreadPoolExecutor",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 32
+        },
+        "end": {
+          "line": 37,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "runnables.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 55
+        },
+        "end": {
+          "line": 35,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "runnables.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 73
+        },
+        "end": {
+          "line": 35,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "LinkedBlockingQueue<>",
+      "expression": "new LinkedBlockingQueue<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 41
+        },
+        "end": {
+          "line": 36,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "build",
+      "expression": "new ThreadFactoryBuilder()\n                .setNameFormat(taskName + \"-pool-%d\").build",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 74
+        },
+        "end": {
+          "line": 37,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "setNameFormat",
+      "expression": "new ThreadFactoryBuilder()\n                .setNameFormat",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 74
+        },
+        "end": {
+          "line": 37,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "ThreadFactoryBuilder",
+      "expression": "new ThreadFactoryBuilder",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 74
+        },
+        "end": {
+          "line": 36,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "RepeatTaskExecutor",
+      "expression": "new RepeatTaskExecutor",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerSignature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 47,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "start",
+      "expression": "start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start()",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 9
+        },
+        "end": {
+          "line": 55,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "runnables.forEach",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 9
+        },
+        "end": {
+          "line": 89,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.executeTimes.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.getExecutedTimes",
+      "ownerSignature": "public long getExecutedTimes()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 16
+        },
+        "end": {
+          "line": 98,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "reset",
+      "expression": "this.cyclicBarrier.reset",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.stop",
+      "ownerSignature": "public void stop()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 106,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "CyclicBarrier",
+      "expression": "CyclicBarrier",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.cyclicBarrier",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.runnables",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 19
+        },
+        "end": {
+          "line": 26,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.runnables",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 24
+        },
+        "end": {
+          "line": 26,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.executorService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 19
+        },
+        "end": {
+          "line": 27,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "AtomicLong",
+      "expression": "AtomicLong",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.executeTimes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 19
+        },
+        "end": {
+          "line": 28,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 32
+        },
+        "end": {
+          "line": 30,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 37
+        },
+        "end": {
+          "line": 30,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.RepeatTaskExecutor",
+      "ownerSignature": "private RepeatTaskExecutor(List<Action> runnables, String taskName)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 56
+        },
+        "end": {
+          "line": 30,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "RepeatTaskExecutor",
+      "expression": "RepeatTaskExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerSignature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 19
+        },
+        "end": {
+          "line": 46,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerSignature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 50
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerSignature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 55
+        },
+        "end": {
+          "line": 46,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.createCycle",
+      "ownerSignature": "public static RepeatTaskExecutor createCycle(List<Action> tasklist, String taskName)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 73
+        },
+        "end": {
+          "line": 46,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Consumer",
+      "expression": "Consumer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 23
+        },
+        "end": {
+          "line": 67,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "InterruptedException",
+      "expression": "InterruptedException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 32
+        },
+        "end": {
+          "line": 67,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Consumer",
+      "expression": "Consumer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 69
+        },
+        "end": {
+          "line": 67,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "TimeoutException",
+      "expression": "TimeoutException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 78
+        },
+        "end": {
+          "line": 67,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "Consumer",
+      "expression": "Consumer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 23
+        },
+        "end": {
+          "line": 68,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "BrokenBarrierException",
+      "expression": "BrokenBarrierException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RepeatTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout,\n                      Consumer<BrokenBarrierException> onBroken, long waitMillis)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 32
+        },
+        "end": {
+          "line": 68,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 27
+        },
+        "end": {
+          "line": 89,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1074 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/SwaggerLoggingHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.aop",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SwaggerLoggingHandler",
+      "qualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler",
+      "ownerQualifiedName": "",
+      "signature": "public class SwaggerLoggingHandler implements LoggingHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>swagger接口访问记录handler</p>\n 记录<Strong>URI</strong>,访问<Strong>接口名称,基于{@link Operation#operationId()}</Strong>,访问<Strong>时间戳</Strong>,访问<Strong>ip</Strong>\n\n @author qiyue",
+      "supertypes": [
+        "LoggingHandler"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "before",
+      "qualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler",
+      "signature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 24
+            },
+            "end": {
+              "line": 21,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "after",
+      "qualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler",
+      "signature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 23
+            },
+            "end": {
+              "line": 37,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "result",
+          "type": "Object",
+          "signature": "Object result",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 44
+            },
+            "end": {
+              "line": 37,
+              "column": 57
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.Operation",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.tags.Tag",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.JoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.reflect.MethodSignature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.format.DateTimeFormatter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getSignature",
+      "expression": "joinPoint.getSignature",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 61
+        },
+        "end": {
+          "line": 22,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "methodSignature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 34
+        },
+        "end": {
+          "line": 23,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 34
+        },
+        "end": {
+          "line": 23,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "joinPoint.getTarget().getClass",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 31
+        },
+        "end": {
+          "line": 24,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getTarget",
+      "expression": "joinPoint.getTarget",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 31
+        },
+        "end": {
+          "line": 24,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "getCurrentRequest",
+      "expression": "RequestUtil.getCurrentRequest",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 38
+        },
+        "end": {
+          "line": 25,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "methodSignature.getDeclaringType().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 25
+        },
+        "end": {
+          "line": 26,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "getDeclaringType",
+      "expression": "methodSignature.getDeclaringType",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 25
+        },
+        "end": {
+          "line": 26,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "format",
+      "expression": "String.format",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 5,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 23
+        },
+        "end": {
+          "line": 32,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "getRequestURI",
+      "expression": "request.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 19
+        },
+        "end": {
+          "line": 28,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "api.name().concat(\"-\").concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "api.name().concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "name",
+      "expression": "api.name",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "operationId",
+      "expression": "apiOperation.operationId",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 49
+        },
+        "end": {
+          "line": 29,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "format",
+      "expression": "LocalDateTime.now().format",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "end": {
+          "line": 30,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "end": {
+          "line": 30,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 46
+        },
+        "end": {
+          "line": 30,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "getIpAddress",
+      "expression": "RequestUtil.getIpAddress",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 19
+        },
+        "end": {
+          "line": 31,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "log",
+      "expression": "LoggingHelper.log",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 9
+        },
+        "end": {
+          "line": 33,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "methodSignature.getMethod().getName",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 39
+        },
+        "end": {
+          "line": 33,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 39
+        },
+        "end": {
+          "line": 33,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "getLevel",
+      "expression": "LoggingHelper.getLevel",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 78
+        },
+        "end": {
+          "line": 33,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "getSignature",
+      "expression": "joinPoint.getSignature",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 61
+        },
+        "end": {
+          "line": 38,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "methodSignature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 34
+        },
+        "end": {
+          "line": 39,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 34
+        },
+        "end": {
+          "line": 39,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "joinPoint.getTarget().getClass",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 31
+        },
+        "end": {
+          "line": 40,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getTarget",
+      "expression": "joinPoint.getTarget",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 31
+        },
+        "end": {
+          "line": 40,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "getCurrentRequest",
+      "expression": "RequestUtil.getCurrentRequest",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 38
+        },
+        "end": {
+          "line": 41,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "methodSignature.getDeclaringType().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "getDeclaringType",
+      "expression": "methodSignature.getDeclaringType",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "format",
+      "expression": "String.format",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 5,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 23
+        },
+        "end": {
+          "line": 48,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "getRequestURI",
+      "expression": "request.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 19
+        },
+        "end": {
+          "line": 44,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "api.name().concat(\"-\").concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "api.name().concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "name",
+      "expression": "api.name",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "operationId",
+      "expression": "apiOperation.operationId",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 49
+        },
+        "end": {
+          "line": 45,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getIpAddress",
+      "expression": "RequestUtil.getIpAddress",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 19
+        },
+        "end": {
+          "line": 46,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "log",
+      "expression": "LoggingHelper.log",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 9
+        },
+        "end": {
+          "line": 49,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "methodSignature.getMethod().getName",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 39
+        },
+        "end": {
+          "line": 49,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 39
+        },
+        "end": {
+          "line": 49,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "getLevel",
+      "expression": "LoggingHelper.getLevel",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 78
+        },
+        "end": {
+          "line": 49,
+          "column": 117
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "LoggingHandler",
+      "expression": "LoggingHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 47
+        },
+        "end": {
+          "line": 19,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 24
+        },
+        "end": {
+          "line": 21,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.before",
+      "ownerSignature": "@Override\n    public void before(JoinPoint joinPoint)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 6
+        },
+        "end": {
+          "line": 20,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 23
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 44
+        },
+        "end": {
+          "line": 37,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.SwaggerLoggingHandler.after",
+      "ownerSignature": "@Override\n    public void after(JoinPoint joinPoint, Object result)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

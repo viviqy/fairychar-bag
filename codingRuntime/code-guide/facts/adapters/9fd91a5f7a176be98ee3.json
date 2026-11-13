@@ -1,0 +1,724 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSize.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "FileSize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "ownerQualifiedName": "",
+      "signature": "@Target(ElementType.FIELD)\n@Retention(RetentionPolicy.RUNTIME)\n@Constraint(validatedBy = FileSizeValidator.class)\npublic @interface FileSize",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 64,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Target(ElementType.FIELD)",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Constraint(validatedBy = FileSizeValidator.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "文件大小校验\n\n @author chiyo\n @since 1.3.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "message",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.message",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "String message() default \"file size not in range\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 55
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"file size not in range\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "unit",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "Unit unit() default Unit.KB",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "单位\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "Unit",
+      "throws": [],
+      "defaultExpression": "Unit.KB",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "min",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "long min() default 0L",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "最小大小\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "long",
+      "throws": [],
+      "defaultExpression": "0L",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "max",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "long max()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "最大大小\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "long",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "groups",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.groups",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "Class<?>[] groups() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<?>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "payload",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "Class<? extends Payload>[] payload() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<? extends Payload>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    },
+    {
+      "kind": "enum",
+      "name": "Unit",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "signature": "@Getter\n    @AllArgsConstructor\n    enum Unit",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Getter",
+        "@AllArgsConstructor"
+      ],
+      "modifiers": [],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "B",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "B(1)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 9
+        },
+        "end": {
+          "line": 55,
+          "column": 13
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "KB",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.KB",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "KB(Consts.KB_PER_B)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 9
+        },
+        "end": {
+          "line": 56,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "MB",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.MB",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "MB(Consts.MB_PER_B)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 9
+        },
+        "end": {
+          "line": 57,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "GB",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.GB",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "GB(Consts.GB_PER_B)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 9
+        },
+        "end": {
+          "line": 58,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "TB",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.TB",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "TB(Consts.TB_PER_B)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 9
+        },
+        "end": {
+          "line": 59,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "PB",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.PB",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "PB(Consts.PB_PER_B)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 9
+        },
+        "end": {
+          "line": 60,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Unit",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "size",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "signature": "private long size",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 9
+        },
+        "end": {
+          "line": 62,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Constraint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Payload",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.ElementType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Retention",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.RetentionPolicy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Target",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Constraint",
+      "expression": "Constraint",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.message",
+      "ownerSignature": "String message() default \"file size not in range\"",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Unit",
+      "expression": "Unit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.unit",
+      "ownerSignature": "Unit unit() default Unit.KB",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.groups",
+      "ownerSignature": "Class<?>[] groups() default {}",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Payload",
+      "expression": "Payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 21
+        },
+        "end": {
+          "line": 50,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 6
+        },
+        "end": {
+          "line": 52,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.FileSize.Unit",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 6
+        },
+        "end": {
+          "line": 53,
+          "column": 24
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

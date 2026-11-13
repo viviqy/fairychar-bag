@@ -1,0 +1,767 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/interfaces/ISysApiService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.interfaces",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ISysApiService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "ownerQualifiedName": "",
+      "signature": "public interface ISysApiService extends IService<SysApi>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 68,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(SysApi)表服务接口\n\n @author chiyo",
+      "supertypes": [
+        "IService<SysApi>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SysApi所有数据\n\n @param sysApiQuery {@link SysApiQuery}查询条件\n @return 查询结果 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SysApiDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApiQuery",
+          "type": "SysApiQuery",
+          "signature": "SysApiQuery sysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 29
+            },
+            "end": {
+              "line": 29,
+              "column": 52
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "int save(AddSysApiQuery addSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "插入\n\n @param addSysApiQuery {@link SysApiQuery}插入query\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysApiQuery",
+          "type": "AddSysApiQuery",
+          "signature": "AddSysApiQuery addSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 14
+            },
+            "end": {
+              "line": 37,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 61
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "更新\n\n @param updateSysApiQuery {@link SysApiQuery}更新query\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysApiQuery",
+          "signature": "UpdateSysApiQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 24
+            },
+            "end": {
+              "line": 45,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "SysApiDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据id查询一个对象\n @param id id\n @return 查询结果 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "SysApiDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 52,
+              "column": 24
+            },
+            "end": {
+              "line": 52,
+              "column": 39
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 56
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSysApiQuery>",
+          "signature": "List<AddSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 61,
+              "column": 28
+            },
+            "end": {
+              "line": 61,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateByIdBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.updateByIdBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSysApiQuery>",
+          "signature": "List<UpdateSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 29
+            },
+            "end": {
+              "line": 63,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "signature": "void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 22
+            },
+            "end": {
+              "line": 65,
+              "column": 39
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.IService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysApiDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 70
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "IService",
+      "expression": "IService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 41
+        },
+        "end": {
+          "line": 19,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 50
+        },
+        "end": {
+          "line": 19,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.pageAll",
+      "ownerSignature": "Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.pageAll",
+      "ownerSignature": "Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 10
+        },
+        "end": {
+          "line": 29,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "SysApiQuery",
+      "expression": "SysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.pageAll",
+      "ownerSignature": "Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 29
+        },
+        "end": {
+          "line": 29,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.save",
+      "ownerSignature": "int save(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 14
+        },
+        "end": {
+          "line": 37,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.updateById",
+      "ownerSignature": "boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 24
+        },
+        "end": {
+          "line": 45,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.findById",
+      "ownerSignature": "SysApiDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.findById",
+      "ownerSignature": "SysApiDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 24
+        },
+        "end": {
+          "line": 52,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.saveBatch",
+      "ownerSignature": "List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.saveBatch",
+      "ownerSignature": "List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 10
+        },
+        "end": {
+          "line": 61,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.saveBatch",
+      "ownerSignature": "List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 28
+        },
+        "end": {
+          "line": 61,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.saveBatch",
+      "ownerSignature": "List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 33
+        },
+        "end": {
+          "line": 61,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.updateByIdBatch",
+      "ownerSignature": "boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 29
+        },
+        "end": {
+          "line": 63,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.updateByIdBatch",
+      "ownerSignature": "boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 34
+        },
+        "end": {
+          "line": 63,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.removeBatch",
+      "ownerSignature": "void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 22
+        },
+        "end": {
+          "line": 65,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService.removeBatch",
+      "ownerSignature": "void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 27
+        },
+        "end": {
+          "line": 65,
+          "column": 34
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

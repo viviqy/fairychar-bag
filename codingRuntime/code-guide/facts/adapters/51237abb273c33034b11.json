@@ -1,0 +1,1037 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/request/HeaderValueHolder.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.request",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "HeaderValueHolder",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "ownerQualifiedName": "",
+      "signature": "class HeaderValueHolder",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "Internal helper class that serves as a value holder for request headers.\n copy from spring test\n\n @since 2.0.1",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "values",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.values",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "private final List<Object> values = new LinkedList<>()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "List<Object>",
+      "defaultExpression": "new LinkedList<>()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "setValue",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.setValue",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "void setValue(@Nullable Object value)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "Object",
+          "signature": "@Nullable Object value",
+          "annotations": [
+            "@Nullable"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 38,
+              "column": 19
+            },
+            "end": {
+              "line": 38,
+              "column": 41
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addValue",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValue",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "void addValue(Object value)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "Object",
+          "signature": "Object value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 19
+            },
+            "end": {
+              "line": 45,
+              "column": 31
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addValues",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValues",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "void addValues(Collection<?> values)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "values",
+          "type": "Collection<?>",
+          "signature": "Collection<?> values",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 20
+            },
+            "end": {
+              "line": 49,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addValueArray",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValueArray",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "void addValueArray(Object values)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "values",
+          "type": "Object",
+          "signature": "Object values",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 24
+            },
+            "end": {
+              "line": 53,
+              "column": 37
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getValues",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValues",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "List<Object> getValues()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<Object>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getStringValues",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "List<String> getStringValues()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<String>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getValue",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValue",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "@Nullable\n    Object getValue()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Nullable"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getStringValue",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "@Nullable\n    String getStringValue()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 5
+        },
+        "end": {
+          "line": 73,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Nullable"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "toString",
+      "qualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.toString",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "signature": "@Override\n    public String toString()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 5
+        },
+        "end": {
+          "line": 78,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.lang.Nullable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.util.CollectionUtils",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collection",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collections",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.LinkedList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "LinkedList<>",
+      "expression": "new LinkedList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 41
+        },
+        "end": {
+          "line": 35,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "clear",
+      "expression": "this.values.clear",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.setValue",
+      "ownerSignature": "void setValue(@Nullable Object value)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 9
+        },
+        "end": {
+          "line": 39,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "this.values.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.setValue",
+      "ownerSignature": "void setValue(@Nullable Object value)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "end": {
+          "line": 41,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "this.values.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValue",
+      "ownerSignature": "void addValue(Object value)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 46,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "addAll",
+      "expression": "this.values.addAll",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValues",
+      "ownerSignature": "void addValues(Collection<?> values)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 9
+        },
+        "end": {
+          "line": 50,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "mergeArrayIntoCollection",
+      "expression": "CollectionUtils.mergeArrayIntoCollection",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValueArray",
+      "ownerSignature": "void addValueArray(Object values)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "unmodifiableList",
+      "expression": "Collections.unmodifiableList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValues",
+      "ownerSignature": "List<Object> getValues()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 16
+        },
+        "end": {
+          "line": 58,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "this.values.stream().map(Object::toString).toList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerSignature": "List<String> getStringValues()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 16
+        },
+        "end": {
+          "line": 62,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "this.values.stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerSignature": "List<String> getStringValues()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 16
+        },
+        "end": {
+          "line": 62,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "this.values.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerSignature": "List<String> getStringValues()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 16
+        },
+        "end": {
+          "line": 62,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "this.values.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValue",
+      "ownerSignature": "@Nullable\n    Object getValue()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 18
+        },
+        "end": {
+          "line": 67,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.values.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValue",
+      "ownerSignature": "@Nullable\n    Object getValue()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 42
+        },
+        "end": {
+          "line": 67,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "this.values.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerSignature": "@Nullable\n    String getStringValue()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 18
+        },
+        "end": {
+          "line": 72,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerSignature": "@Nullable\n    String getStringValue()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 42
+        },
+        "end": {
+          "line": 72,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.values.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerSignature": "@Nullable\n    String getStringValue()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 57
+        },
+        "end": {
+          "line": 72,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "toString",
+      "expression": "this.values.toString",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.toString",
+      "ownerSignature": "@Override\n    public String toString()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 16
+        },
+        "end": {
+          "line": 77,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.values",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 19
+        },
+        "end": {
+          "line": 35,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.values",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 24
+        },
+        "end": {
+          "line": 35,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.setValue",
+      "ownerSignature": "void setValue(@Nullable Object value)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 29
+        },
+        "end": {
+          "line": 38,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Nullable",
+      "expression": "Nullable",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.setValue",
+      "ownerSignature": "void setValue(@Nullable Object value)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 20
+        },
+        "end": {
+          "line": 38,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValue",
+      "ownerSignature": "void addValue(Object value)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Collection",
+      "expression": "Collection",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValues",
+      "ownerSignature": "void addValues(Collection<?> values)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 20
+        },
+        "end": {
+          "line": 49,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.addValueArray",
+      "ownerSignature": "void addValueArray(Object values)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 24
+        },
+        "end": {
+          "line": 53,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValues",
+      "ownerSignature": "List<Object> getValues()",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValues",
+      "ownerSignature": "List<Object> getValues()",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 10
+        },
+        "end": {
+          "line": 57,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerSignature": "List<String> getStringValues()",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValues",
+      "ownerSignature": "List<String> getStringValues()",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 10
+        },
+        "end": {
+          "line": 61,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValue",
+      "ownerSignature": "@Nullable\n    Object getValue()",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Nullable",
+      "expression": "Nullable",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getValue",
+      "ownerSignature": "@Nullable\n    Object getValue()",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 6
+        },
+        "end": {
+          "line": 65,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerSignature": "@Nullable\n    String getStringValue()",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 5
+        },
+        "end": {
+          "line": 71,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Nullable",
+      "expression": "Nullable",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.getStringValue",
+      "ownerSignature": "@Nullable\n    String getStringValue()",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 6
+        },
+        "end": {
+          "line": 70,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.toString",
+      "ownerSignature": "@Override\n    public String toString()",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 12
+        },
+        "end": {
+          "line": 76,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.HeaderValueHolder.toString",
+      "ownerSignature": "@Override\n    public String toString()",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 6
+        },
+        "end": {
+          "line": 75,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 41
+        },
+        "end": {
+          "line": 62,
+          "column": 57
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

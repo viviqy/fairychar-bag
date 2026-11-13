@@ -1,0 +1,151 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/concurrent/IBalkingReference.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.concurrent",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "IBalkingReference",
+      "qualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference",
+      "ownerQualifiedName": "",
+      "signature": "public interface IBalkingReference<T>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "supertypes": [],
+      "typeParameters": [
+        "T"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference.save",
+      "ownerQualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference",
+      "signature": "boolean save() throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 5
+        },
+        "end": {
+          "line": 6,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "change",
+      "qualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference.change",
+      "ownerQualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference",
+      "signature": "boolean change(T t) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 5
+        },
+        "end": {
+          "line": 8,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "t",
+          "type": "T",
+          "signature": "T t",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 8,
+              "column": 20
+            },
+            "end": {
+              "line": 8,
+              "column": 23
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference.save",
+      "ownerSignature": "boolean save() throws Exception",
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 27
+        },
+        "end": {
+          "line": 6,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference.change",
+      "ownerSignature": "boolean change(T t) throws Exception",
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 32
+        },
+        "end": {
+          "line": 8,
+          "column": 41
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1049 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/Consts.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "Consts",
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class Consts",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "常用常量属性\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "EMPTY_STR",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.EMPTY_STR",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final String EMPTY_STR = \"\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 47
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "KB_PER_B",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.KB_PER_B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final long KB_PER_B = 1024",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "long",
+      "defaultExpression": "1024",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "MB_PER_B",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.MB_PER_B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final long MB_PER_B = 1024 * 1024",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "long",
+      "defaultExpression": "1024 * 1024",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "GB_PER_B",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.GB_PER_B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final long GB_PER_B = 1024 * 1024 * 1024",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "long",
+      "defaultExpression": "1024 * 1024 * 1024",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "TB_PER_B",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.TB_PER_B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final long TB_PER_B = 1024 * 1024 * 1024 * 1024",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "long",
+      "defaultExpression": "1024 * 1024 * 1024 * 1024",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "PB_PER_B",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.PB_PER_B",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final long PB_PER_B = 1024 * 1024 * 1024 * 1024 * 1024",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 74
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "long",
+      "defaultExpression": "1024 * 1024 * 1024 * 1024 * 1024",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "NONE",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.NONE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final String NONE = \"none\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"none\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SIMPLE_DATETIME_FORMAT",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATETIME_FORMAT",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final String SIMPLE_DATETIME_FORMAT = \"yyyy-MM-dd HH:mm:ss\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 79
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"yyyy-MM-dd HH:mm:ss\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SIMPLE_DATE_TIME_FORMATTER",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_TIME_FORMATTER",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final DateTimeFormatter SIMPLE_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATETIME_FORMAT)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 124
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "DateTimeFormatter",
+      "defaultExpression": "DateTimeFormatter.ofPattern(SIMPLE_DATETIME_FORMAT)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SIMPLE_DATE_FORMAT",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_FORMAT",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final String SIMPLE_DATE_FORMAT = \"yyyy-MM-dd\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"yyyy-MM-dd\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SIMPLE_DATE_FORMATTER",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_FORMATTER",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final DateTimeFormatter SIMPLE_DATE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 115
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "DateTimeFormatter",
+      "defaultExpression": "DateTimeFormatter.ofPattern(SIMPLE_DATE_FORMAT)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "MYSQL_MAX_DATETIME",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.MYSQL_MAX_DATETIME",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final LocalDateTime MYSQL_MAX_DATETIME = LocalDateTime.parse(\"9999-12-31 23:59:59\", SIMPLE_DATE_TIME_FORMATTER)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 131
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "LocalDateTime",
+      "defaultExpression": "LocalDateTime.parse(\"9999-12-31 23:59:59\", SIMPLE_DATE_TIME_FORMATTER)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "MYSQL_MAX_TIMESTAMP",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.MYSQL_MAX_TIMESTAMP",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final LocalDateTime MYSQL_MAX_TIMESTAMP = LocalDateTime.parse(\"2038-01-19 03:14:07\", SIMPLE_DATE_TIME_FORMATTER)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 132
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "LocalDateTime",
+      "defaultExpression": "LocalDateTime.parse(\"2038-01-19 03:14:07\", SIMPLE_DATE_TIME_FORMATTER)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "OAuth2",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final class OAuth2",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "AUTHORIZATION_CODE",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.AUTHORIZATION_CODE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "signature": "public static final String AUTHORIZATION_CODE = \"authorization_code\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 78
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"authorization_code\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "PASSWORD",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.PASSWORD",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "signature": "public static final String PASSWORD = \"password\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 9
+        },
+        "end": {
+          "line": 41,
+          "column": 58
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"password\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CLIENT_CREDENTIALS",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.CLIENT_CREDENTIALS",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "signature": "public static final String CLIENT_CREDENTIALS = \"client_credentials\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 42,
+          "column": 78
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"client_credentials\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "IMPLICIT",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.IMPLICIT",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "signature": "public static final String IMPLICIT = \"implicit\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 43,
+          "column": 58
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"implicit\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "REFRESH_TOKEN",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.REFRESH_TOKEN",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2",
+      "signature": "public static final String REFRESH_TOKEN = \"refresh_token\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 9
+        },
+        "end": {
+          "line": 44,
+          "column": 68
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"refresh_token\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "Regex",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.Regex",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "signature": "public static final class Regex",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "IP",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.Regex.IP",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.Regex",
+      "signature": "public static final String IP = \"^(\\\\d{1,3}\\\\.){3}\\\\d{1,3}$\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 9
+        },
+        "end": {
+          "line": 48,
+          "column": 70
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"^(\\\\d{1,3}\\\\.){3}\\\\d{1,3}$\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "URL",
+      "qualifiedName": "com.fairychar.bag.domain.Consts.Regex.URL",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.Regex",
+      "signature": "public static final String URL = \"^(http|https):\\\\/\\\\/[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}([\\\\/a-zA-Z0-9#.-]*)*$\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 9
+        },
+        "end": {
+          "line": 49,
+          "column": 116
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"^(http|https):\\\\/\\\\/[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}([\\\\/a-zA-Z0-9#.-]*)*$\"",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.format.DateTimeFormatter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 43
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 72
+        },
+        "end": {
+          "line": 29,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 67
+        },
+        "end": {
+          "line": 33,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerSignature": "",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 60
+        },
+        "end": {
+          "line": 35,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerSignature": "",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 61
+        },
+        "end": {
+          "line": 37,
+          "column": 131
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.EMPTY_STR",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 25
+        },
+        "end": {
+          "line": 18,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.NONE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 25
+        },
+        "end": {
+          "line": 25,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATETIME_FORMAT",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 25
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "DateTimeFormatter",
+      "expression": "DateTimeFormatter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_TIME_FORMATTER",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 25
+        },
+        "end": {
+          "line": 29,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_FORMAT",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 25
+        },
+        "end": {
+          "line": 31,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "DateTimeFormatter",
+      "expression": "DateTimeFormatter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.SIMPLE_DATE_FORMATTER",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 25
+        },
+        "end": {
+          "line": 33,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.MYSQL_MAX_DATETIME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 25
+        },
+        "end": {
+          "line": 35,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.MYSQL_MAX_TIMESTAMP",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 25
+        },
+        "end": {
+          "line": 37,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.AUTHORIZATION_CODE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 29
+        },
+        "end": {
+          "line": 40,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.PASSWORD",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 29
+        },
+        "end": {
+          "line": 41,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.CLIENT_CREDENTIALS",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 29
+        },
+        "end": {
+          "line": 42,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.IMPLICIT",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 29
+        },
+        "end": {
+          "line": 43,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.OAuth2.REFRESH_TOKEN",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 29
+        },
+        "end": {
+          "line": 44,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.Regex.IP",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 29
+        },
+        "end": {
+          "line": 48,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Consts.Regex.URL",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 29
+        },
+        "end": {
+          "line": 49,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,313 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/verify/SimpleImageCode.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.verify",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SimpleImageCode",
+      "qualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@Accessors(chain = true)\nclass SimpleImageCode",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Accessors(chain = true)"
+      ],
+      "modifiers": [],
+      "docstring": "@author chiyo <br>",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "sessionId",
+      "qualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.sessionId",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "signature": "private String sessionId",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "value",
+      "qualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.value",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "signature": "private String value",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 26
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "expireTime",
+      "qualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.expireTime",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "signature": "private LocalDateTime expireTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 38
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.sessionId",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.value",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 13
+        },
+        "end": {
+          "line": 19,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.SimpleImageCode.expireTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 26
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

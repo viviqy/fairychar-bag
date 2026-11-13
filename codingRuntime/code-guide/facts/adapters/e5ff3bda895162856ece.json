@@ -1,0 +1,406 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ParentActionCondition.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.action.condition.bool",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ParentActionCondition",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@Getter\npublic class ParentActionCondition",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "父类flow条件与对应class的映射类\n\n @author chiyo\n @since 1.0.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "parentClass",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.parentClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "signature": "private Class<? extends ActionFlow> parentClass",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "父ActionFlow class",
+      "type": "Class<? extends ActionFlow>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "condition",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.condition",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "signature": "private boolean condition",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "父类走到当前子类的条件",
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "hashCode",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.hashCode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "signature": "@Override\n    public int hashCode()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "equals",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "signature": "@Override\n    public boolean equals(Object obj)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "Object",
+          "signature": "Object obj",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 27
+            },
+            "end": {
+              "line": 32,
+              "column": 37
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Objects",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 26
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "hashCode",
+      "expression": "parentClass.hashCode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.hashCode",
+      "ownerSignature": "@Override\n    public int hashCode()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 16
+        },
+        "end": {
+          "line": 28,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object obj)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 28
+        },
+        "end": {
+          "line": 36,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "obj.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object obj)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 42
+        },
+        "end": {
+          "line": 36,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "Objects.equals",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object obj)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 16
+        },
+        "end": {
+          "line": 40,
+          "column": 61
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.parentClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "ActionFlow",
+      "expression": "ActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.parentClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 29
+        },
+        "end": {
+          "line": 20,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.hashCode",
+      "ownerSignature": "@Override\n    public int hashCode()",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 6
+        },
+        "end": {
+          "line": 26,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object obj)",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 27
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ParentActionCondition.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object obj)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

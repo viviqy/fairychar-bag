@@ -1,0 +1,120 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/TenantUser.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "TenantUser",
+      "qualifiedName": "com.fairychar.security.core.auth.TenantUser",
+      "ownerQualifiedName": "",
+      "signature": "public interface TenantUser extends Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/12/2 23:10\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "getTenantId",
+      "qualifiedName": "com.fairychar.security.core.auth.TenantUser.getTenantId",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.TenantUser",
+      "signature": "String getTenantId()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 26
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 29
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.TenantUser",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 37
+        },
+        "end": {
+          "line": 11,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.TenantUser.getTenantId",
+      "ownerSignature": "String getTenantId()",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,387 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/pojo/vo/InvalidateFieldVO.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.pojo.vo",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "InvalidateFieldVO",
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@Getter\n@Schema(description = \"InvalidateFieldVO\")\n@ToString\npublic class InvalidateFieldVO implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@Getter",
+        "@Schema(description = \"InvalidateFieldVO\")",
+        "@ToString"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.2",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "fieldName",
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.fieldName",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "signature": "@Schema(description = \"\\u5f02\\u5e38\\u5b57\\u6bb5\\u540d\\u79f0\")\nprivate String fieldName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 30
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"异常字段名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "errorMsg",
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.errorMsg",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "signature": "@Schema(description = \"\\u5f02\\u5e38\\u4fe1\\u606f\")\nprivate String errorMsg",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 29
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"异常信息\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "defaultMsg",
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.defaultMsg",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "signature": "@Schema(description = \"\\u662f\\u5426\\u4f7f\\u7528\\u81ea\\u5b9a\\u4e49\\u6d88\\u606f\")\nprivate Boolean defaultMsg",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 32
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"是否使用自定义消息\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.ToString",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 24
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 29
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 43
+        },
+        "end": {
+          "line": 18,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "ToString",
+      "expression": "ToString",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.fieldName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.fieldName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.errorMsg",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.errorMsg",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 6
+        },
+        "end": {
+          "line": 21,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.defaultMsg",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO.defaultMsg",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 6
+        },
+        "end": {
+          "line": 23,
+          "column": 12
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

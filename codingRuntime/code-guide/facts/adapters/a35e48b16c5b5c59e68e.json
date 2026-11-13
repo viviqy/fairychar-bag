@@ -1,0 +1,695 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/structure/SystemUserStructure.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.structure",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SystemUserStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "ownerQualifiedName": "",
+      "signature": "@Mapper(componentModel = \"spring\", uses = {})\npublic interface SystemUserStructure",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Mapper(componentModel = \"spring\", uses = {})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统用户(SystemUser)表数据库实体转换器\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "entitiesToDtos",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "signature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "entities转dtos\n\n @param entities {@link SystemUser}\n @return dto对象 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "List<SystemUserDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SystemUser>",
+          "signature": "List<SystemUser> entities",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 48
+            },
+            "end": {
+              "line": 26,
+              "column": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "entityToDto",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "signature": "SystemUserDTO entityToDto(SystemUser entity)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "entity转dto\n\n @param entity {@link SystemUser}\n @return dto对象 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "SystemUserDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entity",
+          "type": "SystemUser",
+          "signature": "SystemUser entity",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 31
+            },
+            "end": {
+              "line": 39,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "signature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "queries转entities\n\n @param queries {@link SystemUserQuery}\n @return entity对象 {@link SystemUser}",
+      "typeParameters": [],
+      "returnType": "List<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "queries",
+          "type": "List<SystemUserQuery>",
+          "signature": "List<SystemUserQuery> queries",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 48
+            },
+            "end": {
+              "line": 47,
+              "column": 77
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "signature": "SystemUser queryToEntity(SystemUserQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "query转entity\n\n @param query {@link SystemUserQuery}\n @return entity对象 {@link SystemUser}",
+      "typeParameters": [],
+      "returnType": "SystemUser",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 30
+            },
+            "end": {
+              "line": 60,
+              "column": 51
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemUser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemUserDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SystemUserQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.mapstruct.Mapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "collect",
+      "expression": "entities.stream().map(this::entityToDto).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 16
+        },
+        "end": {
+          "line": 30,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "entities.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 16
+        },
+        "end": {
+          "line": 30,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 16
+        },
+        "end": {
+          "line": 30,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 65
+        },
+        "end": {
+          "line": 30,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "queries.stream().map(this::queryToEntity).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 16
+        },
+        "end": {
+          "line": 51,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "queries.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 16
+        },
+        "end": {
+          "line": 51,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "queries.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 16
+        },
+        "end": {
+          "line": 51,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 66
+        },
+        "end": {
+          "line": 51,
+          "column": 85
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Mapper",
+      "expression": "Mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 18
+        },
+        "end": {
+          "line": 26,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 48
+        },
+        "end": {
+          "line": 26,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemUserDTO> entitiesToDtos(List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 53
+        },
+        "end": {
+          "line": 26,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entityToDto",
+      "ownerSignature": "SystemUserDTO entityToDto(SystemUser entity)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.entityToDto",
+      "ownerSignature": "SystemUserDTO entityToDto(SystemUser entity)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 31
+        },
+        "end": {
+          "line": 39,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 18
+        },
+        "end": {
+          "line": 47,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 48
+        },
+        "end": {
+          "line": 47,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemUser> queriesToEntities(List<SystemUserQuery> queries)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 53
+        },
+        "end": {
+          "line": 47,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queryToEntity",
+      "ownerSignature": "SystemUser queryToEntity(SystemUserQuery query)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemUserStructure.queryToEntity",
+      "ownerSignature": "SystemUser queryToEntity(SystemUserQuery query)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 30
+        },
+        "end": {
+          "line": 60,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 38
+        },
+        "end": {
+          "line": 30,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 37
+        },
+        "end": {
+          "line": 51,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

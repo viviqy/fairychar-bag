@@ -1,0 +1,43 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/UniqueVali.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest.group",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "UniqueVali",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.group.UniqueVali",
+      "ownerQualifiedName": "",
+      "signature": "public interface UniqueVali",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2020/9/25 15:26\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

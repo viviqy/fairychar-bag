@@ -1,0 +1,168 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/TenantSwitcher.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.interceptor",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "TenantSwitcher",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\npublic class TenantSwitcher implements ITenantSwitcher",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.0.2",
+      "supertypes": [
+        "ITenantSwitcher"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "useTenant",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher.useTenant",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher",
+      "signature": "private boolean useTenant",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "use",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher.use",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher",
+      "signature": "@Override\n    public boolean use()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "ITenantSwitcher",
+      "expression": "ITenantSwitcher",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 40
+        },
+        "end": {
+          "line": 10,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.TenantSwitcher.use",
+      "ownerSignature": "@Override\n    public boolean use()",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 6
+        },
+        "end": {
+          "line": 13,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,823 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/entrypoint/MappedExceptionAuthenticationEntryPoint.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.entrypoint",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "MappedExceptionAuthenticationEntryPoint",
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@RequiredArgsConstructor\n@Slf4j\npublic class MappedExceptionAuthenticationEntryPoint implements AuthenticationEntryPoint",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@RequiredArgsConstructor",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "认证流程异常出口点\n\n @author chiyo <br>\n @since 1.3.3",
+      "supertypes": [
+        "AuthenticationEntryPoint"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "signature": "private final ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "httpStatus",
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.httpStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "signature": "private int httpStatus = 401",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": "401",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticationExceptionMap",
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.authenticationExceptionMap",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "signature": "private final Map<AuthenticationException, HttpResult> authenticationExceptionMap",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 87
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Map<AuthenticationException, HttpResult>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "commence",
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "signature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 26
+            },
+            "end": {
+              "line": 33,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 54
+            },
+            "end": {
+              "line": 33,
+              "column": 82
+            }
+          }
+        },
+        {
+          "name": "authException",
+          "type": "AuthenticationException",
+          "signature": "AuthenticationException authException",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 84
+            },
+            "end": {
+              "line": 33,
+              "column": 121
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.HttpResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.http.MediaType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.AuthenticationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.AuthenticationEntryPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 9
+        },
+        "end": {
+          "line": 34,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "authException.getMessage",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 67
+        },
+        "end": {
+          "line": 34,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "setContentType",
+      "expression": "response.setContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 9
+        },
+        "end": {
+          "line": 35,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "setStatus",
+      "expression": "response.setStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 9
+        },
+        "end": {
+          "line": 36,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "authenticationExceptionMap.get",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 29
+        },
+        "end": {
+          "line": 37,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "response.getWriter().write",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 131
+        }
+      }
+    },
+    {
+      "name": "getWriter",
+      "expression": "response.getWriter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "this.objectMapper.writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 40
+        },
+        "end": {
+          "line": 39,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "fail",
+      "expression": "HttpResult.fail",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 77
+        },
+        "end": {
+          "line": 39,
+          "column": 129
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "response.getWriter().write",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "end": {
+          "line": 41,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getWriter",
+      "expression": "response.getWriter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "end": {
+          "line": 41,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "this.objectMapper.writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 40
+        },
+        "end": {
+          "line": 41,
+          "column": 84
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AuthenticationEntryPoint",
+      "expression": "AuthenticationEntryPoint",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 65
+        },
+        "end": {
+          "line": 27,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 2
+        },
+        "end": {
+          "line": 26,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 19
+        },
+        "end": {
+          "line": 28,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.authenticationExceptionMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "end": {
+          "line": 30,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "AuthenticationException",
+      "expression": "AuthenticationException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.authenticationExceptionMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 23
+        },
+        "end": {
+          "line": 30,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "HttpResult",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.authenticationExceptionMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 48
+        },
+        "end": {
+          "line": 30,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 26
+        },
+        "end": {
+          "line": 33,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 54
+        },
+        "end": {
+          "line": 33,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "AuthenticationException",
+      "expression": "AuthenticationException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 84
+        },
+        "end": {
+          "line": 33,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 130
+        },
+        "end": {
+          "line": 33,
+          "column": 141
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint.commence",
+      "ownerSignature": "@Override\n    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 6
+        },
+        "end": {
+          "line": 32,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

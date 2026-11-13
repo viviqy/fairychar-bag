@@ -1,0 +1,394 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ActionFlow.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.action.condition.bool",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ActionFlow",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "ownerQualifiedName": "",
+      "signature": "public interface ActionFlow<T, C>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 66,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "操作流\n <p>\n T: 当前操作流入参类型\n N: 下一个操作流入参类型\n\n @author chiyo\n @since 1.0.0",
+      "supertypes": [],
+      "typeParameters": [
+        "T",
+        "C"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "instanceBean",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.instanceBean",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "ActionFlow<T, C> instanceBean()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "实例化当前flow\n\n @return {@link ActionFlow}<{@link T}, {@link C}>",
+      "typeParameters": [],
+      "returnType": "ActionFlow<T, C>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "compute",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.compute",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "boolean compute(T context)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "流程计算\n\n @param context 参数上下文\n @return boolean",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "T",
+          "signature": "T context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 21
+            },
+            "end": {
+              "line": 31,
+              "column": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getParentClassSet",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.getParentClassSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "Set<ParentActionCondition> getParentClassSet()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "获取父类ActionFlow条件与对应实现类\n\n @return {@link Set}<{@link ParentActionCondition}>",
+      "typeParameters": [],
+      "returnType": "Set<ParentActionCondition>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "group",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.group",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "default Set<String> group()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "当前流程的组别,可以通过设置不同的组名区分流程\n 同一个流程可以设置多个组别被公用\n\n @return {@link Set}<{@link String}>",
+      "typeParameters": [],
+      "returnType": "Set<String>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "callNext",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.callNext",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "void callNext(T context)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "call下一个流程\n\n @param context 参数上下文",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "T",
+          "signature": "T context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 19
+            },
+            "end": {
+              "line": 55,
+              "column": 28
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getNextParam",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.getNextParam",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow",
+      "signature": "C getNextParam(T context)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "获取下一个流程需要传递的参数\n\n @param context 参数上下文\n @return {@link C}",
+      "typeParameters": [],
+      "returnType": "C",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "T",
+          "signature": "T context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 20
+            },
+            "end": {
+              "line": 63,
+              "column": 29
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.google.common.collect.Sets",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "newHashSet",
+      "expression": "Sets.newHashSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.group",
+      "ownerSignature": "default Set<String> group()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 47,
+          "column": 42
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ActionFlow",
+      "expression": "ActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.instanceBean",
+      "ownerSignature": "ActionFlow<T, C> instanceBean()",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.getParentClassSet",
+      "ownerSignature": "Set<ParentActionCondition> getParentClassSet()",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "ParentActionCondition",
+      "expression": "ParentActionCondition",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.getParentClassSet",
+      "ownerSignature": "Set<ParentActionCondition> getParentClassSet()",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 9
+        },
+        "end": {
+          "line": 38,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.group",
+      "ownerSignature": "default Set<String> group()",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 13
+        },
+        "end": {
+          "line": 46,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.ActionFlow.group",
+      "ownerSignature": "default Set<String> group()",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 17
+        },
+        "end": {
+          "line": 46,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

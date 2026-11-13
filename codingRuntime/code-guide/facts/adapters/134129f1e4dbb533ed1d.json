@@ -1,0 +1,1244 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/filter/JsonAuthenticationFilter.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.filter",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "JsonAuthenticationFilter",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@Slf4j\npublic class JsonAuthenticationFilter<T extends IJsonLoginRequest> extends UsernamePasswordAuthenticationFilter",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 94,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>Json登录过滤器</p>\n <p>使用方式</p>\n <pre>\n     {@code\n   @Bean\n   JsonAuthenticationFilter jsonAuthenticationFilter() throws Exception {\n      JsonAuthenticationFilter filter = new JsonAuthenticationFilter();\n      filter.setAuthenticationManager(authenticationManagerBean());\n      //filter.setAuthenticationSuccessHandler(loginSuccessHandler);\n      return filter;\n   }\n\n   @Override\n   public AuthenticationManager authenticationManagerBean() throws Exception {\n      return super.authenticationManagerBean();\n   }}\n </pre>\n <code>\n <\n </code>\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "UsernamePasswordAuthenticationFilter"
+      ],
+      "typeParameters": [
+        "T extends IJsonLoginRequest"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "mapper",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private final ObjectMapper mapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "usernameDecryptor",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.usernameDecryptor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private final IUsernameDecrypt usernameDecryptor",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "IUsernameDecrypt",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "passwordDecryptor",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.passwordDecryptor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private final IPasswordDecrypt passwordDecryptor",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "IPasswordDecrypt",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "requestClazz",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.requestClazz",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private final Class<T> requestClazz",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Class<T>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "attemptAuthentication",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 79,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Authentication",
+      "throws": [
+        "AuthenticationException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 56,
+              "column": 49
+            },
+            "end": {
+              "line": 56,
+              "column": 75
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 56,
+              "column": 77
+            },
+            "end": {
+              "line": 56,
+              "column": 105
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getDecryptPassword",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptPassword",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private String getDecryptPassword(String password)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "password",
+          "type": "String",
+          "signature": "String password",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 81,
+              "column": 39
+            },
+            "end": {
+              "line": 81,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getDecryptUsername",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptUsername",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "signature": "private String getDecryptUsername(String username)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 93,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "username",
+          "type": "String",
+          "signature": "String username",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 88,
+              "column": 39
+            },
+            "end": {
+              "line": 88,
+              "column": 54
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.IJsonLoginRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.beans.login.IPasswordDecrypt",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.beans.login.IUsernameDecrypt",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.http.MediaType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.authentication.AuthenticationServiceException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 83
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.authentication.BadCredentialsException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 88
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.Authentication",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.AuthenticationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 93
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.InputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "equals",
+      "expression": "\"POST\".equals",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 14
+        },
+        "end": {
+          "line": 57,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "request.getMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 28
+        },
+        "end": {
+          "line": 57,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "AuthenticationServiceException",
+      "expression": "new AuthenticationServiceException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "request.getMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 96
+        },
+        "end": {
+          "line": 58,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "request.getContentType().equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 17
+        },
+        "end": {
+          "line": 60,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "getContentType",
+      "expression": "request.getContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 17
+        },
+        "end": {
+          "line": 60,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "request.getContentType().equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 24
+        },
+        "end": {
+          "line": 61,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "getContentType",
+      "expression": "request.getContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 24
+        },
+        "end": {
+          "line": 61,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "getInputStream",
+      "expression": "request.getInputStream",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 39
+        },
+        "end": {
+          "line": 62,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "readValue",
+      "expression": "this.mapper.readValue",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 44
+        },
+        "end": {
+          "line": 63,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "UsernamePasswordAuthenticationToken",
+      "expression": "new UsernamePasswordAuthenticationToken",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 71
+        },
+        "end": {
+          "line": 66,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getDecryptUsername",
+      "expression": "this.getDecryptUsername",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 29
+        },
+        "end": {
+          "line": 65,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getUsername",
+      "expression": "authenticationBean.getUsername",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 53
+        },
+        "end": {
+          "line": 65,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getDecryptPassword",
+      "expression": "this.getDecryptPassword",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 31
+        },
+        "end": {
+          "line": 66,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "getPassword",
+      "expression": "authenticationBean.getPassword",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 55
+        },
+        "end": {
+          "line": 66,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "setDetails",
+      "expression": "this.setDetails",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 21
+        },
+        "end": {
+          "line": 67,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "authenticate",
+      "expression": "this.getAuthenticationManager().authenticate",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 28
+        },
+        "end": {
+          "line": 68,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getAuthenticationManager",
+      "expression": "this.getAuthenticationManager",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 28
+        },
+        "end": {
+          "line": 68,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 21
+        },
+        "end": {
+          "line": 72,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "BadCredentialsException",
+      "expression": "new BadCredentialsException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 27
+        },
+        "end": {
+          "line": 73,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "AuthenticationServiceException",
+      "expression": "new AuthenticationServiceException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 23
+        },
+        "end": {
+          "line": 76,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "getContentType",
+      "expression": "request.getContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 105
+        },
+        "end": {
+          "line": 76,
+          "column": 129
+        }
+      }
+    },
+    {
+      "name": "decrypt",
+      "expression": "this.passwordDecryptor.decrypt",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptPassword",
+      "ownerSignature": "private String getDecryptPassword(String password)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 20
+        },
+        "end": {
+          "line": 83,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "decrypt",
+      "expression": "this.usernameDecryptor.decrypt",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptUsername",
+      "ownerSignature": "private String getDecryptUsername(String username)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 20
+        },
+        "end": {
+          "line": 90,
+          "column": 60
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "UsernamePasswordAuthenticationFilter",
+      "expression": "UsernamePasswordAuthenticationFilter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 76
+        },
+        "end": {
+          "line": 48,
+          "column": 112
+        }
+      }
+    },
+    {
+      "name": "IJsonLoginRequest",
+      "expression": "IJsonLoginRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 49
+        },
+        "end": {
+          "line": 48,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 2
+        },
+        "end": {
+          "line": 46,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 2
+        },
+        "end": {
+          "line": 47,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.mapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 19
+        },
+        "end": {
+          "line": 50,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "IUsernameDecrypt",
+      "expression": "IUsernameDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.usernameDecryptor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 51,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "IPasswordDecrypt",
+      "expression": "IPasswordDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.passwordDecryptor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 19
+        },
+        "end": {
+          "line": 52,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.requestClazz",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 19
+        },
+        "end": {
+          "line": 53,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "Authentication",
+      "expression": "Authentication",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 12
+        },
+        "end": {
+          "line": 56,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 49
+        },
+        "end": {
+          "line": 56,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 77
+        },
+        "end": {
+          "line": 56,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "AuthenticationException",
+      "expression": "AuthenticationException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 114
+        },
+        "end": {
+          "line": 56,
+          "column": 137
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication",
+      "ownerSignature": "@Override\n    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 6
+        },
+        "end": {
+          "line": 55,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptPassword",
+      "ownerSignature": "private String getDecryptPassword(String password)",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 13
+        },
+        "end": {
+          "line": 81,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptPassword",
+      "ownerSignature": "private String getDecryptPassword(String password)",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 39
+        },
+        "end": {
+          "line": 81,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptUsername",
+      "ownerSignature": "private String getDecryptUsername(String username)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 13
+        },
+        "end": {
+          "line": 88,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.getDecryptUsername",
+      "ownerSignature": "private String getDecryptUsername(String username)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 39
+        },
+        "end": {
+          "line": 88,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

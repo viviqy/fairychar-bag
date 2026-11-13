@@ -1,0 +1,18 @@
+[
+  {"name": "Exception contract and reviewed carrier role", "match": {"kind": "class", "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException"}, "count": 1, "signatureContains": ["@Getter", "extends RuntimeException"], "claim": true},
+  {"name": "Four exception constructor overloads retain separate identities", "match": {"kind": "constructor", "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException"}, "count": 4},
+  {"name": "Exception error-code field retains declaration metadata", "match": {"qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.errorCode"}, "count": 1, "values": {"kind": "property", "visibility": "private", "type": "IRestErrorCode"}},
+  {"name": "Scheduling hub reviewed explanation", "match": {"kind": "class", "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate"}, "count": 1, "claim": true},
+  {"name": "Scheduler preserves all three put overloads", "match": {"qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put"}, "count": 3},
+  {"name": "Scheduler pause default and annotation survive projection", "match": {"qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.timePause"}, "count": 1, "signatureContains": ["@Setter", "private long timePause = 100"], "values": {"defaultExpression": "100", "type": "long", "visibility": "private"}},
+  {"name": "Authentication filter generic type and reviewed boundary", "match": {"kind": "class", "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter"}, "count": 1, "signatureContains": ["T extends IJsonLoginRequest", "extends UsernamePasswordAuthenticationFilter"], "claim": true},
+  {"name": "Authentication method retains parameters and checked contract", "match": {"qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter.attemptAuthentication"}, "count": 1, "signatureContains": ["@Override", "HttpServletRequest request", "HttpServletResponse response", "throws AuthenticationException"]},
+  {"name": "Starter configuration reviewed responsibility", "match": {"kind": "class", "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration"}, "count": 1, "claim": true},
+  {"name": "Bean factory retains default package visibility", "match": {"qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler"}, "count": 1, "signatureContains": ["@Bean", "@ConditionalOnMissingBean"], "values": {"visibility": "package-private"}},
+  {"name": "Archetype application main function is discoverable", "match": {"qualifiedName": "com.fairychar.demo.DemoApplication.main", "module": "micro-service-app-template"}, "count": 1, "signatureContains": ["public static void main(String[] args)"]},
+  {"name": "Archetype API placeholder remains separately navigable", "match": {"qualifiedName": "com.fairychar.demo.GitKeep", "module": "micro-service-api-template"}, "count": 1},
+  {"name": "Production-tree test helper is not indexed under default scope", "match": {"name": "TaskTestUtil"}, "count": 0},
+  {"name": "Core library module projection exists", "file": "modules/fairychar-bag/README.md"},
+  {"name": "Security core module projection exists", "file": "modules/fairychar-security-core/README.md"},
+  {"name": "Security starter module projection exists", "file": "modules/fairychar-security-boot-starter/README.md"}
+]

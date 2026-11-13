@@ -1,0 +1,877 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/structure/SysDictStructure.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.structure",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SysDictStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "ownerQualifiedName": "",
+      "signature": "@Mapper(componentModel = \"spring\", uses = {})\npublic interface SysDictStructure",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 68,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Mapper(componentModel = \"spring\", uses = {})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据字典详情(SysDict)表数据库实体转换器\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "entitiesToDtos",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "entities转dtos\n\n @param entities {@link SysDict}\n @return dto对象 {@link SysDictDTO}",
+      "typeParameters": [],
+      "returnType": "List<SysDictDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SysDict>",
+          "signature": "List<SysDict> entities",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 45
+            },
+            "end": {
+              "line": 28,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "entityToDto",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "SysDictDTO entityToDto(SysDict entity)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "entity转dto\n\n @param entity {@link SysDict}\n @return dto对象 {@link SysDictDTO}",
+      "typeParameters": [],
+      "returnType": "SysDictDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entity",
+          "type": "SysDict",
+          "signature": "SysDict entity",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 28
+            },
+            "end": {
+              "line": 41,
+              "column": 42
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 54,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "queries转entities\n\n @param queries {@link SysDictQuery}\n @return entity对象 {@link SysDict}",
+      "typeParameters": [],
+      "returnType": "List<SysDict>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "queries",
+          "type": "List<SysDictQuery>",
+          "signature": "List<SysDictQuery> queries",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 45
+            },
+            "end": {
+              "line": 49,
+              "column": 71
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "SysDict queryToEntity(SysDictQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 47
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "query转entity\n\n @param query {@link SysDictQuery}\n @return entity对象 {@link SysDict}",
+      "typeParameters": [],
+      "returnType": "SysDict",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "SysDictQuery",
+          "signature": "SysDictQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 62,
+              "column": 27
+            },
+            "end": {
+              "line": 62,
+              "column": 45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "SysDict addQueryToEntity(AddSysDictQuery sysDictQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysDict",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysDictQuery",
+          "type": "AddSysDictQuery",
+          "signature": "AddSysDictQuery sysDictQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 64,
+              "column": 30
+            },
+            "end": {
+              "line": 64,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "signature": "SysDict updateQueryToEntity(UpdateSysDictQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 71
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysDict",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysDictQuery",
+          "signature": "UpdateSysDictQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 66,
+              "column": 33
+            },
+            "end": {
+              "line": 66,
+              "column": 69
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysDict",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysDictDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.mapstruct.Mapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "collect",
+      "expression": "entities.stream().map(this::entityToDto).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "entities.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 65
+        },
+        "end": {
+          "line": 32,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "queries.stream().map(this::queryToEntity).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 16
+        },
+        "end": {
+          "line": 53,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "queries.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 16
+        },
+        "end": {
+          "line": 53,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "queries.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 16
+        },
+        "end": {
+          "line": 53,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 66
+        },
+        "end": {
+          "line": 53,
+          "column": 85
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Mapper",
+      "expression": "Mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 13
+        },
+        "end": {
+          "line": 28,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 18
+        },
+        "end": {
+          "line": 28,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 45
+        },
+        "end": {
+          "line": 28,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysDictDTO> entitiesToDtos(List<SysDict> entities)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 50
+        },
+        "end": {
+          "line": 28,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entityToDto",
+      "ownerSignature": "SysDictDTO entityToDto(SysDict entity)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.entityToDto",
+      "ownerSignature": "SysDictDTO entityToDto(SysDict entity)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 28
+        },
+        "end": {
+          "line": 41,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 13
+        },
+        "end": {
+          "line": 49,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 18
+        },
+        "end": {
+          "line": 49,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 45
+        },
+        "end": {
+          "line": 49,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysDictQuery",
+      "expression": "SysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queriesToEntities",
+      "ownerSignature": "default List<SysDict> queriesToEntities(List<SysDictQuery> queries)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 50
+        },
+        "end": {
+          "line": 49,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queryToEntity",
+      "ownerSignature": "SysDict queryToEntity(SysDictQuery query)",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "SysDictQuery",
+      "expression": "SysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.queryToEntity",
+      "ownerSignature": "SysDict queryToEntity(SysDictQuery query)",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 27
+        },
+        "end": {
+          "line": 62,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.addQueryToEntity",
+      "ownerSignature": "SysDict addQueryToEntity(AddSysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AddSysDictQuery",
+      "expression": "AddSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.addQueryToEntity",
+      "ownerSignature": "SysDict addQueryToEntity(AddSysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 30
+        },
+        "end": {
+          "line": 64,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.updateQueryToEntity",
+      "ownerSignature": "SysDict updateQueryToEntity(UpdateSysDictQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "UpdateSysDictQuery",
+      "expression": "UpdateSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure.updateQueryToEntity",
+      "ownerSignature": "SysDict updateQueryToEntity(UpdateSysDictQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 33
+        },
+        "end": {
+          "line": 66,
+          "column": 51
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 38
+        },
+        "end": {
+          "line": 32,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 37
+        },
+        "end": {
+          "line": 53,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

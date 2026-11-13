@@ -1,0 +1,271 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/UrlValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "UrlValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class UrlValidator extends AbstractPatternValidator<Url, String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "URL 验证器\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "AbstractPatternValidator<Url, String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator",
+      "signature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "String",
+          "signature": "String value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 28
+            },
+            "end": {
+              "line": 16,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 42
+            },
+            "end": {
+              "line": 16,
+              "column": 76
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.abstracts.AbstractPatternValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 83
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "match",
+      "expression": "super.match",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 16
+        },
+        "end": {
+          "line": 17,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AbstractPatternValidator",
+      "expression": "AbstractPatternValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 35
+        },
+        "end": {
+          "line": 14,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Url",
+      "expression": "Url",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 60
+        },
+        "end": {
+          "line": 14,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 65
+        },
+        "end": {
+          "line": 14,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 28
+        },
+        "end": {
+          "line": 16,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 42
+        },
+        "end": {
+          "line": 16,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.UrlValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

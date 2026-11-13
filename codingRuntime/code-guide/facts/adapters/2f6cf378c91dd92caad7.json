@@ -1,0 +1,315 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/InvalidateLog.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.advice",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "InvalidateLog",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@Getter\npublic class InvalidateLog implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.2",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "tag",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.tag",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "signature": "private String tag",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "uri",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.uri",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "signature": "private String uri",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "errorFields",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.errorFields",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "signature": "private List<InvalidateFieldVO> errorFields",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 49
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<InvalidateFieldVO>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 39
+        },
+        "end": {
+          "line": 16,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.tag",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 13
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.uri",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.errorFields",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 13
+        },
+        "end": {
+          "line": 19,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "InvalidateFieldVO",
+      "expression": "InvalidateFieldVO",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.InvalidateLog.errorFields",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 18
+        },
+        "end": {
+          "line": 19,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

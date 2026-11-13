@@ -1,0 +1,2907 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundEventAdvice.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.netty.advice",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "GlobalInboundEventAdvice",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class GlobalInboundEventAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/7/1 21:55\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "ChannelInboundHandlerAdapter",
+        "BeanFactoryPostProcessor"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "cache1",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.cache1",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private HashMap<Class, Method> cache1",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 43
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "key=mark(ex+handler+method)",
+      "type": "HashMap<Class, Method>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "invokeArgsCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invokeArgsCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private HashMap<String, InvokeEntity> invokeArgsCache = new HashMap<>(32)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 79
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "key=method fullName;",
+      "type": "HashMap<String, InvokeEntity>",
+      "defaultExpression": "new HashMap<>(32)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "beanMap",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.beanMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private Map<String, Object> beanMap",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, Object>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "userEventTriggered",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 36
+            },
+            "end": {
+              "line": 45,
+              "column": 61
+            }
+          }
+        },
+        {
+          "name": "evt",
+          "type": "Object",
+          "signature": "Object evt",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 63
+            },
+            "end": {
+              "line": 45,
+              "column": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "dispatch",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "InvocationTargetException",
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 27
+            },
+            "end": {
+              "line": 49,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "evt",
+          "type": "Object",
+          "signature": "Object evt",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 54
+            },
+            "end": {
+              "line": 49,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "invoke",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 72,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "执行异常处理\n\n @param ctx\n @param evt\n @param method\n @throws InvocationTargetException\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "InvocationTargetException",
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 25
+            },
+            "end": {
+              "line": 65,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "evt",
+          "type": "Object",
+          "signature": "Object evt",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 52
+            },
+            "end": {
+              "line": 65,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 64
+            },
+            "end": {
+              "line": 65,
+              "column": 77
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getInvokeEntity",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 97,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "获取当前method的缓存InvokeEntity信息\n\n @param ctx\n @param evt\n @param method\n @return",
+      "typeParameters": [],
+      "returnType": "InvokeEntity",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 42
+            },
+            "end": {
+              "line": 82,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "evt",
+          "type": "Object",
+          "signature": "Object evt",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 69
+            },
+            "end": {
+              "line": 82,
+              "column": 79
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 81
+            },
+            "end": {
+              "line": 82,
+              "column": 94
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "obtainMethod",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private Method obtainMethod(Object c)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "Method",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "c",
+          "type": "Object",
+          "signature": "Object c",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 100,
+              "column": 33
+            },
+            "end": {
+              "line": 100,
+              "column": 41
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "validate",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 5
+        },
+        "end": {
+          "line": 123,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "<p>验证映射到的Method合法性</p>\n <p>\n 1.校验异常处理方法是否重复\n 2.校验是否存在配置了methodName但是却未指定Handler\n\n @param methods\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methods",
+          "type": "List<Method>",
+          "signature": "List<Method> methods",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 27
+            },
+            "end": {
+              "line": 115,
+              "column": 47
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建异常处理器映射方法缓存\n\n @param eventInfoList",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "eventInfoList",
+          "type": "ArrayList<EventInfo>",
+          "signature": "ArrayList<EventInfo> eventInfoList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 130,
+              "column": 30
+            },
+            "end": {
+              "line": 130,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "ensureNotExistSameMethod",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 5
+        },
+        "end": {
+          "line": 154,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "验证是否存在相同的错误处理方法\n\n @param eventClassList\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "eventClassList",
+          "type": "ArrayList<EventInfo>",
+          "signature": "ArrayList<EventInfo> eventClassList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 147,
+              "column": 43
+            },
+            "end": {
+              "line": 147,
+              "column": 78
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "initCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 5
+        },
+        "end": {
+          "line": 170,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "初始化映射方法缓存\n\n @param values\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "values",
+          "type": "Collection<Object>",
+          "signature": "Collection<Object> values",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 162,
+              "column": 28
+            },
+            "end": {
+              "line": 162,
+              "column": 53
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "postProcessBeanFactory",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 172,
+          "column": 5
+        },
+        "end": {
+          "line": 184,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "BeansException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "beanFactory",
+          "type": "ConfigurableListableBeanFactory",
+          "signature": "ConfigurableListableBeanFactory beanFactory",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 173,
+              "column": 40
+            },
+            "end": {
+              "line": 173,
+              "column": 83
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "name": "EventInfo",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "signature": "@AllArgsConstructor\n    @NoArgsConstructor\n    @Data\n    static class EventInfo",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 5
+        },
+        "end": {
+          "line": 192,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Data"
+      ],
+      "modifiers": [
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "eventClass",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo.eventClass",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "signature": "private Class eventClass",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 190,
+          "column": 9
+        },
+        "end": {
+          "line": 190,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Class",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "method",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo.method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "signature": "private Method method",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 9
+        },
+        "end": {
+          "line": 191,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Method",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.EventHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.NettyEventAdvice",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.template.CacheOperateTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.netty.channel.ChannelHandlerContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.netty.channel.ChannelInboundHandlerAdapter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.BeansException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.BeanCreationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.NoSuchBeanDefinitionException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.config.BeanFactoryPostProcessor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.config.ConfigurableListableBeanFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 81
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.InvocationTargetException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 61
+        },
+        "end": {
+          "line": 41,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "dispatch",
+      "expression": "this.dispatch",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerSignature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 46,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "obtainMethod",
+      "expression": "this.obtainMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 25
+        },
+        "end": {
+          "line": 51,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "invoke",
+      "expression": "this.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getInvokeEntity",
+      "expression": "this.getInvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 41
+        },
+        "end": {
+          "line": 67,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "invoke",
+      "expression": "method.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 13
+        },
+        "end": {
+          "line": 68,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getBean",
+      "expression": "invokeEntity.getBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 27
+        },
+        "end": {
+          "line": 68,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "invokeEntity.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 51
+        },
+        "end": {
+          "line": 68,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "fireUserEventTriggered",
+      "expression": "ctx.fireUserEventTriggered",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 13
+        },
+        "end": {
+          "line": 70,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "CacheOperateTemplate.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 37
+        },
+        "end": {
+          "line": 95,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 16
+        },
+        "end": {
+          "line": 101,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 45
+        },
+        "end": {
+          "line": 101,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 18
+        },
+        "end": {
+          "line": 102,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 58
+        },
+        "end": {
+          "line": 102,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 47
+        },
+        "end": {
+          "line": 116,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "methods.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 63
+        },
+        "end": {
+          "line": 116,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "m.getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 118,
+          "column": 41
+        },
+        "end": {
+          "line": 118,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "eventClassList.add",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 13
+        },
+        "end": {
+          "line": 119,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "EventInfo",
+      "expression": "new EventInfo",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 32
+        },
+        "end": {
+          "line": 119,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "eventHandler.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 46
+        },
+        "end": {
+          "line": 119,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "ensureNotExistSameMethod",
+      "expression": "this.ensureNotExistSameMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "createCache",
+      "expression": "this.createCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 9
+        },
+        "end": {
+          "line": 122,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 23
+        },
+        "end": {
+          "line": 131,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "eventInfoList.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 37
+        },
+        "end": {
+          "line": 131,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "eventInfoList.stream().collect(Collectors.groupingBy(c -> c)).entrySet().forEach",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 9
+        },
+        "end": {
+          "line": 136,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "eventInfoList.stream().collect(Collectors.groupingBy(c -> c)).entrySet",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 9
+        },
+        "end": {
+          "line": 132,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "eventInfoList.stream().collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 9
+        },
+        "end": {
+          "line": 132,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "eventInfoList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 9
+        },
+        "end": {
+          "line": 132,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 40
+        },
+        "end": {
+          "line": 132,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "eventClassList.stream().collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 49
+        },
+        "end": {
+          "line": 148,
+          "column": 127
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "eventClassList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 49
+        },
+        "end": {
+          "line": 148,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 81
+        },
+        "end": {
+          "line": 148,
+          "column": 126
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "methodMap.values",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 38
+        },
+        "end": {
+          "line": 149,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "value.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 17
+        },
+        "end": {
+          "line": 150,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "new IllegalAccessException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 23
+        },
+        "end": {
+          "line": 151,
+          "column": 140
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "value.get(0).getEventClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 101
+        },
+        "end": {
+          "line": 151,
+          "column": 139
+        }
+      }
+    },
+    {
+      "name": "getEventClass",
+      "expression": "value.get(0).getEventClass",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 101
+        },
+        "end": {
+          "line": 151,
+          "column": 129
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "value.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 101
+        },
+        "end": {
+          "line": 151,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "values.stream().flatMap(c -> Arrays.stream(c.getClass().getDeclaredMethods()))\n                .filter(m -> m.getDeclaredAnnotation(EventHandler.class) != null)\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 32
+        },
+        "end": {
+          "line": 165,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "values.stream().flatMap(c -> Arrays.stream(c.getClass().getDeclaredMethods()))\n                .filter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 32
+        },
+        "end": {
+          "line": 164,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "flatMap",
+      "expression": "values.stream().flatMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 32
+        },
+        "end": {
+          "line": 163,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "values.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 32
+        },
+        "end": {
+          "line": 163,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 26
+        },
+        "end": {
+          "line": 165,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "methods.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 13
+        },
+        "end": {
+          "line": 166,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "warn",
+      "expression": "log.warn",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 167,
+          "column": 13
+        },
+        "end": {
+          "line": 167,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "validate",
+      "expression": "this.validate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 9
+        },
+        "end": {
+          "line": 169,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getBeansWithAnnotation",
+      "expression": "beanFactory.getBeansWithAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 24
+        },
+        "end": {
+          "line": 174,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "this.beanMap.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 13
+        },
+        "end": {
+          "line": 175,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "NoSuchBeanDefinitionException",
+      "expression": "new NoSuchBeanDefinitionException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 176,
+          "column": 19
+        },
+        "end": {
+          "line": 176,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "initCache",
+      "expression": "this.initCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 13
+        },
+        "end": {
+          "line": 179,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "this.beanMap.values",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 28
+        },
+        "end": {
+          "line": 179,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "BeanCreationException",
+      "expression": "new BeanCreationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 181,
+          "column": 19
+        },
+        "end": {
+          "line": 181,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "e.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 181,
+          "column": 45
+        },
+        "end": {
+          "line": 181,
+          "column": 59
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ChannelInboundHandlerAdapter",
+      "expression": "ChannelInboundHandlerAdapter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 47
+        },
+        "end": {
+          "line": 31,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "BeanFactoryPostProcessor",
+      "expression": "BeanFactoryPostProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 87
+        },
+        "end": {
+          "line": 31,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 37,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 21
+        },
+        "end": {
+          "line": 37,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 28
+        },
+        "end": {
+          "line": 37,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "end": {
+          "line": 41,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 21
+        },
+        "end": {
+          "line": 41,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "InvokeEntity",
+      "expression": "InvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 29
+        },
+        "end": {
+          "line": 41,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 17
+        },
+        "end": {
+          "line": 42,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerSignature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 36
+        },
+        "end": {
+          "line": 45,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerSignature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 63
+        },
+        "end": {
+          "line": 45,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerSignature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 82
+        },
+        "end": {
+          "line": 45,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.userEventTriggered",
+      "ownerSignature": "@Override\n    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 6
+        },
+        "end": {
+          "line": 44,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 27
+        },
+        "end": {
+          "line": 49,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 54
+        },
+        "end": {
+          "line": 49,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "InvocationTargetException",
+      "expression": "InvocationTargetException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 20
+        },
+        "end": {
+          "line": 50,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Object evt)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 47
+        },
+        "end": {
+          "line": 50,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 25
+        },
+        "end": {
+          "line": 65,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 52
+        },
+        "end": {
+          "line": 65,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 64
+        },
+        "end": {
+          "line": 65,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "InvocationTargetException",
+      "expression": "InvocationTargetException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 86
+        },
+        "end": {
+          "line": 65,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Object evt, Method method) throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 113
+        },
+        "end": {
+          "line": 65,
+          "column": 135
+        }
+      }
+    },
+    {
+      "name": "InvokeEntity",
+      "expression": "InvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 13
+        },
+        "end": {
+          "line": 82,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 42
+        },
+        "end": {
+          "line": 82,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 69
+        },
+        "end": {
+          "line": 82,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Object evt, Method method)",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 81
+        },
+        "end": {
+          "line": 82,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(Object c)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 33
+        },
+        "end": {
+          "line": 100,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 27
+        },
+        "end": {
+          "line": 115,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 32
+        },
+        "end": {
+          "line": 115,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 56
+        },
+        "end": {
+          "line": 115,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "ArrayList",
+      "expression": "ArrayList",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 30
+        },
+        "end": {
+          "line": 130,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "EventInfo",
+      "expression": "EventInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.createCache",
+      "ownerSignature": "private void createCache(ArrayList<EventInfo> eventInfoList)",
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 40
+        },
+        "end": {
+          "line": 130,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "ArrayList",
+      "expression": "ArrayList",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 43
+        },
+        "end": {
+          "line": 147,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "EventInfo",
+      "expression": "EventInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 53
+        },
+        "end": {
+          "line": 147,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(ArrayList<EventInfo> eventClassList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 87
+        },
+        "end": {
+          "line": 147,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "Collection",
+      "expression": "Collection",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 28
+        },
+        "end": {
+          "line": 162,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 39
+        },
+        "end": {
+          "line": 162,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 62
+        },
+        "end": {
+          "line": 162,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "ConfigurableListableBeanFactory",
+      "expression": "ConfigurableListableBeanFactory",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 173,
+          "column": 40
+        },
+        "end": {
+          "line": 173,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "BeansException",
+      "expression": "BeansException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 173,
+          "column": 92
+        },
+        "end": {
+          "line": 173,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 172,
+          "column": 6
+        },
+        "end": {
+          "line": 172,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 6
+        },
+        "end": {
+          "line": 186,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 6
+        },
+        "end": {
+          "line": 187,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 188,
+          "column": 6
+        },
+        "end": {
+          "line": 188,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo.eventClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 190,
+          "column": 17
+        },
+        "end": {
+          "line": 190,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundEventAdvice.EventInfo.method",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 17
+        },
+        "end": {
+          "line": 191,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 62
+        },
+        "end": {
+          "line": 83,
+          "column": 118
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 120
+        },
+        "end": {
+          "line": 95,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 12
+        },
+        "end": {
+          "line": 95,
+          "column": 70
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 62
+        },
+        "end": {
+          "line": 132,
+          "column": 68
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 90
+        },
+        "end": {
+          "line": 136,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 103
+        },
+        "end": {
+          "line": 148,
+          "column": 125
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 56
+        },
+        "end": {
+          "line": 163,
+          "column": 109
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 25
+        },
+        "end": {
+          "line": 164,
+          "column": 81
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

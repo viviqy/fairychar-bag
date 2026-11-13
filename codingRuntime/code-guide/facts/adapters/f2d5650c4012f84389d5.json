@@ -1,0 +1,601 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/redis/PrefixStringSerializer.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.redis",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "PrefixStringSerializer",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "ownerQualifiedName": "",
+      "signature": "public class PrefixStringSerializer extends StringRedisSerializer",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "固定前缀StringRedisSerializer\n\n @author chiyo <br>\n @since 1.0",
+      "supertypes": [
+        "StringRedisSerializer"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "prefix",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.prefix",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "signature": "private final String prefix",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "PrefixStringSerializer",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "signature": "public PrefixStringSerializer(String prefix)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "String",
+          "signature": "String prefix",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 35
+            },
+            "end": {
+              "line": 18,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "PrefixStringSerializer",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "signature": "public PrefixStringSerializer(Charset charset, String prefix)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "charset",
+          "type": "Charset",
+          "signature": "Charset charset",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 35
+            },
+            "end": {
+              "line": 23,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "prefix",
+          "type": "String",
+          "signature": "String prefix",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 52
+            },
+            "end": {
+              "line": 23,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "deserialize",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.deserialize",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "signature": "@Override\n    public String deserialize(byte[] bytes)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "signature": "byte[] bytes",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 31
+            },
+            "end": {
+              "line": 31,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "serialize",
+      "qualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.serialize",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "signature": "@Override\n    public byte[] serialize(String string)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "byte[]",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "string",
+          "type": "String",
+          "signature": "String string",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 29
+            },
+            "end": {
+              "line": 39,
+              "column": 42
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.BeanCreationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.data.redis.serializer.StringRedisSerializer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.charset.Charset",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(String prefix)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 9
+        },
+        "end": {
+          "line": 19,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(Charset charset, String prefix)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 9
+        },
+        "end": {
+          "line": 24,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(Charset charset, String prefix)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 9
+        },
+        "end": {
+          "line": 25,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "deserialize",
+      "expression": "super.deserialize",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.deserialize",
+      "ownerSignature": "@Override\n    public String deserialize(byte[] bytes)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 16
+        },
+        "end": {
+          "line": 35,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "this.prefix.concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.serialize",
+      "ownerSignature": "@Override\n    public byte[] serialize(String string)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 32
+        },
+        "end": {
+          "line": 43,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "serialize",
+      "expression": "super.serialize",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.serialize",
+      "ownerSignature": "@Override\n    public byte[] serialize(String string)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 16
+        },
+        "end": {
+          "line": 44,
+          "column": 46
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "StringRedisSerializer",
+      "expression": "StringRedisSerializer",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 45
+        },
+        "end": {
+          "line": 15,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.prefix",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 19
+        },
+        "end": {
+          "line": 16,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(String prefix)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 35
+        },
+        "end": {
+          "line": 18,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Charset",
+      "expression": "Charset",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(Charset charset, String prefix)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 35
+        },
+        "end": {
+          "line": 23,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.PrefixStringSerializer",
+      "ownerSignature": "public PrefixStringSerializer(Charset charset, String prefix)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 52
+        },
+        "end": {
+          "line": 23,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.deserialize",
+      "ownerSignature": "@Override\n    public String deserialize(byte[] bytes)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 12
+        },
+        "end": {
+          "line": 31,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.deserialize",
+      "ownerSignature": "@Override\n    public String deserialize(byte[] bytes)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.serialize",
+      "ownerSignature": "@Override\n    public byte[] serialize(String string)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 29
+        },
+        "end": {
+          "line": 39,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.redis.PrefixStringSerializer.serialize",
+      "ownerSignature": "@Override\n    public byte[] serialize(String string)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 6
+        },
+        "end": {
+          "line": 38,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 32
+        },
+        "end": {
+          "line": 25,
+          "column": 97
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

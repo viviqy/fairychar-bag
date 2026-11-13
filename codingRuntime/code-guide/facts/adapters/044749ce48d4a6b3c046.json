@@ -1,0 +1,2242 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/FileUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FileUtil",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class FileUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 225,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "文件操作工具类",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "concatFile",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "拼接文件\n\n @param outputPath  拼接后的文件输出路径\n @param head        头文件\n @param concatFiles 待拼接的文件数组",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "outputPath",
+          "type": "String",
+          "signature": "String outputPath",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 35
+            },
+            "end": {
+              "line": 27,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "head",
+          "type": "File",
+          "signature": "File head",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 54
+            },
+            "end": {
+              "line": 27,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "concatFiles",
+          "type": "File[]",
+          "signature": "File... concatFiles",
+          "annotations": [],
+          "varargs": true,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 65
+            },
+            "end": {
+              "line": 27,
+              "column": 84
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "cutFile",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 106,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "分割文件\n\n @param sourceFilePath 源文件路径\n @param outputFilePath 分割后的文件输出路径\n @param start          分割起始位置（百分比）\n @param end            分割结束位置（百分比）",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sourceFilePath",
+          "type": "String",
+          "signature": "String sourceFilePath",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 32
+            },
+            "end": {
+              "line": 67,
+              "column": 53
+            }
+          }
+        },
+        {
+          "name": "outputFilePath",
+          "type": "String",
+          "signature": "String outputFilePath",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 55
+            },
+            "end": {
+              "line": 67,
+              "column": 76
+            }
+          }
+        },
+        {
+          "name": "start",
+          "type": "double",
+          "signature": "double start",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 78
+            },
+            "end": {
+              "line": 67,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "end",
+          "type": "double",
+          "signature": "double end",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 92
+            },
+            "end": {
+              "line": 67,
+              "column": 102
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFileByNio",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFileByNio(String path, long writeByteSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 5
+        },
+        "end": {
+          "line": 117,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "使用NIO创建虚拟文件\n\n @param path          虚拟文件路径\n @param writeByteSize 虚拟文件大小（字节数）\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 44
+            },
+            "end": {
+              "line": 115,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 57
+            },
+            "end": {
+              "line": 115,
+              "column": 75
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFileByNio",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 5
+        },
+        "end": {
+          "line": 129,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "使用NIO创建虚拟文件\n\n @param path          虚拟文件路径\n @param fillByte      填充字节\n @param writeByteSize 虚拟文件大小（字节数）\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 127,
+              "column": 44
+            },
+            "end": {
+              "line": 127,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "fillByte",
+          "type": "byte",
+          "signature": "byte fillByte",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 127,
+              "column": 57
+            },
+            "end": {
+              "line": 127,
+              "column": 70
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 127,
+              "column": 72
+            },
+            "end": {
+              "line": 127,
+              "column": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFile",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFile(String path, long writeByteSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 138,
+          "column": 5
+        },
+        "end": {
+          "line": 140,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "创建虚拟文件\n\n @param path          虚拟文件路径\n @param writeByteSize 虚拟文件大小（字节数）\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 138,
+              "column": 39
+            },
+            "end": {
+              "line": 138,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 138,
+              "column": 52
+            },
+            "end": {
+              "line": 138,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFile",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 5
+        },
+        "end": {
+          "line": 152,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "创建虚拟文件\n\n @param path          虚拟文件路径\n @param fillByte      填充字节\n @param writeByteSize 虚拟文件大小（字节数）\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 150,
+              "column": 39
+            },
+            "end": {
+              "line": 150,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "fillByte",
+          "type": "byte",
+          "signature": "byte fillByte",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 150,
+              "column": 52
+            },
+            "end": {
+              "line": 150,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 150,
+              "column": 67
+            },
+            "end": {
+              "line": 150,
+              "column": 85
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFileByNio",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 5
+        },
+        "end": {
+          "line": 191,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "使用NIO创建虚拟文件\n\n @param path           虚拟文件路径\n @param fillByte       填充字节\n @param writeByteSize  虚拟文件大小（字节数）\n @param pipeBufferSize 缓冲区大小\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 163,
+              "column": 44
+            },
+            "end": {
+              "line": 163,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "fillByte",
+          "type": "byte",
+          "signature": "byte fillByte",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 163,
+              "column": 57
+            },
+            "end": {
+              "line": 163,
+              "column": 70
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 163,
+              "column": 72
+            },
+            "end": {
+              "line": 163,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "pipeBufferSize",
+          "type": "int",
+          "signature": "int pipeBufferSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 163,
+              "column": 92
+            },
+            "end": {
+              "line": 163,
+              "column": 110
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createFakeFile",
+      "qualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "signature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 202,
+          "column": 5
+        },
+        "end": {
+          "line": 224,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "创建虚拟文件\n\n @param path           虚拟文件路径\n @param fillByte       填充字节\n @param writeByteSize  虚拟文件大小（字节数）\n @param pipeBufferSize 缓冲区大小\n @throws IOException IO异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "path",
+          "type": "String",
+          "signature": "String path",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 202,
+              "column": 39
+            },
+            "end": {
+              "line": 202,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "fillByte",
+          "type": "byte",
+          "signature": "byte fillByte",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 202,
+              "column": 52
+            },
+            "end": {
+              "line": 202,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "writeByteSize",
+          "type": "long",
+          "signature": "long writeByteSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 202,
+              "column": 67
+            },
+            "end": {
+              "line": 202,
+              "column": 85
+            }
+          }
+        },
+        {
+          "name": "pipeBufferSize",
+          "type": "int",
+          "signature": "int pipeBufferSize",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 202,
+              "column": 87
+            },
+            "end": {
+              "line": 202,
+              "column": 105
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 18
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.ByteBuffer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Arrays",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 25
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.channels.FileChannel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.file.Paths",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.file.StandardOpenOption",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 41
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 9
+        },
+        "end": {
+          "line": 30,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "isFile",
+      "expression": "head.isFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 23
+        },
+        "end": {
+          "line": 30,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 13
+        },
+        "end": {
+          "line": 34,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "format",
+      "expression": "String.format",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 44
+        },
+        "end": {
+          "line": 34,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "isFile",
+      "expression": "concatFiles[i].isFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 27
+        },
+        "end": {
+          "line": 35,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "format",
+      "expression": "String.format",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 52
+        },
+        "end": {
+          "line": 35,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "FileOutputStream",
+      "expression": "new FileOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 46
+        },
+        "end": {
+          "line": 37,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "FileInputStream",
+      "expression": "new FileInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 52
+        },
+        "end": {
+          "line": 38,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "read",
+      "expression": "headFileInputStream.read",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 33
+        },
+        "end": {
+          "line": 42,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 17
+        },
+        "end": {
+          "line": 43,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "FileInputStream",
+      "expression": "new FileInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 52
+        },
+        "end": {
+          "line": 46,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "read",
+      "expression": "inputStream.read",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 41
+        },
+        "end": {
+          "line": 47,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 25
+        },
+        "end": {
+          "line": 48,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "new RuntimeException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 19
+        },
+        "end": {
+          "line": 53,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "new RuntimeException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 19
+        },
+        "end": {
+          "line": 55,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 9
+        },
+        "end": {
+          "line": 69,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 70,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "FileInputStream",
+      "expression": "new FileInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 48
+        },
+        "end": {
+          "line": 72,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "BufferedInputStream",
+      "expression": "new BufferedInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 47
+        },
+        "end": {
+          "line": 73,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "FileOutputStream",
+      "expression": "new FileOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 46
+        },
+        "end": {
+          "line": 74,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "available",
+      "expression": "readStream.available",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 29
+        },
+        "end": {
+          "line": 78,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "skip",
+      "expression": "readStream.skip",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 25
+        },
+        "end": {
+          "line": 82,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 13
+        },
+        "end": {
+          "line": 83,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "read",
+      "expression": "readStream.read",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 33
+        },
+        "end": {
+          "line": 87,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 25
+        },
+        "end": {
+          "line": 89,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "read",
+      "expression": "readStream.read",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 33
+        },
+        "end": {
+          "line": 96,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 25
+        },
+        "end": {
+          "line": 98,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "new RuntimeException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 19
+        },
+        "end": {
+          "line": 104,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "createFakeFileByNio",
+      "expression": "createFakeFileByNio",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, long writeByteSize) throws IOException",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 9
+        },
+        "end": {
+          "line": 116,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "createFakeFileByNio",
+      "expression": "createFakeFileByNio",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 9
+        },
+        "end": {
+          "line": 128,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "createFakeFile",
+      "expression": "createFakeFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, long writeByteSize) throws IOException",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 139,
+          "column": 9
+        },
+        "end": {
+          "line": 139,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "createFakeFile",
+      "expression": "createFakeFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize) throws IOException",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 9
+        },
+        "end": {
+          "line": 151,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "createNewFile",
+      "expression": "new File(path).createNewFile",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 27
+        },
+        "end": {
+          "line": 164,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "File",
+      "expression": "new File",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 27
+        },
+        "end": {
+          "line": 164,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "new RuntimeException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 19
+        },
+        "end": {
+          "line": 166,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "open",
+      "expression": "FileChannel.open",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 168,
+          "column": 41
+        },
+        "end": {
+          "line": 168,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "Paths.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 168,
+          "column": 58
+        },
+        "end": {
+          "line": 168,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "allocateDirect",
+      "expression": "ByteBuffer.allocateDirect",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 29
+        },
+        "end": {
+          "line": 169,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "buffer.put",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 177,
+          "column": 17
+        },
+        "end": {
+          "line": 177,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "flip",
+      "expression": "buffer.flip",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 17
+        },
+        "end": {
+          "line": 178,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "fileChannel.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 17
+        },
+        "end": {
+          "line": 179,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "clear",
+      "expression": "buffer.clear",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 17
+        },
+        "end": {
+          "line": 180,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "buffer.put",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 17
+        },
+        "end": {
+          "line": 183,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "flip",
+      "expression": "buffer.flip",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 13
+        },
+        "end": {
+          "line": 185,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "fileChannel.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 13
+        },
+        "end": {
+          "line": 186,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "position",
+      "expression": "buffer.position",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 39
+        },
+        "end": {
+          "line": 186,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "clear",
+      "expression": "buffer.clear",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 188,
+          "column": 13
+        },
+        "end": {
+          "line": 188,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "close",
+      "expression": "fileChannel.close",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 13
+        },
+        "end": {
+          "line": 189,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "File",
+      "expression": "new File",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 203,
+          "column": 21
+        },
+        "end": {
+          "line": 203,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "FileOutputStream",
+      "expression": "new FileOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 45
+        },
+        "end": {
+          "line": 204,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "BufferedOutputStream",
+      "expression": "new BufferedOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 205,
+          "column": 45
+        },
+        "end": {
+          "line": 205,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "allocate",
+      "expression": "ByteBuffer.allocate",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 206,
+          "column": 29
+        },
+        "end": {
+          "line": 206,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "fill",
+      "expression": "Arrays.fill",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 209,
+          "column": 13
+        },
+        "end": {
+          "line": 209,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 17
+        },
+        "end": {
+          "line": 211,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "buffer.put",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 17
+        },
+        "end": {
+          "line": 214,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "position",
+      "expression": "buffer.position",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 216,
+          "column": 37
+        },
+        "end": {
+          "line": 216,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "buffer.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 217,
+          "column": 13
+        },
+        "end": {
+          "line": 217,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "outputStream.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 218,
+          "column": 13
+        },
+        "end": {
+          "line": 218,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "clear",
+      "expression": "buffer.clear",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 13
+        },
+        "end": {
+          "line": 220,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "close",
+      "expression": "outputStream.close",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 221,
+          "column": 13
+        },
+        "end": {
+          "line": 221,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "close",
+      "expression": "fileOutputStream.close",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 13
+        },
+        "end": {
+          "line": 222,
+          "column": 37
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 35
+        },
+        "end": {
+          "line": 27,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "File",
+      "expression": "File",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 54
+        },
+        "end": {
+          "line": 27,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "File",
+      "expression": "File",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.concatFile",
+      "ownerSignature": "public static void concatFile(String outputPath, File head, File... concatFiles)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 65
+        },
+        "end": {
+          "line": 27,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 32
+        },
+        "end": {
+          "line": 67,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.cutFile",
+      "ownerSignature": "public static void cutFile(String sourceFilePath, String outputFilePath, double start, double end)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 55
+        },
+        "end": {
+          "line": 67,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 44
+        },
+        "end": {
+          "line": 115,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 84
+        },
+        "end": {
+          "line": 115,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 44
+        },
+        "end": {
+          "line": 127,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 99
+        },
+        "end": {
+          "line": 127,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 138,
+          "column": 39
+        },
+        "end": {
+          "line": 138,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 138,
+          "column": 79
+        },
+        "end": {
+          "line": 138,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 39
+        },
+        "end": {
+          "line": 150,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 94
+        },
+        "end": {
+          "line": 150,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 44
+        },
+        "end": {
+          "line": 163,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFileByNio",
+      "ownerSignature": "public static void createFakeFileByNio(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 119
+        },
+        "end": {
+          "line": 163,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 202,
+          "column": 39
+        },
+        "end": {
+          "line": 202,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.FileUtil.createFakeFile",
+      "ownerSignature": "public static void createFakeFile(String path, byte fillByte, long writeByteSize, int pipeBufferSize) throws IOException",
+      "range": {
+        "start": {
+          "line": 202,
+          "column": 114
+        },
+        "end": {
+          "line": 202,
+          "column": 125
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

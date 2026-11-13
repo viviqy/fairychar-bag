@@ -1,0 +1,2009 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/MappingObjectUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "MappingObjectUtil",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class MappingObjectUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 105,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "http影响体渲染工具类\n\n @author chiyo\n @since 0.0.1-SNAPSHOT",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "listToTree",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@SneakyThrows"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [
+        "T",
+        "I"
+      ],
+      "returnType": "List<TreeNode<T>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "List<T>",
+          "signature": "List<T> source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 55
+            },
+            "end": {
+              "line": 28,
+              "column": 69
+            }
+          }
+        },
+        {
+          "name": "pidField",
+          "type": "String",
+          "signature": "String pidField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 71
+            },
+            "end": {
+              "line": 28,
+              "column": 86
+            }
+          }
+        },
+        {
+          "name": "idField",
+          "type": "String",
+          "signature": "String idField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 88
+            },
+            "end": {
+              "line": 28,
+              "column": 102
+            }
+          }
+        },
+        {
+          "name": "idValue",
+          "type": "I",
+          "signature": "I idValue",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 104
+            },
+            "end": {
+              "line": 28,
+              "column": 113
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "listToTree",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 70,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@SneakyThrows"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [
+        "T",
+        "I"
+      ],
+      "returnType": "List<T>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "List<T>",
+          "signature": "List<T> source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 45
+            },
+            "end": {
+              "line": 51,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "pidField",
+          "type": "String",
+          "signature": "String pidField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 61
+            },
+            "end": {
+              "line": 51,
+              "column": 76
+            }
+          }
+        },
+        {
+          "name": "idField",
+          "type": "String",
+          "signature": "String idField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 78
+            },
+            "end": {
+              "line": 51,
+              "column": 92
+            }
+          }
+        },
+        {
+          "name": "childField",
+          "type": "String",
+          "signature": "String childField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 94
+            },
+            "end": {
+              "line": 51,
+              "column": 111
+            }
+          }
+        },
+        {
+          "name": "idValue",
+          "type": "I",
+          "signature": "I idValue",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 113
+            },
+            "end": {
+              "line": 51,
+              "column": 122
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "mapToNode",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "List<MapObjectNode<T>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "groupingBy",
+          "type": "Map<? extends Object, ? extends Object>",
+          "signature": "Map<? extends Object, ? extends Object> groupingBy",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 73,
+              "column": 56
+            },
+            "end": {
+              "line": 73,
+              "column": 106
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "wrapTreeNode",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private",
+        "static"
+      ],
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "List<MapObjectNode<T>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "map",
+          "type": "Map<? extends Object, ? extends Object>",
+          "signature": "Map<? extends Object, ? extends Object> map",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 60
+            },
+            "end": {
+              "line": 77,
+              "column": 103
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "mapping",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [
+        "K",
+        "V"
+      ],
+      "returnType": "List<MappingAO<K, V>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "map",
+          "type": "Map<K, V>",
+          "signature": "Map<K, V> map",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 93,
+              "column": 56
+            },
+            "end": {
+              "line": 93,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "mappingList",
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "signature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [
+        "K",
+        "V"
+      ],
+      "returnType": "List<MappingObjectAO<K, V>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "maps",
+          "type": "Map<K, List<V>>",
+          "signature": "Map<K, List<V>> maps",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 99,
+              "column": 66
+            },
+            "end": {
+              "line": 99,
+              "column": 86
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MappingAO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MappingObjectAO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.ao.TreeNode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.SneakyThrows",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Field",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.ArrayList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 34
+        },
+        "end": {
+          "line": 29,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "getDeclaredField",
+      "expression": "node.getClass().getDeclaredField",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 25
+        },
+        "end": {
+          "line": 31,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "node.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 25
+        },
+        "end": {
+          "line": 31,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "setAccessible",
+      "expression": "pid.setAccessible",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "pid.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 30
+        },
+        "end": {
+          "line": 33,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "pidValue.equals",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 17
+        },
+        "end": {
+          "line": 34,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "TreeNode<T>",
+      "expression": "new TreeNode<T>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 37
+        },
+        "end": {
+          "line": 35,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "setCurrent",
+      "expression": "child.setCurrent",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 17
+        },
+        "end": {
+          "line": 36,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "getDeclaredField",
+      "expression": "node.getClass().getDeclaredField",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 28
+        },
+        "end": {
+          "line": 37,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "node.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 28
+        },
+        "end": {
+          "line": 37,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "setAccessible",
+      "expression": "id.setAccessible",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 17
+        },
+        "end": {
+          "line": 38,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "listToTree",
+      "expression": "listToTree",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 47
+        },
+        "end": {
+          "line": 39,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "id.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 90
+        },
+        "end": {
+          "line": 39,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "treeNodes.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 22
+        },
+        "end": {
+          "line": 40,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "setChild",
+      "expression": "child.setChild",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 21
+        },
+        "end": {
+          "line": 41,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "root.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 17
+        },
+        "end": {
+          "line": 43,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 24
+        },
+        "end": {
+          "line": 52,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "getDeclaredField",
+      "expression": "node.getClass().getDeclaredField",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 25
+        },
+        "end": {
+          "line": 54,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "node.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 25
+        },
+        "end": {
+          "line": 54,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "setAccessible",
+      "expression": "pid.setAccessible",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 13
+        },
+        "end": {
+          "line": 55,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "pid.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 30
+        },
+        "end": {
+          "line": 56,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "pidValue.equals",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 17
+        },
+        "end": {
+          "line": 57,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "getDeclaredField",
+      "expression": "node.getClass().getDeclaredField",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 28
+        },
+        "end": {
+          "line": 58,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "node.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 28
+        },
+        "end": {
+          "line": 58,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "setAccessible",
+      "expression": "id.setAccessible",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 17
+        },
+        "end": {
+          "line": 59,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "listToTree",
+      "expression": "listToTree",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 5,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 37
+        },
+        "end": {
+          "line": 60,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "id.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 92
+        },
+        "end": {
+          "line": 60,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "treeNodes.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 22
+        },
+        "end": {
+          "line": 61,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "getDeclaredField",
+      "expression": "node.getClass().getDeclaredField",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 44
+        },
+        "end": {
+          "line": 62,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "node.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 44
+        },
+        "end": {
+          "line": 62,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "setAccessible",
+      "expression": "childListField.setAccessible",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 21
+        },
+        "end": {
+          "line": 63,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "childListField.set",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 21
+        },
+        "end": {
+          "line": 64,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "root.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 17
+        },
+        "end": {
+          "line": 66,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "wrapTreeNode",
+      "expression": "wrapTreeNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 16
+        },
+        "end": {
+          "line": 74,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "map.entrySet().stream().map(e -> {\n            MapObjectNode<T> node = new MapObjectNode<>();\n            node.setName(String.valueOf(e.getKey()));\n            if (e.getValue() instanceof List) {\n                node.setCount(((List) e.getValue()).size());\n                node.setValue(((List<T>) e.getValue()));\n            } else {\n                node.setCount(((Map) e.getValue()).size());\n                node.setChild(wrapTreeNode(((Map<? extends Object, ? extends Object>) map.get(e.getKey()))));\n            }\n            return node;\n        }).collect",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 42
+        },
+        "end": {
+          "line": 89,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "map.entrySet().stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 42
+        },
+        "end": {
+          "line": 89,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "map.entrySet().stream",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 42
+        },
+        "end": {
+          "line": 78,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "map.entrySet",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 42
+        },
+        "end": {
+          "line": 78,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 20
+        },
+        "end": {
+          "line": 89,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "map.entrySet().stream().map(e -> new MappingAO<K, V>(e.getKey(), e.getValue()))\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 95,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "map.entrySet().stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "map.entrySet().stream",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "map.entrySet",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 26
+        },
+        "end": {
+          "line": 95,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "maps.entrySet().stream()\n                .map(e -> new MappingObjectAO<K, V>(e.getKey(), e.getValue().size(), e.getValue()))\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 16
+        },
+        "end": {
+          "line": 102,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "maps.entrySet().stream()\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 16
+        },
+        "end": {
+          "line": 101,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "maps.entrySet().stream",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 16
+        },
+        "end": {
+          "line": 100,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "maps.entrySet",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 16
+        },
+        "end": {
+          "line": 100,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 26
+        },
+        "end": {
+          "line": 102,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 26
+        },
+        "end": {
+          "line": 28,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "TreeNode",
+      "expression": "TreeNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 31
+        },
+        "end": {
+          "line": 28,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 55
+        },
+        "end": {
+          "line": 28,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 71
+        },
+        "end": {
+          "line": 28,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 88
+        },
+        "end": {
+          "line": 28,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "SneakyThrows",
+      "expression": "SneakyThrows",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<TreeNode<T>> listToTree(List<T> source, String pidField, String idField, I idValue)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 6
+        },
+        "end": {
+          "line": 27,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 26
+        },
+        "end": {
+          "line": 51,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 45
+        },
+        "end": {
+          "line": 51,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 61
+        },
+        "end": {
+          "line": 51,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 78
+        },
+        "end": {
+          "line": 51,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 94
+        },
+        "end": {
+          "line": 51,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "SneakyThrows",
+      "expression": "SneakyThrows",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.listToTree",
+      "ownerSignature": "@SneakyThrows\n    public static <T, I> List<T> listToTree(List<T> source, String pidField, String idField, String childField, I idValue)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 23
+        },
+        "end": {
+          "line": 73,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "MapObjectNode",
+      "expression": "MapObjectNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 28
+        },
+        "end": {
+          "line": 73,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 56
+        },
+        "end": {
+          "line": 73,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 70
+        },
+        "end": {
+          "line": 73,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapToNode",
+      "ownerSignature": "public static <T> List<MapObjectNode<T>> mapToNode(Map<? extends Object, ? extends Object> groupingBy)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 88
+        },
+        "end": {
+          "line": 73,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 24
+        },
+        "end": {
+          "line": 77,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "MapObjectNode",
+      "expression": "MapObjectNode",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 29
+        },
+        "end": {
+          "line": 77,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 60
+        },
+        "end": {
+          "line": 77,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 74
+        },
+        "end": {
+          "line": 77,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.wrapTreeNode",
+      "ownerSignature": "private static <T> List<MapObjectNode<T>> wrapTreeNode(Map<? extends Object, ? extends Object> map)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 92
+        },
+        "end": {
+          "line": 77,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 26
+        },
+        "end": {
+          "line": 93,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "MappingAO",
+      "expression": "MappingAO",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 31
+        },
+        "end": {
+          "line": 93,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mapping",
+      "ownerSignature": "public static <K, V> List<MappingAO<K, V>> mapping(Map<K, V> map)",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 56
+        },
+        "end": {
+          "line": 93,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 26
+        },
+        "end": {
+          "line": 99,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "MappingObjectAO",
+      "expression": "MappingObjectAO",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 31
+        },
+        "end": {
+          "line": 99,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 66
+        },
+        "end": {
+          "line": 99,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.MappingObjectUtil.mappingList",
+      "ownerSignature": "public static <K, V> List<MappingObjectAO<K, V>> mappingList(Map<K, List<V>> maps)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 73
+        },
+        "end": {
+          "line": 99,
+          "column": 77
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 70
+        },
+        "end": {
+          "line": 89,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 44
+        },
+        "end": {
+          "line": 94,
+          "column": 94
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 22
+        },
+        "end": {
+          "line": 101,
+          "column": 99
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

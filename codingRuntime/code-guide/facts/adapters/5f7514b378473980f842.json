@@ -1,0 +1,2329 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/RequestUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RequestUtil",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class RequestUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 164,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "Servlet请求工具类\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "getHeader",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "获取request的所有header信息\n\n @param request 请求\n @return {@link Map }<{@link String }, {@link String }>",
+      "typeParameters": [],
+      "returnType": "Map<String, String>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 49
+            },
+            "end": {
+              "line": 33,
+              "column": 75
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getCurrentRequest",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static HttpServletRequest getCurrentRequest()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 54,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "获取当前请求\n\n @return {@link HttpServletRequest}",
+      "typeParameters": [],
+      "returnType": "HttpServletRequest",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getCurrentResponse",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static HttpServletResponse getCurrentResponse()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "获取当前响应\n\n @return {@link HttpServletResponse}",
+      "typeParameters": [],
+      "returnType": "HttpServletResponse",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "putAttribute",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "向当前thread的request设置属性\n\n @param keyName   键名\n @param attribute 属性",
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "keyName",
+          "type": "String",
+          "signature": "String keyName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 41
+            },
+            "end": {
+              "line": 76,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "attribute",
+          "type": "T",
+          "signature": "T attribute",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 57
+            },
+            "end": {
+              "line": 76,
+              "column": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getAttribute",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "从当前thread的request获取属性\n\n @param keyName 键名\n @param clazz   clazz\n @return {@link T}",
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "T",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "keyName",
+          "type": "String",
+          "signature": "String keyName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 90,
+              "column": 38
+            },
+            "end": {
+              "line": 90,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "clazz",
+          "type": "Class<T>",
+          "signature": "Class<T> clazz",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 90,
+              "column": 54
+            },
+            "end": {
+              "line": 90,
+              "column": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getIpAddress",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static String getIpAddress(HttpServletRequest request)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 5
+        },
+        "end": {
+          "line": 134,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "获取远端访问ip地址\n\n @param request request\n @return 真实的访问ip",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 104,
+              "column": 39
+            },
+            "end": {
+              "line": 104,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "obtainUri",
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "signature": "public static String obtainUri(MethodSignature signature)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 5
+        },
+        "end": {
+          "line": 163,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "通过反射获取请求请求地址\n\n @param signature {@link MethodSignature}\n @return 访问路径",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "signature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature signature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 142,
+              "column": 36
+            },
+            "end": {
+              "line": 142,
+              "column": 61
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.reflect.MethodSignature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.bind.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.context.request.RequestContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.context.request.ServletRequestAttributes",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 73
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getHeaderNames",
+      "expression": "request.getHeaderNames",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 43
+        },
+        "end": {
+          "line": 34,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "LinkedHashMap<>",
+      "expression": "new LinkedHashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 46
+        },
+        "end": {
+          "line": 35,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "hasMoreElements",
+      "expression": "headerNames.hasMoreElements",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 16
+        },
+        "end": {
+          "line": 36,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "nextElement",
+      "expression": "headerNames.nextElement",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 27
+        },
+        "end": {
+          "line": 37,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "headerValueMap.put",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 38
+        },
+        "end": {
+          "line": 38,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "orElseThrow",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .map(a -> a.getRequest())\n                .orElseThrow",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 38
+        },
+        "end": {
+          "line": 52,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 38
+        },
+        "end": {
+          "line": 51,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 38
+        },
+        "end": {
+          "line": 50,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 38
+        },
+        "end": {
+          "line": 49,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getRequestAttributes",
+      "expression": "RequestContextHolder.getRequestAttributes",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 58
+        },
+        "end": {
+          "line": 49,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "orElseThrow",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .map(a -> a.getResponse())\n                .orElseThrow",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 40
+        },
+        "end": {
+          "line": 65,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 40
+        },
+        "end": {
+          "line": 64,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 40
+        },
+        "end": {
+          "line": 63,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 40
+        },
+        "end": {
+          "line": 62,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "getRequestAttributes",
+      "expression": "RequestContextHolder.getRequestAttributes",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 60
+        },
+        "end": {
+          "line": 62,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "orElseThrow",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .orElseThrow",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 54
+        },
+        "end": {
+          "line": 79,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 54
+        },
+        "end": {
+          "line": 78,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 54
+        },
+        "end": {
+          "line": 77,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "getRequestAttributes",
+      "expression": "RequestContextHolder.getRequestAttributes",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 74
+        },
+        "end": {
+          "line": 77,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "setAttribute",
+      "expression": "requestAttributes.getRequest().setAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 9
+        },
+        "end": {
+          "line": 80,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getRequest",
+      "expression": "requestAttributes.getRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 9
+        },
+        "end": {
+          "line": 80,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "orElseThrow",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map(r -> ((ServletRequestAttributes) r))\n                .orElseThrow",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 54
+        },
+        "end": {
+          "line": 93,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(RequestContextHolder.getRequestAttributes())\n                .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 54
+        },
+        "end": {
+          "line": 92,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 54
+        },
+        "end": {
+          "line": 91,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "getRequestAttributes",
+      "expression": "RequestContextHolder.getRequestAttributes",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 74
+        },
+        "end": {
+          "line": 91,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "getAttribute",
+      "expression": "requestAttributes.getRequest().getAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 28
+        },
+        "end": {
+          "line": 94,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "getRequest",
+      "expression": "requestAttributes.getRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 28
+        },
+        "end": {
+          "line": 94,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 30
+        },
+        "end": {
+          "line": 107,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ipAddresses.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 36
+        },
+        "end": {
+          "line": 109,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "unknown.equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 65
+        },
+        "end": {
+          "line": 109,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 27
+        },
+        "end": {
+          "line": 111,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ipAddresses.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 36
+        },
+        "end": {
+          "line": 113,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "unknown.equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 65
+        },
+        "end": {
+          "line": 113,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 27
+        },
+        "end": {
+          "line": 115,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ipAddresses.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 36
+        },
+        "end": {
+          "line": 117,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "unknown.equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 65
+        },
+        "end": {
+          "line": 117,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 27
+        },
+        "end": {
+          "line": 119,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ipAddresses.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 36
+        },
+        "end": {
+          "line": 121,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "unknown.equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 65
+        },
+        "end": {
+          "line": 121,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 27
+        },
+        "end": {
+          "line": 123,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ipAddresses.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 36
+        },
+        "end": {
+          "line": 126,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "split",
+      "expression": "ipAddresses.split",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 18
+        },
+        "end": {
+          "line": 127,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "ip.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 27
+        },
+        "end": {
+          "line": 130,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "equalsIgnoreCase",
+      "expression": "unknown.equalsIgnoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 47
+        },
+        "end": {
+          "line": 130,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "getRemoteAddr",
+      "expression": "request.getRemoteAddr",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 18
+        },
+        "end": {
+          "line": 131,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 144,
+          "column": 13
+        },
+        "end": {
+          "line": 144,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 144,
+          "column": 13
+        },
+        "end": {
+          "line": 144,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(RequestMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 25
+        },
+        "end": {
+          "line": 145,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 25
+        },
+        "end": {
+          "line": 145,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 25
+        },
+        "end": {
+          "line": 145,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 20
+        },
+        "end": {
+          "line": 146,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 20
+        },
+        "end": {
+          "line": 146,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(PostMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 25
+        },
+        "end": {
+          "line": 147,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 25
+        },
+        "end": {
+          "line": 147,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 25
+        },
+        "end": {
+          "line": 147,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 20
+        },
+        "end": {
+          "line": 148,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 20
+        },
+        "end": {
+          "line": 148,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(GetMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 25
+        },
+        "end": {
+          "line": 149,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 25
+        },
+        "end": {
+          "line": 149,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 25
+        },
+        "end": {
+          "line": 149,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 20
+        },
+        "end": {
+          "line": 150,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 20
+        },
+        "end": {
+          "line": 150,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(PutMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 25
+        },
+        "end": {
+          "line": 151,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 25
+        },
+        "end": {
+          "line": 151,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 25
+        },
+        "end": {
+          "line": 151,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 20
+        },
+        "end": {
+          "line": 152,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 20
+        },
+        "end": {
+          "line": 152,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(DeleteMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 25
+        },
+        "end": {
+          "line": 153,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 25
+        },
+        "end": {
+          "line": 153,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 25
+        },
+        "end": {
+          "line": 153,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 20
+        },
+        "end": {
+          "line": 154,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 20
+        },
+        "end": {
+          "line": 154,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "signature.getMethod().getAnnotation(PatchMapping.class).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 25
+        },
+        "end": {
+          "line": 155,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getMethod().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 25
+        },
+        "end": {
+          "line": 155,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "signature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 25
+        },
+        "end": {
+          "line": 155,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getDeclaringType().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 13
+        },
+        "end": {
+          "line": 158,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "getDeclaringType",
+      "expression": "signature.getDeclaringType",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 13
+        },
+        "end": {
+          "line": 158,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "((RequestMapping) signature.getDeclaringType().getAnnotation(RequestMapping.class)).value",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 24
+        },
+        "end": {
+          "line": 159,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "signature.getDeclaringType().getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 42
+        },
+        "end": {
+          "line": 159,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "getDeclaringType",
+      "expression": "signature.getDeclaringType",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 42
+        },
+        "end": {
+          "line": 159,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "classUri.concat",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 22
+        },
+        "end": {
+          "line": 161,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "startsWith",
+      "expression": "methodUri.startsWith",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 38
+        },
+        "end": {
+          "line": 161,
+          "column": 63
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 19
+        },
+        "end": {
+          "line": 33,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 23
+        },
+        "end": {
+          "line": 33,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 31
+        },
+        "end": {
+          "line": 33,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getHeader",
+      "ownerSignature": "public static Map<String, String> getHeader(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 49
+        },
+        "end": {
+          "line": 33,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentRequest",
+      "ownerSignature": "public static HttpServletRequest getCurrentRequest()",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 19
+        },
+        "end": {
+          "line": 48,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getCurrentResponse",
+      "ownerSignature": "public static HttpServletResponse getCurrentResponse()",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 19
+        },
+        "end": {
+          "line": 61,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.putAttribute",
+      "ownerSignature": "public static <T> void putAttribute(String keyName, T attribute)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 41
+        },
+        "end": {
+          "line": 76,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 38
+        },
+        "end": {
+          "line": 90,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getAttribute",
+      "ownerSignature": "public static <T> T getAttribute(String keyName, Class<T> clazz)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 54
+        },
+        "end": {
+          "line": 90,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 19
+        },
+        "end": {
+          "line": 104,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.getIpAddress",
+      "ownerSignature": "public static String getIpAddress(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 39
+        },
+        "end": {
+          "line": 104,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 19
+        },
+        "end": {
+          "line": 142,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RequestUtil.obtainUri",
+      "ownerSignature": "public static String obtainUri(MethodSignature signature)",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 36
+        },
+        "end": {
+          "line": 142,
+          "column": 51
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 22
+        },
+        "end": {
+          "line": 50,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 22
+        },
+        "end": {
+          "line": 51,
+          "column": 41
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 30
+        },
+        "end": {
+          "line": 52,
+          "column": 118
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 22
+        },
+        "end": {
+          "line": 63,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 22
+        },
+        "end": {
+          "line": 64,
+          "column": 42
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 30
+        },
+        "end": {
+          "line": 65,
+          "column": 119
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 22
+        },
+        "end": {
+          "line": 78,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 30
+        },
+        "end": {
+          "line": 79,
+          "column": 129
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 22
+        },
+        "end": {
+          "line": 92,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 30
+        },
+        "end": {
+          "line": 93,
+          "column": 98
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

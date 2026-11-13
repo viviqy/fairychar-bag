@@ -1,0 +1,842 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/RootAction.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.action.condition.bool",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RootAction",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic class RootAction implements ActionFlow",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "</p>Root节点流程,仅作为一个流的root标识</p>\n 为什么需要:\n 1. 唯一的入口点\n 2. 对于有循环的流程,可以区分入口\n\n @author chiyo\n @since 1.0.0",
+      "supertypes": [
+        "ActionFlow"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "compute",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.compute",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "@Override\n    public boolean compute(Object context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "Object",
+          "signature": "Object context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 28
+            },
+            "end": {
+              "line": 21,
+              "column": 42
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "callNext",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.callNext",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "@Override\n    public void callNext(Object context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "Object",
+          "signature": "Object context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 26
+            },
+            "end": {
+              "line": 26,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getNextParam",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getNextParam",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "@Override\n    public Object getNextParam(Object context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "Object",
+          "signature": "Object context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 32
+            },
+            "end": {
+              "line": 31,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getParentClassSet",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getParentClassSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "@Override\n    public Set<ParentActionCondition> getParentClassSet()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Set<ParentActionCondition>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "instanceBean",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.instanceBean",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "@Override\n    public ActionFlow instanceBean()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "ActionFlow",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getCondition",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getCondition",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "public static ParentActionCondition getCondition()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "ParentActionCondition",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 9
+        },
+        "end": {
+          "line": 50,
+          "column": 17
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton",
+      "signature": "private final RootAction instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 43
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "RootAction",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 56,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton",
+      "signature": "public RootAction getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 9
+        },
+        "end": {
+          "line": 60,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "RootAction",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "UnsupportedOperationException",
+      "expression": "new UnsupportedOperationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.compute",
+      "ownerSignature": "@Override\n    public boolean compute(Object context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 15
+        },
+        "end": {
+          "line": 22,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "UnsupportedOperationException",
+      "expression": "new UnsupportedOperationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.callNext",
+      "ownerSignature": "@Override\n    public void callNext(Object context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 15
+        },
+        "end": {
+          "line": 27,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "UnsupportedOperationException",
+      "expression": "new UnsupportedOperationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getNextParam",
+      "ownerSignature": "@Override\n    public Object getNextParam(Object context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 15
+        },
+        "end": {
+          "line": 32,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.instanceBean",
+      "ownerSignature": "@Override\n    public ActionFlow instanceBean()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 16
+        },
+        "end": {
+          "line": 42,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "ParentActionCondition",
+      "expression": "new ParentActionCondition",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getCondition",
+      "ownerSignature": "public static ParentActionCondition getCondition()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 16
+        },
+        "end": {
+          "line": 46,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "RootAction",
+      "expression": "new RootAction",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 29
+        },
+        "end": {
+          "line": 55,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ActionFlow",
+      "expression": "ActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 36
+        },
+        "end": {
+          "line": 18,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.compute",
+      "ownerSignature": "@Override\n    public boolean compute(Object context)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 28
+        },
+        "end": {
+          "line": 21,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.compute",
+      "ownerSignature": "@Override\n    public boolean compute(Object context)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 6
+        },
+        "end": {
+          "line": 20,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.callNext",
+      "ownerSignature": "@Override\n    public void callNext(Object context)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 26
+        },
+        "end": {
+          "line": 26,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.callNext",
+      "ownerSignature": "@Override\n    public void callNext(Object context)",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 6
+        },
+        "end": {
+          "line": 25,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getNextParam",
+      "ownerSignature": "@Override\n    public Object getNextParam(Object context)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 12
+        },
+        "end": {
+          "line": 31,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getNextParam",
+      "ownerSignature": "@Override\n    public Object getNextParam(Object context)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 32
+        },
+        "end": {
+          "line": 31,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getNextParam",
+      "ownerSignature": "@Override\n    public Object getNextParam(Object context)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getParentClassSet",
+      "ownerSignature": "@Override\n    public Set<ParentActionCondition> getParentClassSet()",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 12
+        },
+        "end": {
+          "line": 36,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "ParentActionCondition",
+      "expression": "ParentActionCondition",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getParentClassSet",
+      "ownerSignature": "@Override\n    public Set<ParentActionCondition> getParentClassSet()",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 16
+        },
+        "end": {
+          "line": 36,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getParentClassSet",
+      "ownerSignature": "@Override\n    public Set<ParentActionCondition> getParentClassSet()",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ActionFlow",
+      "expression": "ActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.instanceBean",
+      "ownerSignature": "@Override\n    public ActionFlow instanceBean()",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 12
+        },
+        "end": {
+          "line": 41,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.instanceBean",
+      "ownerSignature": "@Override\n    public ActionFlow instanceBean()",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 6
+        },
+        "end": {
+          "line": 40,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ParentActionCondition",
+      "expression": "ParentActionCondition",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.getCondition",
+      "ownerSignature": "public static ParentActionCondition getCondition()",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "RootAction",
+      "expression": "RootAction",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 23
+        },
+        "end": {
+          "line": 52,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "RootAction",
+      "expression": "RootAction",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.RootAction.Singleton.getInstance",
+      "ownerSignature": "public RootAction getInstance()",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 16
+        },
+        "end": {
+          "line": 58,
+          "column": 26
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

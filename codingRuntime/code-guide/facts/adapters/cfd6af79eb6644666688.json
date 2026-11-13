@@ -1,0 +1,502 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnDateTimeCondition.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "OnDateTimeCondition",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\nclass OnDateTimeCondition implements Condition",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [],
+      "docstring": "{@link ConditionalOnDateTime}\n\n @author chiyo",
+      "supertypes": [
+        "Condition"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "matches",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition",
+      "signature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "context",
+          "type": "ConditionContext",
+          "signature": "ConditionContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 28
+            },
+            "end": {
+              "line": 20,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": "AnnotatedTypeMetadata",
+          "signature": "AnnotatedTypeMetadata metadata",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 54
+            },
+            "end": {
+              "line": 20,
+              "column": 84
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.Condition",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.ConditionContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.type.AnnotatedTypeMetadata",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.format.DateTimeFormatter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getAnnotationAttributes",
+      "expression": "metadata.getAnnotationAttributes",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 52
+        },
+        "end": {
+          "line": 21,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "ConditionalOnDateTime.class.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 85
+        },
+        "end": {
+          "line": 21,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "annotationAttributes.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 36
+        },
+        "end": {
+          "line": 25,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "annotationAttributes.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 36
+        },
+        "end": {
+          "line": 26,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "annotationAttributes.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 35
+        },
+        "end": {
+          "line": 27,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 31
+        },
+        "end": {
+          "line": 28,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 61
+        },
+        "end": {
+          "line": 28,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "parse",
+      "expression": "LocalDateTime.parse",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 31
+        },
+        "end": {
+          "line": 29,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "ofPattern",
+      "expression": "DateTimeFormatter.ofPattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 61
+        },
+        "end": {
+          "line": 29,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 36
+        },
+        "end": {
+          "line": 30,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "isAfter",
+      "expression": "checkPoint.isAfter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 13
+        },
+        "end": {
+          "line": 31,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "isBefore",
+      "expression": "checkPoint.isBefore",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 42
+        },
+        "end": {
+          "line": 31,
+          "column": 68
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Condition",
+      "expression": "Condition",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 38
+        },
+        "end": {
+          "line": 18,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "ConditionContext",
+      "expression": "ConditionContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 28
+        },
+        "end": {
+          "line": 20,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "AnnotatedTypeMetadata",
+      "expression": "AnnotatedTypeMetadata",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 54
+        },
+        "end": {
+          "line": 20,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.OnDateTimeCondition.matches",
+      "ownerSignature": "@Override\n    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

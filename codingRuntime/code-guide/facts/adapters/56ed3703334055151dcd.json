@@ -1,0 +1,172 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValue.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "EraseValue",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.FIELD, ElementType.PARAMETER})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface EraseValue",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.FIELD, ElementType.PARAMETER})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>spring mvc 请求参数的property值抹除注解</p>\n 请求参数内被标记的字段,在没进controller接口前将会把值抹除\n 只处理请求体当前类声明的非静态、非final字段；引用类型置为null，基本类型重置为Java默认值，不递归处理嵌套对象或父类字段。\n <pre>\n   {@code\n   class Request{\n       @EraseValue\n       private String name;\n       private String gender;\n   }\n\n   @PostMapping(\"/add\")\n   public String add(@RequestBody @EraseValue Request request){\n       //request name字段的值将会为null\n       return request.toString();\n   }\n\n   }\n </pre>\n 与其对应的反作用注解{@link KeepValue}\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "value",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue.value",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "signature": "Class<?>[] value() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "字段和参数都不指定group时匹配；显式group按Class交集匹配，仅一方为空时不匹配。\n 只有匹配的标注字段会被抹除，未标注字段保持原值。\n\n @return {@link Class}<{@link ?}>{@link []}",
+      "typeParameters": [],
+      "returnType": "Class<?>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 2
+        },
+        "end": {
+          "line": 31,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 2
+        },
+        "end": {
+          "line": 32,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 2
+        },
+        "end": {
+          "line": 33,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValue.value",
+      "ownerSignature": "Class<?>[] value() default {}",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

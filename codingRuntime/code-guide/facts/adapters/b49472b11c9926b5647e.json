@@ -1,0 +1,438 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/TimeBetweenQuery.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.pojo.query",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "TimeBetweenQuery",
+      "qualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@NoArgsConstructor\n@Data\n@Accessors(chain = true)\n@Schema(description = \"时间段查询\")\npublic class TimeBetweenQuery implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Data",
+        "@Accessors(chain = true)",
+        "@Schema(description = \"时间段查询\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/5/21 20:03\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "from",
+      "qualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.from",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "signature": "@Schema(description = \"\\u8d77\\u59cb\\u65f6\\u95f4\")\n@JsonFormat(pattern = Consts.SIMPLE_DATETIME_FORMAT)\nprivate LocalDateTime from",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 32
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"起始时间\")",
+        "@JsonFormat(pattern = Consts.SIMPLE_DATETIME_FORMAT)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "to",
+      "qualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.to",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "signature": "@Schema(description = \"\\u7ed3\\u675f\\u65f6\\u95f4\")\n@JsonFormat(pattern = Consts.SIMPLE_DATETIME_FORMAT)\nprivate LocalDateTime to",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 30
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"结束时间\")",
+        "@JsonFormat(pattern = Consts.SIMPLE_DATETIME_FORMAT)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.annotation.JsonFormat",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 42
+        },
+        "end": {
+          "line": 26,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.from",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.from",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 6
+        },
+        "end": {
+          "line": 27,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.from",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.to",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.to",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.query.TimeBetweenQuery.to",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 16
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

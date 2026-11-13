@@ -1,0 +1,1832 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/request/ClonedServletRequest.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.request",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ClonedServletRequest",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "ownerQualifiedName": "",
+      "signature": "public class ClonedServletRequest extends HttpServletRequestWrapper",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 122,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "克隆http请求request\n {@link ClonedServletRequest#getInputStream()}方法可以重复读取请求流,每次读取都返回一个原有请求流的clone\n copy保留:\n 1.request attribute\n 2.request headers\n 3.request method\n 4.request sessionId\n 5.request uri\n\n @author chiyo\n @since 3.0.1",
+      "supertypes": [
+        "HttpServletRequestWrapper"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "method",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.method",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private String method",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "requestURI",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.requestURI",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private String requestURI",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sessionId",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.sessionId",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private String sessionId",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "inputBytes",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.inputBytes",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private byte[] inputBytes",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "byte[]",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "headers",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.headers",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private Map<String, String> headers",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, String>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "attributes",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.attributes",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "private Map<String, Object> attributes",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, Object>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "ClonedServletRequest",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "public ClonedServletRequest(HttpServletRequest request)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 33
+            },
+            "end": {
+              "line": 42,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getAttribute",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public Object getAttribute(String name)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 72,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "String",
+          "signature": "String name",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 70,
+              "column": 32
+            },
+            "end": {
+              "line": 70,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getAttributeNames",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Enumeration<String>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getRequestURI",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public String getRequestURI()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 93,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getRequestedSessionId",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestedSessionId",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public String getRequestedSessionId()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 5
+        },
+        "end": {
+          "line": 98,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getMethod",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public String getMethod()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getHeaderNames",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Enumeration<String>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getHeader",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public String getHeader(String name)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 113,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "String",
+          "signature": "String name",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 111,
+              "column": 29
+            },
+            "end": {
+              "line": 111,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getInputStream",
+      "qualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "signature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 5
+        },
+        "end": {
+          "line": 120,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "ServletInputStream",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.collection.IteratorEnumeration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.ServletInputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequestWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.catalina.connector.InputBuffer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.coyote.Request",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.ByteBuffer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Enumeration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.HashMap",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 26
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.LinkedList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 43,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "readAllBytes",
+      "expression": "request.getInputStream().readAllBytes",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 26
+        },
+        "end": {
+          "line": 45,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getInputStream",
+      "expression": "request.getInputStream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 26
+        },
+        "end": {
+          "line": 45,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "getHeaderNames",
+      "expression": "request.getHeaderNames",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 43
+        },
+        "end": {
+          "line": 50,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 24
+        },
+        "end": {
+          "line": 51,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "hasMoreElements",
+      "expression": "headerNames.hasMoreElements",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "nextElement",
+      "expression": "headerNames.nextElement",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 26
+        },
+        "end": {
+          "line": 53,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "headers.put",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 13
+        },
+        "end": {
+          "line": 54,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 30
+        },
+        "end": {
+          "line": 54,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "getAttributeNames",
+      "expression": "request.getAttributeNames",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 46
+        },
+        "end": {
+          "line": 57,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 22
+        },
+        "end": {
+          "line": 58,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "hasMoreElements",
+      "expression": "attributeNames.hasMoreElements",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 16
+        },
+        "end": {
+          "line": 59,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "nextElement",
+      "expression": "attributeNames.nextElement",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 26
+        },
+        "end": {
+          "line": 60,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "attributes.put",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 13
+        },
+        "end": {
+          "line": 61,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "getAttribute",
+      "expression": "request.getAttribute",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 33
+        },
+        "end": {
+          "line": 61,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "getRequestedSessionId",
+      "expression": "request.getRequestedSessionId",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 26
+        },
+        "end": {
+          "line": 64,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "getRequestURI",
+      "expression": "request.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 27
+        },
+        "end": {
+          "line": 65,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "request.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 23
+        },
+        "end": {
+          "line": 66,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.attributes.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttribute",
+      "ownerSignature": "@Override\n    public Object getAttribute(String name)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 16
+        },
+        "end": {
+          "line": 71,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "this.attributes.keySet().stream().collect",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 44
+        },
+        "end": {
+          "line": 76,
+          "column": 127
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "this.attributes.keySet().stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 44
+        },
+        "end": {
+          "line": 76,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "keySet",
+      "expression": "this.attributes.keySet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 44
+        },
+        "end": {
+          "line": 76,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "toCollection",
+      "expression": "Collectors.toCollection",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 86
+        },
+        "end": {
+          "line": 76,
+          "column": 126
+        }
+      }
+    },
+    {
+      "name": "Enumeration<String>",
+      "expression": "new Enumeration<String>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 16
+        },
+        "end": {
+          "line": 87,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "IteratorEnumeration",
+      "expression": "new IteratorEnumeration",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 16
+        },
+        "end": {
+          "line": 107,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "iterator",
+      "expression": "this.headers.keySet().iterator",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 40
+        },
+        "end": {
+          "line": 107,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "keySet",
+      "expression": "this.headers.keySet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 40
+        },
+        "end": {
+          "line": 107,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.headers.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeader",
+      "ownerSignature": "@Override\n    public String getHeader(String name)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 112,
+          "column": 16
+        },
+        "end": {
+          "line": 112,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "InputBuffer",
+      "expression": "new InputBuffer",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 26
+        },
+        "end": {
+          "line": 117,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "Request",
+      "expression": "new Request",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 42
+        },
+        "end": {
+          "line": 117,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "setByteBuffer",
+      "expression": "ib.setByteBuffer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 118,
+          "column": 9
+        },
+        "end": {
+          "line": 118,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "wrap",
+      "expression": "ByteBuffer.wrap",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 118,
+          "column": 26
+        },
+        "end": {
+          "line": 118,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "CloneServletInputStream",
+      "expression": "new CloneServletInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 16
+        },
+        "end": {
+          "line": 119,
+          "column": 47
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "HttpServletRequestWrapper",
+      "expression": "HttpServletRequestWrapper",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 43
+        },
+        "end": {
+          "line": 31,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.method",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 13
+        },
+        "end": {
+          "line": 33,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.requestURI",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 13
+        },
+        "end": {
+          "line": 34,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.sessionId",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.headers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.headers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 17
+        },
+        "end": {
+          "line": 38,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.headers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 25
+        },
+        "end": {
+          "line": 38,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.attributes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.attributes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 17
+        },
+        "end": {
+          "line": 40,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.attributes",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 25
+        },
+        "end": {
+          "line": 40,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.ClonedServletRequest",
+      "ownerSignature": "public ClonedServletRequest(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 33
+        },
+        "end": {
+          "line": 42,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttribute",
+      "ownerSignature": "@Override\n    public Object getAttribute(String name)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 12
+        },
+        "end": {
+          "line": 70,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttribute",
+      "ownerSignature": "@Override\n    public Object getAttribute(String name)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 32
+        },
+        "end": {
+          "line": 70,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttribute",
+      "ownerSignature": "@Override\n    public Object getAttribute(String name)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 6
+        },
+        "end": {
+          "line": 69,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Enumeration",
+      "expression": "Enumeration",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 12
+        },
+        "end": {
+          "line": 75,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 24
+        },
+        "end": {
+          "line": 75,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getAttributeNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getAttributeNames()",
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 6
+        },
+        "end": {
+          "line": 74,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestURI",
+      "ownerSignature": "@Override\n    public String getRequestURI()",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 12
+        },
+        "end": {
+          "line": 91,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestURI",
+      "ownerSignature": "@Override\n    public String getRequestURI()",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestedSessionId",
+      "ownerSignature": "@Override\n    public String getRequestedSessionId()",
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 12
+        },
+        "end": {
+          "line": 96,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getRequestedSessionId",
+      "ownerSignature": "@Override\n    public String getRequestedSessionId()",
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 6
+        },
+        "end": {
+          "line": 95,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getMethod",
+      "ownerSignature": "@Override\n    public String getMethod()",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 12
+        },
+        "end": {
+          "line": 101,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getMethod",
+      "ownerSignature": "@Override\n    public String getMethod()",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 6
+        },
+        "end": {
+          "line": 100,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Enumeration",
+      "expression": "Enumeration",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 12
+        },
+        "end": {
+          "line": 106,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 24
+        },
+        "end": {
+          "line": 106,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeaderNames",
+      "ownerSignature": "@Override\n    public Enumeration<String> getHeaderNames()",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 6
+        },
+        "end": {
+          "line": 105,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeader",
+      "ownerSignature": "@Override\n    public String getHeader(String name)",
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 12
+        },
+        "end": {
+          "line": 111,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeader",
+      "ownerSignature": "@Override\n    public String getHeader(String name)",
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 29
+        },
+        "end": {
+          "line": 111,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getHeader",
+      "ownerSignature": "@Override\n    public String getHeader(String name)",
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 6
+        },
+        "end": {
+          "line": 110,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ServletInputStream",
+      "expression": "ServletInputStream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 12
+        },
+        "end": {
+          "line": 116,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 55
+        },
+        "end": {
+          "line": 116,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.ClonedServletRequest.getInputStream",
+      "ownerSignature": "@Override\n    public ServletInputStream getInputStream() throws IOException",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 6
+        },
+        "end": {
+          "line": 115,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 110
+        },
+        "end": {
+          "line": 76,
+          "column": 125
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Local/anonymous type bodies are not projected; their calls are not attributed to the enclosing method.",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 42
+        },
+        "end": {
+          "line": 87,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

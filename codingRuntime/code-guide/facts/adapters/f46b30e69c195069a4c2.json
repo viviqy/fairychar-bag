@@ -1,0 +1,4686 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundCauseAdvice.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.netty.advice",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "GlobalInboundCauseAdvice",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class GlobalInboundCauseAdvice extends ChannelInboundHandlerAdapter implements BeanFactoryPostProcessor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 1
+        },
+        "end": {
+          "line": 312,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/6/24 17:46\n channel inBound 全局异常处理器,添加到inbound pipeline的最后节点\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "ChannelInboundHandlerAdapter",
+        "BeanFactoryPostProcessor"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "ALL",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ALL",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private static final String ALL = \"0all\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"0all\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "cache1",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache1",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private HashMap<String, Method> cache1",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "key=mark(ex+handler+method)",
+      "type": "HashMap<String, Method>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "cache2",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache2",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private HashMap<String, Method> cache2",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "HashMap<String, Method>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "cache3",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache3",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private HashMap<Class<? extends Throwable>, Method> cache3",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 64
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "HashMap<Class<? extends Throwable>, Method>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "invokeArgsCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invokeArgsCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private HashMap<String, InvokeEntity> invokeArgsCache = new HashMap<>(32)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 79
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "key=method fullName;",
+      "type": "HashMap<String, InvokeEntity>",
+      "defaultExpression": "new HashMap<>(32)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "beanMap",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.beanMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private Map<String, Object> beanMap",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, Object>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "exceptionCaught",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 33
+            },
+            "end": {
+              "line": 53,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 60
+            },
+            "end": {
+              "line": 53,
+              "column": 75
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "dispatch",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 72,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "异常处理分发,如果未找到异常处理器将会将此异常向下传递\n\n @param ctx\n @param cause\n @throws InvocationTargetException\n @throws IllegalAccessException\n @throws ClassNotFoundException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "InvocationTargetException",
+        "IllegalAccessException",
+        "ClassNotFoundException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 66,
+              "column": 27
+            },
+            "end": {
+              "line": 66,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 66,
+              "column": 54
+            },
+            "end": {
+              "line": 66,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getCauseInfo",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "包装获取CauseInfo信息\n\n @param cause\n @param stackTraceElement\n @return\n @throws ClassNotFoundException",
+      "typeParameters": [],
+      "returnType": "CauseInfo",
+      "throws": [
+        "ClassNotFoundException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 36
+            },
+            "end": {
+              "line": 82,
+              "column": 51
+            }
+          }
+        },
+        {
+          "name": "stackTraceElement",
+          "type": "StackTraceElement",
+          "signature": "StackTraceElement stackTraceElement",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 82,
+              "column": 53
+            },
+            "end": {
+              "line": 82,
+              "column": 88
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "invoke",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "执行异常处理\n\n @param ctx\n @param cause\n @param method\n @throws InvocationTargetException\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "InvocationTargetException",
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 97,
+              "column": 25
+            },
+            "end": {
+              "line": 97,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 97,
+              "column": 52
+            },
+            "end": {
+              "line": 97,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 97,
+              "column": 69
+            },
+            "end": {
+              "line": 97,
+              "column": 82
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getInvokeEntity",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 5
+        },
+        "end": {
+          "line": 130,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "获取当前method的缓存InvokeEntity信息\n\n @param ctx\n @param cause\n @param method\n @return",
+      "typeParameters": [],
+      "returnType": "InvokeEntity",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ChannelHandlerContext",
+          "signature": "ChannelHandlerContext ctx",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 42
+            },
+            "end": {
+              "line": 115,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 69
+            },
+            "end": {
+              "line": 115,
+              "column": 84
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 115,
+              "column": 86
+            },
+            "end": {
+              "line": 115,
+              "column": 99
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "obtainMethod",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private Method obtainMethod(CauseInfo c)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 5
+        },
+        "end": {
+          "line": 150,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "根据causeInfo信息,分别从cache1,cache2,cache3里获取对应的Method\n cache1推断方式 = exception+handler+method\n cache2推断方式 = exception+handler\n cache3推断方式 = exception\n <p>\n 获取优先级顺序为 cache1->cache2->cache3\n\n @param c causeInfo\n @return 查到的Method或者null",
+      "typeParameters": [],
+      "returnType": "Method",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "c",
+          "type": "CauseInfo",
+          "signature": "CauseInfo c",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 143,
+              "column": 33
+            },
+            "end": {
+              "line": 143,
+              "column": 44
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "validate",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 5
+        },
+        "end": {
+          "line": 176,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "<p>验证映射到的Method合法性</p>\n <p>\n 1.校验异常处理方法是否重复\n 2.校验是否存在配置了methodName但是却未指定Handler\n\n @param methods\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methods",
+          "type": "List<Method>",
+          "signature": "List<Method> methods",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 162,
+              "column": 27
+            },
+            "end": {
+              "line": 162,
+              "column": 47
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 5
+        },
+        "end": {
+          "line": 201,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建异常处理器映射方法缓存\n\n @param causeInfoList",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "causeInfoList",
+          "type": "List<CauseInfo>",
+          "signature": "List<CauseInfo> causeInfoList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 183,
+              "column": 30
+            },
+            "end": {
+              "line": 183,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "obtainCache2Key",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 210,
+          "column": 5
+        },
+        "end": {
+          "line": 212,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "获取cache2缓存的Key\n\n @param causeInfo\n @return",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "causeInfo",
+          "type": "CauseInfo",
+          "signature": "CauseInfo causeInfo",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 210,
+              "column": 36
+            },
+            "end": {
+              "line": 210,
+              "column": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "ensureNotExistSameMethod",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 226,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "验证是否存在相同的错误处理方法\n\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "causeInfoList",
+          "type": "List<CauseInfo>",
+          "signature": "List<CauseInfo> causeInfoList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 219,
+              "column": 43
+            },
+            "end": {
+              "line": 219,
+              "column": 72
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "initCache",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 5
+        },
+        "end": {
+          "line": 242,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "初始化映射方法缓存\n\n @param values\n @throws IllegalAccessException",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IllegalAccessException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "values",
+          "type": "Collection<Object>",
+          "signature": "Collection<Object> values",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 234,
+              "column": 28
+            },
+            "end": {
+              "line": 234,
+              "column": 53
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "isChannelHandler",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.isChannelHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private boolean isChannelHandler(String className) throws ClassNotFoundException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 5
+        },
+        "end": {
+          "line": 254,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "通过类名判断当前类是否是{@link ChannelHandler}的实现类\n\n @param className\n @return\n @throws ClassNotFoundException",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [
+        "ClassNotFoundException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "className",
+          "type": "String",
+          "signature": "String className",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 251,
+              "column": 38
+            },
+            "end": {
+              "line": 251,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findByChannelHandler",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 5
+        },
+        "end": {
+          "line": 272,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "根据cause获取ChannelHandler实现类抛出异常的stack信息(获取Handler类名和异常抛出方法名)\n\n @param cause\n @return\n @throws ClassNotFoundException",
+      "typeParameters": [],
+      "returnType": "StackTraceElement",
+      "throws": [
+        "ClassNotFoundException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 264,
+              "column": 52
+            },
+            "end": {
+              "line": 264,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "postProcessBeanFactory",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 274,
+          "column": 5
+        },
+        "end": {
+          "line": 286,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "BeansException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "beanFactory",
+          "type": "ConfigurableListableBeanFactory",
+          "signature": "ConfigurableListableBeanFactory beanFactory",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 275,
+              "column": 40
+            },
+            "end": {
+              "line": 275,
+              "column": 83
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "name": "CauseInfo",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "signature": "@AllArgsConstructor\n    @NoArgsConstructor\n    @Getter\n    @Setter\n    @Accessors(chain = true)\n    static class CauseInfo",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 293,
+          "column": 5
+        },
+        "end": {
+          "line": 309,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Getter",
+        "@Setter",
+        "@Accessors(chain = true)"
+      ],
+      "modifiers": [
+        "static"
+      ],
+      "docstring": "1.同一个Ex只能有一个处理方法 (ex,handler=null,method=null)\n 2.同一个Ex不同handler可以有不同的处理方法(ex,handler,method=null)\n 3.同一个ex同一个handler不同的方法可以有不同的处理方法(ex,handler,method)",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "ex",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.ex",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "signature": "private Class ex",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 299,
+          "column": 9
+        },
+        "end": {
+          "line": 299,
+          "column": 26
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Class",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "handler",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.handler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "signature": "private Class handler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 300,
+          "column": 9
+        },
+        "end": {
+          "line": 300,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Class",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "methodName",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.methodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "signature": "private String methodName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 301,
+          "column": 9
+        },
+        "end": {
+          "line": 301,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "method",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "signature": "private Method method",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 302,
+          "column": 9
+        },
+        "end": {
+          "line": 302,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Method",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getMark",
+      "qualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "signature": "public String getMark()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 304,
+          "column": 9
+        },
+        "end": {
+          "line": 308,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.NettyCauseAdvice",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.template.CacheOperateTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.netty.channel.ChannelHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.netty.channel.ChannelHandlerContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.netty.channel.ChannelInboundHandlerAdapter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.BeansException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.BeanCreationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.NoSuchBeanDefinitionException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.config.BeanFactoryPostProcessor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.config.ConfigurableListableBeanFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 81
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.InvocationTargetException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 27,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 61
+        },
+        "end": {
+          "line": 49,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "dispatch",
+      "expression": "this.dispatch",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerSignature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "findByChannelHandler",
+      "expression": "this.findByChannelHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 47
+        },
+        "end": {
+          "line": 68,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getCauseInfo",
+      "expression": "this.getCauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 31
+        },
+        "end": {
+          "line": 69,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "obtainMethod",
+      "expression": "this.obtainMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 25
+        },
+        "end": {
+          "line": 70,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "invoke",
+      "expression": "this.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 9
+        },
+        "end": {
+          "line": 71,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "setMethodName",
+      "expression": "new CauseInfo().setEx(cause.getClass())\n                .setHandler(Class.forName(stackTraceElement.getClassName()))\n                .setMethodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 16
+        },
+        "end": {
+          "line": 85,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "setHandler",
+      "expression": "new CauseInfo().setEx(cause.getClass())\n                .setHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 16
+        },
+        "end": {
+          "line": 84,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "setEx",
+      "expression": "new CauseInfo().setEx",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 16
+        },
+        "end": {
+          "line": 83,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "new CauseInfo",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 16
+        },
+        "end": {
+          "line": 83,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "cause.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 38
+        },
+        "end": {
+          "line": 83,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "forName",
+      "expression": "Class.forName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 29
+        },
+        "end": {
+          "line": 84,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "getClassName",
+      "expression": "stackTraceElement.getClassName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 43
+        },
+        "end": {
+          "line": 84,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getMethodName",
+      "expression": "stackTraceElement.getMethodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 32
+        },
+        "end": {
+          "line": 85,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getInvokeEntity",
+      "expression": "this.getInvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 41
+        },
+        "end": {
+          "line": 100,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "invoke",
+      "expression": "method.invoke",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 13
+        },
+        "end": {
+          "line": 101,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getBean",
+      "expression": "invokeEntity.getBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 27
+        },
+        "end": {
+          "line": 101,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "invokeEntity.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 51
+        },
+        "end": {
+          "line": 101,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "fireExceptionCaught",
+      "expression": "ctx.fireExceptionCaught",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 13
+        },
+        "end": {
+          "line": 103,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "CacheOperateTemplate.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 37
+        },
+        "end": {
+          "line": 128,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getMark",
+      "expression": "c.getMark",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 144,
+          "column": 22
+        },
+        "end": {
+          "line": 144,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 16
+        },
+        "end": {
+          "line": 145,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache1.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 47
+        },
+        "end": {
+          "line": 145,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache2.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 18
+        },
+        "end": {
+          "line": 146,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "obtainCache2Key",
+      "expression": "this.obtainCache2Key",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 34
+        },
+        "end": {
+          "line": 146,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache2.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 69
+        },
+        "end": {
+          "line": 146,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "obtainCache2Key",
+      "expression": "this.obtainCache2Key",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 85
+        },
+        "end": {
+          "line": 146,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache3.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 26
+        },
+        "end": {
+          "line": 147,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "getEx",
+      "expression": "c.getEx",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 42
+        },
+        "end": {
+          "line": 147,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache3.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 63
+        },
+        "end": {
+          "line": 147,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getEx",
+      "expression": "c.getEx",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 79
+        },
+        "end": {
+          "line": 147,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache3.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 34
+        },
+        "end": {
+          "line": 148,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.cache3.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 77
+        },
+        "end": {
+          "line": 148,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 46
+        },
+        "end": {
+          "line": 163,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getAnnotation",
+      "expression": "m.getAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 41
+        },
+        "end": {
+          "line": 165,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 18
+        },
+        "end": {
+          "line": 166,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "methodName",
+      "expression": "causeHandler.methodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 40
+        },
+        "end": {
+          "line": 166,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "handler",
+      "expression": "causeHandler.handler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 70
+        },
+        "end": {
+          "line": 166,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "new IllegalAccessException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 167,
+          "column": 23
+        },
+        "end": {
+          "line": 167,
+          "column": 132
+        }
+      }
+    },
+    {
+      "name": "methodName",
+      "expression": "causeHandler.methodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 167,
+          "column": 106
+        },
+        "end": {
+          "line": 167,
+          "column": 131
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "new CauseInfo",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 35
+        },
+        "end": {
+          "line": 171,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "causeHandler.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 49
+        },
+        "end": {
+          "line": 169,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "handler",
+      "expression": "causeHandler.handler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 71
+        },
+        "end": {
+          "line": 169,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "defaultText",
+      "expression": "StringUtil.defaultText",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 170,
+          "column": 23
+        },
+        "end": {
+          "line": 170,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "methodName",
+      "expression": "causeHandler.methodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 170,
+          "column": 46
+        },
+        "end": {
+          "line": 170,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "causeInfoList.add",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 172,
+          "column": 13
+        },
+        "end": {
+          "line": 172,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "ensureNotExistSameMethod",
+      "expression": "this.ensureNotExistSameMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 9
+        },
+        "end": {
+          "line": 174,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "createCache",
+      "expression": "this.createCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 9
+        },
+        "end": {
+          "line": 175,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 184,
+          "column": 23
+        },
+        "end": {
+          "line": 184,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "causeInfoList.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 184,
+          "column": 37
+        },
+        "end": {
+          "line": 184,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "causeInfoList.stream().collect(Collectors.groupingBy(c -> c.getMark())).entrySet().forEach",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 9
+        },
+        "end": {
+          "line": 189,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "causeInfoList.stream().collect(Collectors.groupingBy(c -> c.getMark())).entrySet",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 9
+        },
+        "end": {
+          "line": 185,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "causeInfoList.stream().collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 9
+        },
+        "end": {
+          "line": 185,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "causeInfoList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 9
+        },
+        "end": {
+          "line": 185,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 40
+        },
+        "end": {
+          "line": 185,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 23
+        },
+        "end": {
+          "line": 191,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "causeInfoList.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 37
+        },
+        "end": {
+          "line": 191,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "causeInfoList.stream().filter(c -> ALL.equals(c.getMethodName()) && c.getHandler() != ChannelHandler.class)\n                .forEach",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 192,
+          "column": 9
+        },
+        "end": {
+          "line": 196,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "causeInfoList.stream().filter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 192,
+          "column": 9
+        },
+        "end": {
+          "line": 192,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "causeInfoList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 192,
+          "column": 9
+        },
+        "end": {
+          "line": 192,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "HashMap<>",
+      "expression": "new HashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 198,
+          "column": 23
+        },
+        "end": {
+          "line": 198,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "causeInfoList.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 198,
+          "column": 37
+        },
+        "end": {
+          "line": 198,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "causeInfoList.stream().filter(c -> ALL.equals(c.getMethodName()) && c.getHandler() == ChannelHandler.class)\n                .forEach",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 9
+        },
+        "end": {
+          "line": 200,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "causeInfoList.stream().filter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 9
+        },
+        "end": {
+          "line": 199,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "causeInfoList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 9
+        },
+        "end": {
+          "line": 199,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "causeInfo.ex.getName().concat(\"-\").concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 16
+        },
+        "end": {
+          "line": 211,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "causeInfo.ex.getName().concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 16
+        },
+        "end": {
+          "line": 211,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "causeInfo.ex.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 16
+        },
+        "end": {
+          "line": 211,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "causeInfo.handler.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 58
+        },
+        "end": {
+          "line": 211,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "causeInfoList.stream().collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 50
+        },
+        "end": {
+          "line": 220,
+          "column": 121
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "causeInfoList.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 50
+        },
+        "end": {
+          "line": 220,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 81
+        },
+        "end": {
+          "line": 220,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "methodMap.values",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 221,
+          "column": 38
+        },
+        "end": {
+          "line": 221,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "value.size",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 17
+        },
+        "end": {
+          "line": 222,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "new IllegalAccessException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 223,
+          "column": 23
+        },
+        "end": {
+          "line": 223,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "getMark",
+      "expression": "value.get(0).getMark",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 223,
+          "column": 101
+        },
+        "end": {
+          "line": 223,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "value.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 223,
+          "column": 101
+        },
+        "end": {
+          "line": 223,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "values.stream().flatMap(c -> Arrays.stream(c.getClass().getDeclaredMethods()))\n                .filter(m -> m.getDeclaredAnnotation(CauseHandler.class) != null)\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 32
+        },
+        "end": {
+          "line": 237,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "values.stream().flatMap(c -> Arrays.stream(c.getClass().getDeclaredMethods()))\n                .filter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 32
+        },
+        "end": {
+          "line": 236,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "flatMap",
+      "expression": "values.stream().flatMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 32
+        },
+        "end": {
+          "line": 235,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "values.stream",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 32
+        },
+        "end": {
+          "line": 235,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 237,
+          "column": 26
+        },
+        "end": {
+          "line": 237,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "methods.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 238,
+          "column": 13
+        },
+        "end": {
+          "line": 238,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "warn",
+      "expression": "log.warn",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "validate",
+      "expression": "this.validate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 241,
+          "column": 9
+        },
+        "end": {
+          "line": 241,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "forName",
+      "expression": "Class.forName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.isChannelHandler",
+      "ownerSignature": "private boolean isChannelHandler(String className) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 252,
+          "column": 23
+        },
+        "end": {
+          "line": 252,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "isAssignableFrom",
+      "expression": "ChannelHandler.class.isAssignableFrom",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.isChannelHandler",
+      "ownerSignature": "private boolean isChannelHandler(String className) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 253,
+          "column": 16
+        },
+        "end": {
+          "line": 253,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "getStackTrace",
+      "expression": "cause.getStackTrace",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 265,
+          "column": 52
+        },
+        "end": {
+          "line": 265,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "isChannelHandler",
+      "expression": "this.isChannelHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 17
+        },
+        "end": {
+          "line": 266,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getClassName",
+      "expression": "stackTraceElement.getClassName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 39
+        },
+        "end": {
+          "line": 266,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "getBeansWithAnnotation",
+      "expression": "beanFactory.getBeansWithAnnotation",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 276,
+          "column": 24
+        },
+        "end": {
+          "line": 276,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "this.beanMap.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 277,
+          "column": 13
+        },
+        "end": {
+          "line": 277,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "NoSuchBeanDefinitionException",
+      "expression": "new NoSuchBeanDefinitionException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 278,
+          "column": 19
+        },
+        "end": {
+          "line": 278,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "initCache",
+      "expression": "this.initCache",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 281,
+          "column": 13
+        },
+        "end": {
+          "line": 281,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "this.beanMap.values",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 281,
+          "column": 28
+        },
+        "end": {
+          "line": 281,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "BeanCreationException",
+      "expression": "new BeanCreationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 283,
+          "column": 19
+        },
+        "end": {
+          "line": 283,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "e.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 283,
+          "column": 45
+        },
+        "end": {
+          "line": 283,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "this.ex.getName().concat(\"-\")\n                    .concat(this.handler.getName()).concat(\"-\")\n                    .concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 307,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "this.ex.getName().concat(\"-\")\n                    .concat(this.handler.getName()).concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 306,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "this.ex.getName().concat(\"-\")\n                    .concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 306,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "this.ex.getName().concat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 305,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "this.ex.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 305,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "this.handler.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 306,
+          "column": 29
+        },
+        "end": {
+          "line": 306,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 307,
+          "column": 29
+        },
+        "end": {
+          "line": 307,
+          "column": 67
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ChannelInboundHandlerAdapter",
+      "expression": "ChannelInboundHandlerAdapter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 47
+        },
+        "end": {
+          "line": 37,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "BeanFactoryPostProcessor",
+      "expression": "BeanFactoryPostProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 87
+        },
+        "end": {
+          "line": 37,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 2
+        },
+        "end": {
+          "line": 36,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ALL",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 26
+        },
+        "end": {
+          "line": 39,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 13
+        },
+        "end": {
+          "line": 43,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache1",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 29
+        },
+        "end": {
+          "line": 43,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache2",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 13
+        },
+        "end": {
+          "line": 44,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache2",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 21
+        },
+        "end": {
+          "line": 44,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache2",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 29
+        },
+        "end": {
+          "line": 44,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache3",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 13
+        },
+        "end": {
+          "line": 45,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache3",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 21
+        },
+        "end": {
+          "line": 45,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache3",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 37
+        },
+        "end": {
+          "line": 45,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.cache3",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 49
+        },
+        "end": {
+          "line": 45,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "HashMap",
+      "expression": "HashMap",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 13
+        },
+        "end": {
+          "line": 49,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 21
+        },
+        "end": {
+          "line": 49,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "InvokeEntity",
+      "expression": "InvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invokeArgsCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 29
+        },
+        "end": {
+          "line": 49,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 13
+        },
+        "end": {
+          "line": 50,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 17
+        },
+        "end": {
+          "line": 50,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.beanMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 25
+        },
+        "end": {
+          "line": 50,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerSignature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 33
+        },
+        "end": {
+          "line": 53,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerSignature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 60
+        },
+        "end": {
+          "line": 53,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerSignature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 84
+        },
+        "end": {
+          "line": 53,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.exceptionCaught",
+      "ownerSignature": "@Override\n    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 6
+        },
+        "end": {
+          "line": 52,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 27
+        },
+        "end": {
+          "line": 66,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 54
+        },
+        "end": {
+          "line": 66,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "InvocationTargetException",
+      "expression": "InvocationTargetException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 20
+        },
+        "end": {
+          "line": 67,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 47
+        },
+        "end": {
+          "line": 67,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "ClassNotFoundException",
+      "expression": "ClassNotFoundException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.dispatch",
+      "ownerSignature": "private void dispatch(ChannelHandlerContext ctx, Throwable cause)\n            throws InvocationTargetException, IllegalAccessException, ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 71
+        },
+        "end": {
+          "line": 67,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 13
+        },
+        "end": {
+          "line": 82,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 36
+        },
+        "end": {
+          "line": 82,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "StackTraceElement",
+      "expression": "StackTraceElement",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 53
+        },
+        "end": {
+          "line": 82,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "ClassNotFoundException",
+      "expression": "ClassNotFoundException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getCauseInfo",
+      "ownerSignature": "private CauseInfo getCauseInfo(Throwable cause, StackTraceElement stackTraceElement) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 97
+        },
+        "end": {
+          "line": 82,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 25
+        },
+        "end": {
+          "line": 97,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 52
+        },
+        "end": {
+          "line": 97,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 69
+        },
+        "end": {
+          "line": 97,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "InvocationTargetException",
+      "expression": "InvocationTargetException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 20
+        },
+        "end": {
+          "line": 98,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.invoke",
+      "ownerSignature": "private void invoke(ChannelHandlerContext ctx, Throwable cause, Method method)\n            throws InvocationTargetException, IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 47
+        },
+        "end": {
+          "line": 98,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "InvokeEntity",
+      "expression": "InvokeEntity",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 13
+        },
+        "end": {
+          "line": 115,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "ChannelHandlerContext",
+      "expression": "ChannelHandlerContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 42
+        },
+        "end": {
+          "line": 115,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 69
+        },
+        "end": {
+          "line": 115,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.getInvokeEntity",
+      "ownerSignature": "private InvokeEntity getInvokeEntity(ChannelHandlerContext ctx, Throwable cause, Method method)",
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 86
+        },
+        "end": {
+          "line": 115,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 13
+        },
+        "end": {
+          "line": 143,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainMethod",
+      "ownerSignature": "private Method obtainMethod(CauseInfo c)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 33
+        },
+        "end": {
+          "line": 143,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 27
+        },
+        "end": {
+          "line": 162,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 32
+        },
+        "end": {
+          "line": 162,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.validate",
+      "ownerSignature": "private void validate(List<Method> methods) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 56
+        },
+        "end": {
+          "line": 162,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 30
+        },
+        "end": {
+          "line": 183,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.createCache",
+      "ownerSignature": "private void createCache(List<CauseInfo> causeInfoList)",
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 35
+        },
+        "end": {
+          "line": 183,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "range": {
+        "start": {
+          "line": 210,
+          "column": 13
+        },
+        "end": {
+          "line": 210,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.obtainCache2Key",
+      "ownerSignature": "private String obtainCache2Key(CauseInfo causeInfo)",
+      "range": {
+        "start": {
+          "line": 210,
+          "column": 36
+        },
+        "end": {
+          "line": 210,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 43
+        },
+        "end": {
+          "line": 219,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "CauseInfo",
+      "expression": "CauseInfo",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 48
+        },
+        "end": {
+          "line": 219,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.ensureNotExistSameMethod",
+      "ownerSignature": "private void ensureNotExistSameMethod(List<CauseInfo> causeInfoList) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 81
+        },
+        "end": {
+          "line": 219,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "Collection",
+      "expression": "Collection",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 28
+        },
+        "end": {
+          "line": 234,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 39
+        },
+        "end": {
+          "line": 234,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IllegalAccessException",
+      "expression": "IllegalAccessException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.initCache",
+      "ownerSignature": "private void initCache(Collection<Object> values) throws IllegalAccessException",
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 62
+        },
+        "end": {
+          "line": 234,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.isChannelHandler",
+      "ownerSignature": "private boolean isChannelHandler(String className) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 38
+        },
+        "end": {
+          "line": 251,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "ClassNotFoundException",
+      "expression": "ClassNotFoundException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.isChannelHandler",
+      "ownerSignature": "private boolean isChannelHandler(String className) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 63
+        },
+        "end": {
+          "line": 251,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "StackTraceElement",
+      "expression": "StackTraceElement",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 13
+        },
+        "end": {
+          "line": 264,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 52
+        },
+        "end": {
+          "line": 264,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "ClassNotFoundException",
+      "expression": "ClassNotFoundException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.findByChannelHandler",
+      "ownerSignature": "private StackTraceElement findByChannelHandler(Throwable cause) throws ClassNotFoundException",
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 76
+        },
+        "end": {
+          "line": 264,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "ConfigurableListableBeanFactory",
+      "expression": "ConfigurableListableBeanFactory",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 275,
+          "column": 40
+        },
+        "end": {
+          "line": 275,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "BeansException",
+      "expression": "BeansException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 275,
+          "column": 92
+        },
+        "end": {
+          "line": 275,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.postProcessBeanFactory",
+      "ownerSignature": "@Override\n    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException",
+      "range": {
+        "start": {
+          "line": 274,
+          "column": 6
+        },
+        "end": {
+          "line": 274,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 293,
+          "column": 6
+        },
+        "end": {
+          "line": 293,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 294,
+          "column": 6
+        },
+        "end": {
+          "line": 294,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 295,
+          "column": 6
+        },
+        "end": {
+          "line": 295,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 296,
+          "column": 6
+        },
+        "end": {
+          "line": 296,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 297,
+          "column": 6
+        },
+        "end": {
+          "line": 297,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.ex",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 299,
+          "column": 17
+        },
+        "end": {
+          "line": 299,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.handler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 300,
+          "column": 17
+        },
+        "end": {
+          "line": 300,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.methodName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 301,
+          "column": 17
+        },
+        "end": {
+          "line": 301,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.method",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 302,
+          "column": 17
+        },
+        "end": {
+          "line": 302,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.netty.advice.GlobalInboundCauseAdvice.CauseInfo.getMark",
+      "ownerSignature": "public String getMark()",
+      "range": {
+        "start": {
+          "line": 304,
+          "column": 16
+        },
+        "end": {
+          "line": 304,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 62
+        },
+        "end": {
+          "line": 116,
+          "column": 118
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 120
+        },
+        "end": {
+          "line": 128,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 12
+        },
+        "end": {
+          "line": 128,
+          "column": 70
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 62
+        },
+        "end": {
+          "line": 185,
+          "column": 78
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 100
+        },
+        "end": {
+          "line": 189,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 192,
+          "column": 39
+        },
+        "end": {
+          "line": 192,
+          "column": 115
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 193,
+          "column": 26
+        },
+        "end": {
+          "line": 196,
+          "column": 18
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 39
+        },
+        "end": {
+          "line": 199,
+          "column": 115
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 200,
+          "column": 26
+        },
+        "end": {
+          "line": 200,
+          "column": 72
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 103
+        },
+        "end": {
+          "line": 220,
+          "column": 119
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 56
+        },
+        "end": {
+          "line": 235,
+          "column": 109
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 236,
+          "column": 25
+        },
+        "end": {
+          "line": 236,
+          "column": 81
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

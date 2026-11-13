@@ -1,0 +1,1374 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/DefaultExceptionAdvice.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.advice",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "DefaultExceptionAdvice",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "ownerQualifiedName": "",
+      "signature": "@RestControllerAdvice\n@Order\n@Slf4j\npublic class DefaultExceptionAdvice",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 98,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@RestControllerAdvice",
+        "@Order",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于hibernate validator的参数校验失败全局拦截类\n\n @author chiyo\n @since 0.0.1",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "paramsException",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "signature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "只返回第一个校验失败的参数的校验原因\n 该类错误可以从返回体中获取失败原因， 因此无需打印error\n 处理参数格式校验失败错误 处理范围\n 一Get请求中 标记@Valid的参数实体\n 二@RequestParam 上标记@Validate的参数实体\n 三@RequestBody 上标记@Validate的参数实体\n\n @param exception 异常\n @return 包装返回体",
+      "typeParameters": [],
+      "returnType": "HttpResult",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "exception",
+          "type": "Exception",
+          "signature": "Exception exception",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 39
+            },
+            "end": {
+              "line": 47,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "handleServiceException",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "signature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@ExceptionHandler(FBException.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "HttpResult",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "e",
+          "type": "FBException",
+          "signature": "FBException e",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 80,
+              "column": 46
+            },
+            "end": {
+              "line": 80,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "handleRestException",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "signature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@ExceptionHandler(RestException.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "HttpResult",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "e",
+          "type": "RestException",
+          "signature": "RestException e",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 85,
+              "column": 43
+            },
+            "end": {
+              "line": 85,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "handleException",
+      "qualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "signature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 95,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@ExceptionHandler(Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "HttpResult",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "e",
+          "type": "Exception",
+          "signature": "Exception e",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 39
+            },
+            "end": {
+              "line": 92,
+              "column": 50
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.json.JSONUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.IRestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.HttpResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.InvalidateFieldVO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.utils.RequestUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintViolationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.hibernate.validator.internal.engine.ConstraintViolationImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 86
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.annotation.Order",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.validation.BindException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.bind.MethodArgumentNotValidException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.bind.annotation.ExceptionHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.bind.annotation.RestControllerAdvice",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.ArrayList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 54
+        },
+        "end": {
+          "line": 48,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "be.getFieldErrors().stream()\n                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage(), null))\n                    .toList",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 52,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "be.getFieldErrors().stream()\n                    .map",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 51,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "be.getFieldErrors().stream",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 50,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "getFieldErrors",
+      "expression": "be.getFieldErrors",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 50,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "ce.getConstraintViolations().stream()\n                    .map(error -> {\n                        ConstraintViolationImpl constraintViolation = (ConstraintViolationImpl) error;\n                        String defaultMessage = null;\n                        try {\n                            defaultMessage = (String) ((ConstraintDescriptorImpl) constraintViolation.getConstraintDescriptor())\n                                    .getAnnotationType().getMethod(\"message\").getDefaultValue();\n                        } catch (NoSuchMethodException e) {\n                            //never happened\n                        }\n                        return new InvalidateFieldVO(error.getPropertyPath().toString(), error.getMessage()\n                                , defaultMessage.equals(error.getMessage()));\n                    })\n                    .toList",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 34
+        },
+        "end": {
+          "line": 67,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "ce.getConstraintViolations().stream()\n                    .map",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 34
+        },
+        "end": {
+          "line": 66,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "ce.getConstraintViolations().stream",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 34
+        },
+        "end": {
+          "line": 54,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "getConstraintViolations",
+      "expression": "ce.getConstraintViolations",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 34
+        },
+        "end": {
+          "line": 54,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "me.getBindingResult().getFieldErrors().stream()\n                    .map(error -> new InvalidateFieldVO(error.getField(), error.getDefaultMessage(), null))\n                    .toList",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 71,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "me.getBindingResult().getFieldErrors().stream()\n                    .map",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 70,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "me.getBindingResult().getFieldErrors().stream",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 69,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "getFieldErrors",
+      "expression": "me.getBindingResult().getFieldErrors",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 69,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getBindingResult",
+      "expression": "me.getBindingResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 69,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "getCurrentRequest",
+      "expression": "RequestUtil.getCurrentRequest",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 38
+        },
+        "end": {
+          "line": 73,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "debug",
+      "expression": "log.debug",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 9
+        },
+        "end": {
+          "line": 74,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "toJsonStr",
+      "expression": "JSONUtil.toJsonStr",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 19
+        },
+        "end": {
+          "line": 74,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "InvalidateLog",
+      "expression": "new InvalidateLog",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 38
+        },
+        "end": {
+          "line": 74,
+          "column": 121
+        }
+      }
+    },
+    {
+      "name": "getRequestURI",
+      "expression": "request.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 77
+        },
+        "end": {
+          "line": 74,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "fail",
+      "expression": "HttpResult.fail",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 16
+        },
+        "end": {
+          "line": 75,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "new HttpResult",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 16
+        },
+        "end": {
+          "line": 81,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "e.getCode",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 31
+        },
+        "end": {
+          "line": 81,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "getData",
+      "expression": "e.getData",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 44
+        },
+        "end": {
+          "line": 81,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "e.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 57
+        },
+        "end": {
+          "line": 81,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "getErrorCode",
+      "expression": "e.getErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 36
+        },
+        "end": {
+          "line": 86,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "new HttpResult",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 16
+        },
+        "end": {
+          "line": 87,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "errorCode.getCode",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 31
+        },
+        "end": {
+          "line": 87,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "getData",
+      "expression": "e.getData",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 52
+        },
+        "end": {
+          "line": 87,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "e.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 65
+        },
+        "end": {
+          "line": 87,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 9
+        },
+        "end": {
+          "line": 93,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "e.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 42
+        },
+        "end": {
+          "line": 93,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "fail",
+      "expression": "HttpResult.fail",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RestControllerAdvice",
+      "expression": "RestControllerAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 2
+        },
+        "end": {
+          "line": 31,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Order",
+      "expression": "Order",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 2
+        },
+        "end": {
+          "line": 32,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 2
+        },
+        "end": {
+          "line": 33,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "HttpResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 39
+        },
+        "end": {
+          "line": 47,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "ExceptionHandler",
+      "expression": "ExceptionHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.paramsException",
+      "ownerSignature": "@ExceptionHandler(value = {BindException.class, ConstraintViolationException.class, MethodArgumentNotValidException.class})\n    public HttpResult paramsException(Exception exception)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 6
+        },
+        "end": {
+          "line": 46,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "HttpResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 12
+        },
+        "end": {
+          "line": 80,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "FBException",
+      "expression": "FBException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 46
+        },
+        "end": {
+          "line": 80,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "ExceptionHandler",
+      "expression": "ExceptionHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleServiceException",
+      "ownerSignature": "@ExceptionHandler(FBException.class)\n    public HttpResult handleServiceException(FBException e)",
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 6
+        },
+        "end": {
+          "line": 79,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "HttpResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 12
+        },
+        "end": {
+          "line": 85,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "RestException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 43
+        },
+        "end": {
+          "line": 85,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "ExceptionHandler",
+      "expression": "ExceptionHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleRestException",
+      "ownerSignature": "@ExceptionHandler(RestException.class)\n    public HttpResult handleRestException(RestException e)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 6
+        },
+        "end": {
+          "line": 84,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "HttpResult",
+      "expression": "HttpResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 12
+        },
+        "end": {
+          "line": 92,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 39
+        },
+        "end": {
+          "line": 92,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "ExceptionHandler",
+      "expression": "ExceptionHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.advice.DefaultExceptionAdvice.handleException",
+      "ownerSignature": "@ExceptionHandler(Exception.class)\n    public HttpResult handleException(Exception e)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 6
+        },
+        "end": {
+          "line": 91,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 26
+        },
+        "end": {
+          "line": 51,
+          "column": 107
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 26
+        },
+        "end": {
+          "line": 66,
+          "column": 22
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 26
+        },
+        "end": {
+          "line": 70,
+          "column": 107
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

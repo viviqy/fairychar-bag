@@ -1,0 +1,172 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyResult.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "FuzzyResult",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.METHOD})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface FuzzyResult",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.METHOD})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "spring mvc 响应参数接口标记注解,被标记的接口将会脱敏响应参数\n <pre>\n     {@code\n     class Sample{\n         @FuzzyValue(beginAt=1,endAt=2)\n         private String name=\"1234\";\n     }\n\n     @FuzzyResult\n     @GetMapping(\"/getOne\")\n     public Sample getOne(){\n         return new Sample();\n         //response= {name: \"1**4\"}\n     }\n\n     }\n </pre>\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "field",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult.field",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "signature": "String field() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "由于接口大多会包装一层进行返回,如\n <pre>\n {@code\n public HttpResult<User> getUser();\n }\n </pre>\n 这种情况下,实际业务返回对象为User.class,但是HttpResult一般无法在data字段上添加注解\n 提供field属性,取包装体字段为模糊对象进行模糊处理\n 属性字段名称,如果有值则会取对应字段值为Object,可以通过.分割\n 如果值为空则取当前返回对象为Object\n <pre>{@code\n @FuzzyResult(field = \"data.user\")\n }\n </pre>\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 2
+        },
+        "end": {
+          "line": 28,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 2
+        },
+        "end": {
+          "line": 29,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyResult.field",
+      "ownerSignature": "String field() default \"\"",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

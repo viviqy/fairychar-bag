@@ -1,0 +1,420 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValueAdvice.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "EraseValueAdvice",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "ownerQualifiedName": "",
+      "signature": "@ControllerAdvice\npublic class EraseValueAdvice extends PropertyValueAdvice<EraseValue>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@ControllerAdvice"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>{@link EraseValue}请求解析器</p>\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "PropertyValueAdvice<EraseValue>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "EraseValueAdvice",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.EraseValueAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "signature": "public EraseValueAdvice()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "handle",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "signature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "protected"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "body",
+          "type": "Object",
+          "signature": "Object body",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 27
+            },
+            "end": {
+              "line": 20,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "objectField",
+          "type": "Field",
+          "signature": "Field objectField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 40
+            },
+            "end": {
+              "line": 20,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "propertyAnnotation",
+          "type": "EraseValue",
+          "signature": "EraseValue propertyAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 59
+            },
+            "end": {
+              "line": 20,
+              "column": 88
+            }
+          }
+        },
+        {
+          "name": "parameterAnnotation",
+          "type": "EraseValue",
+          "signature": "EraseValue parameterAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 90
+            },
+            "end": {
+              "line": 20,
+              "column": 120
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.web.bind.annotation.ControllerAdvice",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Field",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.EraseValueAdvice",
+      "ownerSignature": "public EraseValueAdvice()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 9
+        },
+        "end": {
+          "line": 16,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "matchesGroups",
+      "expression": "matchesGroups",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 13
+        },
+        "end": {
+          "line": 21,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "propertyAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 27
+        },
+        "end": {
+          "line": 21,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "parameterAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 55
+        },
+        "end": {
+          "line": 21,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "eraseValue",
+      "expression": "super.eraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 48
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "PropertyValueAdvice",
+      "expression": "PropertyValueAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 39
+        },
+        "end": {
+          "line": 14,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "EraseValue",
+      "expression": "EraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 59
+        },
+        "end": {
+          "line": 14,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "ControllerAdvice",
+      "expression": "ControllerAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 27
+        },
+        "end": {
+          "line": 20,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Field",
+      "expression": "Field",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 40
+        },
+        "end": {
+          "line": 20,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "EraseValue",
+      "expression": "EraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 59
+        },
+        "end": {
+          "line": 20,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "EraseValue",
+      "expression": "EraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 90
+        },
+        "end": {
+          "line": 20,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.EraseValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, EraseValue propertyAnnotation, EraseValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

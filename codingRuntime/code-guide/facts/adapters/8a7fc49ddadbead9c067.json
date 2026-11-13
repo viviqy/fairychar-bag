@@ -1,0 +1,427 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/pojo/query/AddUserHasRoleQuery.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.pojo.query",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AddUserHasRoleQuery",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@Accessors(chain = true)\n@SuppressWarnings(\"serial\")\n@Schema(description = \"AddUserHasRoleQuery\")\npublic class AddUserHasRoleQuery implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Accessors(chain = true)",
+        "@SuppressWarnings(\"serial\")",
+        "@Schema(description = \"AddUserHasRoleQuery\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "用户角色关联(UserHasRole)表实体类\n\n @author chiyo",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "userUid",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.userUid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "signature": "@Schema(description = \"\\u7528\\u6237ID\")\n@NotNull\nprivate Long userUid",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 26
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"用户ID\")",
+        "@NotNull"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "用户ID",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "roleId",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.roleId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "signature": "@Schema(description = \"\\u89d2\\u8272ID\")\n@NotNull\nprivate Integer roleId",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"角色ID\")",
+        "@NotNull"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "角色ID",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.constraints.NotNull",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 45
+        },
+        "end": {
+          "line": 24,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SuppressWarnings",
+      "expression": "SuppressWarnings",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.userUid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 13
+        },
+        "end": {
+          "line": 31,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.userUid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "NotNull",
+      "expression": "NotNull",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.userUid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.roleId",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 37,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.roleId",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "NotNull",
+      "expression": "NotNull",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery.roleId",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 13
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

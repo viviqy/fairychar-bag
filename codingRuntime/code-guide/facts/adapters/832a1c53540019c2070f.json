@@ -1,0 +1,1321 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FBException.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.exceptions",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\npublic class FBException extends RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "业务异常类\n\n @author chiyo\n @since 0.0.1",
+      "supertypes": [
+        "RuntimeException"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "code",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.code",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "private int code",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "data",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "private Object data",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 24
+            },
+            "end": {
+              "line": 19,
+              "column": 38
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(int code, String message)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 24
+            },
+            "end": {
+              "line": 23,
+              "column": 32
+            }
+          }
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 34
+            },
+            "end": {
+              "line": 23,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message, Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 24
+            },
+            "end": {
+              "line": 27,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 40
+            },
+            "end": {
+              "line": 27,
+              "column": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 24
+            },
+            "end": {
+              "line": 31,
+              "column": 39
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 24
+            },
+            "end": {
+              "line": 35,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 40
+            },
+            "end": {
+              "line": 35,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 57
+            },
+            "end": {
+              "line": 35,
+              "column": 82
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 84
+            },
+            "end": {
+              "line": 35,
+              "column": 110
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 24
+            },
+            "end": {
+              "line": 39,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 40
+            },
+            "end": {
+              "line": 39,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 50
+            },
+            "end": {
+              "line": 39,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message, Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 24
+            },
+            "end": {
+              "line": 45,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 40
+            },
+            "end": {
+              "line": 45,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 57
+            },
+            "end": {
+              "line": 45,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 67
+            },
+            "end": {
+              "line": 45,
+              "column": 78
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 24
+            },
+            "end": {
+              "line": 51,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 41
+            },
+            "end": {
+              "line": 51,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 51
+            },
+            "end": {
+              "line": 51,
+              "column": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FBException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "signature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 24
+            },
+            "end": {
+              "line": 57,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 40
+            },
+            "end": {
+              "line": 57,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 57
+            },
+            "end": {
+              "line": 57,
+              "column": 82
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 84
+            },
+            "end": {
+              "line": 57,
+              "column": 110
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 112
+            },
+            "end": {
+              "line": 57,
+              "column": 120
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 122
+            },
+            "end": {
+              "line": 57,
+              "column": 133
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 9
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(int code, String message)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 9
+        },
+        "end": {
+          "line": 24,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(Throwable cause)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 9
+        },
+        "end": {
+          "line": 36,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, int code, Object data)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 46,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(Throwable cause, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 9
+        },
+        "end": {
+          "line": 58,
+          "column": 69
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 34
+        },
+        "end": {
+          "line": 12,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.data",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 24
+        },
+        "end": {
+          "line": 19,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(int code, String message)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 34
+        },
+        "end": {
+          "line": 23,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 24
+        },
+        "end": {
+          "line": 27,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 40
+        },
+        "end": {
+          "line": 27,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(Throwable cause)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 24
+        },
+        "end": {
+          "line": 31,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 24
+        },
+        "end": {
+          "line": 35,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 40
+        },
+        "end": {
+          "line": 35,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 24
+        },
+        "end": {
+          "line": 39,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 50
+        },
+        "end": {
+          "line": 39,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 24
+        },
+        "end": {
+          "line": 45,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 40
+        },
+        "end": {
+          "line": 45,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 67
+        },
+        "end": {
+          "line": 45,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 24
+        },
+        "end": {
+          "line": 51,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 51
+        },
+        "end": {
+          "line": 51,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 24
+        },
+        "end": {
+          "line": 57,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 40
+        },
+        "end": {
+          "line": 57,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FBException.FBException",
+      "ownerSignature": "public FBException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 122
+        },
+        "end": {
+          "line": 57,
+          "column": 128
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1158 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/StringUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "StringUtil",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class StringUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 111,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "字符串工具处理类\n\n @author chiyo\n @since 1.0.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "compressByGzip",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "signature": "public static byte[] compressByGzip(String data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "使用gzip压缩字符串\n\n @param data 数据\n @return {@link byte[] }\n @throws IOException io异常",
+      "typeParameters": [],
+      "returnType": "byte[]",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "data",
+          "type": "String",
+          "signature": "String data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 41
+            },
+            "end": {
+              "line": 29,
+              "column": 52
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "decompressByGzip",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "signature": "public static String decompressByGzip(byte[] compressedData)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "使用gzip解压缩byte[]为字符串\n\n @param compressedData 数据\n @return {@link byte[] }\n @throws IOException io异常",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "compressedData",
+          "type": "byte[]",
+          "signature": "byte[] compressedData",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 43
+            },
+            "end": {
+              "line": 47,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "fillBegin",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "signature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 5
+        },
+        "end": {
+          "line": 79,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Deprecated"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "从开头开始填充字符串到固定长度\n {@link Strings#padStart(String, int, char)}\n\n @param source 源字符串\n @param c      填充字符\n @param length 到固定的长度\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "String",
+          "signature": "String source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 72,
+              "column": 36
+            },
+            "end": {
+              "line": 72,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "c",
+          "type": "char",
+          "signature": "char c",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 72,
+              "column": 51
+            },
+            "end": {
+              "line": 72,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "length",
+          "type": "int",
+          "signature": "int length",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 72,
+              "column": 59
+            },
+            "end": {
+              "line": 72,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "fillEnd",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "signature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 99,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Deprecated"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "从后面开始填充字符串到固定长度\n {@link Strings#padEnd(String, int, char)}\n\n @param source 源字符串\n @param c      填充字符\n @param length 到固定的长度\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "String",
+          "signature": "String source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 34
+            },
+            "end": {
+              "line": 92,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "c",
+          "type": "char",
+          "signature": "char c",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 49
+            },
+            "end": {
+              "line": 92,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "length",
+          "type": "int",
+          "signature": "int length",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 57
+            },
+            "end": {
+              "line": 92,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "defaultText",
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil.defaultText",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "signature": "public static String defaultText(String source, String text)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 108,
+          "column": 5
+        },
+        "end": {
+          "line": 110,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "当原文本为空或null的时候,返回默认文本,否则原文本\n\n @param source 源文本\n @param text   默认文本\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "String",
+          "signature": "String source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 108,
+              "column": 38
+            },
+            "end": {
+              "line": 108,
+              "column": 51
+            }
+          }
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "signature": "String text",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 108,
+              "column": 53
+            },
+            "end": {
+              "line": 108,
+              "column": 64
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 18
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.charset.StandardCharsets",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.zip.GZIPInputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.zip.GZIPOutputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 39
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ByteArrayOutputStream",
+      "expression": "new ByteArrayOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 42
+        },
+        "end": {
+          "line": 30,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "GZIPOutputStream",
+      "expression": "new GZIPOutputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 38
+        },
+        "end": {
+          "line": 31,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "gzip.write",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "getBytes",
+      "expression": "data.getBytes",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 24
+        },
+        "end": {
+          "line": 32,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "finish",
+      "expression": "gzip.finish",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 13
+        },
+        "end": {
+          "line": 33,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "toByteArray",
+      "expression": "bos.toByteArray",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 20
+        },
+        "end": {
+          "line": 34,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "FBException",
+      "expression": "new FBException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 19
+        },
+        "end": {
+          "line": 36,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "ByteArrayInputStream",
+      "expression": "new ByteArrayInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 41
+        },
+        "end": {
+          "line": 48,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "GZIPInputStream",
+      "expression": "new GZIPInputStream",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 37
+        },
+        "end": {
+          "line": 49,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "BufferedReader",
+      "expression": "new BufferedReader",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 50,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "InputStreamReader",
+      "expression": "new InputStreamReader",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 53
+        },
+        "end": {
+          "line": 50,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "StringBuilder",
+      "expression": "new StringBuilder",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 32
+        },
+        "end": {
+          "line": 51,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "readLine",
+      "expression": "br.readLine",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 28
+        },
+        "end": {
+          "line": 53,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "append",
+      "expression": "sb.append",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 17
+        },
+        "end": {
+          "line": 54,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toString",
+      "expression": "sb.toString",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 20
+        },
+        "end": {
+          "line": 56,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "FBException",
+      "expression": "new FBException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "source.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 13
+        },
+        "end": {
+          "line": 73,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "source.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 37
+        },
+        "end": {
+          "line": 76,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "repeat",
+      "expression": "Strings.repeat",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 25
+        },
+        "end": {
+          "line": 77,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 40
+        },
+        "end": {
+          "line": 77,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "prefix.concat",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 16
+        },
+        "end": {
+          "line": 78,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "source.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 13
+        },
+        "end": {
+          "line": 93,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "source.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 37
+        },
+        "end": {
+          "line": 96,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "repeat",
+      "expression": "Strings.repeat",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 25
+        },
+        "end": {
+          "line": 97,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 40
+        },
+        "end": {
+          "line": 97,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "source.concat",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 16
+        },
+        "end": {
+          "line": 98,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.defaultText",
+      "ownerSignature": "public static String defaultText(String source, String text)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 16
+        },
+        "end": {
+          "line": 109,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.compressByGzip",
+      "ownerSignature": "public static byte[] compressByGzip(String data)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 41
+        },
+        "end": {
+          "line": 29,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.decompressByGzip",
+      "ownerSignature": "public static String decompressByGzip(byte[] compressedData)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 19
+        },
+        "end": {
+          "line": 47,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 19
+        },
+        "end": {
+          "line": 72,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 36
+        },
+        "end": {
+          "line": 72,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Deprecated",
+      "expression": "Deprecated",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillBegin",
+      "ownerSignature": "@Deprecated\n    public static String fillBegin(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 6
+        },
+        "end": {
+          "line": 71,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 19
+        },
+        "end": {
+          "line": 92,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 34
+        },
+        "end": {
+          "line": 92,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Deprecated",
+      "expression": "Deprecated",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.fillEnd",
+      "ownerSignature": "@Deprecated\n    public static String fillEnd(String source, char c, int length)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 6
+        },
+        "end": {
+          "line": 91,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.defaultText",
+      "ownerSignature": "public static String defaultText(String source, String text)",
+      "range": {
+        "start": {
+          "line": 108,
+          "column": 19
+        },
+        "end": {
+          "line": 108,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.defaultText",
+      "ownerSignature": "public static String defaultText(String source, String text)",
+      "range": {
+        "start": {
+          "line": 108,
+          "column": 38
+        },
+        "end": {
+          "line": 108,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.StringUtil.defaultText",
+      "ownerSignature": "public static String defaultText(String source, String text)",
+      "range": {
+        "start": {
+          "line": 108,
+          "column": 53
+        },
+        "end": {
+          "line": 108,
+          "column": 59
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

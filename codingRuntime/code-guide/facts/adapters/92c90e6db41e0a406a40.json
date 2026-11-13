@@ -1,0 +1,318 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/base/FieldContainer.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils.base",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FieldContainer",
+      "qualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@NoArgsConstructor\n@Data\n@Accessors(chain = true)\npublic class FieldContainer",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Data",
+        "@Accessors(chain = true)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>Field容器</p>\n 包含Field与其对应Object\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "targetObject",
+      "qualifiedName": "com.fairychar.bag.utils.base.FieldContainer.targetObject",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "signature": "private Object targetObject",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "目标对象",
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "field",
+      "qualifiedName": "com.fairychar.bag.utils.base.FieldContainer.field",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "signature": "private Field field",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "字段",
+      "type": "Field",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "path",
+      "qualifiedName": "com.fairychar.bag.utils.base.FieldContainer.path",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "signature": "private String path",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "字段全路径,如A.b.c.name",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Field",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer.targetObject",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Field",
+      "expression": "Field",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer.field",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 13
+        },
+        "end": {
+          "line": 30,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.base.FieldContainer.path",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 19
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

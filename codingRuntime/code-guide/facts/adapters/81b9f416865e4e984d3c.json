@@ -1,0 +1,213 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/LoggingHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.aop",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "LoggingHandler",
+      "qualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler",
+      "ownerQualifiedName": "",
+      "signature": "public interface LoggingHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>web request 日志处理</p>\n\n @author qiyue",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "before",
+      "qualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler.before",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler",
+      "signature": "void before(JoinPoint joinPoint)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 38
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 17
+            },
+            "end": {
+              "line": 11,
+              "column": 36
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "after",
+      "qualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler.after",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler",
+      "signature": "void after(JoinPoint joinPoint, Object result)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 16
+            },
+            "end": {
+              "line": 13,
+              "column": 35
+            }
+          }
+        },
+        {
+          "name": "result",
+          "type": "Object",
+          "signature": "Object result",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 37
+            },
+            "end": {
+              "line": 13,
+              "column": 50
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.aspectj.lang.JoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler.before",
+      "ownerSignature": "void before(JoinPoint joinPoint)",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 17
+        },
+        "end": {
+          "line": 11,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler.after",
+      "ownerSignature": "void after(JoinPoint joinPoint, Object result)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 16
+        },
+        "end": {
+          "line": 13,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.aop.LoggingHandler.after",
+      "ownerSignature": "void after(JoinPoint joinPoint, Object result)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 37
+        },
+        "end": {
+          "line": 13,
+          "column": 43
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

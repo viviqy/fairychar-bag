@@ -1,0 +1,612 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/interfaces/IRoleHasMenuService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.interfaces",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "IRoleHasMenuService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "ownerQualifiedName": "",
+      "signature": "public interface IRoleHasMenuService extends IService<RoleHasMenu>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色菜单关联(RoleHasMenu)表服务接口\n\n @author chiyo",
+      "supertypes": [
+        "IService<RoleHasMenu>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "signature": "Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 58
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Page<RoleHasMenuDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "RoleHasMenuQuery",
+          "signature": "RoleHasMenuQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 34
+            },
+            "end": {
+              "line": 19,
+              "column": 56
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "signature": "Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 59
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Integer",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addRoleHasMenuQuery",
+          "type": "AddRoleHasMenuQuery",
+          "signature": "AddRoleHasMenuQuery addRoleHasMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 18
+            },
+            "end": {
+              "line": 21,
+              "column": 57
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "signature": "List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddRoleHasMenuQuery>",
+          "signature": "List<AddRoleHasMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 33
+            },
+            "end": {
+              "line": 23,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "signature": "void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 25,
+              "column": 22
+            },
+            "end": {
+              "line": 25,
+              "column": 39
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeByRoleIds",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeByRoleIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "signature": "void removeByRoleIds(List<Integer> menuIds)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 49
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "menuIds",
+          "type": "List<Integer>",
+          "signature": "List<Integer> menuIds",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 26
+            },
+            "end": {
+              "line": 27,
+              "column": 47
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.IService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.RoleHasMenu",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.RoleHasMenuDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddRoleHasMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.RoleHasMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "IService",
+      "expression": "IService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 46
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 55
+        },
+        "end": {
+          "line": 17,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.pageAll",
+      "ownerSignature": "Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuDTO",
+      "expression": "RoleHasMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.pageAll",
+      "ownerSignature": "Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 10
+        },
+        "end": {
+          "line": 19,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuQuery",
+      "expression": "RoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.pageAll",
+      "ownerSignature": "Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 34
+        },
+        "end": {
+          "line": 19,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.save",
+      "ownerSignature": "Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AddRoleHasMenuQuery",
+      "expression": "AddRoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.save",
+      "ownerSignature": "Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 18
+        },
+        "end": {
+          "line": 21,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.saveBatch",
+      "ownerSignature": "List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.saveBatch",
+      "ownerSignature": "List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 10
+        },
+        "end": {
+          "line": 23,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.saveBatch",
+      "ownerSignature": "List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 33
+        },
+        "end": {
+          "line": 23,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "AddRoleHasMenuQuery",
+      "expression": "AddRoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.saveBatch",
+      "ownerSignature": "List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 38
+        },
+        "end": {
+          "line": 23,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeBatch",
+      "ownerSignature": "void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 22
+        },
+        "end": {
+          "line": 25,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeBatch",
+      "ownerSignature": "void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 27
+        },
+        "end": {
+          "line": 25,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "void removeByRoleIds(List<Integer> menuIds)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 26
+        },
+        "end": {
+          "line": 27,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "void removeByRoleIds(List<Integer> menuIds)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 31
+        },
+        "end": {
+          "line": 27,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,550 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/KeepValueAdvice.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "KeepValueAdvice",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "ownerQualifiedName": "",
+      "signature": "@ControllerAdvice\npublic class KeepValueAdvice extends PropertyValueAdvice<KeepValue>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@ControllerAdvice"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>{@link KeepValue}处理解析器</p>\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "PropertyValueAdvice<KeepValue>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "KeepValueAdvice",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.KeepValueAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "signature": "public KeepValueAdvice()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "handle",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "signature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "protected"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "body",
+          "type": "Object",
+          "signature": "Object body",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 27
+            },
+            "end": {
+              "line": 21,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "objectField",
+          "type": "Field",
+          "signature": "Field objectField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 40
+            },
+            "end": {
+              "line": 21,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "propertyAnnotation",
+          "type": "KeepValue",
+          "signature": "KeepValue propertyAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 59
+            },
+            "end": {
+              "line": 21,
+              "column": 87
+            }
+          }
+        },
+        {
+          "name": "parameterAnnotation",
+          "type": "KeepValue",
+          "signature": "KeepValue parameterAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 89
+            },
+            "end": {
+              "line": 21,
+              "column": 118
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "handleUnannotatedField",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handleUnannotatedField",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "signature": "@Override\n    protected void handleUnannotatedField(Object body, Field objectField)",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "protected"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "body",
+          "type": "Object",
+          "signature": "Object body",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 43
+            },
+            "end": {
+              "line": 28,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "objectField",
+          "type": "Field",
+          "signature": "Field objectField",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 56
+            },
+            "end": {
+              "line": 28,
+              "column": 73
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.web.bind.annotation.ControllerAdvice",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Field",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.KeepValueAdvice",
+      "ownerSignature": "public KeepValueAdvice()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 9
+        },
+        "end": {
+          "line": 17,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "matchesGroups",
+      "expression": "matchesGroups",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 14
+        },
+        "end": {
+          "line": 22,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "propertyAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 28
+        },
+        "end": {
+          "line": 22,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "parameterAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 56
+        },
+        "end": {
+          "line": 22,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "eraseValue",
+      "expression": "super.eraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 13
+        },
+        "end": {
+          "line": 23,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "eraseValue",
+      "expression": "super.eraseValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handleUnannotatedField",
+      "ownerSignature": "@Override\n    protected void handleUnannotatedField(Object body, Field objectField)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 44
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "PropertyValueAdvice",
+      "expression": "PropertyValueAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 38
+        },
+        "end": {
+          "line": 14,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "KeepValue",
+      "expression": "KeepValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 58
+        },
+        "end": {
+          "line": 14,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "ControllerAdvice",
+      "expression": "ControllerAdvice",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 27
+        },
+        "end": {
+          "line": 21,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Field",
+      "expression": "Field",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 40
+        },
+        "end": {
+          "line": 21,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "KeepValue",
+      "expression": "KeepValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 59
+        },
+        "end": {
+          "line": 21,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "KeepValue",
+      "expression": "KeepValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 89
+        },
+        "end": {
+          "line": 21,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handle",
+      "ownerSignature": "@Override\n    protected void handle(Object body, Field objectField, KeepValue propertyAnnotation, KeepValue parameterAnnotation)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 6
+        },
+        "end": {
+          "line": 20,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handleUnannotatedField",
+      "ownerSignature": "@Override\n    protected void handleUnannotatedField(Object body, Field objectField)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 43
+        },
+        "end": {
+          "line": 28,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Field",
+      "expression": "Field",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handleUnannotatedField",
+      "ownerSignature": "@Override\n    protected void handleUnannotatedField(Object body, Field objectField)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 56
+        },
+        "end": {
+          "line": 28,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.KeepValueAdvice.handleUnannotatedField",
+      "ownerSignature": "@Override\n    protected void handleUnannotatedField(Object body, Field objectField)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 6
+        },
+        "end": {
+          "line": 27,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

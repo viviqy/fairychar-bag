@@ -1,0 +1,2627 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/SystemRoleService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SystemRoleService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"systemRoleService\")\npublic class SystemRoleService extends ServiceImpl<SystemRoleMapper, SystemRole> implements ISystemRoleService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 167,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"systemRoleService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色表(SystemRole)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<SystemRoleMapper, SystemRole>",
+        "ISystemRoleService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "systemRoleMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Autowired\nprivate SystemRoleMapper systemRoleMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 47
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SystemRoleMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "systemRoleStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Autowired\nprivate SystemRoleStructure systemRoleStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 53
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SystemRoleStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageByRoot",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "条件匹配分页查询SysMenu所有数据\n\n @param sysApiQuery {@link SystemRoleQuery}查询条件\n @return 查询结果 {@link SystemRoleDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SystemRoleDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApiQuery",
+          "type": "SystemRoleQuery",
+          "signature": "SystemRoleQuery sysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 46,
+              "column": 43
+            },
+            "end": {
+              "line": 46,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addSystemRoleQuery {@link SystemRoleQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSystemRoleQuery",
+          "type": "AddSystemRoleQuery",
+          "signature": "AddSystemRoleQuery addSystemRoleQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 21
+            },
+            "end": {
+              "line": 63,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 5
+        },
+        "end": {
+          "line": 92,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param updateSystemRoleQuery {@link SystemRoleQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSystemRoleQuery",
+          "type": "UpdateSystemRoleQuery",
+          "signature": "UpdateSystemRoleQuery updateSystemRoleQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 31
+            },
+            "end": {
+              "line": 84,
+              "column": 74
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "根据id查询一个对象\n\n @param id id\n @return 查询结果 {@link SystemRoleDTO}",
+      "typeParameters": [],
+      "returnType": "SystemRoleDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 102,
+              "column": 35
+            },
+            "end": {
+              "line": 102,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSystemRoleQuery>",
+          "signature": "List<AddSystemRoleQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 114,
+              "column": 39
+            },
+            "end": {
+              "line": 114,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateByIdBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "signature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 5
+        },
+        "end": {
+          "line": 166,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param batch {@link SystemRoleQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSystemRoleQuery>",
+          "signature": "List<UpdateSystemRoleQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 147,
+              "column": 36
+            },
+            "end": {
+              "line": 147,
+              "column": 69
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemRole",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemRoleService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "queryToEntity",
+      "expression": "this.systemRoleStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.systemRoleMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 36
+        },
+        "end": {
+          "line": 48,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "sysApiQuery.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 66
+        },
+        "end": {
+          "line": 48,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.systemRoleStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 36
+        },
+        "end": {
+          "line": 49,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 76
+        },
+        "end": {
+          "line": 49,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 42
+        },
+        "end": {
+          "line": 50,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 53
+        },
+        "end": {
+          "line": 50,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 75
+        },
+        "end": {
+          "line": 50,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 94
+        },
+        "end": {
+          "line": 50,
+          "column": 112
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 9
+        },
+        "end": {
+          "line": 51,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.systemRoleMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 26
+        },
+        "end": {
+          "line": 64,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "setRoleCode",
+      "expression": "new SystemRole().setRoleCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 57
+        },
+        "end": {
+          "line": 64,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "new SystemRole",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 57
+        },
+        "end": {
+          "line": 64,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getRoleCode",
+      "expression": "addSystemRoleQuery.getRoleCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 86
+        },
+        "end": {
+          "line": 64,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "isNull",
+      "expression": "Assert.isNull",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 9
+        },
+        "end": {
+          "line": 65,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.systemRoleStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 29
+        },
+        "end": {
+          "line": 66,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 13
+        },
+        "end": {
+          "line": 68,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 20
+        },
+        "end": {
+          "line": 69,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 19
+        },
+        "end": {
+          "line": 71,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.systemRoleMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 21
+        },
+        "end": {
+          "line": 85,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "setId",
+      "expression": "new SystemRole().setId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 49
+        },
+        "end": {
+          "line": 85,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "new SystemRole",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 49
+        },
+        "end": {
+          "line": 85,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "updateSystemRoleQuery.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 72
+        },
+        "end": {
+          "line": 85,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 9
+        },
+        "end": {
+          "line": 86,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "updateQueryToEntity",
+      "expression": "this.systemRoleStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 29
+        },
+        "end": {
+          "line": 87,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.systemRoleMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 26
+        },
+        "end": {
+          "line": 88,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "setRoleCode",
+      "expression": "new SystemRole().setRoleCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 57
+        },
+        "end": {
+          "line": 88,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "new SystemRole",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 57
+        },
+        "end": {
+          "line": 88,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getRoleCode",
+      "expression": "updateSystemRoleQuery.getRoleCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 86
+        },
+        "end": {
+          "line": 88,
+          "column": 121
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "one.getId().equals",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 38
+        },
+        "end": {
+          "line": 90,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "one.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 38
+        },
+        "end": {
+          "line": 90,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 57
+        },
+        "end": {
+          "line": 90,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "updateById",
+      "expression": "super.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 16
+        },
+        "end": {
+          "line": 91,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "entityToDto",
+      "expression": "this.systemRoleStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerSignature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 29
+        },
+        "end": {
+          "line": 103,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "getById",
+      "expression": "this.getById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerSignature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 66
+        },
+        "end": {
+          "line": 103,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 13
+        },
+        "end": {
+          "line": 115,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "of",
+      "expression": "List.of",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 20
+        },
+        "end": {
+          "line": 116,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().map(m -> m.getRoleCode()).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 31
+        },
+        "end": {
+          "line": 119,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "batch.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 31
+        },
+        "end": {
+          "line": 119,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 31
+        },
+        "end": {
+          "line": 119,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "toSet",
+      "expression": "Collectors.toSet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 80
+        },
+        "end": {
+          "line": 119,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "codeSet.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 13
+        },
+        "end": {
+          "line": 120,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 31
+        },
+        "end": {
+          "line": 120,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 19
+        },
+        "end": {
+          "line": 121,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.systemRoleStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 37
+        },
+        "end": {
+          "line": 123,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "list",
+      "expression": "super.list",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 33
+        },
+        "end": {
+          "line": 124,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<SystemRole>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 44
+        },
+        "end": {
+          "line": 124,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<SystemRole>",
+      "expression": "new QueryWrapper<SystemRole>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 44
+        },
+        "end": {
+          "line": 124,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 14
+        },
+        "end": {
+          "line": 125,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "apis.stream().map(sysApi -> sysApi.getRoleCode())\n                    .collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 35
+        },
+        "end": {
+          "line": 127,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "apis.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 35
+        },
+        "end": {
+          "line": 126,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "apis.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 35
+        },
+        "end": {
+          "line": 126,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 30
+        },
+        "end": {
+          "line": 127,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 19
+        },
+        "end": {
+          "line": 128,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 13
+        },
+        "end": {
+          "line": 131,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 19
+        },
+        "end": {
+          "line": 134,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().map(m -> m.getRoleCode()).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 31
+        },
+        "end": {
+          "line": 149,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "batch.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 31
+        },
+        "end": {
+          "line": 149,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 31
+        },
+        "end": {
+          "line": 149,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "toSet",
+      "expression": "Collectors.toSet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 80
+        },
+        "end": {
+          "line": 149,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "codeSet.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 13
+        },
+        "end": {
+          "line": 150,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 31
+        },
+        "end": {
+          "line": 150,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 19
+        },
+        "end": {
+          "line": 151,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "updateQueriesToEntities",
+      "expression": "this.systemRoleStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 37
+        },
+        "end": {
+          "line": 153,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "entities.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 42
+        },
+        "end": {
+          "line": 154,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 42
+        },
+        "end": {
+          "line": 154,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "toMap",
+      "expression": "Collectors.toMap",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 68
+        },
+        "end": {
+          "line": 154,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "list",
+      "expression": "super.list",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 38
+        },
+        "end": {
+          "line": 157,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "notIn",
+      "expression": "new QueryWrapper<SystemRole>().in(SystemRole.ROLE_CODE, codeSet)\n                .notIn",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 49
+        },
+        "end": {
+          "line": 157,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<SystemRole>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 49
+        },
+        "end": {
+          "line": 156,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<SystemRole>",
+      "expression": "new QueryWrapper<SystemRole>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 49
+        },
+        "end": {
+          "line": 156,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "codeIdMap.values",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 157,
+          "column": 39
+        },
+        "end": {
+          "line": 157,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 9
+        },
+        "end": {
+          "line": 158,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "otherApis.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 23
+        },
+        "end": {
+          "line": 158,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "updateBatchById",
+      "expression": "super.updateBatchById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 160,
+          "column": 20
+        },
+        "end": {
+          "line": 160,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 19
+        },
+        "end": {
+          "line": 162,
+          "column": 62
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 40
+        },
+        "end": {
+          "line": 33,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "SystemRoleMapper",
+      "expression": "SystemRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 52
+        },
+        "end": {
+          "line": 33,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 70
+        },
+        "end": {
+          "line": 33,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "ISystemRoleService",
+      "expression": "ISystemRoleService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 93
+        },
+        "end": {
+          "line": 33,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 2
+        },
+        "end": {
+          "line": 32,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRoleMapper",
+      "expression": "SystemRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SystemRoleStructure",
+      "expression": "SystemRoleStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.systemRoleStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 12
+        },
+        "end": {
+          "line": 46,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SystemRoleDTO",
+      "expression": "SystemRoleDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 17
+        },
+        "end": {
+          "line": 46,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "SystemRoleQuery",
+      "expression": "SystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 43
+        },
+        "end": {
+          "line": 46,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SystemRoleDTO> pageByRoot(SystemRoleQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AddSystemRoleQuery",
+      "expression": "AddSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 21
+        },
+        "end": {
+          "line": 63,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.save",
+      "ownerSignature": "@Override\n    public int save(AddSystemRoleQuery addSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 6
+        },
+        "end": {
+          "line": 62,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "UpdateSystemRoleQuery",
+      "expression": "UpdateSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 31
+        },
+        "end": {
+          "line": 84,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 6
+        },
+        "end": {
+          "line": 83,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SystemRoleDTO",
+      "expression": "SystemRoleDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerSignature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 12
+        },
+        "end": {
+          "line": 102,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerSignature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 35
+        },
+        "end": {
+          "line": 102,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.findById",
+      "ownerSignature": "@Override\n    public SystemRoleDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 6
+        },
+        "end": {
+          "line": 101,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 12
+        },
+        "end": {
+          "line": 114,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 17
+        },
+        "end": {
+          "line": 114,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 39
+        },
+        "end": {
+          "line": 114,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "AddSystemRoleQuery",
+      "expression": "AddSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 44
+        },
+        "end": {
+          "line": 114,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SystemRole> saveBatch(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 6
+        },
+        "end": {
+          "line": 113,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 36
+        },
+        "end": {
+          "line": 147,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "UpdateSystemRoleQuery",
+      "expression": "UpdateSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 41
+        },
+        "end": {
+          "line": 147,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SystemRoleService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 6
+        },
+        "end": {
+          "line": 146,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 28
+        },
+        "end": {
+          "line": 65,
+          "column": 77
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 35
+        },
+        "end": {
+          "line": 86,
+          "column": 88
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 74
+        },
+        "end": {
+          "line": 90,
+          "column": 123
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 50
+        },
+        "end": {
+          "line": 119,
+          "column": 70
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 53
+        },
+        "end": {
+          "line": 126,
+          "column": 83
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 50
+        },
+        "end": {
+          "line": 149,
+          "column": 70
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 85
+        },
+        "end": {
+          "line": 154,
+          "column": 105
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 107
+        },
+        "end": {
+          "line": 154,
+          "column": 121
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 46
+        },
+        "end": {
+          "line": 158,
+          "column": 106
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

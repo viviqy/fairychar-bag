@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+codingRuntime/code-guide-work
 ### macOS template
 # General
 .DS_Store
@@ -95,3 +96,4 @@ $RECYCLE.BIN/
 
 # 自定义骨架需要包含
 !fairychar-micro-service/target
+/codingRuntime/code-guide-work/

@@ -1,0 +1,430 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SimpleTenantSkipper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.interceptor",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SimpleTenantSkipper",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class SimpleTenantSkipper implements ITenantSkipper",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>是否使用自动租户控制器</p>\n 通过{@link SimpleTenantSkipper#setSkip}在执行sql之前,可以\n 绕过自动租户插件对拼接租户流程的执行.需要配合{@link SkipableTenantLineInnerInterceptor}使用\n <pre>\n {@code\n @Service\n public class UserService{\n      @Autowired\n      private UserMapper userMapper;\n\n      public List<User> getUsers(){\n          try{\n            //跳过不使用自动租户插件\n            TenantSkipper.skip();\n            return this.userMapper.list();\n          }finally{\n            //记得一定要清除线程上下文\n            TenantSkipper.remove();\n          }\n      }\n }\n }\n </pre>\n\n @author chiyo <br>\n @since 1.0.2",
+      "supertypes": [
+        "ITenantSkipper"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "THREAD_LOCAL",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.THREAD_LOCAL",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "signature": "private static final ThreadLocal<Boolean> THREAD_LOCAL = ThreadLocal.withInitial(() -> true)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 98
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "ThreadLocal<Boolean>",
+      "defaultExpression": "ThreadLocal.withInitial(() -> true)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "setSkip",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.setSkip",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "signature": "@Override\n    public void setSkip(boolean skip)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "skip",
+          "type": "boolean",
+          "signature": "boolean skip",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 25
+            },
+            "end": {
+              "line": 40,
+              "column": 37
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "cleanContext",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.cleanContext",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "signature": "@Override\n    public void cleanContext()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getSkip",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.getSkip",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "signature": "@Override\n    public boolean getSkip()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 54,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "withInitial",
+      "expression": "ThreadLocal.withInitial",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 62
+        },
+        "end": {
+          "line": 36,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "debug",
+      "expression": "log.debug",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.setSkip",
+      "ownerSignature": "@Override\n    public void setSkip(boolean skip)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 9
+        },
+        "end": {
+          "line": 41,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "THREAD_LOCAL.set",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.setSkip",
+      "ownerSignature": "@Override\n    public void setSkip(boolean skip)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 42,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "debug",
+      "expression": "log.debug",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.cleanContext",
+      "ownerSignature": "@Override\n    public void cleanContext()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 9
+        },
+        "end": {
+          "line": 47,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "THREAD_LOCAL.remove",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.cleanContext",
+      "ownerSignature": "@Override\n    public void cleanContext()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 9
+        },
+        "end": {
+          "line": 48,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "THREAD_LOCAL.get",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.getSkip",
+      "ownerSignature": "@Override\n    public boolean getSkip()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 16
+        },
+        "end": {
+          "line": 53,
+          "column": 34
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ITenantSkipper",
+      "expression": "ITenantSkipper",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 45
+        },
+        "end": {
+          "line": 34,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 2
+        },
+        "end": {
+          "line": 33,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "ThreadLocal",
+      "expression": "ThreadLocal",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.THREAD_LOCAL",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 26
+        },
+        "end": {
+          "line": 36,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.THREAD_LOCAL",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 38
+        },
+        "end": {
+          "line": 36,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.setSkip",
+      "ownerSignature": "@Override\n    public void setSkip(boolean skip)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.cleanContext",
+      "ownerSignature": "@Override\n    public void cleanContext()",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.SimpleTenantSkipper.getSkip",
+      "ownerSignature": "@Override\n    public boolean getSkip()",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 6
+        },
+        "end": {
+          "line": 51,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 86
+        },
+        "end": {
+          "line": 36,
+          "column": 96
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

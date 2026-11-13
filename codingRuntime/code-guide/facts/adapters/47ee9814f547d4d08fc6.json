@@ -1,0 +1,1468 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/UserHasRoleMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "UserHasRoleMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface UserHasRoleMapper extends BaseMapper<UserHasRole>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 89,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "用户角色关联(UserHasRole)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<UserHasRole>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "UserHasRole queryOne(@Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询UserHasRole单条数据\n\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "UserHasRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 26
+            },
+            "end": {
+              "line": 26,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 106
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询UserHasRole单条数据指定column\n\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "UserHasRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 35
+            },
+            "end": {
+              "line": 34,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 69
+            },
+            "end": {
+              "line": 34,
+              "column": 104
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "List<UserHasRole> queryAll(@Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询UserHasRole所有数据\n\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "List<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 32
+            },
+            "end": {
+              "line": 42,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 112
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询UserHasRole所有数据指定column\n\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "List<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 41
+            },
+            "end": {
+              "line": 50,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 75
+            },
+            "end": {
+              "line": 50,
+              "column": 110
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 95
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询UserHasRole所有数据\n\n @param page        分页参数\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "Page<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 31
+            },
+            "end": {
+              "line": 59,
+              "column": 56
+            }
+          }
+        },
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 58
+            },
+            "end": {
+              "line": 59,
+              "column": 93
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 138
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询UserHasRole所有数据指定column\n\n @param page        分页参数\n @param userHasRole {@see UserHasRole}查询条件\n @return 查询结果 {@see UserHasRole}",
+      "typeParameters": [],
+      "returnType": "Page<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 40
+            },
+            "end": {
+              "line": 68,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 74
+            },
+            "end": {
+              "line": 68,
+              "column": 99
+            }
+          }
+        },
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 101
+            },
+            "end": {
+              "line": 68,
+              "column": 136
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "int count(@Param(\"e\") UserHasRole userHasRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询UserHasRole匹配数据总数\n\n @param userHasRole {@see UserHasRole}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "userHasRole",
+          "type": "UserHasRole",
+          "signature": "@Param(\"e\") UserHasRole userHasRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 15
+            },
+            "end": {
+              "line": 76,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "List<UserHasRole> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 68
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see UserHasRole}数据集",
+      "typeParameters": [],
+      "returnType": "List<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 36
+            },
+            "end": {
+              "line": 84,
+              "column": 66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<UserHasRole> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 65
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<UserHasRole>",
+          "signature": "@Param(\"list\") List<UserHasRole> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 86,
+              "column": 22
+            },
+            "end": {
+              "line": 86,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "listByUserIdAndRoleId",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "signature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 88
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<UserHasRole>",
+          "signature": "@Param(\"list\") List<UserHasRole> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 88,
+              "column": 45
+            },
+            "end": {
+              "line": 88,
+              "column": 86
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.UserHasRole",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 44
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 55
+        },
+        "end": {
+          "line": 17,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOne",
+      "ownerSignature": "UserHasRole queryOne(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOne",
+      "ownerSignature": "UserHasRole queryOne(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 38
+        },
+        "end": {
+          "line": 26,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOne",
+      "ownerSignature": "UserHasRole queryOne(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 27
+        },
+        "end": {
+          "line": 26,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerSignature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerSignature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 52
+        },
+        "end": {
+          "line": 34,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerSignature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 36
+        },
+        "end": {
+          "line": 34,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerSignature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 81
+        },
+        "end": {
+          "line": 34,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryOneSelective",
+      "ownerSignature": "UserHasRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 70
+        },
+        "end": {
+          "line": 34,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAll",
+      "ownerSignature": "List<UserHasRole> queryAll(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAll",
+      "ownerSignature": "List<UserHasRole> queryAll(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 10
+        },
+        "end": {
+          "line": 42,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAll",
+      "ownerSignature": "List<UserHasRole> queryAll(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 44
+        },
+        "end": {
+          "line": 42,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAll",
+      "ownerSignature": "List<UserHasRole> queryAll(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 33
+        },
+        "end": {
+          "line": 42,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 10
+        },
+        "end": {
+          "line": 50,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 58
+        },
+        "end": {
+          "line": 50,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 42
+        },
+        "end": {
+          "line": 50,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 87
+        },
+        "end": {
+          "line": 50,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.queryAllSelective",
+      "ownerSignature": "List<UserHasRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 76
+        },
+        "end": {
+          "line": 50,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 10
+        },
+        "end": {
+          "line": 59,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 46
+        },
+        "end": {
+          "line": 59,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 32
+        },
+        "end": {
+          "line": 59,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 70
+        },
+        "end": {
+          "line": 59,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAll",
+      "ownerSignature": "Page<UserHasRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 59
+        },
+        "end": {
+          "line": 59,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 57
+        },
+        "end": {
+          "line": 68,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 41
+        },
+        "end": {
+          "line": 68,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 89
+        },
+        "end": {
+          "line": 68,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 75
+        },
+        "end": {
+          "line": 68,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 113
+        },
+        "end": {
+          "line": 68,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<UserHasRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 102
+        },
+        "end": {
+          "line": 68,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 27
+        },
+        "end": {
+          "line": 76,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") UserHasRole userHasRole)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 16
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.countGroupBy",
+      "ownerSignature": "List<UserHasRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.countGroupBy",
+      "ownerSignature": "List<UserHasRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.countGroupBy",
+      "ownerSignature": "List<UserHasRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 53
+        },
+        "end": {
+          "line": 84,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.countGroupBy",
+      "ownerSignature": "List<UserHasRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 37
+        },
+        "end": {
+          "line": 84,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 37
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 42
+        },
+        "end": {
+          "line": 86,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerSignature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerSignature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 10
+        },
+        "end": {
+          "line": 88,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerSignature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 60
+        },
+        "end": {
+          "line": 88,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerSignature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 65
+        },
+        "end": {
+          "line": 88,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper.listByUserIdAndRoleId",
+      "ownerSignature": "List<UserHasRole> listByUserIdAndRoleId(@Param(\"list\") List<UserHasRole> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 46
+        },
+        "end": {
+          "line": 88,
+          "column": 51
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

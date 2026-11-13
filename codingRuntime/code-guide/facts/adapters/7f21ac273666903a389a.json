@@ -1,0 +1,446 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyMiddleTextProcessor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FuzzyMiddleTextProcessor",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor",
+      "ownerQualifiedName": "",
+      "signature": "public class FuzzyMiddleTextProcessor implements FuzzyValueProcessor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>模糊加密字符串</p>\n beginAt=从左往右数几位,\n endAt=从右往左数几位,\n 模糊加密这之间的字符\n <pre>\n     {@code\n     @Configuration\n     class BeansConfiguration{\n          @Bean\n          FuzzyValueProcessor middleFuzzy(){\n              return new FuzzyMiddleTextProcessor();\n          }\n     }\n\n     class Sample{\n         @FuzzyValue(beginAt=1,endAt=1,processor={FuzzyMiddleTextProcessor.class})\n         private String text=\"1234\";\n     }\n\n     }\n </pre>\n 模糊加密后结果为text=\"1**4\";\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "FuzzyValueProcessor"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "fuzzyValue",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor",
+      "signature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "text",
+          "type": "String",
+          "signature": "String text",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 30
+            },
+            "end": {
+              "line": 34,
+              "column": 41
+            }
+          }
+        },
+        {
+          "name": "fuzzyValue",
+          "type": "FuzzyValue",
+          "signature": "FuzzyValue fuzzyValue",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 43
+            },
+            "end": {
+              "line": 34,
+              "column": 64
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 39
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "repeat",
+      "expression": "Strings.repeat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 25
+        },
+        "end": {
+          "line": 38,
+          "column": 128
+        }
+      }
+    },
+    {
+      "name": "replaceSymbol",
+      "expression": "fuzzyValue.replaceSymbol",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 40
+        },
+        "end": {
+          "line": 38,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "text.length",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 69
+        },
+        "end": {
+          "line": 38,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "endAt",
+      "expression": "fuzzyValue.endAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 85
+        },
+        "end": {
+          "line": 38,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "beginAt",
+      "expression": "fuzzyValue.beginAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 107
+        },
+        "end": {
+          "line": 38,
+          "column": 127
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "text.substring(0, fuzzyValue.beginAt())\n                .concat(middle)\n                .concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 30
+        },
+        "end": {
+          "line": 41,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "text.substring(0, fuzzyValue.beginAt())\n                .concat",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 30
+        },
+        "end": {
+          "line": 40,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "substring",
+      "expression": "text.substring",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 30
+        },
+        "end": {
+          "line": 39,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "beginAt",
+      "expression": "fuzzyValue.beginAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 48
+        },
+        "end": {
+          "line": 39,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "substring",
+      "expression": "text.substring",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 25
+        },
+        "end": {
+          "line": 41,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "text.length",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 40
+        },
+        "end": {
+          "line": 41,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "endAt",
+      "expression": "fuzzyValue.endAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 56
+        },
+        "end": {
+          "line": 41,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "text.length",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 76
+        },
+        "end": {
+          "line": 41,
+          "column": 89
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "FuzzyValueProcessor",
+      "expression": "FuzzyValueProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 50
+        },
+        "end": {
+          "line": 32,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 12
+        },
+        "end": {
+          "line": 34,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 30
+        },
+        "end": {
+          "line": 34,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "FuzzyValue",
+      "expression": "FuzzyValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 43
+        },
+        "end": {
+          "line": 34,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyMiddleTextProcessor.fuzzyValue",
+      "ownerSignature": "@Override\n    public String fuzzyValue(String text, FuzzyValue fuzzyValue)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 6
+        },
+        "end": {
+          "line": 33,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

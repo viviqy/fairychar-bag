@@ -1,0 +1,1634 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/SysDictService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SysDictService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"sysDictService\")\n\npublic class SysDictService extends ServiceImpl<SysDictMapper, SysDict> implements ISysDictService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 107,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"sysDictService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据字典详情(SysDict)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<SysDictMapper, SysDict>",
+        "ISysDictService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "sysDictMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Autowired\nprivate SysDictMapper sysDictMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 41
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysDictMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sysDictStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Autowired\nprivate SysDictStructure sysDictStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 47
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysDictStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "条件匹配分页查询SysDict所有数据\n\n @param sysDictQuery {@link SysDictQuery}查询条件\n @return 查询结果 {@link SysDictDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SysDictDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysDictQuery",
+          "type": "SysDictQuery",
+          "signature": "SysDictQuery sysDictQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 46,
+              "column": 37
+            },
+            "end": {
+              "line": 46,
+              "column": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addSysDictQuery {@link SysDictQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysDictQuery",
+          "type": "AddSysDictQuery",
+          "signature": "AddSysDictQuery addSysDictQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 62,
+              "column": 21
+            },
+            "end": {
+              "line": 62,
+              "column": 52
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 5
+        },
+        "end": {
+          "line": 92,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param updateSysApiQuery {@link SysDictQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysDictQuery",
+          "signature": "UpdateSysDictQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 31
+            },
+            "end": {
+              "line": 84,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "signature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 104,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "根据id查询一个对象\n\n @param id id\n @return 查询结果 {@link SysDictDTO}",
+      "typeParameters": [],
+      "returnType": "SysDictDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 101,
+              "column": 32
+            },
+            "end": {
+              "line": 101,
+              "column": 47
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.incrementer.DefaultIdentifierGenerator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysDict",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysDictMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysDictDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysDictStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "queryToEntity",
+      "expression": "this.sysDictStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 26
+        },
+        "end": {
+          "line": 47,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.sysDictMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 33
+        },
+        "end": {
+          "line": 48,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "sysDictQuery.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 60
+        },
+        "end": {
+          "line": 48,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.sysDictStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 33
+        },
+        "end": {
+          "line": 49,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 70
+        },
+        "end": {
+          "line": 49,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 39
+        },
+        "end": {
+          "line": 50,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 50
+        },
+        "end": {
+          "line": 50,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 72
+        },
+        "end": {
+          "line": 50,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 91
+        },
+        "end": {
+          "line": 50,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 9
+        },
+        "end": {
+          "line": 51,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.sysDictMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 26
+        },
+        "end": {
+          "line": 63,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "setLabel",
+      "expression": "new SysDict().setLabel",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 51
+        },
+        "end": {
+          "line": 63,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "new SysDict",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 51
+        },
+        "end": {
+          "line": 63,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getLabel",
+      "expression": "addSysDictQuery.getLabel",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 74
+        },
+        "end": {
+          "line": 63,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 9
+        },
+        "end": {
+          "line": 64,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.sysDictStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 26
+        },
+        "end": {
+          "line": 65,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "setUid",
+      "expression": "entity.setUid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 9
+        },
+        "end": {
+          "line": 66,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "nextId",
+      "expression": "DefaultIdentifierGenerator.getInstance().nextId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 23
+        },
+        "end": {
+          "line": 66,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "DefaultIdentifierGenerator.getInstance",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 23
+        },
+        "end": {
+          "line": 66,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 13
+        },
+        "end": {
+          "line": 68,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 20
+        },
+        "end": {
+          "line": 69,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 19
+        },
+        "end": {
+          "line": 71,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.sysDictMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 21
+        },
+        "end": {
+          "line": 85,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "setId",
+      "expression": "new SysDict().setId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 46
+        },
+        "end": {
+          "line": 85,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "new SysDict",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 46
+        },
+        "end": {
+          "line": 85,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "updateSysApiQuery.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 66
+        },
+        "end": {
+          "line": 85,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 9
+        },
+        "end": {
+          "line": 86,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "updateQueryToEntity",
+      "expression": "this.sysDictStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 26
+        },
+        "end": {
+          "line": 87,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.sysDictMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 23
+        },
+        "end": {
+          "line": 88,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "setLabel",
+      "expression": "new SysDict().setLabel",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 51
+        },
+        "end": {
+          "line": 88,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "new SysDict",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 51
+        },
+        "end": {
+          "line": 88,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getLabel",
+      "expression": "updateSysApiQuery.getLabel",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 74
+        },
+        "end": {
+          "line": 88,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "one.getId().equals",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 38
+        },
+        "end": {
+          "line": 90,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "one.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 38
+        },
+        "end": {
+          "line": 90,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 57
+        },
+        "end": {
+          "line": 90,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "updateById",
+      "expression": "super.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 16
+        },
+        "end": {
+          "line": 91,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "entityToDto",
+      "expression": "this.sysDictStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerSignature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 26
+        },
+        "end": {
+          "line": 102,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "getById",
+      "expression": "this.getById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerSignature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 60
+        },
+        "end": {
+          "line": 102,
+          "column": 76
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 37
+        },
+        "end": {
+          "line": 32,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "SysDictMapper",
+      "expression": "SysDictMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 49
+        },
+        "end": {
+          "line": 32,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 64
+        },
+        "end": {
+          "line": 32,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "ISysDictService",
+      "expression": "ISysDictService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 84
+        },
+        "end": {
+          "line": 32,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysDictMapper",
+      "expression": "SysDictMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 13
+        },
+        "end": {
+          "line": 34,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 6
+        },
+        "end": {
+          "line": 33,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SysDictStructure",
+      "expression": "SysDictStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 36,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.sysDictStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 12
+        },
+        "end": {
+          "line": 46,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 17
+        },
+        "end": {
+          "line": 46,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "SysDictQuery",
+      "expression": "SysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 37
+        },
+        "end": {
+          "line": 46,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AddSysDictQuery",
+      "expression": "AddSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 21
+        },
+        "end": {
+          "line": 62,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysDictQuery addSysDictQuery)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 6
+        },
+        "end": {
+          "line": 61,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "UpdateSysDictQuery",
+      "expression": "UpdateSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 31
+        },
+        "end": {
+          "line": 84,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 6
+        },
+        "end": {
+          "line": 83,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerSignature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 12
+        },
+        "end": {
+          "line": 101,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerSignature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 32
+        },
+        "end": {
+          "line": 101,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysDictService.findById",
+      "ownerSignature": "@Override\n    public SysDictDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 6
+        },
+        "end": {
+          "line": 100,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 40
+        },
+        "end": {
+          "line": 64,
+          "column": 89
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 35
+        },
+        "end": {
+          "line": 86,
+          "column": 88
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 74
+        },
+        "end": {
+          "line": 90,
+          "column": 123
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

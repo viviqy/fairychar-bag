@@ -1,0 +1,426 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/EndWith.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "EndWith",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "ownerQualifiedName": "",
+      "signature": "@Target(ElementType.FIELD)\n@Retention(RetentionPolicy.RUNTIME)\n@Constraint(validatedBy = EndWithValidator.class)\npublic @interface EndWith",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Target(ElementType.FIELD)",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Constraint(validatedBy = EndWithValidator.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "value",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "String[] value()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "后缀值,满足任何一个即通过\n\n @return {@link String[] }",
+      "typeParameters": [],
+      "returnType": "String[]",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "ignoreCase",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.ignoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "boolean ignoreCase() default false",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "忽略大小写\n\n @return boolean",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": "false",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "ignoreEmpty",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.ignoreEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "boolean ignoreEmpty() default false",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "允许为空\n\n @return boolean",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": "false",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "message",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.message",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "String message() default \"not end with\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"not end with\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "groups",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.groups",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "Class<?>[] groups() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<?>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "payload",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "signature": "Class<? extends Payload>[] payload() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<? extends Payload>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.validation.Constraint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Payload",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.ElementType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Retention",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.RetentionPolicy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Target",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Constraint",
+      "expression": "Constraint",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.value",
+      "ownerSignature": "String[] value()",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.message",
+      "ownerSignature": "String message() default \"not end with\"",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.groups",
+      "ownerSignature": "Class<?>[] groups() default {}",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Payload",
+      "expression": "Payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.EndWith.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 21
+        },
+        "end": {
+          "line": 44,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

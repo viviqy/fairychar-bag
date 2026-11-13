@@ -1,0 +1,298 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/UrlProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "UrlProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class UrlProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.3",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "login",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.login",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private String login = \"/login\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"/login\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "logout",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.logout",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private String logout = \"/logout\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"/logout\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "allowed",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.allowed",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private String[] allowed",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String[]",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticated",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.authenticated",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private String[] authenticated",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String[]",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "disableLoginCors",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.disableLoginCors",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private boolean disableLoginCors = true",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": "true",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "disableLoginCsrf",
+      "qualifiedName": "com.fairychar.security.core.properties.UrlProperties.disableLoginCsrf",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "signature": "private boolean disableLoginCsrf = true",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": "true",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties.login",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 13
+        },
+        "end": {
+          "line": 11,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties.logout",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties.allowed",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.UrlProperties.authenticated",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

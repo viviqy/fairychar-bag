@@ -1,0 +1,970 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/interfaces/ISystemUserService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.interfaces",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ISystemUserService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "ownerQualifiedName": "",
+      "signature": "public interface ISystemUserService extends IService<SystemUser>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 90,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统用户(SystemUser)表服务接口\n\n @author chiyo",
+      "supertypes": [
+        "IService<SystemUser>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "findOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "SystemUserDTO findOne(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser单条数据\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "SystemUserDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 27
+            },
+            "end": {
+              "line": 24,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "List<SystemUserDTO> queryAll(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser所有数据\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "List<SystemUserDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 34
+            },
+            "end": {
+              "line": 31,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "Page<SystemUserDTO> pageAll(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SystemUser所有数据\n\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SystemUserDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 33
+            },
+            "end": {
+              "line": 39,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "boolean save(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 51
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "插入\n @param systemUserQuery {@link SystemUserQuery}插入query\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 46,
+              "column": 18
+            },
+            "end": {
+              "line": 46,
+              "column": 49
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "boolean updateById(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 57
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "更新\n @param systemUserQuery {@link SystemUserQuery}更新query\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 24
+            },
+            "end": {
+              "line": 53,
+              "column": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "page",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "Page<SystemUserDTO> page(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "分页查询(全等匹配)\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SystemUserDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 30
+            },
+            "end": {
+              "line": 60,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "SystemUserDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据id查询一个对象\n @param id id\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "SystemUserDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 28
+            },
+            "end": {
+              "line": 67,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "int count(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 5
+        },
+        "end": {
+          "line": 74,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件查询总数\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 74,
+              "column": 15
+            },
+            "end": {
+              "line": 74,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "boolean saveBatch(List<SystemUserQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "批量新增\n @param batch 新增数据 \n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<SystemUserQuery>",
+          "signature": "List<SystemUserQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 81,
+              "column": 23
+            },
+            "end": {
+              "line": 81,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "signature": "List<SystemUserDTO> findAll(SystemUserQuery systemUserQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser所有数据\n @param systemUserQuery {@link SystemUserQuery}查询条件\n @return 查询结果 {@link SystemUserDTO}",
+      "typeParameters": [],
+      "returnType": "List<SystemUserDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUserQuery",
+          "type": "SystemUserQuery",
+          "signature": "SystemUserQuery systemUserQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 88,
+              "column": 33
+            },
+            "end": {
+              "line": 88,
+              "column": 64
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.IService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemUser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemUserDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SystemUserQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "IService",
+      "expression": "IService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 45
+        },
+        "end": {
+          "line": 17,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 54
+        },
+        "end": {
+          "line": 17,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findOne",
+      "ownerSignature": "SystemUserDTO findOne(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findOne",
+      "ownerSignature": "SystemUserDTO findOne(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 27
+        },
+        "end": {
+          "line": 24,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.queryAll",
+      "ownerSignature": "List<SystemUserDTO> queryAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.queryAll",
+      "ownerSignature": "List<SystemUserDTO> queryAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 10
+        },
+        "end": {
+          "line": 31,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.queryAll",
+      "ownerSignature": "List<SystemUserDTO> queryAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 34
+        },
+        "end": {
+          "line": 31,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.pageAll",
+      "ownerSignature": "Page<SystemUserDTO> pageAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.pageAll",
+      "ownerSignature": "Page<SystemUserDTO> pageAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 10
+        },
+        "end": {
+          "line": 39,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.pageAll",
+      "ownerSignature": "Page<SystemUserDTO> pageAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 33
+        },
+        "end": {
+          "line": 39,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.save",
+      "ownerSignature": "boolean save(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 18
+        },
+        "end": {
+          "line": 46,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.updateById",
+      "ownerSignature": "boolean updateById(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 24
+        },
+        "end": {
+          "line": 53,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.page",
+      "ownerSignature": "Page<SystemUserDTO> page(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.page",
+      "ownerSignature": "Page<SystemUserDTO> page(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 10
+        },
+        "end": {
+          "line": 60,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.page",
+      "ownerSignature": "Page<SystemUserDTO> page(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 30
+        },
+        "end": {
+          "line": 60,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findById",
+      "ownerSignature": "SystemUserDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findById",
+      "ownerSignature": "SystemUserDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 28
+        },
+        "end": {
+          "line": 67,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.count",
+      "ownerSignature": "int count(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 15
+        },
+        "end": {
+          "line": 74,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.saveBatch",
+      "ownerSignature": "boolean saveBatch(List<SystemUserQuery> batch)",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 23
+        },
+        "end": {
+          "line": 81,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.saveBatch",
+      "ownerSignature": "boolean saveBatch(List<SystemUserQuery> batch)",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 28
+        },
+        "end": {
+          "line": 81,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findAll",
+      "ownerSignature": "List<SystemUserDTO> findAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUserDTO",
+      "expression": "SystemUserDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findAll",
+      "ownerSignature": "List<SystemUserDTO> findAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 10
+        },
+        "end": {
+          "line": 88,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "SystemUserQuery",
+      "expression": "SystemUserQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISystemUserService.findAll",
+      "ownerSignature": "List<SystemUserDTO> findAll(SystemUserQuery systemUserQuery)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 33
+        },
+        "end": {
+          "line": 88,
+          "column": 48
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

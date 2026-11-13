@@ -1,0 +1,781 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/StartWithValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "StartWithValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class StartWithValidator implements ConstraintValidator<StartWith, Object>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 59,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "ConstraintValidator<StartWith, Object>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "annotation",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.annotation",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "signature": "private StartWith annotation",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "StartWith",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "initialize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "signature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "constraintAnnotation",
+          "type": "StartWith",
+          "signature": "StartWith constraintAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 28
+            },
+            "end": {
+              "line": 19,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "signature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "Object",
+          "signature": "Object value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 28
+            },
+            "end": {
+              "line": 36,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 42
+            },
+            "end": {
+              "line": 36,
+              "column": 76
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "value",
+      "expression": "constraintAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 26
+        },
+        "end": {
+          "line": 20,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "FBException",
+      "expression": "new FBException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 19
+        },
+        "end": {
+          "line": 23,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "RestErrorCode.SYSTEM_ERROR.getCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 35
+        },
+        "end": {
+          "line": 23,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "RestErrorCode.SYSTEM_ERROR.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 73
+        },
+        "end": {
+          "line": 23,
+          "column": 112
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 17
+        },
+        "end": {
+          "line": 26,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 17
+        },
+        "end": {
+          "line": 27,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "FBException",
+      "expression": "new FBException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 23
+        },
+        "end": {
+          "line": 28,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "RestErrorCode.SYSTEM_ERROR.getCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 39
+        },
+        "end": {
+          "line": 28,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "RestErrorCode.SYSTEM_ERROR.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 77
+        },
+        "end": {
+          "line": 28,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "initialize",
+      "expression": "ConstraintValidator.super.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 23
+        },
+        "end": {
+          "line": 37,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "ignoreEmpty",
+      "expression": "annotation.ignoreEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 20
+        },
+        "end": {
+          "line": 39,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "annotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 30
+        },
+        "end": {
+          "line": 41,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "ignoreCase",
+      "expression": "annotation.ignoreCase",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "toLowerCase",
+      "expression": "text.toLowerCase",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 20
+        },
+        "end": {
+          "line": 43,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "startsWith",
+      "expression": "text.startsWith",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 21
+        },
+        "end": {
+          "line": 45,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "toLowerCase",
+      "expression": "item.toLowerCase",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 37
+        },
+        "end": {
+          "line": 45,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "startsWith",
+      "expression": "text.startsWith",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 21
+        },
+        "end": {
+          "line": 51,
+          "column": 42
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ConstraintValidator",
+      "expression": "ConstraintValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 44
+        },
+        "end": {
+          "line": 15,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "StartWith",
+      "expression": "StartWith",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 64
+        },
+        "end": {
+          "line": 15,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 75
+        },
+        "end": {
+          "line": 15,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "StartWith",
+      "expression": "StartWith",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.annotation",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "StartWith",
+      "expression": "StartWith",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 28
+        },
+        "end": {
+          "line": 19,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(StartWith constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 6
+        },
+        "end": {
+          "line": 18,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 28
+        },
+        "end": {
+          "line": 36,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 42
+        },
+        "end": {
+          "line": 36,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.StartWithValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(Object value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

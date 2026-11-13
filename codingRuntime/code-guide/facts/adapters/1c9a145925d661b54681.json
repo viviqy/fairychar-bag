@@ -1,0 +1,196 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnRandomNumber.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "ConditionalOnRandomNumber",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "ownerQualifiedName": "",
+      "signature": "@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Conditional(OnRandomNumberCondition.class)\npublic @interface ConditionalOnRandomNumber",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Conditional(OnRandomNumberCondition.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "别问,你懂得\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "number",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber.number",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "signature": "int number() default 0",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": "0",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "end",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber.end",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "signature": "int end()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 15
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.annotation.Conditional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Conditional",
+      "expression": "Conditional",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnRandomNumber",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 13
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

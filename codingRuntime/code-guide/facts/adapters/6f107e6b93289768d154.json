@@ -1,0 +1,1342 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/SystemUserMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SystemUserMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface SystemUserMapper extends BaseMapper<SystemUser>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统用户(SystemUser)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<SystemUser>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "SystemUser queryOne(@Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser单条数据\n\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "SystemUser",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 25
+            },
+            "end": {
+              "line": 26,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 103
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser单条数据指定column\n\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "SystemUser",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 34
+            },
+            "end": {
+              "line": 34,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 68
+            },
+            "end": {
+              "line": 34,
+              "column": 101
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "List<SystemUser> queryAll(@Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser所有数据\n\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "List<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 31
+            },
+            "end": {
+              "line": 42,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 109
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser所有数据指定column\n\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "List<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 40
+            },
+            "end": {
+              "line": 50,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 74
+            },
+            "end": {
+              "line": 50,
+              "column": 107
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 92
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SystemUser所有数据\n\n @param page       分页参数\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "Page<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 30
+            },
+            "end": {
+              "line": 59,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 57
+            },
+            "end": {
+              "line": 59,
+              "column": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 135
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SystemUser所有数据指定column\n\n @param page       分页参数\n @param systemUser {@see SystemUser}查询条件\n @return 查询结果 {@see SystemUser}",
+      "typeParameters": [],
+      "returnType": "Page<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 39
+            },
+            "end": {
+              "line": 68,
+              "column": 71
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 73
+            },
+            "end": {
+              "line": 68,
+              "column": 98
+            }
+          }
+        },
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 100
+            },
+            "end": {
+              "line": 68,
+              "column": 133
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "int count(@Param(\"e\") SystemUser systemUser)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemUser匹配数据总数\n\n @param systemUser {@see SystemUser}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemUser",
+          "type": "SystemUser",
+          "signature": "@Param(\"e\") SystemUser systemUser",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 15
+            },
+            "end": {
+              "line": 76,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "List<SystemUser> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see SystemUser}数据集",
+      "typeParameters": [],
+      "returnType": "List<SystemUser>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 35
+            },
+            "end": {
+              "line": 84,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<SystemUser> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 64
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SystemUser>",
+          "signature": "@Param(\"list\") List<SystemUser> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 86,
+              "column": 22
+            },
+            "end": {
+              "line": 86,
+              "column": 62
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemUser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 43
+        },
+        "end": {
+          "line": 17,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 54
+        },
+        "end": {
+          "line": 17,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOne",
+      "ownerSignature": "SystemUser queryOne(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOne",
+      "ownerSignature": "SystemUser queryOne(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 37
+        },
+        "end": {
+          "line": 26,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOne",
+      "ownerSignature": "SystemUser queryOne(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 26
+        },
+        "end": {
+          "line": 26,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerSignature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerSignature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 51
+        },
+        "end": {
+          "line": 34,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerSignature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 35
+        },
+        "end": {
+          "line": 34,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerSignature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 80
+        },
+        "end": {
+          "line": 34,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryOneSelective",
+      "ownerSignature": "SystemUser queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 69
+        },
+        "end": {
+          "line": 34,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAll",
+      "ownerSignature": "List<SystemUser> queryAll(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAll",
+      "ownerSignature": "List<SystemUser> queryAll(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 10
+        },
+        "end": {
+          "line": 42,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAll",
+      "ownerSignature": "List<SystemUser> queryAll(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 43
+        },
+        "end": {
+          "line": 42,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAll",
+      "ownerSignature": "List<SystemUser> queryAll(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 32
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 10
+        },
+        "end": {
+          "line": 50,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 57
+        },
+        "end": {
+          "line": 50,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 41
+        },
+        "end": {
+          "line": 50,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 86
+        },
+        "end": {
+          "line": 50,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.queryAllSelective",
+      "ownerSignature": "List<SystemUser> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 75
+        },
+        "end": {
+          "line": 50,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 10
+        },
+        "end": {
+          "line": 59,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 45
+        },
+        "end": {
+          "line": 59,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 31
+        },
+        "end": {
+          "line": 59,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 69
+        },
+        "end": {
+          "line": 59,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAll",
+      "ownerSignature": "Page<SystemUser> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 58
+        },
+        "end": {
+          "line": 59,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 56
+        },
+        "end": {
+          "line": 68,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 40
+        },
+        "end": {
+          "line": 68,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 88
+        },
+        "end": {
+          "line": 68,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 74
+        },
+        "end": {
+          "line": 68,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 112
+        },
+        "end": {
+          "line": 68,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemUser> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 101
+        },
+        "end": {
+          "line": 68,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 27
+        },
+        "end": {
+          "line": 76,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SystemUser systemUser)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 16
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.countGroupBy",
+      "ownerSignature": "List<SystemUser> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.countGroupBy",
+      "ownerSignature": "List<SystemUser> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.countGroupBy",
+      "ownerSignature": "List<SystemUser> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 52
+        },
+        "end": {
+          "line": 84,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.countGroupBy",
+      "ownerSignature": "List<SystemUser> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 36
+        },
+        "end": {
+          "line": 84,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 37
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "SystemUser",
+      "expression": "SystemUser",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 42
+        },
+        "end": {
+          "line": 86,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemUserMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemUser> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

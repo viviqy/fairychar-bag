@@ -1,0 +1,305 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/CauseHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.annotations",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "CauseHandler",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.METHOD})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface CauseHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.METHOD})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "netty指定异常拦截器,配合{@link NettyCauseAdvice}使用\n <p>\n 使用方式和{@link org.springframework.web.bind.annotation.ExceptionHandler}一样\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "value",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "signature": "Class<? extends Throwable> value()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "拦截异常类\n\n @return",
+      "typeParameters": [],
+      "returnType": "Class<? extends Throwable>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "handler",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.handler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "signature": "Class<? extends ChannelHandler> handler() default ChannelHandler.class",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 76
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "标识抛出异常的handler类\n\n @return",
+      "typeParameters": [],
+      "returnType": "Class<? extends ChannelHandler>",
+      "throws": [],
+      "defaultExpression": "ChannelHandler.class",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "methodName",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.methodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "signature": "String methodName() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "标识最先抛出异常的方法名称\n\n @return",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "io.netty.channel.ChannelHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.value",
+      "ownerSignature": "Class<? extends Throwable> value()",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.value",
+      "ownerSignature": "Class<? extends Throwable> value()",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 21
+        },
+        "end": {
+          "line": 24,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.handler",
+      "ownerSignature": "Class<? extends ChannelHandler> handler() default ChannelHandler.class",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ChannelHandler",
+      "expression": "ChannelHandler",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.handler",
+      "ownerSignature": "Class<? extends ChannelHandler> handler() default ChannelHandler.class",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 21
+        },
+        "end": {
+          "line": 31,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.CauseHandler.methodName",
+      "ownerSignature": "String methodName() default \"\"",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,533 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/MethodLock.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.annotations",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "MethodLock",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.METHOD})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface MethodLock",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 74,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.METHOD})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2020/6/2 10:37\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "lockType",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.lockType",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "Type lockType() default Type.DEFAULT",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "<p>使用锁类型local=本地锁,redis=redis分布式锁,ZK=zookeeper分布式锁</p>\n 默认为DEFAULT,如果为DEFAULT代表使用全局设置\n\n @return {@link Type}",
+      "typeParameters": [],
+      "returnType": "Type",
+      "throws": [],
+      "defaultExpression": "Type.DEFAULT",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.enable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "boolean enable() default true",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "使用启用\n\n @return 默认启用",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": "true",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "timeout",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.timeout",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "int timeout() default -1",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "最大等待时间,-1为使用全局设置\n\n @return 超时时长",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": "-1",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "optimistic",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.optimistic",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "boolean optimistic() default false",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "是否使用乐观锁\n\n @return true=使用,false=不使用",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": "false",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "timeUnit",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.timeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "TimeUnit timeUnit() default TimeUnit.NANOSECONDS",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "仅在乐观锁或分布式锁情况下使用,TimeUnit.NANOSECONDS为使用全局默认(应该不会有纳秒锁的业务)\n\n @return {@link TimeUnit}",
+      "typeParameters": [],
+      "returnType": "TimeUnit",
+      "throws": [],
+      "defaultExpression": "TimeUnit.NANOSECONDS",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "nameExpression",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.nameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "String nameExpression() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "本地锁名称或者分布式锁节点名称,Spel表达式\n\n @return 分布式锁情况下默认使用全路径类名+方法名+参数类型,本地锁情况下指定则优先根据此值获取锁",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "distributedPrefix",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.distributedPrefix",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "String distributedPrefix() default \"fairychar:lock:\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 58
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "分布式节点前缀\n\n @return 默认为<Strong>fairychar:lock:</Strong>",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"fairychar:lock:\"",
+      "parameters": []
+    },
+    {
+      "kind": "enum",
+      "name": "Type",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "signature": "enum Type",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 73,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "DEFAULT",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type.DEFAULT",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type",
+      "signature": "DEFAULT()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 9
+        },
+        "end": {
+          "line": 69,
+          "column": 18
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Type",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "LOCAL",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type.LOCAL",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type",
+      "signature": "LOCAL()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 70,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Type",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "REDIS",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type.REDIS",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type",
+      "signature": "REDIS()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 9
+        },
+        "end": {
+          "line": 71,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Type",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "ZK",
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type.ZK",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.Type",
+      "signature": "ZK()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 13
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Type",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Type",
+      "expression": "Type",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.lockType",
+      "ownerSignature": "Type lockType() default Type.DEFAULT",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.timeUnit",
+      "ownerSignature": "TimeUnit timeUnit() default TimeUnit.NANOSECONDS",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.nameExpression",
+      "ownerSignature": "String nameExpression() default \"\"",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.annotations.MethodLock.distributedPrefix",
+      "ownerSignature": "String distributedPrefix() default \"fairychar:lock:\"",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

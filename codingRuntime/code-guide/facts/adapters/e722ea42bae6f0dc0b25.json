@@ -1,0 +1,4837 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/aop/MethodLockAspectJ.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.aop",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "MethodLockAspectJ",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerQualifiedName": "",
+      "signature": "@Aspect\n@EnableConfigurationProperties(FairycharBagProperties.class)\n@Order\n@Slf4j\npublic class MethodLockAspectJ implements InitializingBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 1
+        },
+        "end": {
+          "line": 273,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Aspect",
+        "@EnableConfigurationProperties(FairycharBagProperties.class)",
+        "@Order",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "这个类是一个切面，用于基于注解提供方法锁定功能。\n 它支持不同类型的锁，如本地锁、Redis锁和ZooKeeper锁。\n 该切面拦截使用@MethodLock注解的方法，并应用指定的锁类型。\n 它使用一个Map来存储本地锁，并在不存在时创建一个新的锁。\n 对于Redis锁，它使用RedissonClient来获取和释放锁。\n 对于ZooKeeper锁，它使用CuratorFramework来创建和释放锁。\n 该切面还处理乐观锁，通过检查在超时期间是否可以获取到锁。\n 它使用FairycharBagProperties类来获取配置属性。\n 该切面使用AspectJ实现，并按顺序在其他切面之后执行。\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "InitializingBean"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "fairycharBagProperties",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.fairycharBagProperties",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "@Autowired\nprivate FairycharBagProperties fairycharBagProperties",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 59
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FairycharBagProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "spelExpressionParser",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.spelExpressionParser",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private final SpelExpressionParser spelExpressionParser = new SpelExpressionParser()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 90
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "SpelExpressionParser",
+      "defaultExpression": "new SpelExpressionParser()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "lockMap",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.lockMap",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private Map<String, ReentrantLock> lockMap = new ConcurrentHashMap<>(32)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 78
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, ReentrantLock>",
+      "defaultExpression": "new ConcurrentHashMap<>(32)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "parameterNameDiscoverer",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.parameterNameDiscoverer",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private final ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 106
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ParameterNameDiscoverer",
+      "defaultExpression": "new DefaultParameterNameDiscoverer()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "locking",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 74,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Around(\"@annotation(methodLock)\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [
+        "Throwable"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 27
+            },
+            "end": {
+              "line": 67,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 48
+            },
+            "end": {
+              "line": 67,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "switchLock",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 90,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [
+        "Throwable"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodSignature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature methodSignature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 31
+            },
+            "end": {
+              "line": 76,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 64
+            },
+            "end": {
+              "line": 76,
+              "column": 85
+            }
+          }
+        },
+        {
+          "name": "proceedingJoinPoint",
+          "type": "ProceedingJoinPoint",
+          "signature": "ProceedingJoinPoint proceedingJoinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 15
+            },
+            "end": {
+              "line": 77,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "doLocalLock",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 5
+        },
+        "end": {
+          "line": 125,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [
+        "Throwable"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodSignature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature methodSignature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 32
+            },
+            "end": {
+              "line": 92,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 92,
+              "column": 65
+            },
+            "end": {
+              "line": 92,
+              "column": 86
+            }
+          }
+        },
+        {
+          "name": "proceedingJoinPoint",
+          "type": "ProceedingJoinPoint",
+          "signature": "ProceedingJoinPoint proceedingJoinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 93,
+              "column": 15
+            },
+            "end": {
+              "line": 93,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "doRedisLock",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 5
+        },
+        "end": {
+          "line": 163,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [
+        "Throwable"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodSignature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature methodSignature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 128,
+              "column": 32
+            },
+            "end": {
+              "line": 128,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 128,
+              "column": 65
+            },
+            "end": {
+              "line": 128,
+              "column": 86
+            }
+          }
+        },
+        {
+          "name": "proceedingJoinPoint",
+          "type": "ProceedingJoinPoint",
+          "signature": "ProceedingJoinPoint proceedingJoinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 129,
+              "column": 15
+            },
+            "end": {
+              "line": 129,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "doZookeeperLock",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 5
+        },
+        "end": {
+          "line": 203,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "Object",
+      "throws": [
+        "Throwable"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodSignature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature methodSignature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 165,
+              "column": 36
+            },
+            "end": {
+              "line": 165,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 165,
+              "column": 69
+            },
+            "end": {
+              "line": 165,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "proceedingJoinPoint",
+          "type": "ProceedingJoinPoint",
+          "signature": "ProceedingJoinPoint proceedingJoinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 166,
+              "column": 15
+            },
+            "end": {
+              "line": 166,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getMethodFullPath",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private String getMethodFullPath(Method method)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 205,
+          "column": 5
+        },
+        "end": {
+          "line": 215,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 205,
+              "column": 38
+            },
+            "end": {
+              "line": 205,
+              "column": 51
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getTimeout",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private int getTimeout(MethodLock methodLock)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 217,
+          "column": 5
+        },
+        "end": {
+          "line": 226,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 217,
+              "column": 28
+            },
+            "end": {
+              "line": 217,
+              "column": 49
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getTimeUnit",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 228,
+          "column": 5
+        },
+        "end": {
+          "line": 235,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "TimeUnit",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 228,
+              "column": 34
+            },
+            "end": {
+              "line": 228,
+              "column": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createOrGetLocalLock",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createOrGetLocalLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private ReentrantLock createOrGetLocalLock(String key)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 237,
+          "column": 5
+        },
+        "end": {
+          "line": 242,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "ReentrantLock",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "key",
+          "type": "String",
+          "signature": "String key",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 237,
+              "column": 48
+            },
+            "end": {
+              "line": 237,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "resolveNameExpression",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 5
+        },
+        "end": {
+          "line": 255,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "methodSignature",
+          "type": "MethodSignature",
+          "signature": "MethodSignature methodSignature",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 244,
+              "column": 42
+            },
+            "end": {
+              "line": 244,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "methodLock",
+          "type": "MethodLock",
+          "signature": "MethodLock methodLock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 244,
+              "column": 75
+            },
+            "end": {
+              "line": 244,
+              "column": 96
+            }
+          }
+        },
+        {
+          "name": "proceedingJoinPoint",
+          "type": "ProceedingJoinPoint",
+          "signature": "ProceedingJoinPoint proceedingJoinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 244,
+              "column": 98
+            },
+            "end": {
+              "line": 244,
+              "column": 137
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createEvaluationContext",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 5
+        },
+        "end": {
+          "line": 262,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "EvaluationContext",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 258,
+              "column": 54
+            },
+            "end": {
+              "line": 258,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "args",
+          "type": "Object[]",
+          "signature": "Object[] args",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 258,
+              "column": 69
+            },
+            "end": {
+              "line": 258,
+              "column": 82
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "afterPropertiesSet",
+      "qualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "signature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 5
+        },
+        "end": {
+          "line": 270,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.annotations.MethodLock",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 78
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.template.CacheOperateTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.utils.StringUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.curator.framework.CuratorFramework",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.curator.framework.recipes.locks.InterProcessMutex",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.JoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.ProceedingJoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.annotation.Around",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.annotation.Aspect",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.reflect.MethodSignature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.redisson.api.RLock",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 31
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.redisson.api.RedissonClient",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.InitializingBean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.EnableConfigurationProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 82
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.DefaultParameterNameDiscoverer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 27,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.ParameterNameDiscoverer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.annotation.Order",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.EvaluationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.Expression",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.spel.standard.SpelExpressionParser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "line": 34,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 35,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.ConcurrentHashMap",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeoutException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 1
+        },
+        "end": {
+          "line": 38,
+          "column": 46
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.locks.ReentrantLock",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 49
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "SpelExpressionParser",
+      "expression": "new SpelExpressionParser",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 63
+        },
+        "end": {
+          "line": 62,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "ConcurrentHashMap<>",
+      "expression": "new ConcurrentHashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 50
+        },
+        "end": {
+          "line": 63,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "DefaultParameterNameDiscoverer",
+      "expression": "new DefaultParameterNameDiscoverer",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 69
+        },
+        "end": {
+          "line": 64,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "getSignature",
+      "expression": "joinPoint.getSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 61
+        },
+        "end": {
+          "line": 68,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "enable",
+      "expression": "methodLock.enable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 14
+        },
+        "end": {
+          "line": 70,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 20
+        },
+        "end": {
+          "line": 71,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 48
+        },
+        "end": {
+          "line": 71,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "switchLock",
+      "expression": "switchLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 16
+        },
+        "end": {
+          "line": 73,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "lockType",
+      "expression": "methodLock.lockType",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 36
+        },
+        "end": {
+          "line": 78,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "getDefaultLock",
+      "expression": "fairycharBagProperties.getAop().getLock().getDefaultLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 17
+        },
+        "end": {
+          "line": 79,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 17
+        },
+        "end": {
+          "line": 79,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 17
+        },
+        "end": {
+          "line": 79,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "lockType",
+      "expression": "methodLock.lockType",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 78
+        },
+        "end": {
+          "line": 79,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "doLocalLock",
+      "expression": "doLocalLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 24
+        },
+        "end": {
+          "line": 82,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "doRedisLock",
+      "expression": "doRedisLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 24
+        },
+        "end": {
+          "line": 84,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "doZookeeperLock",
+      "expression": "doZookeeperLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 24
+        },
+        "end": {
+          "line": 86,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 25
+        },
+        "end": {
+          "line": 94,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "resolveNameExpression",
+      "expression": "this.resolveNameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 34
+        },
+        "end": {
+          "line": 95,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "createOrGetLocalLock",
+      "expression": "createOrGetLocalLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 39
+        },
+        "end": {
+          "line": 96,
+          "column": 132
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "expressionValue.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 60
+        },
+        "end": {
+          "line": 96,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getMethodFullPath",
+      "expression": "getMethodFullPath",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 88
+        },
+        "end": {
+          "line": 96,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "optimistic",
+      "expression": "methodLock.optimistic",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 13
+        },
+        "end": {
+          "line": 97,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "reentrantLock.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 21
+        },
+        "end": {
+          "line": 99,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getTimeout",
+      "expression": "getTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 43
+        },
+        "end": {
+          "line": 99,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getTimeUnit",
+      "expression": "getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 67
+        },
+        "end": {
+          "line": 99,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 28
+        },
+        "end": {
+          "line": 100,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 56
+        },
+        "end": {
+          "line": 100,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "TimeoutException",
+      "expression": "new TimeoutException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 27
+        },
+        "end": {
+          "line": 102,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "reentrantLock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 21
+        },
+        "end": {
+          "line": 109,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "reentrantLock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 21
+        },
+        "end": {
+          "line": 110,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "lockInterruptibly",
+      "expression": "reentrantLock.lockInterruptibly",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 13
+        },
+        "end": {
+          "line": 114,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 24
+        },
+        "end": {
+          "line": 116,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 52
+        },
+        "end": {
+          "line": 116,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "reentrantLock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 17
+        },
+        "end": {
+          "line": 122,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 25
+        },
+        "end": {
+          "line": 130,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "resolveNameExpression",
+      "expression": "this.resolveNameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 34
+        },
+        "end": {
+          "line": 131,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "getBean",
+      "expression": "SpringContextHolder.getInstance().getBean",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 41
+        },
+        "end": {
+          "line": 132,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "SpringContextHolder.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 41
+        },
+        "end": {
+          "line": 132,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "redissonClient.getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 30
+        },
+        "end": {
+          "line": 134,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodLock.distributedPrefix().concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 53
+        },
+        "end": {
+          "line": 134,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "distributedPrefix",
+      "expression": "methodLock.distributedPrefix",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 53
+        },
+        "end": {
+          "line": 133,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 92
+        },
+        "end": {
+          "line": 133,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "getMethodFullPath",
+      "expression": "getMethodFullPath",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 37
+        },
+        "end": {
+          "line": 134,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "optimistic",
+      "expression": "methodLock.optimistic",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 13
+        },
+        "end": {
+          "line": 135,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "redissonLock.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 21
+        },
+        "end": {
+          "line": 137,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "getTimeout",
+      "expression": "getTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 42
+        },
+        "end": {
+          "line": 137,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getTimeUnit",
+      "expression": "getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 66
+        },
+        "end": {
+          "line": 137,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 138,
+          "column": 28
+        },
+        "end": {
+          "line": 138,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 138,
+          "column": 56
+        },
+        "end": {
+          "line": 138,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "FailToGetLockException",
+      "expression": "new FailToGetLockException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 140,
+          "column": 27
+        },
+        "end": {
+          "line": 140,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "redissonLock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 21
+        },
+        "end": {
+          "line": 147,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "redissonLock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 21
+        },
+        "end": {
+          "line": 148,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "redissonLock.lock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 17
+        },
+        "end": {
+          "line": 153,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 24
+        },
+        "end": {
+          "line": 154,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 52
+        },
+        "end": {
+          "line": 154,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "redissonLock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 21
+        },
+        "end": {
+          "line": 158,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "redissonLock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 21
+        },
+        "end": {
+          "line": 159,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "resolveNameExpression",
+      "expression": "this.resolveNameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 167,
+          "column": 34
+        },
+        "end": {
+          "line": 167,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodLock.distributedPrefix().concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 168,
+          "column": 23
+        },
+        "end": {
+          "line": 169,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "distributedPrefix",
+      "expression": "methodLock.distributedPrefix",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 168,
+          "column": 23
+        },
+        "end": {
+          "line": 168,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "expressionValue.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 168,
+          "column": 61
+        },
+        "end": {
+          "line": 168,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getMethodFullPath",
+      "expression": "getMethodFullPath",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 19
+        },
+        "end": {
+          "line": 169,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 37
+        },
+        "end": {
+          "line": 169,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getBean",
+      "expression": "SpringContextHolder.getInstance().getBean",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 170,
+          "column": 45
+        },
+        "end": {
+          "line": 170,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "SpringContextHolder.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 170,
+          "column": 45
+        },
+        "end": {
+          "line": 170,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "InterProcessMutex",
+      "expression": "new InterProcessMutex",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 171,
+          "column": 34
+        },
+        "end": {
+          "line": 171,
+          "column": 121
+        }
+      }
+    },
+    {
+      "name": "startsWith",
+      "expression": "path.startsWith",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 171,
+          "column": 74
+        },
+        "end": {
+          "line": 171,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "\"/\".concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 171,
+          "column": 104
+        },
+        "end": {
+          "line": 171,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "optimistic",
+      "expression": "methodLock.optimistic",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 172,
+          "column": 13
+        },
+        "end": {
+          "line": 172,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "acquire",
+      "expression": "lock.acquire",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 21
+        },
+        "end": {
+          "line": 174,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getTimeout",
+      "expression": "getTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 34
+        },
+        "end": {
+          "line": 174,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "getTimeUnit",
+      "expression": "getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 58
+        },
+        "end": {
+          "line": 174,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 28
+        },
+        "end": {
+          "line": 175,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 56
+        },
+        "end": {
+          "line": 175,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "FailToGetLockException",
+      "expression": "new FailToGetLockException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 177,
+          "column": 23
+        },
+        "end": {
+          "line": 177,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "info",
+      "expression": "log.info",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 17
+        },
+        "end": {
+          "line": 180,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "methodSignature.getName",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 78
+        },
+        "end": {
+          "line": 179,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodLock.distributedPrefix().concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 27
+        },
+        "end": {
+          "line": 180,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "distributedPrefix",
+      "expression": "methodLock.distributedPrefix",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 27
+        },
+        "end": {
+          "line": 180,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "isAcquiredInThisProcess",
+      "expression": "lock.isAcquiredInThisProcess",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 21
+        },
+        "end": {
+          "line": 187,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "release",
+      "expression": "lock.release",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 188,
+          "column": 21
+        },
+        "end": {
+          "line": 188,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "acquire",
+      "expression": "lock.acquire",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 193,
+          "column": 17
+        },
+        "end": {
+          "line": 193,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "proceed",
+      "expression": "proceedingJoinPoint.proceed",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 194,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 194,
+          "column": 52
+        },
+        "end": {
+          "line": 194,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "isAcquiredInThisProcess",
+      "expression": "lock.isAcquiredInThisProcess",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 198,
+          "column": 21
+        },
+        "end": {
+          "line": 198,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "release",
+      "expression": "lock.release",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 21
+        },
+        "end": {
+          "line": 199,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "method.getDeclaringClass().getName()\n                .concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 206,
+          "column": 29
+        },
+        "end": {
+          "line": 207,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "method.getDeclaringClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 206,
+          "column": 29
+        },
+        "end": {
+          "line": 206,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getDeclaringClass",
+      "expression": "method.getDeclaringClass",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 206,
+          "column": 29
+        },
+        "end": {
+          "line": 206,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "method.getName",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 207,
+          "column": 25
+        },
+        "end": {
+          "line": 207,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "method.getReturnType().getName",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 208,
+          "column": 29
+        },
+        "end": {
+          "line": 208,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getReturnType",
+      "expression": "method.getReturnType",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 208,
+          "column": 29
+        },
+        "end": {
+          "line": 208,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "getParameterTypes",
+      "expression": "method.getParameterTypes",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 210,
+          "column": 39
+        },
+        "end": {
+          "line": 210,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "parameterName.concat(parameterType.getName()).concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 29
+        },
+        "end": {
+          "line": 211,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "parameterName.concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 29
+        },
+        "end": {
+          "line": 211,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "parameterType.getName",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 50
+        },
+        "end": {
+          "line": 211,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodName.concat(\":\").concat(returnName).concat(\":\")\n                .concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 213,
+          "column": 16
+        },
+        "end": {
+          "line": 214,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodName.concat(\":\").concat(returnName).concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 213,
+          "column": 16
+        },
+        "end": {
+          "line": 213,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodName.concat(\":\").concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 213,
+          "column": 16
+        },
+        "end": {
+          "line": 213,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "concat",
+      "expression": "methodName.concat",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 213,
+          "column": 16
+        },
+        "end": {
+          "line": 213,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "parameterName.isEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 25
+        },
+        "end": {
+          "line": 214,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "substring",
+      "expression": "parameterName.substring",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 65
+        },
+        "end": {
+          "line": 214,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "parameterName.length",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 92
+        },
+        "end": {
+          "line": 214,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "timeout",
+      "expression": "methodLock.timeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 218,
+          "column": 13
+        },
+        "end": {
+          "line": 218,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "getGlobalTimeout",
+      "expression": "fairycharBagProperties.getAop().getLock().getGlobalTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 20
+        },
+        "end": {
+          "line": 220,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 20
+        },
+        "end": {
+          "line": 220,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 20
+        },
+        "end": {
+          "line": 220,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "timeout",
+      "expression": "methodLock.timeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 27
+        },
+        "end": {
+          "line": 222,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 223,
+          "column": 13
+        },
+        "end": {
+          "line": 223,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "methodLock.timeUnit().equals",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 229,
+          "column": 13
+        },
+        "end": {
+          "line": 229,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "timeUnit",
+      "expression": "methodLock.timeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 229,
+          "column": 13
+        },
+        "end": {
+          "line": 229,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "getTimeUnit",
+      "expression": "fairycharBagProperties.getAop().getLock().getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 20
+        },
+        "end": {
+          "line": 231,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 20
+        },
+        "end": {
+          "line": 231,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 20
+        },
+        "end": {
+          "line": 231,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "timeUnit",
+      "expression": "methodLock.timeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 233,
+          "column": 20
+        },
+        "end": {
+          "line": 233,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "CacheOperateTemplate.get",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createOrGetLocalLock",
+      "ownerSignature": "private ReentrantLock createOrGetLocalLock(String key)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 238,
+          "column": 30
+        },
+        "end": {
+          "line": 240,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "nameExpression",
+      "expression": "methodLock.nameExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 245,
+          "column": 33
+        },
+        "end": {
+          "line": 245,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "parseExpression",
+      "expression": "this.spelExpressionParser.parseExpression",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 247,
+          "column": 38
+        },
+        "end": {
+          "line": 247,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "nameExpression.contains",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 248,
+          "column": 14
+        },
+        "end": {
+          "line": 248,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 249,
+          "column": 32
+        },
+        "end": {
+          "line": 249,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getValue",
+      "expression": "parseExpression.getValue",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 249,
+          "column": 47
+        },
+        "end": {
+          "line": 249,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "createEvaluationContext",
+      "expression": "this.createEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 51
+        },
+        "end": {
+          "line": 251,
+          "column": 139
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 80
+        },
+        "end": {
+          "line": 251,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 109
+        },
+        "end": {
+          "line": 251,
+          "column": 138
+        }
+      }
+    },
+    {
+      "name": "valueOf",
+      "expression": "String.valueOf",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 252,
+          "column": 32
+        },
+        "end": {
+          "line": 252,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getValue",
+      "expression": "parseExpression.getValue",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 252,
+          "column": 47
+        },
+        "end": {
+          "line": 252,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "defaultText",
+      "expression": "StringUtil.defaultText",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 254,
+          "column": 16
+        },
+        "end": {
+          "line": 254,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "SimpleExpressionRootObject",
+      "expression": "new SimpleExpressionRootObject",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerSignature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 259,
+          "column": 49
+        },
+        "end": {
+          "line": 259,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "SimpleEvaluationContext",
+      "expression": "new SimpleEvaluationContext",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerSignature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 260,
+          "column": 53
+        },
+        "end": {
+          "line": 260,
+          "column": 136
+        }
+      }
+    },
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 9
+        },
+        "end": {
+          "line": 266,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "getDefaultLock",
+      "expression": "fairycharBagProperties.getAop().getLock().getDefaultLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 24
+        },
+        "end": {
+          "line": 266,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 24
+        },
+        "end": {
+          "line": 266,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 266,
+          "column": 24
+        },
+        "end": {
+          "line": 266,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 267,
+          "column": 9
+        },
+        "end": {
+          "line": 267,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "getTimeUnit",
+      "expression": "fairycharBagProperties.getAop().getLock().getTimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 267,
+          "column": 24
+        },
+        "end": {
+          "line": 267,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 267,
+          "column": 24
+        },
+        "end": {
+          "line": 267,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 267,
+          "column": 24
+        },
+        "end": {
+          "line": 267,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 9
+        },
+        "end": {
+          "line": 268,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "getGlobalTimeout",
+      "expression": "fairycharBagProperties.getAop().getLock().getGlobalTimeout",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 23
+        },
+        "end": {
+          "line": 268,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 23
+        },
+        "end": {
+          "line": 268,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 23
+        },
+        "end": {
+          "line": 268,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "isFalse",
+      "expression": "Assert.isFalse",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 9
+        },
+        "end": {
+          "line": 269,
+          "column": 134
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "fairycharBagProperties.getAop().getLock().getDefaultLock().equals",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 24
+        },
+        "end": {
+          "line": 269,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "getDefaultLock",
+      "expression": "fairycharBagProperties.getAop().getLock().getDefaultLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 24
+        },
+        "end": {
+          "line": 269,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getLock",
+      "expression": "fairycharBagProperties.getAop().getLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 24
+        },
+        "end": {
+          "line": 269,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getAop",
+      "expression": "fairycharBagProperties.getAop",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 24
+        },
+        "end": {
+          "line": 269,
+          "column": 55
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "InitializingBean",
+      "expression": "InitializingBean",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 43
+        },
+        "end": {
+          "line": 59,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Aspect",
+      "expression": "Aspect",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 2
+        },
+        "end": {
+          "line": 55,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "EnableConfigurationProperties",
+      "expression": "EnableConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 2
+        },
+        "end": {
+          "line": 56,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Order",
+      "expression": "Order",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 2
+        },
+        "end": {
+          "line": 57,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 2
+        },
+        "end": {
+          "line": 58,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "FairycharBagProperties",
+      "expression": "FairycharBagProperties",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.fairycharBagProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 13
+        },
+        "end": {
+          "line": 61,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.fairycharBagProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 6
+        },
+        "end": {
+          "line": 60,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SpelExpressionParser",
+      "expression": "SpelExpressionParser",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.spelExpressionParser",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 19
+        },
+        "end": {
+          "line": 62,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.lockMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 13
+        },
+        "end": {
+          "line": 63,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.lockMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 17
+        },
+        "end": {
+          "line": 63,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "ReentrantLock",
+      "expression": "ReentrantLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.lockMap",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 25
+        },
+        "end": {
+          "line": 63,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "ParameterNameDiscoverer",
+      "expression": "ParameterNameDiscoverer",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.parameterNameDiscoverer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 19
+        },
+        "end": {
+          "line": 64,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 12
+        },
+        "end": {
+          "line": 67,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 27
+        },
+        "end": {
+          "line": 67,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 48
+        },
+        "end": {
+          "line": 67,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 78
+        },
+        "end": {
+          "line": 67,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "Around",
+      "expression": "Around",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.locking",
+      "ownerSignature": "@Around(\"@annotation(methodLock)\")\n    public Object locking(JoinPoint joinPoint, MethodLock methodLock) throws Throwable",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 6
+        },
+        "end": {
+          "line": 66,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 13
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 31
+        },
+        "end": {
+          "line": 76,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 64
+        },
+        "end": {
+          "line": 76,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "ProceedingJoinPoint",
+      "expression": "ProceedingJoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 15
+        },
+        "end": {
+          "line": 77,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.switchLock",
+      "ownerSignature": "private Object switchLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 63
+        },
+        "end": {
+          "line": 77,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 32
+        },
+        "end": {
+          "line": 92,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 65
+        },
+        "end": {
+          "line": 92,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "ProceedingJoinPoint",
+      "expression": "ProceedingJoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 15
+        },
+        "end": {
+          "line": 93,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doLocalLock",
+      "ownerSignature": "private Object doLocalLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 63
+        },
+        "end": {
+          "line": 93,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 13
+        },
+        "end": {
+          "line": 128,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 32
+        },
+        "end": {
+          "line": 128,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 65
+        },
+        "end": {
+          "line": 128,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "ProceedingJoinPoint",
+      "expression": "ProceedingJoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 15
+        },
+        "end": {
+          "line": 129,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doRedisLock",
+      "ownerSignature": "private Object doRedisLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 63
+        },
+        "end": {
+          "line": 129,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 13
+        },
+        "end": {
+          "line": 165,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 36
+        },
+        "end": {
+          "line": 165,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 69
+        },
+        "end": {
+          "line": 165,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "ProceedingJoinPoint",
+      "expression": "ProceedingJoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 15
+        },
+        "end": {
+          "line": 166,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.doZookeeperLock",
+      "ownerSignature": "private Object doZookeeperLock(MethodSignature methodSignature, MethodLock methodLock\n            , ProceedingJoinPoint proceedingJoinPoint) throws Throwable",
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 63
+        },
+        "end": {
+          "line": 166,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "range": {
+        "start": {
+          "line": 205,
+          "column": 13
+        },
+        "end": {
+          "line": 205,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getMethodFullPath",
+      "ownerSignature": "private String getMethodFullPath(Method method)",
+      "range": {
+        "start": {
+          "line": 205,
+          "column": 38
+        },
+        "end": {
+          "line": 205,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeout",
+      "ownerSignature": "private int getTimeout(MethodLock methodLock)",
+      "range": {
+        "start": {
+          "line": 217,
+          "column": 28
+        },
+        "end": {
+          "line": 217,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "range": {
+        "start": {
+          "line": 228,
+          "column": 13
+        },
+        "end": {
+          "line": 228,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.getTimeUnit",
+      "ownerSignature": "private TimeUnit getTimeUnit(MethodLock methodLock)",
+      "range": {
+        "start": {
+          "line": 228,
+          "column": 34
+        },
+        "end": {
+          "line": 228,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "ReentrantLock",
+      "expression": "ReentrantLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createOrGetLocalLock",
+      "ownerSignature": "private ReentrantLock createOrGetLocalLock(String key)",
+      "range": {
+        "start": {
+          "line": 237,
+          "column": 13
+        },
+        "end": {
+          "line": 237,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createOrGetLocalLock",
+      "ownerSignature": "private ReentrantLock createOrGetLocalLock(String key)",
+      "range": {
+        "start": {
+          "line": 237,
+          "column": 48
+        },
+        "end": {
+          "line": 237,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 13
+        },
+        "end": {
+          "line": 244,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MethodSignature",
+      "expression": "MethodSignature",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 42
+        },
+        "end": {
+          "line": 244,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "MethodLock",
+      "expression": "MethodLock",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 75
+        },
+        "end": {
+          "line": 244,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "ProceedingJoinPoint",
+      "expression": "ProceedingJoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.resolveNameExpression",
+      "ownerSignature": "private String resolveNameExpression(MethodSignature methodSignature, MethodLock methodLock, ProceedingJoinPoint proceedingJoinPoint)",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 98
+        },
+        "end": {
+          "line": 244,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "EvaluationContext",
+      "expression": "EvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerSignature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 12
+        },
+        "end": {
+          "line": 258,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerSignature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 54
+        },
+        "end": {
+          "line": 258,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.createEvaluationContext",
+      "ownerSignature": "public EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 69
+        },
+        "end": {
+          "line": 258,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "range": {
+        "start": {
+          "line": 265,
+          "column": 45
+        },
+        "end": {
+          "line": 265,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.aop.MethodLockAspectJ.afterPropertiesSet",
+      "ownerSignature": "@Override\n    public void afterPropertiesSet() throws Exception",
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 6
+        },
+        "end": {
+          "line": 264,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 238,
+          "column": 55
+        },
+        "end": {
+          "line": 238,
+          "column": 77
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 239,
+          "column": 19
+        },
+        "end": {
+          "line": 239,
+          "column": 37
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 240,
+          "column": 19
+        },
+        "end": {
+          "line": 240,
+          "column": 43
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

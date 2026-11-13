@@ -1,0 +1,606 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractScheduleAction.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.abstracts",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AbstractScheduleAction",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "ownerQualifiedName": "",
+      "signature": "public abstract class AbstractScheduleAction implements Action",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 60,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "abstract",
+        "public"
+      ],
+      "docstring": "Datetime: 2021/1/26 16:09\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "Action"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "executeThreads",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.executeThreads",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "signature": "private Set<Thread> executeThreads = new ConcurrentHashSet<>(1)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Set<Thread>",
+      "defaultExpression": "new ConcurrentHashSet<>(1)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "doAction",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "signature": "@Override\n    public abstract void doAction() throws RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 61
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "abstract",
+        "public"
+      ],
+      "docstring": "任务逻辑\n\n @throws InterruptedException 打断触发\n @throws TimeoutException     超时触发",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "RuntimeException"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "doAction0",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "signature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "任务",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "TimeoutException",
+        "InterruptedException"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "interrupt",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interrupt",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "signature": "public synchronized void interrupt(Thread thread)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "synchronized"
+      ],
+      "docstring": "打断指定线程\n\n @param thread",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "thread",
+          "type": "Thread",
+          "signature": "Thread thread",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 40
+            },
+            "end": {
+              "line": 45,
+              "column": 53
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "interruptAll",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interruptAll",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "signature": "public synchronized void interruptAll()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "synchronized"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.collection.ConcurrentHashSet",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeoutException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 46
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ConcurrentHashSet<>",
+      "expression": "new ConcurrentHashSet<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 42
+        },
+        "end": {
+          "line": 16,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "this.executeThreads.add",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "currentThread",
+      "expression": "Thread.currentThread",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 33
+        },
+        "end": {
+          "line": 31,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "doAction",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 13
+        },
+        "end": {
+          "line": 33,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "this.executeThreads.remove",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "currentThread",
+      "expression": "Thread.currentThread",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 40
+        },
+        "end": {
+          "line": 35,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "this.executeThreads.contains",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interrupt",
+      "ownerSignature": "public synchronized void interrupt(Thread thread)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 13
+        },
+        "end": {
+          "line": 46,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "removeIf",
+      "expression": "this.executeThreads.removeIf",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interrupt",
+      "ownerSignature": "public synchronized void interrupt(Thread thread)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "interrupt",
+      "expression": "thread.interrupt",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interrupt",
+      "ownerSignature": "public synchronized void interrupt(Thread thread)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 13
+        },
+        "end": {
+          "line": 48,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "removeIf",
+      "expression": "this.executeThreads.removeIf",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interruptAll",
+      "ownerSignature": "public synchronized void interruptAll()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 9
+        },
+        "end": {
+          "line": 56,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 57
+        },
+        "end": {
+          "line": 15,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.executeThreads",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Thread",
+      "expression": "Thread",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.executeThreads",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 17
+        },
+        "end": {
+          "line": 16,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction",
+      "ownerSignature": "@Override\n    public abstract void doAction() throws RuntimeException",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 44
+        },
+        "end": {
+          "line": 25,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction",
+      "ownerSignature": "@Override\n    public abstract void doAction() throws RuntimeException",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 6
+        },
+        "end": {
+          "line": 24,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "TimeoutException",
+      "expression": "TimeoutException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 36
+        },
+        "end": {
+          "line": 30,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "InterruptedException",
+      "expression": "InterruptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.doAction0",
+      "ownerSignature": "public void doAction0() throws TimeoutException, InterruptedException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 54
+        },
+        "end": {
+          "line": 30,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "Thread",
+      "expression": "Thread",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction.interrupt",
+      "ownerSignature": "public synchronized void interrupt(Thread thread)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 40
+        },
+        "end": {
+          "line": 45,
+          "column": 46
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 42
+        },
+        "end": {
+          "line": 47,
+          "column": 58
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 38
+        },
+        "end": {
+          "line": 56,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

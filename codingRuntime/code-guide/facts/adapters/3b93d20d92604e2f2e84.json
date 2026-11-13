@@ -1,0 +1,1342 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/SystemRoleMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SystemRoleMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface SystemRoleMapper extends BaseMapper<SystemRole>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色表(SystemRole)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<SystemRole>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "SystemRole queryOne(@Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemRole单条数据\n\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "SystemRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 25
+            },
+            "end": {
+              "line": 26,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 103
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemRole单条数据指定column\n\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "SystemRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 34
+            },
+            "end": {
+              "line": 34,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 68
+            },
+            "end": {
+              "line": 34,
+              "column": 101
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "List<SystemRole> queryAll(@Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemRole所有数据\n\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 31
+            },
+            "end": {
+              "line": 42,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 109
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemRole所有数据指定column\n\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 40
+            },
+            "end": {
+              "line": 50,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 74
+            },
+            "end": {
+              "line": 50,
+              "column": 107
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 92
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SystemRole所有数据\n\n @param page       分页参数\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "Page<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 30
+            },
+            "end": {
+              "line": 59,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 57
+            },
+            "end": {
+              "line": 59,
+              "column": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 135
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SystemRole所有数据指定column\n\n @param page       分页参数\n @param systemRole {@see SystemRole}查询条件\n @return 查询结果 {@see SystemRole}",
+      "typeParameters": [],
+      "returnType": "Page<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 39
+            },
+            "end": {
+              "line": 68,
+              "column": 71
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 73
+            },
+            "end": {
+              "line": 68,
+              "column": 98
+            }
+          }
+        },
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 100
+            },
+            "end": {
+              "line": 68,
+              "column": 133
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "int count(@Param(\"e\") SystemRole systemRole)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SystemRole匹配数据总数\n\n @param systemRole {@see SystemRole}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "systemRole",
+          "type": "SystemRole",
+          "signature": "@Param(\"e\") SystemRole systemRole",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 15
+            },
+            "end": {
+              "line": 76,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "List<SystemRole> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see SystemRole}数据集",
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 35
+            },
+            "end": {
+              "line": 84,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<SystemRole> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 64
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SystemRole>",
+          "signature": "@Param(\"list\") List<SystemRole> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 86,
+              "column": 22
+            },
+            "end": {
+              "line": 86,
+              "column": 62
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemRole",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 43
+        },
+        "end": {
+          "line": 17,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 54
+        },
+        "end": {
+          "line": 17,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOne",
+      "ownerSignature": "SystemRole queryOne(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOne",
+      "ownerSignature": "SystemRole queryOne(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 37
+        },
+        "end": {
+          "line": 26,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOne",
+      "ownerSignature": "SystemRole queryOne(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 26
+        },
+        "end": {
+          "line": 26,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerSignature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerSignature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 51
+        },
+        "end": {
+          "line": 34,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerSignature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 35
+        },
+        "end": {
+          "line": 34,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerSignature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 80
+        },
+        "end": {
+          "line": 34,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryOneSelective",
+      "ownerSignature": "SystemRole queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 69
+        },
+        "end": {
+          "line": 34,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAll",
+      "ownerSignature": "List<SystemRole> queryAll(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAll",
+      "ownerSignature": "List<SystemRole> queryAll(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 10
+        },
+        "end": {
+          "line": 42,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAll",
+      "ownerSignature": "List<SystemRole> queryAll(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 43
+        },
+        "end": {
+          "line": 42,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAll",
+      "ownerSignature": "List<SystemRole> queryAll(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 32
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 10
+        },
+        "end": {
+          "line": 50,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 57
+        },
+        "end": {
+          "line": 50,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 41
+        },
+        "end": {
+          "line": 50,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 86
+        },
+        "end": {
+          "line": 50,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.queryAllSelective",
+      "ownerSignature": "List<SystemRole> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 75
+        },
+        "end": {
+          "line": 50,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 10
+        },
+        "end": {
+          "line": 59,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 45
+        },
+        "end": {
+          "line": 59,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 31
+        },
+        "end": {
+          "line": 59,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 69
+        },
+        "end": {
+          "line": 59,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAll",
+      "ownerSignature": "Page<SystemRole> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 58
+        },
+        "end": {
+          "line": 59,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 56
+        },
+        "end": {
+          "line": 68,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 40
+        },
+        "end": {
+          "line": 68,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 88
+        },
+        "end": {
+          "line": 68,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 74
+        },
+        "end": {
+          "line": 68,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 112
+        },
+        "end": {
+          "line": 68,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.pageAllSelective",
+      "ownerSignature": "Page<SystemRole> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 101
+        },
+        "end": {
+          "line": 68,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 27
+        },
+        "end": {
+          "line": 76,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SystemRole systemRole)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 16
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.countGroupBy",
+      "ownerSignature": "List<SystemRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.countGroupBy",
+      "ownerSignature": "List<SystemRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.countGroupBy",
+      "ownerSignature": "List<SystemRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 52
+        },
+        "end": {
+          "line": 84,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.countGroupBy",
+      "ownerSignature": "List<SystemRole> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 36
+        },
+        "end": {
+          "line": 84,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 37
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 42
+        },
+        "end": {
+          "line": 86,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SystemRoleMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

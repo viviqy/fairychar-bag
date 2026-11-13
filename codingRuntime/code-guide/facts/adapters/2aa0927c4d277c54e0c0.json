@@ -1,0 +1,1532 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/UserHasRoleService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "UserHasRoleService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"userHasRoleService\")\npublic class UserHasRoleService extends ServiceImpl<UserHasRoleMapper, UserHasRole> implements IUserHasRoleService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 106,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"userHasRoleService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "用户角色关联(UserHasRole)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<UserHasRoleMapper, UserHasRole>",
+        "IUserHasRoleService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "userHasRoleMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Autowired\nprivate UserHasRoleMapper userHasRoleMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 49
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "UserHasRoleMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "userHasRoleStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Autowired\nprivate UserHasRoleStructure userHasRoleStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 55
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "UserHasRoleStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Page<UserHasRoleDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "UserHasRoleQuery",
+          "signature": "UserHasRoleQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 41
+            },
+            "end": {
+              "line": 35,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addUserHasRoleQuery {@link AddUserHasRoleQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "Integer",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addUserHasRoleQuery",
+          "type": "AddUserHasRoleQuery",
+          "signature": "AddUserHasRoleQuery addUserHasRoleQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 25
+            },
+            "end": {
+              "line": 51,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<UserHasRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddUserHasRoleQuery>",
+          "signature": "List<AddUserHasRoleQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 73,
+              "column": 40
+            },
+            "end": {
+              "line": 73,
+              "column": 71
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 29
+            },
+            "end": {
+              "line": 91,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeByUserIds",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "signature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "userUids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> userUids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 100,
+              "column": 33
+            },
+            "end": {
+              "line": 100,
+              "column": 55
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.UserHasRole",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.UserHasRoleMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.UserHasRoleDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddUserHasRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UserHasRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IUserHasRoleService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 80
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.UserHasRoleStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 80
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "queryToEntity",
+      "expression": "this.userHasRoleStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 30
+        },
+        "end": {
+          "line": 36,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.userHasRoleMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 37
+        },
+        "end": {
+          "line": 37,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "query.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 68
+        },
+        "end": {
+          "line": 37,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.userHasRoleStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 37
+        },
+        "end": {
+          "line": 38,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 78
+        },
+        "end": {
+          "line": 38,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 43
+        },
+        "end": {
+          "line": 39,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 54
+        },
+        "end": {
+          "line": 39,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 76
+        },
+        "end": {
+          "line": 39,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 95
+        },
+        "end": {
+          "line": 39,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.userHasRoleStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 30
+        },
+        "end": {
+          "line": 52,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.userHasRoleMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 26
+        },
+        "end": {
+          "line": 53,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 19
+        },
+        "end": {
+          "line": 59,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.userHasRoleStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 38
+        },
+        "end": {
+          "line": 74,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "listByUserIdAndRoleId",
+      "expression": "this.userHasRoleMapper.listByUserIdAndRoleId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 34
+        },
+        "end": {
+          "line": 75,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 14
+        },
+        "end": {
+          "line": 76,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 19
+        },
+        "end": {
+          "line": 77,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 13
+        },
+        "end": {
+          "line": 80,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 19
+        },
+        "end": {
+          "line": 83,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "ids.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "removeByIds",
+      "expression": "super.removeByIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 9
+        },
+        "end": {
+          "line": 95,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "userUids.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 13
+        },
+        "end": {
+          "line": 101,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "super.remove",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 9
+        },
+        "end": {
+          "line": 104,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<UserHasRole>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<UserHasRole>",
+      "expression": "new QueryWrapper<UserHasRole>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 53
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 41
+        },
+        "end": {
+          "line": 28,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "UserHasRoleMapper",
+      "expression": "UserHasRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 53
+        },
+        "end": {
+          "line": 28,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 72
+        },
+        "end": {
+          "line": 28,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "IUserHasRoleService",
+      "expression": "IUserHasRoleService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 96
+        },
+        "end": {
+          "line": 28,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "UserHasRoleMapper",
+      "expression": "UserHasRoleMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 13
+        },
+        "end": {
+          "line": 30,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "UserHasRoleStructure",
+      "expression": "UserHasRoleStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.userHasRoleStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 12
+        },
+        "end": {
+          "line": 35,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "UserHasRoleDTO",
+      "expression": "UserHasRoleDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "UserHasRoleQuery",
+      "expression": "UserHasRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 41
+        },
+        "end": {
+          "line": 35,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.pageAll",
+      "ownerSignature": "@Override\n    public Page<UserHasRoleDTO> pageAll(UserHasRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 12
+        },
+        "end": {
+          "line": 51,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AddUserHasRoleQuery",
+      "expression": "AddUserHasRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 25
+        },
+        "end": {
+          "line": 51,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddUserHasRoleQuery addUserHasRoleQuery)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 12
+        },
+        "end": {
+          "line": 73,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "UserHasRole",
+      "expression": "UserHasRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 17
+        },
+        "end": {
+          "line": 73,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 40
+        },
+        "end": {
+          "line": 73,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "AddUserHasRoleQuery",
+      "expression": "AddUserHasRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 45
+        },
+        "end": {
+          "line": 73,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.saveBatch",
+      "ownerSignature": "@Override\n    public List<UserHasRole> saveBatch(List<AddUserHasRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 6
+        },
+        "end": {
+          "line": 72,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 29
+        },
+        "end": {
+          "line": 91,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 34
+        },
+        "end": {
+          "line": 91,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 33
+        },
+        "end": {
+          "line": 100,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 38
+        },
+        "end": {
+          "line": 100,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.UserHasRoleService.removeByUserIds",
+      "ownerSignature": "@Override\n    public void removeByUserIds(List<Integer> userUids)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 6
+        },
+        "end": {
+          "line": 99,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 40
+        },
+        "end": {
+          "line": 54,
+          "column": 89
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

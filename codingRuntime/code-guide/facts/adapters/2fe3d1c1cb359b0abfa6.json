@@ -1,0 +1,1304 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/ParamErrorException.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.exceptions",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\npublic class ParamErrorException extends RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 63,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "HTTP前端参数校验失败异常类\n\n @author chiyo",
+      "supertypes": [
+        "RuntimeException"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "code",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.code",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "private int code",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "data",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "private Object data",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 32
+            },
+            "end": {
+              "line": 18,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message, Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 32
+            },
+            "end": {
+              "line": 22,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 48
+            },
+            "end": {
+              "line": 22,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 32
+            },
+            "end": {
+              "line": 26,
+              "column": 47
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 32
+            },
+            "end": {
+              "line": 30,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 48
+            },
+            "end": {
+              "line": 30,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 65
+            },
+            "end": {
+              "line": 30,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 92
+            },
+            "end": {
+              "line": 30,
+              "column": 118
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 32
+            },
+            "end": {
+              "line": 34,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 42
+            },
+            "end": {
+              "line": 34,
+              "column": 53
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 32
+            },
+            "end": {
+              "line": 39,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 48
+            },
+            "end": {
+              "line": 39,
+              "column": 56
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 39,
+              "column": 58
+            },
+            "end": {
+              "line": 39,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message, Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 32
+            },
+            "end": {
+              "line": 45,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 48
+            },
+            "end": {
+              "line": 45,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 65
+            },
+            "end": {
+              "line": 45,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 45,
+              "column": 75
+            },
+            "end": {
+              "line": 45,
+              "column": 86
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 32
+            },
+            "end": {
+              "line": 51,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 49
+            },
+            "end": {
+              "line": 51,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 59
+            },
+            "end": {
+              "line": 51,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "ParamErrorException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "signature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 32
+            },
+            "end": {
+              "line": 57,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 48
+            },
+            "end": {
+              "line": 57,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 65
+            },
+            "end": {
+              "line": 57,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 92
+            },
+            "end": {
+              "line": 57,
+              "column": 118
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 58,
+              "column": 15
+            },
+            "end": {
+              "line": 58,
+              "column": 23
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 58,
+              "column": 25
+            },
+            "end": {
+              "line": 58,
+              "column": 36
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 9
+        },
+        "end": {
+          "line": 19,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 9
+        },
+        "end": {
+          "line": 23,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(Throwable cause)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 9
+        },
+        "end": {
+          "line": 27,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, int code, Object data)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 46,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(Throwable cause, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 9
+        },
+        "end": {
+          "line": 59,
+          "column": 69
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 42
+        },
+        "end": {
+          "line": 11,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 2
+        },
+        "end": {
+          "line": 10,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.data",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 32
+        },
+        "end": {
+          "line": 18,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 32
+        },
+        "end": {
+          "line": 22,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 48
+        },
+        "end": {
+          "line": 22,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(Throwable cause)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 32
+        },
+        "end": {
+          "line": 26,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 32
+        },
+        "end": {
+          "line": 30,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 48
+        },
+        "end": {
+          "line": 30,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(int code, Object data)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 42
+        },
+        "end": {
+          "line": 34,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 32
+        },
+        "end": {
+          "line": 39,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 58
+        },
+        "end": {
+          "line": 39,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 32
+        },
+        "end": {
+          "line": 45,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 48
+        },
+        "end": {
+          "line": 45,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 75
+        },
+        "end": {
+          "line": 45,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 32
+        },
+        "end": {
+          "line": 51,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 59
+        },
+        "end": {
+          "line": 51,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 32
+        },
+        "end": {
+          "line": 57,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 48
+        },
+        "end": {
+          "line": 57,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException.ParamErrorException",
+      "ownerSignature": "public ParamErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 25
+        },
+        "end": {
+          "line": 58,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1799 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/Singletons.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "Singletons",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons",
+      "ownerQualifiedName": "",
+      "signature": "public class Singletons",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 134,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "常用单例属性类\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "class",
+      "name": "RestTemplateBean",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\n    public static class RestTemplateBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 13
+        },
+        "end": {
+          "line": 33,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton",
+      "signature": "private final transient RestTemplate instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 59
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "transient"
+      ],
+      "type": "RestTemplate",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton",
+      "signature": "public RestTemplate getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "RestTemplate",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean",
+      "signature": "public static RestTemplate getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 44,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "RestTemplate",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "class",
+      "name": "RandomBean",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\n    public static class RandomBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 9
+        },
+        "end": {
+          "line": 61,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 13
+        },
+        "end": {
+          "line": 50,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 13
+        },
+        "end": {
+          "line": 54,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton",
+      "signature": "private final transient Random instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "transient"
+      ],
+      "type": "Random",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton",
+      "signature": "public Random getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 13
+        },
+        "end": {
+          "line": 60,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Random",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean",
+      "signature": "public static Random getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 9
+        },
+        "end": {
+          "line": 65,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "Random",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "class",
+      "name": "PathMatcherBean",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\n    public static class PathMatcherBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 82,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 13
+        },
+        "end": {
+          "line": 71,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 13
+        },
+        "end": {
+          "line": 75,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton",
+      "signature": "private final transient AntPathMatcher instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 13
+        },
+        "end": {
+          "line": 77,
+          "column": 61
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "transient"
+      ],
+      "type": "AntPathMatcher",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton",
+      "signature": "public AntPathMatcher getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 13
+        },
+        "end": {
+          "line": 81,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "AntPathMatcher",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean",
+      "signature": "public static AntPathMatcher getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 9
+        },
+        "end": {
+          "line": 86,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "AntPathMatcher",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "class",
+      "name": "GsonBean",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\n    public static class GsonBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 9
+        },
+        "end": {
+          "line": 100,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 13
+        },
+        "end": {
+          "line": 93,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "gson",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton.gson",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton",
+      "signature": "private final transient Gson gson = new Gson()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 13
+        },
+        "end": {
+          "line": 95,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "transient"
+      ],
+      "type": "Gson",
+      "defaultExpression": "new Gson()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getGsonInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton.getGsonInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton",
+      "signature": "public Gson getGsonInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 13
+        },
+        "end": {
+          "line": 99,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Gson",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean",
+      "signature": "public static Gson getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 9
+        },
+        "end": {
+          "line": 104,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "Gson",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "class",
+      "name": "JsonBean",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\n    public static class JsonBean",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 5
+        },
+        "end": {
+          "line": 133,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 9
+        },
+        "end": {
+          "line": 128,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 13
+        },
+        "end": {
+          "line": 111,
+          "column": 21
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton",
+      "signature": "private final transient ObjectMapper instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 13
+        },
+        "end": {
+          "line": 113,
+          "column": 59
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "transient"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 13
+        },
+        "end": {
+          "line": 123,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton",
+      "signature": "public ObjectMapper getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 13
+        },
+        "end": {
+          "line": 127,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "ObjectMapper",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean",
+      "signature": "public static ObjectMapper getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 9
+        },
+        "end": {
+          "line": 132,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "ObjectMapper",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fasterxml.jackson.annotation.JsonInclude",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.gson.Gson",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.util.AntPathMatcher",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.client.RestTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "tools.jackson.databind.DeserializationFeature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "tools.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "tools.jackson.databind.SerializationFeature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "tools.jackson.databind.json.JsonMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.text.SimpleDateFormat",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Random",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 25
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "RestTemplate",
+      "expression": "new RestTemplate",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 28
+        },
+        "end": {
+          "line": 32,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.getInstance",
+      "ownerSignature": "public static RestTemplate getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 20
+        },
+        "end": {
+          "line": 43,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Random",
+      "expression": "new Random",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 28
+        },
+        "end": {
+          "line": 53,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "currentTimeMillis",
+      "expression": "System.currentTimeMillis",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 39
+        },
+        "end": {
+          "line": 53,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.getInstance",
+      "ownerSignature": "public static Random getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 20
+        },
+        "end": {
+          "line": 64,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "AntPathMatcher",
+      "expression": "new AntPathMatcher",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 28
+        },
+        "end": {
+          "line": 74,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.getInstance",
+      "ownerSignature": "public static AntPathMatcher getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 20
+        },
+        "end": {
+          "line": 85,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Gson",
+      "expression": "new Gson",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 49
+        },
+        "end": {
+          "line": 95,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "getGsonInstance",
+      "expression": "Singleton.INSTANCE.getGsonInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.getInstance",
+      "ownerSignature": "public static Gson getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 20
+        },
+        "end": {
+          "line": 103,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "build",
+      "expression": "JsonMapper.builder()\n                        .changeDefaultPropertyInclusion(value ->\n                                JsonInclude.Value.construct(JsonInclude.Include.ALWAYS, JsonInclude.Include.ALWAYS))\n                        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)\n                        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)\n                        .defaultDateFormat(new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\"))\n                        .build",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 122,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "defaultDateFormat",
+      "expression": "JsonMapper.builder()\n                        .changeDefaultPropertyInclusion(value ->\n                                JsonInclude.Value.construct(JsonInclude.Include.ALWAYS, JsonInclude.Include.ALWAYS))\n                        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)\n                        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)\n                        .defaultDateFormat",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 121,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "disable",
+      "expression": "JsonMapper.builder()\n                        .changeDefaultPropertyInclusion(value ->\n                                JsonInclude.Value.construct(JsonInclude.Include.ALWAYS, JsonInclude.Include.ALWAYS))\n                        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)\n                        .disable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 120,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "disable",
+      "expression": "JsonMapper.builder()\n                        .changeDefaultPropertyInclusion(value ->\n                                JsonInclude.Value.construct(JsonInclude.Include.ALWAYS, JsonInclude.Include.ALWAYS))\n                        .disable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 119,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "changeDefaultPropertyInclusion",
+      "expression": "JsonMapper.builder()\n                        .changeDefaultPropertyInclusion",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 118,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "builder",
+      "expression": "JsonMapper.builder",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 33
+        },
+        "end": {
+          "line": 116,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "SimpleDateFormat",
+      "expression": "new SimpleDateFormat",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 44
+        },
+        "end": {
+          "line": 121,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.getInstance",
+      "ownerSignature": "public static ObjectMapper getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 20
+        },
+        "end": {
+          "line": 131,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 6
+        },
+        "end": {
+          "line": 26,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "RestTemplate",
+      "expression": "RestTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 37
+        },
+        "end": {
+          "line": 35,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "RestTemplate",
+      "expression": "RestTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.Singleton.getInstance",
+      "ownerSignature": "public RestTemplate getInstance()",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 20
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "RestTemplate",
+      "expression": "RestTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RestTemplateBean.getInstance",
+      "ownerSignature": "public static RestTemplate getInstance()",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 23
+        },
+        "end": {
+          "line": 42,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 6
+        },
+        "end": {
+          "line": 47,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Random",
+      "expression": "Random",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 37
+        },
+        "end": {
+          "line": 56,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "Random",
+      "expression": "Random",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.Singleton.getInstance",
+      "ownerSignature": "public Random getInstance()",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 20
+        },
+        "end": {
+          "line": 58,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Random",
+      "expression": "Random",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.RandomBean.getInstance",
+      "ownerSignature": "public static Random getInstance()",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 23
+        },
+        "end": {
+          "line": 63,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 6
+        },
+        "end": {
+          "line": 68,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "AntPathMatcher",
+      "expression": "AntPathMatcher",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 37
+        },
+        "end": {
+          "line": 77,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "AntPathMatcher",
+      "expression": "AntPathMatcher",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.Singleton.getInstance",
+      "ownerSignature": "public AntPathMatcher getInstance()",
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 20
+        },
+        "end": {
+          "line": 79,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "AntPathMatcher",
+      "expression": "AntPathMatcher",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.PathMatcherBean.getInstance",
+      "ownerSignature": "public static AntPathMatcher getInstance()",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 23
+        },
+        "end": {
+          "line": 84,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Gson",
+      "expression": "Gson",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton.gson",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 37
+        },
+        "end": {
+          "line": 95,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Gson",
+      "expression": "Gson",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.Singleton.getGsonInstance",
+      "ownerSignature": "public Gson getGsonInstance()",
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 20
+        },
+        "end": {
+          "line": 97,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "Gson",
+      "expression": "Gson",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.GsonBean.getInstance",
+      "ownerSignature": "public static Gson getInstance()",
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 23
+        },
+        "end": {
+          "line": 102,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 6
+        },
+        "end": {
+          "line": 107,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 37
+        },
+        "end": {
+          "line": 113,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.Singleton.getInstance",
+      "ownerSignature": "public ObjectMapper getInstance()",
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 20
+        },
+        "end": {
+          "line": 125,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.bag.domain.Singletons.JsonBean.getInstance",
+      "ownerSignature": "public static ObjectMapper getInstance()",
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 23
+        },
+        "end": {
+          "line": 130,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 57
+        },
+        "end": {
+          "line": 118,
+          "column": 116
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

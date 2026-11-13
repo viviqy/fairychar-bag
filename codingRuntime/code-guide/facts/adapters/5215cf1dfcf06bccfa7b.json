@@ -1,0 +1,438 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/CircularTaskUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "CircularTaskUtil",
+      "qualifiedName": "com.fairychar.bag.utils.CircularTaskUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class CircularTaskUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 63,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "run",
+      "qualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil",
+      "signature": "public static boolean run(Supplier<Boolean> task, boolean condition)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "@param task      执行任务\n @param condition 成功条件\n @return True为执行成功, false为失败",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Supplier<Boolean>",
+          "signature": "Supplier<Boolean> task",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 31
+            },
+            "end": {
+              "line": 22,
+              "column": 53
+            }
+          }
+        },
+        {
+          "name": "condition",
+          "type": "boolean",
+          "signature": "boolean condition",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 55
+            },
+            "end": {
+              "line": 22,
+              "column": 72
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "run",
+      "qualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil",
+      "signature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "循环执行任务,当匹配条件相等,或者超过最大循环次数或超过最大执行时间时退出\n\n @param task      执行任务\n @param condition 成功条件\n @param maxRound  最大循环次数(0为无限)\n @param maxMillis 最大执行时间,无法根据时间打断supplier方法体,仅在下一次重新循环时计算时间(单位毫秒)(0为无限)\n @return True为执行成功, false为失败",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Supplier<Boolean>",
+          "signature": "Supplier<Boolean> task",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 31
+            },
+            "end": {
+              "line": 36,
+              "column": 53
+            }
+          }
+        },
+        {
+          "name": "condition",
+          "type": "boolean",
+          "signature": "boolean condition",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 55
+            },
+            "end": {
+              "line": 36,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "maxRound",
+          "type": "int",
+          "signature": "int maxRound",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 74
+            },
+            "end": {
+              "line": 36,
+              "column": 86
+            }
+          }
+        },
+        {
+          "name": "maxMillis",
+          "type": "int",
+          "signature": "int maxMillis",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 88
+            },
+            "end": {
+              "line": 36,
+              "column": 101
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.function.Supplier",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "run",
+      "expression": "run",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 16
+        },
+        "end": {
+          "line": 23,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 9
+        },
+        "end": {
+          "line": 38,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "currentTimeMillis",
+      "expression": "System.currentTimeMillis",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 22
+        },
+        "end": {
+          "line": 40,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "currentTimeMillis",
+      "expression": "System.currentTimeMillis",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 21
+        },
+        "end": {
+          "line": 51,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "task.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 17
+        },
+        "end": {
+          "line": 56,
+          "column": 27
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Supplier",
+      "expression": "Supplier",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition)",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 31
+        },
+        "end": {
+          "line": 22,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition)",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 40
+        },
+        "end": {
+          "line": 22,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Supplier",
+      "expression": "Supplier",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 31
+        },
+        "end": {
+          "line": 36,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CircularTaskUtil.run",
+      "ownerSignature": "public static boolean run(Supplier<Boolean> task, boolean condition, int maxRound, int maxMillis)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 40
+        },
+        "end": {
+          "line": 36,
+          "column": 47
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

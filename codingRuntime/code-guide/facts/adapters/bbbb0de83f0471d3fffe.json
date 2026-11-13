@@ -1,0 +1,1644 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/SysApiMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SysApiMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface SysApiMapper extends BaseMapper<SysApi>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 92,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(SysApi)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<SysApi>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "SysApi queryOne(@Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SysApi单条数据\n\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "SysApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 21
+            },
+            "end": {
+              "line": 27,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 91
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SysApi单条数据指定column\n\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "SysApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 30
+            },
+            "end": {
+              "line": 35,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 64
+            },
+            "end": {
+              "line": 35,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "List<SysApi> queryAll(@Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 54
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SysApi所有数据\n\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 43,
+              "column": 27
+            },
+            "end": {
+              "line": 43,
+              "column": 52
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 97
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SysApi所有数据指定column\n\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 36
+            },
+            "end": {
+              "line": 51,
+              "column": 68
+            }
+          }
+        },
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 70
+            },
+            "end": {
+              "line": 51,
+              "column": 95
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 80
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SysApi所有数据\n\n @param page   分页参数\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "Page<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 26
+            },
+            "end": {
+              "line": 60,
+              "column": 51
+            }
+          }
+        },
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 53
+            },
+            "end": {
+              "line": 60,
+              "column": 78
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 123
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询SysApi所有数据指定column\n\n @param page   分页参数\n @param sysApi {@see SysApi}查询条件\n @return 查询结果 {@see SysApi}",
+      "typeParameters": [],
+      "returnType": "Page<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 35
+            },
+            "end": {
+              "line": 69,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 69
+            },
+            "end": {
+              "line": 69,
+              "column": 94
+            }
+          }
+        },
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 96
+            },
+            "end": {
+              "line": 69,
+              "column": 121
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "int count(@Param(\"e\") SysApi sysApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 5
+        },
+        "end": {
+          "line": 77,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询SysApi匹配数据总数\n\n @param sysApi {@see SysApi}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApi",
+          "type": "SysApi",
+          "signature": "@Param(\"e\") SysApi sysApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 15
+            },
+            "end": {
+              "line": 77,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "List<SysApi> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see SysApi}数据集",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 85,
+              "column": 31
+            },
+            "end": {
+              "line": 85,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<SysApi> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SysApi>",
+          "signature": "@Param(\"list\") List<SysApi> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 87,
+              "column": 22
+            },
+            "end": {
+              "line": 87,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "listByMethodAndUri",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 5
+        },
+        "end": {
+          "line": 89,
+          "column": 72
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<SysApi>",
+          "signature": "@Param(\"list\") List<SysApi> batch",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 89,
+              "column": 37
+            },
+            "end": {
+              "line": 89,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllByQuery",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "signature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 90
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Page<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "Page",
+          "signature": "@Param(\"page\") Page page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 33
+            },
+            "end": {
+              "line": 91,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "query",
+          "type": "SysApiQuery",
+          "signature": "@Param(\"e\") SysApiQuery query",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 59
+            },
+            "end": {
+              "line": 91,
+              "column": 88
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 39
+        },
+        "end": {
+          "line": 18,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 50
+        },
+        "end": {
+          "line": 18,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOne",
+      "ownerSignature": "SysApi queryOne(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOne",
+      "ownerSignature": "SysApi queryOne(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 33
+        },
+        "end": {
+          "line": 27,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOne",
+      "ownerSignature": "SysApi queryOne(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 22
+        },
+        "end": {
+          "line": 27,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerSignature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerSignature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 47
+        },
+        "end": {
+          "line": 35,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerSignature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 31
+        },
+        "end": {
+          "line": 35,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerSignature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 76
+        },
+        "end": {
+          "line": 35,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryOneSelective",
+      "ownerSignature": "SysApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 65
+        },
+        "end": {
+          "line": 35,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAll",
+      "ownerSignature": "List<SysApi> queryAll(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAll",
+      "ownerSignature": "List<SysApi> queryAll(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 10
+        },
+        "end": {
+          "line": 43,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAll",
+      "ownerSignature": "List<SysApi> queryAll(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 39
+        },
+        "end": {
+          "line": 43,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAll",
+      "ownerSignature": "List<SysApi> queryAll(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 28
+        },
+        "end": {
+          "line": 43,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 10
+        },
+        "end": {
+          "line": 51,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 53
+        },
+        "end": {
+          "line": 51,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 37
+        },
+        "end": {
+          "line": 51,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 82
+        },
+        "end": {
+          "line": 51,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.queryAllSelective",
+      "ownerSignature": "List<SysApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 71
+        },
+        "end": {
+          "line": 51,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 10
+        },
+        "end": {
+          "line": 60,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 41
+        },
+        "end": {
+          "line": 60,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 27
+        },
+        "end": {
+          "line": 60,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 65
+        },
+        "end": {
+          "line": 60,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAll",
+      "ownerSignature": "Page<SysApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 54
+        },
+        "end": {
+          "line": 60,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 52
+        },
+        "end": {
+          "line": 69,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 36
+        },
+        "end": {
+          "line": 69,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 84
+        },
+        "end": {
+          "line": 69,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 70
+        },
+        "end": {
+          "line": 69,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 108
+        },
+        "end": {
+          "line": 69,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllSelective",
+      "ownerSignature": "Page<SysApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 97
+        },
+        "end": {
+          "line": 69,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 27
+        },
+        "end": {
+          "line": 77,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") SysApi sysApi)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 16
+        },
+        "end": {
+          "line": 77,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.countGroupBy",
+      "ownerSignature": "List<SysApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.countGroupBy",
+      "ownerSignature": "List<SysApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 10
+        },
+        "end": {
+          "line": 85,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.countGroupBy",
+      "ownerSignature": "List<SysApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 48
+        },
+        "end": {
+          "line": 85,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.countGroupBy",
+      "ownerSignature": "List<SysApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 32
+        },
+        "end": {
+          "line": 85,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 37
+        },
+        "end": {
+          "line": 87,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 42
+        },
+        "end": {
+          "line": 87,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<SysApi> entities)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 23
+        },
+        "end": {
+          "line": 87,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerSignature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 5
+        },
+        "end": {
+          "line": 89,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerSignature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 10
+        },
+        "end": {
+          "line": 89,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerSignature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 52
+        },
+        "end": {
+          "line": 89,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerSignature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 57
+        },
+        "end": {
+          "line": 89,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.listByMethodAndUri",
+      "ownerSignature": "List<SysApi> listByMethodAndUri(@Param(\"list\") List<SysApi> batch)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 38
+        },
+        "end": {
+          "line": 89,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 10
+        },
+        "end": {
+          "line": 91,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 48
+        },
+        "end": {
+          "line": 91,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 34
+        },
+        "end": {
+          "line": 91,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "SysApiQuery",
+      "expression": "SysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 71
+        },
+        "end": {
+          "line": 91,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper.pageAllByQuery",
+      "ownerSignature": "Page<SysApi> pageAllByQuery(@Param(\"page\") Page page, @Param(\"e\") SysApiQuery query)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 60
+        },
+        "end": {
+          "line": 91,
+          "column": 65
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

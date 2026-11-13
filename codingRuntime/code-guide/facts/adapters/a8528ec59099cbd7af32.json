@@ -1,0 +1,65 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/function/IDataBaseShardingProcessor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.function",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "IDataBaseShardingProcessor",
+      "qualifiedName": "com.fairychar.bag.function.IDataBaseShardingProcessor",
+      "ownerQualifiedName": "",
+      "signature": "public interface IDataBaseShardingProcessor<R, P> extends IShardingProcessor<R, P>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据库分散处理器\n\n @author chiyo\n @since 0.0.1-SNAPSHOT",
+      "supertypes": [
+        "IShardingProcessor<R, P>"
+      ],
+      "typeParameters": [
+        "R",
+        "P"
+      ],
+      "permits": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [
+    {
+      "name": "IShardingProcessor",
+      "expression": "IShardingProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.function.IDataBaseShardingProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 59
+        },
+        "end": {
+          "line": 9,
+          "column": 77
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

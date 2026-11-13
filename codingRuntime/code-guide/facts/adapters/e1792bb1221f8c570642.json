@@ -1,0 +1,1136 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/SpelUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SpelUtil",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "ownerQualifiedName": "",
+      "signature": "public class SpelUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "spel util\n\n @author chiyo <br>\n @date",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "PARAMETER_NAME_DISCOVERER",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.PARAMETER_NAME_DISCOVERER",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "private static final ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 115
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "ParameterNameDiscoverer",
+      "defaultExpression": "new DefaultParameterNameDiscoverer()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SPEL_EXPRESSION_PARSER",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.SPEL_EXPRESSION_PARSER",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "private static final SpelExpressionParser SPEL_EXPRESSION_PARSER = new SpelExpressionParser()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 99
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "SpelExpressionParser",
+      "defaultExpression": "new SpelExpressionParser()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "EXPRESSION_CACHE",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.EXPRESSION_CACHE",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "private static final Map<String, Expression> EXPRESSION_CACHE = new ConcurrentHashMap<>(64)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 97
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "Map<String, Expression>",
+      "defaultExpression": "new ConcurrentHashMap<>(64)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "eval",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "评估\n\n @param expression 表达\n @param joinPoint  加入点\n @param returnType 返回类型\n @return {@code T }",
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "T",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "String",
+          "signature": "String expression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 38,
+              "column": 30
+            },
+            "end": {
+              "line": 38,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "joinPoint",
+          "type": "JoinPoint",
+          "signature": "JoinPoint joinPoint",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 38,
+              "column": 49
+            },
+            "end": {
+              "line": 38,
+              "column": 68
+            }
+          }
+        },
+        {
+          "name": "returnType",
+          "type": "Class<T>",
+          "signature": "Class<T> returnType",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 38,
+              "column": 70
+            },
+            "end": {
+              "line": 38,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "eval",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "计算spel值\n\n @param expression 表达式\n @param method     aop切入得我方法\n @param args       aop切入方法的参数\n @return {@code T }",
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "T",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "String",
+          "signature": "String expression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 30
+            },
+            "end": {
+              "line": 55,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 49
+            },
+            "end": {
+              "line": 55,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "args",
+          "type": "Object[]",
+          "signature": "Object[] args",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 64
+            },
+            "end": {
+              "line": 55,
+              "column": 77
+            }
+          }
+        },
+        {
+          "name": "returnType",
+          "type": "Class<T>",
+          "signature": "Class<T> returnType",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 79
+            },
+            "end": {
+              "line": 55,
+              "column": 98
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "createEvaluationContext",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 5
+        },
+        "end": {
+          "line": 74,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "创建Spel上下文\n\n @param method 方法\n @param args   参数\n @return {@code EvaluationContext }",
+      "typeParameters": [],
+      "returnType": "EvaluationContext",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 70,
+              "column": 61
+            },
+            "end": {
+              "line": 70,
+              "column": 74
+            }
+          }
+        },
+        {
+          "name": "args",
+          "type": "Object[]",
+          "signature": "Object[] args",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 70,
+              "column": 76
+            },
+            "end": {
+              "line": 70,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "parseExpression",
+      "qualifiedName": "com.fairychar.bag.utils.SpelUtil.parseExpression",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "signature": "public static Expression parseExpression(String expression)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "解析表达式\n\n @param expression 表达\n @return {@code Expression }",
+      "typeParameters": [],
+      "returnType": "Expression",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "String",
+          "signature": "String expression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 83,
+              "column": 46
+            },
+            "end": {
+              "line": 83,
+              "column": 63
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleEvaluationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 78
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.JoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.ProceedingJoinPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.aspectj.lang.reflect.MethodSignature",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.DefaultParameterNameDiscoverer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.ParameterNameDiscoverer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.EvaluationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.Expression",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.expression.spel.standard.SpelExpressionParser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.ConcurrentHashMap",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 47
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "DefaultParameterNameDiscoverer",
+      "expression": "new DefaultParameterNameDiscoverer",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 78
+        },
+        "end": {
+          "line": 25,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "SpelExpressionParser",
+      "expression": "new SpelExpressionParser",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 72
+        },
+        "end": {
+          "line": 26,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "ConcurrentHashMap<>",
+      "expression": "new ConcurrentHashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 69
+        },
+        "end": {
+          "line": 27,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "getSignature",
+      "expression": "joinPoint.getSignature",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 61
+        },
+        "end": {
+          "line": 40,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getMethod",
+      "expression": "methodSignature.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 25
+        },
+        "end": {
+          "line": 41,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "eval",
+      "expression": "SpelUtil.eval",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 18
+        },
+        "end": {
+          "line": 42,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "getArgs",
+      "expression": "proceedingJoinPoint.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 52
+        },
+        "end": {
+          "line": 42,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "parseExpression",
+      "expression": "parseExpression",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 39
+        },
+        "end": {
+          "line": 56,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "createEvaluationContext",
+      "expression": "createEvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 47
+        },
+        "end": {
+          "line": 57,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "getValue",
+      "expression": "parsedExpression.getValue",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 24
+        },
+        "end": {
+          "line": 58,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "SimpleExpressionRootObject",
+      "expression": "new SimpleExpressionRootObject",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerSignature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 49
+        },
+        "end": {
+          "line": 71,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "SimpleEvaluationContext",
+      "expression": "new SimpleEvaluationContext",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerSignature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 53
+        },
+        "end": {
+          "line": 72,
+          "column": 133
+        }
+      }
+    },
+    {
+      "name": "computeIfAbsent",
+      "expression": "EXPRESSION_CACHE.computeIfAbsent",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.parseExpression",
+      "ownerSignature": "public static Expression parseExpression(String expression)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 16
+        },
+        "end": {
+          "line": 84,
+          "column": 101
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ParameterNameDiscoverer",
+      "expression": "ParameterNameDiscoverer",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.PARAMETER_NAME_DISCOVERER",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 26
+        },
+        "end": {
+          "line": 25,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SpelExpressionParser",
+      "expression": "SpelExpressionParser",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.SPEL_EXPRESSION_PARSER",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 26
+        },
+        "end": {
+          "line": 26,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.EXPRESSION_CACHE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 26
+        },
+        "end": {
+          "line": 27,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.EXPRESSION_CACHE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 30
+        },
+        "end": {
+          "line": 27,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Expression",
+      "expression": "Expression",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.EXPRESSION_CACHE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 38
+        },
+        "end": {
+          "line": 27,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 30
+        },
+        "end": {
+          "line": 38,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "JoinPoint",
+      "expression": "JoinPoint",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 49
+        },
+        "end": {
+          "line": 38,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, JoinPoint joinPoint, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 70
+        },
+        "end": {
+          "line": 38,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 30
+        },
+        "end": {
+          "line": 55,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 49
+        },
+        "end": {
+          "line": 55,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 64
+        },
+        "end": {
+          "line": 55,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.eval",
+      "ownerSignature": "public static <T> T eval(String expression, Method method, Object[] args, Class<T> returnType)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 79
+        },
+        "end": {
+          "line": 55,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "EvaluationContext",
+      "expression": "EvaluationContext",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerSignature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 19
+        },
+        "end": {
+          "line": 70,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerSignature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 61
+        },
+        "end": {
+          "line": 70,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.createEvaluationContext",
+      "ownerSignature": "public static EvaluationContext createEvaluationContext(Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 76
+        },
+        "end": {
+          "line": 70,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "Expression",
+      "expression": "Expression",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.parseExpression",
+      "ownerSignature": "public static Expression parseExpression(String expression)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 19
+        },
+        "end": {
+          "line": 83,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.SpelUtil.parseExpression",
+      "ownerSignature": "public static Expression parseExpression(String expression)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 46
+        },
+        "end": {
+          "line": 83,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 61
+        },
+        "end": {
+          "line": 84,
+          "column": 100
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

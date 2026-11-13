@@ -1,0 +1,241 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnPingHost.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "ConditionalOnPingHost",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "ownerQualifiedName": "",
+      "signature": "@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Conditional(value = OnPingHostCondition.class)\npublic @interface ConditionalOnPingHost",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Conditional(value = OnPingHostCondition.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于ping指定host的Bean条件判断器,仅当host能ping成功的情况下才会初始化Bean\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "host",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost.host",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "signature": "String host()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 19
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return 主机地址",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "result",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost.result",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "signature": "boolean result()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return ping测结果",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "timeout",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost.timeout",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "signature": "int timeout() default 1000",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return 超时时间(毫秒)",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": "1000",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.annotation.Conditional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Conditional",
+      "expression": "Conditional",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnPingHost.host",
+      "ownerSignature": "String host()",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

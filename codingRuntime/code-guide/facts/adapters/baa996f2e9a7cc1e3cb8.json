@@ -1,0 +1,1364 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/handler/RsaTypeHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.handler",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RsaTypeHandler",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "ownerQualifiedName": "",
+      "signature": "public class RsaTypeHandler extends BaseTypeHandler<String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>mybatis aes typeHandler{@link org.apache.ibatis.type.TypeHandler}</p>\n <p>在数据入库前会先rsa加密,查询出库后解密</p>\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "BaseTypeHandler<String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "rsa",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.rsa",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "@Setter\nprivate static RSA rsa",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Setter"
+      ],
+      "modifiers": [
+        "private",
+        "static"
+      ],
+      "type": "RSA",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "setNonNullParameter",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "SQLException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ps",
+          "type": "PreparedStatement",
+          "signature": "PreparedStatement ps",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 37
+            },
+            "end": {
+              "line": 30,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "i",
+          "type": "int",
+          "signature": "int i",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 59
+            },
+            "end": {
+              "line": 30,
+              "column": 64
+            }
+          }
+        },
+        {
+          "name": "parameter",
+          "type": "String",
+          "signature": "String parameter",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 66
+            },
+            "end": {
+              "line": 30,
+              "column": 82
+            }
+          }
+        },
+        {
+          "name": "jdbcType",
+          "type": "JdbcType",
+          "signature": "JdbcType jdbcType",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 84
+            },
+            "end": {
+              "line": 30,
+              "column": 101
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getNullableResult",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [
+        "SQLException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "rs",
+          "type": "ResultSet",
+          "signature": "ResultSet rs",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 37
+            },
+            "end": {
+              "line": 41,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "columnName",
+          "type": "String",
+          "signature": "String columnName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 51
+            },
+            "end": {
+              "line": 41,
+              "column": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getNullableResult",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [
+        "SQLException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "rs",
+          "type": "ResultSet",
+          "signature": "ResultSet rs",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 54,
+              "column": 37
+            },
+            "end": {
+              "line": 54,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "columnIndex",
+          "type": "int",
+          "signature": "int columnIndex",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 54,
+              "column": 51
+            },
+            "end": {
+              "line": 54,
+              "column": 66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getNullableResult",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 77,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [
+        "SQLException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cs",
+          "type": "CallableStatement",
+          "signature": "CallableStatement cs",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 37
+            },
+            "end": {
+              "line": 67,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "columnIndex",
+          "type": "int",
+          "signature": "int columnIndex",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 59
+            },
+            "end": {
+              "line": 67,
+              "column": 74
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "encryptBase64",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.encryptBase64",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "public static String encryptBase64(String source)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "source",
+          "type": "String",
+          "signature": "String source",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 80,
+              "column": 40
+            },
+            "end": {
+              "line": 80,
+              "column": 53
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "decrypt",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.decrypt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "signature": "public static String decrypt(String ciphertext)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ciphertext",
+          "type": "String",
+          "signature": "String ciphertext",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 34
+            },
+            "end": {
+              "line": 84,
+              "column": 51
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.crypto.asymmetric.KeyType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "cn.hutool.crypto.asymmetric.RSA",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.type.BaseTypeHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.type.JdbcType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.nio.charset.StandardCharsets",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.sql.CallableStatement",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.sql.PreparedStatement",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.sql.ResultSet",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.sql.SQLException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 30
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 18
+        },
+        "end": {
+          "line": 32,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "setString",
+      "expression": "ps.setString",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 17
+        },
+        "end": {
+          "line": 33,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "encryptBase64",
+      "expression": "rsa.encryptBase64",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 33
+        },
+        "end": {
+          "line": 33,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "new SQLException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 19
+        },
+        "end": {
+          "line": 36,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getString",
+      "expression": "rs.getString",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 24
+        },
+        "end": {
+          "line": 42,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 13
+        },
+        "end": {
+          "line": 43,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "decryptStr",
+      "expression": "rsa.decryptStr",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 20
+        },
+        "end": {
+          "line": 47,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "new SQLException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 19
+        },
+        "end": {
+          "line": 49,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getString",
+      "expression": "rs.getString",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 24
+        },
+        "end": {
+          "line": 55,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "decryptStr",
+      "expression": "rsa.decryptStr",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 20
+        },
+        "end": {
+          "line": 60,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "new SQLException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 19
+        },
+        "end": {
+          "line": 62,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getString",
+      "expression": "cs.getString",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 24
+        },
+        "end": {
+          "line": 68,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 13
+        },
+        "end": {
+          "line": 69,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "decryptStr",
+      "expression": "rsa.decryptStr",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 20
+        },
+        "end": {
+          "line": 73,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "new SQLException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 19
+        },
+        "end": {
+          "line": 75,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "encryptBase64",
+      "expression": "rsa.encryptBase64",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.encryptBase64",
+      "ownerSignature": "public static String encryptBase64(String source)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 16
+        },
+        "end": {
+          "line": 81,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "decryptStr",
+      "expression": "rsa.decryptStr",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.decrypt",
+      "ownerSignature": "public static String decrypt(String ciphertext)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 16
+        },
+        "end": {
+          "line": 85,
+          "column": 86
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "BaseTypeHandler",
+      "expression": "BaseTypeHandler",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 37
+        },
+        "end": {
+          "line": 23,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 53
+        },
+        "end": {
+          "line": 23,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "RSA",
+      "expression": "RSA",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.rsa",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 20
+        },
+        "end": {
+          "line": 26,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.rsa",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 6
+        },
+        "end": {
+          "line": 25,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "PreparedStatement",
+      "expression": "PreparedStatement",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 37
+        },
+        "end": {
+          "line": 30,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 66
+        },
+        "end": {
+          "line": 30,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "JdbcType",
+      "expression": "JdbcType",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 84
+        },
+        "end": {
+          "line": 30,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "SQLException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 110
+        },
+        "end": {
+          "line": 30,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.setNonNullParameter",
+      "ownerSignature": "@Override\n    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 12
+        },
+        "end": {
+          "line": 41,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "ResultSet",
+      "expression": "ResultSet",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 37
+        },
+        "end": {
+          "line": 41,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 51
+        },
+        "end": {
+          "line": 41,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "SQLException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 77
+        },
+        "end": {
+          "line": 41,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, String columnName) throws SQLException",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 6
+        },
+        "end": {
+          "line": 40,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 12
+        },
+        "end": {
+          "line": 54,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "ResultSet",
+      "expression": "ResultSet",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 37
+        },
+        "end": {
+          "line": 54,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "SQLException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 75
+        },
+        "end": {
+          "line": 54,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 6
+        },
+        "end": {
+          "line": 53,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 12
+        },
+        "end": {
+          "line": 67,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "CallableStatement",
+      "expression": "CallableStatement",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 37
+        },
+        "end": {
+          "line": 67,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "SQLException",
+      "expression": "SQLException",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 83
+        },
+        "end": {
+          "line": 67,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.getNullableResult",
+      "ownerSignature": "@Override\n    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 6
+        },
+        "end": {
+          "line": 66,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.encryptBase64",
+      "ownerSignature": "public static String encryptBase64(String source)",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 19
+        },
+        "end": {
+          "line": 80,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.encryptBase64",
+      "ownerSignature": "public static String encryptBase64(String source)",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 40
+        },
+        "end": {
+          "line": 80,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.decrypt",
+      "ownerSignature": "public static String decrypt(String ciphertext)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 19
+        },
+        "end": {
+          "line": 84,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.handler.RsaTypeHandler.decrypt",
+      "ownerSignature": "public static String decrypt(String ciphertext)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 34
+        },
+        "end": {
+          "line": 84,
+          "column": 40
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1",
+  "repositoryRoots": ["."],
+  "outputRoot": "codingRuntime/code-guide",
+  "workRoot": "codingRuntime/code-guide-work",
+  "modules": [
+    {"id": "fairychar-bag", "path": "fairychar-bag"},
+    {"id": "fairychar-security-core", "path": "fairychar-security/fairychar-security-core"},
+    {"id": "fairychar-security-boot-starter", "path": "fairychar-security/fairychar-security-boot-starter"},
+    {"id": "micro-service-api-template", "path": "fairychar-micro-service/__rootArtifactId__-api"},
+    {"id": "micro-service-app-template", "path": "fairychar-micro-service/__rootArtifactId__-app"}
+  ],
+  "sourceRoots": [
+    {"path": "fairychar-bag/src/main/java", "module": "fairychar-bag", "category": "source"},
+    {"path": "fairychar-security/fairychar-security-core/src/main/java", "module": "fairychar-security-core", "category": "source"},
+    {"path": "fairychar-security/fairychar-security-boot-starter/src/main/java", "module": "fairychar-security-boot-starter", "category": "source"},
+    {"path": "fairychar-micro-service/__rootArtifactId__-api/src/main/java", "module": "micro-service-api-template", "category": "archetype-source"},
+    {"path": "fairychar-micro-service/__rootArtifactId__-app/src/main/java", "module": "micro-service-app-template", "category": "archetype-source"}
+  ],
+  "include": [],
+  "exclude": [],
+  "outsideScope": [
+    "Tests and test-like source paths, including the production-tree utils/test directory, follow the default exclusion policy.",
+    "upgrade-dependencies-test is a dependency-upgrade test application, not a production source root.",
+    "Build manifests were inspected only to resolve module scope; they are not hashed or indexed as navigation inputs.",
+    "Resources, mapper XML, auto-configuration registration files, documentation, repository skills, generated outputs and dependency caches are outside the corpus.",
+    "The micro-service source roots are archetype templates, not evidence of a deployed application.",
+    "No previous guide is migrated or deleted. No tests or build verification are executed by navigation generation."
+  ],
+  "adapters": [],
+  "generatedMappings": [],
+  "testDiscovery": [],
+  "verification": [
+    {
+      "name": "Production compilation candidate",
+      "command": "mvn -pl fairychar-bag,fairychar-security/fairychar-security-core,fairychar-security/fairychar-security-boot-starter -am -DskipTests compile",
+      "requirements": ["Run from the Git repository root", "JDK 21 and Maven", "Resolvable project dependencies", "Not executed or established as passing by this snapshot"]
+    }
+  ],
+  "reviewedClaims": [
+    {
+      "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestException.java",
+      "sourceHash": "sha256:17a77bf866cc752ac4a7b0a260e666873e671eedb195b2d1a2c7db8f53196a3b",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "claim": "Exception carrier: four explicit constructors retain an IRestErrorCode and optionally an Object payload. Constructors without an explicit message pass errorCode.getMessage() to RuntimeException; message-taking overloads pass msg. The payload is assigned only by overloads accepting data.",
+      "confidence": "high",
+      "evidence": [{"kind": "source", "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestException.java", "sourceHash": "sha256:17a77bf866cc752ac4a7b0a260e666873e671eedb195b2d1a2c7db8f53196a3b", "range": {"start": {"line": 12, "column": 1}, "end": {"line": 40, "column": 2}}}],
+      "unknownFields": ["Payload schema and downstream consumers were not traced", "Lombok-generated accessors are not extracted", "HTTP serialization and handler mapping are outside this reviewed claim"]
+    },
+    {
+      "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/template/ActionSelectorTemplate.java",
+      "sourceHash": "sha256:fcef5ef71c891574896338d6aec99fff4b745a2f57cd4ecdf256728101f18214",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "claim": "Scheduling hub: start submits a polling loop to boss; due entries acquire their working flag with compareAndSet before worker submission, update last-execution time, and clear the working flag in the worker finally block. put overloads validate positive periods, non-null actions and duplicate task names; remove can interrupt actions. Shutdown methods request executor shutdown and change runState, without awaiting termination.",
+      "confidence": "high",
+      "evidence": [{"kind": "source", "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/template/ActionSelectorTemplate.java", "sourceHash": "sha256:fcef5ef71c891574896338d6aec99fff4b745a2f57cd4ecdf256728101f18214", "range": {"start": {"line": 24, "column": 1}, "end": {"line": 159, "column": 2}}}],
+      "unknownFields": ["Lambda execution is not represented as a complete call graph", "Task interruption and executor termination behavior were not runtime-tested", "No thread-safety or shutdown-completion guarantee is asserted"]
+    },
+    {
+      "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/filter/JsonAuthenticationFilter.java",
+      "sourceHash": "sha256:a4e19d4421465f567fc5dbda871a7dbc462c43c1ab0286954b639af8ced409e8",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "claim": "JSON authentication boundary: attemptAuthentication rejects non-POST requests, compares the content type against two JSON constants, deserializes the request stream into requestClazz, optionally decrypts username and password, sets authentication details and delegates to the configured authentication manager. AuthenticationException is rethrown; other exceptions inside the deserialization/authentication try block become BadCredentialsException. Content-type access occurs before that try block.",
+      "confidence": "high",
+      "evidence": [{"kind": "source", "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/filter/JsonAuthenticationFilter.java", "sourceHash": "sha256:a4e19d4421465f567fc5dbda871a7dbc462c43c1ab0286954b639af8ced409e8", "range": {"start": {"line": 48, "column": 1}, "end": {"line": 94, "column": 2}}}],
+      "unknownFields": ["Filter-chain registration and effective request routes were not resolved", "Authentication-manager implementation and decryptor behavior remain unverified", "No dependency API compatibility or runtime authentication success is asserted"]
+    },
+    {
+      "sourceId": "fairychar-security/fairychar-security-boot-starter/src/main/java/com/fairychar/security/boot/configurer/CommonBeansConfiguration.java",
+      "sourceHash": "sha256:ed8388b8f5e247b1075ccfb1745063ba5ab9d1bec6e8072f178296a49d0a39cc",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "claim": "Security bean configuration declares conditional bean methods for authentication success/failure, access denial, authentication entry point and logout success. Success/failure/logout factories pass optional post-handler lists when present; the entry-point factory supplies an empty mapping. Source annotations enable FairycharSecurityProperties and request ordering after RedisAutoConfiguration; effective runtime activation is not established.",
+      "confidence": "high",
+      "evidence": [{"kind": "source", "sourceId": "fairychar-security/fairychar-security-boot-starter/src/main/java/com/fairychar/security/boot/configurer/CommonBeansConfiguration.java", "sourceHash": "sha256:ed8388b8f5e247b1075ccfb1745063ba5ab9d1bec6e8072f178296a49d0a39cc", "range": {"start": {"line": 28, "column": 1}, "end": {"line": 83, "column": 2}}}],
+      "unknownFields": ["Resource-based auto-configuration discovery is outside scope", "Dependency injection and bean-condition evaluation remain runtime unknowns", "Handler side effects were not transitively reviewed"]
+    }
+  ],
+  "acceptanceCases": "codingRuntime/code-guide.acceptance.json",
+  "scanPolicy": {"productionFiles": [], "includeTests": false, "includeBuild": false, "includeNonCode": false},
+  "presentation": {"maxDocumentBytes": 12000},
+  "redaction": {"patterns": ["credential", "token", "private-key"], "maxSnippetBytes": 0},
+  "freshness": {"maxAgeSeconds": 0, "requireSnapshotConsistency": true},
+  "quality": {"allowIncomplete": true, "minimumEvidenceForComplete": 1, "failOnSecretMatch": true}
+}

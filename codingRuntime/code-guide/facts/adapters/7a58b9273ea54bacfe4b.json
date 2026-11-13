@@ -1,0 +1,271 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IdCardValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "IdCardValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class IdCardValidator implements ConstraintValidator<IdCard, String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2022/2/16 14:31\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "ConstraintValidator<IdCard, String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator",
+      "signature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "String",
+          "signature": "String value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 28
+            },
+            "end": {
+              "line": 16,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 42
+            },
+            "end": {
+              "line": 16,
+              "column": 76
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.util.IdcardUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "isValidCard",
+      "expression": "IdcardUtil.isValidCard",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 16
+        },
+        "end": {
+          "line": 17,
+          "column": 45
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ConstraintValidator",
+      "expression": "ConstraintValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 41
+        },
+        "end": {
+          "line": 14,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "IdCard",
+      "expression": "IdCard",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 61
+        },
+        "end": {
+          "line": 14,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 69
+        },
+        "end": {
+          "line": 14,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 28
+        },
+        "end": {
+          "line": 16,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 42
+        },
+        "end": {
+          "line": 16,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.IdCardValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

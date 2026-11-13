@@ -1,0 +1,719 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/FilterProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FilterProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class FilterProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "拦截器配置\n\n @author chiyo <br>",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "apiPermission",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.apiPermission",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "private ApiPermissionFilterProperties apiPermission = new ApiPermissionFilterProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 95
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "菜单拦截器",
+      "type": "ApiPermissionFilterProperties",
+      "defaultExpression": "new ApiPermissionFilterProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "verifyCode",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.verifyCode",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "private VerifyCodeFilterProperties verifyCode = new VerifyCodeFilterProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 86
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "验证码拦截器",
+      "type": "VerifyCodeFilterProperties",
+      "defaultExpression": "new VerifyCodeFilterProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "login",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.login",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "private JsonLoginFilterProperties login = new JsonLoginFilterProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 79
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "登录参数体配置",
+      "type": "JsonLoginFilterProperties",
+      "defaultExpression": "new JsonLoginFilterProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "JsonLoginFilterProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "@Data\n    public static class JsonLoginFilterProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "loginClass",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties.loginClass",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties",
+      "signature": "private Class<? extends IJsonLoginRequest> loginClass = SimpleJsonLoginRequest.class",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 94
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Class<? extends IJsonLoginRequest>",
+      "defaultExpression": "SimpleJsonLoginRequest.class",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "VerifyCodeFilterProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "@Data\n    public static class VerifyCodeFilterProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties.enable",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 9
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "verifyUrls",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties.verifyUrls",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties",
+      "signature": "private Set<String> verifyUrls = Collections.emptySet()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 43,
+          "column": 65
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "<pre>忽略拦截的url</pre>\n 使用了{@link org.springframework.util.AntPathMatcher}匹配,可以使用复杂模糊匹配,例如<br>\n \"/api/**\",\"/index/hi\"",
+      "type": "Set<String>",
+      "defaultExpression": "Collections.emptySet()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "ApiPermissionFilterProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "signature": "@Data\n    public static class ApiPermissionFilterProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties.enable",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 9
+        },
+        "end": {
+          "line": 48,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "ignorePaths",
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties.ignorePaths",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties",
+      "signature": "private Set<String> ignorePaths = Collections.emptySet()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "忽略的路径",
+      "type": "Set<String>",
+      "defaultExpression": "Collections.emptySet()",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.IJsonLoginRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.pojo.request.SimpleJsonLoginRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collections",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ApiPermissionFilterProperties",
+      "expression": "new ApiPermissionFilterProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 59
+        },
+        "end": {
+          "line": 20,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "VerifyCodeFilterProperties",
+      "expression": "new VerifyCodeFilterProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 53
+        },
+        "end": {
+          "line": 24,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "JsonLoginFilterProperties",
+      "expression": "new JsonLoginFilterProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 47
+        },
+        "end": {
+          "line": 28,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "emptySet",
+      "expression": "Collections.emptySet",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 42
+        },
+        "end": {
+          "line": 43,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "emptySet",
+      "expression": "Collections.emptySet",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 43
+        },
+        "end": {
+          "line": 52,
+          "column": 65
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "ApiPermissionFilterProperties",
+      "expression": "ApiPermissionFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.apiPermission",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "VerifyCodeFilterProperties",
+      "expression": "VerifyCodeFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.verifyCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "JsonLoginFilterProperties",
+      "expression": "JsonLoginFilterProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.login",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 13
+        },
+        "end": {
+          "line": 28,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties.loginClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 17
+        },
+        "end": {
+          "line": 32,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "IJsonLoginRequest",
+      "expression": "IJsonLoginRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.JsonLoginFilterProperties.loginClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 33
+        },
+        "end": {
+          "line": 32,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties.verifyUrls",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 17
+        },
+        "end": {
+          "line": 43,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.VerifyCodeFilterProperties.verifyUrls",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 6
+        },
+        "end": {
+          "line": 46,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties.ignorePaths",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 17
+        },
+        "end": {
+          "line": 52,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FilterProperties.ApiPermissionFilterProperties.ignorePaths",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 21
+        },
+        "end": {
+          "line": 52,
+          "column": 27
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,70 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSwitcher.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.mybatis.interceptor",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ITenantSwitcher",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSwitcher",
+      "ownerQualifiedName": "",
+      "signature": "public interface ITenantSwitcher",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>mybatis 租户是否启用选择器</p>\n 配合{@link SwitchableTenantLineInnerInterceptor}使用\n 把这个参数放到mapper方法参数里面任意位置,在执行此mapper方法时\n 将会读取{@link ITenantSwitcher#use()}方法,如果返回true代表使用租户\n 插件,false代表绕过租户插件,对于同一个mapper方法有些场景下需要\n 自动租户,而有些场景不需要能得到更好的控制\n\n @author chiyo <br>\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "use",
+      "qualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSwitcher.use",
+      "ownerQualifiedName": "com.fairychar.bag.beans.mybatis.interceptor.ITenantSwitcher",
+      "signature": "boolean use()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 19
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "是否使用租户\n\n @return boolean",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

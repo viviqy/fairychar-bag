@@ -1,0 +1,285 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValue.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "FuzzyValue",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "ownerQualifiedName": "",
+      "signature": "@Documented\n@Target({ElementType.FIELD, ElementType.METHOD})\n@Retention(RetentionPolicy.RUNTIME)\n@Inherited\npublic @interface FuzzyValue",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Documented",
+        "@Target({ElementType.FIELD, ElementType.METHOD})",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Inherited"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "spring mvc 响应参数property值脱敏\n 对应组合注解{@link FuzzyResult}\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "beginAt",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.beginAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "signature": "int beginAt() default 0",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 29
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "开始索引\n\n @return int",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": "0",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "endAt",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.endAt",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "signature": "int endAt() default 0",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "结束索引\n\n @return int",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": "0",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "replaceSymbol",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.replaceSymbol",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "signature": "String replaceSymbol() default \"*\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "替换符号\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"*\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "processor",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.processor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "signature": "Class<? extends FuzzyValueProcessor>[] processor() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "<p>脱敏加密执行器</p>\n 当此项值不为空时,会选择对应SpringBean来执行脱敏加密运算\n\n @return {@link Class}<{@link ?} {@link extends} {@link FuzzyValueProcessor}>{@link []}",
+      "typeParameters": [],
+      "returnType": "Class<? extends FuzzyValueProcessor>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Inherited",
+      "expression": "Inherited",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.replaceSymbol",
+      "ownerSignature": "String replaceSymbol() default \"*\"",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.processor",
+      "ownerSignature": "Class<? extends FuzzyValueProcessor>[] processor() default {}",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "FuzzyValueProcessor",
+      "expression": "FuzzyValueProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValue.processor",
+      "ownerSignature": "Class<? extends FuzzyValueProcessor>[] processor() default {}",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 21
+        },
+        "end": {
+          "line": 44,
+          "column": 40
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

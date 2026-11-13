@@ -1,0 +1,5063 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-boot-starter/src/main/java/com/fairychar/security/boot/configurer/SecurityAutoConfigurer.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.boot.configurer",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SecurityAutoConfigurer",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "ownerQualifiedName": "",
+      "signature": "@Configuration\n@EnableConfigurationProperties({FairycharSecurityProperties.class, RedisProperties.class})\n@AutoConfigureAfter(CommonBeansConfiguration.class)\n@EnableWebSecurity\npublic class SecurityAutoConfigurer",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 1
+        },
+        "end": {
+          "line": 289,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Configuration",
+        "@EnableConfigurationProperties({FairycharSecurityProperties.class, RedisProperties.class})",
+        "@AutoConfigureAfter(CommonBeansConfiguration.class)",
+        "@EnableWebSecurity"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "安全认证功能配置\n\n @author chiyo <br>\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "class",
+      "name": "RedisSessionConfiguration",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "signature": "@Configuration\n    @EnableConfigurationProperties({FairycharSecurityProperties.class, RedisProperties.class})\n    @ConditionalOnProperty(value = \"fairychar.security.token-type\", havingValue = \"redis\", matchIfMissing = true)\n    protected static class RedisSessionConfiguration",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 286,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Configuration",
+        "@EnableConfigurationProperties({FairycharSecurityProperties.class, RedisProperties.class})",
+        "@ConditionalOnProperty(value = \"fairychar.security.token-type\", havingValue = \"redis\", matchIfMissing = true)"
+      ],
+      "modifiers": [
+        "protected",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "fairycharSecurityProperties",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.fairycharSecurityProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate FairycharSecurityProperties fairycharSecurityProperties",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 9
+        },
+        "end": {
+          "line": 81,
+          "column": 73
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FairycharSecurityProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticationSuccessHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate AuthenticationSuccessHandler authenticationSuccessHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 9
+        },
+        "end": {
+          "line": 83,
+          "column": 75
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AuthenticationSuccessHandler",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticationFailureHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate AuthenticationFailureHandler authenticationFailureHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 9
+        },
+        "end": {
+          "line": 85,
+          "column": 75
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AuthenticationFailureHandler",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticationEntryPoint",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationEntryPoint",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate AuthenticationEntryPoint authenticationEntryPoint",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 9
+        },
+        "end": {
+          "line": 87,
+          "column": 67
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AuthenticationEntryPoint",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "accessDeniedHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.accessDeniedHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate AccessDeniedHandler accessDeniedHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 9
+        },
+        "end": {
+          "line": 89,
+          "column": 57
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AccessDeniedHandler",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "invalidSessionStrategy",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.invalidSessionStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate InvalidSessionStrategy invalidSessionStrategy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 91,
+          "column": 63
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "InvalidSessionStrategy",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "indexNameSessionRepository",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.indexNameSessionRepository",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate FindByIndexNameSessionRepository indexNameSessionRepository",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 9
+        },
+        "end": {
+          "line": 93,
+          "column": 77
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FindByIndexNameSessionRepository",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sessionInformationExpiredStrategy",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate SessionInformationExpiredStrategy sessionInformationExpiredStrategy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 9
+        },
+        "end": {
+          "line": 95,
+          "column": 85
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SessionInformationExpiredStrategy",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "usernameDecrypt",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.usernameDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired(required = false)\nprivate IUsernameDecrypt usernameDecrypt",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 9
+        },
+        "end": {
+          "line": 97,
+          "column": 50
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "IUsernameDecrypt",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "passwordDecrypt",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.passwordDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired(required = false)\nprivate IPasswordDecrypt passwordDecrypt",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 9
+        },
+        "end": {
+          "line": 99,
+          "column": 50
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "IPasswordDecrypt",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "verifyCodeFilter",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired(required = false)\nprivate VerifyCodeFilter verifyCodeFilter",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 9
+        },
+        "end": {
+          "line": 101,
+          "column": 51
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "VerifyCodeFilter",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "logoutSuccessHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.logoutSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate LogoutSuccessHandler logoutSuccessHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 9
+        },
+        "end": {
+          "line": 103,
+          "column": 59
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "LogoutSuccessHandler",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired\nprivate ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 9
+        },
+        "end": {
+          "line": 105,
+          "column": 43
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "apiAuthorityProvider",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiAuthorityProvider",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Autowired(required = false)\nprivate ApiAuthorityProvider apiAuthorityProvider",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 107,
+          "column": 59
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ApiAuthorityProvider",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "sessionManager",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        RedisTypeSessionManager sessionManager()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 9
+        },
+        "end": {
+          "line": 112,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "RedisTypeSessionManager",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "reWriteDatabaseCustomizer",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 9
+        },
+        "end": {
+          "line": 126,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})"
+      ],
+      "modifiers": [],
+      "docstring": "<pre>redis session database重定向</pre>\n 当redisConnectionFactory不为Jedis和Lettuce时,RedisSessionRepository无法配置到redisProperties<br>\n 指定的db,需要手动定制指向\n\n @param redisProperties\n @return {@link SessionRepositoryCustomizer}<{@link RedisIndexedSessionRepository}>",
+      "typeParameters": [],
+      "returnType": "SessionRepositoryCustomizer<RedisIndexedSessionRepository>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "redisProperties",
+          "type": "RedisProperties",
+          "signature": "RedisProperties redisProperties",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 124,
+              "column": 94
+            },
+            "end": {
+              "line": 124,
+              "column": 125
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "springSessionBackedSessionRegistry",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.springSessionBackedSessionRegistry",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        public SessionRegistry springSessionBackedSessionRegistry()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 9
+        },
+        "end": {
+          "line": 131,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "SessionRegistry",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "httpSessionIdResolver",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 9
+        },
+        "end": {
+          "line": 138,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "HttpSessionIdResolver",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "jsonAuthenticationFilter",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 140,
+          "column": 9
+        },
+        "end": {
+          "line": 155,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean(JsonAuthenticationFilter.class)"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "JsonAuthenticationFilter",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "authenticationManager",
+          "type": "AuthenticationManager",
+          "signature": "AuthenticationManager authenticationManager",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 142,
+              "column": 59
+            },
+            "end": {
+              "line": 142,
+              "column": 102
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "sessionInformationExpiredStrategy",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnMissingBean\n        SessionInformationExpiredStrategy sessionInformationExpiredStrategy()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 157,
+          "column": 9
+        },
+        "end": {
+          "line": 161,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SessionInformationExpiredStrategy",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "simpleInvalidSessionStrategy",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.simpleInvalidSessionStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnMissingBean\n        InvalidSessionStrategy simpleInvalidSessionStrategy()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 9
+        },
+        "end": {
+          "line": 168,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "InvalidSessionStrategy",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "verifyCodeFilter",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 171,
+          "column": 9
+        },
+        "end": {
+          "line": 176,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "VerifyCodeFilter",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "codeVerifier",
+          "type": "ICodeVerifier",
+          "signature": "ICodeVerifier codeVerifier",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 173,
+              "column": 43
+            },
+            "end": {
+              "line": 173,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "authenticationManagerBean",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 9
+        },
+        "end": {
+          "line": 182,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@SneakyThrows"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "AuthenticationManager",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "authenticationConfiguration",
+          "type": "AuthenticationConfiguration",
+          "signature": "AuthenticationConfiguration authenticationConfiguration",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 180,
+              "column": 64
+            },
+            "end": {
+              "line": 180,
+              "column": 119
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "configure",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 9
+        },
+        "end": {
+          "line": 215,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "SecurityFilterChain",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "http",
+          "type": "HttpSecurity",
+          "signature": "HttpSecurity http",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 186,
+              "column": 46
+            },
+            "end": {
+              "line": 186,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "jsonAuthenticationFilter",
+          "type": "JsonAuthenticationFilter",
+          "signature": "JsonAuthenticationFilter jsonAuthenticationFilter",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 186,
+              "column": 65
+            },
+            "end": {
+              "line": 186,
+              "column": 114
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "apiPermissionFilter",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 217,
+          "column": 9
+        },
+        "end": {
+          "line": 225,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "ApiPermissionFilter",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "securityAuditObjectHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 227,
+          "column": 9
+        },
+        "end": {
+          "line": 233,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SecurityAuditObjectHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "class",
+      "name": "TenantConfiguration",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "signature": "@Configuration\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.tenant.enable\", havingValue = \"true\")\n        @EnableConfigurationProperties(FairycharSecurityProperties.class)\n        protected static class TenantConfiguration",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 10
+        }
+      },
+      "annotations": [
+        "@Configuration",
+        "@ConditionalOnProperty(name = \"fairychar.security.plugins.tenant.enable\", havingValue = \"true\")",
+        "@EnableConfigurationProperties(FairycharSecurityProperties.class)"
+      ],
+      "modifiers": [
+        "protected",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "securityProperties",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "signature": "@Autowired\nprivate FairycharSecurityProperties securityProperties",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 240,
+          "column": 13
+        },
+        "end": {
+          "line": 241,
+          "column": 68
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FairycharSecurityProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "securityContextTenantHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "signature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 243,
+          "column": 13
+        },
+        "end": {
+          "line": 248,
+          "column": 14
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SecurityContextTenantHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "mybatisPlusInterceptor",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptor",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "signature": "@Bean\n            @ConditionalOnMissingBean\n            MybatisPlusInterceptor mybatisPlusInterceptor()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 250,
+          "column": 13
+        },
+        "end": {
+          "line": 255,
+          "column": 14
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "MybatisPlusInterceptor",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "mybatisPlusInterceptorMarker",
+      "qualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "signature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 13
+        },
+        "end": {
+          "line": 282,
+          "column": 14
+        }
+      },
+      "annotations": [
+        "@Bean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "mybatisPlusInterceptor",
+          "type": "MybatisPlusInterceptor",
+          "signature": "MybatisPlusInterceptor mybatisPlusInterceptor",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 259,
+              "column": 49
+            },
+            "end": {
+              "line": 259,
+              "column": 94
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.IJsonLoginRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.filter.ApiPermissionFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.filter.JsonAuthenticationFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 73
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 73
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.permission.SecurityContextApiAuthorityProvider",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 88
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonSessionExpiredStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.beans.login.IPasswordDecrypt",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.beans.login.IUsernameDecrypt",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityContextTenantHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 81
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.properties.FilterProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.properties.TenantProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.verify.ICodeVerifier",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.SneakyThrows",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 27,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.AutoConfigureAfter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 82
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.condition.ConditionalOnProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.data.redis.RedisProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.EnableConfigurationProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 82
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.Bean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.Configuration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "line": 34,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 35,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 83
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.authentication.AuthenticationManager",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 1
+        },
+        "end": {
+          "line": 38,
+          "column": 112
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.config.annotation.web.builders.HttpSecurity",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 81
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.config.annotation.web.configuration.EnableWebSecurity",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 91
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.session.SessionRegistry",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.AuthenticationEntryPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.SecurityFilterChain",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 43,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.access.AccessDeniedHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.AuthenticationFailureHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 85
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.AuthenticationSuccessHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 85
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 93
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.logout.LogoutSuccessHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 1
+        },
+        "end": {
+          "line": 49,
+          "column": 111
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.context.HttpSessionSecurityContextRepository",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 86
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.session.InvalidSessionStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.session.SessionInformationExpiredStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 83
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.FindByIndexNameSessionRepository",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.config.SessionRepositoryCustomizer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.data.redis.RedisIndexedSessionRepository",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 77
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.security.SpringSessionBackedSessionRegistry",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 80
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.web.http.HeaderHttpSessionIdResolver",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 57,
+          "column": 73
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.web.http.HttpSessionIdResolver",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 1
+        },
+        "end": {
+          "line": 58,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.ArrayList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 60,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "RedisTypeSessionManager",
+      "expression": "new RedisTypeSessionManager",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionManager",
+      "ownerSignature": "@Bean\n        RedisTypeSessionManager sessionManager()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 20
+        },
+        "end": {
+          "line": 111,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "SpringSessionBackedSessionRegistry",
+      "expression": "new SpringSessionBackedSessionRegistry",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.springSessionBackedSessionRegistry",
+      "ownerSignature": "@Bean\n        public SessionRegistry springSessionBackedSessionRegistry()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 20
+        },
+        "end": {
+          "line": 130,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "HeaderHttpSessionIdResolver",
+      "expression": "new HeaderHttpSessionIdResolver",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 20
+        },
+        "end": {
+          "line": 137,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "getTokenHeaderName",
+      "expression": "this.fairycharSecurityProperties.getStandard().getTokenHeaderName",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 52
+        },
+        "end": {
+          "line": 137,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 137,
+          "column": 52
+        },
+        "end": {
+          "line": 137,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "getLoginClass",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getLogin().getLoginClass",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 61
+        },
+        "end": {
+          "line": 143,
+          "column": 146
+        }
+      }
+    },
+    {
+      "name": "getLogin",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getLogin",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 61
+        },
+        "end": {
+          "line": 143,
+          "column": 130
+        }
+      }
+    },
+    {
+      "name": "getFilter",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 61
+        },
+        "end": {
+          "line": 143,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 61
+        },
+        "end": {
+          "line": 143,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "JsonAuthenticationFilter<>",
+      "expression": "new JsonAuthenticationFilter<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 144,
+          "column": 47
+        },
+        "end": {
+          "line": 144,
+          "column": 152
+        }
+      }
+    },
+    {
+      "name": "setAuthenticationManager",
+      "expression": "filter.setAuthenticationManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 13
+        },
+        "end": {
+          "line": 145,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "setFilterProcessesUrl",
+      "expression": "filter.setFilterProcessesUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 13
+        },
+        "end": {
+          "line": 146,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "getLogin",
+      "expression": "this.fairycharSecurityProperties.getUrl().getLogin",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 42
+        },
+        "end": {
+          "line": 146,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "getUrl",
+      "expression": "this.fairycharSecurityProperties.getUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 42
+        },
+        "end": {
+          "line": 146,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "setAuthenticationSuccessHandler",
+      "expression": "filter.setAuthenticationSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 13
+        },
+        "end": {
+          "line": 147,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "setAuthenticationFailureHandler",
+      "expression": "filter.setAuthenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 13
+        },
+        "end": {
+          "line": 148,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "ConcurrentSessionControlAuthenticationStrategy",
+      "expression": "new ConcurrentSessionControlAuthenticationStrategy",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 21
+        },
+        "end": {
+          "line": 150,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "springSessionBackedSessionRegistry",
+      "expression": "this.springSessionBackedSessionRegistry",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 72
+        },
+        "end": {
+          "line": 150,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "setMaximumSessions",
+      "expression": "concurrentSessionControlAuthenticationStrategy.setMaximumSessions",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 13
+        },
+        "end": {
+          "line": 151,
+          "column": 142
+        }
+      }
+    },
+    {
+      "name": "getMaxSession",
+      "expression": "this.fairycharSecurityProperties.getStandard().getMaxSession",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 79
+        },
+        "end": {
+          "line": 151,
+          "column": 141
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 79
+        },
+        "end": {
+          "line": 151,
+          "column": 125
+        }
+      }
+    },
+    {
+      "name": "setSessionAuthenticationStrategy",
+      "expression": "filter.setSessionAuthenticationStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 13
+        },
+        "end": {
+          "line": 152,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "setSecurityContextRepository",
+      "expression": "filter.setSecurityContextRepository",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 13
+        },
+        "end": {
+          "line": 153,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "HttpSessionSecurityContextRepository",
+      "expression": "new HttpSessionSecurityContextRepository",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 49
+        },
+        "end": {
+          "line": 153,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "JsonSessionExpiredStrategy",
+      "expression": "new JsonSessionExpiredStrategy",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        SessionInformationExpiredStrategy sessionInformationExpiredStrategy()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 160,
+          "column": 20
+        },
+        "end": {
+          "line": 160,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "JsonInvalidSessionStrategy",
+      "expression": "new JsonInvalidSessionStrategy",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.simpleInvalidSessionStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        InvalidSessionStrategy simpleInvalidSessionStrategy()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 167,
+          "column": 20
+        },
+        "end": {
+          "line": 167,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getVerifyCode",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getVerifyCode",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 70
+        },
+        "end": {
+          "line": 174,
+          "column": 144
+        }
+      }
+    },
+    {
+      "name": "getFilter",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 70
+        },
+        "end": {
+          "line": 174,
+          "column": 128
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 70
+        },
+        "end": {
+          "line": 174,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "VerifyCodeFilter",
+      "expression": "new VerifyCodeFilter",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 20
+        },
+        "end": {
+          "line": 175,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "getVerifyUrls",
+      "expression": "verifyCode.getVerifyUrls",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 41
+        },
+        "end": {
+          "line": 175,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "getAuthenticationManager",
+      "expression": "authenticationConfiguration.getAuthenticationManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerSignature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 181,
+          "column": 20
+        },
+        "end": {
+          "line": 181,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "addFilterAt",
+      "expression": "http\n                    .exceptionHandling(c -> c.accessDeniedHandler(this.accessDeniedHandler)\n                            .authenticationEntryPoint(this.authenticationEntryPoint))\n                    .logout(c -> c.logoutUrl(this.fairycharSecurityProperties.getUrl().getLogout()).logoutSuccessHandler(this.logoutSuccessHandler))\n                    .sessionManagement(c -> c.invalidSessionStrategy(this.invalidSessionStrategy)\n                            .maximumSessions(this.fairycharSecurityProperties.getStandard().getMaxSession())\n                            .sessionRegistry(this.springSessionBackedSessionRegistry())\n                            .expiredSessionStrategy(this.sessionInformationExpiredStrategy)\n                    )\n                    .securityContext(s -> s.securityContextRepository(new HttpSessionSecurityContextRepository()))\n                    .addFilterAt",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 41
+        },
+        "end": {
+          "line": 197,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "securityContext",
+      "expression": "http\n                    .exceptionHandling(c -> c.accessDeniedHandler(this.accessDeniedHandler)\n                            .authenticationEntryPoint(this.authenticationEntryPoint))\n                    .logout(c -> c.logoutUrl(this.fairycharSecurityProperties.getUrl().getLogout()).logoutSuccessHandler(this.logoutSuccessHandler))\n                    .sessionManagement(c -> c.invalidSessionStrategy(this.invalidSessionStrategy)\n                            .maximumSessions(this.fairycharSecurityProperties.getStandard().getMaxSession())\n                            .sessionRegistry(this.springSessionBackedSessionRegistry())\n                            .expiredSessionStrategy(this.sessionInformationExpiredStrategy)\n                    )\n                    .securityContext",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 41
+        },
+        "end": {
+          "line": 196,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "sessionManagement",
+      "expression": "http\n                    .exceptionHandling(c -> c.accessDeniedHandler(this.accessDeniedHandler)\n                            .authenticationEntryPoint(this.authenticationEntryPoint))\n                    .logout(c -> c.logoutUrl(this.fairycharSecurityProperties.getUrl().getLogout()).logoutSuccessHandler(this.logoutSuccessHandler))\n                    .sessionManagement",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 41
+        },
+        "end": {
+          "line": 195,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "logout",
+      "expression": "http\n                    .exceptionHandling(c -> c.accessDeniedHandler(this.accessDeniedHandler)\n                            .authenticationEntryPoint(this.authenticationEntryPoint))\n                    .logout",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 41
+        },
+        "end": {
+          "line": 190,
+          "column": 149
+        }
+      }
+    },
+    {
+      "name": "exceptionHandling",
+      "expression": "http\n                    .exceptionHandling",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 41
+        },
+        "end": {
+          "line": 189,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "isDisableLoginCors",
+      "expression": "this.fairycharSecurityProperties.getUrl().isDisableLoginCors",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 198,
+          "column": 17
+        },
+        "end": {
+          "line": 198,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getUrl",
+      "expression": "this.fairycharSecurityProperties.getUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 198,
+          "column": 17
+        },
+        "end": {
+          "line": 198,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "cors",
+      "expression": "httpSecurity.cors",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 17
+        },
+        "end": {
+          "line": 199,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "isDisableLoginCsrf",
+      "expression": "this.fairycharSecurityProperties.getUrl().isDisableLoginCsrf",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 201,
+          "column": 17
+        },
+        "end": {
+          "line": 201,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "getUrl",
+      "expression": "this.fairycharSecurityProperties.getUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 201,
+          "column": 17
+        },
+        "end": {
+          "line": 201,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "csrf",
+      "expression": "httpSecurity.csrf",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 202,
+          "column": 17
+        },
+        "end": {
+          "line": 202,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "isEnable",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getVerifyCode().isEnable",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 17
+        },
+        "end": {
+          "line": 204,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getVerifyCode",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getVerifyCode",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 17
+        },
+        "end": {
+          "line": 204,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getFilter",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 17
+        },
+        "end": {
+          "line": 204,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 17
+        },
+        "end": {
+          "line": 204,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "addFilterBefore",
+      "expression": "http.addFilterBefore",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 205,
+          "column": 17
+        },
+        "end": {
+          "line": 205,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "getAllowed",
+      "expression": "this.fairycharSecurityProperties.getUrl().getAllowed",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 207,
+          "column": 32
+        },
+        "end": {
+          "line": 207,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getUrl",
+      "expression": "this.fairycharSecurityProperties.getUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 207,
+          "column": 32
+        },
+        "end": {
+          "line": 207,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "authorizeHttpRequests",
+      "expression": "http.authorizeHttpRequests",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 209,
+          "column": 17
+        },
+        "end": {
+          "line": 209,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "getAuthenticated",
+      "expression": "this.fairycharSecurityProperties.getUrl().getAuthenticated",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 42
+        },
+        "end": {
+          "line": 211,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "getUrl",
+      "expression": "this.fairycharSecurityProperties.getUrl",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 211,
+          "column": 42
+        },
+        "end": {
+          "line": 211,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "authorizeHttpRequests",
+      "expression": "http.authorizeHttpRequests",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 212,
+          "column": 17
+        },
+        "end": {
+          "line": 212,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "build",
+      "expression": "http.build",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 20
+        },
+        "end": {
+          "line": 214,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "getApiPermission",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter().getApiPermission",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 76
+        },
+        "end": {
+          "line": 220,
+          "column": 153
+        }
+      }
+    },
+    {
+      "name": "getFilter",
+      "expression": "this.fairycharSecurityProperties.getStandard().getFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 76
+        },
+        "end": {
+          "line": 220,
+          "column": 134
+        }
+      }
+    },
+    {
+      "name": "getStandard",
+      "expression": "this.fairycharSecurityProperties.getStandard",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 220,
+          "column": 76
+        },
+        "end": {
+          "line": 220,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "ApiPermissionFilter",
+      "expression": "new ApiPermissionFilter",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 24
+        },
+        "end": {
+          "line": 222,
+          "column": 148
+        }
+      }
+    },
+    {
+      "name": "getIgnorePaths",
+      "expression": "apiPermission.getIgnorePaths",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 48
+        },
+        "end": {
+          "line": 222,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "SecurityContextApiAuthorityProvider",
+      "expression": "new SecurityContextApiAuthorityProvider",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 222,
+          "column": 106
+        },
+        "end": {
+          "line": 222,
+          "column": 147
+        }
+      }
+    },
+    {
+      "name": "ApiPermissionFilter",
+      "expression": "new ApiPermissionFilter",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 224,
+          "column": 20
+        },
+        "end": {
+          "line": 224,
+          "column": 128
+        }
+      }
+    },
+    {
+      "name": "getIgnorePaths",
+      "expression": "apiPermission.getIgnorePaths",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 224,
+          "column": 44
+        },
+        "end": {
+          "line": 224,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getAudit",
+      "expression": "this.fairycharSecurityProperties.getPlugins().getAudit",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 230,
+          "column": 37
+        },
+        "end": {
+          "line": 230,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "getPlugins",
+      "expression": "this.fairycharSecurityProperties.getPlugins",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 230,
+          "column": 37
+        },
+        "end": {
+          "line": 230,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "SecurityAuditObjectHandler",
+      "expression": "new SecurityAuditObjectHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 20
+        },
+        "end": {
+          "line": 232,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "getCreateBy",
+      "expression": "audit.getCreateBy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 51
+        },
+        "end": {
+          "line": 231,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getCreateTime",
+      "expression": "audit.getCreateTime",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 231,
+          "column": 72
+        },
+        "end": {
+          "line": 231,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "getUpdateBy",
+      "expression": "audit.getUpdateBy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 232,
+          "column": 23
+        },
+        "end": {
+          "line": 232,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "getUpdateTime",
+      "expression": "audit.getUpdateTime",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 232,
+          "column": 44
+        },
+        "end": {
+          "line": 232,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "getTenant",
+      "expression": "this.securityProperties.getPlugins().getTenant",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 246,
+          "column": 43
+        },
+        "end": {
+          "line": 246,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getPlugins",
+      "expression": "this.securityProperties.getPlugins",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 246,
+          "column": 43
+        },
+        "end": {
+          "line": 246,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "SecurityContextTenantHandler",
+      "expression": "new SecurityContextTenantHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 247,
+          "column": 24
+        },
+        "end": {
+          "line": 247,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "getIgnoreTables",
+      "expression": "tenant.getIgnoreTables",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 247,
+          "column": 57
+        },
+        "end": {
+          "line": 247,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "getColumnName",
+      "expression": "tenant.getColumnName",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 247,
+          "column": 83
+        },
+        "end": {
+          "line": 247,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "MybatisPlusInterceptor",
+      "expression": "new MybatisPlusInterceptor",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptor",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            MybatisPlusInterceptor mybatisPlusInterceptor()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 253,
+          "column": 54
+        },
+        "end": {
+          "line": 253,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "getInterceptors",
+      "expression": "mybatisPlusInterceptor.getInterceptors",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 263,
+          "column": 55
+        },
+        "end": {
+          "line": 263,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "anyMatch",
+      "expression": "interceptors.stream().anyMatch",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 48
+        },
+        "end": {
+          "line": 264,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "interceptors.stream",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 48
+        },
+        "end": {
+          "line": 264,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 267,
+          "column": 57
+        },
+        "end": {
+          "line": 267,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "TenantLineInnerInterceptor",
+      "expression": "new TenantLineInnerInterceptor",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 77
+        },
+        "end": {
+          "line": 268,
+          "column": 144
+        }
+      }
+    },
+    {
+      "name": "securityContextTenantHandler",
+      "expression": "this.securityContextTenantHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 268,
+          "column": 108
+        },
+        "end": {
+          "line": 268,
+          "column": 143
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "interceptors.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 269,
+          "column": 25
+        },
+        "end": {
+          "line": 269,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "sortedList.add",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 270,
+          "column": 25
+        },
+        "end": {
+          "line": 270,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "sortedList.add",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 274,
+          "column": 33
+        },
+        "end": {
+          "line": 274,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "sortedList.add",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 276,
+          "column": 29
+        },
+        "end": {
+          "line": 276,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "setInterceptors",
+      "expression": "mybatisPlusInterceptor.setInterceptors",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 279,
+          "column": 21
+        },
+        "end": {
+          "line": 279,
+          "column": 71
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Configuration",
+      "expression": "Configuration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 2
+        },
+        "end": {
+          "line": 69,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "EnableConfigurationProperties",
+      "expression": "EnableConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 2
+        },
+        "end": {
+          "line": 70,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "AutoConfigureAfter",
+      "expression": "AutoConfigureAfter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 2
+        },
+        "end": {
+          "line": 71,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "EnableWebSecurity",
+      "expression": "EnableWebSecurity",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 2
+        },
+        "end": {
+          "line": 72,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Configuration",
+      "expression": "Configuration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 6
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "EnableConfigurationProperties",
+      "expression": "EnableConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 6
+        },
+        "end": {
+          "line": 77,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnProperty",
+      "expression": "ConditionalOnProperty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 6
+        },
+        "end": {
+          "line": 78,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "FairycharSecurityProperties",
+      "expression": "FairycharSecurityProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.fairycharSecurityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 17
+        },
+        "end": {
+          "line": 81,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.fairycharSecurityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 10
+        },
+        "end": {
+          "line": 80,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AuthenticationSuccessHandler",
+      "expression": "AuthenticationSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 17
+        },
+        "end": {
+          "line": 83,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 10
+        },
+        "end": {
+          "line": 82,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AuthenticationFailureHandler",
+      "expression": "AuthenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationFailureHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 17
+        },
+        "end": {
+          "line": 85,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationFailureHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AuthenticationEntryPoint",
+      "expression": "AuthenticationEntryPoint",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 17
+        },
+        "end": {
+          "line": 87,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationEntryPoint",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 10
+        },
+        "end": {
+          "line": 86,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AccessDeniedHandler",
+      "expression": "AccessDeniedHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.accessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 17
+        },
+        "end": {
+          "line": 89,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.accessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 10
+        },
+        "end": {
+          "line": 88,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "InvalidSessionStrategy",
+      "expression": "InvalidSessionStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.invalidSessionStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 17
+        },
+        "end": {
+          "line": 91,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.invalidSessionStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 10
+        },
+        "end": {
+          "line": 90,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "FindByIndexNameSessionRepository",
+      "expression": "FindByIndexNameSessionRepository",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.indexNameSessionRepository",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 17
+        },
+        "end": {
+          "line": 93,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.indexNameSessionRepository",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 10
+        },
+        "end": {
+          "line": 92,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "SessionInformationExpiredStrategy",
+      "expression": "SessionInformationExpiredStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 17
+        },
+        "end": {
+          "line": 95,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 10
+        },
+        "end": {
+          "line": 94,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "IUsernameDecrypt",
+      "expression": "IUsernameDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.usernameDecrypt",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 17
+        },
+        "end": {
+          "line": 97,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.usernameDecrypt",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 10
+        },
+        "end": {
+          "line": 96,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "IPasswordDecrypt",
+      "expression": "IPasswordDecrypt",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.passwordDecrypt",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 17
+        },
+        "end": {
+          "line": 99,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.passwordDecrypt",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 10
+        },
+        "end": {
+          "line": 98,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "VerifyCodeFilter",
+      "expression": "VerifyCodeFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 17
+        },
+        "end": {
+          "line": 101,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 10
+        },
+        "end": {
+          "line": 100,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "LogoutSuccessHandler",
+      "expression": "LogoutSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.logoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 17
+        },
+        "end": {
+          "line": 103,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.logoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 10
+        },
+        "end": {
+          "line": 102,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 17
+        },
+        "end": {
+          "line": 105,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 10
+        },
+        "end": {
+          "line": 104,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "ApiAuthorityProvider",
+      "expression": "ApiAuthorityProvider",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiAuthorityProvider",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 17
+        },
+        "end": {
+          "line": 107,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiAuthorityProvider",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 10
+        },
+        "end": {
+          "line": 106,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "RedisTypeSessionManager",
+      "expression": "RedisTypeSessionManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionManager",
+      "ownerSignature": "@Bean\n        RedisTypeSessionManager sessionManager()",
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 9
+        },
+        "end": {
+          "line": 110,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionManager",
+      "ownerSignature": "@Bean\n        RedisTypeSessionManager sessionManager()",
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 10
+        },
+        "end": {
+          "line": 109,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SessionRepositoryCustomizer",
+      "expression": "SessionRepositoryCustomizer",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 9
+        },
+        "end": {
+          "line": 124,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "RedisIndexedSessionRepository",
+      "expression": "RedisIndexedSessionRepository",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 37
+        },
+        "end": {
+          "line": 124,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "RedisProperties",
+      "expression": "RedisProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 94
+        },
+        "end": {
+          "line": 124,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 10
+        },
+        "end": {
+          "line": 122,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.reWriteDatabaseCustomizer",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(value = {LettuceConnectionFactory.class, JedisConnectionFactory.class, SessionRepositoryCustomizer.class})\n        SessionRepositoryCustomizer<RedisIndexedSessionRepository> reWriteDatabaseCustomizer(RedisProperties redisProperties)",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 10
+        },
+        "end": {
+          "line": 123,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "SessionRegistry",
+      "expression": "SessionRegistry",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.springSessionBackedSessionRegistry",
+      "ownerSignature": "@Bean\n        public SessionRegistry springSessionBackedSessionRegistry()",
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 16
+        },
+        "end": {
+          "line": 129,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.springSessionBackedSessionRegistry",
+      "ownerSignature": "@Bean\n        public SessionRegistry springSessionBackedSessionRegistry()",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 10
+        },
+        "end": {
+          "line": 128,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "HttpSessionIdResolver",
+      "expression": "HttpSessionIdResolver",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "range": {
+        "start": {
+          "line": 136,
+          "column": 9
+        },
+        "end": {
+          "line": 136,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 10
+        },
+        "end": {
+          "line": 134,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.httpSessionIdResolver",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        HttpSessionIdResolver httpSessionIdResolver()",
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 10
+        },
+        "end": {
+          "line": 135,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "JsonAuthenticationFilter",
+      "expression": "JsonAuthenticationFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 9
+        },
+        "end": {
+          "line": 142,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "AuthenticationManager",
+      "expression": "AuthenticationManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 59
+        },
+        "end": {
+          "line": 142,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 111
+        },
+        "end": {
+          "line": 142,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "range": {
+        "start": {
+          "line": 140,
+          "column": 10
+        },
+        "end": {
+          "line": 140,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.jsonAuthenticationFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean(JsonAuthenticationFilter.class)\n        JsonAuthenticationFilter jsonAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception",
+      "range": {
+        "start": {
+          "line": 141,
+          "column": 10
+        },
+        "end": {
+          "line": 141,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "SessionInformationExpiredStrategy",
+      "expression": "SessionInformationExpiredStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        SessionInformationExpiredStrategy sessionInformationExpiredStrategy()",
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 9
+        },
+        "end": {
+          "line": 159,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        SessionInformationExpiredStrategy sessionInformationExpiredStrategy()",
+      "range": {
+        "start": {
+          "line": 157,
+          "column": 10
+        },
+        "end": {
+          "line": 157,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.sessionInformationExpiredStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        SessionInformationExpiredStrategy sessionInformationExpiredStrategy()",
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 10
+        },
+        "end": {
+          "line": 158,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "InvalidSessionStrategy",
+      "expression": "InvalidSessionStrategy",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.simpleInvalidSessionStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        InvalidSessionStrategy simpleInvalidSessionStrategy()",
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 9
+        },
+        "end": {
+          "line": 166,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.simpleInvalidSessionStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        InvalidSessionStrategy simpleInvalidSessionStrategy()",
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 10
+        },
+        "end": {
+          "line": 164,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.simpleInvalidSessionStrategy",
+      "ownerSignature": "@Bean\n        @ConditionalOnMissingBean\n        InvalidSessionStrategy simpleInvalidSessionStrategy()",
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 10
+        },
+        "end": {
+          "line": 165,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "VerifyCodeFilter",
+      "expression": "VerifyCodeFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "range": {
+        "start": {
+          "line": 173,
+          "column": 9
+        },
+        "end": {
+          "line": 173,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "ICodeVerifier",
+      "expression": "ICodeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "range": {
+        "start": {
+          "line": 173,
+          "column": 43
+        },
+        "end": {
+          "line": 173,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "range": {
+        "start": {
+          "line": 171,
+          "column": 10
+        },
+        "end": {
+          "line": 171,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnProperty",
+      "expression": "ConditionalOnProperty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.verifyCodeFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.verifyCode.enable\", havingValue = \"true\")\n        VerifyCodeFilter verifyCodeFilter(ICodeVerifier codeVerifier)",
+      "range": {
+        "start": {
+          "line": 172,
+          "column": 10
+        },
+        "end": {
+          "line": 172,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "AuthenticationManager",
+      "expression": "AuthenticationManager",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerSignature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 16
+        },
+        "end": {
+          "line": 180,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "AuthenticationConfiguration",
+      "expression": "AuthenticationConfiguration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerSignature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 64
+        },
+        "end": {
+          "line": 180,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerSignature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 10
+        },
+        "end": {
+          "line": 178,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SneakyThrows",
+      "expression": "SneakyThrows",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.authenticationManagerBean",
+      "ownerSignature": "@Bean\n        @SneakyThrows\n        public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)",
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 10
+        },
+        "end": {
+          "line": 179,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "SecurityFilterChain",
+      "expression": "SecurityFilterChain",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 16
+        },
+        "end": {
+          "line": 186,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "HttpSecurity",
+      "expression": "HttpSecurity",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 46
+        },
+        "end": {
+          "line": 186,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "JsonAuthenticationFilter",
+      "expression": "JsonAuthenticationFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 65
+        },
+        "end": {
+          "line": 186,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 123
+        },
+        "end": {
+          "line": 186,
+          "column": 132
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.configure",
+      "ownerSignature": "@Bean\n        public SecurityFilterChain configure(HttpSecurity http, JsonAuthenticationFilter jsonAuthenticationFilter) throws Exception",
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 10
+        },
+        "end": {
+          "line": 185,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ApiPermissionFilter",
+      "expression": "ApiPermissionFilter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 9
+        },
+        "end": {
+          "line": 219,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "range": {
+        "start": {
+          "line": 217,
+          "column": 10
+        },
+        "end": {
+          "line": 217,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnProperty",
+      "expression": "ConditionalOnProperty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.apiPermissionFilter",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(value = \"fairychar.security.standard.filter.apiPermission.enable\", havingValue = \"true\")\n        ApiPermissionFilter apiPermissionFilter()",
+      "range": {
+        "start": {
+          "line": 218,
+          "column": 10
+        },
+        "end": {
+          "line": 218,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "SecurityAuditObjectHandler",
+      "expression": "SecurityAuditObjectHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "range": {
+        "start": {
+          "line": 229,
+          "column": 9
+        },
+        "end": {
+          "line": 229,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "range": {
+        "start": {
+          "line": 227,
+          "column": 10
+        },
+        "end": {
+          "line": 227,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnProperty",
+      "expression": "ConditionalOnProperty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.securityAuditObjectHandler",
+      "ownerSignature": "@Bean\n        @ConditionalOnProperty(name = \"fairychar.security.plugins.audit.enable\", havingValue = \"true\")\n        SecurityAuditObjectHandler securityAuditObjectHandler()",
+      "range": {
+        "start": {
+          "line": 228,
+          "column": 10
+        },
+        "end": {
+          "line": 228,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Configuration",
+      "expression": "Configuration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 235,
+          "column": 10
+        },
+        "end": {
+          "line": 235,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnProperty",
+      "expression": "ConditionalOnProperty",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 236,
+          "column": 10
+        },
+        "end": {
+          "line": 236,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "EnableConfigurationProperties",
+      "expression": "EnableConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 237,
+          "column": 10
+        },
+        "end": {
+          "line": 237,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "FairycharSecurityProperties",
+      "expression": "FairycharSecurityProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 241,
+          "column": 21
+        },
+        "end": {
+          "line": 241,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 240,
+          "column": 14
+        },
+        "end": {
+          "line": 240,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "SecurityContextTenantHandler",
+      "expression": "SecurityContextTenantHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "range": {
+        "start": {
+          "line": 245,
+          "column": 13
+        },
+        "end": {
+          "line": 245,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "range": {
+        "start": {
+          "line": 243,
+          "column": 14
+        },
+        "end": {
+          "line": 243,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.securityContextTenantHandler",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            SecurityContextTenantHandler securityContextTenantHandler()",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 14
+        },
+        "end": {
+          "line": 244,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "MybatisPlusInterceptor",
+      "expression": "MybatisPlusInterceptor",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptor",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            MybatisPlusInterceptor mybatisPlusInterceptor()",
+      "range": {
+        "start": {
+          "line": 252,
+          "column": 13
+        },
+        "end": {
+          "line": 252,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptor",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            MybatisPlusInterceptor mybatisPlusInterceptor()",
+      "range": {
+        "start": {
+          "line": 250,
+          "column": 14
+        },
+        "end": {
+          "line": 250,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptor",
+      "ownerSignature": "@Bean\n            @ConditionalOnMissingBean\n            MybatisPlusInterceptor mybatisPlusInterceptor()",
+      "range": {
+        "start": {
+          "line": 251,
+          "column": 14
+        },
+        "end": {
+          "line": 251,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "range": {
+        "start": {
+          "line": 259,
+          "column": 13
+        },
+        "end": {
+          "line": 259,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "MybatisPlusInterceptor",
+      "expression": "MybatisPlusInterceptor",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "range": {
+        "start": {
+          "line": 259,
+          "column": 49
+        },
+        "end": {
+          "line": 259,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.SecurityAutoConfigurer.RedisSessionConfiguration.TenantConfiguration.mybatisPlusInterceptorMarker",
+      "ownerSignature": "@Bean\n            String mybatisPlusInterceptorMarker(MybatisPlusInterceptor mybatisPlusInterceptor)",
+      "range": {
+        "start": {
+          "line": 258,
+          "column": 14
+        },
+        "end": {
+          "line": 258,
+          "column": 18
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 20
+        },
+        "end": {
+          "line": 125,
+          "column": 101
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 188,
+          "column": 40
+        },
+        "end": {
+          "line": 189,
+          "column": 85
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 190,
+          "column": 29
+        },
+        "end": {
+          "line": 190,
+          "column": 148
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 40
+        },
+        "end": {
+          "line": 194,
+          "column": 92
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 196,
+          "column": 38
+        },
+        "end": {
+          "line": 196,
+          "column": 114
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 35
+        },
+        "end": {
+          "line": 199,
+          "column": 51
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 202,
+          "column": 35
+        },
+        "end": {
+          "line": 202,
+          "column": 51
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 209,
+          "column": 44
+        },
+        "end": {
+          "line": 209,
+          "column": 116
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 212,
+          "column": 44
+        },
+        "end": {
+          "line": 212,
+          "column": 122
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 264,
+          "column": 79
+        },
+        "end": {
+          "line": 264,
+          "column": 123
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

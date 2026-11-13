@@ -1,0 +1,1540 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RoundTaskExecutor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.concurrent",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RoundTaskExecutor",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic final class RoundTaskExecutor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 92,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "<p>任务批量执行器</p>\n 多个任务链将会同一下标的任务统一一起执行,全部执行成功后才会又执行下一个下标的任务\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "phaser",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.phaser",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "private final Phaser phaser",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Phaser",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "taskList",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.taskList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "private final List<List<Action>> taskList",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 47
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "List<List<Action>>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executeRound",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executeRound",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "@Getter\nprivate final AtomicInteger executeRound",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 46
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "总任务执行轮数",
+      "type": "AtomicInteger",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executedTaskCount",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedTaskCount",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "@Getter\nprivate final AtomicInteger executedTaskCount",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 51
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "已执行完成的任务数量",
+      "type": "AtomicInteger",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executedRound",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedRound",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "@Getter\nprivate final AtomicInteger executedRound",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 47
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "目前执行到的任务轮数",
+      "type": "AtomicInteger",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "executorService",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executorService",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "private final ExecutorService executorService",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 51
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ExecutorService",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "RoundTaskExecutor",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "taskList",
+          "type": "List<List<Action>>",
+          "signature": "List<List<Action>> taskList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 43,
+              "column": 31
+            },
+            "end": {
+              "line": 43,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "executeRound",
+          "type": "int",
+          "signature": "int executeRound",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 43,
+              "column": 60
+            },
+            "end": {
+              "line": 43,
+              "column": 76
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "boxedTaskList",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "RoundTaskExecutor",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tasklist",
+          "type": "List<List<Action>>",
+          "signature": "List<List<Action>> tasklist",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 51
+            },
+            "end": {
+              "line": 53,
+              "column": 78
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "boxedTaskList",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "RoundTaskExecutor",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "tasklist",
+          "type": "List<List<Action>>",
+          "signature": "List<List<Action>> tasklist",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 51
+            },
+            "end": {
+              "line": 57,
+              "column": 78
+            }
+          }
+        },
+        {
+          "name": "round",
+          "type": "int",
+          "signature": "int round",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 80
+            },
+            "end": {
+              "line": 57,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 77,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "onInterrupted",
+          "type": "Consumer<InterruptedException>",
+          "signature": "Consumer<InterruptedException> onInterrupted",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 23
+            },
+            "end": {
+              "line": 69,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "onTimeout",
+          "type": "Consumer<TimeoutException>",
+          "signature": "Consumer<TimeoutException> onTimeout",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 69
+            },
+            "end": {
+              "line": 69,
+              "column": 105
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public void start()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "awaitTaskDone",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.awaitTaskDone",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public void awaitTaskDone()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "stop",
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.stop",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "signature": "public void stop()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collections",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.ExecutorService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.Executors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.Phaser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 36
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeoutException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 46
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicInteger",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.function.Consumer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "Phaser",
+      "expression": "new Phaser",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 23
+        },
+        "end": {
+          "line": 45,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "taskList.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 34
+        },
+        "end": {
+          "line": 45,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "newFixedThreadPool",
+      "expression": "Executors.newFixedThreadPool",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 32
+        },
+        "end": {
+          "line": 47,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "taskList.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 61
+        },
+        "end": {
+          "line": 47,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "new AtomicInteger",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 29
+        },
+        "end": {
+          "line": 48,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "new AtomicInteger",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 30
+        },
+        "end": {
+          "line": 49,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "new AtomicInteger",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 50,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "boxedTaskList",
+      "expression": "boxedTaskList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 16
+        },
+        "end": {
+          "line": 54,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "tasklist.stream().map(List::size).max(Integer::compareTo).get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 23
+        },
+        "end": {
+          "line": 58,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "max",
+      "expression": "tasklist.stream().map(List::size).max",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 23
+        },
+        "end": {
+          "line": 58,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "tasklist.stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 23
+        },
+        "end": {
+          "line": 58,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "tasklist.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 23
+        },
+        "end": {
+          "line": 58,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "tasklist.forEach",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 9
+        },
+        "end": {
+          "line": 65,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "RoundTaskExecutor",
+      "expression": "new RoundTaskExecutor",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 16
+        },
+        "end": {
+          "line": 66,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "unmodifiableList",
+      "expression": "Collections.unmodifiableList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 38
+        },
+        "end": {
+          "line": 66,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "this.taskList.forEach",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 76,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "start",
+      "expression": "start",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 9
+        },
+        "end": {
+          "line": 80,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "register",
+      "expression": "this.phaser.register",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.awaitTaskDone",
+      "ownerSignature": "public void awaitTaskDone()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 9
+        },
+        "end": {
+          "line": 85,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "arriveAndAwaitAdvance",
+      "expression": "this.phaser.arriveAndAwaitAdvance",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.awaitTaskDone",
+      "ownerSignature": "public void awaitTaskDone()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 9
+        },
+        "end": {
+          "line": 86,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "forceTermination",
+      "expression": "this.phaser.forceTermination",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.stop",
+      "ownerSignature": "public void stop()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 39
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Phaser",
+      "expression": "Phaser",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.phaser",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 19
+        },
+        "end": {
+          "line": 24,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.taskList",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.taskList",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 24
+        },
+        "end": {
+          "line": 25,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.taskList",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 29
+        },
+        "end": {
+          "line": 25,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "AtomicInteger",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executeRound",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "end": {
+          "line": 30,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executeRound",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "AtomicInteger",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedTaskCount",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 19
+        },
+        "end": {
+          "line": 35,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedTaskCount",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AtomicInteger",
+      "expression": "AtomicInteger",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedRound",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 19
+        },
+        "end": {
+          "line": 40,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executedRound",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.executorService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 19
+        },
+        "end": {
+          "line": 41,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 31
+        },
+        "end": {
+          "line": 43,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 36
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.RoundTaskExecutor",
+      "ownerSignature": "private RoundTaskExecutor(List<List<Action>> taskList, int executeRound)",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 41
+        },
+        "end": {
+          "line": 43,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "RoundTaskExecutor",
+      "expression": "RoundTaskExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 19
+        },
+        "end": {
+          "line": 53,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 51
+        },
+        "end": {
+          "line": 53,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 56
+        },
+        "end": {
+          "line": 53,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 61
+        },
+        "end": {
+          "line": 53,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "RoundTaskExecutor",
+      "expression": "RoundTaskExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 19
+        },
+        "end": {
+          "line": 57,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 51
+        },
+        "end": {
+          "line": 57,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 56
+        },
+        "end": {
+          "line": 57,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.boxedTaskList",
+      "ownerSignature": "public static RoundTaskExecutor boxedTaskList(List<List<Action>> tasklist, int round)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 61
+        },
+        "end": {
+          "line": 57,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "Consumer",
+      "expression": "Consumer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 23
+        },
+        "end": {
+          "line": 69,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "InterruptedException",
+      "expression": "InterruptedException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 32
+        },
+        "end": {
+          "line": 69,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Consumer",
+      "expression": "Consumer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 69
+        },
+        "end": {
+          "line": 69,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "TimeoutException",
+      "expression": "TimeoutException",
+      "ownerQualifiedName": "com.fairychar.bag.extension.concurrent.RoundTaskExecutor.start",
+      "ownerSignature": "public void start(Consumer<InterruptedException> onInterrupted, Consumer<TimeoutException> onTimeout)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 78
+        },
+        "end": {
+          "line": 69,
+          "column": 94
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 45
+        },
+        "end": {
+          "line": 58,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 61
+        },
+        "end": {
+          "line": 58,
+          "column": 79
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 26
+        },
+        "end": {
+          "line": 65,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 31
+        },
+        "end": {
+          "line": 76,
+          "column": 12
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1532 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/MenuHasApiService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "MenuHasApiService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"menuHasApiService\")\npublic class MenuHasApiService extends ServiceImpl<MenuHasApiMapper, MenuHasApi> implements IMenuHasApiService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 107,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"menuHasApiService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(MenuHasApi)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<MenuHasApiMapper, MenuHasApi>",
+        "IMenuHasApiService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "menuHasApiMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Autowired\nprivate MenuHasApiMapper menuHasApiMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 47
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "MenuHasApiMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "menuHasApiStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Autowired\nprivate MenuHasApiStructure menuHasApiStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 53
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "MenuHasApiStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Page<MenuHasApiDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "MenuHasApiQuery",
+          "signature": "MenuHasApiQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 40
+            },
+            "end": {
+              "line": 35,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addMenuHasApiQuery {@link MenuHasApiQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "Integer",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addMenuHasApiQuery",
+          "type": "AddMenuHasApiQuery",
+          "signature": "AddMenuHasApiQuery addMenuHasApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 25
+            },
+            "end": {
+              "line": 51,
+              "column": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddMenuHasApiQuery>",
+          "signature": "List<AddMenuHasApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 73,
+              "column": 39
+            },
+            "end": {
+              "line": 73,
+              "column": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 29
+            },
+            "end": {
+              "line": 91,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeByMenuIds",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "signature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "menuIds",
+          "type": "List<Integer>",
+          "signature": "List<Integer> menuIds",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 100,
+              "column": 33
+            },
+            "end": {
+              "line": 100,
+              "column": 54
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.MenuHasApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.MenuHasApiDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddMenuHasApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.MenuHasApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IMenuHasApiService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.MenuHasApiStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "queryToEntity",
+      "expression": "this.menuHasApiStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 29
+        },
+        "end": {
+          "line": 36,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.menuHasApiMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 36
+        },
+        "end": {
+          "line": 37,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "query.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 66
+        },
+        "end": {
+          "line": 37,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.menuHasApiStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 36
+        },
+        "end": {
+          "line": 38,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 76
+        },
+        "end": {
+          "line": 38,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 42
+        },
+        "end": {
+          "line": 39,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 53
+        },
+        "end": {
+          "line": 39,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 75
+        },
+        "end": {
+          "line": 39,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 94
+        },
+        "end": {
+          "line": 39,
+          "column": 112
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.menuHasApiStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 29
+        },
+        "end": {
+          "line": 52,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.menuHasApiMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 26
+        },
+        "end": {
+          "line": 53,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 19
+        },
+        "end": {
+          "line": 59,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.menuHasApiStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 37
+        },
+        "end": {
+          "line": 74,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "listByMenuIdAndApiId",
+      "expression": "this.menuHasApiMapper.listByMenuIdAndApiId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 33
+        },
+        "end": {
+          "line": 75,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 14
+        },
+        "end": {
+          "line": 76,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 19
+        },
+        "end": {
+          "line": 77,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 13
+        },
+        "end": {
+          "line": 80,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 19
+        },
+        "end": {
+          "line": 83,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "ids.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "removeByIds",
+      "expression": "super.removeByIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 9
+        },
+        "end": {
+          "line": 95,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "menuIds.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 13
+        },
+        "end": {
+          "line": 101,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "super.remove",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 9
+        },
+        "end": {
+          "line": 104,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<MenuHasApi>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<MenuHasApi>",
+      "expression": "new QueryWrapper<MenuHasApi>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 40
+        },
+        "end": {
+          "line": 28,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "MenuHasApiMapper",
+      "expression": "MenuHasApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 52
+        },
+        "end": {
+          "line": 28,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 70
+        },
+        "end": {
+          "line": 28,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "IMenuHasApiService",
+      "expression": "IMenuHasApiService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 93
+        },
+        "end": {
+          "line": 28,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApiMapper",
+      "expression": "MenuHasApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 13
+        },
+        "end": {
+          "line": 30,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "MenuHasApiStructure",
+      "expression": "MenuHasApiStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.menuHasApiStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 12
+        },
+        "end": {
+          "line": 35,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "MenuHasApiDTO",
+      "expression": "MenuHasApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "MenuHasApiQuery",
+      "expression": "MenuHasApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 40
+        },
+        "end": {
+          "line": 35,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<MenuHasApiDTO> pageAll(MenuHasApiQuery query)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 12
+        },
+        "end": {
+          "line": 51,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AddMenuHasApiQuery",
+      "expression": "AddMenuHasApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 25
+        },
+        "end": {
+          "line": 51,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddMenuHasApiQuery addMenuHasApiQuery)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 12
+        },
+        "end": {
+          "line": 73,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 17
+        },
+        "end": {
+          "line": 73,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 39
+        },
+        "end": {
+          "line": 73,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "AddMenuHasApiQuery",
+      "expression": "AddMenuHasApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 44
+        },
+        "end": {
+          "line": 73,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.saveBatch",
+      "ownerSignature": "@Override\n    public List<MenuHasApi> saveBatch(List<AddMenuHasApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 6
+        },
+        "end": {
+          "line": 72,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 29
+        },
+        "end": {
+          "line": 91,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 34
+        },
+        "end": {
+          "line": 91,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 33
+        },
+        "end": {
+          "line": 100,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 38
+        },
+        "end": {
+          "line": 100,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.MenuHasApiService.removeByMenuIds",
+      "ownerSignature": "@Override\n    public void removeByMenuIds(List<Integer> menuIds)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 6
+        },
+        "end": {
+          "line": 99,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 40
+        },
+        "end": {
+          "line": 54,
+          "column": 89
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,429 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/LanguageValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "LanguageValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class LanguageValidator extends AbstractPatternValidator<Language, String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "语言验证程序\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "AbstractPatternValidator<Language, String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "languageType",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.languageType",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "signature": "private Language.LanguageType languageType",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Language.LanguageType",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "signature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "String",
+          "signature": "String value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 28
+            },
+            "end": {
+              "line": 18,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 42
+            },
+            "end": {
+              "line": 18,
+              "column": 76
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "initialize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "signature": "@Override\n    public void initialize(Language constraintAnnotation)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "constraintAnnotation",
+          "type": "Language",
+          "signature": "Language constraintAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 28
+            },
+            "end": {
+              "line": 24,
+              "column": 57
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.abstracts.AbstractPatternValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 83
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getRegex",
+      "expression": "languageType.getRegex",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 24
+        },
+        "end": {
+          "line": 19,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "match",
+      "expression": "super.match",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 16
+        },
+        "end": {
+          "line": 20,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "initialize",
+      "expression": "super.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(Language constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 9
+        },
+        "end": {
+          "line": 25,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "constraintAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(Language constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 29
+        },
+        "end": {
+          "line": 26,
+          "column": 57
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AbstractPatternValidator",
+      "expression": "AbstractPatternValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 40
+        },
+        "end": {
+          "line": 13,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Language",
+      "expression": "Language",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 65
+        },
+        "end": {
+          "line": 13,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 75
+        },
+        "end": {
+          "line": 13,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "LanguageType",
+      "expression": "Language.LanguageType",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.languageType",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 13
+        },
+        "end": {
+          "line": 15,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 28
+        },
+        "end": {
+          "line": 18,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 42
+        },
+        "end": {
+          "line": 18,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Language",
+      "expression": "Language",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(Language constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 28
+        },
+        "end": {
+          "line": 24,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.LanguageValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(Language constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 6
+        },
+        "end": {
+          "line": 23,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

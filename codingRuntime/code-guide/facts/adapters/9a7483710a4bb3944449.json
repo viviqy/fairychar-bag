@@ -1,0 +1,687 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/TransactionUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "TransactionUtil",
+      "qualifiedName": "com.fairychar.bag.utils.TransactionUtil",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic class TransactionUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 58,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据库事务操作工具类\n\n @author chiyo <br>\n @since 1.3.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "doWithTransactionAsync",
+      "qualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil",
+      "signature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "Future<?>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 52
+            },
+            "end": {
+              "line": 23,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "isAllSuccess",
+          "type": "AtomicBoolean",
+          "signature": "AtomicBoolean isAllSuccess",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 67
+            },
+            "end": {
+              "line": 23,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "cyclicBarrier",
+          "type": "CyclicBarrier",
+          "signature": "CyclicBarrier cyclicBarrier",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 95
+            },
+            "end": {
+              "line": 23,
+              "column": 122
+            }
+          }
+        },
+        {
+          "name": "executor",
+          "type": "ExecutorService",
+          "signature": "ExecutorService executor",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 15
+            },
+            "end": {
+              "line": 24,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "transactionTemplate",
+          "type": "TransactionTemplate",
+          "signature": "TransactionTemplate transactionTemplate",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 41
+            },
+            "end": {
+              "line": 24,
+              "column": 80
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "doWithTransactionAsync",
+      "qualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil",
+      "signature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "Future<?>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 52
+            },
+            "end": {
+              "line": 28,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "isAllSuccess",
+          "type": "AtomicBoolean",
+          "signature": "AtomicBoolean isAllSuccess",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 67
+            },
+            "end": {
+              "line": 28,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "cyclicBarrier",
+          "type": "CyclicBarrier",
+          "signature": "CyclicBarrier cyclicBarrier",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 95
+            },
+            "end": {
+              "line": 28,
+              "column": 122
+            }
+          }
+        },
+        {
+          "name": "executor",
+          "type": "ExecutorService",
+          "signature": "ExecutorService executor",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 15
+            },
+            "end": {
+              "line": 29,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "transactionTemplate",
+          "type": "TransactionTemplate",
+          "signature": "TransactionTemplate transactionTemplate",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 41
+            },
+            "end": {
+              "line": 29,
+              "column": 80
+            }
+          }
+        },
+        {
+          "name": "timeoutSeconds",
+          "type": "int",
+          "signature": "int timeoutSeconds",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 82
+            },
+            "end": {
+              "line": 29,
+              "column": 100
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FBException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.transaction.support.TransactionTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.CyclicBarrier",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.ExecutorService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.Future",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 36
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicBoolean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "doWithTransactionAsync",
+      "expression": "doWithTransactionAsync",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 16
+        },
+        "end": {
+          "line": 25,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "submit",
+      "expression": "executor.submit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 16
+        },
+        "end": {
+          "line": 56,
+          "column": 12
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Future",
+      "expression": "Future",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 19
+        },
+        "end": {
+          "line": 23,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 52
+        },
+        "end": {
+          "line": 23,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "AtomicBoolean",
+      "expression": "AtomicBoolean",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 67
+        },
+        "end": {
+          "line": 23,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "CyclicBarrier",
+      "expression": "CyclicBarrier",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 95
+        },
+        "end": {
+          "line": 23,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 15
+        },
+        "end": {
+          "line": 24,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "TransactionTemplate",
+      "expression": "TransactionTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 41
+        },
+        "end": {
+          "line": 24,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Future",
+      "expression": "Future",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 19
+        },
+        "end": {
+          "line": 28,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 52
+        },
+        "end": {
+          "line": 28,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "AtomicBoolean",
+      "expression": "AtomicBoolean",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 67
+        },
+        "end": {
+          "line": 28,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "CyclicBarrier",
+      "expression": "CyclicBarrier",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 95
+        },
+        "end": {
+          "line": 28,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 15
+        },
+        "end": {
+          "line": 29,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "TransactionTemplate",
+      "expression": "TransactionTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.utils.TransactionUtil.doWithTransactionAsync",
+      "ownerSignature": "public static Future<?> doWithTransactionAsync(Action action, AtomicBoolean isAllSuccess, CyclicBarrier cyclicBarrier\n            , ExecutorService executor, TransactionTemplate transactionTemplate, int timeoutSeconds)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 41
+        },
+        "end": {
+          "line": 29,
+          "column": 60
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 32
+        },
+        "end": {
+          "line": 56,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,336 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/permission/ApiAuthority.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.permission",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ApiAuthority",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@Data\npublic class ApiAuthority implements IApiAuthority",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基础登录用户权限信息类\n\n @author chiyo <br>",
+      "supertypes": [
+        "IApiAuthority"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "api",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.api",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "signature": "private String api",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "method",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.method",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "signature": "private String method",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getApi",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getApi",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "signature": "@Override\n    public String getApi()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getMethod",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "signature": "@Override\n    public String getMethod()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "IApiAuthority",
+      "expression": "IApiAuthority",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 38
+        },
+        "end": {
+          "line": 13,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.api",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.method",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 13
+        },
+        "end": {
+          "line": 15,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getApi",
+      "ownerSignature": "@Override\n    public String getApi()",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 12
+        },
+        "end": {
+          "line": 18,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getApi",
+      "ownerSignature": "@Override\n    public String getApi()",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getMethod",
+      "ownerSignature": "@Override\n    public String getMethod()",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 12
+        },
+        "end": {
+          "line": 23,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthority.getMethod",
+      "ownerSignature": "@Override\n    public String getMethod()",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 6
+        },
+        "end": {
+          "line": 22,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

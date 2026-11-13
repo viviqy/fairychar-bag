@@ -1,0 +1,1093 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/structure/SysMenuStructure.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.structure",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SysMenuStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "ownerQualifiedName": "",
+      "signature": "@Mapper(componentModel = \"spring\", uses = {})\npublic interface SysMenuStructure",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 70,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Mapper(componentModel = \"spring\", uses = {})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统菜单(SysMenu)表数据库实体转换器\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "entitiesToDtos",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "entities转dtos\n\n @param entities {@link SysMenu}\n @return dto对象 {@link SysMenuDTO}",
+      "typeParameters": [],
+      "returnType": "List<SysMenuDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SysMenu>",
+          "signature": "List<SysMenu> entities",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 45
+            },
+            "end": {
+              "line": 27,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "entityToDto",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "SysMenuDTO entityToDto(SysMenu entity)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "entity转dto\n\n @param entity {@link SysMenu}\n @return dto对象 {@link SysMenuDTO}",
+      "typeParameters": [],
+      "returnType": "SysMenuDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entity",
+          "type": "SysMenu",
+          "signature": "SysMenu entity",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 28
+            },
+            "end": {
+              "line": 40,
+              "column": 42
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "queries转entities\n\n @param queries {@link SysMenuQuery}\n @return entity对象 {@link SysMenu}",
+      "typeParameters": [],
+      "returnType": "List<SysMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "queries",
+          "type": "List<SysMenuQuery>",
+          "signature": "List<SysMenuQuery> queries",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 48,
+              "column": 45
+            },
+            "end": {
+              "line": 48,
+              "column": 71
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "SysMenu queryToEntity(SysMenuQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 47
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "query转entity\n\n @param query {@link SysMenuQuery}\n @return entity对象 {@link SysMenu}",
+      "typeParameters": [],
+      "returnType": "SysMenu",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "SysMenuQuery",
+          "signature": "SysMenuQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 61,
+              "column": 27
+            },
+            "end": {
+              "line": 61,
+              "column": 45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "SysMenu addQueryToEntity(AddSysMenuQuery addSysMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysMenu",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysMenuQuery",
+          "type": "AddSysMenuQuery",
+          "signature": "AddSysMenuQuery addSysMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 30
+            },
+            "end": {
+              "line": 63,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "SysMenu updateQueryToEntity(UpdateSysMenuQuery updateSysMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 72
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysMenu",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysMenuQuery",
+          "type": "UpdateSysMenuQuery",
+          "signature": "UpdateSysMenuQuery updateSysMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 33
+            },
+            "end": {
+              "line": 65,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "List<SysMenu> addQueriesToEntities(List<AddSysMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SysMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSysMenuQuery>",
+          "signature": "List<AddSysMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 40
+            },
+            "end": {
+              "line": 67,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "signature": "List<SysMenu> updateQueriesToEntities(List<UpdateSysMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 75
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SysMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSysMenuQuery>",
+          "signature": "List<UpdateSysMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 43
+            },
+            "end": {
+              "line": 69,
+              "column": 73
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.mapstruct.Mapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "collect",
+      "expression": "entities.stream().map(this::entityToDto).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "entities.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 65
+        },
+        "end": {
+          "line": 31,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "queries.stream().map(this::queryToEntity).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "queries.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "queries.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 66
+        },
+        "end": {
+          "line": 52,
+          "column": 85
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Mapper",
+      "expression": "Mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysMenuDTO",
+      "expression": "SysMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 18
+        },
+        "end": {
+          "line": 27,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 45
+        },
+        "end": {
+          "line": 27,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entitiesToDtos",
+      "ownerSignature": "default List<SysMenuDTO> entitiesToDtos(List<SysMenu> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 50
+        },
+        "end": {
+          "line": 27,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "SysMenuDTO",
+      "expression": "SysMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entityToDto",
+      "ownerSignature": "SysMenuDTO entityToDto(SysMenu entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.entityToDto",
+      "ownerSignature": "SysMenuDTO entityToDto(SysMenu entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 28
+        },
+        "end": {
+          "line": 40,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 13
+        },
+        "end": {
+          "line": 48,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 18
+        },
+        "end": {
+          "line": 48,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 45
+        },
+        "end": {
+          "line": 48,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "SysMenuQuery",
+      "expression": "SysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queriesToEntities",
+      "ownerSignature": "default List<SysMenu> queriesToEntities(List<SysMenuQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 50
+        },
+        "end": {
+          "line": 48,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queryToEntity",
+      "ownerSignature": "SysMenu queryToEntity(SysMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "SysMenuQuery",
+      "expression": "SysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.queryToEntity",
+      "ownerSignature": "SysMenu queryToEntity(SysMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 27
+        },
+        "end": {
+          "line": 61,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueryToEntity",
+      "ownerSignature": "SysMenu addQueryToEntity(AddSysMenuQuery addSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "AddSysMenuQuery",
+      "expression": "AddSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueryToEntity",
+      "ownerSignature": "SysMenu addQueryToEntity(AddSysMenuQuery addSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 30
+        },
+        "end": {
+          "line": 63,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueryToEntity",
+      "ownerSignature": "SysMenu updateQueryToEntity(UpdateSysMenuQuery updateSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "UpdateSysMenuQuery",
+      "expression": "UpdateSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueryToEntity",
+      "ownerSignature": "SysMenu updateQueryToEntity(UpdateSysMenuQuery updateSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 33
+        },
+        "end": {
+          "line": 65,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysMenu> addQueriesToEntities(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysMenu> addQueriesToEntities(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 10
+        },
+        "end": {
+          "line": 67,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysMenu> addQueriesToEntities(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 40
+        },
+        "end": {
+          "line": 67,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "AddSysMenuQuery",
+      "expression": "AddSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.addQueriesToEntities",
+      "ownerSignature": "List<SysMenu> addQueriesToEntities(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 45
+        },
+        "end": {
+          "line": 67,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysMenu> updateQueriesToEntities(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysMenu> updateQueriesToEntities(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysMenu> updateQueriesToEntities(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 43
+        },
+        "end": {
+          "line": 69,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "UpdateSysMenuQuery",
+      "expression": "UpdateSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SysMenu> updateQueriesToEntities(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 48
+        },
+        "end": {
+          "line": 69,
+          "column": 66
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 38
+        },
+        "end": {
+          "line": 31,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 37
+        },
+        "end": {
+          "line": 52,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

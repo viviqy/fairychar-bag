@@ -1,0 +1,1202 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-boot-starter/src/main/java/com/fairychar/security/boot/configurer/CommonBeansConfiguration.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.boot.configurer",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "CommonBeansConfiguration",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "ownerQualifiedName": "",
+      "signature": "@Configuration\n@EnableConfigurationProperties(FairycharSecurityProperties.class)\n@AutoConfigureAfter(RedisAutoConfiguration.class)\npublic class CommonBeansConfiguration",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 83,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Configuration",
+        "@EnableConfigurationProperties(FairycharSecurityProperties.class)",
+        "@AutoConfigureAfter(RedisAutoConfiguration.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "安全认证基础Bean配置\n\n @author chiyo <br>",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Autowired\nprivate ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 39
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "successPostHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.successPostHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Autowired(required = false)\nprivate List<ISuccessPostHandler> successPostHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 58
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<ISuccessPostHandler>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "failurePostHandlers",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.failurePostHandlers",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Autowired(required = false)\nprivate List<IFailurePostHandler> failurePostHandlers",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 59
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<IFailurePostHandler>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "logoutPostHandlers",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.logoutPostHandlers",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Autowired(required = false)\nprivate List<ILogoutPostHandler> logoutPostHandlers",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 57
+        }
+      },
+      "annotations": [
+        "@Autowired(required = false)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<ILogoutPostHandler>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "postableLoginSuccessHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "AuthenticationSuccessHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "postableLoginFailedHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "AuthenticationFailureHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "postableAccessDeniedHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableAccessDeniedHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Bean\n    @ConditionalOnMissingBean\n    AccessDeniedHandler postableAccessDeniedHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "AccessDeniedHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "mappedExceptionAuthenticationEntryPoint",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 71,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "AuthenticationEntryPoint",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "postableLogoutSuccessHandler",
+      "qualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "signature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "visibility": "package-private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Bean",
+        "@ConditionalOnMissingBean"
+      ],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "LogoutSuccessHandler",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.entrypoint.MappedExceptionAuthenticationEntryPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 92
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.handler.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.AutoConfigureAfter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 82
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 81
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.EnableConfigurationProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 82
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.Bean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.annotation.Configuration",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.AuthenticationEntryPoint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.access.AccessDeniedHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.AuthenticationFailureHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 85
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.AuthenticationSuccessHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 85
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.logout.LogoutSuccessHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "PostableLoginSuccessHandler",
+      "expression": "new PostableLoginSuccessHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 20
+        },
+        "end": {
+          "line": 45,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "PostableLoginSuccessHandler",
+      "expression": "new PostableLoginSuccessHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 20
+        },
+        "end": {
+          "line": 47,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "PostableLoginFailureHandler",
+      "expression": "new PostableLoginFailureHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 20
+        },
+        "end": {
+          "line": 55,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "PostableLoginFailureHandler",
+      "expression": "new PostableLoginFailureHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "JsonAccessDeniedHandler",
+      "expression": "new JsonAccessDeniedHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableAccessDeniedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AccessDeniedHandler postableAccessDeniedHandler()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 16
+        },
+        "end": {
+          "line": 64,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "MappedExceptionAuthenticationEntryPoint",
+      "expression": "new MappedExceptionAuthenticationEntryPoint",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 16
+        },
+        "end": {
+          "line": 70,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "of",
+      "expression": "Map.of",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 79
+        },
+        "end": {
+          "line": 70,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "PostableLogoutSuccessHandler",
+      "expression": "new PostableLogoutSuccessHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 20
+        },
+        "end": {
+          "line": 77,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "PostableLogoutSuccessHandler",
+      "expression": "new PostableLogoutSuccessHandler",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 20
+        },
+        "end": {
+          "line": 79,
+          "column": 71
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Configuration",
+      "expression": "Configuration",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 2
+        },
+        "end": {
+          "line": 28,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "EnableConfigurationProperties",
+      "expression": "EnableConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 2
+        },
+        "end": {
+          "line": 29,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "AutoConfigureAfter",
+      "expression": "AutoConfigureAfter",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 13
+        },
+        "end": {
+          "line": 33,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 6
+        },
+        "end": {
+          "line": 32,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.successPostHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "ISuccessPostHandler",
+      "expression": "ISuccessPostHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.successPostHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 18
+        },
+        "end": {
+          "line": 35,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.successPostHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.failurePostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 37,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "IFailurePostHandler",
+      "expression": "IFailurePostHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.failurePostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 18
+        },
+        "end": {
+          "line": 37,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.failurePostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.logoutPostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "ILogoutPostHandler",
+      "expression": "ILogoutPostHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.logoutPostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 18
+        },
+        "end": {
+          "line": 39,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.logoutPostHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 6
+        },
+        "end": {
+          "line": 38,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "AuthenticationSuccessHandler",
+      "expression": "AuthenticationSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 6
+        },
+        "end": {
+          "line": 41,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationSuccessHandler.class})\n    AuthenticationSuccessHandler postableLoginSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 6
+        },
+        "end": {
+          "line": 42,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "AuthenticationFailureHandler",
+      "expression": "AuthenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 6
+        },
+        "end": {
+          "line": 51,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLoginFailedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean(value = {AuthenticationFailureHandler.class})\n    AuthenticationFailureHandler postableLoginFailedHandler()",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 6
+        },
+        "end": {
+          "line": 52,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "AccessDeniedHandler",
+      "expression": "AccessDeniedHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableAccessDeniedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AccessDeniedHandler postableAccessDeniedHandler()",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableAccessDeniedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AccessDeniedHandler postableAccessDeniedHandler()",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 6
+        },
+        "end": {
+          "line": 61,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableAccessDeniedHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AccessDeniedHandler postableAccessDeniedHandler()",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 6
+        },
+        "end": {
+          "line": 62,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "AuthenticationEntryPoint",
+      "expression": "AuthenticationEntryPoint",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 6
+        },
+        "end": {
+          "line": 67,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.mappedExceptionAuthenticationEntryPoint",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    AuthenticationEntryPoint mappedExceptionAuthenticationEntryPoint()",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 6
+        },
+        "end": {
+          "line": 68,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "LogoutSuccessHandler",
+      "expression": "LogoutSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Bean",
+      "expression": "Bean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 6
+        },
+        "end": {
+          "line": 73,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "ConditionalOnMissingBean",
+      "expression": "ConditionalOnMissingBean",
+      "ownerQualifiedName": "com.fairychar.security.boot.configurer.CommonBeansConfiguration.postableLogoutSuccessHandler",
+      "ownerSignature": "@Bean\n    @ConditionalOnMissingBean\n    LogoutSuccessHandler postableLogoutSuccessHandler()",
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 6
+        },
+        "end": {
+          "line": 74,
+          "column": 30
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

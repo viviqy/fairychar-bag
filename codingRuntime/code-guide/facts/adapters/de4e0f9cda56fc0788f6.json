@@ -1,0 +1,314 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/verify/ICodeVerifier.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.verify",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ICodeVerifier",
+      "qualifiedName": "com.fairychar.security.core.verify.ICodeVerifier",
+      "ownerQualifiedName": "",
+      "signature": "public interface ICodeVerifier",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "验证码验证器\n\n @author chiyo <br>",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "generateCode",
+      "qualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.generateCode",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier",
+      "signature": "void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 98
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "生成验证码\n\n @param request  请求\n @param response 响应",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 23
+            },
+            "end": {
+              "line": 20,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 51
+            },
+            "end": {
+              "line": 20,
+              "column": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "verifyCode",
+      "qualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.verifyCode",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier",
+      "signature": "void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 110
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "校验验证码\n\n @param request  请求\n @param response 响应",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "AuthenticationException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 21
+            },
+            "end": {
+              "line": 28,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 49
+            },
+            "end": {
+              "line": 28,
+              "column": 77
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.AuthenticationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 66
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.generateCode",
+      "ownerSignature": "void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 23
+        },
+        "end": {
+          "line": 20,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.generateCode",
+      "ownerSignature": "void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 51
+        },
+        "end": {
+          "line": 20,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.generateCode",
+      "ownerSignature": "void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 88
+        },
+        "end": {
+          "line": 20,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.verifyCode",
+      "ownerSignature": "void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 21
+        },
+        "end": {
+          "line": 28,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.verifyCode",
+      "ownerSignature": "void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 49
+        },
+        "end": {
+          "line": 28,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "AuthenticationException",
+      "expression": "AuthenticationException",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.ICodeVerifier.verifyCode",
+      "ownerSignature": "void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 86
+        },
+        "end": {
+          "line": 28,
+          "column": 109
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

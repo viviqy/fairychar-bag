@@ -1,0 +1,397 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/properties/FairycharBagProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FairycharBagProperties",
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "ownerQualifiedName": "",
+      "signature": "@ConfigurationProperties(prefix = \"fairychar.bag\")\n@Getter\n@Setter\npublic class FairycharBagProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@ConfigurationProperties(prefix = \"fairychar.bag\")",
+        "@Getter",
+        "@Setter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Fairychar Bag 属性配置\n\n @author qiyue",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "aop",
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.aop",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "signature": "@NestedConfigurationProperty\nprivate AopProperties aop",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AopProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "serverClient",
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.serverClient",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "signature": "@NestedConfigurationProperty\nprivate NettyServerClientProperties serverClient",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 54
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "NettyServerClientProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "secret",
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.secret",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "signature": "@NestedConfigurationProperty\nprivate SecretProperties secret",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 37
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SecretProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "web",
+      "qualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.web",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "signature": "@NestedConfigurationProperty\nprivate WebProperties web",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "WebProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.ConfigurationProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.NestedConfigurationProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "ConfigurationProperties",
+      "expression": "ConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "AopProperties",
+      "expression": "AopProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.aop",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.aop",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "NettyServerClientProperties",
+      "expression": "NettyServerClientProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.serverClient",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.serverClient",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "SecretProperties",
+      "expression": "SecretProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.secret",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.secret",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 6
+        },
+        "end": {
+          "line": 21,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "WebProperties",
+      "expression": "WebProperties",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.web",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.FairycharBagProperties.web",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 6
+        },
+        "end": {
+          "line": 23,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

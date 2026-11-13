@@ -1,0 +1,502 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/interfaces/ISysDictService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.interfaces",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ISysDictService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "ownerQualifiedName": "",
+      "signature": "public interface ISysDictService extends IService<SysDict>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据字典详情(SysDict)表服务接口\n\n @author chiyo",
+      "supertypes": [
+        "IService<SysDict>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "signature": "Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 57
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Page<SysDictDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysDictQuery",
+          "type": "SysDictQuery",
+          "signature": "SysDictQuery sysDictQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 30
+            },
+            "end": {
+              "line": 21,
+              "column": 55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "signature": "int save(AddSysDictQuery sysDictQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysDictQuery",
+          "type": "AddSysDictQuery",
+          "signature": "AddSysDictQuery sysDictQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 14
+            },
+            "end": {
+              "line": 23,
+              "column": 42
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "signature": "boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 62
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysDictQuery",
+          "signature": "UpdateSysDictQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 25,
+              "column": 24
+            },
+            "end": {
+              "line": 25,
+              "column": 60
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "signature": "SysDictDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SysDictDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 25
+            },
+            "end": {
+              "line": 27,
+              "column": 40
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.IService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysDict",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysDictDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysDictQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "IService",
+      "expression": "IService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 42
+        },
+        "end": {
+          "line": 19,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "SysDict",
+      "expression": "SysDict",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 51
+        },
+        "end": {
+          "line": 19,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.pageAll",
+      "ownerSignature": "Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.pageAll",
+      "ownerSignature": "Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 10
+        },
+        "end": {
+          "line": 21,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "SysDictQuery",
+      "expression": "SysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.pageAll",
+      "ownerSignature": "Page<SysDictDTO> pageAll(SysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 30
+        },
+        "end": {
+          "line": 21,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "AddSysDictQuery",
+      "expression": "AddSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.save",
+      "ownerSignature": "int save(AddSysDictQuery sysDictQuery)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 14
+        },
+        "end": {
+          "line": 23,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "UpdateSysDictQuery",
+      "expression": "UpdateSysDictQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.updateById",
+      "ownerSignature": "boolean updateById(UpdateSysDictQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 24
+        },
+        "end": {
+          "line": 25,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "SysDictDTO",
+      "expression": "SysDictDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.findById",
+      "ownerSignature": "SysDictDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysDictService.findById",
+      "ownerSignature": "SysDictDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 25
+        },
+        "end": {
+          "line": 27,
+          "column": 37
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

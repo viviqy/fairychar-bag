@@ -1,0 +1,273 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnDateTime.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "ConditionalOnDateTime",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "ownerQualifiedName": "",
+      "signature": "@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Conditional(OnDateTimeCondition.class)\npublic @interface ConditionalOnDateTime",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Conditional(OnDateTimeCondition.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于时间的Bean条件判断器,仅当当前时间在区间内的情况下Bean才会初始化\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "lower",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.lower",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "signature": "String lower()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 20
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "开始时间\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "upper",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.upper",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "signature": "String upper()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 20
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "结束时间\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "pattern",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.pattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "signature": "String pattern() default \"yyyy-MM-dd HH:mm:ss\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "时间格式\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"yyyy-MM-dd HH:mm:ss\"",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.annotation.Conditional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Conditional",
+      "expression": "Conditional",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.lower",
+      "ownerSignature": "String lower()",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.upper",
+      "ownerSignature": "String upper()",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnDateTime.pattern",
+      "ownerSignature": "String pattern() default \"yyyy-MM-dd HH:mm:ss\"",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

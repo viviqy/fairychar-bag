@@ -1,0 +1,632 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/BindingResultUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "BindingResultUtil",
+      "qualifiedName": "com.fairychar.bag.utils.BindingResultUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class BindingResultUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "hibernate validator校验结果渲染工具类\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "LINER",
+      "qualifiedName": "com.fairychar.bag.utils.BindingResultUtil.LINER",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil",
+      "signature": "private static final String LINER = \"\\r\\n\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "String",
+      "defaultExpression": "\"\\r\\n\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "checkBindingErrors",
+      "qualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil",
+      "signature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "ParamErrorException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "bindingResults",
+          "type": "BindingResult[]",
+          "signature": "BindingResult... bindingResults",
+          "annotations": [],
+          "varargs": true,
+          "range": {
+            "start": {
+              "line": 21,
+              "column": 43
+            },
+            "end": {
+              "line": 21,
+              "column": 74
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "checkBindingErrors",
+      "qualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil",
+      "signature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "ParamErrorException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "bindingResults",
+          "type": "List<BindingResult>",
+          "signature": "List<BindingResult> bindingResults",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 43
+            },
+            "end": {
+              "line": 37,
+              "column": 77
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.ParamErrorException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.validation.BindingResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "StringBuffer",
+      "expression": "new StringBuffer",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 31
+        },
+        "end": {
+          "line": 22,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "hasErrors",
+      "expression": "bindingResult.hasErrors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 17
+        },
+        "end": {
+          "line": 24,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "append",
+      "expression": "errors.append",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 17
+        },
+        "end": {
+          "line": 28,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "bindingResult\n                        .getFieldErrors().stream()\n                        .map(e -> \"[\" + e.getField() + \"]\" + \" \" + e.getDefaultMessage())\n                        .collect",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 31
+        },
+        "end": {
+          "line": 28,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "bindingResult\n                        .getFieldErrors().stream()\n                        .map",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 31
+        },
+        "end": {
+          "line": 27,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "bindingResult\n                        .getFieldErrors().stream",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 31
+        },
+        "end": {
+          "line": 26,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "getFieldErrors",
+      "expression": "bindingResult\n                        .getFieldErrors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 31
+        },
+        "end": {
+          "line": 26,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 34
+        },
+        "end": {
+          "line": 28,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "append",
+      "expression": "errors.append",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 17
+        },
+        "end": {
+          "line": 29,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "length",
+      "expression": "errors.length",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "ParamErrorException",
+      "expression": "new ParamErrorException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 19
+        },
+        "end": {
+          "line": 33,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "toString",
+      "expression": "errors.toString",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 43
+        },
+        "end": {
+          "line": 33,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "checkBindingErrors",
+      "expression": "checkBindingErrors",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 9
+        },
+        "end": {
+          "line": 38,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "toArray",
+      "expression": "bindingResults.toArray",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 28
+        },
+        "end": {
+          "line": 38,
+          "column": 73
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.LINER",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 26
+        },
+        "end": {
+          "line": 19,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "BindingResult",
+      "expression": "BindingResult",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 43
+        },
+        "end": {
+          "line": 21,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "ParamErrorException",
+      "expression": "ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(BindingResult... bindingResults) throws ParamErrorException",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 83
+        },
+        "end": {
+          "line": 21,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 43
+        },
+        "end": {
+          "line": 37,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "BindingResult",
+      "expression": "BindingResult",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 48
+        },
+        "end": {
+          "line": 37,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "ParamErrorException",
+      "expression": "ParamErrorException",
+      "ownerQualifiedName": "com.fairychar.bag.utils.BindingResultUtil.checkBindingErrors",
+      "ownerSignature": "public static void checkBindingErrors(List<BindingResult> bindingResults) throws ParamErrorException",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 86
+        },
+        "end": {
+          "line": 37,
+          "column": 105
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 30
+        },
+        "end": {
+          "line": 27,
+          "column": 89
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,648 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/handler/JsonAccessDeniedHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.handler",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "JsonAccessDeniedHandler",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\n@AllArgsConstructor\n@RequiredArgsConstructor\npublic class JsonAccessDeniedHandler implements AccessDeniedHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j",
+        "@AllArgsConstructor",
+        "@RequiredArgsConstructor"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "统一权限拦截处理器,用于处理账号的越权操作\n\n @author chiyo <br>\n @since 1.0",
+      "supertypes": [
+        "AccessDeniedHandler"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "signature": "private final ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "httpStatus",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.httpStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "signature": "private int httpStatus = 403",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": "403",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "handle",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "signature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 24
+            },
+            "end": {
+              "line": 31,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 52
+            },
+            "end": {
+              "line": 31,
+              "column": 80
+            }
+          }
+        },
+        {
+          "name": "accessDeniedException",
+          "type": "AccessDeniedException",
+          "signature": "AccessDeniedException accessDeniedException",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 82
+            },
+            "end": {
+              "line": 31,
+              "column": 125
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.HttpResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.http.MediaType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.access.AccessDeniedException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.access.AccessDeniedHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "error",
+      "expression": "log.error",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "setContentType",
+      "expression": "response.setContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 9
+        },
+        "end": {
+          "line": 33,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "setStatus",
+      "expression": "response.setStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 9
+        },
+        "end": {
+          "line": 34,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "response.getWriter().write",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 9
+        },
+        "end": {
+          "line": 35,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "getWriter",
+      "expression": "response.getWriter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 9
+        },
+        "end": {
+          "line": 35,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "this.objectMapper.writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 36
+        },
+        "end": {
+          "line": 35,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "fail",
+      "expression": "HttpResult.fail",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 73
+        },
+        "end": {
+          "line": 35,
+          "column": 118
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AccessDeniedHandler",
+      "expression": "AccessDeniedHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 49
+        },
+        "end": {
+          "line": 26,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 19
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 24
+        },
+        "end": {
+          "line": 31,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 52
+        },
+        "end": {
+          "line": 31,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "AccessDeniedException",
+      "expression": "AccessDeniedException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 82
+        },
+        "end": {
+          "line": 31,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 134
+        },
+        "end": {
+          "line": 31,
+          "column": 145
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.JsonAccessDeniedHandler.handle",
+      "ownerSignature": "@Override\n    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

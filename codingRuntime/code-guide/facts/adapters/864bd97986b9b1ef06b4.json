@@ -1,0 +1,1304 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FailToGetLockException.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.exceptions",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\npublic class FailToGetLockException extends RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 65,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "在乐观锁情况下未获取到锁的异常标志\n\n @author chiyo\n @since 1.0",
+      "supertypes": [
+        "RuntimeException"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "code",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.code",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "private int code",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "data",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "private Object data",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 35
+            },
+            "end": {
+              "line": 20,
+              "column": 49
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message, Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 35
+            },
+            "end": {
+              "line": 24,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 24,
+              "column": 51
+            },
+            "end": {
+              "line": 24,
+              "column": 66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(Throwable cause)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 35
+            },
+            "end": {
+              "line": 28,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 35
+            },
+            "end": {
+              "line": 32,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 51
+            },
+            "end": {
+              "line": 32,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 68
+            },
+            "end": {
+              "line": 32,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 95
+            },
+            "end": {
+              "line": 32,
+              "column": 121
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 35
+            },
+            "end": {
+              "line": 36,
+              "column": 43
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 45
+            },
+            "end": {
+              "line": 36,
+              "column": 56
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 35
+            },
+            "end": {
+              "line": 41,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 51
+            },
+            "end": {
+              "line": 41,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 61
+            },
+            "end": {
+              "line": 41,
+              "column": 72
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message, Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 35
+            },
+            "end": {
+              "line": 47,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 51
+            },
+            "end": {
+              "line": 47,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 68
+            },
+            "end": {
+              "line": 47,
+              "column": 76
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 47,
+              "column": 78
+            },
+            "end": {
+              "line": 47,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 35
+            },
+            "end": {
+              "line": 53,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 52
+            },
+            "end": {
+              "line": 53,
+              "column": 60
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 62
+            },
+            "end": {
+              "line": 53,
+              "column": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "FailToGetLockException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "signature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 35
+            },
+            "end": {
+              "line": 59,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 51
+            },
+            "end": {
+              "line": 59,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 68
+            },
+            "end": {
+              "line": 59,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 95
+            },
+            "end": {
+              "line": 59,
+              "column": 121
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 15
+            },
+            "end": {
+              "line": 60,
+              "column": 23
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 60,
+              "column": 25
+            },
+            "end": {
+              "line": 60,
+              "column": 36
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 9
+        },
+        "end": {
+          "line": 21,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 9
+        },
+        "end": {
+          "line": 25,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(Throwable cause)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 9
+        },
+        "end": {
+          "line": 33,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 42,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, int code, Object data)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 9
+        },
+        "end": {
+          "line": 48,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(Throwable cause, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 9
+        },
+        "end": {
+          "line": 61,
+          "column": 69
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 45
+        },
+        "end": {
+          "line": 12,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.data",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 35
+        },
+        "end": {
+          "line": 20,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 35
+        },
+        "end": {
+          "line": 24,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause)",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 51
+        },
+        "end": {
+          "line": 24,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(Throwable cause)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 35
+        },
+        "end": {
+          "line": 28,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 35
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 51
+        },
+        "end": {
+          "line": 32,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(int code, Object data)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 45
+        },
+        "end": {
+          "line": 36,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 35
+        },
+        "end": {
+          "line": 41,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 61
+        },
+        "end": {
+          "line": 41,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 35
+        },
+        "end": {
+          "line": 47,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 51
+        },
+        "end": {
+          "line": 47,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 78
+        },
+        "end": {
+          "line": 47,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 35
+        },
+        "end": {
+          "line": 53,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 62
+        },
+        "end": {
+          "line": 53,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 35
+        },
+        "end": {
+          "line": 59,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 51
+        },
+        "end": {
+          "line": 59,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException.FailToGetLockException",
+      "ownerSignature": "public FailToGetLockException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 25
+        },
+        "end": {
+          "line": 60,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

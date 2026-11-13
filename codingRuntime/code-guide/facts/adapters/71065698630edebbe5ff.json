@@ -1,0 +1,1468 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/RoleHasMenuMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "RoleHasMenuMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface RoleHasMenuMapper extends BaseMapper<RoleHasMenu>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 89,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色菜单关联(RoleHasMenu)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<RoleHasMenu>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "RoleHasMenu queryOne(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询RoleHasMenu单条数据\n\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "RoleHasMenu",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 26
+            },
+            "end": {
+              "line": 26,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 106
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询RoleHasMenu单条数据指定column\n\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "RoleHasMenu",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 35
+            },
+            "end": {
+              "line": 34,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 69
+            },
+            "end": {
+              "line": 34,
+              "column": 104
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "List<RoleHasMenu> queryAll(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 69
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询RoleHasMenu所有数据\n\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 32
+            },
+            "end": {
+              "line": 42,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 112
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询RoleHasMenu所有数据指定column\n\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 41
+            },
+            "end": {
+              "line": 50,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 75
+            },
+            "end": {
+              "line": 50,
+              "column": 110
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 95
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询RoleHasMenu所有数据\n\n @param page        分页参数\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "Page<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 31
+            },
+            "end": {
+              "line": 59,
+              "column": 56
+            }
+          }
+        },
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 58
+            },
+            "end": {
+              "line": 59,
+              "column": 93
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 138
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询RoleHasMenu所有数据指定column\n\n @param page        分页参数\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 查询结果 {@see RoleHasMenu}",
+      "typeParameters": [],
+      "returnType": "Page<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 40
+            },
+            "end": {
+              "line": 68,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 74
+            },
+            "end": {
+              "line": 68,
+              "column": 99
+            }
+          }
+        },
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 101
+            },
+            "end": {
+              "line": 68,
+              "column": 136
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "int count(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询RoleHasMenu匹配数据总数\n\n @param roleHasMenu {@see RoleHasMenu}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "roleHasMenu",
+          "type": "RoleHasMenu",
+          "signature": "@Param(\"e\") RoleHasMenu roleHasMenu",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 15
+            },
+            "end": {
+              "line": 76,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "List<RoleHasMenu> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 68
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see RoleHasMenu}数据集",
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 36
+            },
+            "end": {
+              "line": 84,
+              "column": 66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<RoleHasMenu> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 65
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<RoleHasMenu>",
+          "signature": "@Param(\"list\") List<RoleHasMenu> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 86,
+              "column": 22
+            },
+            "end": {
+              "line": 86,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "listByRoleIdAndMenuId",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "signature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 88
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<RoleHasMenu>",
+          "signature": "@Param(\"list\") List<RoleHasMenu> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 88,
+              "column": 45
+            },
+            "end": {
+              "line": 88,
+              "column": 86
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.RoleHasMenu",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 44
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 55
+        },
+        "end": {
+          "line": 17,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOne",
+      "ownerSignature": "RoleHasMenu queryOne(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOne",
+      "ownerSignature": "RoleHasMenu queryOne(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 38
+        },
+        "end": {
+          "line": 26,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOne",
+      "ownerSignature": "RoleHasMenu queryOne(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 27
+        },
+        "end": {
+          "line": 26,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerSignature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerSignature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 52
+        },
+        "end": {
+          "line": 34,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerSignature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 36
+        },
+        "end": {
+          "line": 34,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerSignature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 81
+        },
+        "end": {
+          "line": 34,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryOneSelective",
+      "ownerSignature": "RoleHasMenu queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 70
+        },
+        "end": {
+          "line": 34,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAll",
+      "ownerSignature": "List<RoleHasMenu> queryAll(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAll",
+      "ownerSignature": "List<RoleHasMenu> queryAll(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 10
+        },
+        "end": {
+          "line": 42,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAll",
+      "ownerSignature": "List<RoleHasMenu> queryAll(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 44
+        },
+        "end": {
+          "line": 42,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAll",
+      "ownerSignature": "List<RoleHasMenu> queryAll(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 33
+        },
+        "end": {
+          "line": 42,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 10
+        },
+        "end": {
+          "line": 50,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 58
+        },
+        "end": {
+          "line": 50,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 42
+        },
+        "end": {
+          "line": 50,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 87
+        },
+        "end": {
+          "line": 50,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.queryAllSelective",
+      "ownerSignature": "List<RoleHasMenu> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 76
+        },
+        "end": {
+          "line": 50,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 10
+        },
+        "end": {
+          "line": 59,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 46
+        },
+        "end": {
+          "line": 59,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 32
+        },
+        "end": {
+          "line": 59,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 70
+        },
+        "end": {
+          "line": 59,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAll",
+      "ownerSignature": "Page<RoleHasMenu> pageAll(@Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 59
+        },
+        "end": {
+          "line": 59,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 57
+        },
+        "end": {
+          "line": 68,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 41
+        },
+        "end": {
+          "line": 68,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 89
+        },
+        "end": {
+          "line": 68,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 75
+        },
+        "end": {
+          "line": 68,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 113
+        },
+        "end": {
+          "line": 68,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.pageAllSelective",
+      "ownerSignature": "Page<RoleHasMenu> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 102
+        },
+        "end": {
+          "line": 68,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 27
+        },
+        "end": {
+          "line": 76,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") RoleHasMenu roleHasMenu)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 16
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.countGroupBy",
+      "ownerSignature": "List<RoleHasMenu> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.countGroupBy",
+      "ownerSignature": "List<RoleHasMenu> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.countGroupBy",
+      "ownerSignature": "List<RoleHasMenu> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 53
+        },
+        "end": {
+          "line": 84,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.countGroupBy",
+      "ownerSignature": "List<RoleHasMenu> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 37
+        },
+        "end": {
+          "line": 84,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 37
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 42
+        },
+        "end": {
+          "line": 86,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerSignature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerSignature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 10
+        },
+        "end": {
+          "line": 88,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerSignature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 60
+        },
+        "end": {
+          "line": 88,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerSignature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 65
+        },
+        "end": {
+          "line": 88,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerSignature": "List<RoleHasMenu> listByRoleIdAndMenuId(@Param(\"list\") List<RoleHasMenu> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 46
+        },
+        "end": {
+          "line": 88,
+          "column": 51
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

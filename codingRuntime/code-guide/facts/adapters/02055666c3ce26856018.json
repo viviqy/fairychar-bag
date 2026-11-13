@@ -1,0 +1,329 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Phone.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "Phone",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "ownerQualifiedName": "",
+      "signature": "@Target(ElementType.FIELD)\n@Retention(RetentionPolicy.RUNTIME)\n@Constraint(validatedBy = PhoneValidator.class)\npublic @interface Phone",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Target(ElementType.FIELD)",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Constraint(validatedBy = PhoneValidator.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2022/2/16 14:32\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "message",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.message",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "signature": "String message() default \"not phone number\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 49
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"not phone number\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "groups",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.groups",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "signature": "Class<?>[] groups() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<?>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "payload",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "signature": "Class<? extends Payload>[] payload() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<? extends Payload>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.validation.Constraint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Payload",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.ElementType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Retention",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.RetentionPolicy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Target",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 16,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Constraint",
+      "expression": "Constraint",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.message",
+      "ownerSignature": "String message() default \"not phone number\"",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.groups",
+      "ownerSignature": "Class<?>[] groups() default {}",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Payload",
+      "expression": "Payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.Phone.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 21
+        },
+        "end": {
+          "line": 25,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

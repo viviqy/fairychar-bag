@@ -1,0 +1,190 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/function/IShardingProcessor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.function",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "IShardingProcessor",
+      "qualifiedName": "com.fairychar.bag.function.IShardingProcessor",
+      "ownerQualifiedName": "",
+      "signature": "@FunctionalInterface\npublic interface IShardingProcessor<R, P>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@FunctionalInterface"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "分散处理器\n\n @author chiyo\n @since 0.0.1-SNAPSHOT",
+      "supertypes": [],
+      "typeParameters": [
+        "R",
+        "P"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "calculate",
+      "qualifiedName": "com.fairychar.bag.function.IShardingProcessor.calculate",
+      "ownerQualifiedName": "com.fairychar.bag.function.IShardingProcessor",
+      "signature": "R calculate(P shardingBy)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "R",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "shardingBy",
+          "type": "P",
+          "signature": "P shardingBy",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 17
+            },
+            "end": {
+              "line": 11,
+              "column": 29
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "calculateHash",
+      "qualifiedName": "com.fairychar.bag.function.IShardingProcessor.calculateHash",
+      "ownerQualifiedName": "com.fairychar.bag.function.IShardingProcessor",
+      "signature": "default int calculateHash(P shardingBy)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "shardingBy",
+          "type": "P",
+          "signature": "P shardingBy",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 31
+            },
+            "end": {
+              "line": 13,
+              "column": 43
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [],
+  "calls": [
+    {
+      "name": "hashCode",
+      "expression": "shardingBy.hashCode",
+      "ownerQualifiedName": "com.fairychar.bag.function.IShardingProcessor.calculateHash",
+      "ownerSignature": "default int calculateHash(P shardingBy)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 28
+        },
+        "end": {
+          "line": 14,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "abs",
+      "expression": "Math.abs",
+      "ownerQualifiedName": "com.fairychar.bag.function.IShardingProcessor.calculateHash",
+      "ownerSignature": "default int calculateHash(P shardingBy)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 16
+        },
+        "end": {
+          "line": 15,
+          "column": 30
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "FunctionalInterface",
+      "expression": "FunctionalInterface",
+      "ownerQualifiedName": "com.fairychar.bag.function.IShardingProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 21
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

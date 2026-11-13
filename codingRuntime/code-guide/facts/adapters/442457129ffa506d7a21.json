@@ -1,0 +1,583 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/strategy/JsonInvalidSessionStrategy.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.strategy",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "JsonInvalidSessionStrategy",
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@RequiredArgsConstructor\npublic class JsonInvalidSessionStrategy implements InvalidSessionStrategy",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 34,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@RequiredArgsConstructor"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "非法token访问策略处理器\n\n @author chiyo <br>\n @since 1.0",
+      "supertypes": [
+        "InvalidSessionStrategy"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "signature": "private final ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "httpStatus",
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.httpStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "signature": "private int httpStatus = 401",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": "401",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "onInvalidSessionDetected",
+      "qualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "signature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException",
+        "ServletException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 42
+            },
+            "end": {
+              "line": 29,
+              "column": 68
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 70
+            },
+            "end": {
+              "line": 29,
+              "column": 98
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.HttpResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.ServletException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.http.MediaType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.session.InvalidSessionStrategy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "setContentType",
+      "expression": "response.setContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 9
+        },
+        "end": {
+          "line": 30,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "setStatus",
+      "expression": "response.setStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "response.getWriter().write",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "getWriter",
+      "expression": "response.getWriter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "this.objectMapper.writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 36
+        },
+        "end": {
+          "line": 32,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "fail",
+      "expression": "HttpResult.fail",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 73
+        },
+        "end": {
+          "line": 32,
+          "column": 117
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "InvalidSessionStrategy",
+      "expression": "InvalidSessionStrategy",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 52
+        },
+        "end": {
+          "line": 24,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 42
+        },
+        "end": {
+          "line": 29,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 70
+        },
+        "end": {
+          "line": 29,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 107
+        },
+        "end": {
+          "line": 29,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "ServletException",
+      "expression": "ServletException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 120
+        },
+        "end": {
+          "line": 29,
+          "column": 136
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.strategy.JsonInvalidSessionStrategy.onInvalidSessionDetected",
+      "ownerSignature": "@Override\n    public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

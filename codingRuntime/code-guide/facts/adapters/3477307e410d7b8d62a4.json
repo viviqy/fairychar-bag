@@ -1,0 +1,356 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/AuditProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AuditProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class AuditProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.enable",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createBy",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.createBy",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String createBy = \"createBy\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"createBy\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createName",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.createName",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String createName = \"createName\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"createName\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createTime",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.createTime",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String createTime = \"createTime\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"createTime\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateBy",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateBy",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String updateBy = \"updateBy\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"updateBy\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateName",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateName",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String updateName = \"updateName\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"updateName\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateTime",
+      "qualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "signature": "private String updateTime = \"updateTime\"",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "\"updateTime\"",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 13
+        },
+        "end": {
+          "line": 15,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.AuditProperties.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 13
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

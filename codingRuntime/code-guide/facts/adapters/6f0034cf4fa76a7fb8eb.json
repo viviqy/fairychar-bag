@@ -1,0 +1,3108 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/SysApiService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SysApiService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"sysApiService\")\npublic class SysApiService extends ServiceImpl<SysApiMapper, SysApi> implements ISysApiService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 199,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"sysApiService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(SysApi)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<SysApiMapper, SysApi>",
+        "ISysApiService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "sysApiMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Autowired\nprivate SysApiMapper sysApiMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 39
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysApiMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sysApiStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Autowired\nprivate SysApiStructure sysApiStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 45
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysApiStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "menuHasApiService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.menuHasApiService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Autowired\nprivate IMenuHasApiService menuHasApiService",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 50
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "IMenuHasApiService",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "条件匹配分页查询SysApi所有数据\n\n @param sysApiQuery {@link SysApiQuery}查询条件\n @return 查询结果 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SysApiDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApiQuery",
+          "type": "SysApiQuery",
+          "signature": "SysApiQuery sysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 52,
+              "column": 36
+            },
+            "end": {
+              "line": 52,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Transactional(rollbackFor = Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addSysApiQuery {@link SysApiQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysApiQuery",
+          "type": "AddSysApiQuery",
+          "signature": "AddSysApiQuery addSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 21
+            },
+            "end": {
+              "line": 68,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 5
+        },
+        "end": {
+          "line": 100,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Transactional(rollbackFor = Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param updateSysApiQuery {@link SysApiQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysApiQuery",
+          "type": "UpdateSysApiQuery",
+          "signature": "UpdateSysApiQuery updateSysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 31
+            },
+            "end": {
+              "line": 91,
+              "column": 66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 5
+        },
+        "end": {
+          "line": 113,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "根据id查询一个对象\n\n @param id id\n @return 查询结果 {@link SysApiDTO}",
+      "typeParameters": [],
+      "returnType": "SysApiDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 110,
+              "column": 31
+            },
+            "end": {
+              "line": 110,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 5
+        },
+        "end": {
+          "line": 146,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Transactional(rollbackFor = Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<SysApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSysApiQuery>",
+          "signature": "List<AddSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 123,
+              "column": 35
+            },
+            "end": {
+              "line": 123,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateByIdBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 5
+        },
+        "end": {
+          "line": 182,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Transactional(rollbackFor = Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param batch {@link SysApiQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSysApiQuery>",
+          "signature": "List<UpdateSysApiQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 156,
+              "column": 36
+            },
+            "end": {
+              "line": 156,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "signature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 5
+        },
+        "end": {
+          "line": 198,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override",
+        "@Transactional(rollbackFor = Exception.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量删除\n\n @param ids IDS",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 191,
+              "column": 29
+            },
+            "end": {
+              "line": 191,
+              "column": 46
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.collection.CollectionUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.MenuHasApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysApiMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysApiDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysApiQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 70
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IMenuHasApiService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 79
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysApiService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysApiStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 75
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.transaction.annotation.Transactional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 27,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "pageAllByQuery",
+      "expression": "this.sysApiMapper.pageAllByQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 32
+        },
+        "end": {
+          "line": 53,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "sysApiQuery.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 65
+        },
+        "end": {
+          "line": 53,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.sysApiStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 32
+        },
+        "end": {
+          "line": 54,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 68
+        },
+        "end": {
+          "line": 54,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 38
+        },
+        "end": {
+          "line": 55,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 49
+        },
+        "end": {
+          "line": 55,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 71
+        },
+        "end": {
+          "line": 55,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 90
+        },
+        "end": {
+          "line": 55,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 9
+        },
+        "end": {
+          "line": 56,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "getHttpMethod",
+      "expression": "addSysApiQuery.getHttpMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 29
+        },
+        "end": {
+          "line": 69,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.sysApiMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 22
+        },
+        "end": {
+          "line": 70,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "setHttpMethod",
+      "expression": "new SysApi().setUri(addSysApiQuery.getUri()).setHttpMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 49
+        },
+        "end": {
+          "line": 70,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "setUri",
+      "expression": "new SysApi().setUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 49
+        },
+        "end": {
+          "line": 70,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "new SysApi",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 49
+        },
+        "end": {
+          "line": 70,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getUri",
+      "expression": "addSysApiQuery.getUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 69
+        },
+        "end": {
+          "line": 70,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "isNull",
+      "expression": "Assert.isNull",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 9
+        },
+        "end": {
+          "line": 71,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.sysApiStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 25
+        },
+        "end": {
+          "line": 72,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 13
+        },
+        "end": {
+          "line": 74,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 20
+        },
+        "end": {
+          "line": 75,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 19
+        },
+        "end": {
+          "line": 77,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.sysApiMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 21
+        },
+        "end": {
+          "line": 92,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "setId",
+      "expression": "new SysApi().setId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 45
+        },
+        "end": {
+          "line": 92,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "new SysApi",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 45
+        },
+        "end": {
+          "line": 92,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "updateSysApiQuery.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 64
+        },
+        "end": {
+          "line": 92,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 9
+        },
+        "end": {
+          "line": 93,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "updateQueryToEntity",
+      "expression": "this.sysApiStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 25
+        },
+        "end": {
+          "line": 94,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.sysApiMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 22
+        },
+        "end": {
+          "line": 96,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "setUri",
+      "expression": "new SysApi().setHttpMethod(updateSysApiQuery.getHttpMethod())\n                .setUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 49
+        },
+        "end": {
+          "line": 96,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "setHttpMethod",
+      "expression": "new SysApi().setHttpMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 49
+        },
+        "end": {
+          "line": 95,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "new SysApi",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 49
+        },
+        "end": {
+          "line": 95,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "getHttpMethod",
+      "expression": "updateSysApiQuery.getHttpMethod",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 76
+        },
+        "end": {
+          "line": 95,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "getUri",
+      "expression": "updateSysApiQuery.getUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 25
+        },
+        "end": {
+          "line": 96,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 9
+        },
+        "end": {
+          "line": 98,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "one.getId().equals",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 38
+        },
+        "end": {
+          "line": 98,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "one.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 38
+        },
+        "end": {
+          "line": 98,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 57
+        },
+        "end": {
+          "line": 98,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "updateById",
+      "expression": "super.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 16
+        },
+        "end": {
+          "line": 99,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "entityToDto",
+      "expression": "this.sysApiStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerSignature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 25
+        },
+        "end": {
+          "line": 111,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "getById",
+      "expression": "this.getById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerSignature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 58
+        },
+        "end": {
+          "line": 111,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 56
+        },
+        "end": {
+          "line": 125,
+          "column": 157
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 56
+        },
+        "end": {
+          "line": 125,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 79
+        },
+        "end": {
+          "line": 125,
+          "column": 156
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "groupingBy.entrySet().stream().filter(e -> e.getValue().size() > 1).map(e -> e.getKey()).toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 32
+        },
+        "end": {
+          "line": 126,
+          "column": 129
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "groupingBy.entrySet().stream().filter(e -> e.getValue().size() > 1).map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 32
+        },
+        "end": {
+          "line": 126,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "groupingBy.entrySet().stream().filter",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 32
+        },
+        "end": {
+          "line": 126,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "groupingBy.entrySet().stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 32
+        },
+        "end": {
+          "line": 126,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "groupingBy.entrySet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 32
+        },
+        "end": {
+          "line": 126,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "repeats.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 13
+        },
+        "end": {
+          "line": 127,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "repeats.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 32
+        },
+        "end": {
+          "line": 128,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "repeats.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 32
+        },
+        "end": {
+          "line": 128,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 57
+        },
+        "end": {
+          "line": 128,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 19
+        },
+        "end": {
+          "line": 129,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.sysApiStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 33
+        },
+        "end": {
+          "line": 131,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "listByMethodAndUri",
+      "expression": "this.sysApiMapper.listByMethodAndUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 29
+        },
+        "end": {
+          "line": 132,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 14
+        },
+        "end": {
+          "line": 133,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "apis.stream().map(sysApi -> sysApi.getHttpMethod().concat(\": \").concat(sysApi.getUri()))\n                    .collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 35
+        },
+        "end": {
+          "line": 135,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "apis.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 35
+        },
+        "end": {
+          "line": 134,
+          "column": 123
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "apis.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 35
+        },
+        "end": {
+          "line": 134,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 30
+        },
+        "end": {
+          "line": 135,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 136,
+          "column": 19
+        },
+        "end": {
+          "line": 136,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 139,
+          "column": 13
+        },
+        "end": {
+          "line": 139,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 19
+        },
+        "end": {
+          "line": 142,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 59
+        },
+        "end": {
+          "line": 158,
+          "column": 160
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 59
+        },
+        "end": {
+          "line": 158,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "groupingBy",
+      "expression": "Collectors.groupingBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 82
+        },
+        "end": {
+          "line": 158,
+          "column": 159
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "groupingBy.entrySet().stream().filter(e -> e.getValue().size() > 1).map(e -> e.getKey()).toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 32
+        },
+        "end": {
+          "line": 159,
+          "column": 129
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "groupingBy.entrySet().stream().filter(e -> e.getValue().size() > 1).map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 32
+        },
+        "end": {
+          "line": 159,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "groupingBy.entrySet().stream().filter",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 32
+        },
+        "end": {
+          "line": 159,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "groupingBy.entrySet().stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 32
+        },
+        "end": {
+          "line": 159,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "entrySet",
+      "expression": "groupingBy.entrySet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 32
+        },
+        "end": {
+          "line": 159,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "repeats.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 160,
+          "column": 13
+        },
+        "end": {
+          "line": 160,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "repeats.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 32
+        },
+        "end": {
+          "line": 161,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "repeats.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 32
+        },
+        "end": {
+          "line": 161,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 57
+        },
+        "end": {
+          "line": 161,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 162,
+          "column": 19
+        },
+        "end": {
+          "line": 162,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "updateQueriesToEntities",
+      "expression": "this.sysApiStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 33
+        },
+        "end": {
+          "line": 164,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "listByMethodAndUri",
+      "expression": "this.sysApiMapper.listByMethodAndUri",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 29
+        },
+        "end": {
+          "line": 165,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "apis.forEach",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 9
+        },
+        "end": {
+          "line": 174,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "updateBatchById",
+      "expression": "super.updateBatchById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 176,
+          "column": 20
+        },
+        "end": {
+          "line": 176,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 19
+        },
+        "end": {
+          "line": 178,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "ids.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 192,
+          "column": 13
+        },
+        "end": {
+          "line": 192,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.menuHasApiService.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 195,
+          "column": 31
+        },
+        "end": {
+          "line": 195,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<MenuHasApi>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 195,
+          "column": 60
+        },
+        "end": {
+          "line": 195,
+          "column": 117
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<MenuHasApi>",
+      "expression": "new QueryWrapper<MenuHasApi>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 195,
+          "column": 60
+        },
+        "end": {
+          "line": 195,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 196,
+          "column": 9
+        },
+        "end": {
+          "line": 196,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "removeBatchByIds",
+      "expression": "super.removeBatchByIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 197,
+          "column": 9
+        },
+        "end": {
+          "line": 197,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 36
+        },
+        "end": {
+          "line": 36,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "SysApiMapper",
+      "expression": "SysApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 48
+        },
+        "end": {
+          "line": 36,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 62
+        },
+        "end": {
+          "line": 36,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "ISysApiService",
+      "expression": "ISysApiService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 81
+        },
+        "end": {
+          "line": 36,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 2
+        },
+        "end": {
+          "line": 35,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysApiMapper",
+      "expression": "SysApiMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 6
+        },
+        "end": {
+          "line": 37,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SysApiStructure",
+      "expression": "SysApiStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.sysApiStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "IMenuHasApiService",
+      "expression": "IMenuHasApiService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.menuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.menuHasApiService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 6
+        },
+        "end": {
+          "line": 41,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 12
+        },
+        "end": {
+          "line": 52,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 17
+        },
+        "end": {
+          "line": 52,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "SysApiQuery",
+      "expression": "SysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 36
+        },
+        "end": {
+          "line": 52,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.pageAll",
+      "ownerSignature": "@Override\n    public Page<SysApiDTO> pageAll(SysApiQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 6
+        },
+        "end": {
+          "line": 51,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 21
+        },
+        "end": {
+          "line": 68,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 6
+        },
+        "end": {
+          "line": 66,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Transactional",
+      "expression": "Transactional",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.save",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public int save(AddSysApiQuery addSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 6
+        },
+        "end": {
+          "line": 67,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 31
+        },
+        "end": {
+          "line": 91,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 6
+        },
+        "end": {
+          "line": 89,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Transactional",
+      "expression": "Transactional",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateById",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateById(UpdateSysApiQuery updateSysApiQuery)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "SysApiDTO",
+      "expression": "SysApiDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerSignature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 12
+        },
+        "end": {
+          "line": 110,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerSignature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 31
+        },
+        "end": {
+          "line": 110,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.findById",
+      "ownerSignature": "@Override\n    public SysApiDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 6
+        },
+        "end": {
+          "line": 109,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 12
+        },
+        "end": {
+          "line": 123,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysApi",
+      "expression": "SysApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 17
+        },
+        "end": {
+          "line": 123,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 35
+        },
+        "end": {
+          "line": 123,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "AddSysApiQuery",
+      "expression": "AddSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 40
+        },
+        "end": {
+          "line": 123,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 6
+        },
+        "end": {
+          "line": 121,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Transactional",
+      "expression": "Transactional",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.saveBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public List<SysApi> saveBatch(List<AddSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 6
+        },
+        "end": {
+          "line": 122,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 36
+        },
+        "end": {
+          "line": 156,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "UpdateSysApiQuery",
+      "expression": "UpdateSysApiQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 41
+        },
+        "end": {
+          "line": 156,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 6
+        },
+        "end": {
+          "line": 154,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Transactional",
+      "expression": "Transactional",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.updateByIdBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public boolean updateByIdBatch(List<UpdateSysApiQuery> batch)",
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 6
+        },
+        "end": {
+          "line": 155,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 29
+        },
+        "end": {
+          "line": 191,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 34
+        },
+        "end": {
+          "line": 191,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 6
+        },
+        "end": {
+          "line": 189,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Transactional",
+      "expression": "Transactional",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysApiService.removeBatch",
+      "ownerSignature": "@Override\n    @Transactional(rollbackFor = Exception.class)\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 190,
+          "column": 6
+        },
+        "end": {
+          "line": 190,
+          "column": 19
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 28
+        },
+        "end": {
+          "line": 71,
+          "column": 77
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 35
+        },
+        "end": {
+          "line": 93,
+          "column": 88
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 74
+        },
+        "end": {
+          "line": 98,
+          "column": 123
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 101
+        },
+        "end": {
+          "line": 125,
+          "column": 155
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 70
+        },
+        "end": {
+          "line": 126,
+          "column": 98
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 104
+        },
+        "end": {
+          "line": 126,
+          "column": 119
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 53
+        },
+        "end": {
+          "line": 134,
+          "column": 122
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 104
+        },
+        "end": {
+          "line": 158,
+          "column": 158
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 70
+        },
+        "end": {
+          "line": 159,
+          "column": 98
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 159,
+          "column": 104
+        },
+        "end": {
+          "line": 159,
+          "column": 119
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 166,
+          "column": 22
+        },
+        "end": {
+          "line": 174,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 196,
+          "column": 44
+        },
+        "end": {
+          "line": 196,
+          "column": 93
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

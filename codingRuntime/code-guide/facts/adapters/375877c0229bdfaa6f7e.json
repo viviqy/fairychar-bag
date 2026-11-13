@@ -1,0 +1,391 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleExpressionRootObject.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.spring.expression",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SimpleExpressionRootObject",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "ownerQualifiedName": "",
+      "signature": "public class SimpleExpressionRootObject",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "copy from CacheExpressionRootObject\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "method",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "private final Method method",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Method",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "args",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.args",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "private final Object[] args",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Object[]",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "SimpleExpressionRootObject",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.SimpleExpressionRootObject",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "public SimpleExpressionRootObject(\n            Method method, Object[] args)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "method",
+          "type": "Method",
+          "signature": "Method method",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 13
+            },
+            "end": {
+              "line": 36,
+              "column": 26
+            }
+          }
+        },
+        {
+          "name": "args",
+          "type": "Object[]",
+          "signature": "Object[] args",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 28
+            },
+            "end": {
+              "line": 36,
+              "column": 41
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "getMethod",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getMethod",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "public Method getMethod()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Method",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getMethodName",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getMethodName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "public String getMethodName()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getArgs",
+      "qualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getArgs",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject",
+      "signature": "public Object[] getArgs()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Object[]",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.lang.reflect.Method",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getName",
+      "expression": "this.method.getName",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getMethodName",
+      "ownerSignature": "public String getMethodName()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 16
+        },
+        "end": {
+          "line": 47,
+          "column": 37
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.method",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "end": {
+          "line": 30,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.args",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 19
+        },
+        "end": {
+          "line": 32,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.SimpleExpressionRootObject",
+      "ownerSignature": "public SimpleExpressionRootObject(\n            Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 36,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.SimpleExpressionRootObject",
+      "ownerSignature": "public SimpleExpressionRootObject(\n            Method method, Object[] args)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 28
+        },
+        "end": {
+          "line": 36,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Method",
+      "expression": "Method",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getMethod",
+      "ownerSignature": "public Method getMethod()",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 12
+        },
+        "end": {
+          "line": 42,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getMethodName",
+      "ownerSignature": "public String getMethodName()",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 12
+        },
+        "end": {
+          "line": 46,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.spring.expression.SimpleExpressionRootObject.getArgs",
+      "ownerSignature": "public Object[] getArgs()",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 12
+        },
+        "end": {
+          "line": 50,
+          "column": 18
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

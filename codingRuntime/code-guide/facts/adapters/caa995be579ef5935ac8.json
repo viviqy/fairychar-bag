@@ -1,0 +1,433 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/CollectionUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "CollectionUtil",
+      "qualifiedName": "com.fairychar.bag.utils.CollectionUtil",
+      "ownerQualifiedName": "",
+      "signature": "public class CollectionUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "splitList",
+      "qualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil",
+      "signature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "将一个 List 尽量平均分成指定份数\n\n @param originalList  原始列表\n @param numberOfParts 指定数量\n @return {@link List }<{@link List }<{@link T }>>",
+      "typeParameters": [
+        "T"
+      ],
+      "returnType": "List<List<T>>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "originalList",
+          "type": "List<T>",
+          "signature": "List<T> originalList",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 47
+            },
+            "end": {
+              "line": 20,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "numberOfParts",
+          "type": "int",
+          "signature": "int numberOfParts",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 69
+            },
+            "end": {
+              "line": 20,
+              "column": 86
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.util.ArrayList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 32
+        },
+        "end": {
+          "line": 21,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "originalList.size",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "originalList.size",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 33
+        },
+        "end": {
+          "line": 23,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 36
+        },
+        "end": {
+          "line": 24,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "sub.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 17
+        },
+        "end": {
+          "line": 25,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "originalList.get",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 25
+        },
+        "end": {
+          "line": 25,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "result.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 17
+        },
+        "end": {
+          "line": 26,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "originalList.size",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 26
+        },
+        "end": {
+          "line": 28,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "result.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 17
+        },
+        "end": {
+          "line": 29,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 28
+        },
+        "end": {
+          "line": 29,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "originalList.size",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 24
+        },
+        "end": {
+          "line": 32,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "ArrayList<>",
+      "expression": "new ArrayList<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 32
+        },
+        "end": {
+          "line": 40,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "subList",
+      "expression": "originalList.subList",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 48
+        },
+        "end": {
+          "line": 40,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "result.add",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 17
+        },
+        "end": {
+          "line": 41,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 23
+        },
+        "end": {
+          "line": 20,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 28
+        },
+        "end": {
+          "line": 20,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.utils.CollectionUtil.splitList",
+      "ownerSignature": "public static <T> List<List<T>> splitList(List<T> originalList, int numberOfParts)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 47
+        },
+        "end": {
+          "line": 20,
+          "column": 51
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1147 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/pojo/query/SysDictQuery.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.pojo.query",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SysDictQuery",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@Accessors(chain = true)\n@SuppressWarnings(\"serial\")\n@Schema(description = \"SysDictQuery\")\npublic class SysDictQuery implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Accessors(chain = true)",
+        "@SuppressWarnings(\"serial\")",
+        "@Schema(description = \"SysDictQuery\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "数据字典详情(SysDict)表实体类\n\n @author chiyo",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "id",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.id",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"ID\")\nprivate Integer id",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 24
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"ID\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "ID",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "uid",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.uid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u5b57\\u5178uid\")\nprivate Long uid",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 22
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"字典uid\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "字典uid",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "label",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.label",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u5b57\\u5178\\u6807\\u7b7e\")\nprivate String label",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 26
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"字典标签\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "字典标签",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "labelValue",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.labelValue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u5b57\\u5178\\u503c\")\nprivate String labelValue",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"字典值\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "字典值",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "description",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.description",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u63cf\\u8ff0\")\nprivate String description",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 32
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"描述\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "描述",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "dictSort",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.dictSort",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u6392\\u5e8f\")\nprivate Integer dictSort",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 30
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"排序\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "排序",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u8005\")\nprivate Long createBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建者\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createName",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u4eba\\u540d\\u79f0\")\nprivate String createName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建人名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u8005\")\nprivate Long updateBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 5
+        },
+        "end": {
+          "line": 72,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新者\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateName",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u4fee\\u6539\\u4eba\\u540d\\u79f0\")\nprivate String updateName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 77,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"修改人名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "修改人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u65e5\\u671f\")\n@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")\nprivate LocalDateTime createTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 5
+        },
+        "end": {
+          "line": 83,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建日期\")",
+        "@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建日期",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u65f6\\u95f4\")\n@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")\nprivate LocalDateTime updateTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 5
+        },
+        "end": {
+          "line": 89,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新时间\")",
+        "@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新时间",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "pageQuery",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.pageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "signature": "@Schema(description = \"\\u5206\\u9875\\u53c2\\u6570\")\nprivate Page pageQuery = new Page()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 5
+        },
+        "end": {
+          "line": 94,
+          "column": 41
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"分页参数\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "分页请求参数",
+      "type": "Page",
+      "defaultExpression": "new Page()",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.annotation.JsonFormat",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "Page",
+      "expression": "new Page",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 30
+        },
+        "end": {
+          "line": 94,
+          "column": 40
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 38
+        },
+        "end": {
+          "line": 26,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SuppressWarnings",
+      "expression": "SuppressWarnings",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.uid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 13
+        },
+        "end": {
+          "line": 37,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.uid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.label",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.label",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 6
+        },
+        "end": {
+          "line": 41,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.labelValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.labelValue",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 6
+        },
+        "end": {
+          "line": 46,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.description",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 13
+        },
+        "end": {
+          "line": 52,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.description",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 6
+        },
+        "end": {
+          "line": 51,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.dictSort",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 13
+        },
+        "end": {
+          "line": 57,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.dictSort",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 6
+        },
+        "end": {
+          "line": 56,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 13
+        },
+        "end": {
+          "line": 62,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 6
+        },
+        "end": {
+          "line": 61,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 13
+        },
+        "end": {
+          "line": 67,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 6
+        },
+        "end": {
+          "line": 66,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 13
+        },
+        "end": {
+          "line": 72,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 6
+        },
+        "end": {
+          "line": 71,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 13
+        },
+        "end": {
+          "line": 77,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 6
+        },
+        "end": {
+          "line": 76,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 13
+        },
+        "end": {
+          "line": 83,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 6
+        },
+        "end": {
+          "line": 81,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 6
+        },
+        "end": {
+          "line": 82,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 13
+        },
+        "end": {
+          "line": 89,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 6
+        },
+        "end": {
+          "line": 87,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 6
+        },
+        "end": {
+          "line": 88,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.pageQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 13
+        },
+        "end": {
+          "line": 94,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysDictQuery.pageQuery",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 6
+        },
+        "end": {
+          "line": 93,
+          "column": 12
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

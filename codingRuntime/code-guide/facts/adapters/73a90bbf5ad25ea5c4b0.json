@@ -1,0 +1,410 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MapObjectNode.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.pojo.ao",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "MapObjectNode",
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\n@NoArgsConstructor\n@Data\n@Accessors(chain = true)\npublic class MapObjectNode<T>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Data",
+        "@Accessors(chain = true)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "http前端树形父子接口渲染类\n\n @author chiyo\n @since 0.0.1",
+      "supertypes": [],
+      "typeParameters": [
+        "T"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "name",
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.name",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "signature": "private String name",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "count",
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.count",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "signature": "private long count",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 24
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "value",
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.value",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "signature": "@JsonInclude(JsonInclude.Include.NON_NULL)\nprivate List<T> value",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@JsonInclude(JsonInclude.Include.NON_NULL)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<T>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "child",
+      "qualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.child",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "signature": "@JsonInclude(JsonInclude.Include.NON_NULL)\nprivate List<MapObjectNode<T>> child",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 42
+        }
+      },
+      "annotations": [
+        "@JsonInclude(JsonInclude.Include.NON_NULL)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<MapObjectNode<T>>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fasterxml.jackson.annotation.JsonInclude",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.name",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.value",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 13
+        },
+        "end": {
+          "line": 25,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "JsonInclude",
+      "expression": "JsonInclude",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.value",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 6
+        },
+        "end": {
+          "line": 24,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.child",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "MapObjectNode",
+      "expression": "MapObjectNode",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.child",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 18
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "JsonInclude",
+      "expression": "JsonInclude",
+      "ownerQualifiedName": "com.fairychar.bag.pojo.ao.MapObjectNode.child",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 6
+        },
+        "end": {
+          "line": 26,
+          "column": 17
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

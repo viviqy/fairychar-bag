@@ -1,0 +1,1532 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/RoleHasMenuService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RoleHasMenuService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"roleHasMenuService\")\npublic class RoleHasMenuService extends ServiceImpl<RoleHasMenuMapper, RoleHasMenu> implements IRoleHasMenuService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 106,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"roleHasMenuService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色菜单关联(RoleHasMenu)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<RoleHasMenuMapper, RoleHasMenu>",
+        "IRoleHasMenuService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "roleHasMenuMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Autowired\nprivate RoleHasMenuMapper roleHasMenuMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 49
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "RoleHasMenuMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "roleHasMenuStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Autowired\nprivate RoleHasMenuStructure roleHasMenuStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 55
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "RoleHasMenuStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "Page<RoleHasMenuDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "RoleHasMenuQuery",
+          "signature": "RoleHasMenuQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 41
+            },
+            "end": {
+              "line": 35,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addRoleHasMenuQuery {@link AddRoleHasMenuQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "Integer",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addRoleHasMenuQuery",
+          "type": "AddRoleHasMenuQuery",
+          "signature": "AddRoleHasMenuQuery addRoleHasMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 51,
+              "column": 25
+            },
+            "end": {
+              "line": 51,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 5
+        },
+        "end": {
+          "line": 87,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<RoleHasMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddRoleHasMenuQuery>",
+          "signature": "List<AddRoleHasMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 73,
+              "column": 40
+            },
+            "end": {
+              "line": 73,
+              "column": 71
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "List<Integer>",
+          "signature": "List<Integer> ids",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 91,
+              "column": 29
+            },
+            "end": {
+              "line": 91,
+              "column": 46
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "removeByRoleIds",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "signature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "roleIds",
+          "type": "List<Integer>",
+          "signature": "List<Integer> roleIds",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 100,
+              "column": 33
+            },
+            "end": {
+              "line": 100,
+              "column": 54
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.RoleHasMenu",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.RoleHasMenuMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.RoleHasMenuDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddRoleHasMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.RoleHasMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.IRoleHasMenuService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 80
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.RoleHasMenuStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 80
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "queryToEntity",
+      "expression": "this.roleHasMenuStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 30
+        },
+        "end": {
+          "line": 36,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.roleHasMenuMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 37
+        },
+        "end": {
+          "line": 37,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "query.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 68
+        },
+        "end": {
+          "line": 37,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.roleHasMenuStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 37
+        },
+        "end": {
+          "line": 38,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 78
+        },
+        "end": {
+          "line": 38,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 43
+        },
+        "end": {
+          "line": 39,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 54
+        },
+        "end": {
+          "line": 39,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 76
+        },
+        "end": {
+          "line": 39,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 95
+        },
+        "end": {
+          "line": 39,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 9
+        },
+        "end": {
+          "line": 40,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.roleHasMenuStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 30
+        },
+        "end": {
+          "line": 52,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.roleHasMenuMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 26
+        },
+        "end": {
+          "line": 53,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 19
+        },
+        "end": {
+          "line": 59,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.roleHasMenuStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 38
+        },
+        "end": {
+          "line": 74,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "listByRoleIdAndMenuId",
+      "expression": "this.roleHasMenuMapper.listByRoleIdAndMenuId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 34
+        },
+        "end": {
+          "line": 75,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 14
+        },
+        "end": {
+          "line": 76,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 19
+        },
+        "end": {
+          "line": 77,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 13
+        },
+        "end": {
+          "line": 80,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 19
+        },
+        "end": {
+          "line": 83,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "ids.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "removeByIds",
+      "expression": "super.removeByIds",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 9
+        },
+        "end": {
+          "line": 95,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "roleIds.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 13
+        },
+        "end": {
+          "line": 101,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "super.remove",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 9
+        },
+        "end": {
+          "line": 104,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<RoleHasMenu>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<RoleHasMenu>",
+      "expression": "new QueryWrapper<RoleHasMenu>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 22
+        },
+        "end": {
+          "line": 104,
+          "column": 53
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 41
+        },
+        "end": {
+          "line": 28,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuMapper",
+      "expression": "RoleHasMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 53
+        },
+        "end": {
+          "line": 28,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 72
+        },
+        "end": {
+          "line": 28,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "IRoleHasMenuService",
+      "expression": "IRoleHasMenuService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 96
+        },
+        "end": {
+          "line": 28,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuMapper",
+      "expression": "RoleHasMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 13
+        },
+        "end": {
+          "line": 30,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuStructure",
+      "expression": "RoleHasMenuStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.roleHasMenuStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 12
+        },
+        "end": {
+          "line": 35,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuDTO",
+      "expression": "RoleHasMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenuQuery",
+      "expression": "RoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 41
+        },
+        "end": {
+          "line": 35,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.pageAll",
+      "ownerSignature": "@Override\n    public Page<RoleHasMenuDTO> pageAll(RoleHasMenuQuery query)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 6
+        },
+        "end": {
+          "line": 34,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 12
+        },
+        "end": {
+          "line": 51,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AddRoleHasMenuQuery",
+      "expression": "AddRoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 25
+        },
+        "end": {
+          "line": 51,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.save",
+      "ownerSignature": "@Override\n    public Integer save(AddRoleHasMenuQuery addRoleHasMenuQuery)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 12
+        },
+        "end": {
+          "line": 73,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "RoleHasMenu",
+      "expression": "RoleHasMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 17
+        },
+        "end": {
+          "line": 73,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 40
+        },
+        "end": {
+          "line": 73,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "AddRoleHasMenuQuery",
+      "expression": "AddRoleHasMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 45
+        },
+        "end": {
+          "line": 73,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<RoleHasMenu> saveBatch(List<AddRoleHasMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 6
+        },
+        "end": {
+          "line": 72,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 29
+        },
+        "end": {
+          "line": 91,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 34
+        },
+        "end": {
+          "line": 91,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeBatch",
+      "ownerSignature": "@Override\n    public void removeBatch(List<Integer> ids)",
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 33
+        },
+        "end": {
+          "line": 100,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 38
+        },
+        "end": {
+          "line": 100,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.RoleHasMenuService.removeByRoleIds",
+      "ownerSignature": "@Override\n    public void removeByRoleIds(List<Integer> roleIds)",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 6
+        },
+        "end": {
+          "line": 99,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 40
+        },
+        "end": {
+          "line": 54,
+          "column": 89
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,2005 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/template/ActionSelectorTemplate.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.template",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "ActionSelectorTemplate",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor\n@Slf4j\npublic class ActionSelectorTemplate",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 159,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2021/1/26 10:32\n\n @author chiyo\n @since 1.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "selector",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.selector",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private Map<String, ActionSchedule> selector = new ConcurrentHashMap<>(32)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 80
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Map<String, ActionSchedule>",
+      "defaultExpression": "new ConcurrentHashMap<>(32)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "boss",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.boss",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private ExecutorService boss = Executors.newSingleThreadExecutor()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 72
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ExecutorService",
+      "defaultExpression": "Executors.newSingleThreadExecutor()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "timePause",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.timePause",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "@Setter\nprivate long timePause = 100",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 34
+        }
+      },
+      "annotations": [
+        "@Setter"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "long",
+      "defaultExpression": "100",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "worker",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.worker",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private ExecutorService worker = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 111
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ExecutorService",
+      "defaultExpression": "Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "runState",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.runState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private volatile RunState runState = RunState.UN_INITIALIZE",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 65
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private",
+        "volatile"
+      ],
+      "type": "RunState",
+      "defaultExpression": "RunState.UN_INITIALIZE",
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "ActionSelectorTemplate",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.ActionSelectorTemplate",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "boss",
+          "type": "ExecutorService",
+          "signature": "ExecutorService boss",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 35
+            },
+            "end": {
+              "line": 36,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "worker",
+          "type": "ExecutorService",
+          "signature": "ExecutorService worker",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 57
+            },
+            "end": {
+              "line": 36,
+              "column": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.start",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void start()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 80,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "shutdownGracefully",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "@PreDestroy\n    public void shutdownGracefully()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 93,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@PreDestroy"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "shutdownNow",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownNow",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void shutdownNow()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 95,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "remove",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void remove(String taskName)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 5
+        },
+        "end": {
+          "line": 107,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 24
+            },
+            "end": {
+              "line": 105,
+              "column": 39
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "remove",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void remove(String taskName, boolean isInterrupt)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 5
+        },
+        "end": {
+          "line": 118,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 109,
+              "column": 24
+            },
+            "end": {
+              "line": 109,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "isInterrupt",
+          "type": "boolean",
+          "signature": "boolean isInterrupt",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 109,
+              "column": 41
+            },
+            "end": {
+              "line": 109,
+              "column": 60
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "put",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 5
+        },
+        "end": {
+          "line": 125,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 120,
+              "column": 21
+            },
+            "end": {
+              "line": 120,
+              "column": 36
+            }
+          }
+        },
+        {
+          "name": "period",
+          "type": "long",
+          "signature": "long period",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 120,
+              "column": 38
+            },
+            "end": {
+              "line": 120,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "AbstractScheduleAction",
+          "signature": "AbstractScheduleAction action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 120,
+              "column": 51
+            },
+            "end": {
+              "line": 120,
+              "column": 80
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "checkState",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private void checkState(boolean condition, String errorMsg)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 5
+        },
+        "end": {
+          "line": 131,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "condition",
+          "type": "boolean",
+          "signature": "boolean condition",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 127,
+              "column": 29
+            },
+            "end": {
+              "line": 127,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "errorMsg",
+          "type": "String",
+          "signature": "String errorMsg",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 127,
+              "column": 48
+            },
+            "end": {
+              "line": 127,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "put",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void put(String taskName, long period, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 5
+        },
+        "end": {
+          "line": 143,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "taskName",
+          "type": "String",
+          "signature": "String taskName",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 134,
+              "column": 21
+            },
+            "end": {
+              "line": 134,
+              "column": 36
+            }
+          }
+        },
+        {
+          "name": "period",
+          "type": "long",
+          "signature": "long period",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 134,
+              "column": 38
+            },
+            "end": {
+              "line": 134,
+              "column": 49
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 134,
+              "column": 51
+            },
+            "end": {
+              "line": 134,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "put",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "public void put(ActionSchedule actionSchedule)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 5
+        },
+        "end": {
+          "line": 148,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "actionSchedule",
+          "type": "ActionSchedule",
+          "signature": "ActionSchedule actionSchedule",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 145,
+              "column": 21
+            },
+            "end": {
+              "line": 145,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "checkArgs",
+      "qualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "signature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 5
+        },
+        "end": {
+          "line": 156,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "actionSchedule",
+          "type": "ActionSchedule",
+          "signature": "ActionSchedule actionSchedule",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 150,
+              "column": 28
+            },
+            "end": {
+              "line": 150,
+              "column": 57
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractScheduleAction",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.enums.RunState",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.extension.concurrent.ActionSchedule",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.annotation.PreDestroy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ConcurrentHashMap<>",
+      "expression": "new ConcurrentHashMap<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 52
+        },
+        "end": {
+          "line": 27,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "newSingleThreadExecutor",
+      "expression": "Executors.newSingleThreadExecutor",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 36
+        },
+        "end": {
+          "line": 28,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "newFixedThreadPool",
+      "expression": "Executors.newFixedThreadPool",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 38
+        },
+        "end": {
+          "line": 32,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "availableProcessors",
+      "expression": "Runtime.getRuntime().availableProcessors",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 67
+        },
+        "end": {
+          "line": 32,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "getRuntime",
+      "expression": "Runtime.getRuntime",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 67
+        },
+        "end": {
+          "line": 32,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "execute",
+      "expression": "this.boss.execute",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.start",
+      "ownerSignature": "public void start()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 79,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "checkState",
+      "expression": "this.checkState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 9
+        },
+        "end": {
+          "line": 84,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "info",
+      "expression": "log.info",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 9
+        },
+        "end": {
+          "line": 86,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "isShutdown",
+      "expression": "this.worker.isShutdown",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 13
+        },
+        "end": {
+          "line": 87,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "shutdown",
+      "expression": "this.boss.shutdown",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "shutdown",
+      "expression": "this.worker.shutdown",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 9
+        },
+        "end": {
+          "line": 91,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "checkState",
+      "expression": "this.checkState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownNow",
+      "ownerSignature": "public void shutdownNow()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 96,
+          "column": 9
+        },
+        "end": {
+          "line": 96,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "isShutdown",
+      "expression": "this.worker.isShutdown",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownNow",
+      "ownerSignature": "public void shutdownNow()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 97,
+          "column": 13
+        },
+        "end": {
+          "line": 97,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "shutdownNow",
+      "expression": "this.boss.shutdownNow",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownNow",
+      "ownerSignature": "public void shutdownNow()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 9
+        },
+        "end": {
+          "line": 100,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "shutdownNow",
+      "expression": "this.worker.shutdownNow",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownNow",
+      "ownerSignature": "public void shutdownNow()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 101,
+          "column": 9
+        },
+        "end": {
+          "line": 101,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "this.remove",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 106,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.selector.get",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName, boolean isInterrupt)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 41
+        },
+        "end": {
+          "line": 110,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "interruptAll",
+      "expression": "actionSchedule.getAction().interruptAll",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName, boolean isInterrupt)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 13
+        },
+        "end": {
+          "line": 115,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "getAction",
+      "expression": "actionSchedule.getAction",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName, boolean isInterrupt)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 13
+        },
+        "end": {
+          "line": 115,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "remove",
+      "expression": "this.selector.remove",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName, boolean isInterrupt)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 117,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "checkState",
+      "expression": "this.checkState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "new ActionSchedule",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 41
+        },
+        "end": {
+          "line": 122,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "checkArgs",
+      "expression": "this.checkArgs",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 9
+        },
+        "end": {
+          "line": 123,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "this.selector.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 9
+        },
+        "end": {
+          "line": 124,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getTaskName",
+      "expression": "actionSchedule.getTaskName",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 27
+        },
+        "end": {
+          "line": 124,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "UnsupportedOperationException",
+      "expression": "new UnsupportedOperationException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkState",
+      "ownerSignature": "private void checkState(boolean condition, String errorMsg)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 19
+        },
+        "end": {
+          "line": 129,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "new ActionSchedule",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 41
+        },
+        "end": {
+          "line": 140,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "AbstractScheduleAction",
+      "expression": "new AbstractScheduleAction",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 78
+        },
+        "end": {
+          "line": 140,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "checkArgs",
+      "expression": "this.checkArgs",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 141,
+          "column": 9
+        },
+        "end": {
+          "line": 141,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "this.selector.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 9
+        },
+        "end": {
+          "line": 142,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getTaskName",
+      "expression": "actionSchedule.getTaskName",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 27
+        },
+        "end": {
+          "line": 142,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "checkArgs",
+      "expression": "this.checkArgs",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(ActionSchedule actionSchedule)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 9
+        },
+        "end": {
+          "line": 146,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "put",
+      "expression": "this.selector.put",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(ActionSchedule actionSchedule)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 9
+        },
+        "end": {
+          "line": 147,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getTaskName",
+      "expression": "actionSchedule.getTaskName",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(ActionSchedule actionSchedule)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 27
+        },
+        "end": {
+          "line": 147,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "this.selector.keySet().contains",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 13
+        },
+        "end": {
+          "line": 151,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "keySet",
+      "expression": "this.selector.keySet",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 13
+        },
+        "end": {
+          "line": 151,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "getTaskName",
+      "expression": "actionSchedule.getTaskName",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 45
+        },
+        "end": {
+          "line": 151,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "IllegalArgumentException",
+      "expression": "new IllegalArgumentException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 19
+        },
+        "end": {
+          "line": 152,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "getPeriod",
+      "expression": "actionSchedule.getPeriod",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 23
+        },
+        "end": {
+          "line": 154,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "notNull",
+      "expression": "Assert.notNull",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 155,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getAction",
+      "expression": "actionSchedule.getAction",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 24
+        },
+        "end": {
+          "line": 155,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "Map",
+      "expression": "Map",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.selector",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.selector",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 17
+        },
+        "end": {
+          "line": 27,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "ActionSchedule",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.selector",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 25
+        },
+        "end": {
+          "line": 27,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.boss",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 13
+        },
+        "end": {
+          "line": 28,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.timePause",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.worker",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "RunState",
+      "expression": "RunState",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.runState",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 22
+        },
+        "end": {
+          "line": 33,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.ActionSelectorTemplate",
+      "ownerSignature": "public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 35
+        },
+        "end": {
+          "line": 36,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "ExecutorService",
+      "expression": "ExecutorService",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.ActionSelectorTemplate",
+      "ownerSignature": "public ActionSelectorTemplate(ExecutorService boss, ExecutorService worker)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 57
+        },
+        "end": {
+          "line": 36,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "PreDestroy",
+      "expression": "PreDestroy",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.shutdownGracefully",
+      "ownerSignature": "@PreDestroy\n    public void shutdownGracefully()",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 6
+        },
+        "end": {
+          "line": 82,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 24
+        },
+        "end": {
+          "line": 105,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.remove",
+      "ownerSignature": "public void remove(String taskName, boolean isInterrupt)",
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 24
+        },
+        "end": {
+          "line": 109,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 21
+        },
+        "end": {
+          "line": 120,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "AbstractScheduleAction",
+      "expression": "AbstractScheduleAction",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, AbstractScheduleAction action)",
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 51
+        },
+        "end": {
+          "line": 120,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkState",
+      "ownerSignature": "private void checkState(boolean condition, String errorMsg)",
+      "range": {
+        "start": {
+          "line": 127,
+          "column": 48
+        },
+        "end": {
+          "line": 127,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 21
+        },
+        "end": {
+          "line": 134,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(String taskName, long period, Action action)",
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 51
+        },
+        "end": {
+          "line": 134,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "ActionSchedule",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.put",
+      "ownerSignature": "public void put(ActionSchedule actionSchedule)",
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 21
+        },
+        "end": {
+          "line": 145,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "ActionSchedule",
+      "expression": "ActionSchedule",
+      "ownerQualifiedName": "com.fairychar.bag.template.ActionSelectorTemplate.checkArgs",
+      "ownerSignature": "private void checkArgs(ActionSchedule actionSchedule)",
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 28
+        },
+        "end": {
+          "line": 150,
+          "column": 42
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 27
+        },
+        "end": {
+          "line": 79,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Local/anonymous type bodies are not projected; their calls are not attributed to the enclosing method.",
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 107
+        },
+        "end": {
+          "line": 140,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

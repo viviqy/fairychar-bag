@@ -1,0 +1,473 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/DateBetween.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "DateBetween",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "ownerQualifiedName": "",
+      "signature": "@Target(ElementType.FIELD)\n@Retention(RetentionPolicy.RUNTIME)\n@Constraint(validatedBy = DateValidator.class)\npublic @interface DateBetween",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Target(ElementType.FIELD)",
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Constraint(validatedBy = DateValidator.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "日期范围校验\n\n @author chiyo\n @since 1.3.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "message",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.message",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "String message() default \"date not in range\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"date not in range\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "pattern",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.pattern",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "String pattern() default Consts.SIMPLE_DATE_FORMAT",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 56
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "匹配方式\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "Consts.SIMPLE_DATE_FORMAT",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "min",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.min",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "String min() default \"1976-01-01\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "最小时间,now代表当前时间\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"1976-01-01\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "max",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.max",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "String max() default \"2099-12-31\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 39
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "最大时间,now代表当前时间\n\n @return {@link String }",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"2099-12-31\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "groups",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.groups",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "Class<?>[] groups() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<?>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "payload",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "signature": "Class<? extends Payload>[] payload() default {}",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "Class<? extends Payload>[]",
+      "throws": [],
+      "defaultExpression": "{}",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Consts",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 40
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Constraint",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.Payload",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.ElementType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Retention",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.RetentionPolicy",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.Target",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Constraint",
+      "expression": "Constraint",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.message",
+      "ownerSignature": "String message() default \"date not in range\"",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.pattern",
+      "ownerSignature": "String pattern() default Consts.SIMPLE_DATE_FORMAT",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.min",
+      "ownerSignature": "String min() default \"1976-01-01\"",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.max",
+      "ownerSignature": "String max() default \"2099-12-31\"",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.groups",
+      "ownerSignature": "Class<?>[] groups() default {}",
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Payload",
+      "expression": "Payload",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.DateBetween.payload",
+      "ownerSignature": "Class<? extends Payload>[] payload() default {}",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 21
+        },
+        "end": {
+          "line": 49,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

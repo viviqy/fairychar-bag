@@ -1,0 +1,1556 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/verify/RedisImageCodeVerifier.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.verify",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RedisImageCodeVerifier",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "ownerQualifiedName": "",
+      "signature": "public class RedisImageCodeVerifier implements ICodeVerifier",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 89,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于redis的验证码校验器\n\n @author chiyo <br>",
+      "supertypes": [
+        "ICodeVerifier"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "redisTemplate",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.redisTemplate",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "private final RedisTemplate<String, String> redisTemplate",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "RedisTemplate<String, String>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "prefix",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.prefix",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "private final String prefix",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 33
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "验证码存储空间的redis前缀",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "codeHeader",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.codeHeader",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "private final String codeHeader",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "前端传输验证码header的名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "keyHeader",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.keyHeader",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "private final String keyHeader",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "docstring": "验证码唯一标识返回的header名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "expireSeconds",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.expireSeconds",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "@Setter\n@Getter\nprivate int expireSeconds = 300",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 37
+        }
+      },
+      "annotations": [
+        "@Setter",
+        "@Getter"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "验证码有效期(秒)",
+      "type": "int",
+      "defaultExpression": "300",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "width",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.width",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "@Setter\n@Getter\nprivate int width = 140",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 29
+        }
+      },
+      "annotations": [
+        "@Setter",
+        "@Getter"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": "140",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "height",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.height",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "@Setter\n@Getter\nprivate int height = 60",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 29
+        }
+      },
+      "annotations": [
+        "@Setter",
+        "@Getter"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": "60",
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "RedisImageCodeVerifier",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "redisTemplate",
+          "type": "RedisTemplate<String, String>",
+          "signature": "RedisTemplate<String, String> redisTemplate",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 53,
+              "column": 35
+            },
+            "end": {
+              "line": 53,
+              "column": 78
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "RedisImageCodeVerifier",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 62,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "redisTemplate",
+          "type": "RedisTemplate<String, String>",
+          "signature": "RedisTemplate<String, String> redisTemplate",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 35
+            },
+            "end": {
+              "line": 57,
+              "column": 78
+            }
+          }
+        },
+        {
+          "name": "prefix",
+          "type": "String",
+          "signature": "String prefix",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 80
+            },
+            "end": {
+              "line": 57,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "codeHeader",
+          "type": "String",
+          "signature": "String codeHeader",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 95
+            },
+            "end": {
+              "line": 57,
+              "column": 112
+            }
+          }
+        },
+        {
+          "name": "keyHeader",
+          "type": "String",
+          "signature": "String keyHeader",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 57,
+              "column": 114
+            },
+            "end": {
+              "line": 57,
+              "column": 130
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "generateCode",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 5
+        },
+        "end": {
+          "line": 74,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "Exception"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 30
+            },
+            "end": {
+              "line": 65,
+              "column": 56
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 58
+            },
+            "end": {
+              "line": 65,
+              "column": 86
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "verifyCode",
+      "qualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "signature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "AuthenticationException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 28
+            },
+            "end": {
+              "line": 77,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 56
+            },
+            "end": {
+              "line": 77,
+              "column": 84
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.utils.ImageVerifyCodeUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.ServletOutputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Setter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.data.redis.core.RedisTemplate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.authentication.BadCredentialsException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.AuthenticationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "javax.imageio.ImageIO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 30
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.awt.image.BufferedImage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 37
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.UUID",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "this",
+      "expression": "this",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 9
+        },
+        "end": {
+          "line": 54,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getOutputStream",
+      "expression": "response.getOutputStream",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 44
+        },
+        "end": {
+          "line": 66,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "genImageCode",
+      "expression": "ImageVerifyCodeUtil.genImageCode",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 41
+        },
+        "end": {
+          "line": 67,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "imageCode.get",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 32
+        },
+        "end": {
+          "line": 68,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "toString",
+      "expression": "UUID.randomUUID().toString",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 22
+        },
+        "end": {
+          "line": 69,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "randomUUID",
+      "expression": "UUID.randomUUID",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 22
+        },
+        "end": {
+          "line": 69,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "this.redisTemplate.opsForValue().set",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 70,
+          "column": 108
+        }
+      }
+    },
+    {
+      "name": "opsForValue",
+      "expression": "this.redisTemplate.opsForValue",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 70,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "setHeader",
+      "expression": "response.setHeader",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 9
+        },
+        "end": {
+          "line": 71,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "ImageIO.write",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "imageCode.get",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 39
+        },
+        "end": {
+          "line": 72,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "flush",
+      "expression": "outputStream.flush",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 73,
+          "column": 9
+        },
+        "end": {
+          "line": 73,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 22
+        },
+        "end": {
+          "line": 78,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "getHeader",
+      "expression": "request.getHeader",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 23
+        },
+        "end": {
+          "line": 79,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.redisTemplate.opsForValue().get",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 28
+        },
+        "end": {
+          "line": 80,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "opsForValue",
+      "expression": "this.redisTemplate.opsForValue",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 28
+        },
+        "end": {
+          "line": 80,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "BadCredentialsException",
+      "expression": "new BadCredentialsException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 19
+        },
+        "end": {
+          "line": 82,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "redisCode.equals",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 14
+        },
+        "end": {
+          "line": 84,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "BadCredentialsException",
+      "expression": "new BadCredentialsException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 19
+        },
+        "end": {
+          "line": 85,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "delete",
+      "expression": "this.redisTemplate.delete",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 9
+        },
+        "end": {
+          "line": 87,
+          "column": 53
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ICodeVerifier",
+      "expression": "ICodeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 48
+        },
+        "end": {
+          "line": 24,
+          "column": 61
+        }
+      }
+    },
+    {
+      "name": "RedisTemplate",
+      "expression": "RedisTemplate",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.redisTemplate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.redisTemplate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 33
+        },
+        "end": {
+          "line": 25,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.redisTemplate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 41
+        },
+        "end": {
+          "line": 25,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.prefix",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.codeHeader",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 19
+        },
+        "end": {
+          "line": 33,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.keyHeader",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 19
+        },
+        "end": {
+          "line": 37,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.expireSeconds",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 6
+        },
+        "end": {
+          "line": 41,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.expireSeconds",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 6
+        },
+        "end": {
+          "line": 42,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.width",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.width",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 6
+        },
+        "end": {
+          "line": 46,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Setter",
+      "expression": "Setter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.height",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 6
+        },
+        "end": {
+          "line": 48,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.height",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 6
+        },
+        "end": {
+          "line": 49,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "RedisTemplate",
+      "expression": "RedisTemplate",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 35
+        },
+        "end": {
+          "line": 53,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 49
+        },
+        "end": {
+          "line": 53,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 57
+        },
+        "end": {
+          "line": 53,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "RedisTemplate",
+      "expression": "RedisTemplate",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 35
+        },
+        "end": {
+          "line": 57,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 49
+        },
+        "end": {
+          "line": 57,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 57
+        },
+        "end": {
+          "line": 57,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 80
+        },
+        "end": {
+          "line": 57,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 95
+        },
+        "end": {
+          "line": 57,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.RedisImageCodeVerifier",
+      "ownerSignature": "public RedisImageCodeVerifier(RedisTemplate<String, String> redisTemplate, String prefix, String codeHeader, String keyHeader)",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 114
+        },
+        "end": {
+          "line": 57,
+          "column": 120
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 30
+        },
+        "end": {
+          "line": 65,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 58
+        },
+        "end": {
+          "line": 65,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "Exception",
+      "expression": "Exception",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 95
+        },
+        "end": {
+          "line": 65,
+          "column": 104
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.generateCode",
+      "ownerSignature": "@Override\n    public void generateCode(HttpServletRequest request, HttpServletResponse response) throws Exception",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 6
+        },
+        "end": {
+          "line": 64,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 28
+        },
+        "end": {
+          "line": 77,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 56
+        },
+        "end": {
+          "line": 77,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "AuthenticationException",
+      "expression": "AuthenticationException",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 93
+        },
+        "end": {
+          "line": 77,
+          "column": 116
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.verify.RedisImageCodeVerifier.verifyCode",
+      "ownerSignature": "@Override\n    public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 6
+        },
+        "end": {
+          "line": 76,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

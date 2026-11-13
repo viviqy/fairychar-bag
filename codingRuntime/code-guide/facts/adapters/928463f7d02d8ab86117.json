@@ -1,0 +1,1468 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/mapper/MenuHasApiMapper.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.mapper",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "MenuHasApiMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "ownerQualifiedName": "",
+      "signature": "public interface MenuHasApiMapper extends BaseMapper<MenuHasApi>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 89,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "(MenuHasApi)表数据库访问层\n\n @author chiyo",
+      "supertypes": [
+        "BaseMapper<MenuHasApi>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "queryOne",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "MenuHasApi queryOne(@Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询MenuHasApi单条数据\n\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "MenuHasApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 25
+            },
+            "end": {
+              "line": 26,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryOneSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 103
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询MenuHasApi单条数据指定column\n\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "MenuHasApi",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 34
+            },
+            "end": {
+              "line": 34,
+              "column": 66
+            }
+          }
+        },
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 34,
+              "column": 68
+            },
+            "end": {
+              "line": 34,
+              "column": 101
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "List<MenuHasApi> queryAll(@Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询MenuHasApi所有数据\n\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "List<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 31
+            },
+            "end": {
+              "line": 42,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 109
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询MenuHasApi所有数据指定column\n\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "List<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 40
+            },
+            "end": {
+              "line": 50,
+              "column": 72
+            }
+          }
+        },
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 50,
+              "column": 74
+            },
+            "end": {
+              "line": 50,
+              "column": 107
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAll",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 92
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询MenuHasApi所有数据\n\n @param page       分页参数\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "Page<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 30
+            },
+            "end": {
+              "line": 59,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 59,
+              "column": 57
+            },
+            "end": {
+              "line": 59,
+              "column": 90
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "pageAllSelective",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 135
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配分页查询MenuHasApi所有数据指定column\n\n @param page       分页参数\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 查询结果 {@see MenuHasApi}",
+      "typeParameters": [],
+      "returnType": "Page<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String[]",
+          "signature": "@Param(\"fields\") String[] fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 39
+            },
+            "end": {
+              "line": 68,
+              "column": 71
+            }
+          }
+        },
+        {
+          "name": "page",
+          "type": "IPage",
+          "signature": "@Param(\"page\") IPage page",
+          "annotations": [
+            "@Param(\"page\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 73
+            },
+            "end": {
+              "line": 68,
+              "column": 98
+            }
+          }
+        },
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 68,
+              "column": 100
+            },
+            "end": {
+              "line": 68,
+              "column": 133
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "count",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "int count(@Param(\"e\") MenuHasApi menuHasApi)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "条件匹配查询MenuHasApi匹配数据总数\n\n @param menuHasApi {@see MenuHasApi}查询条件\n @return 总数",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "menuHasApi",
+          "type": "MenuHasApi",
+          "signature": "@Param(\"e\") MenuHasApi menuHasApi",
+          "annotations": [
+            "@Param(\"e\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 76,
+              "column": 15
+            },
+            "end": {
+              "line": 76,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "countGroupBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.countGroupBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "List<MenuHasApi> countGroupBy(@Param(\"fields\") String fields)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 67
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "根据指定字段分组\n\n @param fields 分组字段集\n @return {@see MenuHasApi}数据集",
+      "typeParameters": [],
+      "returnType": "List<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "type": "String",
+          "signature": "@Param(\"fields\") String fields",
+          "annotations": [
+            "@Param(\"fields\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 84,
+              "column": 35
+            },
+            "end": {
+              "line": 84,
+              "column": 65
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "insertBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.insertBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "void insertBatch(@Param(\"list\") List<MenuHasApi> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 86,
+          "column": 64
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<MenuHasApi>",
+          "signature": "@Param(\"list\") List<MenuHasApi> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 86,
+              "column": 22
+            },
+            "end": {
+              "line": 86,
+              "column": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "listByMenuIdAndApiId",
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "signature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 85
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<MenuHasApi>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<MenuHasApi>",
+          "signature": "@Param(\"list\") List<MenuHasApi> entities",
+          "annotations": [
+            "@Param(\"list\")"
+          ],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 88,
+              "column": 43
+            },
+            "end": {
+              "line": 88,
+              "column": 83
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.mapper.BaseMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.metadata.IPage",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 53
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.MenuHasApi",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.annotations.Param",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "BaseMapper",
+      "expression": "BaseMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 43
+        },
+        "end": {
+          "line": 17,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 54
+        },
+        "end": {
+          "line": 17,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOne",
+      "ownerSignature": "MenuHasApi queryOne(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOne",
+      "ownerSignature": "MenuHasApi queryOne(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 37
+        },
+        "end": {
+          "line": 26,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOne",
+      "ownerSignature": "MenuHasApi queryOne(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 26
+        },
+        "end": {
+          "line": 26,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerSignature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerSignature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 51
+        },
+        "end": {
+          "line": 34,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerSignature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 35
+        },
+        "end": {
+          "line": 34,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerSignature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 80
+        },
+        "end": {
+          "line": 34,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryOneSelective",
+      "ownerSignature": "MenuHasApi queryOneSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 69
+        },
+        "end": {
+          "line": 34,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAll",
+      "ownerSignature": "List<MenuHasApi> queryAll(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAll",
+      "ownerSignature": "List<MenuHasApi> queryAll(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 10
+        },
+        "end": {
+          "line": 42,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAll",
+      "ownerSignature": "List<MenuHasApi> queryAll(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 43
+        },
+        "end": {
+          "line": 42,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAll",
+      "ownerSignature": "List<MenuHasApi> queryAll(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 32
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 10
+        },
+        "end": {
+          "line": 50,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 57
+        },
+        "end": {
+          "line": 50,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 41
+        },
+        "end": {
+          "line": 50,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 86
+        },
+        "end": {
+          "line": 50,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.queryAllSelective",
+      "ownerSignature": "List<MenuHasApi> queryAllSelective(@Param(\"fields\") String[] fields, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 75
+        },
+        "end": {
+          "line": 50,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 5
+        },
+        "end": {
+          "line": 59,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 10
+        },
+        "end": {
+          "line": 59,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 45
+        },
+        "end": {
+          "line": 59,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 31
+        },
+        "end": {
+          "line": 59,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 69
+        },
+        "end": {
+          "line": 59,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAll",
+      "ownerSignature": "Page<MenuHasApi> pageAll(@Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 58
+        },
+        "end": {
+          "line": 59,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 56
+        },
+        "end": {
+          "line": 68,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 40
+        },
+        "end": {
+          "line": 68,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "IPage",
+      "expression": "IPage",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 88
+        },
+        "end": {
+          "line": 68,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 74
+        },
+        "end": {
+          "line": 68,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 112
+        },
+        "end": {
+          "line": 68,
+          "column": 122
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.pageAllSelective",
+      "ownerSignature": "Page<MenuHasApi> pageAllSelective(@Param(\"fields\") String[] fields, @Param(\"page\") IPage page, @Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 101
+        },
+        "end": {
+          "line": 68,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 27
+        },
+        "end": {
+          "line": 76,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.count",
+      "ownerSignature": "int count(@Param(\"e\") MenuHasApi menuHasApi)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 16
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.countGroupBy",
+      "ownerSignature": "List<MenuHasApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.countGroupBy",
+      "ownerSignature": "List<MenuHasApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 10
+        },
+        "end": {
+          "line": 84,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.countGroupBy",
+      "ownerSignature": "List<MenuHasApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 52
+        },
+        "end": {
+          "line": 84,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.countGroupBy",
+      "ownerSignature": "List<MenuHasApi> countGroupBy(@Param(\"fields\") String fields)",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 36
+        },
+        "end": {
+          "line": 84,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 37
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 42
+        },
+        "end": {
+          "line": 86,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.insertBatch",
+      "ownerSignature": "void insertBatch(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerSignature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerSignature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 10
+        },
+        "end": {
+          "line": 88,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerSignature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 58
+        },
+        "end": {
+          "line": 88,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "MenuHasApi",
+      "expression": "MenuHasApi",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerSignature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 63
+        },
+        "end": {
+          "line": 88,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "Param",
+      "expression": "Param",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.mapper.MenuHasApiMapper.listByMenuIdAndApiId",
+      "ownerSignature": "List<MenuHasApi> listByMenuIdAndApiId(@Param(\"list\") List<MenuHasApi> entities)",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 44
+        },
+        "end": {
+          "line": 88,
+          "column": 49
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

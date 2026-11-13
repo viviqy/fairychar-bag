@@ -1,0 +1,357 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/properties/WebProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "WebProperties",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class WebProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Datetime: 2022/10/1 01:01\n\n @author chiyo\n @since 0.0.1",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "advice",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.advice",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "signature": "@NestedConfigurationProperty\nprivate Advice advice",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Advice",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "propertyProcessor",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.propertyProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "signature": "@NestedConfigurationProperty\nprivate PropertyProcessor propertyProcessor",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 49
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "PropertyProcessor",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "PropertyProcessor",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.PropertyProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "signature": "@Data\n    public static class PropertyProcessor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "http request body property处理器\n {@link com.fairychar.bag.beans.spring.mvc.KeepValueAdvice},\n {@link com.fairychar.bag.beans.spring.mvc.EraseValueAdvice},\n {@link com.fairychar.bag.beans.spring.mvc.FuzzyValueAdvice}\n\n @author chiyo\n @date 2023/09/01",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.PropertyProcessor.enable",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.PropertyProcessor",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 9
+        },
+        "end": {
+          "line": 33,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "Advice",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.Advice",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "signature": "@Data\n    public static class Advice",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "docstring": "http hibernate validator exception advice\n\n @author chiyo\n @date 2023/09/01",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.bag.properties.WebProperties.Advice.enable",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.Advice",
+      "signature": "private boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 9
+        },
+        "end": {
+          "line": 44,
+          "column": 32
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.NestedConfigurationProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "Advice",
+      "expression": "Advice",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.advice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.advice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "PropertyProcessor",
+      "expression": "PropertyProcessor",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.propertyProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 13
+        },
+        "end": {
+          "line": 19,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.propertyProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 6
+        },
+        "end": {
+          "line": 18,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.PropertyProcessor",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.properties.WebProperties.Advice",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 6
+        },
+        "end": {
+          "line": 42,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

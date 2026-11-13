@@ -1,0 +1,2660 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/utils/RedisLockUtil.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.utils",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RedisLockUtil",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic final class RedisLockUtil",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 125,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "final",
+        "public"
+      ],
+      "docstring": "redis 锁 util\n\n @author chiyo <br>\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "EMPTY_ACTION",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.EMPTY_ACTION",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "private static final Action EMPTY_ACTION = () -> {\n    }",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 7
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private",
+        "static"
+      ],
+      "type": "Action",
+      "defaultExpression": "() -> {\n    }",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 29
+            },
+            "end": {
+              "line": 23,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "checkIsPresent",
+          "type": "Action",
+          "signature": "Action checkIsPresent",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 41
+            },
+            "end": {
+              "line": 23,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 64
+            },
+            "end": {
+              "line": 23,
+              "column": 77
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 79
+            },
+            "end": {
+              "line": 23,
+              "column": 87
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 89
+            },
+            "end": {
+              "line": 23,
+              "column": 106
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 29
+            },
+            "end": {
+              "line": 27,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 41
+            },
+            "end": {
+              "line": 27,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 56
+            },
+            "end": {
+              "line": 27,
+              "column": 64
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 66
+            },
+            "end": {
+              "line": 27,
+              "column": 83
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 29
+            },
+            "end": {
+              "line": 31,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 41
+            },
+            "end": {
+              "line": 31,
+              "column": 54
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action checkIsPresent, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 29
+            },
+            "end": {
+              "line": 35,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "checkIsPresent",
+          "type": "Action",
+          "signature": "Action checkIsPresent",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 41
+            },
+            "end": {
+              "line": 35,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 64
+            },
+            "end": {
+              "line": 35,
+              "column": 77
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 29
+            },
+            "end": {
+              "line": 40,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "beforeSearch",
+          "type": "Action",
+          "signature": "Action beforeSearch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 41
+            },
+            "end": {
+              "line": 40,
+              "column": 60
+            }
+          }
+        },
+        {
+          "name": "searchAgain",
+          "type": "Action",
+          "signature": "Action searchAgain",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 62
+            },
+            "end": {
+              "line": 40,
+              "column": 80
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 82
+            },
+            "end": {
+              "line": 40,
+              "column": 95
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "lock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 68,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 29
+            },
+            "end": {
+              "line": 55,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "beforeSearch",
+          "type": "Action",
+          "signature": "Action beforeSearch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 41
+            },
+            "end": {
+              "line": 55,
+              "column": 60
+            }
+          }
+        },
+        {
+          "name": "searchAgain",
+          "type": "Action",
+          "signature": "Action searchAgain",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 62
+            },
+            "end": {
+              "line": 55,
+              "column": 80
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 82
+            },
+            "end": {
+              "line": 55,
+              "column": 95
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 97
+            },
+            "end": {
+              "line": 55,
+              "column": 105
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 55,
+              "column": 107
+            },
+            "end": {
+              "line": 55,
+              "column": 124
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 5
+        },
+        "end": {
+          "line": 73,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 71,
+              "column": 32
+            },
+            "end": {
+              "line": 71,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 71,
+              "column": 44
+            },
+            "end": {
+              "line": 71,
+              "column": 57
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 71,
+              "column": 59
+            },
+            "end": {
+              "line": 71,
+              "column": 67
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 71,
+              "column": 69
+            },
+            "end": {
+              "line": 71,
+              "column": 86
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 5
+        },
+        "end": {
+          "line": 77,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 75,
+              "column": 32
+            },
+            "end": {
+              "line": 75,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "checkIsPresent",
+          "type": "Action",
+          "signature": "Action checkIsPresent",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 75,
+              "column": 44
+            },
+            "end": {
+              "line": 75,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 75,
+              "column": 67
+            },
+            "end": {
+              "line": 75,
+              "column": 80
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 75,
+              "column": 82
+            },
+            "end": {
+              "line": 75,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 75,
+              "column": 92
+            },
+            "end": {
+              "line": 75,
+              "column": 109
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 5
+        },
+        "end": {
+          "line": 81,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 79,
+              "column": 32
+            },
+            "end": {
+              "line": 79,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 79,
+              "column": 44
+            },
+            "end": {
+              "line": 79,
+              "column": 57
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 83,
+              "column": 32
+            },
+            "end": {
+              "line": 83,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "checkIsPresent",
+          "type": "Action",
+          "signature": "Action checkIsPresent",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 83,
+              "column": 44
+            },
+            "end": {
+              "line": 83,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 83,
+              "column": 67
+            },
+            "end": {
+              "line": 83,
+              "column": 80
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 87,
+              "column": 32
+            },
+            "end": {
+              "line": 87,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "beforeSearch",
+          "type": "Action",
+          "signature": "Action beforeSearch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 87,
+              "column": 44
+            },
+            "end": {
+              "line": 87,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "searchAgain",
+          "type": "Action",
+          "signature": "Action searchAgain",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 87,
+              "column": 65
+            },
+            "end": {
+              "line": 87,
+              "column": 83
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 87,
+              "column": 85
+            },
+            "end": {
+              "line": 87,
+              "column": 98
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "tryLock",
+      "qualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "signature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 5
+        },
+        "end": {
+          "line": 123,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "RLock",
+          "signature": "RLock lock",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 32
+            },
+            "end": {
+              "line": 105,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "beforeSearch",
+          "type": "Action",
+          "signature": "Action beforeSearch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 44
+            },
+            "end": {
+              "line": 105,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "searchAgain",
+          "type": "Action",
+          "signature": "Action searchAgain",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 65
+            },
+            "end": {
+              "line": 105,
+              "column": 83
+            }
+          }
+        },
+        {
+          "name": "action",
+          "type": "Action",
+          "signature": "Action action",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 85
+            },
+            "end": {
+              "line": 105,
+              "column": 98
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "int",
+          "signature": "int time",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 100
+            },
+            "end": {
+              "line": 105,
+              "column": 108
+            }
+          }
+        },
+        {
+          "name": "timeUnit",
+          "type": "TimeUnit",
+          "signature": "TimeUnit timeUnit",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 105,
+              "column": 110
+            },
+            "end": {
+              "line": 105,
+              "column": 127
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.FailToGetLockException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 42
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.redisson.api.RLock",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 31
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.TimeUnit",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "lock",
+      "expression": "lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 9
+        },
+        "end": {
+          "line": 24,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 9
+        },
+        "end": {
+          "line": 32,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 9
+        },
+        "end": {
+          "line": 36,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "beforeSearch.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "lock.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 13
+        },
+        "end": {
+          "line": 43,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "searchAgain.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 13
+        },
+        "end": {
+          "line": 44,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "action.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 13
+        },
+        "end": {
+          "line": 45,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "lock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 17
+        },
+        "end": {
+          "line": 49,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "lock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 17
+        },
+        "end": {
+          "line": 50,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "beforeSearch.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 13
+        },
+        "end": {
+          "line": 57,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "lock",
+      "expression": "lock.lock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 13
+        },
+        "end": {
+          "line": 58,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "searchAgain.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 59,
+          "column": 13
+        },
+        "end": {
+          "line": 59,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "action.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 13
+        },
+        "end": {
+          "line": 60,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "lock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 17
+        },
+        "end": {
+          "line": 64,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "lock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 17
+        },
+        "end": {
+          "line": 65,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 72,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 6,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 9
+        },
+        "end": {
+          "line": 76,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 9
+        },
+        "end": {
+          "line": 80,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 9
+        },
+        "end": {
+          "line": 84,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "beforeSearch.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 13
+        },
+        "end": {
+          "line": 89,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "lock.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 17
+        },
+        "end": {
+          "line": 90,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "searchAgain.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 17
+        },
+        "end": {
+          "line": 91,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "action.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 17
+        },
+        "end": {
+          "line": 92,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "FailToGetLockException",
+      "expression": "new FailToGetLockException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 23
+        },
+        "end": {
+          "line": 94,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "lock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 17
+        },
+        "end": {
+          "line": 99,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "lock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 17
+        },
+        "end": {
+          "line": 100,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "beforeSearch.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 13
+        },
+        "end": {
+          "line": 107,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "tryLock",
+      "expression": "lock.tryLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 108,
+          "column": 17
+        },
+        "end": {
+          "line": 108,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "searchAgain.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 17
+        },
+        "end": {
+          "line": 109,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "doAction",
+      "expression": "action.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 17
+        },
+        "end": {
+          "line": 110,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "FailToGetLockException",
+      "expression": "new FailToGetLockException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 112,
+          "column": 23
+        },
+        "end": {
+          "line": 112,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "new RuntimeException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 19
+        },
+        "end": {
+          "line": 115,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "isHeldByCurrentThread",
+      "expression": "lock.isHeldByCurrentThread",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 17
+        },
+        "end": {
+          "line": 119,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "unlock",
+      "expression": "lock.unlock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 17
+        },
+        "end": {
+          "line": 120,
+          "column": 30
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.EMPTY_ACTION",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 26
+        },
+        "end": {
+          "line": 20,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 29
+        },
+        "end": {
+          "line": 23,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 41
+        },
+        "end": {
+          "line": 23,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 64
+        },
+        "end": {
+          "line": 23,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 89
+        },
+        "end": {
+          "line": 23,
+          "column": 97
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 29
+        },
+        "end": {
+          "line": 27,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 41
+        },
+        "end": {
+          "line": 27,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 66
+        },
+        "end": {
+          "line": 27,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 29
+        },
+        "end": {
+          "line": 31,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action action)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 41
+        },
+        "end": {
+          "line": 31,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 29
+        },
+        "end": {
+          "line": 35,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 41
+        },
+        "end": {
+          "line": 35,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 64
+        },
+        "end": {
+          "line": 35,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 29
+        },
+        "end": {
+          "line": 40,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 41
+        },
+        "end": {
+          "line": 40,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 62
+        },
+        "end": {
+          "line": 40,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 82
+        },
+        "end": {
+          "line": 40,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 29
+        },
+        "end": {
+          "line": 55,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 41
+        },
+        "end": {
+          "line": 55,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 62
+        },
+        "end": {
+          "line": 55,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 82
+        },
+        "end": {
+          "line": 55,
+          "column": 88
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.lock",
+      "ownerSignature": "public static void lock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 107
+        },
+        "end": {
+          "line": 55,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 32
+        },
+        "end": {
+          "line": 71,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 44
+        },
+        "end": {
+          "line": 71,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 69
+        },
+        "end": {
+          "line": 71,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 32
+        },
+        "end": {
+          "line": 75,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 44
+        },
+        "end": {
+          "line": 75,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 67
+        },
+        "end": {
+          "line": 75,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 92
+        },
+        "end": {
+          "line": 75,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action)",
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 32
+        },
+        "end": {
+          "line": 79,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action action)",
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 44
+        },
+        "end": {
+          "line": 79,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 32
+        },
+        "end": {
+          "line": 83,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 44
+        },
+        "end": {
+          "line": 83,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action checkIsPresent, Action action)",
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 67
+        },
+        "end": {
+          "line": 83,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 32
+        },
+        "end": {
+          "line": 87,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 44
+        },
+        "end": {
+          "line": 87,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 65
+        },
+        "end": {
+          "line": 87,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action)",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 85
+        },
+        "end": {
+          "line": 87,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "RLock",
+      "expression": "RLock",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 32
+        },
+        "end": {
+          "line": 105,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 44
+        },
+        "end": {
+          "line": 105,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 65
+        },
+        "end": {
+          "line": 105,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "Action",
+      "expression": "Action",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 85
+        },
+        "end": {
+          "line": 105,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "expression": "TimeUnit",
+      "ownerQualifiedName": "com.fairychar.bag.utils.RedisLockUtil.tryLock",
+      "ownerSignature": "public static void tryLock(RLock lock, Action beforeSearch, Action searchAgain, Action action, int time, TimeUnit timeUnit)",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 110
+        },
+        "end": {
+          "line": 105,
+          "column": 118
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 48
+        },
+        "end": {
+          "line": 21,
+          "column": 6
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

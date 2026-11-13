@@ -1,0 +1,3103 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/SysMenuService.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SysMenuService",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerQualifiedName": "",
+      "signature": "@Service(\"sysMenuService\")\npublic class SysMenuService extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 197,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Service(\"sysMenuService\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统菜单(SysMenu)表服务实现类\n\n @author chiyo",
+      "supertypes": [
+        "ServiceImpl<SysMenuMapper, SysMenu>",
+        "ISysMenuService"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "sysMenuMapper",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Autowired\nprivate SysMenuMapper sysMenuMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 41
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysMenuMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sysMenuStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Autowired\nprivate SysMenuStructure sysMenuStructure",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 47
+        }
+      },
+      "annotations": [
+        "@Autowired"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SysMenuStructure",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pageByRoot",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "条件匹配分页查询SysMenu所有数据\n\n @param sysApiQuery {@link SysMenuQuery}查询条件\n @return 查询结果 {@link SysMenuDTO}",
+      "typeParameters": [],
+      "returnType": "Page<SysMenuDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "sysApiQuery",
+          "type": "SysMenuQuery",
+          "signature": "SysMenuQuery sysApiQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 40
+            },
+            "end": {
+              "line": 49,
+              "column": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 94,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "插入\n\n @param addSysMenuQuery {@link SysMenuQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSysMenuQuery",
+          "type": "AddSysMenuQuery",
+          "signature": "AddSysMenuQuery addSysMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 77,
+              "column": 21
+            },
+            "end": {
+              "line": 77,
+              "column": 52
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 5
+        },
+        "end": {
+          "line": 111,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param updateSysMenuQuery {@link SysMenuQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSysMenuQuery",
+          "type": "UpdateSysMenuQuery",
+          "signature": "UpdateSysMenuQuery updateSysMenuQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 103,
+              "column": 31
+            },
+            "end": {
+              "line": 103,
+              "column": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "findById",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 5
+        },
+        "end": {
+          "line": 134,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "根据id查询一个对象\n\n @param id id\n @return 查询结果 {@link SysMenuDTO}",
+      "typeParameters": [],
+      "returnType": "SysMenuDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Serializable",
+          "signature": "Serializable id",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 121,
+              "column": 32
+            },
+            "end": {
+              "line": 121,
+              "column": 47
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "saveBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 5
+        },
+        "end": {
+          "line": 167,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "批量新增\n\n @param batch 新增数据\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "List<SysMenu>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSysMenuQuery>",
+          "signature": "List<AddSysMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 143,
+              "column": 36
+            },
+            "end": {
+              "line": 143,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateByIdBatch",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "signature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 5
+        },
+        "end": {
+          "line": 195,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "更新\n\n @param batch {@link SysMenuQuery}查询条件\n @return 是否成功",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSysMenuQuery>",
+          "signature": "List<UpdateSysMenuQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 176,
+              "column": 36
+            },
+            "end": {
+              "line": 176,
+              "column": 66
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "cn.hutool.core.lang.Assert",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 35
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.conditions.query.QueryWrapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.plugins.pagination.Page",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 67
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.service.impl.ServiceImpl",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestErrorCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 58
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.utils.MappingObjectUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.bag.utils.ReflectUtil",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.mapper.SysMenuMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SysMenuDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 61
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSysMenuQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.interfaces.ISysMenuService",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SysMenuStructure",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.annotation.Autowired",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 19,
+          "column": 63
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.dao.DuplicateKeyException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 54
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.stereotype.Service",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.function.Function",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 27,
+          "column": 36
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "setPid",
+      "expression": "sysApiQuery.setPid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 9
+        },
+        "end": {
+          "line": 50,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "queryToEntity",
+      "expression": "this.sysMenuStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 26
+        },
+        "end": {
+          "line": 51,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "pageAll",
+      "expression": "this.sysMenuMapper.pageAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 33
+        },
+        "end": {
+          "line": 52,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "getPageQuery",
+      "expression": "sysApiQuery.getPageQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 60
+        },
+        "end": {
+          "line": 52,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.sysMenuStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 33
+        },
+        "end": {
+          "line": 53,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getRecords",
+      "expression": "queries.getRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 70
+        },
+        "end": {
+          "line": 53,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "dtos.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 14
+        },
+        "end": {
+          "line": 54,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "dtos.stream().map(s -> s.getId()).toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 34
+        },
+        "end": {
+          "line": 55,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "dtos.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 34
+        },
+        "end": {
+          "line": 55,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "dtos.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 34
+        },
+        "end": {
+          "line": 55,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "recursiveSearchChild",
+      "expression": "ReflectUtil.recursiveSearchChild",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 50
+        },
+        "end": {
+          "line": 59,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.sysMenuStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 57
+        },
+        "end": {
+          "line": 60,
+          "column": 115
+        }
+      }
+    },
+    {
+      "name": "addAll",
+      "expression": "recursiveSearchChildDtos.addAll",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 13
+        },
+        "end": {
+          "line": 61,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "listToTree",
+      "expression": "MappingObjectUtil.listToTree",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 5,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 20
+        },
+        "end": {
+          "line": 62,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "Page<>",
+      "expression": "new Page<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 39
+        },
+        "end": {
+          "line": 64,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "getCurrent",
+      "expression": "queries.getCurrent",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 50
+        },
+        "end": {
+          "line": 64,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getSize",
+      "expression": "queries.getSize",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 72
+        },
+        "end": {
+          "line": 64,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "getTotal",
+      "expression": "queries.getTotal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 91
+        },
+        "end": {
+          "line": 64,
+          "column": 109
+        }
+      }
+    },
+    {
+      "name": "setRecords",
+      "expression": "resultPage.setRecords",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 9
+        },
+        "end": {
+          "line": 65,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "getPid",
+      "expression": "addSysMenuQuery.getPid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 78,
+          "column": 23
+        },
+        "end": {
+          "line": 78,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "pid.equals",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 79,
+          "column": 14
+        },
+        "end": {
+          "line": 79,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.sysMenuMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 31
+        },
+        "end": {
+          "line": 80,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "setId",
+      "expression": "new SysMenu().setId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 56
+        },
+        "end": {
+          "line": 80,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "new SysMenu",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 56
+        },
+        "end": {
+          "line": 80,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 13
+        },
+        "end": {
+          "line": 81,
+          "column": 110
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.sysMenuMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 23
+        },
+        "end": {
+          "line": 83,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "setCode",
+      "expression": "new SysMenu().setCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 51
+        },
+        "end": {
+          "line": 83,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "new SysMenu",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 51
+        },
+        "end": {
+          "line": 83,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "addSysMenuQuery.getCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 83,
+          "column": 73
+        },
+        "end": {
+          "line": 83,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "isNull",
+      "expression": "Assert.isNull",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 9
+        },
+        "end": {
+          "line": 84,
+          "column": 78
+        }
+      }
+    },
+    {
+      "name": "addQueryToEntity",
+      "expression": "this.sysMenuStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 85,
+          "column": 26
+        },
+        "end": {
+          "line": 85,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "save",
+      "expression": "super.save",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 13
+        },
+        "end": {
+          "line": 87,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 20
+        },
+        "end": {
+          "line": 88,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 19
+        },
+        "end": {
+          "line": 90,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "count",
+      "expression": "this.sysMenuMapper.count",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 21
+        },
+        "end": {
+          "line": 104,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "setId",
+      "expression": "new SysMenu().setId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 46
+        },
+        "end": {
+          "line": 104,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "new SysMenu",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 46
+        },
+        "end": {
+          "line": 104,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "updateSysMenuQuery.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 66
+        },
+        "end": {
+          "line": 104,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 9
+        },
+        "end": {
+          "line": 105,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "updateQueryToEntity",
+      "expression": "this.sysMenuStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 26
+        },
+        "end": {
+          "line": 106,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "queryOne",
+      "expression": "this.sysMenuMapper.queryOne",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 23
+        },
+        "end": {
+          "line": 107,
+          "column": 103
+        }
+      }
+    },
+    {
+      "name": "setCode",
+      "expression": "new SysMenu().setCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 51
+        },
+        "end": {
+          "line": 107,
+          "column": 102
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "new SysMenu",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 51
+        },
+        "end": {
+          "line": 107,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getCode",
+      "expression": "updateSysMenuQuery.getCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 107,
+          "column": 73
+        },
+        "end": {
+          "line": 107,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 9
+        },
+        "end": {
+          "line": 109,
+          "column": 124
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "one.getId().equals",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 38
+        },
+        "end": {
+          "line": 109,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "one.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 38
+        },
+        "end": {
+          "line": 109,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "entity.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 57
+        },
+        "end": {
+          "line": 109,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "updateById",
+      "expression": "super.updateById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 16
+        },
+        "end": {
+          "line": 110,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "entityToDto",
+      "expression": "this.sysMenuStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 29
+        },
+        "end": {
+          "line": 122,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "getById",
+      "expression": "this.getById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 63
+        },
+        "end": {
+          "line": 122,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "recursiveSearchChild",
+      "expression": "ReflectUtil.recursiveSearchChild",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 46
+        },
+        "end": {
+          "line": 129,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "parent.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 85
+        },
+        "end": {
+          "line": 126,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "entitiesToDtos",
+      "expression": "this.sysMenuStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 53
+        },
+        "end": {
+          "line": 130,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "recursiveSearchChildDtos.add",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 131,
+          "column": 9
+        },
+        "end": {
+          "line": 131,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "listToTree",
+      "expression": "MappingObjectUtil.listToTree",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 5,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 40
+        },
+        "end": {
+          "line": 132,
+          "column": 132
+        }
+      }
+    },
+    {
+      "name": "getId",
+      "expression": "parent.getId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 117
+        },
+        "end": {
+          "line": 132,
+          "column": 131
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "sysMenuDTOS.get",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 16
+        },
+        "end": {
+          "line": 133,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 144,
+          "column": 13
+        },
+        "end": {
+          "line": 144,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "of",
+      "expression": "List.of",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 145,
+          "column": 20
+        },
+        "end": {
+          "line": 145,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().map(m -> m.getCode()).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 31
+        },
+        "end": {
+          "line": 148,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "batch.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 31
+        },
+        "end": {
+          "line": 148,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 31
+        },
+        "end": {
+          "line": 148,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "toSet",
+      "expression": "Collectors.toSet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 76
+        },
+        "end": {
+          "line": 148,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "codeSet.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 13
+        },
+        "end": {
+          "line": 149,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 149,
+          "column": 31
+        },
+        "end": {
+          "line": 149,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 150,
+          "column": 19
+        },
+        "end": {
+          "line": 150,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "addQueriesToEntities",
+      "expression": "this.sysMenuStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 34
+        },
+        "end": {
+          "line": 152,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "list",
+      "expression": "super.list",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 30
+        },
+        "end": {
+          "line": 153,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<SysMenu>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 41
+        },
+        "end": {
+          "line": 153,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<SysMenu>",
+      "expression": "new QueryWrapper<SysMenu>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 41
+        },
+        "end": {
+          "line": 153,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "apis.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 14
+        },
+        "end": {
+          "line": 154,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "apis.stream().map(sysApi -> sysApi.getCode())\n                    .collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 35
+        },
+        "end": {
+          "line": 156,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "apis.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 35
+        },
+        "end": {
+          "line": 155,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "apis.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 35
+        },
+        "end": {
+          "line": 155,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 30
+        },
+        "end": {
+          "line": 156,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 157,
+          "column": 19
+        },
+        "end": {
+          "line": 157,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "saveBatch",
+      "expression": "super.saveBatch",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 160,
+          "column": 13
+        },
+        "end": {
+          "line": 160,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 19
+        },
+        "end": {
+          "line": 163,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "batch.stream().map(m -> m.getCode()).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 31
+        },
+        "end": {
+          "line": 178,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "batch.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 31
+        },
+        "end": {
+          "line": 178,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "batch.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 31
+        },
+        "end": {
+          "line": 178,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "toSet",
+      "expression": "Collectors.toSet",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 76
+        },
+        "end": {
+          "line": 178,
+          "column": 94
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "codeSet.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 13
+        },
+        "end": {
+          "line": 179,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "batch.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 31
+        },
+        "end": {
+          "line": 179,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 180,
+          "column": 19
+        },
+        "end": {
+          "line": 180,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "updateQueriesToEntities",
+      "expression": "this.sysMenuStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 182,
+          "column": 34
+        },
+        "end": {
+          "line": 182,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "entities.stream().collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 42
+        },
+        "end": {
+          "line": 183,
+          "column": 119
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 42
+        },
+        "end": {
+          "line": 183,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "toMap",
+      "expression": "Collectors.toMap",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 68
+        },
+        "end": {
+          "line": 183,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "list",
+      "expression": "super.list",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 35
+        },
+        "end": {
+          "line": 186,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "notIn",
+      "expression": "new QueryWrapper<SysMenu>().in(SysMenu.CODE, codeSet)\n                .notIn",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 46
+        },
+        "end": {
+          "line": 186,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "in",
+      "expression": "new QueryWrapper<SysMenu>().in",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 46
+        },
+        "end": {
+          "line": 185,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "QueryWrapper<SysMenu>",
+      "expression": "new QueryWrapper<SysMenu>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 185,
+          "column": 46
+        },
+        "end": {
+          "line": 185,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "codeIdMap.values",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 186,
+          "column": 36
+        },
+        "end": {
+          "line": 186,
+          "column": 54
+        }
+      }
+    },
+    {
+      "name": "isTrue",
+      "expression": "Assert.isTrue",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 9
+        },
+        "end": {
+          "line": 187,
+          "column": 107
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "otherApis.size",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 23
+        },
+        "end": {
+          "line": 187,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "updateBatchById",
+      "expression": "super.updateBatchById",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 20
+        },
+        "end": {
+          "line": 189,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "RestException",
+      "expression": "new RestException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 191,
+          "column": 19
+        },
+        "end": {
+          "line": 191,
+          "column": 62
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ServiceImpl",
+      "expression": "ServiceImpl",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 37
+        },
+        "end": {
+          "line": 36,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "SysMenuMapper",
+      "expression": "SysMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 49
+        },
+        "end": {
+          "line": 36,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 64
+        },
+        "end": {
+          "line": 36,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "ISysMenuService",
+      "expression": "ISysMenuService",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 84
+        },
+        "end": {
+          "line": 36,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "Service",
+      "expression": "Service",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 2
+        },
+        "end": {
+          "line": 35,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SysMenuMapper",
+      "expression": "SysMenuMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 6
+        },
+        "end": {
+          "line": 37,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SysMenuStructure",
+      "expression": "SysMenuStructure",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "Autowired",
+      "expression": "Autowired",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.sysMenuStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "Page",
+      "expression": "Page",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 12
+        },
+        "end": {
+          "line": 49,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysMenuDTO",
+      "expression": "SysMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 17
+        },
+        "end": {
+          "line": 49,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "SysMenuQuery",
+      "expression": "SysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 40
+        },
+        "end": {
+          "line": 49,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.pageByRoot",
+      "ownerSignature": "@Override\n    public Page<SysMenuDTO> pageByRoot(SysMenuQuery sysApiQuery)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 6
+        },
+        "end": {
+          "line": 48,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "AddSysMenuQuery",
+      "expression": "AddSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 77,
+          "column": 21
+        },
+        "end": {
+          "line": 77,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.save",
+      "ownerSignature": "@Override\n    public int save(AddSysMenuQuery addSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 6
+        },
+        "end": {
+          "line": 76,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "UpdateSysMenuQuery",
+      "expression": "UpdateSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 103,
+          "column": 31
+        },
+        "end": {
+          "line": 103,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateById",
+      "ownerSignature": "@Override\n    public boolean updateById(UpdateSysMenuQuery updateSysMenuQuery)",
+      "range": {
+        "start": {
+          "line": 102,
+          "column": 6
+        },
+        "end": {
+          "line": 102,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SysMenuDTO",
+      "expression": "SysMenuDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 12
+        },
+        "end": {
+          "line": 121,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 121,
+          "column": 32
+        },
+        "end": {
+          "line": 121,
+          "column": 44
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.findById",
+      "ownerSignature": "@Override\n    public SysMenuDTO findById(Serializable id)",
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 6
+        },
+        "end": {
+          "line": 120,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 12
+        },
+        "end": {
+          "line": 143,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 17
+        },
+        "end": {
+          "line": 143,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 36
+        },
+        "end": {
+          "line": 143,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "AddSysMenuQuery",
+      "expression": "AddSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 143,
+          "column": 41
+        },
+        "end": {
+          "line": 143,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.saveBatch",
+      "ownerSignature": "@Override\n    public List<SysMenu> saveBatch(List<AddSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 6
+        },
+        "end": {
+          "line": 142,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 176,
+          "column": 36
+        },
+        "end": {
+          "line": 176,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "UpdateSysMenuQuery",
+      "expression": "UpdateSysMenuQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 176,
+          "column": 41
+        },
+        "end": {
+          "line": 176,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.SysMenuService.updateByIdBatch",
+      "ownerSignature": "@Override\n    public boolean updateByIdBatch(List<UpdateSysMenuQuery> batch)",
+      "range": {
+        "start": {
+          "line": 175,
+          "column": 6
+        },
+        "end": {
+          "line": 175,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 52
+        },
+        "end": {
+          "line": 55,
+          "column": 66
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 136
+        },
+        "end": {
+          "line": 59,
+          "column": 14
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 45
+        },
+        "end": {
+          "line": 81,
+          "column": 109
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 28
+        },
+        "end": {
+          "line": 84,
+          "column": 77
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 35
+        },
+        "end": {
+          "line": 105,
+          "column": 88
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 74
+        },
+        "end": {
+          "line": 109,
+          "column": 123
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 126,
+          "column": 101
+        },
+        "end": {
+          "line": 129,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 50
+        },
+        "end": {
+          "line": 148,
+          "column": 66
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 53
+        },
+        "end": {
+          "line": 155,
+          "column": 79
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 178,
+          "column": 50
+        },
+        "end": {
+          "line": 178,
+          "column": 66
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 85
+        },
+        "end": {
+          "line": 183,
+          "column": 101
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 183,
+          "column": 103
+        },
+        "end": {
+          "line": 183,
+          "column": 117
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 187,
+          "column": 46
+        },
+        "end": {
+          "line": 187,
+          "column": 106
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

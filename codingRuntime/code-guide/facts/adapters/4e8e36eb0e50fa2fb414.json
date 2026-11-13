@@ -1,0 +1,2242 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/FlowBuilder.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.action.condition.bool",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FlowBuilder",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "ownerQualifiedName": "",
+      "signature": "@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic class FlowBuilder",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 167,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "流生成器\n\n @author chiyo\n @since 1.0.0",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "rootFlow",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.rootFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private AbstractActionFlow rootFlow",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AbstractActionFlow",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "beanSet",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.beanSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private Set<AbstractActionFlow> beanSet",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 5
+        },
+        "end": {
+          "line": 24,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Set<AbstractActionFlow>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "buildComplete",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildComplete",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private boolean buildComplete",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "steps",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.steps",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private HashSet<String> steps = new HashSet<>()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "HashSet<String>",
+      "defaultExpression": "new HashSet<>()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "jsonCache",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.jsonCache",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private String jsonCache = null",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": "null",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "fromClasses",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "FlowBuilder",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "classes",
+          "type": "Set<Class<AbstractActionFlow>>",
+          "signature": "Set<Class<AbstractActionFlow>> classes",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 43
+            },
+            "end": {
+              "line": 29,
+              "column": 81
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "buildFlow",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "public AbstractActionFlow buildFlow()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "构建流程结构图\n\n @return {@link AbstractActionFlow}root节点",
+      "typeParameters": [],
+      "returnType": "AbstractActionFlow",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "convertAsJsonSchema",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "public String convertAsJsonSchema()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 95,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "转换为json格式\n\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "eachNode",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 5
+        },
+        "end": {
+          "line": 129,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "递归获取每个流程节点\n\n @param flowJson  json对象\n @param trueFlow  condition=true的流节点\n @param falseFlow condition=false的流节点",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "flowJson",
+          "type": "FlowJson",
+          "signature": "FlowJson flowJson",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 104,
+              "column": 27
+            },
+            "end": {
+              "line": 104,
+              "column": 44
+            }
+          }
+        },
+        {
+          "name": "trueFlow",
+          "type": "AbstractActionFlow",
+          "signature": "AbstractActionFlow trueFlow",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 104,
+              "column": 46
+            },
+            "end": {
+              "line": 104,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "falseFlow",
+          "type": "AbstractActionFlow",
+          "signature": "AbstractActionFlow falseFlow",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 104,
+              "column": 75
+            },
+            "end": {
+              "line": 104,
+              "column": 103
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "instanceBeanFromClasses",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 5
+        },
+        "end": {
+          "line": 143,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "Set<AbstractActionFlow>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "classes",
+          "type": "Set<Class<AbstractActionFlow>>",
+          "signature": "Set<Class<AbstractActionFlow>> classes",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 132,
+              "column": 68
+            },
+            "end": {
+              "line": 132,
+              "column": 106
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "ensureHasOnlyOneRoot",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 5
+        },
+        "end": {
+          "line": 159,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private",
+        "static"
+      ],
+      "docstring": "确保只有一个ROOT\n\n @param flows ROOT节点class\n @return {@link AbstractActionFlow}",
+      "typeParameters": [],
+      "returnType": "AbstractActionFlow",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "flows",
+          "type": "Set<AbstractActionFlow>",
+          "signature": "Set<AbstractActionFlow> flows",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 151,
+              "column": 60
+            },
+            "end": {
+              "line": 151,
+              "column": 89
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "name": "FlowJson",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "signature": "@Data\n    private static class FlowJson",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 5
+        },
+        "end": {
+          "line": 166,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "private",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "currentNodeClass",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.currentNodeClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson",
+      "signature": "private String currentNodeClass",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 9
+        },
+        "end": {
+          "line": 163,
+          "column": 41
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "trueFlow",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.trueFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson",
+      "signature": "private FlowJson trueFlow",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 9
+        },
+        "end": {
+          "line": 164,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FlowJson",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "falseFlow",
+      "qualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.falseFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson",
+      "signature": "private FlowJson falseFlow",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 9
+        },
+        "end": {
+          "line": 165,
+          "column": 36
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "FlowJson",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.Singletons",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.google.common.base.Strings",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.HashSet",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 26
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 22
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "HashSet<>",
+      "expression": "new HashSet<>",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 37
+        },
+        "end": {
+          "line": 26,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "instanceBeanFromClasses",
+      "expression": "instanceBeanFromClasses",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 43
+        },
+        "end": {
+          "line": 30,
+          "column": 75
+        }
+      }
+    },
+    {
+      "name": "ensureHasOnlyOneRoot",
+      "expression": "ensureHasOnlyOneRoot",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 35
+        },
+        "end": {
+          "line": 31,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "FlowBuilder",
+      "expression": "new FlowBuilder",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 31
+        },
+        "end": {
+          "line": 32,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "beanSet.stream()\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerSignature": "public AbstractActionFlow buildFlow()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 95
+        },
+        "end": {
+          "line": 48,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "beanSet.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerSignature": "public AbstractActionFlow buildFlow()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 95
+        },
+        "end": {
+          "line": 47,
+          "column": 111
+        }
+      }
+    },
+    {
+      "name": "toMap",
+      "expression": "Collectors.toMap",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerSignature": "public AbstractActionFlow buildFlow()",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 26
+        },
+        "end": {
+          "line": 48,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "beanSet.forEach",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerSignature": "public AbstractActionFlow buildFlow()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "IllegalStateException",
+      "expression": "new IllegalStateException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 84,
+          "column": 19
+        },
+        "end": {
+          "line": 84,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "isNullOrEmpty",
+      "expression": "Strings.isNullOrEmpty",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 14
+        },
+        "end": {
+          "line": 86,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "new FlowJson",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 89,
+          "column": 29
+        },
+        "end": {
+          "line": 89,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "rootJson.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 37
+        },
+        "end": {
+          "line": 90,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "rootJson.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 90,
+          "column": 37
+        },
+        "end": {
+          "line": 90,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "eachNode",
+      "expression": "this.eachNode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 9
+        },
+        "end": {
+          "line": 91,
+          "column": 91
+        }
+      }
+    },
+    {
+      "name": "getTrueFlow",
+      "expression": "this.rootFlow.getTrueFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 33
+        },
+        "end": {
+          "line": 91,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "getFalseFlow",
+      "expression": "this.rootFlow.getFalseFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 91,
+          "column": 62
+        },
+        "end": {
+          "line": 91,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "Singletons.JsonBean.getInstance().writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 23
+        },
+        "end": {
+          "line": 92,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "Singletons.JsonBean.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 23
+        },
+        "end": {
+          "line": 92,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "new FlowJson",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 109,
+          "column": 33
+        },
+        "end": {
+          "line": 109,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "trueFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 41
+        },
+        "end": {
+          "line": 110,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "trueFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 41
+        },
+        "end": {
+          "line": 110,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "steps.contains",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 18
+        },
+        "end": {
+          "line": 113,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "trueFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 33
+        },
+        "end": {
+          "line": 113,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "trueFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 113,
+          "column": 33
+        },
+        "end": {
+          "line": 113,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "eachNode",
+      "expression": "eachNode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 17
+        },
+        "end": {
+          "line": 114,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "getTrueFlow",
+      "expression": "trueFlow.getTrueFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 36
+        },
+        "end": {
+          "line": 114,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "getFalseFlow",
+      "expression": "trueFlow.getFalseFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 114,
+          "column": 60
+        },
+        "end": {
+          "line": 114,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "steps.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 17
+        },
+        "end": {
+          "line": 115,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "trueFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 27
+        },
+        "end": {
+          "line": 115,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "trueFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 115,
+          "column": 27
+        },
+        "end": {
+          "line": 115,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "new FlowJson",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 119,
+          "column": 34
+        },
+        "end": {
+          "line": 119,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "setCurrentNodeClass",
+      "expression": "falseJson.setCurrentNodeClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 13
+        },
+        "end": {
+          "line": 120,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "falseFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 43
+        },
+        "end": {
+          "line": 120,
+          "column": 73
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "falseFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 120,
+          "column": 43
+        },
+        "end": {
+          "line": 120,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "contains",
+      "expression": "steps.contains",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 18
+        },
+        "end": {
+          "line": 123,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "falseFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 33
+        },
+        "end": {
+          "line": 123,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "falseFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 33
+        },
+        "end": {
+          "line": 123,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "eachNode",
+      "expression": "eachNode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 17
+        },
+        "end": {
+          "line": 124,
+          "column": 87
+        }
+      }
+    },
+    {
+      "name": "getTrueFlow",
+      "expression": "falseFlow.getTrueFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 37
+        },
+        "end": {
+          "line": 124,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "getFalseFlow",
+      "expression": "falseFlow.getFalseFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 62
+        },
+        "end": {
+          "line": 124,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "steps.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 17
+        },
+        "end": {
+          "line": 125,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "getName",
+      "expression": "falseFlow.getClass().getName",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 27
+        },
+        "end": {
+          "line": 125,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "getClass",
+      "expression": "falseFlow.getClass",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 125,
+          "column": 27
+        },
+        "end": {
+          "line": 125,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "classes.stream().map(c -> {\n            try {\n                return (AbstractActionFlow) c.newInstance().instanceBean();\n            } catch (InstantiationException e) {\n                throw new RuntimeException(e);\n            } catch (IllegalAccessException e) {\n                throw new RuntimeException(e);\n            }\n        }).collect",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 41
+        },
+        "end": {
+          "line": 141,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "classes.stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 41
+        },
+        "end": {
+          "line": 141,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "classes.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 41
+        },
+        "end": {
+          "line": 133,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "toSet",
+      "expression": "Collectors.toSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 141,
+          "column": 20
+        },
+        "end": {
+          "line": 141,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "flows.stream().filter(s -> s.getParentClassSet().contains(RootAction.class))\n                .collect",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 42
+        },
+        "end": {
+          "line": 153,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "filter",
+      "expression": "flows.stream().filter",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 42
+        },
+        "end": {
+          "line": 152,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "flows.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 42
+        },
+        "end": {
+          "line": 152,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 153,
+          "column": 26
+        },
+        "end": {
+          "line": 153,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "roots.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 154,
+          "column": 13
+        },
+        "end": {
+          "line": 154,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "roots.stream().map(c -> c.getClass().getName()).collect",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 34
+        },
+        "end": {
+          "line": 155,
+          "column": 114
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "roots.stream().map",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 34
+        },
+        "end": {
+          "line": 155,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "roots.stream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 34
+        },
+        "end": {
+          "line": 155,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "joining",
+      "expression": "Collectors.joining",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 90
+        },
+        "end": {
+          "line": 155,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "IllegalArgumentException",
+      "expression": "new IllegalArgumentException",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 19
+        },
+        "end": {
+          "line": 156,
+          "column": 92
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "roots.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 158,
+          "column": 16
+        },
+        "end": {
+          "line": 158,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.rootFlow",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 13
+        },
+        "end": {
+          "line": 23,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.beanSet",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.beanSet",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 17
+        },
+        "end": {
+          "line": 24,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "HashSet",
+      "expression": "HashSet",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.steps",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.steps",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 21
+        },
+        "end": {
+          "line": 26,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.jsonCache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "FlowBuilder",
+      "expression": "FlowBuilder",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 43
+        },
+        "end": {
+          "line": 29,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 47
+        },
+        "end": {
+          "line": 29,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.fromClasses",
+      "ownerSignature": "public static FlowBuilder fromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 53
+        },
+        "end": {
+          "line": 29,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.buildFlow",
+      "ownerSignature": "public AbstractActionFlow buildFlow()",
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 12
+        },
+        "end": {
+          "line": 43,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.convertAsJsonSchema",
+      "ownerSignature": "public String convertAsJsonSchema()",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 12
+        },
+        "end": {
+          "line": 82,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "FlowJson",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 27
+        },
+        "end": {
+          "line": 104,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 46
+        },
+        "end": {
+          "line": 104,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.eachNode",
+      "ownerSignature": "private void eachNode(FlowJson flowJson, AbstractActionFlow trueFlow, AbstractActionFlow falseFlow)",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 75
+        },
+        "end": {
+          "line": 104,
+          "column": 93
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 20
+        },
+        "end": {
+          "line": 132,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 24
+        },
+        "end": {
+          "line": 132,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 68
+        },
+        "end": {
+          "line": 132,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "Class",
+      "expression": "Class",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 72
+        },
+        "end": {
+          "line": 132,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.instanceBeanFromClasses",
+      "ownerSignature": "private static Set<AbstractActionFlow> instanceBeanFromClasses(Set<Class<AbstractActionFlow>> classes)",
+      "range": {
+        "start": {
+          "line": 132,
+          "column": 78
+        },
+        "end": {
+          "line": 132,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 20
+        },
+        "end": {
+          "line": 151,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 60
+        },
+        "end": {
+          "line": 151,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "AbstractActionFlow",
+      "expression": "AbstractActionFlow",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.ensureHasOnlyOneRoot",
+      "ownerSignature": "private static AbstractActionFlow ensureHasOnlyOneRoot(Set<AbstractActionFlow> flows)",
+      "range": {
+        "start": {
+          "line": 151,
+          "column": 64
+        },
+        "end": {
+          "line": 151,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 161,
+          "column": 6
+        },
+        "end": {
+          "line": 161,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.currentNodeClass",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 163,
+          "column": 17
+        },
+        "end": {
+          "line": 163,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "FlowJson",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.trueFlow",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 17
+        },
+        "end": {
+          "line": 164,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "FlowJson",
+      "expression": "FlowJson",
+      "ownerQualifiedName": "com.fairychar.bag.extension.action.condition.bool.FlowBuilder.FlowJson.falseFlow",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 165,
+          "column": 17
+        },
+        "end": {
+          "line": 165,
+          "column": 25
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 43
+        },
+        "end": {
+          "line": 48,
+          "column": 60
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 62
+        },
+        "end": {
+          "line": 48,
+          "column": 68
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 25
+        },
+        "end": {
+          "line": 72,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 133,
+          "column": 62
+        },
+        "end": {
+          "line": 141,
+          "column": 10
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 152,
+          "column": 64
+        },
+        "end": {
+          "line": 152,
+          "column": 117
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 53
+        },
+        "end": {
+          "line": 155,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

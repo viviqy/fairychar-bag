@@ -1,0 +1,154 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValueProcessor.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.beans.spring.mvc",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "FuzzyValueProcessor",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor",
+      "ownerQualifiedName": "",
+      "signature": "public interface FuzzyValueProcessor",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "spring mvc Response body脱敏加密执行器\n 可通过指定{@link FuzzyValue#processor()}以达到在脱敏时选择自定义的解析器\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "fuzzyValue",
+      "qualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor.fuzzyValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor",
+      "signature": "String fuzzyValue(String text, FuzzyValue fuzzyResult)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "模糊值\n\n @param text        源text值\n @param fuzzyResult 模糊结果注解\n @return {@link String}",
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "text",
+          "type": "String",
+          "signature": "String text",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 23
+            },
+            "end": {
+              "line": 19,
+              "column": 34
+            }
+          }
+        },
+        {
+          "name": "fuzzyResult",
+          "type": "FuzzyValue",
+          "signature": "FuzzyValue fuzzyResult",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 36
+            },
+            "end": {
+              "line": 19,
+              "column": 58
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor.fuzzyValue",
+      "ownerSignature": "String fuzzyValue(String text, FuzzyValue fuzzyResult)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor.fuzzyValue",
+      "ownerSignature": "String fuzzyValue(String text, FuzzyValue fuzzyResult)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 23
+        },
+        "end": {
+          "line": 19,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "FuzzyValue",
+      "expression": "FuzzyValue",
+      "ownerQualifiedName": "com.fairychar.bag.beans.spring.mvc.FuzzyValueProcessor.fuzzyValue",
+      "ownerSignature": "String fuzzyValue(String text, FuzzyValue fuzzyResult)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 36
+        },
+        "end": {
+          "line": 19,
+          "column": 46
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

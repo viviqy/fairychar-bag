@@ -1,0 +1,43 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/BeanAwareMarker.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.spring",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "BeanAwareMarker",
+      "qualifiedName": "com.fairychar.bag.domain.spring.BeanAwareMarker",
+      "ownerQualifiedName": "",
+      "signature": "public class BeanAwareMarker",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "标记Bean有初始化方法\n\n @author chiyo\n @since 1.0.2",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

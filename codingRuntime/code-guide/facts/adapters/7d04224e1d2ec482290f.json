@@ -1,0 +1,162 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/PluginsProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "PluginsProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.PluginsProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class PluginsProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.3",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "tenant",
+      "qualifiedName": "com.fairychar.security.core.properties.PluginsProperties.tenant",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.PluginsProperties",
+      "signature": "private TenantProperties tenant",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "TenantProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "audit",
+      "qualifiedName": "com.fairychar.security.core.properties.PluginsProperties.audit",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.PluginsProperties",
+      "signature": "private AuditProperties audit",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AuditProperties",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.PluginsProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "TenantProperties",
+      "expression": "TenantProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.PluginsProperties.tenant",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 13
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "AuditProperties",
+      "expression": "AuditProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.PluginsProperties.audit",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 28
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

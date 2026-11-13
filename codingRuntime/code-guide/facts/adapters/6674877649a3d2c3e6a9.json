@@ -1,0 +1,455 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/manager/RedisTypeSessionManager.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.manager",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RedisTypeSessionManager",
+      "qualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "ownerQualifiedName": "",
+      "signature": "@AllArgsConstructor\npublic class RedisTypeSessionManager",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@AllArgsConstructor"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "redis session管理器,管理用户登录状态\n\n @author chiyo <br>",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "sessionRepository",
+      "qualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.sessionRepository",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "signature": "private final FindByIndexNameSessionRepository sessionRepository",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 70
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "FindByIndexNameSessionRepository",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "logout",
+      "qualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "signature": "public void logout(String principalKey)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "清除用户登录态\n\n @param principalKey 登录的username",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "principalKey",
+          "type": "String",
+          "signature": "String principalKey",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 26,
+              "column": 24
+            },
+            "end": {
+              "line": 26,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "multiLogout",
+      "qualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.multiLogout",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "signature": "public void multiLogout(List<String> principalKeys)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "清除多个用户登录态\n\n @param principalKeys 登录的username List",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "principalKeys",
+          "type": "List<String>",
+          "signature": "List<String> principalKeys",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 29
+            },
+            "end": {
+              "line": 37,
+              "column": 55
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.FindByIndexNameSessionRepository",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 69
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.session.Session",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 44
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Map",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "findByPrincipalName",
+      "expression": "this.sessionRepository.findByPrincipalName",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 43
+        },
+        "end": {
+          "line": 27,
+          "column": 99
+        }
+      }
+    },
+    {
+      "name": "forEach",
+      "expression": "sessionMap.values().stream().map(Session::getId).forEach",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 101
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "sessionMap.values().stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "sessionMap.values().stream",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "values",
+      "expression": "sessionMap.values",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "logout",
+      "expression": "this.logout",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.multiLogout",
+      "ownerSignature": "public void multiLogout(List<String> principalKeys)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 38
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "FindByIndexNameSessionRepository",
+      "expression": "FindByIndexNameSessionRepository",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.sessionRepository",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 19
+        },
+        "end": {
+          "line": 18,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.logout",
+      "ownerSignature": "public void logout(String principalKey)",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 24
+        },
+        "end": {
+          "line": 26,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.multiLogout",
+      "ownerSignature": "public void multiLogout(List<String> principalKeys)",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 29
+        },
+        "end": {
+          "line": 37,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.manager.RedisTypeSessionManager.multiLogout",
+      "ownerSignature": "public void multiLogout(List<String> principalKeys)",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 34
+        },
+        "end": {
+          "line": 37,
+          "column": 40
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 42
+        },
+        "end": {
+          "line": 28,
+          "column": 56
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 66
+        },
+        "end": {
+          "line": 28,
+          "column": 100
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,1069 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/pojo/dto/SystemRoleDTO.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.pojo.dto",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SystemRoleDTO",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@Accessors(chain = true)\n@SuppressWarnings(\"serial\")\n@Schema(description = \"SystemRoleDTO\")\npublic class SystemRoleDTO implements Serializable",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 92,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Accessors(chain = true)",
+        "@SuppressWarnings(\"serial\")",
+        "@Schema(description = \"SystemRoleDTO\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色表(SystemRole)表实体类\n\n @author chiyo",
+      "supertypes": [
+        "Serializable"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "id",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.id",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"ID\")\n@JsonFormat(shape = JsonFormat.Shape.STRING)\nprivate Integer id",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 24
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"ID\")",
+        "@JsonFormat(shape = JsonFormat.Shape.STRING)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "ID",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "roleCode",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.roleCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u89d2\\u8272\\u6807\\u8bc6\\u552f\\u4e00code\\u6807\\u8bc6\")\nprivate String roleCode",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 29
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"角色标识唯一code标识\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "角色标识唯一code标识",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "name",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.name",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u540d\\u79f0\")\nprivate String name",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "level",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.level",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u89d2\\u8272\\u7ea7\\u522b(0\\u4ee3\\u8868root)\")\nprivate Integer level",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"角色级别(0代表root)\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "角色级别(0代表root)",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.enable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u662f\\u5426\\u542f\\u7528\")\nprivate Boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"是否启用\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "是否启用",
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "description",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.description",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u63cf\\u8ff0\")\nprivate String description",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 56,
+          "column": 32
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"描述\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "描述",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u8005\")\nprivate Long createBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建者\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createName",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u4eba\\u540d\\u79f0\")\nprivate String createName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 66,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建人名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u8005\")\nprivate Long updateBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 5
+        },
+        "end": {
+          "line": 71,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新者\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateName",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u4eba\\u540d\\u79f0\")\nprivate String updateName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新人名称\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u65e5\\u671f\")\n@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")\nprivate LocalDateTime createTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建日期\")",
+        "@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建日期",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u65f6\\u95f4\")\n@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")\nprivate LocalDateTime updateTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新时间\")",
+        "@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新时间",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fasterxml.jackson.annotation.JsonFormat",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 39
+        },
+        "end": {
+          "line": 24,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SuppressWarnings",
+      "expression": "SuppressWarnings",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 13
+        },
+        "end": {
+          "line": 31,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.roleCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 36,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.roleCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.name",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "end": {
+          "line": 41,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.name",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 6
+        },
+        "end": {
+          "line": 40,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.level",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 13
+        },
+        "end": {
+          "line": 46,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.level",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.enable",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 13
+        },
+        "end": {
+          "line": 51,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.enable",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.description",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 13
+        },
+        "end": {
+          "line": 56,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.description",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 6
+        },
+        "end": {
+          "line": 55,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 13
+        },
+        "end": {
+          "line": 61,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 60,
+          "column": 6
+        },
+        "end": {
+          "line": 60,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 66,
+          "column": 13
+        },
+        "end": {
+          "line": 66,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 6
+        },
+        "end": {
+          "line": 65,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 71,
+          "column": 13
+        },
+        "end": {
+          "line": 71,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 6
+        },
+        "end": {
+          "line": 70,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 13
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 6
+        },
+        "end": {
+          "line": 75,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 13
+        },
+        "end": {
+          "line": 82,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 6
+        },
+        "end": {
+          "line": 80,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 6
+        },
+        "end": {
+          "line": 81,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 13
+        },
+        "end": {
+          "line": 88,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 6
+        },
+        "end": {
+          "line": 86,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "JsonFormat",
+      "expression": "JsonFormat",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 6
+        },
+        "end": {
+          "line": 87,
+          "column": 16
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

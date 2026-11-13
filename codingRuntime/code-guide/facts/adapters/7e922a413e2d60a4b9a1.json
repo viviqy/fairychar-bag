@@ -1,0 +1,1093 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/service/structure/SystemRoleStructure.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.service.structure",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "SystemRoleStructure",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "ownerQualifiedName": "",
+      "signature": "@Mapper(componentModel = \"spring\", uses = {})\npublic interface SystemRoleStructure",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 70,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Mapper(componentModel = \"spring\", uses = {})"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "角色表(SystemRole)表数据库实体转换器\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "entitiesToDtos",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "entities转dtos\n\n @param entities {@link SystemRole}\n @return dto对象 {@link SystemRoleDTO}",
+      "typeParameters": [],
+      "returnType": "List<SystemRoleDTO>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entities",
+          "type": "List<SystemRole>",
+          "signature": "List<SystemRole> entities",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 48
+            },
+            "end": {
+              "line": 27,
+              "column": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "entityToDto",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entityToDto",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "SystemRoleDTO entityToDto(SystemRole entity)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "entity转dto\n\n @param entity {@link SystemRole}\n @return dto对象 {@link SystemRoleDTO}",
+      "typeParameters": [],
+      "returnType": "SystemRoleDTO",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "entity",
+          "type": "SystemRole",
+          "signature": "SystemRole entity",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 31
+            },
+            "end": {
+              "line": 40,
+              "column": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "default"
+      ],
+      "docstring": "queries转entities\n\n @param queries {@link SystemRoleQuery}\n @return entity对象 {@link SystemRole}",
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "queries",
+          "type": "List<SystemRoleQuery>",
+          "signature": "List<SystemRoleQuery> queries",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 48,
+              "column": 48
+            },
+            "end": {
+              "line": 48,
+              "column": 77
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "queryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "SystemRole queryToEntity(SystemRoleQuery query)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 53
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "query转entity\n\n @param query {@link SystemRoleQuery}\n @return entity对象 {@link SystemRole}",
+      "typeParameters": [],
+      "returnType": "SystemRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "query",
+          "type": "SystemRoleQuery",
+          "signature": "SystemRoleQuery query",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 61,
+              "column": 30
+            },
+            "end": {
+              "line": 61,
+              "column": 51
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "SystemRole addQueryToEntity(AddSystemRoleQuery addSystemRoleQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 72
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SystemRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "addSystemRoleQuery",
+          "type": "AddSystemRoleQuery",
+          "signature": "AddSystemRoleQuery addSystemRoleQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 63,
+              "column": 33
+            },
+            "end": {
+              "line": 63,
+              "column": 70
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueryToEntity",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueryToEntity",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "SystemRole updateQueryToEntity(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 81
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "SystemRole",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "updateSystemRoleQuery",
+          "type": "UpdateSystemRoleQuery",
+          "signature": "UpdateSystemRoleQuery updateSystemRoleQuery",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 65,
+              "column": 36
+            },
+            "end": {
+              "line": 65,
+              "column": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 75
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<AddSystemRoleQuery>",
+          "signature": "List<AddSystemRoleQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 67,
+              "column": 43
+            },
+            "end": {
+              "line": 67,
+              "column": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateQueriesToEntities",
+      "qualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueriesToEntities",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "signature": "List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 81
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<SystemRole>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "batch",
+          "type": "List<UpdateSystemRoleQuery>",
+          "signature": "List<UpdateSystemRoleQuery> batch",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 69,
+              "column": 46
+            },
+            "end": {
+              "line": 69,
+              "column": 79
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SystemRole",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.dto.SystemRoleDTO",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.AddSystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 71
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.SystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 68
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.rbac.pojo.query.UpdateSystemRoleQuery",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 74
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.mapstruct.Mapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 23
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.stream.Collectors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "collect",
+      "expression": "entities.stream().map(this::entityToDto).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "entities.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "entities.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 65
+        },
+        "end": {
+          "line": 31,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "collect",
+      "expression": "queries.stream().map(this::queryToEntity).collect",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "queries.stream().map",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "stream",
+      "expression": "queries.stream",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 16
+        },
+        "end": {
+          "line": 52,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "toList",
+      "expression": "Collectors.toList",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 66
+        },
+        "end": {
+          "line": 52,
+          "column": 85
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Mapper",
+      "expression": "Mapper",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 2
+        },
+        "end": {
+          "line": 19,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SystemRoleDTO",
+      "expression": "SystemRoleDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 18
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 48
+        },
+        "end": {
+          "line": 27,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entitiesToDtos",
+      "ownerSignature": "default List<SystemRoleDTO> entitiesToDtos(List<SystemRole> entities)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 53
+        },
+        "end": {
+          "line": 27,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "SystemRoleDTO",
+      "expression": "SystemRoleDTO",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entityToDto",
+      "ownerSignature": "SystemRoleDTO entityToDto(SystemRole entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.entityToDto",
+      "ownerSignature": "SystemRoleDTO entityToDto(SystemRole entity)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 31
+        },
+        "end": {
+          "line": 40,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 13
+        },
+        "end": {
+          "line": 48,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 18
+        },
+        "end": {
+          "line": 48,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 48
+        },
+        "end": {
+          "line": 48,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "SystemRoleQuery",
+      "expression": "SystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queriesToEntities",
+      "ownerSignature": "default List<SystemRole> queriesToEntities(List<SystemRoleQuery> queries)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 53
+        },
+        "end": {
+          "line": 48,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queryToEntity",
+      "ownerSignature": "SystemRole queryToEntity(SystemRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "SystemRoleQuery",
+      "expression": "SystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.queryToEntity",
+      "ownerSignature": "SystemRole queryToEntity(SystemRoleQuery query)",
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 30
+        },
+        "end": {
+          "line": 61,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueryToEntity",
+      "ownerSignature": "SystemRole addQueryToEntity(AddSystemRoleQuery addSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 5
+        },
+        "end": {
+          "line": 63,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "AddSystemRoleQuery",
+      "expression": "AddSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueryToEntity",
+      "ownerSignature": "SystemRole addQueryToEntity(AddSystemRoleQuery addSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 33
+        },
+        "end": {
+          "line": 63,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueryToEntity",
+      "ownerSignature": "SystemRole updateQueryToEntity(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 15
+        }
+      }
+    },
+    {
+      "name": "UpdateSystemRoleQuery",
+      "expression": "UpdateSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueryToEntity",
+      "ownerSignature": "SystemRole updateQueryToEntity(UpdateSystemRoleQuery updateSystemRoleQuery)",
+      "range": {
+        "start": {
+          "line": 65,
+          "column": 36
+        },
+        "end": {
+          "line": 65,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueriesToEntities",
+      "ownerSignature": "List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueriesToEntities",
+      "ownerSignature": "List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 10
+        },
+        "end": {
+          "line": 67,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueriesToEntities",
+      "ownerSignature": "List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 43
+        },
+        "end": {
+          "line": 67,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "AddSystemRoleQuery",
+      "expression": "AddSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.addQueriesToEntities",
+      "ownerSignature": "List<SystemRole> addQueriesToEntities(List<AddSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 67,
+          "column": 48
+        },
+        "end": {
+          "line": 67,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 5
+        },
+        "end": {
+          "line": 69,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "SystemRole",
+      "expression": "SystemRole",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 46
+        },
+        "end": {
+          "line": 69,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "UpdateSystemRoleQuery",
+      "expression": "UpdateSystemRoleQuery",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.service.structure.SystemRoleStructure.updateQueriesToEntities",
+      "ownerSignature": "List<SystemRole> updateQueriesToEntities(List<UpdateSystemRoleQuery> batch)",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 51
+        },
+        "end": {
+          "line": 69,
+          "column": 72
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 38
+        },
+        "end": {
+          "line": 31,
+          "column": 55
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Method/constructor references require type binding and are not treated as calls.",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 37
+        },
+        "end": {
+          "line": 52,
+          "column": 56
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

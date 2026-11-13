@@ -1,0 +1,663 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestException.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.exceptions",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "RestException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\npublic class RestException extends RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "Rest异常类\n\n @author chiyo\n @since 0.0.1",
+      "supertypes": [
+        "RuntimeException"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "errorCode",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.errorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "private IRestErrorCode errorCode",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 38
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "IRestErrorCode",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "data",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "private Object data",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "RestException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "public RestException(IRestErrorCode errorCode, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "errorCode",
+          "type": "IRestErrorCode",
+          "signature": "IRestErrorCode errorCode",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 26
+            },
+            "end": {
+              "line": 16,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 52
+            },
+            "end": {
+              "line": 16,
+              "column": 63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "RestException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "public RestException(IRestErrorCode errorCode)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "errorCode",
+          "type": "IRestErrorCode",
+          "signature": "IRestErrorCode errorCode",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 26
+            },
+            "end": {
+              "line": 23,
+              "column": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "RestException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "public RestException(IRestErrorCode errorCode, String msg)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "errorCode",
+          "type": "IRestErrorCode",
+          "signature": "IRestErrorCode errorCode",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 26
+            },
+            "end": {
+              "line": 28,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "msg",
+          "type": "String",
+          "signature": "String msg",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 52
+            },
+            "end": {
+              "line": 28,
+              "column": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "RestException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "signature": "public RestException(IRestErrorCode errorCode, String msg, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "errorCode",
+          "type": "IRestErrorCode",
+          "signature": "IRestErrorCode errorCode",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 26
+            },
+            "end": {
+              "line": 33,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "msg",
+          "type": "String",
+          "signature": "String msg",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 52
+            },
+            "end": {
+              "line": 33,
+              "column": 62
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 33,
+              "column": 64
+            },
+            "end": {
+              "line": 33,
+              "column": 75
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 9
+        },
+        "end": {
+          "line": 17,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "errorCode.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, Object data)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 15
+        },
+        "end": {
+          "line": 17,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 9
+        },
+        "end": {
+          "line": 24,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "getMessage",
+      "expression": "errorCode.getMessage",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 15
+        },
+        "end": {
+          "line": 24,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 9
+        },
+        "end": {
+          "line": 34,
+          "column": 19
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 36
+        },
+        "end": {
+          "line": 12,
+          "column": 52
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "IRestErrorCode",
+      "expression": "IRestErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.errorCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.data",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "IRestErrorCode",
+      "expression": "IRestErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, Object data)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 26
+        },
+        "end": {
+          "line": 16,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, Object data)",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 52
+        },
+        "end": {
+          "line": 16,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "IRestErrorCode",
+      "expression": "IRestErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 26
+        },
+        "end": {
+          "line": 23,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "IRestErrorCode",
+      "expression": "IRestErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 26
+        },
+        "end": {
+          "line": 28,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg)",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 52
+        },
+        "end": {
+          "line": 28,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "IRestErrorCode",
+      "expression": "IRestErrorCode",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg, Object data)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 26
+        },
+        "end": {
+          "line": 33,
+          "column": 40
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg, Object data)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 52
+        },
+        "end": {
+          "line": 33,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.RestException.RestException",
+      "ownerSignature": "public RestException(IRestErrorCode errorCode, String msg, Object data)",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 64
+        },
+        "end": {
+          "line": 33,
+          "column": 70
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

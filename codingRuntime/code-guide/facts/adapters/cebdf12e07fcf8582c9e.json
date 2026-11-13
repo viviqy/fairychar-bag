@@ -1,0 +1,107 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/function/Action.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.function",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "Action",
+      "qualifiedName": "com.fairychar.bag.function.Action",
+      "ownerQualifiedName": "",
+      "signature": "@FunctionalInterface\npublic interface Action",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@FunctionalInterface"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "动作Function,常用语lamda表达式\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "doAction",
+      "qualifiedName": "com.fairychar.bag.function.Action.doAction",
+      "ownerQualifiedName": "com.fairychar.bag.function.Action",
+      "signature": "void doAction() throws RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "执行任务\n\n @throws RuntimeException 运行时异常",
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "RuntimeException"
+      ],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [
+    {
+      "name": "FunctionalInterface",
+      "expression": "FunctionalInterface",
+      "ownerQualifiedName": "com.fairychar.bag.function.Action",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 2
+        },
+        "end": {
+          "line": 8,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.function.Action.doAction",
+      "ownerSignature": "void doAction() throws RuntimeException",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 28
+        },
+        "end": {
+          "line": 15,
+          "column": 44
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

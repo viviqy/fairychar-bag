@@ -1,0 +1,2844 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/rbac/entity/SysMenu.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.rbac.entity",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SysMenu",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@EqualsAndHashCode(callSuper = false)\n@AllArgsConstructor\n@NoArgsConstructor\n@Accessors(chain = true)\n@SuppressWarnings(\"serial\")\n@TableName(\"sys_menu\")\n@Schema(description = \"SysMenu\")\npublic class SysMenu extends Model<SysMenu>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 256,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@EqualsAndHashCode(callSuper = false)",
+        "@AllArgsConstructor",
+        "@NoArgsConstructor",
+        "@Accessors(chain = true)",
+        "@SuppressWarnings(\"serial\")",
+        "@TableName(\"sys_menu\")",
+        "@Schema(description = \"SysMenu\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "系统菜单(SysMenu)表实体类\n\n @author chiyo",
+      "supertypes": [
+        "Model<SysMenu>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "id",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.id",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"ID\")\n@TableId(type = IdType.AUTO, value = \"id\")\nprivate Integer id",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 24
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"ID\")",
+        "@TableId(type = IdType.AUTO, value = \"id\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "ID",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "pid",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pid",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u4e0a\\u7ea7\\u83dc\\u5355ID(0\\u4ee3\\u8868root)\")\n@TableField(value = \"`pid`\")\nprivate Integer pid",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"上级菜单ID(0代表root)\")",
+        "@TableField(value = \"`pid`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "上级菜单ID(0代表root)",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "code",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.code",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u83dc\\u5355\\u6807\\u8bc6code(\\u552f\\u4e00)\")\n@TableField(value = \"`code`\")\nprivate String code",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"菜单标识code(唯一)\")",
+        "@TableField(value = \"`code`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "菜单标识code(唯一)",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "title",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.title",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u83dc\\u5355\\u6807\\u9898\")\n@TableField(value = \"`title`\")\nprivate String title",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 26
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"菜单标题\")",
+        "@TableField(value = \"`title`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "菜单标题",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "componentName",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u7ec4\\u4ef6\\u540d\\u79f0\")\n@TableField(value = \"`component_name`\")\nprivate String componentName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 34
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"组件名称\")",
+        "@TableField(value = \"`component_name`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "组件名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "componentData",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentData",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u7ec4\\u4ef6\\u5185\\u5bb9\")\n@TableField(value = \"`component_data`\")\nprivate String componentData",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 34
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"组件内容\")",
+        "@TableField(value = \"`component_data`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "组件内容",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "sort",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.sort",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u6392\\u5e8f\")\n@TableField(value = \"`sort`\")\nprivate Integer sort",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 5
+        },
+        "end": {
+          "line": 70,
+          "column": 26
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"排序\")",
+        "@TableField(value = \"`sort`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "排序",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "icon",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.icon",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u56fe\\u6807\")\n@TableField(value = \"`icon`\")\nprivate String icon",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 5
+        },
+        "end": {
+          "line": 76,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"图标\")",
+        "@TableField(value = \"`icon`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "图标",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "path",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.path",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u94fe\\u63a5\\u5730\\u5740\")\n@TableField(value = \"`path`\")\nprivate String path",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 25
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"链接地址\")",
+        "@TableField(value = \"`path`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "链接地址",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "iFrame",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.iFrame",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u662f\\u5426\\u5916\\u94fe\")\n@TableField(value = \"`i_frame`\")\nprivate Boolean iFrame",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 5
+        },
+        "end": {
+          "line": 88,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"是否外链\")",
+        "@TableField(value = \"`i_frame`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "是否外链",
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "cache",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.cache",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u7f13\\u5b58\")\n@TableField(value = \"`cache`\")\nprivate Boolean cache",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 5
+        },
+        "end": {
+          "line": 94,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"缓存\")",
+        "@TableField(value = \"`cache`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "缓存",
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "hidden",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.hidden",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u9690\\u85cf\")\n@TableField(value = \"`hidden`\")\nprivate Boolean hidden",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 5
+        },
+        "end": {
+          "line": 100,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"隐藏\")",
+        "@TableField(value = \"`hidden`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "隐藏",
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "enable",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.enable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u662f\\u5426\\u542f\\u7528\")\n@TableField(value = \"`enable`\")\nprivate Boolean enable",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 5
+        },
+        "end": {
+          "line": 106,
+          "column": 28
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"是否启用\")",
+        "@TableField(value = \"`enable`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "是否启用",
+      "type": "Boolean",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u8005\")\n@TableField(value = \"`create_by`\", fill = FieldFill.INSERT)\nprivate Long createBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 112,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建者\")",
+        "@TableField(value = \"`create_by`\", fill = FieldFill.INSERT)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createName",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u4eba\\u540d\\u79f0\")\n@TableField(value = \"`create_name`\", fill = FieldFill.INSERT)\nprivate String createName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 5
+        },
+        "end": {
+          "line": 118,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建人名称\")",
+        "@TableField(value = \"`create_name`\", fill = FieldFill.INSERT)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateBy",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateBy",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u8005\")\n@TableField(value = \"`update_by`\", fill = FieldFill.UPDATE)\nprivate Long updateBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 5
+        },
+        "end": {
+          "line": 124,
+          "column": 27
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新者\")",
+        "@TableField(value = \"`update_by`\", fill = FieldFill.UPDATE)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新者",
+      "type": "Long",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateName",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u4eba\\u540d\\u79f0\")\n@TableField(value = \"`update_name`\", fill = FieldFill.UPDATE)\nprivate String updateName",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 5
+        },
+        "end": {
+          "line": 130,
+          "column": 31
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新人名称\")",
+        "@TableField(value = \"`update_name`\", fill = FieldFill.UPDATE)"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新人名称",
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u521b\\u5efa\\u65e5\\u671f\")\n@TableField(value = \"`create_time`\")\nprivate LocalDateTime createTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 5
+        },
+        "end": {
+          "line": 136,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"创建日期\")",
+        "@TableField(value = \"`create_time`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "创建日期",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateTime",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Schema(description = \"\\u66f4\\u65b0\\u65f6\\u95f4\")\n@TableField(value = \"`update_time`\")\nprivate LocalDateTime updateTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 38
+        }
+      },
+      "annotations": [
+        "@Schema(description = \"更新时间\")",
+        "@TableField(value = \"`update_time`\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "更新时间",
+      "type": "LocalDateTime",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "groupByCount",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.groupByCount",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@TableField(exist = false)\n@Schema(description = \"\\u5206\\u7ec4\\u6570\\u91cf\\u5339\\u914d\\u5b57\\u6bb5,\\u548c\\u539f\\u8868\\u65e0\\u5173\")\nprivate Integer groupByCount",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 5
+        },
+        "end": {
+          "line": 148,
+          "column": 34
+        }
+      },
+      "annotations": [
+        "@TableField(exist = false)",
+        "@Schema(description = \"分组数量匹配字段,和原表无关\")"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "docstring": "分组匹配字符",
+      "type": "Integer",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "pkVal",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pkVal",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "@Override\n    public Serializable pkVal()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 5
+        },
+        "end": {
+          "line": 158,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "获取主键值\n\n @return 主键值",
+      "typeParameters": [],
+      "returnType": "Serializable",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "property",
+      "name": "ID",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ID",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String ID = \"id\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 5
+        },
+        "end": {
+          "line": 164,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "id - ID",
+      "type": "String",
+      "defaultExpression": "\"id\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "PID",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.PID",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String PID = \"pid\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 5
+        },
+        "end": {
+          "line": 169,
+          "column": 44
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "pid - 上级菜单ID(0代表root)",
+      "type": "String",
+      "defaultExpression": "\"pid\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CODE",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CODE",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String CODE = \"code\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 5
+        },
+        "end": {
+          "line": 174,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "code - 菜单标识code(唯一)",
+      "type": "String",
+      "defaultExpression": "\"code\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "TITLE",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.TITLE",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String TITLE = \"title\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 5
+        },
+        "end": {
+          "line": 179,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "title - 菜单标题",
+      "type": "String",
+      "defaultExpression": "\"title\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "COMPONENT_NAME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.COMPONENT_NAME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String COMPONENT_NAME = \"component_name\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 184,
+          "column": 5
+        },
+        "end": {
+          "line": 184,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "component_name - 组件名称",
+      "type": "String",
+      "defaultExpression": "\"component_name\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "COMPONENT_DATA",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.COMPONENT_DATA",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String COMPONENT_DATA = \"component_data\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 5
+        },
+        "end": {
+          "line": 189,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "component_data - 组件内容",
+      "type": "String",
+      "defaultExpression": "\"component_data\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "SORT",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.SORT",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String SORT = \"sort\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 194,
+          "column": 5
+        },
+        "end": {
+          "line": 194,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "sort - 排序",
+      "type": "String",
+      "defaultExpression": "\"sort\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "ICON",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ICON",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String ICON = \"icon\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 5
+        },
+        "end": {
+          "line": 199,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "icon - 图标",
+      "type": "String",
+      "defaultExpression": "\"icon\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "PATH",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.PATH",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String PATH = \"path\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 5
+        },
+        "end": {
+          "line": 204,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "path - 链接地址",
+      "type": "String",
+      "defaultExpression": "\"path\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "I_FRAME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.I_FRAME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String I_FRAME = \"i_frame\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 209,
+          "column": 5
+        },
+        "end": {
+          "line": 209,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "i_frame - 是否外链",
+      "type": "String",
+      "defaultExpression": "\"i_frame\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CACHE",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CACHE",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String CACHE = \"cache\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 5
+        },
+        "end": {
+          "line": 214,
+          "column": 48
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "cache - 缓存",
+      "type": "String",
+      "defaultExpression": "\"cache\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "HIDDEN",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.HIDDEN",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String HIDDEN = \"hidden\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 219,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "hidden - 隐藏",
+      "type": "String",
+      "defaultExpression": "\"hidden\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "ENABLE",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ENABLE",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String ENABLE = \"enable\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 224,
+          "column": 5
+        },
+        "end": {
+          "line": 224,
+          "column": 50
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "enable - 是否启用",
+      "type": "String",
+      "defaultExpression": "\"enable\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CREATE_BY",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_BY",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String CREATE_BY = \"create_by\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 229,
+          "column": 5
+        },
+        "end": {
+          "line": 229,
+          "column": 56
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "create_by - 创建者",
+      "type": "String",
+      "defaultExpression": "\"create_by\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CREATE_NAME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_NAME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String CREATE_NAME = \"create_name\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "create_name - 创建人名称",
+      "type": "String",
+      "defaultExpression": "\"create_name\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "UPDATE_BY",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_BY",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String UPDATE_BY = \"update_by\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 239,
+          "column": 5
+        },
+        "end": {
+          "line": 239,
+          "column": 56
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "update_by - 更新者",
+      "type": "String",
+      "defaultExpression": "\"update_by\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "UPDATE_NAME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_NAME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String UPDATE_NAME = \"update_name\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 5
+        },
+        "end": {
+          "line": 244,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "update_name - 更新人名称",
+      "type": "String",
+      "defaultExpression": "\"update_name\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "CREATE_TIME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_TIME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String CREATE_TIME = \"create_time\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 249,
+          "column": 5
+        },
+        "end": {
+          "line": 249,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "create_time - 创建日期",
+      "type": "String",
+      "defaultExpression": "\"create_time\"",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "UPDATE_TIME",
+      "qualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_TIME",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "signature": "public static final String UPDATE_TIME = \"update_time\"",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 254,
+          "column": 5
+        },
+        "end": {
+          "line": 254,
+          "column": 60
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "update_time - 更新时间",
+      "type": "String",
+      "defaultExpression": "\"update_time\"",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 46
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.extension.activerecord.Model",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "io.swagger.v3.oas.annotations.media.Schema",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.EqualsAndHashCode",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Accessors",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Model",
+      "expression": "Model",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 30
+        },
+        "end": {
+          "line": 28,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "SysMenu",
+      "expression": "SysMenu",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 36
+        },
+        "end": {
+          "line": 28,
+          "column": 43
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "EqualsAndHashCode",
+      "expression": "EqualsAndHashCode",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Accessors",
+      "expression": "Accessors",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "SuppressWarnings",
+      "expression": "SuppressWarnings",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 2
+        },
+        "end": {
+          "line": 25,
+          "column": 18
+        }
+      }
+    },
+    {
+      "name": "TableName",
+      "expression": "TableName",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 2
+        },
+        "end": {
+          "line": 26,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 13
+        },
+        "end": {
+          "line": 34,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 6
+        },
+        "end": {
+          "line": 32,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableId",
+      "expression": "TableId",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.id",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 33,
+          "column": 6
+        },
+        "end": {
+          "line": 33,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 6
+        },
+        "end": {
+          "line": 38,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pid",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.code",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 13
+        },
+        "end": {
+          "line": 46,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.code",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 6
+        },
+        "end": {
+          "line": 44,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.code",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 45,
+          "column": 6
+        },
+        "end": {
+          "line": 45,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.title",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 52,
+          "column": 13
+        },
+        "end": {
+          "line": 52,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.title",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 6
+        },
+        "end": {
+          "line": 50,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.title",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 51,
+          "column": 6
+        },
+        "end": {
+          "line": 51,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 13
+        },
+        "end": {
+          "line": 58,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 6
+        },
+        "end": {
+          "line": 56,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 6
+        },
+        "end": {
+          "line": 57,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentData",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 64,
+          "column": 13
+        },
+        "end": {
+          "line": 64,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentData",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 6
+        },
+        "end": {
+          "line": 62,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.componentData",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 63,
+          "column": 6
+        },
+        "end": {
+          "line": 63,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.sort",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 70,
+          "column": 13
+        },
+        "end": {
+          "line": 70,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.sort",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 68,
+          "column": 6
+        },
+        "end": {
+          "line": 68,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.sort",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 69,
+          "column": 6
+        },
+        "end": {
+          "line": 69,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.icon",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 76,
+          "column": 13
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.icon",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 74,
+          "column": 6
+        },
+        "end": {
+          "line": 74,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.icon",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 75,
+          "column": 6
+        },
+        "end": {
+          "line": 75,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.path",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 82,
+          "column": 13
+        },
+        "end": {
+          "line": 82,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.path",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 80,
+          "column": 6
+        },
+        "end": {
+          "line": 80,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.path",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 81,
+          "column": 6
+        },
+        "end": {
+          "line": 81,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.iFrame",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 88,
+          "column": 13
+        },
+        "end": {
+          "line": 88,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.iFrame",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 86,
+          "column": 6
+        },
+        "end": {
+          "line": 86,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.iFrame",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 87,
+          "column": 6
+        },
+        "end": {
+          "line": 87,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.cache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 94,
+          "column": 13
+        },
+        "end": {
+          "line": 94,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.cache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 92,
+          "column": 6
+        },
+        "end": {
+          "line": 92,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.cache",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 93,
+          "column": 6
+        },
+        "end": {
+          "line": 93,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.hidden",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.hidden",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 98,
+          "column": 6
+        },
+        "end": {
+          "line": 98,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.hidden",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 99,
+          "column": 6
+        },
+        "end": {
+          "line": 99,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Boolean",
+      "expression": "Boolean",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.enable",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 106,
+          "column": 13
+        },
+        "end": {
+          "line": 106,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.enable",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 104,
+          "column": 6
+        },
+        "end": {
+          "line": 104,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.enable",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 105,
+          "column": 6
+        },
+        "end": {
+          "line": 105,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 112,
+          "column": 13
+        },
+        "end": {
+          "line": 112,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 110,
+          "column": 6
+        },
+        "end": {
+          "line": 110,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 111,
+          "column": 6
+        },
+        "end": {
+          "line": 111,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 118,
+          "column": 13
+        },
+        "end": {
+          "line": 118,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 116,
+          "column": 6
+        },
+        "end": {
+          "line": 116,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 117,
+          "column": 6
+        },
+        "end": {
+          "line": 117,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "expression": "Long",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 124,
+          "column": 13
+        },
+        "end": {
+          "line": 124,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 122,
+          "column": 6
+        },
+        "end": {
+          "line": 122,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 123,
+          "column": 6
+        },
+        "end": {
+          "line": 123,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 130,
+          "column": 13
+        },
+        "end": {
+          "line": 130,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 128,
+          "column": 6
+        },
+        "end": {
+          "line": 128,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateName",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 129,
+          "column": 6
+        },
+        "end": {
+          "line": 129,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 136,
+          "column": 13
+        },
+        "end": {
+          "line": 136,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 134,
+          "column": 6
+        },
+        "end": {
+          "line": 134,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 135,
+          "column": 6
+        },
+        "end": {
+          "line": 135,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "LocalDateTime",
+      "expression": "LocalDateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 142,
+          "column": 13
+        },
+        "end": {
+          "line": 142,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 140,
+          "column": 6
+        },
+        "end": {
+          "line": 140,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 141,
+          "column": 6
+        },
+        "end": {
+          "line": 141,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Integer",
+      "expression": "Integer",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.groupByCount",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 148,
+          "column": 13
+        },
+        "end": {
+          "line": 148,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "TableField",
+      "expression": "TableField",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.groupByCount",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 146,
+          "column": 6
+        },
+        "end": {
+          "line": 146,
+          "column": 16
+        }
+      }
+    },
+    {
+      "name": "Schema",
+      "expression": "Schema",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.groupByCount",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 147,
+          "column": 6
+        },
+        "end": {
+          "line": 147,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Serializable",
+      "expression": "Serializable",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pkVal",
+      "ownerSignature": "@Override\n    public Serializable pkVal()",
+      "range": {
+        "start": {
+          "line": 156,
+          "column": 12
+        },
+        "end": {
+          "line": 156,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.pkVal",
+      "ownerSignature": "@Override\n    public Serializable pkVal()",
+      "range": {
+        "start": {
+          "line": 155,
+          "column": 6
+        },
+        "end": {
+          "line": 155,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ID",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 164,
+          "column": 25
+        },
+        "end": {
+          "line": 164,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.PID",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 169,
+          "column": 25
+        },
+        "end": {
+          "line": 169,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CODE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 174,
+          "column": 25
+        },
+        "end": {
+          "line": 174,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.TITLE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 179,
+          "column": 25
+        },
+        "end": {
+          "line": 179,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.COMPONENT_NAME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 184,
+          "column": 25
+        },
+        "end": {
+          "line": 184,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.COMPONENT_DATA",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 189,
+          "column": 25
+        },
+        "end": {
+          "line": 189,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.SORT",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 194,
+          "column": 25
+        },
+        "end": {
+          "line": 194,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ICON",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 199,
+          "column": 25
+        },
+        "end": {
+          "line": 199,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.PATH",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 204,
+          "column": 25
+        },
+        "end": {
+          "line": 204,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.I_FRAME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 209,
+          "column": 25
+        },
+        "end": {
+          "line": 209,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CACHE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 214,
+          "column": 25
+        },
+        "end": {
+          "line": 214,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.HIDDEN",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 219,
+          "column": 25
+        },
+        "end": {
+          "line": 219,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.ENABLE",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 224,
+          "column": 25
+        },
+        "end": {
+          "line": 224,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_BY",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 229,
+          "column": 25
+        },
+        "end": {
+          "line": 229,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_NAME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 234,
+          "column": 25
+        },
+        "end": {
+          "line": 234,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_BY",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 239,
+          "column": 25
+        },
+        "end": {
+          "line": 239,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_NAME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 244,
+          "column": 25
+        },
+        "end": {
+          "line": 244,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.CREATE_TIME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 249,
+          "column": 25
+        },
+        "end": {
+          "line": 249,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.rbac.entity.SysMenu.UPDATE_TIME",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 254,
+          "column": 25
+        },
+        "end": {
+          "line": 254,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

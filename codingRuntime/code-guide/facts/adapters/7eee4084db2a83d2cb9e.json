@@ -1,0 +1,412 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/InValidator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.validator.rest",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "InValidator",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "ownerQualifiedName": "",
+      "signature": "public class InValidator implements ConstraintValidator<In, String>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since 1.0.2",
+      "supertypes": [
+        "ConstraintValidator<In, String>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "array",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.array",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "signature": "private String[] array",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 28
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String[]",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "initialize",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "signature": "@Override\n    public void initialize(In constraintAnnotation)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "constraintAnnotation",
+          "type": "In",
+          "signature": "In constraintAnnotation",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 14,
+              "column": 28
+            },
+            "end": {
+              "line": 14,
+              "column": 51
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "isValid",
+      "qualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.isValid",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "signature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "value",
+          "type": "String",
+          "signature": "String value",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 28
+            },
+            "end": {
+              "line": 20,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "context",
+          "type": "ConstraintValidatorContext",
+          "signature": "ConstraintValidatorContext context",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 42
+            },
+            "end": {
+              "line": 20,
+              "column": 76
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidator",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 47
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.validation.ConstraintValidatorContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "initialize",
+      "expression": "ConstraintValidator.super.initialize",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(In constraintAnnotation)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 9
+        },
+        "end": {
+          "line": 15,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "value",
+      "expression": "constraintAnnotation.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(In constraintAnnotation)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 22
+        },
+        "end": {
+          "line": 16,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "item.equals",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 17
+        },
+        "end": {
+          "line": 22,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ConstraintValidator",
+      "expression": "ConstraintValidator",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 37
+        },
+        "end": {
+          "line": 10,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "In",
+      "expression": "In",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 57
+        },
+        "end": {
+          "line": 10,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 61
+        },
+        "end": {
+          "line": 10,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.array",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 13
+        },
+        "end": {
+          "line": 11,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "In",
+      "expression": "In",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(In constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 28
+        },
+        "end": {
+          "line": 14,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.initialize",
+      "ownerSignature": "@Override\n    public void initialize(In constraintAnnotation)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 6
+        },
+        "end": {
+          "line": 13,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 28
+        },
+        "end": {
+          "line": 20,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "ConstraintValidatorContext",
+      "expression": "ConstraintValidatorContext",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 42
+        },
+        "end": {
+          "line": 20,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.validator.rest.InValidator.isValid",
+      "ownerSignature": "@Override\n    public boolean isValid(String value, ConstraintValidatorContext context)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

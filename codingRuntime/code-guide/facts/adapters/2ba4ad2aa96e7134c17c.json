@@ -1,0 +1,505 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractBalkingReference.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.abstracts",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AbstractBalkingReference",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "ownerQualifiedName": "",
+      "signature": "@Slf4j\npublic abstract class AbstractBalkingReference<T> implements IBalkingReference<T>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "abstract",
+        "public"
+      ],
+      "docstring": "任务属性状态追踪\n\n @author chiyo",
+      "supertypes": [
+        "IBalkingReference<T>"
+      ],
+      "typeParameters": [
+        "T"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "isChanged",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.isChanged",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "protected AtomicBoolean isChanged = new AtomicBoolean(true)",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 65
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "protected"
+      ],
+      "type": "AtomicBoolean",
+      "defaultExpression": "new AtomicBoolean(true)",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "t",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.t",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "protected T t",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 19
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "protected"
+      ],
+      "type": "T",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "AbstractBalkingReference",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.AbstractBalkingReference",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "public AbstractBalkingReference(T t)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "t",
+          "type": "T",
+          "signature": "T t",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 37
+            },
+            "end": {
+              "line": 18,
+              "column": 40
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "save",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "@Override\n    public synchronized boolean save()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public",
+        "synchronized"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "change",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.change",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "@Override\n    public synchronized boolean change(T t)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public",
+        "synchronized"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "t",
+          "type": "T",
+          "signature": "T t",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 37,
+              "column": 40
+            },
+            "end": {
+              "line": 37,
+              "column": 43
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "doSave",
+      "qualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.doSave",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "signature": "public abstract boolean doSave()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 38
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "abstract",
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.domain.concurrent.IBalkingReference",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.concurrent.atomic.AtomicBoolean",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "AtomicBoolean",
+      "expression": "new AtomicBoolean",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "ownerSignature": "",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 41
+        },
+        "end": {
+          "line": 15,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "isChanged.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerSignature": "@Override\n    public synchronized boolean save()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "doSave",
+      "expression": "doSave",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerSignature": "@Override\n    public synchronized boolean save()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 25
+        },
+        "end": {
+          "line": 25,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "debug",
+      "expression": "log.debug",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerSignature": "@Override\n    public synchronized boolean save()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "isChanged.set",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerSignature": "@Override\n    public synchronized boolean save()",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 13
+        },
+        "end": {
+          "line": 30,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "this.isChanged.get",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.change",
+      "ownerSignature": "@Override\n    public synchronized boolean change(T t)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 14
+        },
+        "end": {
+          "line": 38,
+          "column": 34
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "this.isChanged.set",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.change",
+      "ownerSignature": "@Override\n    public synchronized boolean change(T t)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 13
+        },
+        "end": {
+          "line": 40,
+          "column": 37
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "IBalkingReference",
+      "expression": "IBalkingReference",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 62
+        },
+        "end": {
+          "line": 14,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "AtomicBoolean",
+      "expression": "AtomicBoolean",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.isChanged",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 15
+        },
+        "end": {
+          "line": 15,
+          "column": 28
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.save",
+      "ownerSignature": "@Override\n    public synchronized boolean save()",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 6
+        },
+        "end": {
+          "line": 22,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.domain.abstracts.AbstractBalkingReference.change",
+      "ownerSignature": "@Override\n    public synchronized boolean change(T t)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 6
+        },
+        "end": {
+          "line": 36,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

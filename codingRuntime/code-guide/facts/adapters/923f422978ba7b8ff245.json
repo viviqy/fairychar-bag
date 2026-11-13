@@ -1,0 +1,167 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/permission/ApiAuthorityProvider.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.permission",
+  "declarations": [
+    {
+      "kind": "interface",
+      "name": "ApiAuthorityProvider",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider",
+      "ownerQualifiedName": "",
+      "signature": "public interface ApiAuthorityProvider",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "ApiAuthority provider\n\n @author chiyo <br>\n @since 1.3.3",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "getApiAuthorities",
+      "qualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider.getApiAuthorities",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider",
+      "signature": "List<IApiAuthority> getApiAuthorities(HttpServletRequest request)",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 71
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "List<IApiAuthority>",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 43
+            },
+            "end": {
+              "line": 13,
+              "column": 69
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider.getApiAuthorities",
+      "ownerSignature": "List<IApiAuthority> getApiAuthorities(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 9
+        }
+      }
+    },
+    {
+      "name": "IApiAuthority",
+      "expression": "IApiAuthority",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider.getApiAuthorities",
+      "ownerSignature": "List<IApiAuthority> getApiAuthorities(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 10
+        },
+        "end": {
+          "line": 13,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.permission.ApiAuthorityProvider.getApiAuthorities",
+      "ownerSignature": "List<IApiAuthority> getApiAuthorities(HttpServletRequest request)",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 43
+        },
+        "end": {
+          "line": 13,
+          "column": 61
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

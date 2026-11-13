@@ -1,0 +1,173 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/request/CloneServletInputStream.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.request",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "CloneServletInputStream",
+      "qualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream",
+      "ownerQualifiedName": "",
+      "signature": "public class CloneServletInputStream extends CoyoteInputStream",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 3.0.1",
+      "supertypes": [
+        "CoyoteInputStream"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "CloneServletInputStream",
+      "qualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream.CloneServletInputStream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream",
+      "signature": "public CloneServletInputStream(InputBuffer ib)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "ib",
+          "type": "InputBuffer",
+          "signature": "InputBuffer ib",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 12,
+              "column": 36
+            },
+            "end": {
+              "line": 12,
+              "column": 50
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.apache.catalina.connector.CoyoteInputStream",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.catalina.connector.InputBuffer",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 50
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream.CloneServletInputStream",
+      "ownerSignature": "public CloneServletInputStream(InputBuffer ib)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 9
+        },
+        "end": {
+          "line": 13,
+          "column": 18
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "CoyoteInputStream",
+      "expression": "CoyoteInputStream",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 46
+        },
+        "end": {
+          "line": 10,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "InputBuffer",
+      "expression": "InputBuffer",
+      "ownerQualifiedName": "com.fairychar.bag.extension.request.CloneServletInputStream.CloneServletInputStream",
+      "ownerSignature": "public CloneServletInputStream(InputBuffer ib)",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 36
+        },
+        "end": {
+          "line": 12,
+          "column": 47
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

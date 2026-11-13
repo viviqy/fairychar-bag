@@ -1,0 +1,746 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/listener/SpringContextHolder.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.listener",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SpringContextHolder",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "ownerQualifiedName": "",
+      "signature": "@Order(Ordered.HIGHEST_PRECEDENCE)\n@NoArgsConstructor(access = AccessLevel.PRIVATE)\npublic class SpringContextHolder implements ApplicationListener<ContextRefreshedEvent>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Order(Ordered.HIGHEST_PRECEDENCE)",
+        "@NoArgsConstructor(access = AccessLevel.PRIVATE)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "<p>spring bean工具类,包含ApplicationContext的所有方法</p>\n\n @author qiyue",
+      "supertypes": [
+        "ApplicationListener<ContextRefreshedEvent>"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "context",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.context",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "signature": "@Delegate(types = {EnvironmentCapable.class, ListableBeanFactory.class, HierarchicalBeanFactory.class, MessageSource.class, ApplicationEventPublisher.class, ResourcePatternResolver.class})\nprivate ApplicationContext context",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 40
+        }
+      },
+      "annotations": [
+        "@Delegate(types = {EnvironmentCapable.class, ListableBeanFactory.class, HierarchicalBeanFactory.class\n            , MessageSource.class, ApplicationEventPublisher.class, ResourcePatternResolver.class})"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "ApplicationContext",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "signature": "public static SpringContextHolder getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "typeParameters": [],
+      "returnType": "SpringContextHolder",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "onApplicationEvent",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.onApplicationEvent",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "signature": "@Override\n    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "contextRefreshedEvent",
+          "type": "ContextRefreshedEvent",
+          "signature": "ContextRefreshedEvent contextRefreshedEvent",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 36,
+              "column": 36
+            },
+            "end": {
+              "line": 36,
+              "column": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "enum",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "signature": "private enum Singleton",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "INSTANCE",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.INSTANCE",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton",
+      "signature": "INSTANCE",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 9
+        },
+        "end": {
+          "line": 42,
+          "column": 17
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "Singleton",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "instance",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.instance",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton",
+      "signature": "private final SpringContextHolder instance",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 9
+        },
+        "end": {
+          "line": 44,
+          "column": 52
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "SpringContextHolder",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "Singleton",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.Singleton",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton",
+      "signature": "Singleton()",
+      "visibility": "private",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 46,
+          "column": 9
+        },
+        "end": {
+          "line": 48,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "getInstance",
+      "qualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton",
+      "signature": "public SpringContextHolder getInstance()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 9
+        },
+        "end": {
+          "line": 52,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "SpringContextHolder",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.AccessLevel",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 27
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.NoArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 33
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.experimental.Delegate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 37
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.HierarchicalBeanFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.beans.factory.ListableBeanFactory",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.ApplicationContext",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 55
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.ApplicationEventPublisher",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 62
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.ApplicationListener",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.MessageSource",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.context.event.ContextRefreshedEvent",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 64
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.Ordered",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.annotation.Order",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 50
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.env.EnvironmentCapable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 56
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.core.io.support.ResourcePatternResolver",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 68
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "getInstance",
+      "expression": "Singleton.INSTANCE.getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.getInstance",
+      "ownerSignature": "public static SpringContextHolder getInstance()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "getInstance",
+      "expression": "getInstance",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.onApplicationEvent",
+      "ownerSignature": "@Override\n    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 40
+        },
+        "end": {
+          "line": 37,
+          "column": 53
+        }
+      }
+    },
+    {
+      "name": "getSource",
+      "expression": "contextRefreshedEvent.getSource",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.onApplicationEvent",
+      "ownerSignature": "@Override\n    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 50
+        },
+        "end": {
+          "line": 38,
+          "column": 83
+        }
+      }
+    },
+    {
+      "name": "SpringContextHolder",
+      "expression": "new SpringContextHolder",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.Singleton",
+      "ownerSignature": "Singleton()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 54
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ApplicationListener",
+      "expression": "ApplicationListener",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 45
+        },
+        "end": {
+          "line": 25,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "ContextRefreshedEvent",
+      "expression": "ContextRefreshedEvent",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 65
+        },
+        "end": {
+          "line": 25,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "Order",
+      "expression": "Order",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "NoArgsConstructor",
+      "expression": "NoArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "ApplicationContext",
+      "expression": "ApplicationContext",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.context",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "Delegate",
+      "expression": "Delegate",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.context",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 6
+        },
+        "end": {
+          "line": 27,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SpringContextHolder",
+      "expression": "SpringContextHolder",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.getInstance",
+      "ownerSignature": "public static SpringContextHolder getInstance()",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 19
+        },
+        "end": {
+          "line": 31,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "ContextRefreshedEvent",
+      "expression": "ContextRefreshedEvent",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.onApplicationEvent",
+      "ownerSignature": "@Override\n    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 36
+        },
+        "end": {
+          "line": 36,
+          "column": 57
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.onApplicationEvent",
+      "ownerSignature": "@Override\n    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "SpringContextHolder",
+      "expression": "SpringContextHolder",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.instance",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 23
+        },
+        "end": {
+          "line": 44,
+          "column": 42
+        }
+      }
+    },
+    {
+      "name": "SpringContextHolder",
+      "expression": "SpringContextHolder",
+      "ownerQualifiedName": "com.fairychar.bag.listener.SpringContextHolder.Singleton.getInstance",
+      "ownerSignature": "public SpringContextHolder getInstance()",
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 16
+        },
+        "end": {
+          "line": 50,
+          "column": 35
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

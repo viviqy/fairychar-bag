@@ -1,0 +1,43 @@
+{
+  "sourceId": "fairychar-micro-service/__rootArtifactId__-api/src/main/java/com/fairychar/demo/GitKeep.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.demo",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "GitKeep",
+      "qualifiedName": "com.fairychar.demo.GitKeep",
+      "ownerQualifiedName": "",
+      "signature": "public class GitKeep",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

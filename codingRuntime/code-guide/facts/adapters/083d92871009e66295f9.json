@@ -1,0 +1,228 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemProperty.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "ConditionalOnSystemProperty",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "ownerQualifiedName": "",
+      "signature": "@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Conditional(OnSystemPropertyCondition.class)\npublic @interface ConditionalOnSystemProperty",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Conditional(OnSystemPropertyCondition.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于系统参数的Bean条件判断器,仅当系统参数对应值相同时才会配置Bean\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "name",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty.name",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "signature": "String name() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 30
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "value",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty.value",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "signature": "String value() default \"\"",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "typeParameters": [],
+      "returnType": "String",
+      "throws": [],
+      "defaultExpression": "\"\"",
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.annotation.Conditional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Conditional",
+      "expression": "Conditional",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty.name",
+      "ownerSignature": "String name() default \"\"",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemProperty.value",
+      "ownerSignature": "String value() default \"\"",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

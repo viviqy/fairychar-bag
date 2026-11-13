@@ -1,0 +1,750 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/filter/VerifyCodeFilter.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.filter",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "VerifyCodeFilter",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "ownerQualifiedName": "",
+      "signature": "@RequiredArgsConstructor\npublic class VerifyCodeFilter extends OncePerRequestFilter",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@RequiredArgsConstructor"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "验证码校验过滤器<br>\n 需要实现{@link ICodeVerifier}的bean\n\n @author chiyo",
+      "supertypes": [
+        "OncePerRequestFilter"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "verifyUrls",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.verifyUrls",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "signature": "private final Set<String> verifyUrls",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 42
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "Set<String>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "authenticationFailureHandler",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.authenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "signature": "private final AuthenticationFailureHandler authenticationFailureHandler",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 77
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "AuthenticationFailureHandler",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "codeVerifier",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.codeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "signature": "private final ICodeVerifier codeVerifier",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 46
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ICodeVerifier",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "antPathMatcher",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.antPathMatcher",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "signature": "private AntPathMatcher antPathMatcher = new AntPathMatcher()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 5
+        },
+        "end": {
+          "line": 28,
+          "column": 66
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AntPathMatcher",
+      "defaultExpression": "new AntPathMatcher()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "doFilterInternal",
+      "qualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "signature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "visibility": "protected",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "protected"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "ServletException",
+        "IOException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 37
+            },
+            "end": {
+              "line": 31,
+              "column": 63
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 65
+            },
+            "end": {
+              "line": 31,
+              "column": 93
+            }
+          }
+        },
+        {
+          "name": "filterChain",
+          "type": "FilterChain",
+          "signature": "FilterChain filterChain",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 31,
+              "column": 95
+            },
+            "end": {
+              "line": 31,
+              "column": 118
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.security.core.verify.ICodeVerifier",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.FilterChain",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 36
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.ServletException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.AuthenticationException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 66
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.AuthenticationFailureHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 85
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.util.AntPathMatcher",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.web.filter.OncePerRequestFilter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 60
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Set",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "AntPathMatcher",
+      "expression": "new AntPathMatcher",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 45
+        },
+        "end": {
+          "line": 28,
+          "column": 65
+        }
+      }
+    },
+    {
+      "name": "match",
+      "expression": "this.antPathMatcher.match",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 17
+        },
+        "end": {
+          "line": 34,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "getRequestURI",
+      "expression": "request.getRequestURI",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 48
+        },
+        "end": {
+          "line": 34,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "verifyCode",
+      "expression": "this.codeVerifier.verifyCode",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 17
+        },
+        "end": {
+          "line": 41,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "doFilter",
+      "expression": "filterChain.doFilter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 17
+        },
+        "end": {
+          "line": 42,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "onAuthenticationFailure",
+      "expression": "this.authenticationFailureHandler.onAuthenticationFailure",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 17
+        },
+        "end": {
+          "line": 44,
+          "column": 96
+        }
+      }
+    },
+    {
+      "name": "doFilter",
+      "expression": "filterChain.doFilter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "OncePerRequestFilter",
+      "expression": "OncePerRequestFilter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 39
+        },
+        "end": {
+          "line": 24,
+          "column": 59
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "Set",
+      "expression": "Set",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.verifyUrls",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.verifyUrls",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 23
+        },
+        "end": {
+          "line": 25,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "AuthenticationFailureHandler",
+      "expression": "AuthenticationFailureHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.authenticationFailureHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 19
+        },
+        "end": {
+          "line": 26,
+          "column": 47
+        }
+      }
+    },
+    {
+      "name": "ICodeVerifier",
+      "expression": "ICodeVerifier",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.codeVerifier",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 19
+        },
+        "end": {
+          "line": 27,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "AntPathMatcher",
+      "expression": "AntPathMatcher",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.antPathMatcher",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 13
+        },
+        "end": {
+          "line": 28,
+          "column": 27
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 37
+        },
+        "end": {
+          "line": 31,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 65
+        },
+        "end": {
+          "line": 31,
+          "column": 84
+        }
+      }
+    },
+    {
+      "name": "FilterChain",
+      "expression": "FilterChain",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 95
+        },
+        "end": {
+          "line": 31,
+          "column": 106
+        }
+      }
+    },
+    {
+      "name": "ServletException",
+      "expression": "ServletException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 127
+        },
+        "end": {
+          "line": 31,
+          "column": 143
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 145
+        },
+        "end": {
+          "line": 31,
+          "column": 156
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.filter.VerifyCodeFilter.doFilterInternal",
+      "ownerSignature": "@Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 6
+        },
+        "end": {
+          "line": 30,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

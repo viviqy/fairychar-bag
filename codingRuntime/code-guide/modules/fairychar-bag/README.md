@@ -1,0 +1,219 @@
+# fairychar-bag
+
+Snapshot: `snapshot-20261113T014229Z-bb422342`
+
+## Packages
+- [com.fairychar.bag.aop](packages/com.fairychar.bag.aop/README.md) — 2 files; source: 2
+- [com.fairychar.bag.beans.aop](packages/com.fairychar.bag.beans.aop/README.md) — 7 files; source: 7
+- [com.fairychar.bag.beans.mybatis.handler](packages/com.fairychar.bag.beans.mybatis.handler/README.md) — 2 files; source: 2
+- [com.fairychar.bag.beans.mybatis.interceptor](packages/com.fairychar.bag.beans.mybatis.interceptor/README.md) — 6 files; source: 6
+- [com.fairychar.bag.beans.netty.client](packages/com.fairychar.bag.beans.netty.client/README.md) — 1 files; source: 1
+- [com.fairychar.bag.beans.netty.decoder](packages/com.fairychar.bag.beans.netty.decoder/README.md) — 1 files; source: 1
+- [com.fairychar.bag.beans.netty.server](packages/com.fairychar.bag.beans.netty.server/README.md) — 1 files; source: 1
+- [com.fairychar.bag.beans.redis](packages/com.fairychar.bag.beans.redis/README.md) — 2 files; source: 2
+- [com.fairychar.bag.beans.spring.advice](packages/com.fairychar.bag.beans.spring.advice/README.md) — 2 files; source: 2
+- [com.fairychar.bag.beans.spring.mvc](packages/com.fairychar.bag.beans.spring.mvc/README.md) — 10 files; source: 10
+- [com.fairychar.bag.beans.swagger](packages/com.fairychar.bag.beans.swagger/README.md) — 2 files; source: 2
+- [com.fairychar.bag.configurer](packages/com.fairychar.bag.configurer/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain](packages/com.fairychar.bag.domain/README.md) — 2 files; source: 2
+- [com.fairychar.bag.domain.abstracts](packages/com.fairychar.bag.domain.abstracts/README.md) — 2 files; source: 2
+- [com.fairychar.bag.domain.annotations](packages/com.fairychar.bag.domain.annotations/README.md) — 6 files; source: 6
+- [com.fairychar.bag.domain.concurrent](packages/com.fairychar.bag.domain.concurrent/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain.conditional](packages/com.fairychar.bag.domain.conditional/README.md) — 10 files; source: 10
+- [com.fairychar.bag.domain.enums](packages/com.fairychar.bag.domain.enums/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain.exceptions](packages/com.fairychar.bag.domain.exceptions/README.md) — 8 files; source: 8
+- [com.fairychar.bag.domain.netty.advice](packages/com.fairychar.bag.domain.netty.advice/README.md) — 3 files; source: 3
+- [com.fairychar.bag.domain.netty.frame](packages/com.fairychar.bag.domain.netty.frame/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain.spring](packages/com.fairychar.bag.domain.spring/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain.spring.expression](packages/com.fairychar.bag.domain.spring.expression/README.md) — 2 files; source: 2
+- [com.fairychar.bag.domain.validator.rest](packages/com.fairychar.bag.domain.validator.rest/README.md) — 24 files; source: 24
+- [com.fairychar.bag.domain.validator.rest.abstracts](packages/com.fairychar.bag.domain.validator.rest.abstracts/README.md) — 1 files; source: 1
+- [com.fairychar.bag.domain.validator.rest.group](packages/com.fairychar.bag.domain.validator.rest.group/README.md) — 7 files; source: 7
+- [com.fairychar.bag.extension.action.condition.bool](packages/com.fairychar.bag.extension.action.condition.bool/README.md) — 5 files; source: 5
+- [com.fairychar.bag.extension.calculator](packages/com.fairychar.bag.extension.calculator/README.md) — 2 files; source: 2
+- [com.fairychar.bag.extension.collection](packages/com.fairychar.bag.extension.collection/README.md) — 1 files; source: 1
+- [com.fairychar.bag.extension.concurrent](packages/com.fairychar.bag.extension.concurrent/README.md) — 4 files; source: 4
+- [com.fairychar.bag.extension.request](packages/com.fairychar.bag.extension.request/README.md) — 4 files; source: 4
+- [com.fairychar.bag.function](packages/com.fairychar.bag.function/README.md) — 4 files; source: 4
+- [com.fairychar.bag.listener](packages/com.fairychar.bag.listener/README.md) — 1 files; source: 1
+- [com.fairychar.bag.pojo.ao](packages/com.fairychar.bag.pojo.ao/README.md) — 4 files; source: 4
+- [com.fairychar.bag.pojo.dto](packages/com.fairychar.bag.pojo.dto/README.md) — 1 files; source: 1
+- [com.fairychar.bag.pojo.query](packages/com.fairychar.bag.pojo.query/README.md) — 3 files; source: 3
+- [com.fairychar.bag.pojo.query.body](packages/com.fairychar.bag.pojo.query.body/README.md) — 10 files; source: 10
+- [com.fairychar.bag.pojo.vo](packages/com.fairychar.bag.pojo.vo/README.md) — 2 files; source: 2
+- [com.fairychar.bag.properties](packages/com.fairychar.bag.properties/README.md) — 5 files; source: 5
+- [com.fairychar.bag.proxy](packages/com.fairychar.bag.proxy/README.md) — 1 files; source: 1
+- [com.fairychar.bag.template](packages/com.fairychar.bag.template/README.md) — 2 files; source: 2
+- [com.fairychar.bag.utils](packages/com.fairychar.bag.utils/README.md) — 13 files; source: 13
+- [com.fairychar.bag.utils.base](packages/com.fairychar.bag.utils.base/README.md) — 1 files; source: 1
+
+## Files
+- [fairychar-bag/src/main/java/com/fairychar/bag/aop/LoggingAspectJ.java](files/fairychar-bag/src/main/java/com/fairychar/bag/aop/LoggingAspectJ.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/aop/MethodLockAspectJ.java](files/fairychar-bag/src/main/java/com/fairychar/bag/aop/MethodLockAspectJ.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/IgnoreContentLoggingHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/IgnoreContentLoggingHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/JsonLoggingHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/JsonLoggingHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/JsonLoggingObject.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/JsonLoggingObject.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/LoggingHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/LoggingHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/LoggingHelper.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/LoggingHelper.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/SimpleLoggingHanlder.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/SimpleLoggingHanlder.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/SwaggerLoggingHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/aop/SwaggerLoggingHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/handler/AesTypeHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/handler/AesTypeHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/handler/RsaTypeHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/handler/RsaTypeHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSkipper.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSkipper.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSwitcher.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/ITenantSwitcher.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SimpleTenantSkipper.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SimpleTenantSkipper.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SkipableTenantLineInnerInterceptor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SkipableTenantLineInnerInterceptor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SwitchableTenantLineInnerInterceptor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/SwitchableTenantLineInnerInterceptor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/TenantSwitcher.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/mybatis/interceptor/TenantSwitcher.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/client/SimpleNettyClient.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/client/SimpleNettyClient.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/decoder/DelimitersHeadTailFrameDecoder.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/decoder/DelimitersHeadTailFrameDecoder.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/server/SimpleNettyServer.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/netty/server/SimpleNettyServer.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/redis/GzipStringSerializer.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/redis/GzipStringSerializer.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/redis/PrefixStringSerializer.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/redis/PrefixStringSerializer.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/DefaultExceptionAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/DefaultExceptionAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/InvalidateLog.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/advice/InvalidateLog.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValue.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValue.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValueAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/EraseValueAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyMiddleTextProcessor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyMiddleTextProcessor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyResult.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyResult.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValue.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValue.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValueAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValueAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValueProcessor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/FuzzyValueProcessor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/KeepValue.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/KeepValue.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/KeepValueAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/KeepValueAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/PropertyValueAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/spring/mvc/PropertyValueAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/swagger/RequestIgnoreParameterPlugin.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/swagger/RequestIgnoreParameterPlugin.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/beans/swagger/ShowParam.java](files/fairychar-bag/src/main/java/com/fairychar/bag/beans/swagger/ShowParam.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/configurer/BagBeansAutoConfigurer.java](files/fairychar-bag/src/main/java/com/fairychar/bag/configurer/BagBeansAutoConfigurer.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/Consts.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/Consts.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/Singletons.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/Singletons.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractBalkingReference.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractBalkingReference.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractScheduleAction.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/abstracts/AbstractScheduleAction.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/CauseHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/CauseHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/EventHandler.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/EventHandler.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/MethodLock.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/MethodLock.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/NettyCauseAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/NettyCauseAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/NettyEventAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/NettyEventAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/RequestLog.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/annotations/RequestLog.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/concurrent/IBalkingReference.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/concurrent/IBalkingReference.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnDateTime.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnDateTime.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnPingHost.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnPingHost.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnRandomNumber.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnRandomNumber.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemOS.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemOS.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemProperty.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemProperty.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnDateTimeCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnDateTimeCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnPingHostCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnPingHostCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnRandomNumberCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnRandomNumberCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnSystemOsCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnSystemOsCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnSystemPropertyCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/OnSystemPropertyCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/enums/RunState.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/enums/RunState.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/AcceptedException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/AcceptedException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/DataAlreadyExistException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/DataAlreadyExistException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FBException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FBException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FailToGetLockException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/FailToGetLockException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/IRestErrorCode.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/IRestErrorCode.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/ParamErrorException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/ParamErrorException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestErrorCode.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestErrorCode.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestException.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/RestException.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundCauseAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundCauseAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundEventAdvice.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/GlobalInboundEventAdvice.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/InvokeEntity.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/advice/InvokeEntity.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/frame/HeadTailFrame.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/netty/frame/HeadTailFrame.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/BeanAwareMarker.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/BeanAwareMarker.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleEvaluationContext.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleEvaluationContext.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleExpressionRootObject.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/spring/expression/SimpleExpressionRootObject.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/DateBetween.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/DateBetween.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/DateValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/DateValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/EndWith.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/EndWith.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/EndWithValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/EndWithValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSize.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSize.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSizeValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/FileSizeValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IP.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IP.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IdCard.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IdCard.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IdCardValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IdCardValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/In.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/In.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/InValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/InValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IpValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/IpValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Language.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Language.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/LanguageValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/LanguageValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/NotIn.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/NotIn.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/NotInValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/NotInValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Phone.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Phone.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/PhoneValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/PhoneValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/StartWith.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/StartWith.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/StartWithValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/StartWithValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/TimeBetween.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/TimeBetween.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/TimeValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/TimeValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Url.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/Url.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/UrlValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/UrlValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/abstracts/AbstractPatternValidator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/abstracts/AbstractPatternValidator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/DeleteVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/DeleteVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/IdVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/IdVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/InsertOrUpdateVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/InsertOrUpdateVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/InsertVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/InsertVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/SearchVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/SearchVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/UniqueVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/UniqueVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/UpdateVali.java](files/fairychar-bag/src/main/java/com/fairychar/bag/domain/validator/rest/group/UpdateVali.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/AbstractActionFlow.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/AbstractActionFlow.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ActionFlow.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ActionFlow.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/FlowBuilder.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/FlowBuilder.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ParentActionCondition.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/ParentActionCondition.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/RootAction.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/action/condition/bool/RootAction.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/calculator/BaseCalculator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/calculator/BaseCalculator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/calculator/Operator.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/calculator/Operator.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/collection/BiPredicateList.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/collection/BiPredicateList.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/ActionSchedule.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/ActionSchedule.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/AssignableFactory.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/AssignableFactory.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RepeatTaskExecutor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RepeatTaskExecutor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RoundTaskExecutor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/concurrent/RoundTaskExecutor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/request/CloneServletInputStream.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/request/CloneServletInputStream.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/request/ClonedServletRequest.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/request/ClonedServletRequest.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/request/EmptyServletRequest.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/request/EmptyServletRequest.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/extension/request/HeaderValueHolder.java](files/fairychar-bag/src/main/java/com/fairychar/bag/extension/request/HeaderValueHolder.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/function/Action.java](files/fairychar-bag/src/main/java/com/fairychar/bag/function/Action.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/function/IDataBaseShardingProcessor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/function/IDataBaseShardingProcessor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/function/IShardingProcessor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/function/IShardingProcessor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/function/ITableShardingProcessor.java](files/fairychar-bag/src/main/java/com/fairychar/bag/function/ITableShardingProcessor.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/listener/SpringContextHolder.java](files/fairychar-bag/src/main/java/com/fairychar/bag/listener/SpringContextHolder.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MapObjectNode.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MapObjectNode.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MappingAO.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MappingAO.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MappingObjectAO.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/MappingObjectAO.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/TreeNode.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/ao/TreeNode.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/dto/KeyValuePair.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/dto/KeyValuePair.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/DateBetweenQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/DateBetweenQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/SimpleTypeQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/SimpleTypeQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/TimeBetweenQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/TimeBetweenQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ByteBodyQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ByteBodyQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ByteListQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ByteListQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/IntegerBodyQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/IntegerBodyQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/IntegerListQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/IntegerListQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/LongBodyQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/LongBodyQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/LongListQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/LongListQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ShortBodyQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ShortBodyQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ShortListQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/ShortListQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/StringBodyQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/StringBodyQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/StringListQuery.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/query/body/StringListQuery.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/vo/HttpResult.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/vo/HttpResult.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/pojo/vo/InvalidateFieldVO.java](files/fairychar-bag/src/main/java/com/fairychar/bag/pojo/vo/InvalidateFieldVO.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/properties/AopProperties.java](files/fairychar-bag/src/main/java/com/fairychar/bag/properties/AopProperties.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/properties/FairycharBagProperties.java](files/fairychar-bag/src/main/java/com/fairychar/bag/properties/FairycharBagProperties.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/properties/NettyServerClientProperties.java](files/fairychar-bag/src/main/java/com/fairychar/bag/properties/NettyServerClientProperties.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/properties/SecretProperties.java](files/fairychar-bag/src/main/java/com/fairychar/bag/properties/SecretProperties.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/properties/WebProperties.java](files/fairychar-bag/src/main/java/com/fairychar/bag/properties/WebProperties.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/proxy/FeignFallbackProxy.java](files/fairychar-bag/src/main/java/com/fairychar/bag/proxy/FeignFallbackProxy.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/template/ActionSelectorTemplate.java](files/fairychar-bag/src/main/java/com/fairychar/bag/template/ActionSelectorTemplate.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/template/CacheOperateTemplate.java](files/fairychar-bag/src/main/java/com/fairychar/bag/template/CacheOperateTemplate.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/BindingResultUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/BindingResultUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/CircularTaskUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/CircularTaskUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/CollectionUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/CollectionUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/ConcurrentUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/ConcurrentUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/DateConvertUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/DateConvertUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/FileUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/FileUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/MappingObjectUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/MappingObjectUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/RedisLockUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/RedisLockUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/ReflectUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/ReflectUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/RequestUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/RequestUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/SpelUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/SpelUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/StringUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/StringUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/TransactionUtil.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/TransactionUtil.java.md) — source, incomplete
+- [fairychar-bag/src/main/java/com/fairychar/bag/utils/base/FieldContainer.java](files/fairychar-bag/src/main/java/com/fairychar/bag/utils/base/FieldContainer.java.md) — source, incomplete

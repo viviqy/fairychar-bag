@@ -1,0 +1,469 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/SmsVerifyProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SmsVerifyProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\npublic class SmsVerifyProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.3",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "aliyun",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.aliyun",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties",
+      "signature": "@NestedConfigurationProperty\nprivate AliyunSmsProperties aliyun = new AliyunSmsProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 68
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "AliyunSmsProperties",
+      "defaultExpression": "new AliyunSmsProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "class",
+      "name": "AliyunSmsProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties",
+      "signature": "@Data\n    public static class AliyunSmsProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Data"
+      ],
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "from",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.from",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String from",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 9
+        },
+        "end": {
+          "line": 17,
+          "column": 29
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "templateCode",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.templateCode",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String templateCode",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 9
+        },
+        "end": {
+          "line": 18,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "codeParam",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.codeParam",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String codeParam",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 9
+        },
+        "end": {
+          "line": 19,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "expireTimeParam",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.expireTimeParam",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String expireTimeParam",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 9
+        },
+        "end": {
+          "line": 20,
+          "column": 40
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "appKey",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.appKey",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String appKey",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 9
+        },
+        "end": {
+          "line": 21,
+          "column": 31
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "appSecret",
+      "qualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.appSecret",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "signature": "private String appSecret",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 9
+        },
+        "end": {
+          "line": 22,
+          "column": 34
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.NestedConfigurationProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "AliyunSmsProperties",
+      "expression": "new AliyunSmsProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 42
+        },
+        "end": {
+          "line": 13,
+          "column": 67
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 2
+        },
+        "end": {
+          "line": 10,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "AliyunSmsProperties",
+      "expression": "AliyunSmsProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.aliyun",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.aliyun",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 6
+        },
+        "end": {
+          "line": 12,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 10
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.from",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 17
+        },
+        "end": {
+          "line": 17,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.templateCode",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 17
+        },
+        "end": {
+          "line": 18,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.codeParam",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 17
+        },
+        "end": {
+          "line": 19,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.expireTimeParam",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 17
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.appKey",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 17
+        },
+        "end": {
+          "line": 21,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.SmsVerifyProperties.AliyunSmsProperties.appSecret",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 17
+        },
+        "end": {
+          "line": 22,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

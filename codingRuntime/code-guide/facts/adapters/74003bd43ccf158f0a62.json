@@ -1,0 +1,763 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/auth/handler/PostableLogoutSuccessHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.auth.handler",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "PostableLogoutSuccessHandler",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerQualifiedName": "",
+      "signature": "@RequiredArgsConstructor\n@AllArgsConstructor\n@Slf4j\npublic class PostableLogoutSuccessHandler implements LogoutSuccessHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@RequiredArgsConstructor",
+        "@AllArgsConstructor",
+        "@Slf4j"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.3",
+      "supertypes": [
+        "LogoutSuccessHandler"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "objectMapper",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.objectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "signature": "private final ObjectMapper objectMapper",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 45
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "ObjectMapper",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "postHandlers",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.postHandlers",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "signature": "private List<ILogoutPostHandler> postHandlers = List.of()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 63
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "List<ILogoutPostHandler>",
+      "defaultExpression": "List.of()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "onLogoutSuccess",
+      "qualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "signature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [
+        "IOException",
+        "ServletException"
+      ],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "request",
+          "type": "HttpServletRequest",
+          "signature": "HttpServletRequest request",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 33
+            },
+            "end": {
+              "line": 30,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": "HttpServletResponse",
+          "signature": "HttpServletResponse response",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 61
+            },
+            "end": {
+              "line": 30,
+              "column": 89
+            }
+          }
+        },
+        {
+          "name": "authentication",
+          "type": "Authentication",
+          "signature": "Authentication authentication",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 30,
+              "column": 91
+            },
+            "end": {
+              "line": 30,
+              "column": 120
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.fairychar.bag.pojo.vo.HttpResult",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 45
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fasterxml.jackson.databind.ObjectMapper",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 52
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.ServletException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 41
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletRequest",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "jakarta.servlet.http.HttpServletResponse",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.AllArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.RequiredArgsConstructor",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 39
+        }
+      }
+    },
+    {
+      "qualifiedName": "lombok.extern.slf4j.Slf4j",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 34
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.http.MediaType",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 43
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.Authentication",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 57
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.web.authentication.logout.LogoutSuccessHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 84
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.IOException",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.List",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 23
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "of",
+      "expression": "List.of",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 53
+        },
+        "end": {
+          "line": 27,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "info",
+      "expression": "log.info",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 9
+        },
+        "end": {
+          "line": 31,
+          "column": 60
+        }
+      }
+    },
+    {
+      "name": "isEmpty",
+      "expression": "postHandlers.isEmpty",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 14
+        },
+        "end": {
+          "line": 32,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "post",
+      "expression": "postHandler.post",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 17
+        },
+        "end": {
+          "line": 34,
+          "column": 68
+        }
+      }
+    },
+    {
+      "name": "setStatus",
+      "expression": "response.setStatus",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 9
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "setContentType",
+      "expression": "response.setContentType",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 38,
+          "column": 9
+        },
+        "end": {
+          "line": 38,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "write",
+      "expression": "response.getWriter().write",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 9
+        },
+        "end": {
+          "line": 39,
+          "column": 90
+        }
+      }
+    },
+    {
+      "name": "getWriter",
+      "expression": "response.getWriter",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 9
+        },
+        "end": {
+          "line": 39,
+          "column": 29
+        }
+      }
+    },
+    {
+      "name": "writeValueAsString",
+      "expression": "this.objectMapper.writeValueAsString",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 36
+        },
+        "end": {
+          "line": 39,
+          "column": 89
+        }
+      }
+    },
+    {
+      "name": "ok",
+      "expression": "HttpResult.ok",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 73
+        },
+        "end": {
+          "line": 39,
+          "column": 88
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "LogoutSuccessHandler",
+      "expression": "LogoutSuccessHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 54
+        },
+        "end": {
+          "line": 25,
+          "column": 74
+        }
+      }
+    },
+    {
+      "name": "RequiredArgsConstructor",
+      "expression": "RequiredArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 2
+        },
+        "end": {
+          "line": 22,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "AllArgsConstructor",
+      "expression": "AllArgsConstructor",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 20
+        }
+      }
+    },
+    {
+      "name": "Slf4j",
+      "expression": "Slf4j",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 7
+        }
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "expression": "ObjectMapper",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.objectMapper",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 26,
+          "column": 19
+        },
+        "end": {
+          "line": 26,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "List",
+      "expression": "List",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.postHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 27,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "ILogoutPostHandler",
+      "expression": "ILogoutPostHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.postHandlers",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 18
+        },
+        "end": {
+          "line": 27,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "HttpServletRequest",
+      "expression": "HttpServletRequest",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 33
+        },
+        "end": {
+          "line": 30,
+          "column": 51
+        }
+      }
+    },
+    {
+      "name": "HttpServletResponse",
+      "expression": "HttpServletResponse",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 61
+        },
+        "end": {
+          "line": 30,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "Authentication",
+      "expression": "Authentication",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 91
+        },
+        "end": {
+          "line": 30,
+          "column": 105
+        }
+      }
+    },
+    {
+      "name": "IOException",
+      "expression": "IOException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 129
+        },
+        "end": {
+          "line": 30,
+          "column": 140
+        }
+      }
+    },
+    {
+      "name": "ServletException",
+      "expression": "ServletException",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 142
+        },
+        "end": {
+          "line": 30,
+          "column": 158
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.auth.handler.PostableLogoutSuccessHandler.onLogoutSuccess",
+      "ownerSignature": "@Override\n    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 6
+        },
+        "end": {
+          "line": 29,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,888 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/exceptions/AcceptedException.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.exceptions",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "ownerQualifiedName": "",
+      "signature": "@Getter\npublic class AcceptedException extends RuntimeException",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Getter"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since 1.0",
+      "supertypes": [
+        "RuntimeException"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "code",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.code",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "private int code",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 22
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "int",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "data",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.data",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "private Object data",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "Object",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException(int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 5
+        },
+        "end": {
+          "line": 21,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 30
+            },
+            "end": {
+              "line": 18,
+              "column": 38
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 18,
+              "column": 40
+            },
+            "end": {
+              "line": 18,
+              "column": 51
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException(String message, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 30
+            },
+            "end": {
+              "line": 23,
+              "column": 44
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 46
+            },
+            "end": {
+              "line": 23,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 23,
+              "column": 56
+            },
+            "end": {
+              "line": 23,
+              "column": 67
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException(String message, Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 33,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 30
+            },
+            "end": {
+              "line": 29,
+              "column": 44
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 46
+            },
+            "end": {
+              "line": 29,
+              "column": 61
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 63
+            },
+            "end": {
+              "line": 29,
+              "column": 71
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 29,
+              "column": 73
+            },
+            "end": {
+              "line": 29,
+              "column": 84
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException(Throwable cause, int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 30
+            },
+            "end": {
+              "line": 35,
+              "column": 45
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 47
+            },
+            "end": {
+              "line": 35,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 35,
+              "column": 57
+            },
+            "end": {
+              "line": 35,
+              "column": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constructor",
+      "name": "AcceptedException",
+      "qualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "signature": "public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "message",
+          "type": "String",
+          "signature": "String message",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 30
+            },
+            "end": {
+              "line": 41,
+              "column": 44
+            }
+          }
+        },
+        {
+          "name": "cause",
+          "type": "Throwable",
+          "signature": "Throwable cause",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 46
+            },
+            "end": {
+              "line": 41,
+              "column": 61
+            }
+          }
+        },
+        {
+          "name": "enableSuppression",
+          "type": "boolean",
+          "signature": "boolean enableSuppression",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 63
+            },
+            "end": {
+              "line": 41,
+              "column": 88
+            }
+          }
+        },
+        {
+          "name": "writableStackTrace",
+          "type": "boolean",
+          "signature": "boolean writableStackTrace",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 41,
+              "column": 90
+            },
+            "end": {
+              "line": 41,
+              "column": 116
+            }
+          }
+        },
+        {
+          "name": "code",
+          "type": "int",
+          "signature": "int code",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 15
+            },
+            "end": {
+              "line": 42,
+              "column": 23
+            }
+          }
+        },
+        {
+          "name": "data",
+          "type": "Object",
+          "signature": "Object data",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 42,
+              "column": 25
+            },
+            "end": {
+              "line": 42,
+              "column": 36
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Getter",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 22
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 9
+        },
+        "end": {
+          "line": 24,
+          "column": 23
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, int code, Object data)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 30,
+          "column": 9
+        },
+        "end": {
+          "line": 30,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(Throwable cause, int code, Object data)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 9
+        },
+        "end": {
+          "line": 36,
+          "column": 21
+        }
+      }
+    },
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "argumentCount": 4,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 9
+        },
+        "end": {
+          "line": 43,
+          "column": 69
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "RuntimeException",
+      "expression": "RuntimeException",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 40
+        },
+        "end": {
+          "line": 10,
+          "column": 56
+        }
+      }
+    },
+    {
+      "name": "Getter",
+      "expression": "Getter",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.data",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 19
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(int code, Object data)",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 40
+        },
+        "end": {
+          "line": 18,
+          "column": 46
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 30
+        },
+        "end": {
+          "line": 23,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 56
+        },
+        "end": {
+          "line": 23,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 30
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 46
+        },
+        "end": {
+          "line": 29,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 29,
+          "column": 73
+        },
+        "end": {
+          "line": 29,
+          "column": 79
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 30
+        },
+        "end": {
+          "line": 35,
+          "column": 39
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(Throwable cause, int code, Object data)",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 57
+        },
+        "end": {
+          "line": 35,
+          "column": 63
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 30
+        },
+        "end": {
+          "line": 41,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "Throwable",
+      "expression": "Throwable",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 46
+        },
+        "end": {
+          "line": 41,
+          "column": 55
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.domain.exceptions.AcceptedException.AcceptedException",
+      "ownerSignature": "public AcceptedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace\n            , int code, Object data)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "2",
+  "snapshotId": "snapshot-20261113T014229Z-bb422342",
+  "repositoryRevision": "486ba36f958bf66f2988fbf863870fd032037c20",
+  "inputDigest": "sha256:069f09bb22c2ba5bd20a99d45766990ab532c43aa0104b5e566672979bea92b4",
+  "configDigest": "sha256:ab3a65e40cd871027232ac96ebbc5d78b6e7137825ca1809070cc289c8d6e61e",
+  "toolDigest": "sha256:93dd6c0f8fe8b40b7208b74d155b697cfadffd1aec4b9987ae979622754d25b3",
+  "createdAt": "2026-11-13T01:42:37.700375+00:00",
+  "status": "current",
+  "configPath": "codingRuntime/code-guide.config.json",
+  "analysisMode": "authoritative-syntax+candidate-references+reviewed-claims",
+  "fileCount": 286,
+  "includedFiles": 286,
+  "symbolCount": 2255,
+  "factCount": 2541,
+  "relationCounts": {
+    "references:candidate": 644,
+    "calls:unresolved": 2478,
+    "owns:verified": 1969,
+    "inherits-or-implements:candidate": 37,
+    "calls:candidate": 120,
+    "imports:candidate": 307,
+    "imports:unresolved": 1628
+  },
+  "claimCount": 4,
+  "gapCount": 464,
+  "parserCounts": {
+    "jdk-tree-api": 286
+  },
+  "verification": [
+    {
+      "name": "Production compilation candidate",
+      "command": "mvn -pl fairychar-bag,fairychar-security/fairychar-security-core,fairychar-security/fairychar-security-boot-starter -am -DskipTests compile",
+      "requirements": [
+        "Run from the Git repository root",
+        "JDK 21 and Maven",
+        "Resolvable project dependencies",
+        "Not executed or established as passing by this snapshot"
+      ]
+    }
+  ],
+  "publication": "validated candidate directory rename with external lock, rollback, and retained previous snapshot",
+  "scanPolicy": {
+    "includeTests": false,
+    "includeBuild": false,
+    "includeNonCode": false,
+    "productionFiles": [],
+    "sourceExtensions": []
+  },
+  "scopeOmissions": [
+    "tests",
+    "build/configuration inputs",
+    "non-code metadata/resources/docs",
+    "dependency/vendor/cache/generated/output directories"
+  ],
+  "presentation": {
+    "strategy": "independent-declarations-v1",
+    "maxDocumentBytes": 12000,
+    "documentCount": 1560,
+    "oversizedDocuments": []
+  },
+  "acceptancePath": "codingRuntime/code-guide.acceptance.json",
+  "acceptanceDigest": "sha256:40cf77b9f49e9eb4787a0d4825453caf8d3126c638953e88b67dd64ed1d2d8d4",
+  "acceptance": {
+    "passed": 16,
+    "total": 16
+  }
+}

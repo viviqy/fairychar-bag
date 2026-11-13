@@ -1,0 +1,322 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/domain/conditional/ConditionalOnSystemOS.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.domain.conditional",
+  "declarations": [
+    {
+      "kind": "annotation",
+      "name": "ConditionalOnSystemOS",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "ownerQualifiedName": "",
+      "signature": "@Retention(RetentionPolicy.RUNTIME)\n@Documented\n@Target({ElementType.METHOD, ElementType.TYPE})\n@Conditional(OnSystemOsCondition.class)\npublic @interface ConditionalOnSystemOS",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Retention(RetentionPolicy.RUNTIME)",
+        "@Documented",
+        "@Target({ElementType.METHOD, ElementType.TYPE})",
+        "@Conditional(OnSystemOsCondition.class)"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于系统的Bean条件判断器,仅当当前运行系统匹配时才会初始化Bean\n\n @author chiyo",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "function",
+      "name": "os",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.os",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "signature": "OS os()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 13
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return 系统类型",
+      "typeParameters": [],
+      "returnType": "OS",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "function",
+      "name": "condition",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.condition",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "signature": "boolean condition()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 25,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 25
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "docstring": "@return 是否匹配",
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "enum",
+      "name": "OS",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "signature": "enum OS",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 30,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [],
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "Windows",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS.Windows",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS",
+      "signature": "Windows()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 9
+        },
+        "end": {
+          "line": 28,
+          "column": 18
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "OS",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "Linux",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS.Linux",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS",
+      "signature": "Linux()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 20
+        },
+        "end": {
+          "line": 28,
+          "column": 27
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "OS",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "MacOSX",
+      "qualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS.MacOSX",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.OS",
+      "signature": "MacOSX()",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 29
+        },
+        "end": {
+          "line": 28,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "type": "OS",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "org.springframework.context.annotation.Conditional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 59
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.lang.annotation.*",
+      "wildcard": true,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 31
+        }
+      }
+    }
+  ],
+  "calls": [],
+  "references": [
+    {
+      "name": "Retention",
+      "expression": "Retention",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 11
+        }
+      }
+    },
+    {
+      "name": "Documented",
+      "expression": "Documented",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    },
+    {
+      "name": "Target",
+      "expression": "Target",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 8
+        }
+      }
+    },
+    {
+      "name": "Conditional",
+      "expression": "Conditional",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "OS",
+      "expression": "OS",
+      "ownerQualifiedName": "com.fairychar.bag.domain.conditional.ConditionalOnSystemOS.os",
+      "ownerSignature": "OS os()",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 7
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

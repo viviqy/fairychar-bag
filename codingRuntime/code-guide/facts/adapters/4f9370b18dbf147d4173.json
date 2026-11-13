@@ -1,0 +1,769 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/collection/BiPredicateList.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.collection",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "BiPredicateList",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "ownerQualifiedName": "",
+      "signature": "public class BiPredicateList<T> extends ArrayList<T>",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 57,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author qiyue",
+      "supertypes": [
+        "ArrayList<T>"
+      ],
+      "typeParameters": [
+        "T"
+      ],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "biPredicate",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.biPredicate",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "private BiPredicate<T, T> biPredicate",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 5
+        },
+        "end": {
+          "line": 12,
+          "column": 43
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "BiPredicate<T, T>",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "constructor",
+      "name": "BiPredicateList",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.BiPredicateList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "c",
+          "type": "Collection<? extends T>",
+          "signature": "Collection<? extends T> c",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 14,
+              "column": 28
+            },
+            "end": {
+              "line": 14,
+              "column": 53
+            }
+          }
+        },
+        {
+          "name": "biPredicate",
+          "type": "BiPredicate<T, T>",
+          "signature": "BiPredicate<T, T> biPredicate",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 14,
+              "column": 55
+            },
+            "end": {
+              "line": 14,
+              "column": 84
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "add",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "@Override\n    public boolean add(T item)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 29,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "item",
+          "type": "T",
+          "signature": "T item",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 20,
+              "column": 24
+            },
+            "end": {
+              "line": 20,
+              "column": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "addAll",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.addAll",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "@Override\n    public boolean addAll(Collection<? extends T> collection)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 40,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "collection",
+          "type": "Collection<? extends T>",
+          "signature": "Collection<? extends T> collection",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 32,
+              "column": 27
+            },
+            "end": {
+              "line": 32,
+              "column": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "set",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "@Override\n    public T set(int index, T element)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "T",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "index",
+          "type": "int",
+          "signature": "int index",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 43,
+              "column": 18
+            },
+            "end": {
+              "line": 43,
+              "column": 27
+            }
+          }
+        },
+        {
+          "name": "element",
+          "type": "T",
+          "signature": "T element",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 43,
+              "column": 29
+            },
+            "end": {
+              "line": 43,
+              "column": 38
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "equals",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.equals",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "@Override\n    public boolean equals(Object o)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 51,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "boolean",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "o",
+          "type": "Object",
+          "signature": "Object o",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 49,
+              "column": 27
+            },
+            "end": {
+              "line": 49,
+              "column": 35
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "hashCode",
+      "qualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.hashCode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "signature": "@Override\n    public int hashCode()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 56,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "int",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "java.util.ArrayList",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 28
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Collection",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.function.BiPredicate",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 39
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "super",
+      "expression": "super",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.BiPredicateList",
+      "ownerSignature": "public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 9
+        },
+        "end": {
+          "line": 15,
+          "column": 17
+        }
+      }
+    },
+    {
+      "name": "size",
+      "expression": "super.size",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 29
+        },
+        "end": {
+          "line": 21,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "get",
+      "expression": "super.get",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 26
+        },
+        "end": {
+          "line": 22,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "test",
+      "expression": "biPredicate.test",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 17
+        },
+        "end": {
+          "line": 23,
+          "column": 49
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "super.set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 24,
+          "column": 17
+        },
+        "end": {
+          "line": 24,
+          "column": 35
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "super.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 28,
+          "column": 16
+        },
+        "end": {
+          "line": 28,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "add",
+      "expression": "this.add",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.addAll",
+      "ownerSignature": "@Override\n    public boolean addAll(Collection<? extends T> collection)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "set",
+      "expression": "super.set",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.set",
+      "ownerSignature": "@Override\n    public T set(int index, T element)",
+      "argumentCount": 2,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 16
+        },
+        "end": {
+          "line": 44,
+          "column": 41
+        }
+      }
+    },
+    {
+      "name": "equals",
+      "expression": "super.equals",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object o)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 50,
+          "column": 16
+        },
+        "end": {
+          "line": 50,
+          "column": 31
+        }
+      }
+    },
+    {
+      "name": "hashCode",
+      "expression": "super.hashCode",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.hashCode",
+      "ownerSignature": "@Override\n    public int hashCode()",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 16
+        },
+        "end": {
+          "line": 55,
+          "column": 32
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "ArrayList",
+      "expression": "ArrayList",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 41
+        },
+        "end": {
+          "line": 11,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "BiPredicate",
+      "expression": "BiPredicate",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.biPredicate",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 24
+        }
+      }
+    },
+    {
+      "name": "Collection",
+      "expression": "Collection",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.BiPredicateList",
+      "ownerSignature": "public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate)",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 28
+        },
+        "end": {
+          "line": 14,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "BiPredicate",
+      "expression": "BiPredicate",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.BiPredicateList",
+      "ownerSignature": "public BiPredicateList(Collection<? extends T> c, BiPredicate<T, T> biPredicate)",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 55
+        },
+        "end": {
+          "line": 14,
+          "column": 66
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.add",
+      "ownerSignature": "@Override\n    public boolean add(T item)",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Collection",
+      "expression": "Collection",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.addAll",
+      "ownerSignature": "@Override\n    public boolean addAll(Collection<? extends T> collection)",
+      "range": {
+        "start": {
+          "line": 32,
+          "column": 27
+        },
+        "end": {
+          "line": 32,
+          "column": 37
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.addAll",
+      "ownerSignature": "@Override\n    public boolean addAll(Collection<? extends T> collection)",
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 31,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.set",
+      "ownerSignature": "@Override\n    public T set(int index, T element)",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 6
+        },
+        "end": {
+          "line": 42,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Object",
+      "expression": "Object",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object o)",
+      "range": {
+        "start": {
+          "line": 49,
+          "column": 27
+        },
+        "end": {
+          "line": 49,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.equals",
+      "ownerSignature": "@Override\n    public boolean equals(Object o)",
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 6
+        },
+        "end": {
+          "line": 48,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.bag.extension.collection.BiPredicateList.hashCode",
+      "ownerSignature": "@Override\n    public int hashCode()",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 6
+        },
+        "end": {
+          "line": 53,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

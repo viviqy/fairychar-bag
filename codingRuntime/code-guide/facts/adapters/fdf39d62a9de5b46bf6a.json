@@ -1,0 +1,480 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/properties/FairycharSecurityProperties.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.properties",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "FairycharSecurityProperties",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerQualifiedName": "",
+      "signature": "@Data\n@ConfigurationProperties(prefix = \"fairychar.security\")\npublic class FairycharSecurityProperties",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      },
+      "annotations": [
+        "@Data",
+        "@ConfigurationProperties(prefix = \"fairychar.security\")"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo <br>\n @since 1.3.3",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "tokenType",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.tokenType",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "signature": "private TokenType tokenType = TokenType.REDIS",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 5
+        },
+        "end": {
+          "line": 14,
+          "column": 51
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "private"
+      ],
+      "type": "TokenType",
+      "defaultExpression": "TokenType.REDIS",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "standard",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.standard",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "signature": "@NestedConfigurationProperty\nprivate StandardTokenProperties standard = new StandardTokenProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 16,
+          "column": 78
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "StandardTokenProperties",
+      "defaultExpression": "new StandardTokenProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "verify",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.verify",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "signature": "@NestedConfigurationProperty\nprivate SmsVerifyProperties verify = new SmsVerifyProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 68
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "SmsVerifyProperties",
+      "defaultExpression": "new SmsVerifyProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "plugins",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.plugins",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "signature": "@NestedConfigurationProperty\nprivate PluginsProperties plugins = new PluginsProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 20,
+          "column": 65
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "PluginsProperties",
+      "defaultExpression": "new PluginsProperties()",
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "url",
+      "qualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.url",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "signature": "@NestedConfigurationProperty\nprivate UrlProperties url = new UrlProperties()",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 5
+        },
+        "end": {
+          "line": 22,
+          "column": 53
+        }
+      },
+      "annotations": [
+        "@NestedConfigurationProperty"
+      ],
+      "modifiers": [
+        "private"
+      ],
+      "type": "UrlProperties",
+      "defaultExpression": "new UrlProperties()",
+      "javaKind": "field"
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "lombok.Data",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.ConfigurationProperties",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 76
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.boot.context.properties.NestedConfigurationProperty",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 80
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "StandardTokenProperties",
+      "expression": "new StandardTokenProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 48
+        },
+        "end": {
+          "line": 16,
+          "column": 77
+        }
+      }
+    },
+    {
+      "name": "SmsVerifyProperties",
+      "expression": "new SmsVerifyProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 42
+        },
+        "end": {
+          "line": 18,
+          "column": 67
+        }
+      }
+    },
+    {
+      "name": "PluginsProperties",
+      "expression": "new PluginsProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 41
+        },
+        "end": {
+          "line": 20,
+          "column": 64
+        }
+      }
+    },
+    {
+      "name": "UrlProperties",
+      "expression": "new UrlProperties",
+      "constructor": true,
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 33
+        },
+        "end": {
+          "line": 22,
+          "column": 52
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "Data",
+      "expression": "Data",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 6
+        }
+      }
+    },
+    {
+      "name": "ConfigurationProperties",
+      "expression": "ConfigurationProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "TokenType",
+      "expression": "TokenType",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.tokenType",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 14,
+          "column": 13
+        },
+        "end": {
+          "line": 14,
+          "column": 22
+        }
+      }
+    },
+    {
+      "name": "StandardTokenProperties",
+      "expression": "StandardTokenProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.standard",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 36
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.standard",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 6
+        },
+        "end": {
+          "line": 15,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "SmsVerifyProperties",
+      "expression": "SmsVerifyProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.verify",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 32
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.verify",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "PluginsProperties",
+      "expression": "PluginsProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.plugins",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 30
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.plugins",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 6
+        },
+        "end": {
+          "line": 19,
+          "column": 33
+        }
+      }
+    },
+    {
+      "name": "UrlProperties",
+      "expression": "UrlProperties",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.url",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 22,
+          "column": 13
+        },
+        "end": {
+          "line": 22,
+          "column": 26
+        }
+      }
+    },
+    {
+      "name": "NestedConfigurationProperty",
+      "expression": "NestedConfigurationProperty",
+      "ownerQualifiedName": "com.fairychar.security.core.properties.FairycharSecurityProperties.url",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 21,
+          "column": 6
+        },
+        "end": {
+          "line": 21,
+          "column": 33
+        }
+      }
+    }
+  ],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

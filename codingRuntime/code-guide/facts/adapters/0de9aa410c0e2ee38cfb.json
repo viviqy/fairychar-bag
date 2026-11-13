@@ -1,0 +1,1183 @@
+{
+  "sourceId": "fairychar-security/fairychar-security-core/src/main/java/com/fairychar/security/core/mybatis/handler/SecurityAuditObjectHandler.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.security.core.mybatis.handler",
+  "declarations": [
+    {
+      "kind": "class",
+      "name": "SecurityAuditObjectHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "ownerQualifiedName": "",
+      "signature": "public class SecurityAuditObjectHandler implements MetaObjectHandler",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 67,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "基于spring security的mybatis用户审计操作拦截赋值器\n\n @author chiyo\n @since 1.3.3",
+      "supertypes": [
+        "MetaObjectHandler"
+      ],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "constructor",
+      "name": "SecurityAuditObjectHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "public SecurityAuditObjectHandler()",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 20,
+          "column": 5
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": []
+    },
+    {
+      "kind": "constructor",
+      "name": "SecurityAuditObjectHandler",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": null,
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "createBy",
+          "type": "String",
+          "signature": "String createBy",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 39
+            },
+            "end": {
+              "line": 27,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "createTime",
+          "type": "String",
+          "signature": "String createTime",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 56
+            },
+            "end": {
+              "line": 27,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "updateBy",
+          "type": "String",
+          "signature": "String updateBy",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 75
+            },
+            "end": {
+              "line": 27,
+              "column": 90
+            }
+          }
+        },
+        {
+          "name": "updateTime",
+          "type": "String",
+          "signature": "String updateTime",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 27,
+              "column": 92
+            },
+            "end": {
+              "line": 27,
+              "column": 109
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "property",
+      "name": "createBy",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.createBy",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "private final String createBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 5
+        },
+        "end": {
+          "line": 34,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "createTime",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.createTime",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "private final String createTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateBy",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateBy",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "private final String updateBy",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 5
+        },
+        "end": {
+          "line": 36,
+          "column": 35
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "property",
+      "name": "updateTime",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateTime",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "private final String updateTime",
+      "visibility": "private",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 37
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "private"
+      ],
+      "type": "String",
+      "defaultExpression": null,
+      "javaKind": "field"
+    },
+    {
+      "kind": "function",
+      "name": "insertFill",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "metaObject",
+          "type": "MetaObject",
+          "signature": "MetaObject metaObject",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 40,
+              "column": 28
+            },
+            "end": {
+              "line": 40,
+              "column": 49
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "function",
+      "name": "updateFill",
+      "qualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "signature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 64,
+          "column": 6
+        }
+      },
+      "annotations": [
+        "@Override"
+      ],
+      "modifiers": [
+        "public"
+      ],
+      "typeParameters": [],
+      "returnType": "void",
+      "throws": [],
+      "defaultExpression": null,
+      "parameters": [
+        {
+          "name": "metaObject",
+          "type": "MetaObject",
+          "signature": "MetaObject metaObject",
+          "annotations": [],
+          "varargs": false,
+          "range": {
+            "start": {
+              "line": 54,
+              "column": 28
+            },
+            "end": {
+              "line": 54,
+              "column": 49
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "qualifiedName": "com.baomidou.mybatisplus.core.handlers.MetaObjectHandler",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 65
+        }
+      }
+    },
+    {
+      "qualifiedName": "com.fairychar.security.core.auth.AuditUser",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 51
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.apache.ibatis.reflection.MetaObject",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 48
+        }
+      }
+    },
+    {
+      "qualifiedName": "org.springframework.security.core.context.SecurityContextHolder",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 72
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.io.Serializable",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 29
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.time.LocalDateTime",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 32
+        }
+      }
+    },
+    {
+      "qualifiedName": "java.util.Optional",
+      "wildcard": false,
+      "static": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 27
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "orElse",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map(c -> c.getAuthentication())\n                .map(a -> ((AuditUser) a.getPrincipal())).orElse",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 26
+        },
+        "end": {
+          "line": 42,
+          "column": 71
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map(c -> c.getAuthentication())\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 26
+        },
+        "end": {
+          "line": 42,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 26
+        },
+        "end": {
+          "line": 41,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 26
+        },
+        "end": {
+          "line": 41,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "getContext",
+      "expression": "SecurityContextHolder.getContext",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 46
+        },
+        "end": {
+          "line": 41,
+          "column": 80
+        }
+      }
+    },
+    {
+      "name": "hasSetter",
+      "expression": "metaObject.hasSetter",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 13
+        },
+        "end": {
+          "line": 43,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "setFieldValByName",
+      "expression": "this.setFieldValByName",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 13
+        },
+        "end": {
+          "line": 44,
+          "column": 126
+        }
+      }
+    },
+    {
+      "name": "orElse",
+      "expression": "Optional.ofNullable(user).map(u -> u.getUserId()).orElse",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 51
+        },
+        "end": {
+          "line": 44,
+          "column": 113
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(user).map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 51
+        },
+        "end": {
+          "line": 44,
+          "column": 100
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 51
+        },
+        "end": {
+          "line": 44,
+          "column": 76
+        }
+      }
+    },
+    {
+      "name": "hasSetter",
+      "expression": "metaObject.hasSetter",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "setFieldValByName",
+      "expression": "this.setFieldValByName",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 13
+        },
+        "end": {
+          "line": 48,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 48,
+          "column": 53
+        },
+        "end": {
+          "line": 48,
+          "column": 72
+        }
+      }
+    },
+    {
+      "name": "orElse",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map(c -> c.getAuthentication())\n                .map(a -> ((AuditUser) a.getPrincipal())).map(u -> u.getUserId()).orElse",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 31
+        },
+        "end": {
+          "line": 56,
+          "column": 95
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map(c -> c.getAuthentication())\n                .map(a -> ((AuditUser) a.getPrincipal())).map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 31
+        },
+        "end": {
+          "line": 56,
+          "column": 82
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map(c -> c.getAuthentication())\n                .map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 31
+        },
+        "end": {
+          "line": 56,
+          "column": 58
+        }
+      }
+    },
+    {
+      "name": "map",
+      "expression": "Optional.ofNullable(SecurityContextHolder.getContext()).map",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 31
+        },
+        "end": {
+          "line": 55,
+          "column": 118
+        }
+      }
+    },
+    {
+      "name": "ofNullable",
+      "expression": "Optional.ofNullable",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 31
+        },
+        "end": {
+          "line": 55,
+          "column": 86
+        }
+      }
+    },
+    {
+      "name": "getContext",
+      "expression": "SecurityContextHolder.getContext",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 51
+        },
+        "end": {
+          "line": 55,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "hasSetter",
+      "expression": "metaObject.hasSetter",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 57,
+          "column": 13
+        },
+        "end": {
+          "line": 57,
+          "column": 48
+        }
+      }
+    },
+    {
+      "name": "setFieldValByName",
+      "expression": "this.setFieldValByName",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 13
+        },
+        "end": {
+          "line": 58,
+          "column": 70
+        }
+      }
+    },
+    {
+      "name": "hasSetter",
+      "expression": "metaObject.hasSetter",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 1,
+      "range": {
+        "start": {
+          "line": 61,
+          "column": 13
+        },
+        "end": {
+          "line": 61,
+          "column": 50
+        }
+      }
+    },
+    {
+      "name": "setFieldValByName",
+      "expression": "this.setFieldValByName",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 3,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 13
+        },
+        "end": {
+          "line": 62,
+          "column": 85
+        }
+      }
+    },
+    {
+      "name": "now",
+      "expression": "LocalDateTime.now",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "argumentCount": 0,
+      "range": {
+        "start": {
+          "line": 62,
+          "column": 53
+        },
+        "end": {
+          "line": 62,
+          "column": 72
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "name": "MetaObjectHandler",
+      "expression": "MetaObjectHandler",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 18,
+          "column": 52
+        },
+        "end": {
+          "line": 18,
+          "column": 69
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerSignature": "public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 39
+        },
+        "end": {
+          "line": 27,
+          "column": 45
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerSignature": "public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 56
+        },
+        "end": {
+          "line": 27,
+          "column": 62
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerSignature": "public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 75
+        },
+        "end": {
+          "line": 27,
+          "column": 81
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.SecurityAuditObjectHandler",
+      "ownerSignature": "public SecurityAuditObjectHandler(String createBy, String createTime, String updateBy, String updateTime)",
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 92
+        },
+        "end": {
+          "line": 27,
+          "column": 98
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.createBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 34,
+          "column": 19
+        },
+        "end": {
+          "line": 34,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.createTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 19
+        },
+        "end": {
+          "line": 35,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateBy",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 36,
+          "column": 19
+        },
+        "end": {
+          "line": 36,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "String",
+      "expression": "String",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateTime",
+      "ownerSignature": "",
+      "range": {
+        "start": {
+          "line": 37,
+          "column": 19
+        },
+        "end": {
+          "line": 37,
+          "column": 25
+        }
+      }
+    },
+    {
+      "name": "MetaObject",
+      "expression": "MetaObject",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "range": {
+        "start": {
+          "line": 40,
+          "column": 28
+        },
+        "end": {
+          "line": 40,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.insertFill",
+      "ownerSignature": "@Override\n    public void insertFill(MetaObject metaObject)",
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 14
+        }
+      }
+    },
+    {
+      "name": "MetaObject",
+      "expression": "MetaObject",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "range": {
+        "start": {
+          "line": 54,
+          "column": 28
+        },
+        "end": {
+          "line": 54,
+          "column": 38
+        }
+      }
+    },
+    {
+      "name": "Override",
+      "expression": "Override",
+      "ownerQualifiedName": "com.fairychar.security.core.mybatis.handler.SecurityAuditObjectHandler.updateFill",
+      "ownerSignature": "@Override\n    public void updateFill(MetaObject metaObject)",
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 6
+        },
+        "end": {
+          "line": 53,
+          "column": 14
+        }
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 41,
+          "column": 86
+        },
+        "end": {
+          "line": 41,
+          "column": 112
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 42,
+          "column": 22
+        },
+        "end": {
+          "line": 42,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 44,
+          "column": 81
+        },
+        "end": {
+          "line": 44,
+          "column": 99
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 55,
+          "column": 91
+        },
+        "end": {
+          "line": 55,
+          "column": 117
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 22
+        },
+        "end": {
+          "line": 56,
+          "column": 57
+        }
+      }
+    },
+    {
+      "severity": "limitation",
+      "message": "Lambda bodies are not analyzed; enclosing-method call evidence excludes lambda execution.",
+      "range": {
+        "start": {
+          "line": 56,
+          "column": 63
+        },
+        "end": {
+          "line": 56,
+          "column": 81
+        }
+      }
+    }
+  ],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}

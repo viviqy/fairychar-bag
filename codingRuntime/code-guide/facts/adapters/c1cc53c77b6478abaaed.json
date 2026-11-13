@@ -1,0 +1,391 @@
+{
+  "sourceId": "fairychar-bag/src/main/java/com/fairychar/bag/extension/calculator/Operator.java",
+  "language": "java",
+  "engine": "jdk-tree-api",
+  "parserVersion": "21.0.11+9-LTS-211",
+  "authoritative": true,
+  "parseStatus": "complete",
+  "package": "com.fairychar.bag.extension.calculator",
+  "declarations": [
+    {
+      "kind": "enum",
+      "name": "Operator",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "ownerQualifiedName": "",
+      "signature": "public enum Operator",
+      "visibility": "public",
+      "visibilityExplicit": true,
+      "range": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 59,
+          "column": 2
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "public"
+      ],
+      "docstring": "@author chiyo\n @since",
+      "supertypes": [],
+      "typeParameters": [],
+      "permits": []
+    },
+    {
+      "kind": "property",
+      "name": "EQUAL",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.EQUAL",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "EQUAL",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 10
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "等于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "NOT_EQUAL",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.NOT_EQUAL",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "NOT_EQUAL",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 15,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "不等于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "CONTAIN_ALL",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.CONTAIN_ALL",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "CONTAIN_ALL",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 19,
+          "column": 5
+        },
+        "end": {
+          "line": 19,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "包含所有",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "CONTAIN",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.CONTAIN",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "CONTAIN",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 23,
+          "column": 5
+        },
+        "end": {
+          "line": 23,
+          "column": 12
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "包含",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "IN",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.IN",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "IN",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 27,
+          "column": 5
+        },
+        "end": {
+          "line": 27,
+          "column": 7
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "在里面",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "NOT_IN",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.NOT_IN",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "NOT_IN",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 31,
+          "column": 5
+        },
+        "end": {
+          "line": 31,
+          "column": 11
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "不在里面",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "LESS_THAN",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.LESS_THAN",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "LESS_THAN",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 35,
+          "column": 5
+        },
+        "end": {
+          "line": 35,
+          "column": 14
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "小于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "LESS_EQUAL",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.LESS_EQUAL",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "LESS_EQUAL",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 15
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "小于等于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "GREATER_THAN",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.GREATER_THAN",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "GREATER_THAN",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 17
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "大于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "GREATER_EQUAL",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.GREATER_EQUAL",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "GREATER_EQUAL",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 18
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "大于等于",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "IN_ANY",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.IN_ANY",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "IN_ANY",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 11
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "任何一个元素在集合内",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    },
+    {
+      "kind": "property",
+      "name": "CONTAIN_ANY",
+      "qualifiedName": "com.fairychar.bag.extension.calculator.Operator.CONTAIN_ANY",
+      "ownerQualifiedName": "com.fairychar.bag.extension.calculator.Operator",
+      "signature": "CONTAIN_ANY",
+      "visibility": "public",
+      "visibilityExplicit": false,
+      "range": {
+        "start": {
+          "line": 58,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 16
+        }
+      },
+      "annotations": [],
+      "modifiers": [
+        "final",
+        "public",
+        "static"
+      ],
+      "docstring": "包含任何一个元素",
+      "type": "Operator",
+      "defaultExpression": null,
+      "javaKind": "enum-constant"
+    }
+  ],
+  "imports": [],
+  "calls": [],
+  "references": [],
+  "diagnostics": [],
+  "snapshotId": "snapshot-20261113T014229Z-bb422342"
+}
