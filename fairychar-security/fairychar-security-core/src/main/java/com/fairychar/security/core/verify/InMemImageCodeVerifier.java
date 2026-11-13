@@ -58,7 +58,7 @@ public class InMemImageCodeVerifier implements ICodeVerifier {
         Map<String, Object> imageCode = ImageVerifyCodeUtil.genImageCode(this.width, this.height);
         String code = (String) imageCode.get("strEnsure");
         String key = UUID.randomUUID().toString();
-        this.codeStore.put(key, new SimpleImageCode(key, code, null));
+        this.codeStore.put(key, new SimpleImageCode(key, code, LocalDateTime.now().plusSeconds(this.expireSeconds)));
         response.setHeader(this.keyHeader, key);
         ImageIO.write((BufferedImage) imageCode.get("image"), "jpg", outputStream);
         outputStream.flush();
@@ -75,7 +75,9 @@ public class InMemImageCodeVerifier implements ICodeVerifier {
         if (simpleImageCode == null) {
             throw new BadCredentialsException("not provide validate code");
         }
-        if (simpleImageCode.getExpireTime().isBefore(LocalDateTime.now())) {
+        LocalDateTime expireTime = simpleImageCode.getExpireTime();
+        if (expireTime == null || !expireTime.isAfter(LocalDateTime.now())) {
+            this.codeStore.invalidate(key);
             throw new BadCredentialsException("validate code expired");
         }
         if (!simpleImageCode.getValue().equals(code)) {

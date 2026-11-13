@@ -76,7 +76,7 @@ public class InMemPhoneCodeVerifier implements ICodeVerifier {
                 .build();
         SendMessageWithTemplateResponse templateResponse = client.sendMessageWithTemplate(message).get();
         log.info("send sms response={}", templateResponse);
-        this.codeStore.put(phone, new SimpleImageCode(null, String.valueOf(randomInt), null));
+        this.codeStore.put(phone, new SimpleImageCode(null, String.valueOf(randomInt), LocalDateTime.now().plusMinutes(5)));
     }
 
     @Override
@@ -90,7 +90,9 @@ public class InMemPhoneCodeVerifier implements ICodeVerifier {
         if (simpleImageCode == null) {
             throw new BadCredentialsException("not provide validate code");
         }
-        if (simpleImageCode.getExpireTime().isBefore(LocalDateTime.now())) {
+        LocalDateTime expireTime = simpleImageCode.getExpireTime();
+        if (expireTime == null || !expireTime.isAfter(LocalDateTime.now())) {
+            this.codeStore.invalidate(key);
             throw new BadCredentialsException("validate code expired");
         }
         if (!simpleImageCode.getValue().equals(code)) {
