@@ -138,6 +138,11 @@
       </dependency>
       <dependency>
         <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-spring</artifactId>
+        <version>${mybatisPlus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-core</artifactId>
         <version>${mybatisPlus.version}</version>
       </dependency>
